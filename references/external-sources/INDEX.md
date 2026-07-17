@@ -1,0 +1,55 @@
+# External Sources Index — JSIG Maintenance-Planning Reference Scaffold
+
+This directory contains offline, locally-saved copies (excerpts, unless otherwise noted) of every external source cited in:
+- `/home/user/workspace/jsig-reference-scaffold/research/operational-maintenance-schedules-research.md`
+- `/home/user/workspace/jsig-reference-scaffold/reference/JSIG/README.md` (NIST SP 800-53 Rev.4 XML citation)
+
+**Retrieval date for all sources below: 2026-07-17.**
+
+**Fetch status: all sources were successfully retrieved. There were zero true fetch failures.** (One source, the DoD Cybersecurity Discipline Implementation Plan hosted at `dodcio.defense.gov`, blocked direct `curl` requests with an HTTP 403; it was successfully retrieved instead via the document-aware `fetch_url` tool — see note in its entry below.)
+
+Every file below opens with a header block containing: title, full source URL, retrieval date, and a one-line inclusion rationale. Files marked "(full)" were captured without truncation; all others are explicitly labeled excerpts with a pointer back to the live source URL for the complete document.
+
+---
+
+## Index Table
+
+| # | File | Source URL | Control Families / Cadence Topics Supported |
+|---|---|---|---|
+| 1 | [`fedramp-ssp-appendix-a-low.md`](./fedramp-ssp-appendix-a-low.md) | https://www.fedramp.gov/assets/resources/templates/SSP-A13-FedRAMP-Security-Controls-Low.docx | AC, AU, CA, CM, CP, IA, IR, MA, PE, RA, SI — Low-baseline organization-defined parameter values (e.g., scan frequency, account review, backup cadence) |
+| 2 | [`fedramp-ssp-appendix-a-moderate.md`](./fedramp-ssp-appendix-a-moderate.md) | https://www.fedramp.gov/assets/resources/templates/SSP-A13-FedRAMP-Security-Controls-Moderate.docx | Same as above, Moderate baseline |
+| 3 | [`fedramp-ssp-appendix-a-high.md`](./fedramp-ssp-appendix-a-high.md) | https://www.fedramp.gov/assets/resources/templates/SSP-A13-FedRAMP-Security-Controls-High.docx | Same as above, High baseline |
+| 4 | [`fedramp-continuous-monitoring-playbook.md`](./fedramp-continuous-monitoring-playbook.md) | https://www.fedramp.gov/assets/resources/documents/CSP_Continuous_Monitoring_Performance_Management_Guide.pdf (FedRAMP ConMon Playbook) | CA-7, RA-5 — monthly vulnerability scanning, monthly/annual deliverable cadence, POA&M timelines |
+| 5 | [`fedramp-continuous-monitoring-deliverables-template.md`](./fedramp-continuous-monitoring-deliverables-template.md) + raw [`fedramp-continuous-monitoring-deliverables-template.xlsx`](./fedramp-continuous-monitoring-deliverables-template.xlsx) | https://www.fedramp.gov/resources/templates/FedRAMP-Continuous-Monitoring-Deliverables-Template.xlsx | CA-02, CA-05, CA-07, CA-08, CM-06, CM-08, CP-04, IR-03, PL-02, RA-05, SA-11, SI-05 — full deliverable-by-deliverable frequency table (monthly/annual/6-month/3-year/ad hoc) |
+| 6 | [`fedramp-rfc-0012-continuous-vulnerability-management.md`](./fedramp-rfc-0012-continuous-vulnerability-management.md) | https://www.fedramp.gov/rfcs/0012/ | RA-5, SI-2 — draft/proposed FedRAMP 20x vulnerability response timeframes (3-day/7-day/21-day/6-month tiers by reachability and impact) |
+| 7 | [`irs-publication-1075.md`](./irs-publication-1075.md) | IRS Publication 1075, Tax Information Security Guidelines (irs.gov) | AU, SI, MA — FTI audit/retention/scanning cadence requirements |
+| 8 | [`irs-safeguards-audit-requirements.md`](./irs-safeguards-audit-requirements.md) | https://www.irs.gov/privacy-disclosure/meeting-irs-safeguards-audit-requirements | AU-2, AU-6, AU-11 — Exhibit 9 audit trail requirements, 6-year retention, daily/weekly-monthly/quarterly RACF review tiers |
+| 9 | [`nist-sp-800-137.md`](./nist-sp-800-137.md) | NIST SP 800-137, Information Security Continuous Monitoring (csrc.nist.gov) | CA-7 — ISCM strategy, monitoring frequency determination |
+| 10 | [`nist-sp-800-137a.md`](./nist-sp-800-137a.md) | NIST SP 800-137A | CA-7 — ISCM program assessment, Ongoing Assessment "documented frequency" standard |
+| 11 | [`nist-sp-800-53-rev4-controls.md`](./nist-sp-800-53-rev4-controls.md) + raw [`nist-800-53-rev4-controls.xml`](./nist-800-53-rev4-controls.xml) (full, 1.3 MB SCAP catalog) | NIST SP 800-53 Rev. 4 control catalog (XML), csrc.nist.gov | AC-2, AU-2/6/11, CA-2/5/7/8, CM-2/7/8, CP-2/3/4/9, IA-4/5/11, IR-2/3, MA-3/4, PE-2/3/6/8, RA-5, SI-2/3 — full control statements for all 29 cited controls |
+| 12 | [`dod-cybersecurity-discipline-implementation-plan.md`](./dod-cybersecurity-discipline-implementation-plan.md) | https://dodcio.defense.gov/Portals/0/Documents/Cyber/CyberDIS_ImpPlan.pdf | IAVA patch compliance, quarterly internet-facing asset review (Task 3.1), device hardening (Task 2.6) — **fetched via `fetch_url` after direct curl was blocked (HTTP 403) by dodcio.defense.gov** |
+| 13 | [`dod-cyber-exchange-stig-compilations.md`](./dod-cyber-exchange-stig-compilations.md) | DoD Cyber Exchange SRG/STIG Library Compilations (public.cyber.mil) | CM-6 — STIG release/update cadence (quarterly SRG/STIG compilation cycle) |
+| 14 | [`disa-stig-viewer-zos-tss-v-3331.md`](./disa-stig-viewer-zos-tss-v-3331.md) | DISA STIG Viewer, z/OS TSS finding V-3331 | AU, CM — example STIG finding illustrating periodic review requirement |
+| 15 | [`gsa-contingency-planning-guide.md`](./gsa-contingency-planning-guide.md) | GSA Contingency Planning Guide for Federal Information Systems | CP-2/3/4/9 — annual CP testing, 2-year training refresh, backup control cadence |
+| 16 | [`gsa-fedramp-tailored-si-3-guidance.md`](./gsa-fedramp-tailored-si-3-guidance.md) | https://github.com/GSA/fedramp-tailored/blob/master/_guidance/controls/SI-3.md | SI-3 — "at least weekly" periodic malware scan frequency for Low/Moderate systems; signature updates "whenever new releases are available" |
+| 17 | [`nist-sp-800-61-rev2.md`](./nist-sp-800-61-rev2.md) | NIST SP 800-61 Rev. 2, Computer Security Incident Handling Guide | IR-2/3 — annual IR plan review, lessons-learned meeting timing, GRS 24 3-year retention |
+| 18 | [`nist-sp-800-40-rev4.md`](./nist-sp-800-40-rev4.md) | NIST SP 800-40 Rev. 4, Guide to Enterprise Patch Management Planning | RA-5, SI-2 — inventory cadence guidance ("monthly/quarterly should no longer be used"), maintenance plan definition, KEV Catalog 2-week BOD 22-01 deadline |
+| 19 | [`nist-sp-800-34-rev1.md`](./nist-sp-800-34-rev1.md) | NIST SP 800-34 Rev. 1, Contingency Planning Guide for Federal Information Systems | CP-2/4/9 — backup frequency policy language, annual ISCP training, yearly test/maintenance schedule appendix |
+| 20 | [`hhs-cms-mac-ars.md`](./hhs-cms-mac-ars.md) | https://www.hhs.gov/guidance/sites/default/files/hhs-guidance-documents/CMS/117_Systems_security-MAC-ARS.pdf | AC-1/AC-2 — 3-year policy review, annual (365-day) account review, 30-day account-status notification, quarterly privileged-account review |
+| 21 | [`cms-poam-handbook.md`](./cms-poam-handbook.md) | https://security.cms.gov/learn/cms-plan-action-and-milestones-poam-handbook | CA-5 — POA&M remediation timelines (Critical 15d/High 30d/Moderate 90d/Low 365d), 30-day draft-to-ongoing transition, quarterly review, monthly reporting, 1-year closed-record retention |
+| 22 | [`dcsa-jsig-2016.md`](./dcsa-jsig-2016.md) | https://www.dcsa.mil/portals/91/documents/ctp/nao/JSIG_2016April11_Final_(53Rev4).pdf | All families — JSIG source document itself: non-tailorable controls (AC-6(1), SA-22, SC-28), RMF Step 6 ongoing-monitoring framing, 5-year reissue cadence, 30-day waiver submission |
+| 23 | [`usmc-iavm-program-bulletin.md`](./usmc-iavm-program-bulletin.md) | https://www.marines.mil/News/Messages/Messages-Display/Article/889863/mcbul-5239-usmc-information-assurance-vulnerability-management-iavm-program/ | RA-5, SI-2 — monthly vulnerability scans, quarterly wireless war-driving assessments, 14-day POA&M scan freshness, continuous IAVA compliance |
+
+**Total: 23 markdown files + 1 full raw NIST 800-53 Rev.4 XML catalog copy + 1 full raw FedRAMP ConMon Deliverables Template xlsx copy = 25 files, covering all sources cited in the research file and README.md.**
+
+---
+
+## Fetch Failures
+
+**None.** All 23 distinct external source URLs referenced by the research file and the JSIG README were successfully retrieved. The only notable friction point was that `dodcio.defense.gov` (hosting the DoD Cybersecurity Discipline Implementation Plan) returned HTTP 403 to direct `curl` requests using a spoofed User-Agent; this was resolved by using the `fetch_url` tool's document-aware fetcher instead, which succeeded and is noted in that file's source-URL line and in row 12 of the table above.
+
+One caveat worth flagging for future maintainers: the DoD Cybersecurity Discipline Implementation Plan excerpt notes that certain frequently-cited figures in JSIG maintenance discussions (a "21-day IAVA patch release" window and a "120-day overdue removal" threshold) were **not found verbatim** in that specific document during this retrieval and may originate from a different DoD policy instrument (e.g., CJCSM 6510.02 or a USCYBERCOM TASKORD) not in the original citation list. This is flagged as unconfirmed in `dod-cybersecurity-discipline-implementation-plan.md` rather than presented as verified.
+
+## Coverage Note — FedRAMP RFC-0012
+
+`fedramp-rfc-0012-continuous-vulnerability-management.md` documents a **draft/proposed** FedRAMP standard, not a finalized requirement. It was included because it was cited in the research file's discussion of emerging FedRAMP 20x vulnerability-management cadences, but maintainers should treat its specific day-counts (3/7/21 days, 6 months) as forward-looking/proposed rather than current binding FedRAMP Rev5 obligations.

@@ -1,0 +1,39 @@
+URL: https://nvlpubs.nist.gov/nistpubs/specialpublications/nist.sp.800-53r4.pdf
+TITLE: Security and Privacy Controls for Federal Information Systems ...
+ERROR: None
+
+| Cadence / timeline / frequency | Source section / visible label | Likely control family/control ID | Exact requirement quoted or closely paraphrased | Notes |
+|---|---|---|---|---|
+| Ongoing basis | Chapter One, 1.4 Organizational Responsibilities | CA / CM / AU / SI / IR / CP / MA / CP / IA / AC (general), RMF Step 6 | “monitors on an ongoing basis” risks arising from information and information systems | General risk management/monitoring cadence; no specific interval stated |
+| Ongoing basis | Chapter One, 1.4 Organizational Responsibilities | CA / CM / AU / SI / IR / CP / MA / CP / IA / AC (general) | “Continuous monitoring of organizations and information systems to determine the ongoing effectiveness of deployed security controls, changes in information systems and environments of operation, and compliance with legislation, directives, policies, and standards” | No specific interval stated |
+| Continuous improvement / ongoing basis | Chapter Two, 2.1 Multitiered Risk Management | CA / CM / AU / SI / IR / CP / MA / AC / IA (general) | “The risk management process is carried out across the three tiers with the overall objective of continuous improvement” | No specific frequency stated |
+| Ongoing basis | Chapter Two, Figure 2 / RMF Step 6 | CA / CM / AU / SI / IR / CP / MA / AC / IA (general) | “Monitor the security controls in the information system and environment of operation on an ongoing basis to determine control effectiveness, changes to the system/environment, and compliance...” | No specific interval stated |
+| Repeat as necessary | Chapter Two, Figure 2 / Security Life Cycle | All RMF-relevant families | “Repeat as necessary” | Not a cadence tied to a numbered control; general RMF lifecycle wording |
+| As appropriate / as necessary | Chapter One, 1.1 Purpose and Applicability | All families (general tailoring) | “providing guidelines... to meet the requirements” and tailoring to needs; no numeric cadence | No specific maintenance interval stated |
+| Appropriate / risk-based / organization-defined | Chapter One, 1.3 Relationship to Other Security Control Publications; 1.4 Organizational Responsibilities; Chapter Two, 2.1 | CA / CM / AU / SI / IR / CP / MA / AC / IA / PE | Security controls “should be employed as part of a well-defined risk management process”; “organizational assessments of risk ... guide and inform the tailoring process” | The page gives general risk-based/org-defined guidance, not a specific cadence |
+
+| Specific cadence / numerical timeline | Source section / visible label | Likely control family/control ID | Exact requirement quoted or closely paraphrased | Notes |
+|---|---|---|---|---|
+| None explicitly stated on the provided page | NIST SP 800-53 Rev. 4 excerpt shown | MA / CM / AU / SI / CA / CP / IR / PE / AC / IA | No daily, weekly, monthly, quarterly, annual, 30/60/90/365-day, retention-period, or “within X days” requirement is visible in the provided excerpt | The visible text is mostly introductory/RMF framing and does not show specific control statement frequencies |
+
+| Retention / recordkeeping timeline | Source section / visible label | Likely control family/control ID | Exact requirement quoted or closely paraphrased | Notes |
+|---|---|---|---|---|
+| None explicitly stated on the provided page | N/A | AU / CP / IR / SI (likely if present elsewhere) | No retention period, log retention duration, or archival interval appears in the visible excerpt | Not present in the provided page excerpt |
+
+| “Within X days” / action deadline | Source section / visible label | Likely control family/control ID | Exact requirement quoted or closely paraphrased | Notes |
+|---|---|---|---|---|
+| None explicitly stated on the provided page | N/A | AU / CA / IR / SI / CM / MA / CP / AC / IA | No deadline language such as “within X days” is visible in the provided excerpt | Not present in the provided page excerpt |
+
+| Maintenance schedule / operational cadence language | Source section / visible label | Likely control family/control ID | Exact requirement quoted or closely paraphrased | Notes |
+|---|---|---|---|---|
+| In conjunction with established review cycles | Cautionary Note, “Implementing Changes Based on Revisions to Special Publication 800-53” | CM / CA / PM / SI / AU / MA (general change management) | “Modifications such as changes to templates or minor language changes in policy or procedures are generally the lowest priority and are made in conjunction with established review cycles.” | This is the only visible explicit maintenance-cycle wording in the excerpt |
+| Highest priority for sequencing and implementing changes to address specific, active threats | Cautionary Note | SI / IR / CA / CM / MA (general) | “The implementation of new or modified security controls to address specific, active threats is always the highest priority for sequencing and implementing changes.” | Priority statement, not a fixed cadence |
+| Integrated into established continuous monitoring process | Cautionary Note | CA / CM / SI / AU / IR (general) | “the changes are integrated into the established continuous monitoring process to the greatest extent possible.” | No interval stated |
+
+| Family/control ID explicitly named in visible text and associated with operational/maintenance concepts | Source section / visible label | Cadence/frequency/timeline explicitly stated? | Exact requirement quoted or closely paraphrased |
+|---|---|---|---|
+| AU-3 | Chapter Two, 2.2 Security Control Structure (example control) | No cadence stated | “The information system generates audit records containing information that establishes what type of event occurred, when the event occurred, where the event occurred...” |
+| RMF Step 6 | Chapter Two, Figure 2 | Ongoing basis | “Monitor the security controls ... on an ongoing basis” |
+| RMF Step 4 | Chapter Two, Figure 2 | No cadence stated | “Assess the security controls...” |
+| RMF Step 2 | Chapter Two, Figure 2 | No cadence stated | “Select the applicable security control baseline...” |
+| PM controls / Appendix G | Chapter One footnote 7 and Appendix G mention in errata | No cadence stated | PM controls support organization-wide information security requirements | No frequency stated in the visible excerpt |

@@ -1,0 +1,63 @@
+URL: https://github.com/GSA/fedramp-tailored/blob/master/_guidance/controls/AC-2.md
+TITLE: fedramp-tailored/_guidance/controls/AC-2.md at master · GSA/fedramp-tailored
+ERROR: None
+
+| Control ID | Documented concrete cadence / timeline / retention period | Exact quoted text | Frequency organization-defined? |
+|---|---:|---|---|
+| AC-2 | No specific cadence/timeline/retention period stated on the page. | “There is no FedRAMP-specific parameter for this control.” | Yes, for the control’s required procedures/conditions and notification processes the page does not specify a cadence. |
+
+- **AC-2 account review, disablement, temporary accounts**
+  - **AC-2(a)** — no cadence/timeline/retention period stated.
+    - “There is no FedRAMP-specific parameter for this control.”
+    - “The system account types will vary for each layer in the service model but need to be defined for the devices and software in each layer.”
+    - “NIST offers these account types as an example: individual, shared, group, system, guest/anonymous, emergency, developer/manufacturer/vendor, temporary, and service.”
+  - **AC-2(f)** — no cadence/timeline/retention period stated.
+    - “Describe how the organization creates, enables, modifies, disables, and removes information system accounts in accordance with [Assignment: organization-defined procedures or conditions].”
+    - “These procedures must address each of the following actions:”
+      - “Create. Creating accounts.”
+      - “Enable. Enabling accounts.”
+      - “Modify. Modifying accounts.”
+      - “Disable. Disabling accounts.”
+      - “Remove. Removing accounts.”
+  - **AC-2(g)** — no cadence/timeline/retention period stated.
+    - “Describe how the organization monitors the use of information system accounts.”
+    - “The use of guest/anonymous and temporary accounts:”
+      - “For atypical usage of information system accounts”
+      - “For Privileged role assignments use or misuse”
+      - “For unauthorized remote access to the information system”
+      - “Of remote access sessions which allows organizations to audit user activities on a variety of information system components (e.g., servers, workstations, notebook/laptop computers) and to ensure compliance with remote access policy”
+      - “For unauthorized wireless access to the information system”
+      - “For unauthorized connections of mobile devices to organizational information systems”
+      - “For the information system connections on an ongoing basis verifying enforcement of security requirements”
+  - **AC-2(h)** — no cadence/timeline/retention period stated.
+    - “Describe how the organization notifies account managers:”
+      - “When accounts are no longer required;”
+      - “When users are terminated or transferred; and”
+      - “When individual information system usage or need-to-know changes.”
+    - “Please note that the second sub requirement applies to both ‘Terminated’ and ‘Transferred.’”
+    - “Please note that the third sub requirement applies to both ‘Individual information system usage’ and ‘Individual need-to-know’ changes.”
+    - “The process may be automated and included in an organizational workflow.”
+    - “The process may be manual and each step should be fully outlined…”
+
+| Requested topic | Control ID | Documented concrete cadence / timeline / retention period | Exact quoted text | Frequency organization-defined? |
+|---|---|---:|---|---|
+| AU-6 logs review | Not present on this page | Not stated | No AU-6 content appears on the page provided. | N/A |
+| AU-11 log retention | Not present on this page | Not stated | No AU-11 content appears on the page provided. | N/A |
+| AC-2 account review | AC-2 | Not stated | “The organization: … (g) Monitors the use of information system accounts; and (h) Notifies account managers…” | Yes |
+| AC-2 disablement | AC-2(f) | Not stated | “Describe how the organization creates, enables, modifies, disables, and removes information system accounts…” | Yes |
+| AC-2 temporary accounts | AC-2(a), AC-2(g) | Not stated | “NIST offers these account types as an example: individual, shared, group, system, guest/anonymous, emergency, developer/manufacturer/vendor, temporary, and service.” / “The use of guest/anonymous and temporary accounts:” | Yes |
+| IA authenticators | Not present on this page | Not stated | No IA content appears on the page provided. | N/A |
+| IA certificates | Not present on this page | Not stated | No IA content appears on the page provided. | N/A |
+| CP-4 contingency plan test | Not present on this page | Not stated | No CP-4 content appears on the page provided. | N/A |
+| CP-9 backup testing | Not present on this page | Not stated | No CP-9 content appears on the page provided. | N/A |
+| IR-3 incident response testing/training | Not present on this page | Not stated | No IR-3 content appears on the page provided. | N/A |
+| PE-2 physical access reviews | Not present on this page | Not stated | No PE-2 content appears on the page provided. | N/A |
+| PE-3 physical access reviews | Not present on this page | Not stated | No PE-3 content appears on the page provided. | N/A |
+| SI-2 vulnerability/malware | Not present on this page | Not stated | No SI-2 content appears on the page provided. | N/A |
+| SI-3 malware | Not present on this page | Not stated | No SI-3 content appears on the page provided. | N/A |
+| CM inventory/change reviews | Not present on this page | Not stated | No CM content appears on the page provided. | N/A |
+| MA maintenance | Not present on this page | Not stated | No MA content appears on the page provided. | N/A |
+
+### Explicitly stated absences on the provided page
+- “There is no FedRAMP-specific parameter for this control.”
+- No document text on the provided page includes AU-6, AU-11, IA, CP-4, CP-9, IR-3, PE-2, PE-3, SI-2, SI-3, CM, or MA control content.

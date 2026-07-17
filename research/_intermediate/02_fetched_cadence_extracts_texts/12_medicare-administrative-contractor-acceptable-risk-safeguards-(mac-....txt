@@ -1,0 +1,110 @@
+URL: https://www.cms.gov/regulations-and-guidance/guidance/manuals/downloads/117_systems_security_mac_ars.pdf
+TITLE: Medicare Administrative contractor Acceptable risk Safeguards (MAC ...
+ERROR: None
+
+| Source section | Control ID | Control family | Documented cadence/frequency/timeline | Exact requirement (quote or close paraphrase) |
+|---|---:|---|---|---|
+| Access Control / Implementation Standard | AC-01 | AC | Annually (365 days) | “Control Review Frequency: Annually (365 Days)” |
+| Access Control / Implementation Standard | AC-01 | AC | Every 3 years; following CMS-defined events | “Review and update the current access control policy at least every three (3) years and following CMS-defined events…”; “Procedures at least every three (3) years and following CMS-defined events…” |
+| Access Control / Privacy Implementation Standards | PRIV.1 under AC-01 | AC / privacy-related | Once every 365 days | “Monitor for changes to applicable privacy laws, regulations, and overarching policy that affect access control policies no less often than once every 365 days…” |
+| Access Control / Control Statement | AC-02 | AC | Within 30 days | “Notify account managers… within: 1. thirty (30) days when accounts are no longer required; 2. thirty (30) days when users are terminated or transferred; 3. thirty (30) days when system usage or need-to-know changes…” |
+| Access Control / Implementation Standard (HVA) | AC-02 | AC | Within 12 hours; quarterly; annually | “Notify appropriate organization personnel within 12 hours when temporary accounts or privileged accounts are no longer required, users are terminated or transferred, and when user’s need-to-know changes”; “review privileged accounts no less often than quarterly”; “Privileged account access is to be reauthorized for the HVA no less often than annually”; “Review user accounts… annually” |
+| Access Control / Implementation Standard | AC-02 | AC | Annually (365 days) | “Review accounts for compliance with account management requirements at least every 365 days for all systems.” |
+| Access Control / Implementation Standard | AC-02(01) | AC | Annually (365 days) | “Control Review Frequency: Annually (365 Days)” |
+| Access Control / Implementation Standard | AC-02(01) | AC | Annually (365 days) | “Assessment Frequency: Annually (365 Days)” |
+| Access Control / Control Statement | AC-02(02) | AC | Within 24 hours; fixed duration not to exceed 30 days; fixed duration not to exceed 60 days | “Automatically disable emergency accounts within 24 hours of issuance (activation) and temporary accounts within a fixed duration not to exceed 30 days for High systems and 60 days for Moderate systems.” |
+| Access Control / Implementation Standard | AC-02(02) | AC | Within 24 hours; 30 days; 60 days | “Emergency accounts will be automatically disabled within 24 hours of activation”; “temporary accounts will not exceed: 30 days for High systems; 60 days for Moderate systems.” |
+| Access Control / HVA Implementation Standard | AC-02(02) | AC | Within 12 hours | “Automatically disable temporary and emergency accounts within 12 hours of issuance” |
+| Access Control / Control Review Frequency | AC-02(02) | AC | Annually (365 days) | “Control Review Frequency: Annually (365 Days)” |
+| Access Control / Control Statement | AC-02(03) | AC | Within 30 days; within 30 days of inactivity for High; within 60 days of inactivity for Moderate | “Disable accounts within thirty (30) days when the accounts… have expired… are no longer associated with a user or individual… are in violation of organizational policy”; “Disable accounts when the accounts have been inactive within 30 days for High Systems or 60 days for Moderate Systems.” |
+| Access Control / Implementation Standard | AC-02(03) | AC | Every 2 months; annually (365 days) | “Control Review Frequency: Two (2) Months”; “Assessment Frequency: Annually (365 Days)” |
+| Access Control / Implementation Standard | AC-02(04) | AC / AU | Annually (365 days) | “Control Review Frequency: Annually (365 Days)” |
+| Access Control / Implementation Standard | AC-02(04) | AC / AU | Annually (365 days) | “Assessment Frequency: Annually (365 Days)” |
+| Access Control / Control Statement | AC-02(05) | AC | 90 minutes; end of user’s normal work period | “Require that users log out when the time-period of inactivity exceeds 90 minutes and at the end of the user’s normal work period.” |
+| Access Control / Control Review Frequency | AC-02(05) | AC | Quarterly | “Control Review Frequency: Quarterly” |
+| Access Control / Control Statement | AC-02(07) | AC | Not specified | “Control Review Frequency: Not Specified” |
+| Access Control / Control Statement | AC-02(07) | AC | Every 90 days (privileges review in HVA privacy implementation) | “Review no less often than every ninety (90) days the privileges assigned to defined roles or classes of users…” |
+| Access Control / HVA Control Statement / Implementation Standard | AC-02(07) | AC | Quarterly; annually | “conduct quarterly reviews of the rights assigned to privileged accounts”; “Privileged account access is to be reauthorized for the HVA no less often than annually”; “Review user accounts… annually” |
+| Access Control / Control Statement | AC-02(09) | AC | Not specified | “Control Review Frequency: Not Specified” |
+| Access Control / Control Statement | AC-02(11) | AC | Not specified in control text; weekly/daily/monthly/quarterly not stated | “Control Review Frequency: Annually (365 Days)” only for review cycle; usage-condition durations are not specified except in narrative examples |
+| Access Control / Control Review Frequency | AC-02(11) | AC | Annually (365 days) | “Control Review Frequency: Annually (365 Days)” |
+| Access Control / Control Statement | AC-02(12) | AC / AU / CA / IR / SI | Quarterly | “Control Review Frequency: Quarterly” |
+| Access Control / Control Statement | AC-02(13) | AC / AU / SI | Quarterly | “Control Review Frequency: Quarterly” |
+| Access Control / Control Statement | AC-02(13) | AC / AU / SI | Immediately, not to exceed 30 minutes; within 60 minutes | “Immediately, not to exceed 30 minutes, for systems… High”; “Within 60 minutes for systems… Moderate.” |
+| Access Control / Control Statement | AC-03 | AC | Annually (365 days) | “Control Review Frequency: Annually (365 Days)” |
+| Access Control / Control Statement | AC-03 | AC | Every 3 years | “Assessment Frequency: Three (3) Years” |
+| Access Control / Control Statement | AC-03(09) | AC / CA / PT / SA / SC | Annually (365 days) | “Control Review Frequency: Annually (365 Days)” |
+| Access Control / Control Statement | AC-03(09) | AC / CA / PT / SA / SC | Every 3 years | “Assessment Frequency: Three (3) Years” |
+| Access Control / Control Statement | AC-03(11) | AC / CM | Not specified | “Control Review Frequency: Not Specified” |
+| Access Control / Control Statement | AC-03(11) | AC / CM | Every 3 years | “Assessment Frequency: Three (3) Years” |
+| Access Control / Control Statement | AC-03(14) | AC / IA | Annually (365 days) | “Control Review Frequency: Annually (365 Days)” |
+| Access Control / Control Statement | AC-03(14) | AC / IA | Every 3 years | “Assessment Frequency: Three (3) Years” |
+| Access Control / Control Statement | AC-04 | AC / CA / SC | Annually (365 days) | “Control Review Frequency: Annually (365 Days)” |
+| Access Control / Control Statement | AC-04 | AC / CA / SC | Every 3 years | “Assessment Frequency: Three (3) Years” |
+| Access Control / Control Statement | AC-04(04) | AC / SI | Annually (365 days) | “Control Review Frequency: Annually (365 Days)” |
+| Access Control / Control Statement | AC-04(04) | AC / SI | Every 3 years | “Assessment Frequency: Three (3) Years” |
+| Access Control / Implementation Standard | AC-05 | AC / AU / CM / CP / IA / MA / SA | Annually (365 days) | “Control Review Frequency: Annually (365 Days)” |
+| Access Control / Implementation Standard | AC-05 | AC / AU / CM / CP / IA / MA / SA | Every 3 years | “Assessment Frequency: Three (3) Years” |
+| Access Control / Control Statement | AC-06 | AC / IA / MA | Annually (365 days) | “Control Review Frequency: Annually (365 Days)” |
+| Access Control / Control Statement | AC-06 | AC / IA / MA | Every 3 years | “Assessment Frequency: Three (3) Years” |
+| Access Control / Control Statement | AC-06(01) | AC / AU / PE | Quarterly | “Control Review Frequency: Quarterly” |
+| Access Control / Control Statement | AC-06(01) | AC / AU / PE | Annually (365 days) | “Assessment Frequency: Annually (365 Days)” |
+| Access Control / Control Statement | AC-06(02) | AC / PL | Annually (365 days) | “Control Review Frequency: Annually (365 Days)” |
+| Access Control / Control Statement | AC-06(02) | AC / PL | Every 3 years | “Assessment Frequency: Three (3) Years” |
+| Access Control / Control Statement | AC-06(03) | AC / AC-17 / AC-18 / AC-19 | Quarterly | “Control Review Frequency: Quarterly” |
+| Access Control / Control Statement | AC-06(03) | AC / AC-17 / AC-18 / AC-19 | Annually (365 days) | “Assessment Frequency: Annually (365 Days)” |
+| Access Control / Control Statement | AC-06(05) | AC / IA / MA | Quarterly | “Control Review Frequency: Quarterly” |
+| Access Control / Control Statement | AC-06(05) | AC / IA / MA | Annually (365 days) | “Assessment Frequency: Annually (365 Days)” |
+| Access Control / Control Statement | AC-06(06) | AC / AC-18 / AC-19 / IA-2 / IA-8 | Not specified | “Control Review Frequency: Not Specified” |
+| Access Control / Control Statement | AC-06(06) | AC / AC-18 / AC-19 / IA-2 / IA-8 | Every 3 years | “Assessment Frequency: Three (3) Years” |
+| Access Control / Control Statement | AC-06(07) | AC / CA | Annually (365 days) | “Control Review Frequency: Annually (365 Days)” |
+| Access Control / Control Statement | AC-06(07) | AC / CA | Every 3 years | “Assessment Frequency: Three (3) Years” |
+| Access Control / HVA Implementation Standard | AC-06(07) | AC / CA | Every 90 days; quarterly | “Review no less often than every ninety (90) days…”; “conduct quarterly reviews of the rights assigned to privileged accounts…” |
+| Access Control / Control Statement | AC-06(09) | AC / AU | Annually (365 days) | “Control Review Frequency: Annually (365 Days)” |
+| Access Control / Control Statement | AC-06(09) | AC / AU | Every 3 years | “Assessment Frequency: Three (3) Years” |
+| Access Control / Control Statement | AC-06(10) | AC | Annually (365 days) | “Control Review Frequency: Annually (365 Days)” |
+| Access Control / Control Statement | AC-06(10) | AC | Annually (365 days) | “Assessment Frequency: Annually (365 Days)” |
+| Access Control / Control Statement | AC-07 | AC / AC-2 / AC-9 / AU / IA | 3 invalid attempts within 120-minute window; 5 invalid attempts within 120-minute window; minimum 15 minutes lockout | “after three (3) invalid login attempts during a 120-minute time window”; “after five (5) invalid login attempts during a 120-minute time window”; “disable access for at least fifteen (15) minutes…” |
+| Access Control / Control Statement | AC-07 | AC | Annually (365 days) | “Control Review Frequency: Annually (365 Days)” |
+| Access Control / Control Statement | AC-07 | AC | Annually (365 days) | “Assessment Frequency: Annually (365 Days)” |
+| Access Control / Control Statement | AC-07(02) | AC / AC-19 / MP / SC | Not specified | “Control Review Frequency: Not Specified” |
+| Access Control / Control Statement | AC-07(02) | AC / AC-19 / MP / SC | Every 3 years | “Assessment Frequency: Three (3) Years” |
+| Access Control / Control Statement | AC-08 | AC / PL / SI | Annually (365 days) | “Control Review Frequency: Annually (365 Days)” |
+| Access Control / Control Statement | AC-08 | AC / PL / SI | Every 3 years | “Assessment Frequency: Three (3) Years” |
+| Access Control / Control Statement | AC-09 | AC / PL | Not specified | “Control Review Frequency: Not Specified” |
+| Access Control / Control Statement | AC-09 | AC / PL | Every 3 years | “Assessment Frequency: Three (3) Years” |
+| Access Control / Control Statement | AC-09(01) | AC | Not specified | “Control Review Frequency: Not Specified” |
+| Access Control / Control Statement | AC-09(01) | AC | Every 3 years | “Assessment Frequency: Three (3) Years” |
+| Access Control / Control Statement | AC-10 | AC / SC | Annually (365 days) | “Control Review Frequency: Annually (365 Days)” |
+| Access Control / Control Statement | AC-10 | AC / SC | Annually (365 days) | “Assessment Frequency: Annually (365 Days)” |
+| Access Control / Control Statement | AC-11 | AC / AC-2 / AC-7 / IA-11 / PL-4 | 15 minutes | “Prevent further access… by initiating a device lock after fifteen (15) minutes of inactivity…” |
+| Access Control / Control Statement | AC-11 | AC / AC-2 / AC-7 / IA-11 / PL-4 | Annually (365 days) | “Control Review Frequency: Annually (365 Days)” |
+| Access Control / Control Statement | AC-11 | AC / AC-2 / AC-7 / IA-11 / PL-4 | Every 3 years | “Assessment Frequency: Three (3) Years” |
+| Access Control / Control Statement | AC-11(01) | AC | Quarterly | “Control Review Frequency: Quarterly” |
+| Access Control / Control Statement | AC-11(01) | AC | Annually (365 days) | “Assessment Frequency: Annually (365 Days)” |
+| Access Control / Control Statement | AC-12 | AC / MA / SC | Annually (365 days) | “Control Review Frequency: Annually (365 Days)” |
+| Access Control / Control Statement | AC-12 | AC / MA / SC | Every 3 years | “Assessment Frequency: Three (3) Years” |
+| Access Control / Control Statement | AC-14 | AC / IA / PL | Annually (365 days) | “Control Review Frequency: Annually (365 Days)” |
+| Access Control / Control Statement | AC-14 | AC / IA / PL | Annually (365 days) | “Assessment Frequency: Annually (365 Days)” |
+| Access Control / Control Statement | AC-17 | AC / AC-18 / AC-19 / AC-20 / CA / CM / IA / MA / PE / PL / SC / SI | Quarterly | “Control Review Frequency: Quarterly” |
+| Access Control / Control Statement | AC-17 | AC / AC-18 / AC-19 / AC-20 / CA / CM / IA / MA / PE / PL / SC / SI | Annually (365 days) | “Assessment Frequency: Annually (365 Days)” |
+| Access Control / Implementation Standard | AC-17 | AC | Every 365 days | “User IDs assigned to vendors will be recertified within every three hundred sixty-five (365) days.” |
+| Access Control / Control Statement | AC-17 | AC / IA / MA | Not otherwise specified for update cadence in visible text | “Establish and document usage restrictions…” and “Authorize each type of remote access…”; no separate maintenance frequency stated beyond quarterly review |
+| Access Control / Control Statement (visible continuation truncated) | AC-17 | AC | Not specified in visible excerpt | The page truncates after AC-17 HVA Implementation Standard start; no additional cadence visible beyond what is quoted above. |
+
+| Section | Control ID(s) | Cadence/frequency/timeline explicitly stated | Exact text |
+|---|---|---|---|
+| Access Control | AC-01, AC-02, AC-03, AC-04, AC-05, AC-06, AC-08, AC-10, AC-11, AC-12, AC-14, AC-17 | “Annually (365 Days)” appears as control review frequency in multiple controls | “Control Review Frequency: Annually (365 Days)” |
+| Access Control | AC-01, AC-02, AC-03, AC-04, AC-05, AC-06, AC-07, AC-08, AC-10, AC-11, AC-12, AC-14, AC-17 | “Three (3) Years” appears repeatedly as assessment frequency | “Assessment Frequency: Three (3) Years” |
+| Access Control | AC-02, AC-02(03) | 30 days | “within thirty (30) days” |
+| Access Control | AC-02(02), AC-02(13) | 24 hours / 12 hours / 30 minutes / 60 minutes | “within 24 hours”; “within 12 hours”; “not to exceed 30 minutes”; “within 60 minutes” |
+| Access Control | AC-02(05), AC-11, AC-07 | 90 minutes; 15 minutes; 120-minute window | “inactivity exceeds 90 minutes”; “after fifteen (15) minutes of inactivity”; “during a 120-minute time window” |
+| Access Control | AC-06(07) | 90 days | “no less often than every ninety (90) days” |
+| Access Control | AC-02, AC-06(07), AC-07 | Quarterly / quarterly reviews | “quarterly”; “conduct quarterly reviews” |
+| Access Control | AC-02(02), AC-02(03), AC-17 | 30 days; 60 days; 365 days | “30 days for High systems”; “60 days for Moderate systems”; “365 (days)” |
+| Access Control | AC-03(09), AC-04(04) | Periodic assessments mentioned, but no exact frequency in control text | “conducting periodic assessments (inspections/tests)” |
+
+| Explicit absence statements in the page | Details |
+|---|---|
+| No specific cadence stated | AC-02(07), AC-02(09), AC-03(11), AC-06(06), AC-07(02), AC-09, AC-09(01) show “Control Review Frequency: Not Specified” or no cadence beyond assessment frequency. |
+| General risk-based / org-defined only | AC-02(11), AC-07, AC-12, AC-14, AC-17 discuss organization-defined conditions/timelines in control statements, but the page does not provide additional daily/weekly/monthly frequencies for those items. |

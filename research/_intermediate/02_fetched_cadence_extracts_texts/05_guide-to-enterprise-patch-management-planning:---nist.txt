@@ -1,0 +1,56 @@
+URL: https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-40r4.pdf
+TITLE: Guide to Enterprise Patch Management Planning: - NIST
+ERROR: None
+
+| Source section | Cadence / timeline | Exact or closely paraphrased requirement | Likely control family/control ID |
+|---|---:|---|---|
+| 3.2 Inventory Your Software and Assets | Constantly | “Organizations should establish and constantly maintain up-to-date software inventories for their physical and virtual computing assets, including OT, IoT, and container assets.” | CM-8; AU; CA |
+| 3.2 Inventory Your Software and Assets | Constantly / continuously | “A realistic goal is to maintain a close-to-comprehensive inventory by relying on automation to constantly discover new assets and collect up-to-date information on all assets.” | CM-8 |
+| 3.2 Inventory Your Software and Assets | Monthly or quarterly basis | “At one time, when assets and software were mostly static and were located within static logical and physical perimeters, it was generally considered acceptable to update inventories on a monthly or quarterly basis by performing a vulnerability scan. That model should no longer be used.” | CM-8; SI-2; RA-5 |
+| 3.2 Inventory Your Software and Assets | Continuously | “APIs built into a cloud-based platform may enable continuous updates of inventory information for the software on that platform, as well as other platform characteristics helpful for patch management purposes.” | CM-8 |
+| 3.5 Define Maintenance Plans for Each Maintenance Group | Timeframes for beginning and ending each action | “A maintenance plan defines the actions to be taken when a scenario occurs for a maintenance group, including the timeframes for beginning and ending each action…” | MA; CM-3; SI-2 |
+| 3.5 Define Maintenance Plans for Each Maintenance Group | Within two weeks | “CISA’s Binding Operational Directive 22-01 requires federal agencies to remediate new vulnerabilities added to the catalog within two weeks.” | SI-2; RA-7 |
+| 3.5.1 Maintenance Plans for Scenario 1, Routine Patching | Phased; first subset before broader rollout | “Organizations should consider adopting phased deployments for routine patching in which a small subset of the assets to be patched receive the patch first.” | SI-2; CM-3; MA |
+| 3.5.1 Maintenance Plans for Scenario 1, Routine Patching | A few days | “there could be a small first round with technically knowledgeable users … that lasts a few days” | SI-2; CM-3 |
+| 3.5.1 Maintenance Plans for Scenario 1, Routine Patching | A few weeks | “followed by a larger second round with ‘early adopters’ across the organization who are willing to try app updates for a few weeks and report any problems that occur.” | SI-2; CM-3 |
+| 3.5.1 Maintenance Plans for Scenario 1, Routine Patching | Soon as practical / after grace period | “Organizations should offer flexibility with how soon routine patches are to be installed, while also forcing installation after a grace period has ended.” | SI-2; CM-3 |
+| 3.5.1 Maintenance Plans for Scenario 1, Routine Patching | After a grace period has ended | “Forcing installation can be direct, like triggering patch execution, or indirect, like preventing network access for unpatched assets until they are patched.” | AC-2; AC-3; SI-2 |
+| 3.5.1 Maintenance Plans for Scenario 1, Routine Patching | Until patched | “preventing network access for unpatched assets until they are patched.” | AC-3; SI-2 |
+| 3.5.2 Maintenance Plans for Scenario 2, Emergency Patching | Highly accelerated schedule | “Organizations should consider using the same general approach for emergency patching as for routine patching, except with a highly accelerated schedule.” | SI-2; IR; CM-3 |
+| 3.5.2 Maintenance Plans for Scenario 2, Emergency Patching | A few minutes to a few hours | “This period could last a few minutes to a few hours” (canary period) | SI-2; CM-3 |
+| 3.5.2 Maintenance Plans for Scenario 2, Emergency Patching | In the following hours or days | “the emergency patching itself could occur in the following hours or days, depending on how urgent the emergency is.” | SI-2; IR; CM-3 |
+| 3.5.3 Maintenance Plans for Scenario 3, Emergency Mitigation | Quick implementation | “Organizations should plan for the quick implementation of multiple types of emergency mitigations…” | SI-2; IR |
+| 3.5.3 Maintenance Plans for Scenario 3, Emergency Mitigation | Schedules should be set and enforced | “Schedules should be set and enforced for both patch deployment and mitigation removal.” | CM-3; SI-2 |
+| 3.5.4 Maintenance Plans for Scenario 4, Unpatchable Assets | Periodically | “Organizations should plan on periodically reevaluating their alternatives to patching.” | CA-7; RA-3; RA-7 |
+| 3.5.5 Exceptions to Maintenance Plans | Regularly | “All exceptions to maintenance plans should be reviewed regularly to determine if the maintenance plan can be implemented now.” | CM-3; SI-2 |
+| 3.6 Choose Actionable Enterprise-Level Patching Metrics | Frequently | “Organizations should frequently update their low-level metrics and strive for them to be as accurate as possible…” | CA-7; AU; SI-4 |
+| 3.6 Choose Actionable Enterprise-Level Patching Metrics | Monthly vulnerability scans are mentioned as insufficient | “if an organization only scans for vulnerabilities monthly, their low-level metrics … would be much smaller than they should be.” | SI-2; RA-5 |
+| 3.7 Consider Software Maintenance in Procurement | Each year | “Approximately how many patches, updates, and upgrades do you expect to release each year for this software?” | SA; SR; SI-2 |
+| 3.7 Consider Software Maintenance in Procurement | On a regular schedule / weekly, monthly, quarterly, etc. | “Will you release updates on a regular schedule, as needed, or both? If a schedule will be followed, what is that schedule (weekly, monthly, quarterly, etc.)?” | SA; CM-3; SI-2 |
+| 3.7 Consider Software Maintenance in Procurement | As needed | “Will you release updates on a regular schedule, as needed, or both?” | SA; CM-3; SI-2 |
+| 3.7 Consider Software Maintenance in Procurement | How often emergency updates are released | “How often do you anticipate releasing emergency updates?” | SI-2; IR |
+| 3.7 Consider Software Maintenance in Procurement | For how many years | “For how many years are you committed to correcting vulnerabilities in the software?” | SA; SR; SI-2 |
+| 3.7 Consider Software Maintenance in Procurement | How quickly | “On average, how quickly do you expect to address each vulnerability and release a patch?” | SI-2 |
+| 3.7 Consider Software Maintenance in Procurement | Before release | “How do you test your patches before release?” | SI-2; CM-3 |
+| 3.7 Consider Software Maintenance in Procurement | How often customers experience significant issues | “How often do customers experience significant issues with your patches?” | SI-2; CA-7 |
+| 3.7 Consider Software Maintenance in Procurement | Rollback capability | “Do you provide rollback capabilities for uninstalling patches?” | SI-2; CM-3 |
+| 2.3.1 Prepare to Deploy the Patch | Before the patch is tested or installed | “A patch’s authenticity and integrity should be confirmed, preferably by automated means, before the patch is tested or installed.” | SI-2; CM-3; IA |
+| 2.3.2 Deploy the Patch | Automatically, manually, or as scheduled | “Distributing the patch to the assets that need to have it installed can be organization-controlled (and occur automatically, manually, or as scheduled)…” | SI-2; CM-3 |
+| 2.3.2 Deploy the Patch | Before installation | “As discussed in Section 2.3.1, a patch’s authenticity and integrity should be confirmed before installation, preferably through automated means.” | SI-2; IA |
+| 2.3.2 Deploy the Patch | On result of other software being installed or updated | “Installation can occur … as a result of other software being installed or updated…” | SI-2; CM-3 |
+| 2.3.2 Deploy the Patch | Reboot/restart as needed | “making a patch take effect necessitates… restarting patched software, rebooting the operating system or platform…” | CM-3; SI-2 |
+| 2.3.4 Monitor the Deployed Patches | Continuously | “Continuously monitor the risk response. Make sure that the risk response continues to be in place…” | CA-7; SI-4 |
+| 2.3.4 Monitor the Deployed Patches | Still installed / not uninstalled | “monitoring could confirm that the patch has not been uninstalled by a user or an attacker” | CA-7; SI-4 |
+| 2.3.4 Monitor the Deployed Patches | Not restored from backup | “an unpatched version of the software has not been restored from a backup” | CP-9; CA-7; SI-4 |
+| 2.3.4 Monitor the Deployed Patches | Not reset to vulnerable factory-default state | “the device has not been reset to a vulnerable factory-default state” | CM-2; CA-7; SI-4 |
+| 2.2 Software Vulnerability Management Life Cycle | Throughout the life cycle | “there are administrative activities occurring throughout the software vulnerability management life cycle, such as updating documentation, audit logging, and generating actionable insights and reports…” | AU; CA; CM |
+| 3.4 Assign Each Asset to a Maintenance Group | Periodically reassess | “Organizations should define their maintenance groups at whatever they decide the best level of granularity is, then periodically reassess their maintenance group definitions and adjust them as needed.” | CM-8; CA-7 |
+| 3.4 Assign Each Asset to a Maintenance Group | Outage windows / scheduled outages for non-emergency situations | “Must adhere to scheduled outage windows for all non-emergency situations” | CP; CM-3; MA |
+
+| Explicit absence note | What the page does and does not state |
+|---|---|
+| General risk-based/org-defined cadence only | Many maintenance timing expectations are stated as “risk-based,” “as needed,” “regular schedule,” “periodically,” “frequently,” “quickly,” “grace period,” or “scheduled,” without a fixed universal interval. |
+| No fixed daily cadence found | No explicit “daily” maintenance schedule was stated in the page text. |
+| No fixed 60-day / 90-day / 365-day cadence found | No explicit “every 60 days,” “every 90 days,” or “annually/every 365 days” maintenance requirement was stated in the page text. |
+| Retention period not stated | No explicit log, patch, scan, or inventory retention period was stated in the page text. |
+| JSIG not mentioned | JSIG is not explicitly mentioned in the page text. |

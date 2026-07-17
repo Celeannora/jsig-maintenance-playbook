@@ -1,0 +1,23 @@
+URL: https://security.cms.gov/policy-guidance/audit-and-accountability-au
+TITLE: Audit and Accountability (AU)
+ERROR: None
+
+| Source section | Cadence / timeline | Likely control family/control ID | Exact requirement / close paraphrase |
+|---|---:|---|---|
+| **OMB M-21-31 standards > Expanded event logging** | **12 months online retention** | **AU** | “**CMS retains logs online for 12 months**” |
+| **OMB M-21-31 standards > Expanded event logging** | **additional 18 months archived retention** | **AU** | “**and archives them for an additional 18 months**” |
+| **OMB M-21-31 standards > Detailed audit record content and non-repudiation** | **within one minute of UTC** | **AU** | “**Systems must synchronize audit records within one minute of UTC**” |
+| **OMB M-21-31 standards > Real-time alerts for logging failures** | **real-time** | **AU / SI** | “**CMS systems issue real-time alerts for critical audit failures**” |
+| **OMB M-21-31 standards > Real-time alerts for logging failures** | **80% capacity threshold** | **AU / SI** | “**storage reaching 80% capacity**” triggers critical audit failure alerts |
+| **OMB M-21-31 standards > Log access controls and data protection** | **regularly reviewed and updated** | **AU / AC** | “**Log access permissions are regularly reviewed and updated**” |
+| **Key security measures > Continuous review and reporting** | **regularly** | **AU** | “**CMS regularly reviews and analyzes audit records** for signs of compromise or unauthorized activity.” |
+| **Additional references** | **quarterly audits** | **CA / AU** | “**FISMA-mandated quarterly and annual audits**” |
+| **Additional references** | **annual audits** | **CA / AU** | “**FISMA-mandated quarterly and annual audits**” |
+
+- **Specific cadence not stated; only risk-/org-defined or continuous wording appears for:**
+  - **“Continuous monitoring and maturity model compliance”**: “**CMS adopts a continuous monitoring approach**” — no fixed interval given.
+  - **“Cross-agency log sharing” / “Cross-organizational log integration”**: no fixed interval given.
+  - **“Automated SOAR capabilities”**: no fixed interval given.
+  - **“Dual authorization”**: no timing frequency given.
+  - **“Privileges are regularly reviewed”**: no specific interval given beyond “regularly.”
+  - **“The Cyber Risk Management Plan (CRMP)”**: says it provides “**guidance on risk-based decision making**” — no fixed cadence given.

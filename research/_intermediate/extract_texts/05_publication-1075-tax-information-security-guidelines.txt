@@ -1,0 +1,152 @@
+URL: https://www.irs.gov/pub/irs-pdf/p1075.pdf
+TITLE: Publication 1075 Tax Information Security Guidelines
+ERROR: None
+
+### AU-6 / AU-11 — Logs review and retention
+
+| Control ID | Exact frequency / timeline | Extracted text |
+|---|---:|---|
+| AU-6 | **Weekly** | “Review and analyze system audit records **weekly** for indications of inappropriate or unusual activity and the potential impact of the inappropriate or unusual activity;” |
+| AU-11 | **Seven (7) years** | “Retain audit records **seven (7) years** to provide support for after-the-fact investigations of incidents and to meet regulatory and organizational information retention requirements.” |
+| AU-2 (relevant to logs) | Not a frequency requirement; page says annual update of event types | “Review and update the event types selected for logging **annually** or when there is a system change.” |
+| PE-6 (physical access logs, if relevant) | **Monthly** | “Review physical access logs at a minimum **monthly** and upon occurrence of a potential indication of an event;” |
+| PE-8 (visitor access records, if relevant) | **Monthly** and **five (5) years** retention | “Maintain visitor access records … for **five (5) years**; … Review visitor access records at least **monthly**;” |
+
+---
+
+### AC-2 — Account review, disablement, temporary accounts
+
+| Control ID | Exact frequency / timeline | Extracted text |
+|---|---:|---|
+| AC-2 | **Within 24 hours** | “Notify account managers and designated agency official within: 1. **24 hours** when accounts are no longer required; 2. **24 hours** when users are terminated or transferred; and 3. **24 hours** when system usage or need-to-know changes for an individual;” |
+| AC-2 | **Annually** for user accounts; **semi-annually** for privileged accounts | “Review accounts for compliance with account management requirements **annually for user account and semi-annually for privileged accounts**;” |
+| AC-2 CE-2 | **After two (2) business days** | “Automatically disable and remove temporary and emergency accounts after **two (2) business days**.” |
+| AC-2 CE-3 | **Within 120 days** | “Disable accounts within **120 days** when the accounts: a. Have expired; b. Are no longer associated to a user or individual; c. Are in violation of organizational policy; or d. Have been inactive for **120 days** for non-privileged accounts and **60 days** for privileged accounts” |
+| PS-4 (relevant to disablement on termination) | **Within three (3) business days** | “Upon termination of individual employment: a. Disable system access within **three (3) business days**;” |
+| PS-5 (relevant to account changes on transfer) | **Within five (5) business days** | “Initiate transfer or when warranted extended reassignment actions within **five (5) business days** of the formal transfer action;” |
+| 2.C.4.3 Personnel Termination | no specific day count for account disablement beyond “timely execution” | “Timely execution of termination actions is essential…” and “consider disabling the system accounts … prior to the individuals being notified.” |
+
+---
+
+### IA — Authenticators / certificates
+
+| Control ID | Exact frequency / timeline | Extracted text |
+|---|---:|---|
+| IA-5 | **Every 90 days** for all user accounts; **every 366 days** for service accounts | “Changing or refreshing authenticators **every 90 days for all user accounts and every 366 days for service accounts** or when events such as loss, theft or compromise occur;” |
+| IA-5 CE-1 | **Every three (3) years** for the password list; also when compromised | “Maintain a list of commonly-used, expected, or compromised passwords and update the list **every three (3) years** and when organizational passwords are suspected to have been compromised directly or indirectly;” |
+| IA-5 CE-1 | **One (1) day minimum and 90 days maximum** password lifetime | “Enforce password lifetime restrictions: i. **One (1) day minimum and 90 days maximum.** ii. Service accounts passwords shall expire within **366 days** (inclusive).” |
+| IA-5 CE-1 | **24 generations** password history | “Password History/Reuse: i. For all systems: **24 generations**.” |
+| IA-11 | No explicit time period for re-authentication; condition-based | “Require users to re-authenticate when switching to a privileged user role.” |
+| IA-12 | No fixed frequency stated; identity proofing required before account issuance | “Identity proof users that require accounts for logical access to systems based on appropriate identity assurance level requirements…” |
+| SC-17 | No fixed frequency stated; certificate issuance/management requirement | “Issue public key certificates under an agency-defined certificate authority or obtain public key certificates from an approved service provider; and Include only approved trust anchors in trust stores or certificate stores managed by the organization.” |
+| CM-14 | No fixed frequency stated | “Prevent the installation of agency-defined software and firmware components without verification that the component has been digitally signed using a certificate that is recognized and approved by the organization.” |
+| 3.3.8 Public-Facing Systems / IA-12 context | No fixed frequency stated | “public-facing systems must implement Identity Assurance Level (IAL) 2 … and then must use Authentication Assurance Level (AAL) 2…” |
+
+---
+
+### CP-4 / CP-9 — Contingency plan test, backup testing
+
+| Control ID | Exact frequency / timeline | Extracted text |
+|---|---:|---|
+| CP-4 | **At a minimum, annually** | “Test the contingency plan for the system at a minimum, **annually** using the following tests…” |
+| CP-4 | No specific fixed frequency for each test type beyond annual overall testing | “In accordance with NIST SP 800-84 … NIST SP-34 … and Business-unit Defined Tests and Exercises” |
+| CP-9 | **Weekly** | “Conduct backups of user-level information contained in system documentation, including security-related documentation, **weekly**;” |
+| CP-9 | **Weekly** | “Conduct backups of system-level information contained in the system **weekly**;” |
+| CP-9 | **Weekly** | “Conduct backups of system documentation, including security- and privacy-related documentation **weekly**;” |
+| CP-9 (relevant backup/testing language in narrative) | No explicit backup test schedule beyond weekly backups; page states records of backup info must be protected | “This control does not mandate the backup of FTI. However, the availability and integrity of records associated with FTI (e.g., audit logs) must be ensured.” |
+| Exhibit 9 (backup-related retention? not directly CP-9) | No backup-specific retention period stated in the extracted CP-9 text | No explicit backup retention period identified for CP-9 beyond the weekly backup requirement. |
+
+---
+
+### IR-3 — Incident response testing / training
+
+| Control ID | Exact frequency / timeline | Extracted text |
+|---|---:|---|
+| IR-3 | **Annually** | “Test the effectiveness of the incident response capability for the system **annually** using the following tests: tabletop exercises.” |
+| IR-2 | **Within 30 days** of assuming role/responsibility or acquiring system access; **annually thereafter** | “Provide incident response training … 1. Within **30 days** of assuming an incident response role or responsibility or acquiring system access; … 3. **Annually thereafter**;” |
+| IR-2 | **Every three (3) years** and after major business/system change | “Review and update incident response training content **every three (3) years** and following major business and system change impacting the FTI environment.” |
+| 1.8.4 (incident response procedures) | **Within 24 hours** | “The agency must test the incident response capability annually using tabletop exercises…” and “Both TIGTA and the IRS must be contacted within **24 hours** of the discovery of the disclosure or breach.” |
+| 2.D.2.1 (training) | **At least quarterly** reminders/updates | “At least once per quarter, agencies must distribute security and privacy awareness reminders/updates to all users.” |
+
+---
+
+### PE-2 / PE-3 — Physical access reviews
+
+| Control ID | Exact frequency / timeline | Extracted text |
+|---|---:|---|
+| PE-2 | **At least annually** | “Review the access list detailing authorized facility access by individuals at least **annually**;” |
+| PE-3 | **Every twelve (12) months** inventory of physical access devices | “Inventory organization-defined physical access devices every **twelve (12) months**;” |
+| PE-3 | **At least annually** change combinations and keys | “Change combinations and keys at least **annually** and/or when keys are lost, combinations are compromised, or when individuals possessing the keys or combinations are transferred or terminated.” |
+| PE-6 | **Monthly** physical access log review | “Review physical access logs at a minimum **monthly** and upon occurrence of a potential indication of an event;” |
+| PE-8 | **Monthly** review of visitor access records | “Review visitor access records at least **monthly**;” |
+| 2.B.3.1 Visitor Access Logs | **Monthly** closeout/review; **five (5) years** retention | “Each restricted area access log must be closed out at the end of each month and reviewed by management. Visitor access logs must be retained for **five (5) years**” |
+| 2.B.3.2 Authorized Access List | **Monthly** or upon event | “AAL must be reviewed **monthly** or upon occurrence or potential indication of an event such as a possible security breach or personnel change.” |
+
+---
+
+### SI-2 / SI-3 — Vulnerability / malware
+
+| Control ID | Exact frequency / timeline | Extracted text |
+|---|---:|---|
+| SI-2 | **Promptly after the release of the updates** | “Install security-relevant software and firmware updates promptly after the release of the updates;” |
+| SI-2 CE-2 | **At a minimum monthly**; **daily for networked workstations and malicious code protection** | “Determine if system components have applicable security-relevant software and firmware updates installed using automated mechanisms at a minimum monthly; daily for networked workstations and malicious code protection.” |
+| SI-2 IRS-Defined | **Upon daily power up and connection to the agency’s network**; if not, “not less than once every 24 hours” | “the agency shall ensure that, upon daily power up and connection to the agency’s network, workstations … are checked to ensure that the most recent agency-approved patches have been applied … or otherwise checked not less than once every 24 hours” |
+| SI-3 | **Weekly** and real-time | “Configure malicious code protection mechanisms to: 1. Perform periodic scans of the system and implement **weekly and real-time scans** of files from external sources at endpoint and network entry/exit points…” |
+| SI-3 IRS-Defined | **At least daily** update checks for tools | “Not less than daily, the agency shall check for updates to malicious code scanning tools, including anti-virus (AV) and anti-spyware software and intrusion detection tools and when updates are available, implement on all devices on which such tools reside.” |
+| RA-5 | **Every thirty (30) days** | “Monitor and scan for vulnerabilities in the system and hosted applications every **thirty (30) days**, prior to placing a new information system on the agency network, to confirm remediation actions, and when new vulnerabilities potentially affecting the system are identified and reported;” |
+| RA-5 CE-2 | **At least every 30 days** | “Update the system vulnerabilities to be scanned at least every **30 days**; prior to a new scan; when new vulnerabilities are identified and reported.” |
+| 3.3.6 / RA-5 context | no extra frequency beyond monthly scans | “Automated security scanning … must be included in monthly required vulnerability scans.” |
+| 3.3.2 Email Communications | malware protection at one or more points; no fixed period | “Malware protection must be implemented at one or more points within the email delivery process…” |
+
+---
+
+### CM — Inventory / change reviews
+
+| Control ID | Exact frequency / timeline | Extracted text |
+|---|---:|---|
+| CM-2 | **At a minimum annually** | “Review and update the baseline configuration of the system: 1. At a minimum annually;” |
+| CM-2 | when required due to reorganizations, refreshes, etc.; when components are installed or upgraded | “2. When required due to reorganizations, refreshes, etc.; and 3. When system components are installed or upgraded.” |
+| CM-3 | **Retain records for 3 years** | “Retain records of configuration-controlled changes to the system for **3 years**;” |
+| CM-3 | Configuration Control Board meets **on a monthly basis when changes are proposed** | “Coordinate and provide oversight for configuration change control activities through a Configuration Control Board that convenes on a **monthly basis when changes are proposed**.” |
+| CM-5 CE-5 | **Semi-annually** reevaluate privileges | “Review and reevaluate privileges **semi-annually**.” |
+| CM-7 CE-1 | **Annually** | “Review the system **annually** to identify unnecessary and/or nonsecure functions, ports, protocols, software, and services;” |
+| CM-7 CE-5 | **At a minimum annually** update authorized software list | “Review and update the list of authorized software programs at a minimum **annually**.” |
+| CM-7 CE-9 | **Annually** update authorized hardware list | “Review and update the list of authorized hardware components **annually**.” |
+| CM-8 | **At a minimum annually** | “Review and update the system component inventory at a minimum **annually**.” |
+| CM-11 | **At a minimum annually** | “Monitor policy compliance at a minimum **annually**.” |
+| CM-12 | no frequency stated | “Document changes to the location … where the information is processed and stored.” |
+| PM-5 | continually | “Develop and update continually an inventory of organizational systems.” |
+| PM-5 CE-1 | continually | “Establish, maintain, and update continually an inventory of all systems, applications, and projects that process personally identifiable information.” |
+| 2.B.5 | **Semi-annually** review inventory records of computers, electronic and removable media | “Inventory records of computers, electronic and removable media must be maintained and reviewed semi-annually for control and accountability.” |
+
+---
+
+### MA — Maintenance
+
+| Control ID | Exact frequency / timeline | Extracted text |
+|---|---:|---|
+| MA-3 | **At least annual basis** | “Review previously approved system maintenance tools on at least an **annual basis**.” |
+| MA-4 | no fixed period stated | “Maintain records for nonlocal maintenance and diagnostic activities;” |
+| MA-5 | no fixed period stated in MA-5 itself | “Establish a process for maintenance personnel authorization…” |
+| MA-6 | agency-defined timeline tied to RTO/RPO/MTD | “Obtain maintenance support and/or spare parts … within the Recovery Time Objective/Recovery Point Objective (RTO/RPO) timelines and Maximum Tolerable Downtime (MTD) parameters…” |
+| 2.B.3.3 (maintenance personnel authorization) | no fixed period stated | “The agency must establish a process for maintenance personnel authorization and maintain a list of authorized maintenance organizations or personnel.” |
+| 2.B.3.3 | no fixed period stated | “When cleaning and facility maintenance personnel work in restricted areas containing unsecured FTI, those activities must be performed in the presence of an authorized employee.” |
+| 2.C.7 (foreign travel / device sanitization) | no fixed period stated | “agencies must sanitize all devices taken abroad prior to allowing them to connect to their trusted network.” |
+| 3.3.2 email-hosted systems | no fixed period stated | “A 45-day cloud notification must be submitted for cloud-hosted mail solutions.” |
+
+---
+
+### Explicit absence notes for requested items
+
+| Requested item | Presence in page |
+|---|---|
+| AU-6 / AU-11 | Present with exact weekly / 7-year timelines |
+| AC-2 account review, disablement, temporary accounts | Present with exact annual / semi-annual / 24-hour / 2-business-day / 120-day / 60-day timelines |
+| IA authenticators / certificates | Present with exact 90-day / 366-day / 24-hour / 3-year / 24-generation / 1-day minimum / 90-day maximum details |
+| CP-4 contingency plan test | Present with annual testing |
+| CP-9 backup testing | **No explicit backup testing frequency** beyond weekly backups; page does not provide a separate “test backup” cadence |
+| IR-3 incident response testing / training | Present with annual testing and training cadences |
+| PE-2 / PE-3 physical access reviews | Present with annual / monthly / 12-month / annual details |
+| SI-2 / SI-3 vulnerability / malware | Present with monthly / daily / weekly / prompt details |
+| CM inventory / change reviews | Present with annual / semi-annual / monthly / 3-year retention details |
+| MA maintenance | Present with annual tool review and RTO/RPO/MTD-linked timeline; no additional fixed periodic cadence for all MA items |

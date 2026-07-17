@@ -1,0 +1,97 @@
+URL: https://www.stigviewer.com/stig/zos_tss/2017-03-22/finding/V-3331
+TITLE: The ACP audit logs must be reviewed on a regular basis .
+ERROR: None
+
+## Extracted documented cadences / timelines / retention periods from the provided page
+
+### AU-6 / log review
+| Control ID | Exact frequency / timeline | Extracted text (closely quoted) | Notes |
+|---|---:|---|---|
+| AU-6 (not explicitly labeled on page; audit trail review requirement described in finding) | **every seven days** | “reviews and analysis of information system audit records are performed **every seven days** or more frequently if required by the site Security Log Management policy.” | The page does **not** mention AU-11 retention. No explicit AU-6 control label appears in the page text, but the audit review requirement is documented here. |
+| AU-6 (same finding text) | **more frequently if required by the site Security Log Management policy** | “every seven days **or more frequently if required by the site Security Log Management policy**.” | Organization-defined beyond the 7-day baseline. |
+
+### AU-11 / log retention
+| Control ID | Exact frequency / timeline / retention period | Extracted text | Notes |
+|---|---:|---|---|
+| AU-11 | **Not stated on the page** | No retention period is provided in the supplied page text. | AU-11 is not explicitly present in the page content. |
+
+---
+
+## AC-2 account review, disablement, temporary accounts
+| Control ID | Exact frequency / timeline | Extracted text (closely quoted) | Notes |
+|---|---:|---|---|
+| AC-2 | **Not stated on the page** | The page only states: “All account creations, modifications, disabling, and terminations.” | This is a list of auditable events, not a review cadence. |
+| AC-2 temporary accounts | **Not stated on the page** | No mention of temporary accounts. |  |
+
+---
+
+## IA authenticators / certificates
+| Control ID | Exact frequency / timeline | Extracted text | Notes |
+|---|---:|---|---|
+| IA (authenticators/certificates) | **Not stated on the page** | No authenticator or certificate lifecycle timing appears in the supplied page text. |  |
+
+---
+
+## CP-4 contingency plan test
+| Control ID | Exact frequency / timeline | Extracted text | Notes |
+|---|---:|---|---|
+| CP-4 | **Not stated on the page** | No contingency plan test frequency appears in the supplied page text. |  |
+
+---
+
+## CP-9 backup testing
+| Control ID | Exact frequency / timeline | Extracted text | Notes |
+|---|---:|---|---|
+| CP-9 | **Not stated on the page** | No backup testing frequency appears in the supplied page text. |  |
+
+---
+
+## IR-3 incident response testing / training
+| Control ID | Exact frequency / timeline | Extracted text | Notes |
+|---|---:|---|---|
+| IR-3 | **Not stated on the page** | No incident response testing or training frequency appears in the supplied page text. |  |
+
+---
+
+## PE-2 / PE-3 physical access reviews
+| Control ID | Exact frequency / timeline | Extracted text | Notes |
+|---|---:|---|---|
+| PE-2 | **Not stated on the page** | No physical access review cadence appears in the supplied page text. |  |
+| PE-3 | **Not stated on the page** | No physical access review cadence appears in the supplied page text. |  |
+
+---
+
+## SI-2 / SI-3 vulnerability / malware
+| Control ID | Exact frequency / timeline | Extracted text | Notes |
+|---|---:|---|---|
+| SI-2 | **Not stated on the page** | No vulnerability scan / flaw remediation cadence appears in the supplied page text. |  |
+| SI-3 | **Not stated on the page** | No malware protection review/update cadence appears in the supplied page text. |  |
+
+---
+
+## CM inventory / change reviews
+| Control ID | Exact frequency / timeline | Extracted text | Notes |
+|---|---:|---|---|
+| CM inventory / change reviews | **Not stated on the page** | The page does mention “All account creations, modifications, disabling, and terminations” and “All kernel module loads, unloads, and restarts,” but no CM review cadence is provided. | No CM control ID appears in the supplied page text. |
+
+---
+
+## MA maintenance
+| Control ID | Exact frequency / timeline | Extracted text | Notes |
+|---|---:|---|---|
+| MA | **Not stated on the page** | No maintenance cadence appears in the supplied page text. |  |
+
+---
+
+## Additional explicitly stated details from the page relevant to operational maintenance / audit review
+
+| Item | Extracted text (closely quoted) |
+|---|---|
+| Security Log Management policy | “The site must provide a Security Log Management policy that documents and implements a process to review and analyze information system audit records every seven days or more frequently if required by the site Security Log Management policy.” |
+| Audit trail requirement | “This process must contain an audit trail of reviews.” |
+| Reference guidance | “Recommend NIST Special Publication 800-92, Guide to Computer Security Log Management as a guideline for establishing Log Management policy.” |
+| Auditable events listed | “successful and unsuccessful attempts to access, modify, or delete privileges, security objects, security levels, or categories of information (e.g., classification levels), successful and unsuccessful logon attempts, privileged activities or other system level access, starting and ending time for user access to the system, concurrent logons from different workstations, successful and unsuccessful accesses to objects, all program initiations, and all direct access to the information system.” |
+| Additional auditable events listed | “All account creations, modifications, disabling, and terminations. All kernel module loads, unloads, and restarts.” |
+| Possible areas for review, item 7 | “A review of users' password violations within a given day during the prior week - is an indicator for further review and research of possible unusual activity” |
+| Weekly review wording in fix text | “A weekly review of users' password violations within a given day during the prior week - is an indicator for further review and research of possible unusual activity” |
+

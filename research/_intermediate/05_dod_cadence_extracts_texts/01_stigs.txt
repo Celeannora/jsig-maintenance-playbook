@@ -1,0 +1,30 @@
+URL: https://public.cyber.mil/stigs/
+TITLE: STIGs
+ERROR: None
+
+| Requested item | Extracted information | Exact cadence / timeline stated? | Closest quote |
+|---|---|---:|---|
+| STIG update/release cycles | The page only states that the site contains the “Security Technical Implementation Guides” and “Security Requirements Guides” for DoD information technology systems. No release cycle, update cadence, or publication schedule is stated. | No exact cadence stated | “This site contains the Security Technical Implementation Guides and Security Requirements Guides for the Department of Defense (DOD) information technology systems as mandated by DODI 8500.01.” |
+| SRG/STIG Library compilations frequency | The page does not mention an SRG/STIG Library compilation frequency. | No exact cadence stated | No applicable statement on the page |
+| IAVA/IAVM remediation timelines | The page does not mention IAVA or IAVM, nor any remediation timelines. | No exact cadence stated | No applicable statement on the page |
+| Continuous monitoring cadence | The page does not mention continuous monitoring cadence. | No exact cadence stated | No applicable statement on the page |
+| JSIG/RMF ongoing monitoring | The page mentions RMF only in general terms, saying the guidance bridges the gap between NIST SP 800-53 and RMF. It does not state any ongoing monitoring schedule. JSIG is not mentioned. | No exact cadence stated | “This guidance bridges the gap between the National Institute of Standards and Technology Special Publication 800-53 and risk management framework (RMF).” |
+| Annual reporting | The page does not mention annual reporting. | No exact cadence stated | No applicable statement on the page |
+| Control assessment schedules | The page does not mention any control assessment schedules. | No exact cadence stated | No applicable statement on the page |
+
+| Requested control family / control ID mapping | Extracted information | Present on page? |
+|---|---|---:|
+| CM | No CM control family or control ID mapping is stated. | No |
+| SI | No SI control family or control ID mapping is stated. | No |
+| CA | No CA control family or control ID mapping is stated. | No |
+| AU | No AU control family or control ID mapping is stated. | No |
+| MA | No MA control family or control ID mapping is stated. | No |
+
+| Other explicit details on the page | Extracted information |
+|---|---|
+| Page title | “STIGs” |
+| Site purpose | “This site contains the Security Technical Implementation Guides and Security Requirements Guides for the Department of Defense (DOD) information technology systems as mandated by DODI 8500.01.” |
+| Relationship to standards | “This guidance bridges the gap between the National Institute of Standards and Technology Special Publication 800-53 and risk management framework (RMF).” |
+| Explicit source scope | “DOD information technology systems” |
+| Mandating instruction | “DODI 8500.01” |
+

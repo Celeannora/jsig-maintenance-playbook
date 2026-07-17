@@ -1,0 +1,373 @@
+URL: https://www.cms.gov/files/document/acceptable-risk-safeguards-v51.xlsx
+TITLE: [XLS] ARS 5.1 - CMS
+ERROR: None
+
+| Control / Section | Documented cadence / frequency / timeline | Exact requirement (quote or close paraphrase) | Likely family / control ID |
+|---|---|---|---|
+| Access Control / AC-01 | At least every 365 days; following CMS-defined events | “Review and update the current access control: 1. Policy at least every three hundred sixty-five (365) days and following CMS-defined events …; and 2. Procedures at least every three hundred sixty-five (365) days and following CMS-defined events …” | AC-01 |
+| Access Control / AC-02(h) | Within 30 days; within 12 hours | “Notify account managers and defined personnel or roles within: … when accounts are no longer required … when users are terminated or transferred … when system usage or need-to-know changes for an individual” | AC-02 |
+| Access Control / AC-02(j) | At least every 365 days for Low/Moderate/High; quarterly for HVA | “Review accounts for compliance with account management requirements … at least every 365 days for all systems … quarterly” | AC-02 |
+| Access Control / AC-02(02) | 60 days / 30 days / 12 hours | “Automatically Disable temporary and emergency accounts after … sixty (60) days / thirty (30) days / twelve (12) hours” | AC-02(02) |
+| Access Control / AC-02(03) | Within 30 days; inactive for 60 / 30 / 30 days | “Disable accounts within thirty (30) days when the accounts … Have been inactive for … sixty (60) days / thirty (30) days / thirty (30) days” | AC-02(03) |
+| Access Control / AC-02(05) | Inactivity exceeds 90 minutes | “Require that users log out when the time-period of inactivity exceeds 90 minutes and at the end of the user’s normal work period.” | AC-02(05) |
+| Access Control / AC-02(12) | Quarterly | “Monitor system accounts for atypical use; and … Report atypical usage …” | AC-02(12) |
+| Access Control / AC-02(13) | Within 60 minutes / 30 minutes / 30 minutes | “Disable accounts of individuals within … sixty (60) minutes / thirty (30) minutes / thirty (30) minutes of discovery of violation of CMS policy.” | AC-02(13) |
+| Access Control / AC-03 | At least every 365 days; three (3) years | “Enforce approved authorizations …” baseline review frequency shown as annual; assessment frequency three years | AC-03 |
+| Access Control / AC-03(09) | N/A beyond annual/3-year shown | “Release information outside of the system only if …” | AC-03(09) |
+| Access Control / AC-03(14) | At least every 365 days; three (3) years | “Provide defined mechanisms …” | AC-03(14) |
+| Access Control / AC-04 | At least every 365 days; three (3) years | “Enforce approved authorizations for controlling the flow of information within the system and between connected systems …” | AC-04 |
+| Access Control / AC-04(04) | At least every 365 days; three (3) years | “Prevent encrypted information from bypassing information flow control mechanisms …” | AC-04(04) |
+| Access Control / AC-05 | At least every 365 days; three (3) years | “Identify and document … duties requiring separation …” | AC-05 |
+| Access Control / AC-06(01) | Quarterly | “Authorize access for defined individuals or roles to CMS-defined security functions …” | AC-06(01) |
+| Access Control / AC-06(03) | Quarterly | “Authorize network access to privileged commands … only for compelling operational needs …” | AC-06(03) |
+| Access Control / AC-06(05) | Quarterly | “Restrict privileged accounts on the system to personnel or roles …” | AC-06(05) |
+| Access Control / AC-06(07) | No less often than every 90 days | “Review ano less often than every ninety (90) days the privileges assigned to defined roles or classes of users …” | AC-06(07) |
+| Access Control / AC-06(10) | At least every 365 days; annual assessment | “Prevent non-privileged users from executing privileged functions.” | AC-06(10) |
+| Access Control / AC-07 | 120 minutes; 5 invalid attempts / 3 invalid attempts; record event | “Lock out the user account automatically after five (5) invalid login attempts … during a 120 minutes … and … record the event” | AC-07 |
+| Access Control / AC-08 | Before granting access; retain until explicit action | “Display … before granting access … Retain the notification message or banner on the screen until users acknowledge …” | AC-08 |
+| Access Control / AC-10 | One (1) session | “Limit the number of concurrent sessions for each account … to one (1) session …” | AC-10 |
+| Access Control / AC-11 | 15 minutes of inactivity | “Initiating a device lock after fifteen (15) minutes of inactivity …” | AC-11 |
+| Access Control / AC-11(01) | Quarterly | “Conceal, via the device lock, information previously visible on the display with a publicly viewable image.” | AC-11(01) |
+| Access Control / AC-12 | Trigger events / inactivity / time-of-day restrictions | “Automatically terminate a user session after conditions or trigger events …” | AC-12 |
+| Access Control / AC-14 | At least every 365 days; annual assessment | “Identify defined … actions that can be performed on the system without identification or authentication …” | AC-14 |
+| Access Control / AC-17 | Quarterly | “Establish and document usage restrictions … for each type of remote access allowed; and authorize each type of remote access … prior to allowing such connections.” | AC-17 |
+| Access Control / AC-17(01) | Quarterly | “Employ automated mechanisms to monitor and control remote access methods.” | AC-17(01) |
+| Access Control / AC-17(02) | At least every 365 days; annual assessment | “Implement cryptographic mechanisms to protect the confidentiality and integrity of remote access sessions.” | AC-17(02) |
+| Access Control / AC-17(03) | Quarterly | “Route remote accesses through authorized and managed network access control points.” | AC-17(03) |
+| Access Control / AC-17(04) | Quarterly | “Authorize the execution of privileged commands and access to security-relevant information via remote access only …” | AC-17(04) |
+| Access Control / AC-18 | At least every 365 days; annual assessment | “Establish configuration requirements … for each type of wireless access; and authorize each type …” | AC-18 |
+| Access Control / AC-18(01) | At least every 365 days; annual assessment | “Protect wireless access … using authentication of both users and devices and encryption.” | AC-18(01) |
+| Access Control / AC-18(03) | At least every 365 days; three (3) years | “Disable, when not intended for use, wireless networking capabilities … prior to issuance and deployment.” | AC-18(03) |
+| Access Control / AC-18(04) | At least every 365 days; annual assessment | “Identify and explicitly authorize users allowed to independently configure wireless networking capabilities.” | AC-18(04) |
+| Access Control / AC-18(05) | At least every 365 days; annual assessment | “Select radio antennas and calibrate transmission power levels …” | AC-18(05) |
+| Access Control / AC-19 | At least every 365 days; annual assessment | “Establish configuration requirements … for organization-controlled mobile devices … and authorize the connection …” | AC-19 |
+| Access Control / AC-19(05) | At least every 365 days; three (3) years | “Employ CMS-required … full-device encryption or container encryption …” | AC-19(05) |
+| Access Control / AC-20 | At least every 365 days; three (3) years | “Establish defined terms and conditions … or prohibit the use of … external systems.” | AC-20 |
+| Access Control / AC-20(01) | At least every 365 days; three (3) years | “Permit authorized individuals to use an external system … only after …” | AC-20(01) |
+| Access Control / AC-20(02) | At least every 365 days; three (3) years | “Restrict the use of organization-controlled portable storage devices by authorized individuals on external systems …” | AC-20(02) |
+| Access Control / AC-21 | At least every 365 days; three (3) years | “Enable authorized users to determine whether access authorizations … match … restrictions …” | AC-21 |
+| Access Control / AC-22 | Bi-weekly / no less often than 14 days | “Review the content on the publicly accessible system for nonpublic information bi-weekly (no less often than 14 days) and remove such information, if discovered.” | AC-22 |
+| Awareness and Training / AT-01 | At least every 365 days; following CMS-defined events | “Review and update the current awareness and training … policy at least every 365 days … procedures at least every 365 days …” | AT-01 |
+| Awareness and Training / AT-02 | Within every 365 days; update at least once every 365 days; system changes/events | “Provide security and privacy literacy training … within every 365 days thereafter … Update literacy training and awareness content at least once every 365 days …” | AT-02 |
+| Awareness and Training / AT-02(01) | Annually / three (3) years shown | “Provide practical exercises in literacy training that simulate events and incidents.” | AT-02(01) |
+| Awareness and Training / AT-02(02) | Annually / three (3) years shown | “Provide literacy training on recognizing and reporting potential indicators of insider threat.” | AT-02(02) |
+| Awareness and Training / AT-02(03) | Annually / three (3) years shown | “Provide literacy training on recognizing and reporting potential and actual instances of social engineering and social mining.” | AT-02(03) |
+| Awareness and Training / AT-03 | Within 60 days of entering roles; update every 365 days; system changes | “Provide role-based security and privacy training … within sixty (60) days of entering security and privacy roles … Update role-based training content every 365 days …” | AT-03 |
+| Awareness and Training / AT-03(05) | Initial and annual | “Provide All CMS Federal and Contractor Employees with initial and Annual training …” | AT-03(05) |
+| Awareness and Training / AT-04 | Retain records for 5 years | “Retain individual training records for Five (5) Years …” | AT-04 |
+| Audit and Accountability / AU-01 | At least every 365 days; following CMS-defined events | “Review and update the current audit and accountability … policy at least every 365 days … procedures at least every 365 days …” | AU-01 |
+| Audit and Accountability / AU-02 | Weekly | “Review and update the event types selected for logging no less often than every 365 days and whenever there is a significant system modification.” (base control shows weekly review frequency) | AU-02 |
+| Audit and Accountability / AU-03 | Monthly | “Ensure that audit records contain information that establishes …” | AU-03 |
+| Audit and Accountability / AU-03(01) | Monthly | “Generate audit records containing the following additional information: identified in the privacy risk assessment.” | AU-03(01) |
+| Audit and Accountability / AU-03(03) | At least every 365 days | “Limit personally identifiable information contained in audit records …” | AU-03(03) |
+| Audit and Accountability / AU-04 | At least every 365 days; three (3) years | “Allocate audit log storage capacity …” | AU-04 |
+| Audit and Accountability / AU-05 | Quarterly | “Alert … within one (1) hour of discovery/notification in the event of an audit logging process failure …” | AU-05 |
+| Audit and Accountability / AU-05(01) | At 80% of repository maximum capacity; within organization-defined time | “Provide a warning … when allocated audit log storage volume reaches 80% of repository maximum audit log storage capacity.” | AU-05(01) |
+| Audit and Accountability / AU-05(02) | Monthly | “Provide an alert within defined in the applicable system security and privacy plan … when the following audit failure events occur …” | AU-05(02) |
+| Audit and Accountability / AU-06 | Weekly / 7 days | “Review and analyze system audit records no less often than weekly seven (7) days …” | AU-06 |
+| Audit and Accountability / AU-06(01) | Monthly | “Integrate audit record review, analysis, and reporting processes …” | AU-06(01) |
+| Audit and Accountability / AU-06(03) | Quarterly | “Analyze and correlate audit records across different repositories …” | AU-06(03) |
+| Audit and Accountability / AU-06(05) | Quarterly | “Integrate analysis of audit records with analysis of … vulnerability scanning information; performance data; system monitoring information …” | AU-06(05) |
+| Audit and Accountability / AU-06(06) | Quarterly | “Correlate information from audit records with information obtained from monitoring physical access …” | AU-06(06) |
+| Audit and Accountability / AU-07 | At least every 365 days | “Provide and implement an audit record reduction and report generation capability …” | AU-07 |
+| Audit and Accountability / AU-07(01) | Quarterly | “Provide and implement the capability to process, sort, and search audit records for events of interest …” | AU-07(01) |
+| Audit and Accountability / AU-08 | At least every 365 days | “Use internal system clocks … record time stamps … accurate to within one hundred (100) milliseconds …” | AU-08 |
+| Audit and Accountability / AU-09 | At least every 365 days | “Protect audit information and audit logging tools … alert … upon detection of unauthorized access, modification, or deletion …” | AU-09 |
+| Audit and Accountability / AU-09(02) | Weekly / 7 days | “Store audit records no less often than weekly seven (7) days in a repository that is part of a physically different system …” | AU-09(02) |
+| Audit and Accountability / AU-09(03) | At least every 365 days; three (3) years | “Implement cryptographic mechanisms to protect the integrity of audit information and audit tools.” | AU-09(03) |
+| Audit and Accountability / AU-09(04) | Quarterly | “Authorize access to management of audit logging functionality …” | AU-09(04) |
+| Audit and Accountability / AU-09(05) | At least every 365 days; three (3) years | “Enforce dual authorization for manual movement and deletion of HVA systems audit logs and information.” | AU-09(05) |
+| Audit and Accountability / AU-09(06) | At least every 365 days; three (3) years | “Authorize read-only access to audit information …” | AU-09(06) |
+| Audit and Accountability / AU-10 | Quarterly | “Provide irrefutable evidence that an individual … has performed …” | AU-10 |
+| Audit and Accountability / AU-11 | Retain 90 days; archive 365 days | “Retain audit records for ninety (90) days and archive old records for three hundred sixty-five (365) days …” | AU-11 |
+| Audit and Accountability / AU-12 | Quarterly | “Provide audit record generation capability …” | AU-12 |
+| Audit and Accountability / AU-12(01) | Quarterly | “Compile audit records … into a system-wide … audit trail that is time-correlated to within +/- five (5) minutes.” | AU-12(01) |
+| Audit and Accountability / AU-12(03) | Within minutes | “Provide and implement the capability … to change the logging … within minutes.” | AU-12(03) |
+| Audit and Accountability / AU-16 | At least every 365 days; three (3) years | “Employ methods … for coordinating audit information among external organizations …” | AU-16 |
+| Assessment, Authorization, and Monitoring / CA-01 | At least every 365 days; following CMS-defined events | “Review and update the current assessment, authorization, and monitoring … policy at least every 365 days … procedures at least every 365 days …” | CA-01 |
+| Assessment, Authorization, and Monitoring / CA-02 | Every 3 years; results within 30 days | “Assess the controls in the system and its environment of operation Every three (3) years … Provide the results … within thirty (30) days after its completion, in writing.” | CA-02 |
+| Assessment, Authorization, and Monitoring / CA-02(02) | Every 365 days | “Include as part of control assessments, every 365 days, announced or unannounced, in-depth monitoring; …” | CA-02(02) |
+| Assessment, Authorization, and Monitoring / CA-03 | Annually / every year (365 days) | “Review and update the agreements no less often than once every year (365 days) …” | CA-03 |
+| Assessment, Authorization, and Monitoring / CA-05 | Every 3 months / quarterly | “Update existing plan of action and milestones Every three (3) months …” | CA-05 |
+| Assessment, Authorization, and Monitoring / CA-06 | Every 3 years | “Update the authorizations Every three (3) years.” | CA-06 |
+| Assessment, Authorization, and Monitoring / CA-06(01) | Annually / three (3) years shown | “Employ a joint authorization process …” | CA-06(01) |
+| Assessment, Authorization, and Monitoring / CA-07 | No less than once every 72 hours; every 30 days | “Establishing defined frequencies … but no less than once every 72 hours for monitoring and … assessment of control effectiveness … Reporting … every thirty (30) days monthly.” | CA-07 |
+| Assessment, Authorization, and Monitoring / CA-08 | Within every 365 days; whenever significant change | “Conduct penetration testing within every 365 days … or whenever there is a significant change …” | CA-08 |
+| Assessment, Authorization, and Monitoring / CA-09 | Review 365 days | “Review 365 days the continued need for each internal connection.” | CA-09 |
+| Configuration Management / CM-01 | At least every 365 days; following CMS-defined events | “Review and update the current configuration management … policy at least every 365 days … procedures at least every 365 days …” | CM-01 |
+| Configuration Management / CM-02 | At least every 180 days for High; every 365 days for Moderate; on major changes; when installed/upgraded | “Review and update the baseline configuration … at least every 180 days for High systems or 365 days for Moderate systems; … when required due to major system changes/upgrades, critical security patches … and emergency changes …; and … when system components are installed or upgraded.” | CM-02 |
+| Configuration Management / CM-02(03) | Retain no less than 1 previous version | “Retain no less than one (1) of previous versions of baseline configurations …” | CM-02(03) |
+| Configuration Management / CM-03 | Retain records no less than 12 months; CCB convenes frequently enough | “Retain records of configuration-controlled changes … for no less than twelve (12) months after the change …” | CM-03 |
+| Configuration Management / CM-03(07) | At least once every 7 days | “Review changes to the system at least once every seven (7) days …” | CM-03(07) |
+| Configuration Management / CM-04 | Prior to implementation | “Analyze changes … prior to change implementation.” | CM-04 |
+| Configuration Management / CM-04(02) | After system changes | “After system changes, verify that the impacted controls are implemented correctly …” | CM-04(02) |
+| Configuration Management / CM-05 | At least every 365 days | “Define, document, approve, and enforce physical and logical access restrictions associated with changes to the system.” | CM-05 |
+| Configuration Management / CM-05(01) | At least every 365 days | “(a) Enforce access restrictions using automated mechanisms; and (b) Automatically generate audit records …” | CM-05(01) |
+| Configuration Management / CM-06 | At least every 365 days | “Establish and document configuration settings … Implement … Identify … Monitor and control changes …” | CM-06 |
+| Configuration Management / CM-06(01) | At least every 365 days | “Manage, apply, and verify configuration settings … using SIEM tools or enterprise security monitoring tools.” | CM-06(01) |
+| Configuration Management / CM-06(02) | At least every 365 days | “Take the following actions in response to unauthorized changes …” | CM-06(02) |
+| Configuration Management / CM-07 | At least every 365 days | “Configure the system to provide only …; and prohibit or restrict …” | CM-07 |
+| Configuration Management / CM-07(01) | At least every 30 days; upon significant risk | “Review the system upon encountering a significant risk, or at least every thirty (30) days …” | CM-07(01) |
+| Configuration Management / CM-07(05) | No less often than every 72 hours | “Review and update the list of authorized software programs no less often than every seventy-two (72) hours.” | CM-07(05) |
+| Configuration Management / CM-08 | Review and update every 180 days | “Review and update the system component inventory every 180 days.” | CM-08 |
+| Configuration Management / CM-08(01) | As part of installations/removals/updates | “Update the inventory of system components as part of component installations, removals, and system updates.” | CM-08(01) |
+| Configuration Management / CM-08(02) | At least every 365 days | “Maintain the currency, completeness, accuracy, and availability of the inventory … using automated mechanisms.” | CM-08(02) |
+| Configuration Management / CM-08(03) | Within 7 days | “Detect the presence of unauthorized hardware, software, and firmware components … using automated mechanisms within Seven (7) days …” | CM-08(03) |
+| Configuration Management / CM-09 | At least every 365 days | “Develop, document, and implement a configuration management plan …” | CM-09 |
+| Configuration Management / CM-10 | At least every 365 days | “Use software and associated documentation in accordance with contract agreements and copyright laws …” | CM-10 |
+| Configuration Management / CM-11 | Monthly; at least monthly / every 30 days | “Monitor policy compliance at least monthly every thirty (30) days.” | CM-11 |
+| Configuration Management / CM-12 | At least every 365 days; three (3) years | “Identify and document the location of information …” | CM-12 |
+| Contingency Planning / CP-01 | At least every 365 days; following CMS-defined events | “Review and update the current contingency planning … policy at least every 365 days … procedures at least every 365 days …” | CP-01 |
+| Contingency Planning / CP-02 | Within every 365 days; within 12 hours; every 3 years? no, plan itself annual review | “Review the contingency plan for the system within every 365 days …” | CP-02 |
+| Contingency Planning / CP-02(03) | Within 12 hours of activation | “Plan for the resumption of essential mission and business functions within Twelve (12) hours of contingency plan activation.” | CP-02(03) |
+| Contingency Planning / CP-03 | Within 90 days of assuming role; within 365 days thereafter | “Provide contingency training … within ninety (90) days of assuming a contingency role or responsibility; … within every 365 days thereafter …” | CP-03 |
+| Contingency Planning / CP-04 | At least every 365 days | “Test the contingency plan for the system at least every 365 days …” | CP-04 |
+| Contingency Planning / CP-08(05) | Every 6 months | “Test alternate telecommunication services Every six (6) months.” | CP-08(05) |
+| Contingency Planning / CP-09 | User-level backups: every 1 month / daily; system-level backups: every 1 month / daily; docs: monthly or weekly/daily | “Conduct backups … Every one (1) month / Daily … Full Backups - Weekly Incremental Backups - Daily …” | CP-09 |
+| Contingency Planning / CP-09(01) | Test backup information every 6 months / 3 months / not defined for Low | “Test backup information … six (6) months / three (3) months …” | CP-09(01) |
+| Contingency Planning / CP-09(05) | At defined time periods/rates | “Transfer system backup information to the alternate storage site at defined time periods and transfer rates …” | CP-09(05) |
+| Contingency Planning / CP-10(04) | Within target restoration time | “Provide the capability to restore system components within the target restoration time …” | CP-10(04) |
+| Identification and Authentication / IA-01 | At least every 365 days; following CMS-defined events | “Review and update the current identification and authentication … policy at least every 365 days … procedures at least every 365 days …” | IA-01 |
+| Identification and Authentication / IA-02 | Every 6 months | “Uniquely identify and authenticate organizational users …” baseline review frequency shown as six months | IA-02 |
+| Identification and Authentication / IA-02(01) | Every 6 months | “Implement multi-factor authentication for access to privileged accounts.” | IA-02(01) |
+| Identification and Authentication / IA-02(02) | Every 6 months | “Implement multi-factor authentication for access to non-privileged accounts.” | IA-02(02) |
+| Identification and Authentication / IA-02(05) | When shared accounts/authenticators employed | “Require users to be individually authenticated before granting access to the shared accounts or resources.” | IA-02(05) |
+| Identification and Authentication / IA-02(08) | At least every 365 days | “Implement replay-resistant authentication mechanisms …” | IA-02(08) |
+| Identification and Authentication / IA-02(12) | At least every 365 days; three (3) years | “Accept and electronically verify PIV-compliant credentials.” | IA-02(12) |
+| Identification and Authentication / IA-03 | At least every 365 days | “Uniquely identify and authenticate devices … before establishing a remote connection.” | IA-03 |
+| Identification and Authentication / IA-04 | Prevent reuse for 3 years | “Preventing reuse of identifiers for three (3) years.” | IA-04 |
+| Identification and Authentication / IA-05 | Every 2 months / on compromise / on membership change | “Changing or refreshing authenticators … or when authenticator compromise occur … Changing authenticators for group or role accounts when membership … changes.” | IA-05 |
+| Identification and Authentication / IA-05(01) | Update commonly-used/compromised password list as frequently defined, not to exceed 365 days | “Maintain a list of commonly-used, expected, or compromised passwords and update the list using as frequently defined … not to exceed 365 days …” | IA-05(01) |
+| Identification and Authentication / IA-05(02) | Quarterly | “Validate certificates … implement a local cache of revocation data …” | IA-05(02) |
+| Identification and Authentication / IA-05(06) | At least every 365 days; three (3) years | “Protect authenticators commensurate with the security category …” | IA-05(06) |
+| Identification and Authentication / IA-06 | At least every 365 days | “Obscure feedback of authentication information during the authentication process …” | IA-06 |
+| Identification and Authentication / IA-07 | At least every 365 days | “Implement mechanisms for authentication to a cryptographic module …” | IA-07 |
+| Identification and Authentication / IA-08 | Quarterly | “Uniquely identify and authenticate non-organizational users …” | IA-08 |
+| Identification and Authentication / IA-08(01) | At least every 365 days; three (3) years | “Accept and electronically verify PIV-compliant credentials from other federal agencies.” | IA-08(01) |
+| Identification and Authentication / IA-08(02) | Every 6 months | “Accept only external authenticators that are NIST-compliant; and document and maintain a list of accepted external authenticators.” | IA-08(02) |
+| Identification and Authentication / IA-08(04) | At least every 365 days | “Conform to the following profiles for identity management …” | IA-08(04) |
+| Identification and Authentication / IA-11 | At least every 365 days; three (3) years | “Require users to re-authenticate when … circumstances or situations occur …” | IA-11 |
+| Identification and Authentication / IA-12 | At least every 365 days; three (3) years | “Identity proof users … based on appropriate identity assurance level requirements …” | IA-12 |
+| Incident Response / IR-01 | At least every 365 days; following CMS-defined events | “Review and update the current incident response … policy at least every 365 days … procedures at least every 365 days …” | IR-01 |
+| Incident Response / IR-02 | Within 1 month; within 365 days thereafter; when system changes | “Provide incident response training … within one (1) month of assuming an incident response role or responsibility or acquiring system access; … within every 365 days thereafter …” | IR-02 |
+| Incident Response / IR-03 | Every 365 days | “Test the effectiveness of the incident response capability … every 365 days …” | IR-03 |
+| Incident Response / IR-04 | Within 72 hours | “Implement an incident handling capability …” base control frequency shown as 72 hours | IR-04 |
+| Incident Response / IR-05 | At least every 365 days | “Track and document incidents.” | IR-05 |
+| Incident Response / IR-06 | Within 1 hour of discovery/notification; report to Help Desk | “Require personnel to report suspected incidents … within one (1) hour of discovery/notification …” | IR-06 |
+| Incident Response / IR-06(01) | At least every 365 days | “Report incidents using automated mechanisms.” | IR-06(01) |
+| Incident Response / IR-07 | At least every 365 days | “Provide an incident response support resource …” | IR-07 |
+| Incident Response / IR-08 | Review/approve every 365 days; update as needed | “Incident response plan … is reviewed and approved by Business Owner every 365 days …” | IR-08 |
+| Incident Response / IR-08(01) | At least every 365 days | “Include the following in the Incident Response Plan for breaches …” | IR-08(01) |
+| Maintenance / MA-01 | At least every 365 days; following CMS-defined events | “Review and update the current maintenance … policy at least every 365 days … procedures at least every 365 days …” | MA-01 |
+| Maintenance / MA-02 | At least every 365 days | “Schedule, document, and review records of maintenance …” | MA-02 |
+| Maintenance / MA-02(02) | At least every 365 days | “Schedule, conduct, and document maintenance … using automated mechanisms; and produce up-to-date … records …” | MA-02(02) |
+| Maintenance / MA-03 | Review previously approved tools every 30 days monthly | “Review previously approved system maintenance tools every thirty (30) days monthly.” | MA-03 |
+| Maintenance / MA-04 | At least every 365 days | “Approve and monitor nonlocal maintenance and diagnostic activities …” | MA-04 |
+| Maintenance / MA-05 | At least every 365 days | “Establish a process for maintenance personnel authorization …” | MA-05 |
+| Maintenance / MA-06 | Within applicable RTO of failure | “Obtain maintenance support and/or spare parts … within applicable Recovery Time Objective (RTO) of failure.” | MA-06 |
+| Media Protection / MP-01 | At least every 365 days; following CMS-defined events | “Review and update the current media protection … policy at least every 365 days … procedures at least every 365 days …” | MP-01 |
+| Media Protection / MP-02 | At least every 365 days | “Restrict access to digital and non-digital media …” | MP-02 |
+| Media Protection / MP-03 | At least every 365 days | “Mark system media …” | MP-03 |
+| Media Protection / MP-04 | At least every 365 days | “Physically control and securely store digital and non-digital media …” | MP-04 |
+| Media Protection / MP-05 | At least every 365 days | “Protect and control digital and non-digital media … during transport …” | MP-05 |
+| Media Protection / MP-06 | At least every 365 days | “Sanitize digital and non-digital system media prior to disposal, release out of organizational control, or release for reuse …” | MP-06 |
+| Media Protection / MP-06(01) | At least every 365 days | “Review, approve, track, document, and verify media sanitization and disposal actions.” | MP-06(01) |
+| Media Protection / MP-06(02) | Every 365 days | “Test sanitization equipment and procedures every 365 days …” | MP-06(02) |
+| Media Protection / MP-06(03) | Prior to initial use; when unknown source; when chain of custody lost; when connected to lower assurance network/system | “Apply nondestructive sanitization techniques to portable storage devices prior to connecting such devices to the system under the following circumstances …” | MP-06(03) |
+| Media Protection / MP-06(08) | Remotely; annual review frequency shown; three (3) years | “Provide the capability to purge or wipe information from HVA systems, components, and devices Remotely.” | MP-06(08) |
+| Media Protection / MP-07 | At least every 365 days | “Prohibit the use of personally owned media … and prohibit the use of portable storage devices … when such devices have no identifiable owner.” | MP-07 |
+| Physical and Environmental Protection / PE-01 | At least every 365 days; following CMS-defined events | “Review and update the current physical and environmental protection … policy at least every 365 days … procedures at least every 365 days …” | PE-01 |
+| Physical and Environmental Protection / PE-02 | Review access list every 90 days for High; 180 days for Moderate; 365 days for Low | “Review the access list detailing authorized facility access by individuals within every 90 days for High Systems, 180 days for Moderate Systems, and 365 days for Low Systems …” | PE-02 |
+| Physical and Environmental Protection / PE-03 | Inventory every 90 days for High/Moderate; 180 days for Low; change keys/combinations within 365 days | “Inventory defined physical access devices every 90 days for High Systems and Moderate Systems, and 180 days for Low Systems; and change combinations and keys within every 365 days …” | PE-03 |
+| Physical and Environmental Protection / PE-03(01) | Quarterly | “Enforce physical access authorizations to the system in addition to the physical access controls for the facility …” | PE-03(01) |
+| Physical and Environmental Protection / PE-04 | Quarterly | “Control physical access to defined system distribution and transmission lines …” | PE-04 |
+| Physical and Environmental Protection / PE-05 | Quarterly | “Control physical access to output from defined output devices …” | PE-05 |
+| Physical and Environmental Protection / PE-06 | Weekly / every 7 days | “Review physical access logs weekly (every 7 days) and upon occurrence of defined events …” | PE-06 |
+| Physical and Environmental Protection / PE-06(01) | Quarterly | “Monitor physical access … using physical intrusion alarms and surveillance equipment.” | PE-06(01) |
+| Physical and Environmental Protection / PE-06(04) | Quarterly | “Monitor physical access to the system in addition to the physical access monitoring of the facility …” | PE-06(04) |
+| Physical and Environmental Protection / PE-08 | Maintain records for 2 years; review monthly (every 30 days) | “Maintain visitor access records … for two (2) years; review … no less often than monthly (every 30 days)” | PE-08 |
+| Physical and Environmental Protection / PE-08(01) | Quarterly | “Maintain and review visitor access records using automated mechanisms …” | PE-08(01) |
+| Physical and Environmental Protection / PE-09 | Quarterly | “Protect power equipment and power cabling …” | PE-09 |
+| Physical and Environmental Protection / PE-10 | At least every 365 days; three (3) years | “Provide the capability of shutting off power …” | PE-10 |
+| Physical and Environmental Protection / PE-11 | Quarterly | “Provide an uninterruptible power supply …” | PE-11 |
+| Physical and Environmental Protection / PE-12 | Quarterly | “Employ and maintain automatic emergency lighting …” | PE-12 |
+| Physical and Environmental Protection / PE-13 | Quarterly | “Employ and maintain fire detection and suppression systems that are supported by an independent energy source.” | PE-13 |
+| Physical and Environmental Protection / PE-13(01) | Quarterly | “Employ fire detection systems that activate automatically and notify …” | PE-13(01) |
+| Physical and Environmental Protection / PE-13(02) | Quarterly | “Employ fire suppression systems that activate automatically and notify …” | PE-13(02) |
+| Physical and Environmental Protection / PE-14 | Quarterly | “Maintain temperature, humidity, pressure, and radiation levels … Monitor environmental control levels within the defined frequency …” | PE-14 |
+| Physical and Environmental Protection / PE-15 | Quarterly | “Protect the system from damage resulting from water leakage …” | PE-15 |
+| Physical and Environmental Protection / PE-15(01) | Quarterly | “Detect the presence of water near the system and alert … using automated mechanisms.” | PE-15(01) |
+| Physical and Environmental Protection / PE-16 | Quarterly | “Authorize and control defined types of system components entering and exiting the facility …” | PE-16 |
+| Physical and Environmental Protection / PE-17 | Quarterly | “Determine and document the alternate work sites …; employ controls; assess effectiveness …” | PE-17 |
+| Physical and Environmental Protection / PE-18 | Quarterly | “Position system components within the facility to minimize potential damage …” | PE-18 |
+| Planning / PL-01 | At least every 365 days; following CMS-defined events | “Review and update the current planning … policy at least every 365 days … procedures at least every 365 days …” | PL-01 |
+| Planning / PL-02 | Within every 365 days | “Review the plans within every 365 days …” | PL-02 |
+| Planning / PL-04 | Every 3 years; re-acknowledge every 365 days | “Review and update the rules of behavior every three (3) years; and require individuals … to read and re-acknowledge every 365 days.” | PL-04 |
+| Planning / PL-08 | At least every 3 years | “Review and update the architectures at least every three (3) years …” | PL-08 |
+| Planning / PL-09 | No specific cadence stated in requirement text | “Centrally manage controls and related processes within the CMS GRC tool.” | PL-09 |
+| Planning / PL-10 | Not specified | “Select a control baseline for the system.” | PL-10 |
+| Planning / PL-11 | Not specified | “Tailor the selected control baseline …” | PL-11 |
+| Program Management / PM-01 | Every 365 days; following CMS-defined events | “Review and update the organization-wide information security program plan every 365 days …” | PM-01 |
+| Program Management / PM-03 | No fixed cadence stated | “Include the resources needed … in capital planning and investment requests …” | PM-03 |
+| Program Management / PM-04 | No fixed cadence stated | “Implement a process to ensure that plans of action and milestones … are developed and maintained …” | PM-04 |
+| Program Management / PM-05 | Every 30 days | “Develop and update every 30 days an inventory of organizational systems.” | PM-05 |
+| Program Management / PM-05(01) | Every 365 days | “Establish, maintain, and update every 365 days an inventory of all systems, applications, and projects that process PII.” | PM-05(01) |
+| Program Management / PM-06 | No fixed cadence stated | “Develop, monitor, and report on the results of information security and privacy measures of performance.” | PM-06 |
+| Program Management / PM-07 | No fixed cadence stated | “Develop and maintain an enterprise architecture …” | PM-07 |
+| Program Management / PM-09 | At least every 365 days or as required | “Review and update the risk management strategy at least every 365 days or as required …” | PM-09 |
+| Program Management / PM-10 | No fixed cadence stated | “Manage the security and privacy state … through authorization processes …” | PM-10 |
+| Program Management / PM-11 | Every 3 years | “Review and revise the mission and business processes every 3 years.” | PM-11 |
+| Program Management / PM-12 | No fixed cadence stated | “Implement an insider threat program …” | PM-12 |
+| Program Management / PM-13 | No fixed cadence stated | “Establish a security and privacy workforce development and improvement program.” | PM-13 |
+| Program Management / PM-14 | No fixed cadence stated | “Implement a process for ensuring that organizational plans for conducting security and privacy testing, training, and monitoring …” | PM-14 |
+| Program Management / PM-15 | No fixed cadence stated | “Establish and institutionalize contact with selected groups and associations …” | PM-15 |
+| Program Management / PM-16 | No fixed cadence stated | “Implement a threat awareness program …” | PM-16 |
+| Program Management / PM-17 | Every 3 years | “Review and update the policy and procedures every 3 years.” | PM-17 |
+| Program Management / PM-18 | Every 2 years | “Update the plan every 2 years …” | PM-18 |
+| Program Management / PM-19 | No fixed cadence stated | “Appoint a senior agency official for privacy …” | PM-19 |
+| Program Management / PM-20 | No fixed cadence stated for webpage maintenance; policy pages updated when substantive change | “Maintain a central resource webpage …” | PM-20 |
+| Program Management / PM-20(01) | Update whenever substantive change; include time/date stamp | “Are updated whenever the organization makes a substantive change to the practices it describes and includes a time/date stamp …” | PM-20(01) |
+| Program Management / PM-21 | Retain accounting for length of time PII maintained or 5 years after disclosure, whichever is longer | “Retain the accounting of disclosures for the length of the time the personally identifiable information is maintained or five years after the disclosure is made, whichever is longer …” | PM-21 |
+| Program Management / PM-22 | No fixed cadence stated in base; quality reviewed across life cycle | “Develop and document organization-wide policies and procedures for …” | PM-22 |
+| Program Management / PM-23 | No fixed cadence stated | “Establish a Data Governance Body …” | PM-23 |
+| Program Management / PM-24 | Annual review of all matching programs | “Conduct an annual review of all matching programs in which the agency has participated.” | PM-24 |
+| Program Management / PM-25 | Within every 365 days | “Review and update policies and procedures within every 365 days.” | PM-25 |
+| Program Management / PM-26 | Within 24 hours; respond within 72 hours | “Track … complaints received are reviewed and addressed within 24 hours; acknowledgement … within 24 hours; response … within 72 hours.” | PM-26 |
+| Program Management / PM-27 | Review and update privacy reports 30 days | “Review and update privacy reports 30 days.” | PM-27 |
+| Program Management / PM-28 | Update not to exceed 90 days | “Review and update risk framing considerations that does not to exceed ninety (90) days.” | PM-28 |
+| Program Management / PM-29 | No fixed cadence stated | “Appoint a Senior Accountable Official for Risk Management … and establish a Risk Executive …” | PM-29 |
+| Program Management / PM-30 | Every 3 years or as required | “Review and update the supply chain risk management strategy on every 3 years or as required …” | PM-30 |
+| Program Management / PM-31 | 72 hours for monitoring and 72 hours for assessment of control effectiveness; every 30 days reporting | “Establishing 72 hours for monitoring and 72 hours for assessment of control effectiveness … reporting … every 30 days.” | PM-31 |
+| Program Management / PM-32 | No fixed cadence stated | “Analyze CMS Mission/Business/System or system components …” | PM-32 |
+| Personnel Security / PS-01 | At least every 365 days; following CMS-defined events | “Review and update the current personnel security … policy at least every 365 days … procedures at least every 365 days …” | PS-01 |
+| Personnel Security / PS-02 | Every 3 years | “Review and update position risk designations every 3 years.” | PS-02 |
+| Personnel Security / PS-03 | Prior to authorizing access; rescreen in accordance with policy / upon transfer to higher risk | “Screen individuals prior to authorizing access … Rescreen individuals in accordance with OPM, HHS, and the CMS Personnel Security Policy …” | PS-03 |
+| Personnel Security / PS-04 | Upon termination; disable access within termination process/action | “Upon termination of individual employment: a. Disable system access within System access must be disabled prior to or during the employee termination process/action …” | PS-04 |
+| Personnel Security / PS-04(02) | Quarterly | “Use automated mechanisms … to notify … of individual termination actions; disable access to system resources.” | PS-04(02) |
+| Personnel Security / PS-05 | Within 30 days; notify within 7 days | “Initiate … within thirty (30) days … Notify … within seven (7) days.” | PS-05 |
+| Personnel Security / PS-06 | Review/update within every 365 days; re-sign within every 365 days | “Review and update the access agreements within every 365 days … Re-sign access agreements … within every 365 days.” | PS-06 |
+| Personnel Security / PS-07 | Maximum 72 hours / 7 calendar days / 30 calendar days from formal termination action; monitor compliance | “Notify … of any personnel transfers or terminations … within a maximum of seven-two (72) hours … seven (7) calendar days … thirty (30) calendar days …” | PS-07 |
+| Personnel Security / PS-08 | Notify within 30 days / 7 days / 72 hours / 72 hours depending impact | “Notify … within 30 days / 7 days / 72 hours / 72 hours when a formal employee sanctions process is initiated …” | PS-08 |
+| Personnel Security / PS-09 | No fixed cadence stated | “Incorporate security and privacy roles and responsibilities into organizational position descriptions.” | PS-09 |
+| Personally Identifiable Information Processing and Transparency / PT-01 | At least every 365 days; following CMS-defined events | “Review and update the current personally identifiable information processing and transparency … policy at least every 365 days … procedures at least every 365 days …” | PT-01 |
+| PT-02 | 3 years | “Determine and document the relevant legal authority …” | PT-02 |
+| PT-03 | 3 years | “Identify and document the purpose(s) … Restrict … Monitor changes …” | PT-03 |
+| PT-04 | 3 years | “Implement legally sufficient means for individuals to consent … prior to its collection …” | PT-04 |
+| PT-05 | 3 years | “Provide notice to individuals …” | PT-05 |
+| PT-05(02) | At time of collection / on forms | “Include Privacy Act statements on forms that collect information …” | PT-05(02) |
+| PT-06 | 3 years | “Draft system of records notices … publish … keep … accurate, up-to-date …” | PT-06 |
+| PT-06(01) | Every 3 years | “Review all routine uses … at every 3 years …” | PT-06(01) |
+| PT-06(02) | Every 3 years | “Review all Privacy Act exemptions claimed … at every 3 years …” | PT-06(02) |
+| PT-07 | 3 years | “Apply processing conditions … for specific categories of PII.” | PT-07 |
+| PT-07(01) | When processing SSNs | “When a system processes Social Security numbers …” | PT-07(01) |
+| PT-07(02) | 3 years | “Prohibit the processing of information describing how any individual exercises rights guaranteed by the First Amendment …” | PT-07(02) |
+| PT-08 | 3 years | “When a system or organization processes information for the purpose of conducting a matching program …” | PT-08 |
+| Risk Assessment / RA-01 | At least every 365 days; following CMS-defined events | “Review and update the current risk assessment … policy at least every 365 days … procedures at least every 365 days …” | RA-01 |
+| Risk Assessment / RA-02 | 2 years | “Categorize the system and information it processes …” | RA-02 |
+| Risk Assessment / RA-03 | Review within every 365 days; update every 3 years or significant change | “Review risk assessment results within every 365 days … Update the risk assessment every 3 years or when there are significant changes …” | RA-03 |
+| Risk Assessment / RA-03(01) | Update every 3 years / when significant changes | “Update the supply chain risk assessment every 3 years, when there are significant changes …” | RA-03(01) |
+| Risk Assessment / RA-05 | No less often than once every 72 hours; new vulnerabilities; monthly assessment frequency shown | “Monitor and scan for vulnerabilities … no less often than once every 72 hours and when new vulnerabilities …” | RA-05 |
+| Risk Assessment / RA-05(02) | No less often than every 72 hours; prior to new scan; when new vulnerabilities identified | “Update the system vulnerabilities to be scanned no less often than every 72 hours, prior to a new scan, and when new vulnerabilities are identified and reported.” | RA-05(02) |
+| Risk Assessment / RA-05(04) | At least every 365 days | “Determine information about the system that is discoverable and take appropriate corrective actions …” | RA-05(04) |
+| Risk Assessment / RA-05(05) | Quarterly | “Implement privileged access authorization … for defined vulnerability scanning activities …” | RA-05(05) |
+| Risk Assessment / RA-05(06) | Not specified | “Compare the results of multiple vulnerability scans using automated tools.” | RA-05(06) |
+| Risk Assessment / RA-05(10) | Not specified | “Correlate the output from vulnerability scanning tools …” | RA-05(10) |
+| Risk Assessment / RA-05(11) | At least every 365 days | “Establish a public reporting channel for receiving reports of vulnerabilities …” | RA-05(11) |
+| Risk Assessment / RA-07 | Not specified | “Respond to findings … in accordance with organizational risk tolerance.” | RA-07 |
+| Risk Assessment / RA-08 | Before developing/procuring IT; before initiating new PII collection | “Conduct privacy impact assessments … before …” | RA-08 |
+| Risk Assessment / RA-09 | At decision points in SDLC | “Identify critical system components and functions by performing a criticality analysis … at decision points in the system development life cycle.” | RA-09 |
+| System and Services Acquisition / SA-01 | At least every 365 days; following CMS-defined events | “Review and update the current system and services acquisition … policy at least every 365 days … procedures at least every 365 days …” | SA-01 |
+| System and Services Acquisition / SA-02 | Monthly | “Determine … requirements … allocate the resources … establish a discrete line item …” | SA-02 |
+| System and Services Acquisition / SA-03 | Monthly | “Acquire, develop, and manage the system using a formally defined and documented SDLC …” | SA-03 |
+| System and Services Acquisition / SA-04 | Monthly | “Include the following requirements … in the acquisition contract …” | SA-04 |
+| System and Services Acquisition / SA-04(05) | Not specified | “Deliver the system … with organizationally defined security configurations implemented; and use the configurations as the default …” | SA-04(05) |
+| System and Services Acquisition / SA-04(09) | Monthly | “Require the developer … to identify the functions, ports, protocols, and services intended for organizational use.” | SA-04(09) |
+| System and Services Acquisition / SA-04(10) | Monthly | “Employ only information technology products on the FIPS 201-approved products list …” | SA-04(10) |
+| System and Services Acquisition / SA-05 | Monthly | “Obtain or develop administrator documentation … user documentation … distribute documentation …” | SA-05 |
+| System and Services Acquisition / SA-08 | Monthly | “Apply the following systems security and privacy engineering principles …” | SA-08 |
+| System and Services Acquisition / SA-08(33) | Not specified | “Implement the privacy principle of minimization using techniques defined by the CMS Privacy Office.” | SA-08(33) |
+| System and Services Acquisition / SA-09 | Monthly | “Require that providers of external system services comply … and monitor control compliance … on an ongoing basis …” | SA-09 |
+| System and Services Acquisition / SA-09(01) | Not specified | “Conduct an organizational assessment of risk prior to the acquisition or outsourcing of information security services …” | SA-09(01) |
+| System and Services Acquisition / SA-09(02) | Not specified / annual assessment frequency shown | “Require providers … to identify the functions, ports, protocols, and other services required …” | SA-09(02) |
+| System and Services Acquisition / SA-10 | Monthly | “Perform configuration management during … design; development; implementation; and operation …” | SA-10 |
+| System and Services Acquisition / SA-11 | Annually | “At all post-design stages … ongoing security and privacy control assessments … unit; integration; system; regression testing/evaluation … at Annually;” | SA-11 |
+| System and Services Acquisition / SA-11(01) | At least every 365 days; three (3) years | “Require the developer … to employ static code analysis tools …” | SA-11(01) |
+| System and Services Acquisition / SA-15 | Every 3 years | “Review the development process, standards, tools, tool options, and tool configurations Every 3 years …” | SA-15 |
+| System and Services Acquisition / SA-15(03) | Not specified | “Require the developer … to perform a criticality analysis … throughout the system development lifecycle …” | SA-15(03) |
+| System and Services Acquisition / SA-16 | Not specified; annual assessment frequency shown | “Require the developer … to provide … training … classroom-style … web-based/computer-based … hands-on …” | SA-16 |
+| System and Services Acquisition / SA-17 | At least every 365 days; three (3) years | “Require the developer … to produce a design specification and security and privacy architecture …” | SA-17 |
+| System and Services Acquisition / SA-21 | At least every 365 days; three (3) years | “Require that the developer … has appropriate access authorizations … and satisfies … screening criteria …” | SA-21 |
+| System and Services Acquisition / SA-22 | Not specified | “Replace system components when support … is no longer available … or provide … in-house support.” | SA-22 |
+| System and Communications Protection / SC-01 | At least every 365 days; following CMS-defined events | “Review and update the current system and communications protection … policy at least every 365 days … procedures at least every 365 days …” | SC-01 |
+| System and Communications Protection / SC-02 | Quarterly | “Separate user functionality … from system management functionality.” | SC-02 |
+| System and Communications Protection / SC-03 | Quarterly | “Isolate security functions from nonsecurity functions.” | SC-03 |
+| System and Communications Protection / SC-04 | Quarterly | “Prevent unauthorized and unintended information transfer via shared system resources.” | SC-04 |
+| System and Communications Protection / SC-05 | Monthly | “Protect against the effects of … denial-of-service events …” | SC-05 |
+| System and Communications Protection / SC-07 | Quarterly | “Monitor and control communications at the external managed interfaces …” | SC-07 |
+| System and Communications Protection / SC-07(04) | Annually / every 365 days | “Review exceptions to the traffic flow policy within every 365 days or implementation of major new system …” | SC-07(04) |
+| System and Communications Protection / SC-07(05) | Quarterly | “Deny network communications traffic by default and allow … by exception …” | SC-07(05) |
+| System and Communications Protection / SC-07(07) | Quarterly | “Prevent split tunneling for remote devices …” | SC-07(07) |
+| System and Communications Protection / SC-07(08) | Monthly | “Route all user-initiated internal communications traffic to untrusted external networks through authenticated proxy servers …” | SC-07(08) |
+| System and Communications Protection / SC-07(10) | Not specified | “Prevent the exfiltration of information; and conduct exfiltration tests according to the defined frequency …” | SC-07(10) |
+| System and Communications Protection / SC-08 | Quarterly | “Protect the confidentiality and integrity of transmitted information.” | SC-08 |
+| System and Communications Protection / SC-08(01) | Quarterly | “Implement cryptographic mechanisms to prevent unauthorized disclosure … and detect changes … during transmission.” | SC-08(01) |
+| System and Communications Protection / SC-10 | Quarterly | “Terminate the network connection … at the end of the session or after 30 minutes of inactivity.” | SC-10 |
+| System and Communications Protection / SC-12 | Quarterly | “Establish and manage cryptographic keys …” | SC-12 |
+| System and Communications Protection / SC-12(01) | Monthly | “Maintain availability of information in the event of the loss of cryptographic keys by users.” | SC-12(01) |
+| System and Communications Protection / SC-13 | Quarterly | “Determine the cryptographic uses; and implement the types of cryptography required …” | SC-13 |
+| System and Communications Protection / SC-15 | Quarterly | “Prohibit remote activation of collaborative computing devices …” | SC-15 |
+| System and Communications Protection / SC-17 | Quarterly | “Issue public key certificates … or obtain … from an approved service provider …” | SC-17 |
+| System and Communications Protection / SC-18 | Quarterly | “Define acceptable and unacceptable mobile code … authorize, monitor, and control …” | SC-18 |
+| System and Communications Protection / SC-18(04) | Not specified | “Prevent the automatic execution of mobile code in HVA software applications and system components …” | SC-18(04) |
+| System and Communications Protection / SC-20 | Quarterly | “Provide additional data origin authentication and integrity verification artifacts …” | SC-20 |
+| System and Communications Protection / SC-21 | Quarterly | “Request and perform data origin authentication and data integrity verification …” | SC-21 |
+| System and Communications Protection / SC-22 | Quarterly | “Ensure the systems that collectively provide name/address resolution service … are fault-tolerant and implement internal and external role separation.” | SC-22 |
+| System and Communications Protection / SC-23 | Quarterly | “Protect the authenticity of communications sessions.” | SC-23 |
+| System and Communications Protection / SC-24 | Monthly | “Fail to a known state … preserving confidentiality and integrity and availability …” | SC-24 |
+| System and Communications Protection / SC-28 | Quarterly | “Protect the confidentiality; integrity of … information at rest …” | SC-28 |
+| System and Communications Protection / SC-28(01) | Annually / 3 years | “Implement cryptographic mechanisms to prevent unauthorized disclosure and modification … at rest …” | SC-28(01) |
+| System and Communications Protection / SC-39 | Quarterly | “Maintain a separate execution domain for each executing system process.” | SC-39 |
+| System and Information Integrity / SI-01 | At least every 365 days; following CMS-defined events | “Review and update the current system and information integrity … policy at least every 365 days … procedures at least every 365 days …” | SI-01 |
+| System and Information Integrity / SI-02 | Quarterly | “Identify, report, and correct system flaws; test software and firmware updates … install security-relevant software and firmware updates within timeframe established in the system patch management plan …” | SI-02 |
+| System and Information Integrity / SI-02(02) | No less often than once every 72 hours | “Determine if system components have applicable security-relevant software and firmware updates installed using automated mechanisms no less often than once every seventy-two hours.” | SI-02(02) |
+| System and Information Integrity / SI-03 | Monthly | “Implement signature-based and/or non-signature-based malicious code protection … critical system file scans no less often than once every twelve (12) hours and full system scans no less often than once every seventy-two (72) hours …” | SI-03 |
+| System and Information Integrity / SI-04 | Daily | “Monitor the system to detect …” | SI-04 |
+| System and Information Integrity / SI-04(02) | Daily | “Employ automated tools and mechanisms to support near real-time analysis of events.” | SI-04(02) |
+| System and Information Integrity / SI-04(04) | Daily | “Determine criteria … monitor inbound and outbound communications traffic …” | SI-04(04) |
+| System and Information Integrity / SI-04(05) | Daily | “Alert personnel or roles … when … indications … occur …” | SI-04(05) |
+| System and Information Integrity / SI-05 | Quarterly | “Receive system security alerts, advisories, and directives … on an ongoing basis …” | SI-05 |
+| System and Information Integrity / SI-05(01) | Quarterly | “Broadcast security alert and advisory information throughout the organization using automated mechanisms …” | SI-05(01) |
+| System and Information Integrity / SI-06 | Quarterly; no less often than once per month for verification | “Verify the correct operation … perform the verification … upon system startup, restart, and upon command … no less often than once per month …” | SI-06 |
+| System and Information Integrity / SI-07 | Quarterly | “Employ integrity verification tools to detect unauthorized changes …” | SI-07 |
+| System and Information Integrity / SI-07(01) | At startup/transitional states/security-relevant events; at least quarterly | “Perform an integrity check … at startup and/or at transitional states or at security-relevant events; at least quarterly.” | SI-07(01) |
+| System and Information Integrity / SI-07(02) | Quarterly | “Employ automated tools that provide notification … upon discovering discrepancies during integrity verification.” | SI-07(02) |
+| System and Information Integrity / SI-07(05) | Quarterly | “Automatically … shut down / restart / implement security and/or privacy controls … when integrity violations are discovered.” | SI-07(05) |
+| System and Information Integrity / SI-07(07) | At least every 365 days | “Incorporate the detection of unauthorized changes into the organizational incident response capability …” | SI-07(07) |
+| System and Information Integrity / SI-07(15) | Not specified | “Implement cryptographic mechanisms to authenticate … prior to installation …” | SI-07(15) |
+| System and Information Integrity / SI-08 | Quarterly | “Employ spam protection mechanisms … and update … when new releases are available …” | SI-08 |
+| System and Information Integrity / SI-08(02) | Regular basis defined in plan | “Automatically update spam protection mechanisms on a regular basis …” | SI-08(02) |
+| System and Information Integrity / SI-10 | Quarterly | “Check the validity of the following information inputs …” | SI-10 |
+| System and Information Integrity / SI-11 | Quarterly | “Generate error messages … Reveal error messages only to …” | SI-11 |
+| System and Information Integrity / SI-12 | At least every 365 days; three (3) years | “Manage and retain information within the system … in accordance with applicable laws …” | SI-12 |
+| System and Information Integrity / SI-12(01) | Not specified | “Limit personally identifiable information being processed …” | SI-12(01) |
+| System and Information Integrity / SI-12(02) | Not specified | “Use the following techniques to minimize the use of personally identifiable information for research, testing, or training …” | SI-12(02) |
+| System and Information Integrity / SI-12(03) | Following retention period | “Use the following techniques to dispose of, destroy, or erase information following the retention period …” | SI-12(03) |
+| System and Information Integrity / SI-16 | Quarterly | “Implement … controls to protect the system memory from unauthorized code execution …” | SI-16 |
+| System and Information Integrity / SI-18 | Not specified in base; one subpart every 365 days | “Check the accuracy, relevance, timeliness, and completeness of PII across the information life cycle every 365 days …” | SI-18 |
+| System and Information Integrity / SI-19 | Not specified in base; evaluate every 365 days | “Remove the following elements of PII … and evaluate every 365 days for effectiveness of de-identification.” | SI-19 |
+| Supply Chain Risk Management / SR-01 | At least every 365 days; following CMS-defined events | “Review and update the current supply chain risk management … policy at least every 365 days … procedures at least every 365 days …” | SR-01 |
+| Supply Chain Risk Management / SR-02 | Annually | “Review and update the supply chain risk management plan annually …” | SR-02 |
+| Supply Chain Risk Management / SR-03 | No fixed cadence stated | “Establish a process or processes to identify and address weaknesses or deficiencies …” | SR-03 |
+| Supply Chain Risk Management / SR-04(02) | Not specified | “Document, monitor, and maintain valid provenance …” | SR-04(02) |
+| Supply Chain Risk Management / SR-04(03) | Not specified | “Establish and maintain unique identification … for tracking through the supply chain …” | SR-04(03) |
+| Supply Chain Risk Management / SR-05 | No fixed cadence stated | “Employ the following acquisition strategies, contract tools, and procurement methods …” | SR-05 |
+| Supply Chain Risk Management / SR-05(02) | Prior to selection, acceptance, modification, or update | “Assess the system, system component, or system service prior to selection, acceptance, modification, or update.” | SR-05(02) |
+| Supply Chain Risk Management / SR-06 | Every 365 days | “Assess and review the supply chain-related risks associated with suppliers or contractors and the system, system component, or system service they provide every 365 days.” | SR-06 |
+| Supply Chain Risk Management / SR-08 | No fixed cadence stated | “Establish agreements and procedures … for the notification of supply chain compromises …” | SR-08 |
+| Supply Chain Risk Management / SR-09 | No fixed cadence stated | “Implement a tamper protection program …” | SR-09 |
+| Supply Chain Risk Management / SR-09(01) | Throughout SDLC | “Employ anti-tamper technologies, tools, and techniques throughout the system development life cycle.” | SR-09(01) |
+| Supply Chain Risk Management / SR-10 | Random and/or every 365 days; upon indications of need for inspection | “Inspect the following systems or system components at random and/or every 365 days or upon indications of need for inspection …” | SR-10 |
+| Supply Chain Risk Management / SR-11 | No fixed cadence stated | “Develop and implement anti-counterfeit policy and procedures …” | SR-11 |
+| Supply Chain Risk Management / SR-11(01) | No fixed cadence stated | “Train all System Engineers, ISSOs, System Owners and other System POCs …” | SR-11(01) |
+| Supply Chain Risk Management / SR-11(02) | No fixed cadence stated | “Maintain configuration control over … components awaiting service or repair …” | SR-11(02) |
+| Supply Chain Risk Management / SR-12 | No fixed cadence stated | “Dispose of CMS data, documentation, tools or system components using … NIST SP 800-88 techniques.” | SR-12 |

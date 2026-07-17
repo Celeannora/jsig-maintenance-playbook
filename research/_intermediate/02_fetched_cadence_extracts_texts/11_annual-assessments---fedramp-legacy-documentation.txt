@@ -1,0 +1,48 @@
+URL: https://www.fedramp.gov/legacy/playbook/csp/continuous-monitoring/annual-assessment/
+TITLE: Annual Assessments - FedRAMP Legacy Documentation
+ERROR: None
+
+## Documented operational cadences / frequencies / timelines
+
+| Source section | Exact requirement / close paraphrase | Cadence / timeline | Likely control family / control ID |
+|---|---|---:|---|
+| Introductory paragraph | “Security control **CA-2** requires the CSP to undergo an independent assessment of the cloud service offering **at least annually**.” | At least annually | **CA-2** |
+| **Review and Update Documentation** | “CSPs must review the SSP and appendices, and update (as necessary) **at least annually** to incorporate system changes and/or changes in processes and procedures.” | At least annually | **CM / CA** (documentation maintenance; explicitly tied to SSP/appendices) |
+| **Periodic Updates** | “FedRAMP **periodically** publishes updates to the SAP, SAR (including SRTM and RET) and POA&M templates…” | Periodically; no specific cadence stated | **CA / CM** |
+| **Incident Response and Contingency Testing** | “CSPs are required to test the Incident Response Plan (IRP) and Contingency Plan (CP) **at least annually**.” | At least annually | **IR / CP** |
+| **Define the Assessment Scope** | “Controls that have not been assessed, **at least once in a three year period**, to ensure controls are meeting periodicity requirements” | At least once in a three-year period | **CA / CM / SI / AU / IA / AC** (controls subject to periodicity; family not explicitly stated) |
+| **Brief Agency Customers on Assessment Plan** | “If multiple agencies are leveraging the CSO, schedule the briefing during the **monthly collaborative ConMon meeting**.” | Monthly | **CA / CM** |
+| **Conduct the Security Assessment and Develop SAR** | “When developing the assessment schedule, be sure to build in time for developing the draft SAR, CSP remediation activities, assessor remediation testing, and final SAR development.” | Timeline is schedule-dependent; no fixed cadence stated | **CA** |
+| **Complete Plan of Action and Milestones (POA&M)** | “The CSP prepares and submits the POA&M…”; “The CSP documents residual risks identified in the SAR and defines a plan for remediation…” | No fixed cadence stated in this page | **CA / CM** |
+
+## Additional explicit timelines / references
+
+- **“within the same annual period”**  
+  - Source section: **Define the Assessment Scope**  
+  - Context: “CSP-selected controls required to address system changes that have been implemented and/or changed by a CSP since their last assessment (**this excludes those controls or portions of controls previously assessed under a significant change within the same annual period**)”  
+  - Timeline: **within the same annual period**  
+  - Likely family/control ID: **CA / CM**
+
+- **“since the last assessment”**  
+  - Source section: **Define the Assessment Scope**  
+  - Context: “Validation of POA&Ms closed since the last assessment”  
+  - Timeline: **since the last assessment**  
+  - Likely family/control ID: **CA / CM**
+
+- **“at least once in a three year period”**  
+  - Source section: **Define the Assessment Scope**  
+  - Context: controls not assessed within that period must be included to meet periodicity requirements  
+  - Timeline: **three-year period**  
+  - Likely family/control ID: **CA / CM / AU / SI / IA / AC**
+
+- **“during the monthly collaborative ConMon meeting”**  
+  - Source section: **Brief Agency Customers on Assessment Plan**  
+  - Timeline: **monthly**  
+  - Likely family/control ID: **CA / CM**
+
+## Explicit absence of specific cadence
+
+- **Develop the Assessment Schedule**: contains “timeframes and resources” but **no specific frequency** is stated.
+- **Periodic Updates**: explicitly says FedRAMP “periodically” publishes updates, but **no specific cadence** (daily/weekly/monthly/quarterly/annually/etc.) is stated.
+- **Conduct the Security Assessment and Develop SAR**: mentions building in time for draft SAR, remediation, remediation testing, and final SAR development, but **no specific cadence** is stated.
+- **Complete POA&M**: requires preparation/submission and documentation of residual risks, but **no specific cadence** is stated.

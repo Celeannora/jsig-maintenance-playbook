@@ -1,0 +1,145 @@
+URL: https://www.fedramp.gov/resources/templates/SSP-Appendix-A-Moderate-FedRAMP-Security-Controls.docx
+TITLE: SSP-Appendix-A-Moderate-FedRAMP-Security-Controls.docx
+ERROR: None
+
+| Control ID | Exact frequency / timeline / retention period | Quoted text |
+|---|---|---|
+| AU-6 | at least weekly | “Review and analyze system audit records **[FedRAMP Assignment: at least weekly]** for indications of **[Assignment: organization-defined inappropriate or unusual activity]** and the potential impact of the inappropriate or unusual activity;” |
+| AU-11 | a time period in compliance with M-21-31 | “Retain audit records for **[FedRAMP Assignment: a time period in compliance with M-21-31]** to provide support for after-the-fact investigations of incidents and to meet regulatory and organizational information retention requirements.” |
+| AU-11 | on-line for at least ninety (90) days | “The service provider retains audit records **on-line for at least ninety (90) days** and further preserves audit records off-line for a period that is in accordance with NARA requirements.” |
+| AU-11 | off-line for a period in accordance with NARA requirements | “The service provider retains audit records on-line for at least ninety (90) days and further preserves audit records **off-line for a period that is in accordance with NARA requirements**.” |
+| AU-11 | automatically updated if M-21-31 is rescinded, updated, or replaced | “This additional requirement should be **automatically updated if M-21-31 is rescinded, updated, or replaced**.” |
+| AC-2 | twenty-four (24) hours when accounts are no longer required | “Notify account managers and **[Assignment: organization-defined personnel or roles] within [FedRAMP Assignment: twenty-four (24) hours] when accounts are no longer required;” |
+| AC-2 | eight (8) hours when users are terminated or transferred | “Notify account managers and **[Assignment: organization-defined personnel or roles] within [FedRAMP Assignment: eight (8) hours] when users are terminated or transferred**;” |
+| AC-2 | eight (8) hours when system usage or need-to-know changes for an individual | “Notify account managers and **[Assignment: organization-defined personnel or roles] within [FedRAMP Assignment: eight (8) hours] when system usage or need-to-know changes for an individual**;” |
+| AC-2 | quarterly for privileged access | “Review accounts for compliance with account management requirements **[FedRAMP Assignment: quarterly for privileged access, annually for non-privileged access]**;” |
+| AC-2 | annually for non-privileged access | “Review accounts for compliance with account management requirements **[FedRAMP Assignment: quarterly for privileged access, annually for non-privileged access]**;” |
+| AC-2(2) | no more than 96 hours from last use | “Automatically **[FedRAMP Assignment: disables] temporary and emergency accounts after [FedRAMP Assignment: no more than 96 hours from last use]**.” |
+| AC-2(3) | twenty-four (24) hours for user accounts | “Disable accounts within **[FedRAMP Assignment: twenty-four (24) hours for user accounts]** when the accounts:” |
+| AC-2(3) | ninety (90) days | “(d) Have been inactive for **[FedRAMP Assignment: ninety (90) days (See additional requirements and guidance.)]**.” |
+| AC-2(5) | end of a user’s standard work period | “Require that users log out when **[FedRAMP Assignment: for privileged users, it is the end of a user's standard work period]**.” |
+| AC-6(7) | at a minimum, annually | “Review **[FedRAMP Assignment: at a minimum, annually]** the privileges assigned to **[FedRAMP Assignment: all users with privileges]** to validate the need for such privileges;” |
+| AC-22 | at least quarterly | “Review the content on the publicly accessible system for nonpublic information **[FedRAMP Assignment: at least quarterly]** and remove such information, if discovered.” |
+| AT-1 | at least every three (3) years | “Policy **[FedRAMP Assignment: at least every three (3) years]** and following **[Assignment: organization-defined events]**;” |
+| AT-1 | at least annually | “Procedures **[FedRAMP Assignment: at least annually]** and following **[FedRAMP Assignment: significant changes]**.” |
+| AT-2 | at least annually thereafter | “As part of initial training for new users and **[FedRAMP Assignment: at least annually] thereafter;” |
+| AT-2 | at least annually | “Update literacy training and awareness content **[FedRAMP Assignment: at least annually]** and following **[Assignment: organization-defined events]**;” |
+| AT-3 | at least annually thereafter | “Before authorizing access to the system, information, or performing assigned duties, and **[FedRAMP Assignment: at least annually] thereafter;” |
+| AT-3 | at least annually | “Update role-based training content **[FedRAMP Assignment: at least annually]** and following **[Assignment: organization-defined events]**;” |
+| AT-4 | at least one (1) year or one (1) year after completion of a specific training program | “Retain individual training records for **[FedRAMP Assignment: at least one (1) year or one (1) year after completion of a specific training program]**.” |
+| AU-2 | annually and whenever there is a change in the threat environment | “Review and update the event types selected for logging **[FedRAMP Assignment: annually and whenever there is a change in the threat environment]**.” |
+| AU-5 | within [Assignment: organization-defined time period] | “Alert **[Assignment: organization-defined personnel or roles] within [Assignment: organization-defined time period]** in the event of an audit logging process failure;” |
+| AU-5 | overwrite oldest record | “Take the following additional actions: **[FedRAMP Assignment: overwrite oldest record]**.” |
+| CA-2 | at least annually | “Assess the controls in the system and its environment of operation **[FedRAMP Assignment: at least annually]** to determine the extent to which the controls are implemented correctly, operating as intended, and producing the desired outcome with respect to meeting established security and privacy” |
+| CA-3 | at least annually | “Review and update the agreements **[FedRAMP Assignment: at least annually]**.” |
+| CA-5 | at least monthly | “Update existing plan of action and milestones **[FedRAMP Assignment: at least monthly]** based on the findings from control assessments, independent audits or reviews, and continuous monitoring activities.” |
+| CA-5 | at least monthly | “**Requirement:** POA&Ms must be provided at least monthly.” |
+| CA-6 | in accordance with OMB A-130 requirements or when a significant change occurs | “Update the authorizations **[FedRAMP Assignment: in accordance with OMB A-130 requirements or when a significant change occurs]**.” |
+| CA-7 | organization-defined frequencies | “Establishing **[Assignment: organization-defined frequencies]** for monitoring and **[Assignment: organization-defined frequencies]** for assessment of control effectiveness;” |
+| CA-7 | organization-defined frequency | “Reporting the security and privacy status of the system to **[Assignment: Organization-defined personnel or role] [Assignment: organization-defined frequency]**.” |
+| CA-7 | at least monthly | “Operating System, Database, Web Application, Container, and Service Configuration Scans: **at least monthly**.” |
+| CA-7 | at least annually | “All scans performed by Independent Assessor: **at least annually**.” |
+| CA-8 | at least annually | “Conduct penetration testing **[FedRAMP Assignment: at least annually]** on **[Assignment: organization-defined systems or system components]**.” |
+| CA-9 | at least annually | “Review **[FedRAMP Assignment: at least annually]** the continued need for each internal connection.” |
+| CM-1 | at least every three (3) years | “Policy **[FedRAMP Assignment: at least every three (3) years]** and following **[Assignment: organization-defined events]**;” |
+| CM-1 | at least annually | “Procedures **[FedRAMP Assignment: at least annually]** and following **[FedRAMP Assignment: significant changes]**.” |
+| CM-2 | at least annually and when a significant change occurs | “Review and update the baseline configuration of the system: 1. **[FedRAMP Assignment: at least annually and when a significant change occurs]**;” |
+| CM-2(3) | organization-defined number | “Retain **[Assignment: organization-defined number]** of previous versions of baseline configurations of the system to support rollback.” |
+| CM-3 | organization-defined time period | “Retain records of configuration-controlled changes to the system for **[Assignment: organization-defined time period]**;” |
+| CM-3 | organization-defined frequency | “Coordinate and provide oversight for configuration change control activities through **[Assignment: organization-defined configuration change control element]** that convenes **[Selection (one-or-more): organization-defined frequency]**; when **[Assignment: organization-defined configuration change conditions]**].” |
+| CM-5(5) | at least quarterly | “Review and reevaluate privileges **[FedRAMP Assignment: at least quarterly]**.” |
+| CM-7(1) | at least annually | “Review the system **[FedRAMP Assignment: at least annually]** to identify unnecessary and/or nonsecure functions, ports, protocols, software, and services;” |
+| CM-7(5) | at least quarterly or when there is a change | “Review and update the list of authorized software programs **[FedRAMP Assignment: at least quarterly or when there is a change]**.” |
+| CM-8 | at least monthly | “Review and update the system component inventory **[FedRAMP Assignment: at least monthly]**.” |
+| CM-8 | at least monthly or when there is a change | “must be provided at least monthly or when there is a change.” |
+| CM-8(3) | maximum five-minute delay in detection | “Detect the presence of unauthorized hardware, software, and firmware components within the system using **[FedRAMP Assignment: automated mechanisms with a maximum five-minute delay in detection]**;” |
+| CM-8(3) | continuously | “and **[FedRAMP Assignment: continuously]**” |
+| CP-1 | at least every three (3) years | “Policy **[FedRAMP Assignment: at least every three (3) years]** and following **[Assignment: organization-defined events]**;” |
+| CP-1 | at least annually | “Procedures **[FedRAMP Assignment: at least annually]** and following **[FedRAMP Assignment: significant changes]**.” |
+| CP-2 | at least annually | “Review the contingency plan for the system **[FedRAMP Assignment: at least annually]**;” |
+| CP-2(3) | time period defined in service provider and organization SLA | “Plan for the resumption of **[FedRAMP Assignment: all]** mission and business functions within **[FedRAMP Assignment: time period defined in service provider and organization SLA]** of contingency plan activation.” |
+| CP-3 | *See Additional Requirements* | “Within **[FedRAMP Assignment: *See Additional Requirements]** of assuming a contingency role or responsibility;” |
+| CP-3 | at least annually | “**[FedRAMP Assignment: at least annually]** thereafter;” and “Review and update contingency training content **[FedRAMP Assignment: at least annually]** and following **[Assignment: organization-defined events]**.” |
+| CP-3 | within ten (10) days | “Privileged admins and engineers must take the basic contingency training within **ten (10) days**.” |
+| CP-3 | within sixty (60) days of hire date | “Newly hired critical contingency personnel must take this more in-depth training within **sixty (60) days of hire date** when the training will have more impact.” |
+| CP-4 | at least annually | “Test the contingency plan for the system **[FedRAMP Assignment: at least annually]** using the following tests…” |
+| CP-9 | daily incremental; weekly full | “Conduct backups of user-level information contained in **[Assignment: organization-defined system components][FedRAMP Assignment: daily incremental; weekly full]**;” |
+| CP-9 | daily incremental; weekly full | “Conduct backups of system-level information contained in the system **[FedRAMP Assignment: daily incremental; weekly full]**;” |
+| CP-9 | daily incremental; weekly full | “Conduct backups of system documentation, including security- and privacy-related documentation **[FedRAMP Assignment: daily incremental; weekly full]**;” |
+| CP-9 | at least three (3) backup copies | “The service provider maintains **at least three (3) backup copies** of user-level information (at least one of which is available online) or provides an equivalent alternative.” |
+| CP-9 | at least three (3) backup copies | “The service provider maintains **at least three (3) backup copies** of system-level information (at least one of which is available online) or provides an equivalent alternative.” |
+| CP-9 | at least three (3) backup copies | “The service provider maintains **at least three (3) backup copies** of information system documentation including security information (at least one of which is available online) or provides an equivalent alternative.” |
+| CP-9(1) | at least annually | “Test backup information **[FedRAMP Assignment: at least annually]** to verify media reliability and information integrity.” |
+| IA-1 | at least every 3 years | “Policy **[FedRAMP Assignment: at least every 3 years]** and following **[Assignment: organization-defined events]**;” |
+| IA-1 | at least annually | “Procedures **[FedRAMP Assignment: at least annually]** and following **[FedRAMP Assignment: significant changes]**.” |
+| IA-2(1) | as specified in SP 800-63-3, SP 800-63A, SP 800-63B, and SP 800-63C | “According to **SP 800-63-3, SP 800-63A (IAL), SP 800-63B (AAL), and SP 800-63C (FAL)**.” |
+| IA-4 | at least two (2) years | “Preventing reuse of identifiers for **[FedRAMP Assignment: at least two (2) years]**.” |
+| IA-5(f) | organization-defined time period by authenticator type | “Changing or refreshing authenticators **[Assignment: organization-defined time period by authenticator type]** or when **[Assignment: organization-defined events]** occur;” |
+| IA-5(1) | organization-defined frequency | “Maintain a list of commonly-used, expected, or compromised passwords and update the list **[Assignment: organization-defined frequency]** and when organizational passwords are suspected to have been compromised directly or indirectly;” |
+| IA-5(1) | minimum length of 14 characters | “For cases where technology doesn't allow multi-factor authentication, these rules should be enforced: must have a **minimum length of 14 characters** and must support all printable ASCII characters.” |
+| IA-5(1) | passwords must be changed if used | “For emergency use accounts, these rules should be enforced: must have a minimum length of 14 characters, must support all printable ASCII characters, and **passwords must be changed if used**.” |
+| IA-11 | AAL2: twelve (12) hours or thirty (30) minutes of inactivity | “At this time they are: - **AAL2 (moderate baseline)** - **Twelve (12) hours** or - **Thirty (30) minutes of inactivity**.” |
+| IR-2 | ten (10) days for privileged users | “Within **[FedRAMP Assignment: ten (10) days for privileged users, thirty (30) days for Incident Response roles]** of assuming an incident response role or responsibility or acquiring system access;” |
+| IR-2 | thirty (30) days for Incident Response roles | “Within **[FedRAMP Assignment: ten (10) days for privileged users, thirty (30) days for Incident Response roles]** of assuming an incident response role or responsibility or acquiring system access;” |
+| IR-2 | at least annually | “**[FedRAMP Assignment: at least annually]** thereafter;” and “Review and update incident response training content **[FedRAMP Assignment: at least annually]** and following **[Assignment: organization-defined events]**.” |
+| IR-3 | functional, at least annually | “Test the effectiveness of the incident response capability for the system **[FedRAMP Assignment: functional, at least annually]** using the following tests…” |
+| IR-3 | prior to testing for initial authorization | “Functional testing must occur prior to testing for initial authorization.” |
+| IR-6 | US-CERT incident reporting timelines as specified in NIST SP 800-61 (as amended) | “Require personnel to report suspected incidents to the organizational incident response capability within **[FedRAMP Assignment: US-CERT incident reporting timelines as specified in NIST Special Publication 800-61 (as amended)]**;” |
+| IR-8 | at least annually | “Is reviewed and approved by **[Assignment: organization-defined personnel or roles] [FedRAMP Assignment: at least annually]**;” |
+| IR-9(2) | at least annually | “Provide information spillage response training **[FedRAMP Assignment: at least annually]**.” |
+| MA-1 | at least every three (3) years | “Policy **[FedRAMP Assignment: at least every three (3) years]** and following **[Assignment: organization-defined events]**;” |
+| MA-1 | at least annually | “Procedures **[FedRAMP Assignment: at least annually]** and following **[FedRAMP Assignment: significant changes]**.” |
+| MA-3 | at least annually | “Review previously approved system maintenance tools **[FedRAMP Assignment: at least annually]**.” |
+| MA-5(1) | only MA-5(a)(1) required by FedRAMP Moderate Baseline | “**Requirement:** Only MA-5 (1) (a) (1) is required by FedRAMP Moderate Baseline.” |
+| MA-6 | a timeframe to support advertised uptime and availability | “Obtain maintenance support and/or spare parts for **[Assignment: organization-defined system components] within [FedRAMP Assignment: a timeframe to support advertised uptime and availability]** of failure.” |
+| PE-2 | at least annually | “Review the access list detailing authorized facility access by individuals **[FedRAMP Assignment: at least annually]**;” |
+| PE-3 | at least annually | “Inventory **[Assignment: organization-defined physical access devices] every [FedRAMP Assignment: at least annually]**;” |
+| PE-3 | at least annually or earlier as required by a security relevant event | “Change combinations and keys **[FedRAMP Assignment: at least annually or earlier as required by a security relevant event]** and/or when keys are lost, combinations are compromised, or when individuals possessing the keys or combinations are transferred or terminated.” |
+| PE-6 | at least monthly | “Review physical access logs **[FedRAMP Assignment: at least monthly]** and upon occurrence of **[Assignment: organization-defined events or potential indications of events]**;” |
+| PE-8 | for a minimum of one (1) year | “Maintain visitor access records to the facility where the system resides for **[FedRAMP Assignment: for a minimum of one (1) year]**;” |
+| PE-8 | at least monthly | “Review visitor access records **[FedRAMP Assignment: at least monthly]**;” |
+| PL-1 | at least every three (3) years | “Policy **[FedRAMP Assignment: at least every three (3) years]** and following **[Assignment: organization-defined events]**;” |
+| PL-1 | at least annually | “Procedures **[FedRAMP Assignment: at least annually]** and following **[FedRAMP Assignment: significant changes]**.” |
+| PL-2 | at least annually | “Review the plans **[FedRAMP Assignment: at least annually]**;” |
+| PL-4 | at least every three (3) years | “Review and update the rules of behavior **[FedRAMP Assignment: at least every three (3) years]**;” |
+| PL-4 | at least annually and when the rules are revised or changed | “Require individuals who have acknowledged a previous version of the rules of behavior to read and re-acknowledge **[FedRAMP Assignment: at least annually and when the rules are revised or changed]**.” |
+| PS-1 | at least every three (3) years | “Policy **[FedRAMP Assignment: at least every three (3) years]** and following **[Assignment: organization-defined events]**;” |
+| PS-1 | at least annually | “Procedures **[FedRAMP Assignment: at least annually]** and following **[FedRAMP Assignment: significant changes]**.” |
+| PS-2 | at least every three (3) years | “Review and update position risk designations **[FedRAMP Assignment: at least every three (3) years]**.” |
+| PS-3 | fifth (5th) year for top secret security clearance | “a reinvestigation is required during the **fifth (5th) year for top secret security clearance**,” |
+| PS-3 | tenth (10th) year for secret security clearance | “the **tenth (10th) year for secret security clearance**,” |
+| PS-3 | fifteenth (15th) year for confidential security clearance | “and **fifteenth (15th) year for confidential security clearance**.” |
+| PS-3 | fifth (5th) year for moderate risk law enforcement and high impact public trust level | “For **moderate risk law enforcement and high impact public trust level, a reinvestigation is required during the fifth (5th) year**.” |
+| PS-4 | four (4) hours | “Disable system access within **[FedRAMP Assignment: four (4) hours]**;” |
+| PS-5 | twenty-four (24) hours | “Initiate **[Assignment: organization-defined transfer or reassignment actions] within [FedRAMP Assignment: twenty-four (24) hours]**;” |
+| PS-5 | twenty-four (24) hours | “Notify **[FedRAMP Assignment: including access control personnel responsible for the system] within [FedRAMP Assignment: twenty-four (24) hours]**.” |
+| PS-6 | at least annually | “Review and update the access agreements **[FedRAMP Assignment: at least annually]**;” |
+| PS-6 | at least annually and any time there is a change to the user’s level of access | “Re-sign access agreements … when access agreements have been updated or **[FedRAMP Assignment: at least annually and any time there is a change to the user's level of access]**.” |
+| PS-7 | within twenty-four (24) hours | “Notify **[FedRAMP Assignment: including access control personnel responsible for the system and/or facilities, as appropriate]** of any personnel transfers or terminations of external personnel who possess organizational credentials and/or badges, or who have system privileges within **[FedRAMP Assignment: within twenty-four (24) hours]**;” |
+| PS-8 | twenty-four (24) hours | “Notify **[FedRAMP Assignment: to include the ISSO and/or similar role within the organization] within [FedRAMP Assignment: twenty-four (24) hours]** when a formal employee sanctions process is initiated…” |
+| RA-3 | at least every three (3) years and when a significant change occurs | “Review risk assessment results **[FedRAMP Assignment: at least every three (3) years and when a significant change occurs]**;” |
+| RA-3 | at least every three (3) years | “Update the risk assessment **[FedRAMP Assignment: at least every three (3) years]** or when there are significant changes…” |
+| RA-3(1) | organization-defined frequency | “Update the supply chain risk assessment **[Assignment: organization-defined frequency]**, when there are significant changes…” |
+| RA-5 | monthly operating system/infrastructure; monthly web applications (including APIs) and databases | “Monitor and scan for vulnerabilities in the system and hosted applications **[FedRAMP Assignment: monthly operating system/infrastructure; monthly web applications (including APIs) and databases]** …” |
+| RA-5 | high-risk vulnerabilities mitigated within thirty (30) days from date of discovery | “Remediate legitimate vulnerabilities **[FedRAMP Assignment: high-risk vulnerabilities mitigated within thirty (30) days from date of discovery; moderate-risk vulnerabilities mitigated within ninety (90) days from date of discovery; low risk vulnerabilities mitigated within one hundred and eighty (180) days from date of discovery]** …” |
+| RA-5 | moderate-risk vulnerabilities mitigated within ninety (90) days from date of discovery | same as above |
+| RA-5 | low risk vulnerabilities mitigated within one hundred and eighty (180) days from date of discovery | same as above |
+| RA-5 | once annually | “an accredited independent assessor scans operating systems/infrastructure, web applications, and databases **once annually**.” |
+| RA-5(2) | within twenty-four (24) hours prior to running scans | “Update the system vulnerabilities to be scanned **[FedRAMP Assignment: within twenty-four (24) hours prior to running scans]**.” |
+| SA-6 | at least annually | “Assess and review the supply chain-related risks associated with suppliers or contractors and the system, system component, or system service they provide **[FedRAMP Assignment: at least annually]**.” |
+| SR-2 | at least annually | “Review and update the supply chain risk management plan **[FedRAMP Assignment: at least annually]** or as required…” |
+| SR-6 | at least annually | “Assess and review the supply chain-related risks associated with suppliers or contractors and the system, system component, or system service they provide **[FedRAMP Assignment: at least annually]**.” |
+| SR-10 | at [Assignment: organization-defined frequency] | “Inspect the following systems or system components **[Selection (one-or-more): at random; at [Assignment: organization-defined frequency], upon [Assignment: organization-defined indications of need for inspection]]** to detect tampering…” |
+| SR-12 | no specific frequency stated | No explicit cadence/retention period stated in the page. The control states: “Dispose of **[Assignment: organization-defined data, documentation, tools, or system components]** using the following techniques and methods: **[Assignment: organization-defined techniques and methods]**.” |
+| SC-7(4) | at least every one hundred and eighty (180) days or whenever there is a change in the threat environment that warrants a review of the exceptions | “Review exceptions to the traffic flow policy **[FedRAMP Assignment: at least every one hundred and eighty (180) days or whenever there is a change in the threat environment that warrants a review of the exceptions]** …” |
+| SC-45(1) | At least hourly | “Compare the internal system clocks **[FedRAMP Assignment: At least hourly]** with **[FedRAMP Assignment: <http://tf.nist.gov/tf-cgi/servers.cgi>]**;” |
+| SI-2 | within thirty (30) days of release of updates | “Install security-relevant software and firmware updates within **[FedRAMP Assignment: within thirty (30) days of release of updates]** of the release of the updates;” |
+| SI-2(2) | at least monthly | “Determine if system components have applicable security-relevant software and firmware updates installed using **[Assignment: organization-defined automated mechanisms] [FedRAMP Assignment: at least monthly]**.” |
+| SI-3 | at least weekly | “Perform periodic scans of the system **[FedRAMP Assignment: at least weekly]** …” |
+| SI-3 | near-realtime | “send alert to **[FedRAMP Assignment; administrator or defined security personnel near-realtime]** in response to malicious code detection;” |
+| SI-4 | continuously | “Monitor inbound and outbound communications traffic **[FedRAMP Assignment: continuously]** for **[Assignment: organization-defined unusual or unauthorized activities or conditions]**.” |
+| SI-5 | ongoing basis | “Receive system security alerts, advisories, and directives from **[FedRAMP Assignment: to include US-CERT and Cybersecurity and Infrastructure Security Agency (CISA) Directives] on an ongoing basis;” |
+| SI-6(b) | system startup and/or restart; upon command by user with appropriate privilege; at least monthly | “Perform the verification of the functions specified in SI-6a **[Selection (one-or-more): [FedRAMP Assignment: system transitional states to include upon system startup and/or restart; upon command by user with appropriate privilege]; [FedRAMP Assignment: at least monthly]]**;” |
+| SI-8(2) | organization-defined frequency | “Automatically update spam protection mechanisms **[Assignment: organization-defined frequency]**.” |
+| AC-8 | no frequency stated; “periodic” verification required | “The service provider shall determine how System Use Notification is going to be verified and provide appropriate periodicity of the check.” |
+| AU-4 | organization-defined audit log retention requirements | “Allocate audit log storage capacity to accommodate **[Assignment: organization-defined audit log retention requirements]**.” |

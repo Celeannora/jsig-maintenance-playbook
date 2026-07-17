@@ -1,0 +1,40 @@
+URL: https://www.fedramp.gov/rfcs/0026/
+TITLE: RFC-0026 Clarifying CA-7 Continuous Monitoring ...
+ERROR: None
+
+| Source section | Control family / ID | Cadence / timeline | Exact requirement / quote |
+|---|---|---:|---|
+| **Requirement RV5-CA07-VLN (Vulnerability Reporting)** | **CA-7** | **At least monthly** | “Sharing Operating System, Database, Web Application, Container, and Service Configuration Scans, **at least monthly**; AND sharing updated Plans of Action and Milestones (POA&Ms), **at least monthly**; AND sharing all scans performed by an Independent Assessor, **at least annually**.” |
+| **Requirement RV5-CA07-VLN (Vulnerability Reporting)** | **CA-7** | **At least monthly** | “Providers MUST share vulnerability information with all agency customers and FedRAMP using one of the following two processes: … **Sharing Operating System, Database, Web Application, Container, and Service Configuration Scans, at least monthly**; AND sharing updated Plans of Action and Milestones (POA&Ms), at least monthly; AND sharing all scans performed by an Independent Assessor, at least annually.” |
+| **Requirement RV5-CA07-VLN (Vulnerability Reporting)** | **CA-7 / AU / SI / CM / CP / MA** | **At least annually** | “... AND sharing **all scans performed by an Independent Assessor, at least annually**.” |
+| **Requirement RV5-CA07-VLN (Vulnerability Reporting)** | **CA-7 / CM / SI / MA** | **At least monthly** | “... AND sharing updated Plans of Action and Milestones (POA&Ms), **at least monthly** ...” |
+| **Requirement RV5-CA07-CCM (Collaborative Continuous Monitoring)** | **CA-7** | **Recurring** | “Providers MUST provide **recurring monitoring information (including meetings)** to all agency customers and FedRAMP ...” |
+| **Requirement RV5-CA07-CCM (Collaborative Continuous Monitoring)** | **CA-7** | **Monthly** | “Failure to host a **traditional monthly ConMon meeting** open to all agency customers (RV5-CA07-CCM) and FedRAMP during any given month.” |
+| **Effective Date for All RV5-CA07 Requirements** | **CA-7** | **Immediately** | “These requirements will be **effective immediately** for gradual adoption when published with the FedRAMP Consolidated Rules for 2026 by the end of June 2026.” |
+| **Effective Date for All RV5-CA07 Requirements** | **CA-7** | **Until December 31, 2026** | “There will be an **initial grace period without any corrective action until December 31, 2026**.” |
+| **Effective Date for All RV5-CA07 Requirements** | **CA-7** | **Beginning January 1, 2027** | “**Enforcement with corrective action will begin on January 1, 2027.**” |
+| **Corrective Actions for All RV5-CV07 Requirements** | **CA-7** | **12-month period that resets after each failure** | “These requirements will be enforced over a **12-month period that resets after each failure** (meaning a provider must go **12 months without failures** to clear the corrective actions) ...” |
+| **Corrective Actions for All RV5-CV07 Requirements** | **CA-7** | **After first failure** | “**First failure:** 1. FedRAMP will notify the provider and request a Corrective Action Plan. 2. FedRAMP will notify all agencies. 3. Providers will be granted a **one month grace period** for implementation after submitting the initial Corrective Action Plan.” |
+| **Corrective Actions for All RV5-CV07 Requirements** | **CA-7** | **After second failure** | “**Second failure:** 1. FedRAMP will notify the provider and request an updated Corrective Action Plan. 2. FedRAMP will notify all agencies that the provider has failed **2 times**.” |
+| **Corrective Actions for All RV5-CV07 Requirements** | **CA-7** | **After third failure** | “**Third failure:** 1. FedRAMP will notify the provider and request an updated Corrective Action Plan. 2. FedRAMP will notify all agencies that the provider has failed **3 times**. 3. FedRAMP will move the cloud service offering into the **‘Remediation’** status on the FedRAMP Marketplace and publicly summarize the failures leading to corrective action.” |
+| **Corrective Actions for All RV5-CV07 Requirements** | **CA-7** | **After fourth failure** | “**Fourth failure:** 1. FedRAMP will notify the provider and request an updated Corrective Action Plan. 2. FedRAMP will notify all agencies that the provider has failed **4 times** and is pending revocation of FedRAMP Certification. 3. FedRAMP will maintain the cloud service offering in the **‘Remediation’** status on the FedRAMP Marketplace with a public summary of the failures.” |
+| **Corrective Actions for All RV5-CV07 Requirements** | **CA-7** | **After fifth failure / at least 6 months** | “**Fifth failure:** 1. FedRAMP will notify the provider and revoke their FedRAMP Certification. 2. FedRAMP will notify all agencies that the provider failed **5 times in 12 months** and their FedRAMP Certification has been revoked. 3. The cloud service offering will be removed from the FedRAMP Marketplace for a period of **at least 6 months**, after which the cloud service offering may undergo a full new assessment for FedRAMP Certification.” |
+| **Requirement RV5-CA07-VLN (Vulnerability Reporting)** | **CA-7** | **Monthly reporting trigger** | “Failure to share the required information (RV5-CA07-VLN), following the required process, with all agency customers and FedRAMP during **any given month**.” |
+| **Requirement RV5-CA07-CCM (Collaborative Continuous Monitoring)** | **CA-7** | **Monthly meeting trigger** | “Failure to host a traditional **monthly** ConMon meeting open to all agency customers (RV5-CA07-CCM) and FedRAMP during **any given month**.” |
+
+| Explicit cadence / timeline value in page | Where stated | Notes |
+|---|---|---|
+| **monthly** | RV5-CA07-VLN; Failure Measures | Applies to scans, updated POA&Ms, and traditional ConMon meeting |
+| **annually** | RV5-CA07-VLN | Applies to scans performed by an Independent Assessor |
+| **immediately** | Effective Date for All RV5-CA07 Requirements | “effective immediately for gradual adoption” |
+| **until December 31, 2026** | Effective Date for All RV5-CA07 Requirements | Initial grace period without corrective action |
+| **January 1, 2027** | Effective Date for All RV5-CA07 Requirements | Corrective action enforcement begins |
+| **12-month period that resets after each failure** | Corrective Actions for All RV5-CV07 Requirements | Must go 12 months without failures to clear corrective actions |
+| **one month grace period** | Corrective Actions for All RV5-CV07 Requirements | After submitting the initial Corrective Action Plan |
+| **at least 6 months** | Corrective Actions for All RV5-CV07 Requirements | Marketplace removal after fifth failure |
+
+| Absence / limitation explicitly stated in the page | Text |
+|---|---|
+| No detailed maintenance schedule for a continuous monitoring plan template | “FedRAMP does not provide a template for the Continuous Monitoring Plan.” |
+| No specific cadence beyond “recurring” for one CCM option | “Providers MUST provide recurring monitoring information (including meetings) ...” |
+| No specific frequency given for the Collaborative Continuous Monitoring Balance Improvement Release process in the cited text | The page says providers may implement that release, but does not state a cadence for it in the quoted section. |

@@ -1,0 +1,183 @@
+URL: https://www.irs.gov/pub/irs-pdf/p1075.pdf
+TITLE: Publication 1075 Tax Information Security Guidelines
+ERROR: None
+
+| Cadence / Timeline | Requirement text (quote or close paraphrase) | Likely control family / ID | Source section |
+|---|---|---|---|
+| Every 3 years | “Review and update the current access control policy every three (3) years (or if there is a significant change); and procedures every three (3) years (or if there is a significant change).” | AC-1 | 4.1 ACCESS CONTROL / AC-1 |
+| Annually; semi-annually; within 24 hours; within 2 days | “Review accounts for compliance with account management requirements annually for user account and semi-annually for privileged accounts”; notify account managers and designated official within 24 hours when accounts no longer required / users terminated or transferred / need-to-know changes; “Automatically disable and remove temporary and emergency accounts after two (2) business days.” | AC-2, AC-2 CE-2, AC-2 CE-3 | 4.1 ACCESS CONTROL / AC-2 |
+| Prior to release; controlled by approval | “Release information outside of the system only if … the receiving system … provides Publication 1075 required protections” and approved controls / FedRAMP ATO. | AC-3 CE-9 / CE-11 | 4.1 ACCESS CONTROL / AC-3 |
+| Not specified | No specific cadence stated. | AC-4 | 4.1 ACCESS CONTROL / AC-4 |
+| Not specified | No specific cadence stated. | AC-5 | 4.1 ACCESS CONTROL / AC-5 |
+| Annually | “Review annually the privileges assigned to FTI to validate the need for such privileges.” | AC-6 CE-7 | 4.1 ACCESS CONTROL / AC-6 |
+| 120 minutes; 15 minutes; 10 attempts | “Enforce a limit of three (3) consecutive invalid logon attempts by a user during a 120-minute period”; lock account for 15 minutes; “after ten (10) consecutive, unsuccessful device logon attempts” purge/wipe mobile device. | AC-7 / AC-7 CE-2 | 4.1 ACCESS CONTROL / AC-7 |
+| Retain until acknowledged | Warning banner retained until users acknowledge usage conditions. | AC-8 | 4.1 ACCESS CONTROL / AC-8 |
+| 15 minutes of inactivity | “Initiate a device lock after 15 minutes of inactivity.” | AC-11 | 4.1 ACCESS CONTROL / AC-11 |
+| 30 minutes of inactivity | “Automatically terminate a user session after 30 minutes of inactivity.” | AC-12 | 4.1 ACCESS CONTROL / AC-12 |
+| Not specified | No specific cadence stated. | AC-14 | 4.1 ACCESS CONTROL / AC-14 |
+| Not specified | No specific cadence stated. | AC-17 | 4.1 ACCESS CONTROL / AC-17 |
+| Not specified | No specific cadence stated. | AC-18 | 4.1 ACCESS CONTROL / AC-18 |
+| Not specified | No specific cadence stated. | AC-19 | 4.1 ACCESS CONTROL / AC-19 |
+| Not specified | No specific cadence stated. | AC-20 | 4.1 ACCESS CONTROL / AC-20 |
+| Not specified | No specific cadence stated. | AC-21 | 4.1 ACCESS CONTROL / AC-21 |
+| Quarterly | “Review the content on the publicly accessible system for nonpublic information at a minimum quarterly and remove such information, if discovered.” | AC-22 | 4.1 ACCESS CONTROL / AC-22 |
+| Not specified | No specific cadence stated. | AC-23 | 4.1 ACCESS CONTROL / AC-23 |
+| Annual update; initial and annual training | “Provide security and privacy literacy training… as part of initial training for new users and annually thereafter”; “Update literacy training and awareness content annually.” | AT-2 | 4.2 AWARENESS AND TRAINING / AT-2 |
+| Quarterly | “At least once per quarter, agencies must distribute security and privacy awareness reminders/updates to all users.” | AT-2 / IRS-defined | 2.D.2.1 Disclosure Awareness Training; 4.2 AT-2 |
+| Quarterly | “Conduct phishing email simulation exercises on at least a quarterly basis.” | AT-2 / IRS-defined | 4.2 AT-2 |
+| Before access; annually thereafter | “Provide role-based security and privacy training … before authorizing access … and annually thereafter.” | AT-3 | 4.2 AWARENESS AND TRAINING / AT-3 |
+| Annually | “Retain individual training records for a period of five (5) years” and “Provide feedback … on an annual basis.” (feedback is annual, records retained 5 years) | AT-4, AT-6 | 4.2 AWARENESS AND TRAINING / AT-4, AT-6 |
+| Five years | “Retain individual training records for a period of five (5) years.” | AT-4 | 4.2 AWARENESS AND TRAINING / AT-4 |
+| Weekly | “Review and analyze system audit records weekly for indications of inappropriate or unusual activity.” | AU-6 | 4.3 AUDIT AND ACCOUNTABILITY / AU-6 |
+| Annually or when system changes | “Review and update the event types selected for logging annually or when there is a system change.” | AU-2 | 4.3 AUDIT AND ACCOUNTABILITY / AU-2 |
+| Seven years | “Retain audit records seven (7) years.” | AU-11 | 4.3 AUDIT AND ACCOUNTABILITY / AU-11 |
+| Annually | “Assess the controls in the system and its environment of operation annually”; “Control assessment plan … annual.” | CA-2 | 4.4 ASSESSMENT, AUTHORIZATION AND MONITORING / CA-2 |
+| Annually | “Review and update the system interconnection on an annual basis.” | CA-3 | 4.4 ASSESSMENT, AUTHORIZATION AND MONITORING / CA-3 |
+| Quarterly, at a minimum | “Update existing plan of action and milestones on a quarterly basis, at a minimum.” | CA-5 | 4.4 ASSESSMENT, AUTHORIZATION AND MONITORING / CA-5 |
+| Two months | “Agencies must enter all new weaknesses into appropriate POA&Ms within two (2) months for weaknesses identified during assessments.” | CA-5 IRS-defined | 4.4 CA-5 |
+| Every 3 years or significant change | “Update the authorizations whenever there is a significant change to the system, or every three (3) years, whichever occurs first.” | CA-6 | 4.4 CA-6 |
+| No less than annually | “Establish agency-defined frequencies (no less than annually) for monitoring and … for ongoing assessment of security and privacy control effectiveness.” | CA-7 | 4.4 CA-7 |
+| Annually | “Reporting the security and privacy status of the system … annually, at a minimum.” | CA-7 | 4.4 CA-7 |
+| Every 3 years | “Conduct penetration testing every 3 years on the FTI environment.” | CA-8 | 4.4 CA-8 |
+| Annually | “Review annually the continued need for each internal connection.” | CA-9 | 4.4 CA-9 |
+| Every 3 years | “Review and update the current configuration management policy every three (3) years … procedures every three (3) years.” | CM-1 | 4.5 CONFIGURATION MANAGEMENT / CM-1 |
+| At minimum annually | “Review and update the baseline configuration of the system: at a minimum annually.” | CM-2 | 4.5 CONFIGURATION MANAGEMENT / CM-2 |
+| Monthly basis | “Coordinate and provide oversight for configuration change control activities through a Configuration Control Board that convenes on a monthly basis when changes are proposed.” | CM-3 | 4.5 CONFIGURATION MANAGEMENT / CM-3 |
+| Retain 3 years | “Retain records of configuration-controlled changes to the system for 3 years.” | CM-3 | 4.5 CONFIGURATION MANAGEMENT / CM-3 |
+| Semi-annually | “Review and reevaluate privileges semi-annually.” | CM-5 CE-5 | 4.5 CONFIGURATION MANAGEMENT / CM-5 |
+| Annually | “Review the system annually to identify unnecessary and/or nonsecure functions, ports, protocols, software, and services.” | CM-7 CE-1 | 4.5 CONFIGURATION MANAGEMENT / CM-7 |
+| At minimum annually | “Review and update the list of authorized software programs at a minimum annually.” | CM-7 CE-5 | 4.5 CONFIGURATION MANAGEMENT / CM-7 |
+| Annually | “Review and update the list of authorized hardware components annually.” | CM-7 CE-9 | 4.5 CONFIGURATION MANAGEMENT / CM-7 |
+| At minimum annually | “Review and update the system component inventory at a minimum annually.” | CM-8 | 4.5 CONFIGURATION MANAGEMENT / CM-8 |
+| Annually | “Monitor policy compliance at a minimum annually.” | CM-11 | 4.5 CONFIGURATION MANAGEMENT / CM-11 |
+| Every 3 years | “Review and update the current contingency planning policy every three (3) years … procedures every three (3) years.” | CP-1 | 4.6 CONTINGENCY PLANNING / CP-1 |
+| At minimum annually | “Review the contingency plan for the information system at a minimum annually.” | CP-2 | 4.6 CONTINGENCY PLANNING / CP-2 |
+| Within 30 days of assuming role/responsibility | “Provide contingency training … within 30 days of assuming a contingency role or responsibility.” | CP-3 | 4.6 CONTINGENCY PLANNING / CP-3 |
+| Annually thereafter | “Provide contingency training … annually thereafter.” | CP-3 | 4.6 CONTINGENCY PLANNING / CP-3 |
+| Every 3 years and following significant change | “Review and update contingency training content every three (3) years and following a significant change.” | CP-3 | 4.6 CONTINGENCY PLANNING / CP-3 |
+| Annually, at minimum | “Test the contingency plan for the system at a minimum, annually.” | CP-4 | 4.6 CONTINGENCY PLANNING / CP-4 |
+| Weekly | “Conduct backups of user-level information … weekly”; “system-level information … weekly”; “system documentation … weekly.” | CP-9 | 4.6 CONTINGENCY PLANNING / CP-9 |
+| Every 3 years | “Review and update the current identification and authentication policy every three (3) years … procedures every three (3) years.” | IA-1 | 4.7 IDENTIFICATION AND AUTHENTICATION / IA-1 |
+| Annually | “Change or refresh authenticators every 90 days for all user accounts and every 366 days for service accounts.” | IA-5 | 4.7 IDENTIFICATION AND AUTHENTICATION / IA-5 |
+| 90 days | “Changing or refreshing authenticators every 90 days for all user accounts.” | IA-5 | 4.7 IDENTIFICATION AND AUTHENTICATION / IA-5 |
+| 366 days | “Every 366 days for service accounts.” | IA-5 | 4.7 IDENTIFICATION AND AUTHENTICATION / IA-5 |
+| Every 3 years | “Maintain a list of commonly-used, expected, or compromised passwords and update the list every three (3) years …” | IA-5 CE-1 | 4.7 IDENTIFICATION AND AUTHENTICATION / IA-5 |
+| One day minimum / 90 days maximum | “Enforce password lifetime restrictions: One (1) day minimum and 90 days maximum.” | IA-5 CE-1 | 4.7 IDENTIFICATION AND AUTHENTICATION / IA-5 |
+| Six months | “Passwords shall not be reusable for a period of six (6) months.” | IA-5 CE-1 | 4.7 IDENTIFICATION AND AUTHENTICATION / IA-5 |
+| Before access; annually thereafter | “Provide incident response training … within 30 days of assuming an incident response role or responsibility or acquiring system access; … annually thereafter.” | IR-2 | 4.8 INCIDENT RESPONSE / IR-2 |
+| Every 3 years and following major business/system change | “Review and update incident response training content every three (3) years and following major business and system change impacting the FTI environment.” | IR-2 | 4.8 INCIDENT RESPONSE / IR-2 |
+| Annually | “Test the effectiveness of the incident response capability for the system annually using … tabletop exercises.” | IR-3 | 4.8 INCIDENT RESPONSE / IR-3 |
+| Immediately; no later than 24 hours | “Report incident information immediately, but no later than 24 hours after identification of a possible issue involving FTI.” | IR-6 | 4.8 INCIDENT RESPONSE / IR-6 |
+| Within 24 hours | “Both TIGTA and the IRS must be contacted within 24 hours of the discovery of the disclosure or breach.” | IR-4 / IR-6 / 1.8.4 | 1.8.4 Incident Response Procedures |
+| Annually | “Is reviewed and approved by designated agency officials at a minimum on an annual basis” for IR-8 plan. | IR-8 | 4.8 INCIDENT RESPONSE / IR-8 |
+| Every 3 years | “Review and update the current incident response policy every three (3) years … procedures every three (3) years.” | IR-1 | 4.8 INCIDENT RESPONSE / IR-1 |
+| Every 3 years | “Review and update the current system maintenance policy every three (3) years … procedures every three (3) years.” | MA-1 | 4.9 MAINTENANCE / MA-1 |
+| Annually | “Review previously approved system maintenance tools on at least an annual basis.” | MA-3 | 4.9 MAINTENANCE / MA-3 |
+| Terminate session and network connections when maintenance completed | Nonlocal maintenance control does not state a fixed period; session ends when work is done. | MA-4 | 4.9 MAINTENANCE / MA-4 |
+| Within RTO/RPO and MTD timelines | “Obtain maintenance support and/or spare parts … within the Recovery Time Objective/Recovery Point Objective timelines and Maximum Tolerable Downtime parameters.” | MA-6 | 4.9 MAINTENANCE / MA-6 |
+| Every 3 years | “Review and update the current media protection policy every three (3) years … procedures every three (3) years.” | MP-1 | 4.10 MEDIA PROTECTION / MP-1 |
+| Five years | Visitor access records “must be retained for five (5) years.” | PE-8 / MP-? (visitor log requirement); also Exhibit 9 | 2.B.3.1 Visitor Access Logs; 4.11 PE-8 |
+| Monthly | “Each restricted area access log must be closed out at the end of each month and reviewed by management.” | PE-8 / physical security | 2.B.3.1 Visitor Access Logs |
+| Monthly | “AAL must be reviewed monthly or upon occurrence or potential indication of an event such as a possible security breach or personnel change.” | PE-2 | 2.B.3.2 Authorized Access List |
+| Monthly | “Agency personnel must review access control logs on a monthly basis.” | PE-6 / AC-? | 2.B.3.5 Locking Systems for Secured Areas |
+| Annual | “Combinations to locks must be changed annually” and upon retirement/termination/transfer. | PE-3 / physical access control | 2.B.3.4 Control and Safeguarding Keys and Combinations |
+| Annual reconciliation | “An annual reconciliation must be done on all key records.” | PE-3 / physical access control | 2.B.3.4 Control and Safeguarding Keys and Combinations |
+| Every 12 months | “Inventory organization-defined physical access devices every twelve (12) months.” | PE-3 | 4.11 PHYSICAL AND ENVIRONMENTAL PROTECTION / PE-3 |
+| Annually and/or upon compromise/change | “Change combinations and keys at least annually and/or when keys are lost, combinations are compromised, or when individuals … are transferred or terminated.” | PE-3 | 4.11 PE-3 |
+| Daily | “Perform security checks at a minimum daily at the physical perimeter … for exfiltration of information or removal of system components.” | PE-3 CE-2 | 4.11 PE-3 |
+| Monthly | “Review physical access logs at a minimum monthly and upon occurrence of a potential indication of an event.” | PE-6 | 4.11 PHYSICAL AND ENVIRONMENTAL PROTECTION / PE-6 |
+| Monthly | “Maintain visitor access records … for five (5) years; review visitor access records at least monthly.” | PE-8 | 4.11 PE-8 |
+| Every 3 years | “Review and update the current planning policy every three (3) years … procedures every three (3) years.” | PL-1 | 4.12 PLANNING / PL-1 |
+| At minimum annually | “Review the plans at a minimum annually (or as a result of a significant change).” | PL-2 | 4.12 PLANNING / PL-2 |
+| Annually | “Review and update the rules of behavior at a minimum annually.” | PL-4 | 4.12 PLANNING / PL-4 |
+| At minimum annually | “Review and update the architectures at a minimum annually to reflect changes in the enterprise architecture.” | PL-8 | 4.12 PLANNING / PL-8 |
+| Every 3 years | “Review the organization-wide information security program plan every three (3) years and following significant changes.” | PM-1 | 4.13 PROGRAM MANAGEMENT / PM-1 |
+| Every 3 years or as required | “Review and update the risk management strategy every three (3) years or as required.” | PM-9 | 4.13 PROGRAM MANAGEMENT / PM-9 |
+| Annually | “Provide feedback on organizational training results … on an annual basis.” | AT-6 | 4.2 / AT-6 (duplicative) |
+| Annually | “Develop and update continually an inventory of organizational systems” is continuous, not fixed cadence. | PM-5 | 4.13 PM-5 |
+| Every 3 years | “Review and update policy and procedures every three (3) years or when there is a significant change.” | PM-18 | 4.13 PROGRAM MANAGEMENT / PM-18 |
+| Retain accounting for longer of PII retention or 5 years after disclosure | “Retain the accounting of disclosures for the length of the time the PII is maintained or five years after the disclosure is made, whichever is longer.” | PM-21 | 4.13 PROGRAM MANAGEMENT / PM-21 |
+| Within 3 business days | “Notify designated agency personnel of any personnel transfers or terminations of external personnel … within three (3) business days.” | PS-7 | 4.14 PERSONNEL SECURITY / PS-7 |
+| Within 72 hours | “Notify designated agency personnel within 72 hours when a formal employee sanctions process is initiated.” | PS-8 | 4.14 PERSONNEL SECURITY / PS-8 |
+| Every 3 years | “Review and update the current personnel security policies every three (3) years … procedures every three (3) years.” | PS-1 | 4.14 PERSONNEL SECURITY / PS-1 |
+| At least once every 5 years | “Rescreen individuals … but no less than once every five years.” | PS-3 | 4.14 PERSONNEL SECURITY / PS-3 |
+| Within 3 business days | “Disable system access within three (3) business days” upon termination. | PS-4 | 4.14 PERSONNEL SECURITY / PS-4 |
+| Within 5 business days | “Initiate transfer … actions within five (5) business days of the formal transfer action”; notify agency personnel within five business days of transfer. | PS-5 | 4.14 PERSONNEL SECURITY / PS-5 |
+| Annually | “Review and update the access agreements at a minimum annually”; re-sign at least annually. | PS-6 | 4.14 PERSONNEL SECURITY / PS-6 |
+| Annually | “Conduct a risk assessment … Review risk assessment results at least annually.” | RA-3 | 4.16 RISK ASSESSMENT / RA-3 |
+| Every 3 years or significant change | “Update the risk assessment at least every three years or when there are significant changes.” | RA-3 | 4.16 RA-3 |
+| Every 3 years | “Update the supply chain risk assessment every three (3) years” or when changes warrant. | RA-3 CE-1 | 4.16 RA-3 |
+| Every 30 days | “Monitor and scan for vulnerabilities … every thirty (30) days.” | RA-5 | 4.16 RISK ASSESSMENT / RA-5 |
+| At least every 30 days / before new scan / when new vulnerabilities identified | “Update the system vulnerabilities to be scanned at least every 30 days; prior to a new scan; when new vulnerabilities are identified and reported.” | RA-5 CE-2 | 4.16 RA-5 |
+| At least annually | “Review and update the current system and services acquisition policy every three (3) years … procedures every three (3) years.” (policy cadence) and specific control reviews vary. | SA-1 | 4.17 SYSTEM AND SERVICES ACQUISITION / SA-1 |
+| Within 7 calendar days prior to contract termination | “Remove all data from the contractor’s system and return it to the organization within 7 calendar days prior to contract termination.” | SA-4 CE-12 | 4.17 SA-4 |
+| Annually | “Review the development process, standards, tools, tool options, and tool configurations at a minimum annually.” | SA-15 | 4.17 SA-15 |
+| Every 3 years | “Review and update the current supply chain risk management policy every three (3) years … procedures every three (3) years.” | SR-1 | 4.20 SUPPLY CHAIN RISK MANAGEMENT / SR-1 |
+| Every 3 years | “Review and update the supply chain risk management plan every three (3) years or as required.” | SR-2 | 4.20 SR-2 |
+| Annually | “Assess and review the supply chain-related risks … at a minimum annually.” | SR-6 | 4.20 SR-6 |
+| Agency-defined frequency; upon delivery | “Inspect … at agency-defined frequency, upon delivery to detect tampering.” | SR-10 | 4.20 SR-10 |
+| Every 3 years / mid-point review for contracts under 3 years | “Agree to conduct a review every 3 years (or a mid-point review in the case of contracts or agreements of less than 3 years in duration) …” | Exhibit 1 / IRS §6103(b)(5)(B)(iii) | Exhibit 1 IRC §§ 6103(a) and (b) |
+| 45 days | “Agencies must notify the IRS prior to executing any agreement … or at least 45 days prior to the disclosure of FTI”; “45-day notification requirements apply”; “submit notification to the Office of Safeguards a minimum of 45 days ahead of planned implementation.” | Notification / SA-4 / IR-related disclosure | Exhibit 6; 2.E.6; 1.4; 1.9.4 |
+| 90 days | “Initial SSR … at least 90 days prior to the agency’s planned FTI receipt date.” | PL-2 / reporting | 1.1; 2.E.4.1 |
+| 45 days | “The agency must submit a 45-day notification prior to contractor or sub-contractor access to the FTI.” | 1.4 / 1.9.4 | 1.4 State Tax Agency Limitations |
+| 45 days | “When required … 45-day notification requirements apply” for tax modeling, revenue estimation, statistical activities. | 1.4 / 1.10.3 | 1.4; 1.10.3 |
+| 30 days | “When requested by the Office of Safeguards, agencies must provide a copy of all re-disclosure agreements within 30 days.” | 1.9.5 | 1.9.5 Re-Disclosure Agreements |
+| 7 days from closing conference | “If the Agency has any critical findings, the agency must submit a mitigation plan … within 7 days from the closing conference date.” | CAP / CA-5 | 1.6.3 After the Review |
+| 45 days after closing conference | “An SRR and CAP will be issued within 45 days of the closing conference.” | Review reporting | 1.6.3 After the Review |
+| Semi-annually | “The CAP must be updated and submitted semi-annually.” | CAP / CA-5 | 1.6.3 After the Review; 2.E.5.1 |
+| If CAP due within 60 days of review, not required | “If an agency has a CAP due within 60 days of the review, that CAP is not required.” | CAP | 1.6.3 After the Review |
+| 18 months | “Headquarters office facilities housing FTI and the agency computer facility at least every 18 months”; “All contractors and sub-contractors with access to FTI … at least every 18 months.” | Internal inspections / CA-7 / PE-? | 2.D.3 Internal Inspections and On-Site Reviews |
+| 3 years | “Field offices receiving FTI at least every three (3) years.” | Internal inspections | 2.D.3 |
+| Five years | “Inspection reports, including a record of corrective actions, must be retained … minimum of five years.” | Record retention | 2.D.3 |
+| 30 days | “Within 30 days of assuming a contingency role or responsibility.” | CP-3 | 4.6 CP-3 |
+| 24 hours | “Immediately, but no later than 24 hours after identification of a possible issue involving FTI” to TIGTA and Safeguards. | IR-6 / 1.8.2 | 1.8.2 General |
+| Daily | “Perimeter security checks are required daily for exfiltration of information.” | PE-3 CE-2 / IRS-defined | Highlights for November 2021 Revision |
+| Monthly | “Major change to PE-6. The requirement moved from annually to monthly for inspection of physical access logs.” | PE-6 | Highlights for November 2021 Revision |
+| Annually | “Validate and maintain most recent copy of NAID certification” annually. | MP-6 / disposal | Highlights for November 2021 Revision; 2.F.4 |
+
+| Specific cadence / timeline mentioned in narrative or exhibits | Exact requirement / paraphrase | Likely control family / ID | Source section |
+|---|---|---|---|
+| Within 3 days (E-Verify) | “Within three (3) days of completion, any new employee must also be processed through E-Verify.” | PS-3 / background screening | 2.C.3 Background Investigation Minimum Requirements |
+| Within 24 hours | “contact TIGTA and the IRS immediately… within 24 hours of the discovery of the disclosure or breach.” | IR-6 | 1.8.4 Incident Response Procedures |
+| Within 24 hours | “contact the local TIGTA Field Division office… immediately, but no later than 24 hours after identification of a possible issue involving FTI.” | IR-6 | 1.8.2 General |
+| Within 24 hours | “If the agency cannot show FTI was not involved within that 24-hour period, then the spill will need to be reported.” | IR-9 / reporting | 1.8.2 General |
+| Annually | “AAL must be reviewed monthly or upon occurrence or potential indication of an event such as a possible security breach or personnel change.” | PE-2 | 2.B.3.2 Authorized Access List |
+| Annually | “Combinations to locks must be changed annually or when an employee who knows the combination retires, terminates employment or transfers.” | PE-3 | 2.B.3.4 |
+| Annually | “retain the most recent copy of the NAID certification” and validate annually. | MP-6 / disposal | 2.F.4 Other Precautions |
+| Annually | “Annual SSR update must be submitted” and “Agencies have an annual requirement to submit SSRs after their initial receipt of FTI.” | PL-2 / reporting | 2.E.4, 2.E.4.3 |
+| Annually | “State tax agencies … must provide updated information in the SSR regarding its modeling activities.” | Reporting | 1.4 State Tax Agency Limitations |
+| Annual | “State agencies must ensure a reinvestigation is conducted within five (5) years.” | PS-3 | 2.C.3 Background Investigation Minimum Requirements |
+| 5 years | “Copies of the initial and subsequent requests for data and any formal agreement must be retained … minimum of five (5) years.” | Recordkeeping | 1.1 General |
+| 3 years | “State tax agencies must provide written notification and obtain IRS approval prior to performing tax modeling…” approvals valid up to three years. | Reporting / tax modeling | 2.E.6.3 |
+| 3 years | “Testing request approvals are valid up to three years from the date of the approval.” | Reporting / live data testing | 2.E.6.4 |
+| 3 years | “Tax modeling approvals are valid up to three years.” | Reporting / tax modeling | 2.E.6.3 |
+| 7 calendar days | “Agency contractors (including sub-contractors) must remove data within 7 (seven) calendar days of contract termination.” | SA-4 CE-12 | Highlights for November 2021 Revision |
+| 30 days | “Agency CAP submissions provided to the Office of Safeguards within 60 days of an upcoming review will be responded to as part of the review process.” | CAP | 2.E.5.2 |
+| 60 days | “If the SRR was issued within 60 days from the upcoming CAP due date … first CAP will be due on the subsequent reporting date.” | CAP | 2.E.5.2 |
+| 60 days | “If an agency has a CAP due within 60 days of the review, that CAP is not required.” | CAP | 1.6.3 After the Review |
+| 30-day increments; max 60 days | “Agencies may request an SSR extension, in 30-day increments, with a maximum of 60 days.” | Reporting | 2.E.4.4 |
+| Max 30 days | “Agencies may request an extension for no more than 30 days” for CAP. | Reporting | 2.E.5.2 |
+| 5 business days | “Safeguards will provide an email response … within five (5) business days.” (SSR/CAP extension requests) | Reporting | 2.E.4.4 / 2.E.5.2 |
+| 3 years | “Agencies must update and submit the SSR annually”; plus “current annual period safeguard activities” are to be documented. | SSR | 2.E.4.3 |
+| 45 days | “Prior to implementing certain operations or technology capabilities that require additional uses of the FTI” submit notification at least 45 days prior. | 2.E.6 | 2.E.6 Notification Reporting Requirements |
+| 3 years | “Safe-guard review findings every 3 years or mid-point review” for contractor/other agent under IRC. | Exhibit 1 / 6103(b)(5)(B)(iii) | Exhibit 1 IRC §§ 6103(a) and (b) |
+| 2 business days | “block known malicious sites … within two business days following release.” | SC-7 / IRS-defined | 4.18 SC-7 |
+| Daily | “Synchronize system clocks … compare the internal system clocks daily with an agency-defined authoritative time source.” | SC-45 CE-1 | 4.18 SC-45 |
+| Daily | “Upon daily power up and connection to the agency’s network, workstations … are checked … not less than once every 24 hours.” | SI-2 / IRS-defined | 4.19 SI-2 |
+| Daily | “All removable media must be scanned for malicious code upon introduction … before users may access the media.” | SI-3 / IRS-defined | 4.19 SI-3 |
+| Daily | “Not less than daily, the agency shall check for updates to malicious code scanning tools…” | SI-3 / IRS-defined | 4.19 SI-3 |
+| Weekly | “Perform weekly and real-time scans of files from external sources…” | SI-3 | 4.19 SI-3 |
+| At minimum annually | “Perform an integrity check … at a minimum annually.” | SI-7 CE-1 | 4.19 SI-7 |
+| At minimum every two weeks | “Provide the output from system monitoring … at a minimum every two weeks or sooner if deemed necessary.” | SI-4 | 4.19 SI-4 |
+| At least one year | “capture and retain, for at least one year, inbound and outbound traffic header information.” | SI-4 IRS-defined | 4.19 SI-4 |
+| Weekly | “Automatic updates” for spam protection at a minimum quarterly; no weekly cadence. | SI-8 CE-2 | 4.19 SI-8 |
+| Quarterly | “Automatically update spam protection mechanisms at a minimum quarterly.” | SI-8 CE-2 | 4.19 SI-8 |
+| Annually | “Review and update the current system and information integrity policy every three (3) years … procedures every three (3) years.” | SI-1 | 4.19 SI-1 |
+| Promptly after release | “Install security-relevant software and firmware updates promptly after the release of the updates.” | SI-2 | 4.19 SI-2 |
+| Monthly / daily | “Determine if system components have applicable security-relevant software and firmware updates installed using automated mechanisms at a minimum monthly; daily for networked workstations and malicious code protection.” | SI-2 CE-2 | 4.19 SI-2 |
+| Every 3 years | “Review and update the current supply chain risk management policy every three (3) years … procedures every three (3) years.” | SR-1 | 4.20 SR-1 |
+
+| Absence statements explicitly in page |
+|---|
+| Several controls only state risk-based, agency-defined, or no fixed cadence; examples include AC-4, AC-5, AC-14, AC-17, AC-18, AC-19, AC-20, AC-21, AC-23, CM-4, CM-6, CM-9, CM-10, CM-12, CM-13, CM-14, IR-7, IR-9, MA-2, MA-4, MA-5, MP-2, MP-4, MP-5, PE-4, PE-5, PE-16, PE-17, SA-2, SA-3, SA-4, SA-5, SA-8, SA-9, SA-10, SA-11, SA-22, SC-2, SC-4, SC-8, SC-10, SC-12, SC-13, SC-15, SC-17, SC-18, SC-20, SC-21, SC-22, SC-23, SC-28, SC-35, SC-39, SC-45, SI-10, SI-11, SI-12, SI-16, SR-2, SR-3, SR-10, SR-11. |
+| Where a control says “agency-defined,” “at a minimum annually,” “no less than annually,” “promptly,” “within agency-defined time period,” or “as required,” no more specific cadence is stated beyond that wording. |

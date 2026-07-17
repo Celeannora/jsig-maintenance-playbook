@@ -1,0 +1,26 @@
+URL: https://media.defense.gov/2022/Nov/14/2003113709/-1/-1/0/CONTINUOUS%20MONITORING%20ANNEX%20V1.0%20800-53%20CONTROL%20MAPPINGS.PDF
+TITLE: [PDF] Continuous Monitoring Requirements Annex v1.0 Requirements ...
+ERROR: None
+
+- **No operational cadence/frequency/timeline requirements are explicitly stated anywhere in the provided page.** The page is a **requirements-to-controls mapping** only; it lists Annex Requirement IDs and their mapped NIST SP 800-53 controls, but **does not include daily/weekly/monthly/quarterly/annual/30/60/90/365-day intervals, “within X days” deadlines, or retention periods**.
+
+| Source section visible | Explicit cadence/timeline details found | Likely control family/control ID mapping |
+|---|---|---|
+| Front matter / intro | None. States the appendix is for demonstrating implementation of NIST SP 800-53 controls as part of the RMF process. | RMF context only; no cadence |
+| “Figure 1 – Continuous Monitoring Annex v1.0 Requirements Mapping to NIST SP 800-53 Security Controls” | None. Contains only Annex Requirement ↔ NIST SP 800-53 control mappings. | Multiple controls listed, but no timing/frequency text |
+
+- **Quoted/paraphrased absence statement from the page:** “Most of the requirements…support the implementation of the security controls…” and “This appendix is provided…”; however, **the page does not specify any schedule, frequency, timeline, or retention requirement**.
+
+- **Relevant control-family mappings present on the page, but without cadence details:**
+  - **AU**: AU-2, AU-3, AU-4, AU-5, AU-6, AU-8, AU-9, AU-11, AU-12
+  - **CA**: CA-2, CA-3, CA-7
+  - **CM**: CM-2, CM-3, CM-7, CM-8
+  - **IA**: IA-5
+  - **IR**: IR-4
+  - **PE**: PE-11
+  - **PL**: PL-9, PL-10
+  - **RA**: RA-5
+  - **SC**: SC-7, SC-8, SC-12, SC-13, SC-17, SC-21, SC-46
+  - **SI**: SI-3, SI-4
+
+- **Note:** Because the page contains **only a control mapping table**, there are **no extractable cadence items** to map to specific control IDs beyond the general families above.

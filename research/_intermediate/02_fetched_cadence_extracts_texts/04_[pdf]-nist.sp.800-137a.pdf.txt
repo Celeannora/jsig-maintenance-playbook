@@ -1,0 +1,41 @@
+URL: https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-137A.pdf
+TITLE: [PDF] NIST.SP.800-137A.pdf
+ERROR: None
+
+| Cadence / timeline explicitly stated | Quoted or closely paraphrased requirement | Likely control family / control ID | Source section name |
+|---|---|---|---|
+| Periodically reviewed | “OMB M-11-33 requires that the ISCM program be periodically reviewed to ensure that continuous monitoring is adequate for supporting risk-based decisions.” | N/A / program-level maintenance cadence (ISCM governance); likely CM/AU/CA/RA-related program maintenance | Introduction |
+| At the right frequencies | ISCM tools, technologies, and manual and automated methods are implemented “to deliver the required information in the appropriate context, at the right level of detail, and at the right frequencies.” | N/A / ISCM strategy and operations | 2.1.1 ISCM Background |
+| At documented frequencies (control assessments) | “Control assessments (in accordance with NIST SP 800-53A) are conducted at a documented frequency sufficient to support OA.” | CA (control assessment), CM/AU/SI/IA as applicable to assessed controls | 2.1.7 Ongoing Authorization |
+| On an ongoing basis | “The ISCM program monitors the security status of systems and the environments in which those systems operate on an ongoing basis with a frequency sufficient to make ongoing, risk-based decisions on whether to continue to operate the systems within the organization.” | CM, AU, SI, CA | 2.1.7 Ongoing Authorization |
+| Agreed-upon and documented frequencies | “OA is defined as the subsequent (follow-on) risk determinations and risk acceptance decisions taken at agreed-upon and documented frequencies in accordance with the organization’s mission/business requirements and organizational risk tolerance.” | CA / RA / CM | 2.1.7 Ongoing Authorization |
+| Organization-specified frequencies | “The ISCM program assessment does not generally review results of individual control assessments but rather verifies that control assessments are performed in accordance with the ISCM strategy at the organization-specified frequencies for all parts of the organization under assessment.” | CA / CM | 3.1 Overview of the ISCM Program Assessment Process |
+| Specified frequencies (control procedures) | The ISCM program assessment verifies the existence of the subject of the assessment element, “e.g., to verify that specified procedures for performing certain actions at specified frequencies are followed.” | Any relevant family depending on the procedure; commonly MA, CM, AU, SI, IR, CP | 3.1 Overview of the ISCM Program Assessment Process |
+| Scheduled and timeframe | The ISCM Program Assessment Plan specifies “Schedule and timeframe.” | N/A (assessment process scheduling, not a control) | 3.1.1 ISCM Program Assessment Plan |
+| Key milestones | The ISCM Program Assessment Plan specifies “Key milestones.” | N/A (assessment process) | 3.1.1 ISCM Program Assessment Plan |
+| Sequentially and concurrently | The ISCM Program Assessment Plan specifies “Activities to be performed sequentially and concurrently.” | N/A (assessment process) | 3.1.1 ISCM Program Assessment Plan |
+| Time frames for completing the ISCM program assessment | Planning updates include “Time frames for completing the ISCM program assessment.” | N/A | 3.2.1 Plan Step |
+| Schedule for completion and regular check-ins | “Organization and assessment leadership jointly” establish “a schedule for completion of the assessment and regular check-ins to monitor and manage progress.” | N/A | 3.2.1 Plan Step |
+| Each day | “Each day may end with a short discussion with the appropriate organization contacts to clarify and confirm any findings, ask any further questions, and confirm activities for the following day.” | N/A | 3.2.2.2 Evidence Analysis |
+| At the organization-specified frequency | The Conduct Step includes detecting gaps and shortcomings in “the monitoring of implemented controls at the organization-specified frequency.” | MA, CM, AU, SI, IA (depending on control being monitored) | 3.2.2 Conduct Step |
+| As needed | “It may be necessary to collect additional information to clarify or supplement existing monitoring data.” | N/A | Executive Summary; 3.2.2 Conduct Step |
+| Possible repeated at predetermined intervals | “The ISCM program assessment may be repeated at predetermined intervals, such as when certain milestones occur in the development of the organization’s ISCM program or when response actions from a previous assessment are completed to verify closure of the action.” | N/A | 3.6 Conclusion of the ISCM Program Assessment |
+| When milestones occur | “The ISCM program assessment may be repeated at predetermined intervals, such as when certain milestones occur in the development of the organization’s ISCM program...” | N/A | 3.6 Conclusion of the ISCM Program Assessment |
+| When response actions from a previous assessment are completed | “...or when response actions from a previous assessment are completed to verify closure of the action.” | N/A | 3.6 Conclusion of the ISCM Program Assessment |
+
+| Explicit frequency/retention numbers requested | Documented? | Extracted text / absence statement | Likely control family / control ID | Source section name |
+|---|---|---|---|---|
+| Daily | Yes, but only in assessment logistics: “Each day may end with a short discussion...” No operational control cadence given as daily for controls. | N/A | 3.2.2.2 Evidence Analysis |
+| Weekly | Not explicitly stated in this page. | Absence stated | N/A | N/A |
+| Monthly | Not explicitly stated in this page. | Absence stated | N/A | N/A |
+| Quarterly | Not explicitly stated in this page. | Absence stated | N/A | N/A |
+| Annually | Not explicitly stated in this page. | Absence stated | N/A | N/A |
+| Every 30 days | Not explicitly stated in this page. | Absence stated | N/A | N/A |
+| Every 60 days | Not explicitly stated in this page. | Absence stated | N/A | N/A |
+| Every 90 days | Not explicitly stated in this page. | Absence stated | N/A | N/A |
+| Every 365 days | Not explicitly stated in this page. | Absence stated | N/A | N/A |
+| Within X days | Not explicitly stated in this page. | Absence stated | N/A | N/A |
+| Retention period | Not explicitly stated in this page. | Absence stated | N/A | N/A |
+
+- The page provides only general, risk-based, organization-defined, documented, agreed-upon, or organization-specified frequency language for ISCM maintenance and control-assessment scheduling; it does not enumerate daily/weekly/monthly/quarterly/annual operational maintenance cadences beyond the “each day may end...” assessment logistics note.
+- Control-family/control-ID mapping is not explicitly provided by this page for cadences; mappings above are likely/indicative only where the text references control assessments, ISCM monitoring, OA, or security status reporting.

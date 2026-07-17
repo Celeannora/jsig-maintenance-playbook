@@ -1,0 +1,42 @@
+URL: https://github.com/GSA/fedramp-tailored/blob/master/_guidance/controls/AU-6.md
+TITLE: fedramp-tailored/_guidance/controls/AU-6.md at master · GSA/fedramp-tailored
+ERROR: None
+
+### AU-6 — Audit Review, Analysis, and Reporting
+
+| Control ID | Requested item | Exact frequency / timeline / retention period | Extracted text |
+|---|---|---:|---|
+| AU-6 | Review and analyze information system audit records | **at least weekly** | “The organization: (a) Reviews and analyzes information system audit records **[FedRAMP Assignment: at least weekly]** for indications of **[Assignment: organization-defined inappropriate or unusual activity]**; and (b) Reports findings to **[Assignment: organization-defined personnel or roles]**.” |
+| AU-6(a) | Organization-defined frequency | **at least weekly** | “AU-6 (a). For FedRAMP Tailored systems the organization-defined frequency is **at least weekly**.” |
+| AU-6(a) | Coordination / documentation | Not a frequency; required statement | “Coordination between service provider and consumer shall be documented and accepted by the JAB/AO. In multi-tenant environments, capability and means for providing review, analysis, and reporting to consumer for data pertaining to consumer shall be documented.” |
+| AU-6(a) | Scope of review | **at least weekly** | “Describe how the organization reviews and analyzes information system audit records **at least weekly** for indications of **[Assignment: organization-defined inappropriate or unusual activity]**.” |
+| AU-6(a) | What to look for | **at least weekly** | “...reviews and analyzed audit records **at least weekly** for indications of abnormalities in such activities as monitoring of account usage, remote access, wireless connectivity, mobile device connection, configuration settings, system component inventory, use of maintenance tools and nonlocal maintenance, physical access, temperature and humidity, equipment delivery and removal, communications at the information system boundaries, use of mobile code, and use of VoIP.” |
+| AU-6(a) | Customer responsibilities — IaaS | **at least weekly** | “The IaaS should have **at least a weekly process** of analysis and review of the audit records which is a search for signs of inappropriate or unusual activity.” |
+| AU-6(a) | Customer responsibilities — PaaS | **at least weekly** | “The PaaS then provides **at least a weekly process** of analysis and review of the audit records which is a search for signs of inappropriate or unusual activity for the customer.” |
+| AU-6(a) | Customer responsibilities — SaaS | **weekly** | “A SaaS is responsible for **weekly review and analysis** for the due diligence it requires to be a SaaS.” |
+| AU-6(b) | Report findings | No frequency stated | “Describe how the organization reports findings to **[Assignment: organization-defined personnel or roles]**.” |
+| AU-6(b) | Supplemental guidance on reporting recipients | No frequency stated | “Findings can be reported to organizational entities that include, for example, incident response team, help desk, information security group/ department.” |
+| AU-6(b) | Customer responsibilities — IaaS | **at least weekly** | “The IaaS should have **at least a weekly process** of analysis and review of the audit records which is a search for signs of inappropriate or unusual activity. The inappropriate or unusual activity is reported to one person or role.” |
+| AU-6(b) | Customer responsibilities — PaaS | **at least weekly** | “The PaaS then provides **at least a weekly process** of analysis and review of the audit records which is a search for signs of inappropriate or unusual activity for the customer. The inappropriate or unusual activity is reported to personnel or roles within the PaaS.” |
+| AU-6(b) | Customer responsibilities — SaaS | **weekly** | “A SaaS is responsible for **weekly review and analysis** for the due diligence it requires to be a SaaS. ... The inappropriate or unusual activity is reported to personnel or roles within the SaaS.” |
+
+**Retention periods:** none stated on this page.
+
+---
+
+### Requested controls not present on the provided page
+
+| Control ID | Requested item | Status on provided page | What is explicitly available on the page |
+|---|---|---|---|
+| AU-11 | Audit record retention | **Not present** | No AU-11 content on this page. |
+| AC-2 | Account review, disablement, temporary accounts | **Not present** | No AC-2 content on this page. |
+| IA | Authenticators/certificates | **Not present** | No IA content on this page. |
+| CP-4 | Contingency plan test | **Not present** | No CP-4 content on this page. |
+| CP-9 | Backup testing | **Not present** | No CP-9 content on this page. |
+| IR-3 | Incident response testing/training | **Not present** | No IR-3 content on this page. |
+| PE-2 | Physical access reviews | **Not present** | No PE-2 content on this page. |
+| PE-3 | Physical access reviews | **Not present** | No PE-3 content on this page. |
+| SI-2 | Vulnerability / flaw remediation | **Not present** | No SI-2 content on this page. |
+| SI-3 | Malware protection | **Not present** | No SI-3 content on this page. |
+| CM | Inventory/change reviews | **Not present** | No CM content on this page. |
+| MA | Maintenance | **Not present** | No MA content on this page. |

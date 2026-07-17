@@ -1,0 +1,26 @@
+URL: https://github.com/GSA/fedramp-tailored/blob/master/_guidance/controls/SI-3.md
+TITLE: fedramp-tailored/_guidance/controls/SI-3.md at master · GSA/fedramp-tailored
+ERROR: None
+
+### Extracted documented cadences / timelines / retention periods from the provided page
+
+| Control ID | Relevant cadence / timeline / retention detail | Exact quoted text | Source status |
+|---|---|---|---|
+| SI-3(c) | Periodic scans frequency | “Perform periodic scans of the information system [Assignment: organization-defined frequency]” | Frequency is organization-defined; no exact interval stated on the page |
+| SI-3(c) | Real-time scanning trigger timing | “real-time scans of files from external sources … as the files are downloaded, opened, or executed” | Explicit timing stated |
+| SI-3(b) | Update timing for malicious code protection mechanisms | “updates malicious code protection mechanisms whenever new releases are available” | Explicit timing stated |
+| SI-3(c) | Low/Moderate periodic scan cadence | “perform periodic scans of the information system at least weekly” | Explicit frequency stated for Low or Moderate systems |
+| SI-3(c) | Low/Moderate real-time scan timing | “real-time scans of files from external sources to include endpoints, as the files are either (a)downloaded, opened, or executed” | Explicit timing stated |
+
+### Requested controls not present on the provided page
+
+- **AU-6 / AU-11**: no information on log review, log retention, or related cadence is present.
+- **AC-2**: no information on account review, disablement, or temporary accounts is present.
+- **IA**: no information on authenticators or certificates is present.
+- **CP-4**: no information on contingency plan testing is present.
+- **CP-9**: no information on backup testing is present.
+- **IR-3**: no information on incident response testing or training is present.
+- **PE-2 / PE-3**: no information on physical access reviews is present.
+- **SI-2**: no information on vulnerability management or related cadence is present.
+- **CM**: no information on inventory or change review cadence is present.
+- **MA**: no information on maintenance cadence is present.

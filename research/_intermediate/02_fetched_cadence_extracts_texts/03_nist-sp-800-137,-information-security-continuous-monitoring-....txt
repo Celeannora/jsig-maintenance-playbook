@@ -1,0 +1,182 @@
+URL: https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-137.pdf
+TITLE: NIST SP 800-137, Information Security Continuous Monitoring ...
+ERROR: None
+
+- **Source section: Executive Summary / Chapter 1 / Chapter 2 / Chapter 3 / Appendix D**
+  - **Frequency/timeline explicitly stated:** “ongoing”, “continuous”, “regularly”, “as often as needed”, “on demand”, “real-time”, “near real-time”, “discrete intervals”, “periodic”, “preestablished frequency”, “higher frequencies”, “various frequencies”, “different intervals”, “at least quarterly”, “monthly”, “weekly”, “daily”, “annually”, “every minute”, “hourly”, “biweekly”, “within organizational risk tolerances”, “within X days” — **the source frequently states that frequencies are risk-based, organization-defined, or tier-defined rather than prescribing a single fixed cadence.**
+  - **Quote/paraphrase:** “Security controls and organizational risks are assessed and analyzed at a frequency sufficient to support risk-based security decisions to adequately protect organization information.”  
+  - **Likely families:** AU, CA, CM, IR, MA, SI, AC, IA, CP, PE
+
+| Section | Documented cadence / timeline | Exact requirement / close paraphrase | Likely control family/control ID |
+|---|---|---|---|
+| Exec Summary; Ch. 1 | Ongoing / continuous | ISCM is “maintaining ongoing awareness of information security, vulnerabilities, and threats to support organizational risk management decisions.” “The terms ‘continuous’ and ‘ongoing’… mean that security controls and organizational risks are assessed and analyzed at a frequency sufficient to support risk-based security decisions.” | CA, AU, SI, CM, IR |
+| Background | At a frequency appropriate to risk, but no less than annually | FISMA requires agencies to “conduct assessments of security controls at a frequency appropriate to risk, but no less than annually.” | CA |
+| Background | Ongoing basis; frequency sufficient to make ongoing, risk-based decisions | OMB M-11-33 emphasizes “monitoring the security state of information systems on an ongoing basis with a frequency sufficient to make ongoing, risk-based decisions.” | CA, AU, SI |
+| Ch. 2 intro | Frequencies not static; examples include annually, quarterly, monthly, daily | “Monitoring frequencies (e.g., annually, quarterly, monthly, daily) are not static, and they are not uniform across all metrics.” | CA, AU, CM, SI |
+| Ch. 2 intro | At any interval | “An ISCM strategy can deliver dynamic updates of security-related data to support system authorizations conducted at any interval.” | CA, AU |
+| Ch. 2.1.1 | Frequency with which metrics are monitored/reported is determined by risk tolerance | “The metrics and the frequency with which they are monitored and reported are determined by requirements to maintain operations within organizational risk tolerances.” | CA, AU, SI |
+| Ch. 2.1.2 | Frequencies determined in part by mission/business priorities and measurement capabilities | “The frequencies with which Tier 2 security controls are assessed and security status and other metrics are monitored are determined in part by the objectives and priorities of the mission or business process and measurement capabilities inherent in the infrastructure.” | PM, CA, AU, SI |
+| Ch. 2.1.3 | Ongoing basis | Tier 3 officials “conduct assessments and monitoring, and analyze results on an ongoing basis.” | CA, AU, SI |
+| Ch. 2.2 | Reasonable assessment frequencies | “A more practical approach is to establish reasonable assessment frequencies for collecting security-related information.” | CA |
+| Ch. 2.2 | Frequency sufficient to assure adequate security commensurate with risk | “The frequency of assessments should be sufficient to assure adequate security commensurate with risk…” | CA |
+| Ch. 2.2 | Annually, quarterly, monthly, daily examples | “Monitoring frequencies (e.g., annually, quarterly, monthly, daily) are not static…” | CA, AU, SI, CM |
+| Ch. 2.2 | Adjusted based on changing threats/vulnerabilities/incidents | “Security control assessment and monitoring frequencies… are adjusted to support changes…” and “priorities for ISCM vary and are adjusted in response to security incidents…” | CA, IR, SI, CM |
+| Ch. 3 intro | Determining status monitoring frequencies and control assessment frequencies | ISCM program establishes “metrics, status monitoring frequencies, control assessment frequencies…” | CA, AU, SI, CM |
+| Ch. 3.1 | Preestablished frequency audit | ISCM strategy includes “the inclusion of criteria describing the conditions that trigger a review or update of the strategy, in addition to the preestablished frequency audit.” | CA, AU, CM |
+| Ch. 3.1.2 | At minimum; all controls assessed according to system security plan and NIST SP 800-53A | “At a minimum, all security controls… are assessed for effectiveness in accordance with the system security plan and the methods described in NIST SP 800-53A.” | CA |
+| Ch. 3.1.2 | As often as required by organizational policy | “Assessment evidence obtained from ISCM is, at a minimum, provided to AOs as often as required by organizational policy.” | CA, AU |
+| Ch. 3.1.4 | No specific cadence; sampling when full collection impractical | Sampling is discussed as a methodology; no fixed frequency. | CA |
+| Ch. 3.2.1 | Hourly, daily, weekly; no more than annually for some items | Example metrics “might be computed hourly, daily, or weekly.” “Policies and procedures for network connectivity will be reviewed or revised no more than annually.” | CM, AU, CA |
+| Ch. 3.2.2 | More frequently / less frequently; no fixed universal cadence | “Volatile security controls are assessed more frequently…” and “not volatile… would therefore typically require less frequent assessment.” | CA, CM, AU |
+| Ch. 3.2.2 | Higher-impact systems more frequently than moderate; moderate more frequently than low | “Controls implemented on systems… high-impact are monitored more frequently than… moderate-impact… more frequently than… low-impact systems.” | CA, CM, AU |
+| Ch. 3.2.2 | More frequent monitoring for critical functions | Security controls/objects that provide critical functions “are candidates for more frequent monitoring.” | CA, CM, AU, SI |
+| Ch. 3.2.2 | More frequent monitoring until remediation complete | Controls with weaknesses in SAR/POA&M “are monitored more frequently until remediation of the weakness is complete.” | CA, SI, CM |
+| Ch. 3.2.2 | Temporary or permanent increases to monitoring frequencies | Threat info may justify “temporary or permanent increases” to monitoring frequencies. | SI, CA, CM |
+| Ch. 3.2.2 | Monthly patch cycle example; at least that often for scans | “If a specific product manufacturer provides software patches monthly, an organization might consider conducting vulnerability scans on that product at least that often.” | SI-2, RA-5, CA, CM |
+| Ch. 3.2.2 | More frequent monitoring of records on nonlocal maintenance | If risk assessment identifies issues related to MA-4, “the organization considers more frequent monitoring of the records kept on nonlocal maintenance and diagnostic activities.” | MA-4, CA |
+| Ch. 3.2.2 | Quarterly reporting requirement example | “If OMB policy requires quarterly reports on the number of unauthorized components detected and corrective actions taken, the organization would monitor the system for unauthorized components at least quarterly.” | CM-8, CA |
+| Ch. 3.2.2 | AC-2 control element frequencies vary | AC-2 base and enhancements may have different monitoring frequencies; example says AC-2a is relatively infrequent, AC-2h more frequent, AC-2(3) relatively frequent. | AC-2 |
+| Ch. 3.2.2 | Minimum frequency at mission/business tier | Tier 2 establishes “the minimum frequency with which each security control or metric is to be assessed or monitored.” | CA, AU, SI, CM |
+| Ch. 3.2.2 | Greater frequency than prescribed by organization | At Tier 3, system owners may assess specific controls/metrics “with greater frequency than prescribed by the organization.” | CA, AU, SI, CM |
+| Ch. 3.2.2 | Event-driven: immediate need | “Events may occur that trigger the immediate need to assess security controls or verify security status outside of requirements expressed in the ISCM strategy.” | IR, CA, SI |
+| Ch. 3.2.2 | Event-driven assessments may trigger reauthorizations | “Depending on the significance of the event, an event-driven assessment may trigger one or more system reauthorizations.” | CA, AU |
+| Ch. 3.2.3 | No fixed cadence; collection/delivery as needed | Architecture determines how information is collected and delivered; no specific cadence given. | CA, AU, SI |
+| Ch. 3.4 | Frequency of reports | Procedures include “the frequency of reports.” No universal cadence prescribed. | AU, CA, SI |
+| Ch. 3.4.2 | Annually; quarterly; monthly; every minute; hourly or daily | Risk executive “may receive a general report on all systems annually and a detailed report on specific high-impact systems quarterly.” CIO/SISO “quarterly.” AO “monthly comprehensive reports.” CIRT lead “when alerts are generated.” Network admins “dashboard… updated every minute, with summary metrics updated hourly or daily.” | AU, CA, SI, IR |
+| Ch. 3.4.2 | More frequent reports for volatile/weak controls | “Organizations may consider more frequent reports for specific controls with more volatility or on controls for which there have been weaknesses or lack of compliance.” | CA, AU, SI |
+| Ch. 3.4.3 | No fixed cadence; reporting on security status per policy | Security status reporting requirements define content/format/frequency. No universal cadence. | AU, CA, SI |
+| Ch. 3.5 | Changes to frequency of monitoring | At Tier 3, responses may include “changes to the frequency of monitoring.” | CA, AU, SI |
+| Ch. 3.6 | Review/update as needed; frequencies change with needs | “Security control assessments, security status metrics, and monitoring and assessment frequencies change in accordance with the needs of the organization.” | CA, AU, CM, SI |
+| Ch. 3.6 | Weekly, biweekly, monthly example for component inventory | “If weekly assessments of component inventories over a six-month period indicate…” frequency may be reduced to “biweekly or monthly.” | CM-8, CA |
+| Ch. 3.6 | Biweekly audit record analyses; increase to weekly | “If biweekly audit record analyses over a six-month period indicate increases in anomalous events… increase… audit record reviews to weekly.” | AU-6, AU-12, SI-4, IR |
+| Ch. 3.6 | No fixed cadence; maturity-based, ongoing refinement | Strategy is continually refined; no fixed cadence. | CA, AU, CM, SI |
+| Appendix D intro | Periodically | “It is important to understand and appreciate the need to assess the effectiveness of all security controls, particularly nontechnical security controls, periodically.” | CA, AU, CM, SI |
+| App. D.1.1 | Regularly scheduled scans | SCAP-enabled vulnerability scanners “can be configured to scan connected systems at regular intervals.” | RA-5, CA, SI |
+| App. D.1.1 | Continuous monitoring of vulnerability/patch management | No fixed cadence, but continuous monitoring is emphasized. | RA-5, SI-2, CA |
+| App. D.1.2 | Routine log analysis | “Routine log analysis is beneficial…” No fixed cadence specified. | AU-6, SI-4 |
+| App. D.1.3 | Periodic scans; real-time scans | Malware detection mechanisms can perform “periodic scans” and “real-time scans” of files. | SI-3, SI-4 |
+| App. D.1.5 | More frequent monitoring of configurations; no fixed cadence | Configuration management tools monitor changes and restore settings; no universal cadence. | CM-2, CM-3, CM-6, CM-7, IA-2, IA-5, MA-5 |
+| App. D.1.8 | At rest, in use, in transit | DLP tools monitor data “at rest, in use, and in transit.” No cadence stated. | AC-4, SI, SC-9, SI-12 |
+| App. D.2.1 | No fixed cadence | SIEM tools analyze and correlate logs; frequency is tool/configuration dependent. | AU, SI, IR, CA |
+| App. D.2.2 | Near real-time | Dashboard consolidates and communicates info “in near real-time.” | CA, AU, SI |
+| App. D.2.2 | No fixed cadence; customizable | Dashboard output is customized to role/need; no fixed frequency. | CA, AU |
+| App. D.3.2 | Updated at two-hour intervals | NVD XML data feeds are “updated at two-hour intervals.” | RA-5, SI, CA |
+| App. D.3.2 | Scheduled rescans as new info becomes available | “As information becomes available in the NVD, systems are rescanned to reassess risk and mitigate any new vulnerabilities.” No fixed cadence beyond two-hour update interval for feeds. | RA-5, CA, SI |
+| App. D.3.2 | No fixed cadence for checklists; dynamic updates | Security checklists are maintained and revised as necessary; no fixed cadence. | CM, CA, SI |
+| App. D.4 | Query/fulfillment, reporting to tiers; no fixed cadence | Reference model supports reporting and risk-based decision making; no universal cadence specified. | CA, AU, SI |
+| Glossary / definitions | Retention period / storage “for an appropriate period of time” | “Logs are a key resource…” and log management is essential for ensuring “security records are stored in sufficient detail for an appropriate period of time.” | AU, SI |
+| Glossary / definitions | Scheduled completion dates | POA&M “details resources… milestones… and scheduled completion dates for the milestones.” | CA, SI, PM |
+| Glossary / definitions | Ongoing / near real-time / real-time | Definitions of ISCM, operational security status, dashboard, etc., repeatedly use ongoing/real-time/near real-time. | CA, AU, SI, CM |
+
+- **Source section: Chapter 3.2.2 — Establish Monitoring and Assessment Frequencies**
+  - **Explicit frequency examples and timing references:**
+    - “annually”
+    - “quarterly”
+    - “monthly”
+    - “daily”
+    - “hourly”
+    - “weekly”
+    - “biweekly”
+    - “every minute”
+    - “at least quarterly”
+    - “at least that often”
+    - “no more than annually”
+    - “regular intervals”
+    - “two-hour intervals”
+    - “periodic”
+    - “real-time”
+    - “near real-time”
+    - “immediate”
+  - **Control-family/control examples explicitly mentioned in this section:**
+    - **CM-6, Configuration Settings** — “may require more frequent assessment and monitoring”
+    - **CM-8, Information System Component Inventory** — “may require more frequent assessment and monitoring”
+    - **PS-2, Position Categorization** — “typically require less frequent assessment”
+    - **PS-3, Personnel Screening** — “typically require less frequent assessment”
+    - **MA-4, Nonlocal Maintenance** — “more frequent monitoring of the records kept on nonlocal maintenance and diagnostic activities”
+    - **AC-2, Account Management** — AC-2a, AC-2h, AC-2(3) have differing monitoring frequencies
+    - **CM-8** unauthorized components example — quarterly monitoring at least
+    - **RA-5** — vulnerability scans at least as often as monthly patch releases
+  - **Exact/paraphrased requirements:**
+    - “Volatile security controls are assessed more frequently…”
+    - “Common controls that are process-related… do not tend to be volatile and typically do not lend themselves well to automation.”
+    - “Monitoring and assessment frequencies are determined for each individual metric and control.”
+    - “System owners determine assessment frequencies of security controls based on drivers from all three tiers.”
+    - “The frequencies with which Tier 2 security controls are assessed and security status and other metrics are monitored are determined in part by the objectives and priorities of the mission or business process and measurement capabilities inherent in the infrastructure.”
+  - **If no fixed cadence:** many items here are stated as risk-/volatility-/impact-based only.
+
+- **Source section: Chapter 3.4.2 — Report on Security Control Assessments**
+  - **Explicit reporting cadences/timelines:**
+    - risk executive: **annually**
+    - risk executive detailed high-impact systems: **quarterly**
+    - CIO and SISO: **quarterly**
+    - AO: **monthly**
+    - CIRT lead: **when alerts are generated**
+    - network administrators: dashboard **every minute**
+    - summary metrics: **hourly or daily**
+  - **Exact/close paraphrase:**
+    - “The risk executive (function) may receive a general report on all systems annually and a detailed report on specific high-impact systems quarterly.”
+    - “The reports provided to the CIO and SISO may contain more granular technical data on all systems quarterly.”
+    - “The AO may receive monthly comprehensive reports on the systems for which s/he is responsible.”
+    - “The computer incident response team (CIRT) lead may receive exception reports when alerts are generated.”
+    - “Network administrators may review dashboards showing network activity that is updated every minute, with summary metrics that are updated hourly or daily.”
+  - **Likely control families:** AU, CA, SI, IR
+
+- **Source section: Chapter 3.6 — Review and Update the Monitoring Program and Strategy**
+  - **Explicit cadence/timeline examples:**
+    - **weekly** assessments of component inventories over a six-month period
+    - **biweekly** audit record analyses over a six-month period
+    - may reduce to **biweekly or monthly**
+    - may increase to **weekly**
+  - **Exact/close paraphrase:**
+    - “If weekly assessments of component inventories over a six-month period indicate that very few changes are being made in a given week… the organization may wish to reduce the frequency of monitoring component inventories to biweekly or monthly.”
+    - “Conversely, if biweekly audit record analyses over a six-month period indicate increases in anomalous events, the organization may wish to increase the frequency of audit record reviews to weekly.”
+  - **Likely control families:**
+    - component inventories: **CM-8**
+    - audit record reviews: **AU-6**, **AU-12**, **SI-4**
+
+- **Source section: Appendix D.3.2 — Reference Data Sources**
+  - **Explicit cadence/timeline examples:**
+    - NVD XML vulnerability content feeds updated at **two-hour intervals**
+    - systems are **rescanned** as information becomes available
+  - **Exact/close paraphrase:**
+    - “Vulnerability content in the form of XML data feeds is available and updated at two-hour intervals.”
+    - “As information becomes available in the NVD, systems are rescanned to reassess risk and mitigate any new vulnerabilities.”
+  - **Likely control families:** **RA-5**, **CA-7**, **SI-2**, **SI**
+
+- **Source section: Appendix D.1.1 — Vulnerability and Patch Management**
+  - **Explicit cadence/timeline examples:**
+    - scan at **regular intervals**
+    - patches provided **monthly**; vulnerability scans at least that often
+  - **Exact/close paraphrase:**
+    - SCAP-enabled vulnerability scanners “can be configured to scan connected systems at regular intervals.”
+    - “If a specific product manufacturer provides software patches monthly, an organization might consider conducting vulnerability scans on that product at least that often.”
+  - **Likely control families:** **RA-5**, **SI-2**, **CA-7**, **CM-3**
+
+- **Source section: Appendix D.1.2 — Event and Incident Management**
+  - **Explicit cadence/timeline examples:**
+    - routine log analysis
+    - logs stored for an “appropriate period of time”
+  - **Exact/close paraphrase:**
+    - “Routine log analysis is beneficial…”
+    - log management ensures records are stored “in sufficient detail for an appropriate period of time.”
+  - **Likely control families:** **AU-2**, **AU-3**, **AU-4**, **AU-5**, **AU-6**, **AU-7**, **AU-8**, **AU-12**, **IR-5**, **SI-4**
+
+- **Source section: Appendix D.1.3 — Malware Detection**
+  - **Explicit cadence/timeline examples:**
+    - **periodic scans**
+    - **real-time scans**
+  - **Exact/close paraphrase:**
+    - “Malware detection mechanisms can be configured to perform periodic scans… as well as real-time scans of files from external sources as the files are downloaded, opened, or executed…”
+  - **Likely control families:** **SI-3**, **SI-4**, **IR-5**
+
+- **Source section: Appendix D.2.2 — Management Dashboards**
+  - **Explicit cadence/timeline examples:**
+    - **near real-time**
+  - **Exact/close paraphrase:**
+    - Dashboard “consolidates and communicates information relevant to the organizational security status in near real-time to security management stakeholders.”
+  - **Likely control families:** **CA-7**, **PM-6**, **PM-9**, **RA-3**, **SI-4**
+
+- **Source section: General absence statements**
+  - The page does **not** provide a universal fixed cadence for all controls; instead, it repeatedly says frequencies are **organization-defined**, **risk-based**, **tier-based**, or **adjusted** based on volatility, impact, threats, vulnerabilities, reporting needs, or incidents.
+  - The page does **not** provide specific “within X days” deadlines for maintenance/remediation actions in the visible text.
+  - The page does **not** provide specific “retention period” numbers beyond “an appropriate period of time” for logs and “scheduled completion dates” for POA&M milestones.

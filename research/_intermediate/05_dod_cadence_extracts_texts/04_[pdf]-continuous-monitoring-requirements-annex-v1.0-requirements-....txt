@@ -1,0 +1,246 @@
+URL: https://media.defense.gov/2022/Nov/14/2003113709/-1/-1/0/CONTINUOUS%20MONITORING%20ANNEX%20V1.0%20800-53%20CONTROL%20MAPPINGS.PDF
+TITLE: [PDF] Continuous Monitoring Requirements Annex v1.0 Requirements ...
+ERROR: None
+
+| Requested item | Exact cadence / timeline stated in the provided page | Closely quoted source text | Control family / control ID mappings explicitly shown on the page |
+|---|---|---|---|
+| STIG update/release cycles | No exact cadence stated | No STIG update/release cycle frequency, release interval, or publication schedule is stated on the provided page. | Not stated on this page. |
+| SRG/STIG Library compilations frequency | No exact cadence stated | No compilation frequency for SRG/STIG Library is stated on the provided page. | Not stated on this page. |
+| IAVA/IAVM remediation timelines | No exact cadence stated | No IAVA/IAVM remediation timeline is stated on the provided page. | Not stated on this page. |
+| Continuous monitoring cadence | No exact cadence stated | The page is titled “Continuous Monitoring Requirements Annex v1.0” and maps requirements to controls, but it does not state a monitoring cadence such as daily, weekly, monthly, quarterly, or continuous intervals. | The page maps multiple annex requirements to control families/IDs, including CM, SI, CA, AU, MA. |
+| JSIG/RMF ongoing monitoring | No exact cadence stated | The page says the appendix is for customers who must demonstrate implementation “as part of their Risk Management Framework (RMF) … process,” but it does not state an ongoing monitoring schedule. | RMF is mentioned in the introductory text; mappings include CA, AU, CM, SI. |
+| Annual reporting | No exact cadence stated | No annual reporting cadence is stated on the provided page. | Not stated on this page. |
+| Control assessment schedules | No exact cadence stated | No assessment schedule, frequency, or timetable is stated on the provided page. | Not stated on this page. |
+
+## Extracted page text relevant to cadence/timeline requests
+
+- “Most of the requirements in the Key Management Requirements Annex support the implementation of the security controls specified in the National Institute of Standards and Technology (NIST) Special Publication 800-53 Revision 5 (NIST SP 800-53).”
+- “This appendix is provided for customers who must demonstrate implementation of a set of NIST SP 800-53 security controls as part of their Risk Management Framework (RMF) (formerly known as Certification and Accreditation (C&A)) process for a system incorporating a MSC solution that complies with this CP.”
+- “Note that the presence of a mapping between a CP requirement and a NIST SP 800-53 security control does not necessarily indicate that the CP requirement by itself is sufficient to satisfy the security control. Instead, a mapping indicates that the CP requirement provides some degree of support to the application of the security control. Additional work outside the scope of this CP may be required to effectively implement the security control on the target system.”
+
+## Control family / control ID mappings explicitly shown on the page
+
+### CM-MP
+| Annex Requirement | NIST SP 800-53 Revision 5 Security Controls |
+|---|---|
+| CM-MP-1 | SI-4, CA-7 |
+| CM-MP-2 | SI-4, CA-7 |
+| CM-MP-3 | SI-4, CA-7 |
+| CM-MP-4 | SI-4, CA-7 |
+| CM-MP-5 | SI-4, CA-7 |
+| CM-MP-6 | SI-4 (14) |
+| CM-MP1-1 | AU-2, AU-4, AU-12, SI-4 (4) |
+| CM-MP1-2 | AU-2, AU-4, AU-12, SI-4 (4) |
+| CM-MP1-3 | AU-2, AU-4, AU-12, SI-4 (22) |
+| CM-MP1-4 | AU-2, AU-4, AU-12, SI-4 (22) |
+| CM-MP1-5 | AU-2, AU-12, CM-3f, CM-3 (1e) |
+| CM-MP1-6 | AU-2, AU-12, SI-4 (22) |
+| CM-MP1-7 | AC-6 (9), AU-2, AU-12, SI-4 (20) |
+| CM-MP1-8 | AC-6 (9), AU-2, AU-12, SI-4 (20) |
+| CM-MP1-9 | AU-2, AU-12 |
+| CM-MP1-10 | AU-2, AU-12, SI-4 (11) |
+| CM-MP1-11 | AU-2, AU-12, SI-4 (11) |
+| CM-MP2-1 | AU-2, AU-4, AU-12, SI-4 (4) |
+| CM-MP2-2 | AU-2, AU-4, AU-12, SI-4 (4) |
+| CM-MP2-3 | AU-2, AU-4, AU-12, SI-4 (22) |
+| CM-MP2-4 | AU-2, AU-4, AU-12, SI-4 (4) |
+| CM-MP2-5 | AU-2, AU-12, SC-21 |
+| CM-MP2-6 | AU-2, AU-12, SI-4 (22) |
+| CM-MP2-7 | AC-6 (9), AU-2, AU-12, SI-4 (20) |
+| CM-MP3-1 | AU-2, AU-4, AU-12, SI-4 (4) |
+| CM-MP3-2 | AU-2, AU-4, AU-12, SI-4 (4) |
+| CM-MP3-3 | AU-2, AU-4, AU-12, SI-4 (22) |
+| CM-MP3-4 | AU-2, AU-4, AU-12, SI-4 (4) |
+| CM-MP3-5 | AU-2, AU-12, CM-3 (6) |
+| CM-MP3-6 | AU-2, AU-12, SI-4 (22) |
+| CM-MP3-7 | AC-6 (9), AU-2, AU-12, SI-4 (20) |
+| CM-MP4-1 | AU-2, AU-12, SI-4 (4) |
+| CM-MP4-2 | AU-2, AU-4, AU-12, SI-4 (4) |
+| CM-MP4-3 | AU-2, AU-12, SI-4 (11) |
+| CM-MP4-4 | AU-2, AU-12, SI-4 (11) |
+| CM-MP4-5 | AU-2, AU-12, CM-7b, SI-4 |
+| CM-MP4-6 | AU-2, AU-4, AU-12, SI-4 (22) |
+| CM-MP5-1 | AU-2, AU-12, SI-4 (4) |
+| CM-MP5-2 | AU-2, AU-4, AU-12, SI-4 (4) |
+| CM-MP5-3 | AU-2, AU-12, SI-4 (11) |
+| CM-MP5-4 | AU-2, AU-12, SI-4 (11) |
+| CM-MP5-5 | AU-2, AU-12, CM-7b, SI-4 |
+| CM-MP5-6 | AU-2, AU-4, AU-12, SI-4 (22) |
+| CM-MP6-1 | AU-2, AU-4, AU-12 |
+| CM-MP6-2 | AU-2, AU-4, AU-12 |
+| CM-MP6-3 | AU-2, AU-4, AU-12 |
+| CM-MP6-4 | AU-2, AU-4, AU-12 |
+| CM-MP6-5 | AC-6 (9), AU-2, AU-12, SI-4 (20) |
+| CM-MP6-6 | AC-16e |
+| CM-MP6-7 | AU-2, AU-12 |
+| CM-MP6-8 | AU-2, AU-4, AU-12, SI-4 (22) |
+| CM-MP6-9 | AU-2, AU-12, SI-4 (4) |
+| CM-MP6-10 | AU-2, AU-12, CM-7b, SI-4 |
+| CM-MP6-11 | AU-2, AU-12, SC-21 |
+| CM-MP6-12 | AC-7, AU-2, AU-4, AU-12 |
+| CM-MP6-13 | AU-2, AU-12, CM-3f, CM-3 (1e) |
+| CM-MP6-14 | AU-2, AU-12, CM-3f |
+| CM-MP6-15 | AU-2, AU-4, AU-12, IA-5 (2) |
+| CM-MP6-16 | AU-2, AU-4, AU-12, IA-5 (2) |
+| CM-MP6-17 | AU-2, AU-12, SC-7a |
+| CM-MP6-18 | AU-2, AU-12, SC-7a |
+| CM-MP6-19 | AU-2, AU-4, AU-12 |
+| CM-MP6-20 | AU-2, AU-4, AU-12 |
+| CM-MP6-21 | AU-2, AU-4, AU-12, IA-5 (2) |
+| CM-MP6-22 | AU-2, AU-12, IA-5 (2) |
+| CM-MP6-23 | AU-2, AU-4, AU-12, SC-12 |
+| CM-MP6-24 | AU-2, AU-4, AU-12, SC-12 |
+| CM-MP6-25 | AU-2, AU-4, AU-12, IA-5 (2) |
+| CM-MP6-26 | AU-2, AU-12, IA-5 (2) |
+| CM-MP6-27 | RA-5 |
+| CM-MP7-1 | AU-2, AU-4, AU-12 |
+| CM-MP7-2 | AU-2, AU-4, AU-12 |
+| CM-MP7-3 | AU-2, AU-4, AU-12 |
+| CM-MP7-4 | AU-2, AU-4, AU-12 |
+| CM-MP7-5 | AC-6 (9), AU-2, AU-12, SI-4 (20) |
+| CM-MP7-6 | AC-16e |
+| CM-MP7-7 | AU-2, AU-12 |
+| CM-MP7-8 | AU-2, AU-4, AU-12, SI-4 (22) |
+| CM-MP7-9 | AU-2, AU-12, SI-4 (4) |
+| CM-MP7-10 | AU-2, AU-12, CM-7b, SI-4 |
+| CM-MP7-11 | AU-2, AU-12, SC-21 |
+| CM-MP7-12 | AC-7, AU-2, AU-4, AU-12 |
+| CM-MP7-13 | AU-2, AU-12, CM-3f, CM-3 (1e) |
+| CM-MP7-14 | AU-2, AU-12, CM-3f |
+| CM-MP7-15 | AU-2, AU-4, AU-12, IA-5 (2) |
+| CM-MP7-16 | AU-2, AU-4, AU-12, IA-5 (2) |
+| CM-MP7-17 | AU-2, AU-12, SC-7a |
+| CM-MP7-18 | AU-2, AU-12, SC-7a |
+| CM-MP7-19 | AU-2, AU-4, AU-12 |
+| CM-MP7-20 | AU-2, AU-4, AU-12, IA-5 (2) |
+| CM-MP7-21 | AU-2, AU-4, AU-12, IA-5 (2) |
+| CM-MP7-22 | AU-2, AU-12, IA-5 (2) |
+| CM-MP7-23 | AU-2, AU-4, AU-12, IA-5 (2), SC-8 (1) |
+| CM-MP7-24 | AU-2, AU-4, AU-12, IA-5 (2), SC-8 (1) |
+| CM-MP7-25 | AU-2, AU-4, AU-12, IA-5 (2), SC-8 (1) |
+| CM-MP7-26 | AU-2, AU-4, AU-12, SC-8 (1) |
+| CM-MP7-27 | AU-2, AU-4, AU-12, SC-8 (1) |
+| CM-MP7-28 | AU-2, AU-4, AU-12, SC-12 |
+| CM-MP7-29 | AU-2, AU-4, AU-12, SC-12 |
+| CM-MP7-30 | AC-7, AU-2, AU-12 |
+| CM-MP7-31 | RA-5 |
+| CM-MP8-1 | AU-2, AU-4, AU-9 (2), AU-12, SI-4 (23) |
+| CM-MP8-2 | AU-2, AU-4, AU-12, SI-4 (23) |
+| CM-MP8-3 | AU-2, AU-4, AC-7a, AU-12, SI-4 (23) |
+| CM-MP8-4 | AU-2, AU-12, CM-3f, CM-3 (1e), SI-4 (23) |
+| CM-MP8-5 | AU-2, AU-4, AU-12, SI-4 (22, 23) |
+| CM-MP8-6 | AU-2, AU-12, CM-8 (3), SI-4 (23) |
+| CM-MP8-7 | AU-2, AU-12, SI-3, SI-4 (23) |
+| CM-MP8-8 | AU-2, AU-12, SI-4d, SI-4 (23) |
+| CM-MP8-9 | AU-2, AU-12, IA-5 (2) |
+| CM-MP8-10 | AU-2, AU-12, IA-5 (2) |
+| CM-MP8-11 | AU-2, AU-12 |
+| CM-MP8-12 | AU-2, AU-12 |
+| CM-MP8-13 | AU-2, AU-12 |
+| CM-MP8-14 | AU-2, AU-12 |
+| CM-MP8-15 | AU-2, AU-4, AU-12, SI-4 (23) |
+
+### CM-LN
+| Annex Requirement | NIST SP 800-53 Revision 5 Security Controls |
+|---|---|
+| CM-LN-1 | AU-8 |
+| CM-LN-2 | AU-3 |
+| CM-LN-3 | AU-3a |
+| CM-LN-4 | AU-3e |
+| CM-LN-5 | AU-3f |
+| CM-LN-6 | AU-3d |
+| CM-LN-7 | AU-3f |
+| CM-LN-8 | AU-3 (1) |
+| CM-LN-9 | AU-3 (1) |
+| CM-LN-10 | AU-3 (1) |
+| CM-LN-11 | AU-3 (1) |
+| CM-LN-12 | AU-3 (1) |
+| CM-LN-13 | AU-3 (1) |
+| CM-LN-14 | CM-3f |
+| CM-LN-15 | SI-4 (2) |
+| CM-LN-16 | SI-4g |
+| CM-LN-17 | AU-9, SC-8 (1), SC-13, SI-4 (2) |
+
+### CM-GR
+| Annex Requirement | NIST SP 800-53 Revision 5 Security Controls |
+|---|---|
+| CM-GR-1 | AC-4 (15), SI-4 (25) |
+| CM-GR-2 | AC-4 (15), SI-4 (25) |
+| CM-GR-3 | CM-2a |
+| CM-GR-4 | CM-2b (1) |
+| CM-GR-5 | SI-4 (11) |
+| CM-GR-6 | AC-4, SI-4 (11) |
+| CM-GR-7 | IA-5 (2), SC-17 |
+| CM-GR-8 | IA-5 (2), SC-17 |
+| CM-GR-9 | CA-2a, CA-2 (2) |
+| CM-GR-10 | AU-11 |
+| CM-GR-11 | AU-4 |
+| CM-GR-12 | AU-9 (2) |
+| CM-GR-13 | AU-5 |
+| CM-GR-14 | AU-4 (1), AU-5 (1) |
+| CM-GR-15 | AU-4 (1), AU-9 (2) |
+| CM-GR-16 | AU-5 (2), AU-5 (5) |
+| CM-GR-17 | PE-11 |
+| CM-GR-18 | AC-4 (20) |
+| CM-GR-19 | PL-9, SI-4 |
+| CM-GR-20 | SI-4 |
+| CM-GR-21 | SI-4 (2) |
+| CM-GR-22 | PL-10 |
+| CM-GR-23 | IR-4 (13) |
+| CM-GR-24 | AC-4 (3), SI-4 (4) |
+| CM-GR-25 | SC-12 |
+| CM-GR-26 | SC-12 |
+
+### CM-SM
+| Annex Requirement | NIST SP 800-53 Revision 5 Security Controls |
+|---|---|
+| CM-SM-1 | SI-4 (2) |
+| CM-SM-2 | SI-4 (2) |
+| CM-SM-3 | AU-6 (4) |
+| CM-SM-4 | AU-6 (4) |
+| CM-SM-5 | AU-6 (4, 5) |
+| CM-SM-6 | SI-4 (2) |
+| CM-SM-7 | SC-12, SC-17, SI-4 (2) |
+| CM-SM-8 | SC-12, SI-4 (2) |
+| CM-SM-9 | AC-7b, SI-4 (2) |
+| CM-SM-10 | SI-4 (2, 20) |
+| CM-SM-11 | CM-3f, CM-3 (1), SI-4 (2) |
+| CM-SM-12 | AC-2 (4), AU-6 (4) |
+| CM-SM-13 | SI-4a.2, SI-4 (2) |
+| CM-SM-14 | SI-4a.1, SI-4 (2) |
+| CM-SM-15 | CA-3 (6), SC-7 (4h), SI-4 (2) |
+
+### CM-MI
+| Annex Requirement | NIST SP 800-53 Revision 5 Security Controls |
+|---|---|
+| CM-MI-1 | SI-4 |
+| CM-MI-2 | AU-12c |
+| CM-MI-3 | SI-4 (2) |
+| CM-MI-4 | SI-4 (2) |
+| CM-MI-5 | AU-6 (4) |
+| CM-MI-6 | AU-6 (5) |
+
+### CM-MS
+| Annex Requirement | NIST SP 800-53 Revision 5 Security Controls |
+|---|---|
+| CM-MS-1 | AU-6 (4) |
+| CM-MS-2 | AC-16, AU-6 (4) |
+| CM-MS-3 | AU-6 (4) |
+
+### CM-CD
+| Annex Requirement | NIST SP 800-53 Revision 5 Security Controls |
+|---|---|
+| CM-CD-1 | AC-4 (20) |
+| CM-CD-2 | AC-4 (20) |
+| CM-CD-3 | AC-4 (7) |
+| CM-CD-4 | AC-4 (20); SC-46 |
+| CM-CD-5 | AC-4 (7) |
+| CM-CD-6 | AC-4 (7) |
+
+## Explicit presence of requested control families on the page
+
+- **CM**: present
+- **SI**: present
+- **CA**: present
+- **AU**: present
+- **MA**: not present in the visible mappings on the provided page

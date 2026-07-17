@@ -1,0 +1,91 @@
+URL: https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-34r1.pdf
+TITLE: Contingency Planning Guide for Federal Information Systems
+ERROR: None
+
+| Cadence / timeline | Likely control family / control ID | Exact requirement / excerpt | Source section |
+|---|---|---|---|
+| Annual / at least annually | CP-1, CP-3, CP-4, CP-2 (review frequency), CP-9 (test frequency in guidance templates), plan maintenance | “must be reviewed annually and updated as necessary”; “The plan recovery capabilities and personnel shall be tested annually”; “Training should be provided at least annually”; “I further attest that this ISCP for {system name} will be tested at least annually.” | Executive Summary sample policy; 3.1; 3.5.2; A.1 Plan Approval; A.2 Plan Approval; A.3 Plan Approval |
+| Annual / yearly (organization-defined frequency examples) | CP-4, CP-3, CP-9, plan maintenance | “conduct exercises or tests for their systems’ contingency plans around an organization-defined frequency”; “Training should be provided at least annually”; “All ISCPs should be reviewed and tested at the organization defined frequency (e.g. yearly)”; “at the organization defined frequency (e.g., yearly)” | 3.5; 3.5.2; 3.5.4; A.1 Appendix I; A.2 Appendix J; A.3 Appendix J |
+| Monthly/weekly/daily backup frequency examples | CP-9, CP-2, CP-1 (policy must set minimum backup frequency) | “Policies should specify the minimum frequency and scope of backups (e.g., daily or weekly, incremental or full)”; “minimum frequency of backups and storage of backup media”; “backup policies should designate ... how often they are recirculated and moved to storage” | 3.1; 3.4.2; 5.1.2 |
+| “Within 30 days” / up to 30 days | COOP-related, not an SP 800-53 cadence; related to alternate site duration | “COOP focuses on restoring ... at an alternate site and performing those functions for up to 30 days before returning to normal operations.” | 2.2.2 |
+| Within 12 hours | COOP-related, not an SP 800-53 cadence; referenced for MTD/COOP support | “must be able to meet the function’s MTD of 12 hours or less per FCD-1”; “COOP functions must be sustained within 12 hours and for up to 30 days from an alternate site” | 3.2.1; 3.2.1 COOP vs. ISCP – The Basic Facts |
+| At least once a year / yearly test schedule | CP-4, CP-3 | “Conduct tabletop test”; “Conduct functional test”; “Conduct full functional test”; sample annual schedules are shown with dates over a one-year cycle | A.1 Appendix I; A.2 Appendix J; A.3 Appendix J |
+| Every 24 hours (site delivery window) | CP-7 / CP-10 operational logistics, not a formal control cadence | “In many cases, mobile sites may be delivered to the desired location within 24 hours” | 3.4.3 |
+| 30 to 60 minutes (UPS backup power duration) | PE/CP-relevant preventive measure | “A UPS usually provides 30 to 60 minutes of temporary backup power” | 5.1.3 |
+| 99.999 percent uptime / higher | HA-related, not a control cadence | “HA denotes systems that can achieve an uptime of 99.999 percent or better”; “The concept of HA is to achieve an uptime of 99.999 percent or higher” | 5.1.1; 5.1.6 |
+| “At the next scheduled backup period” | CP-9 | “As soon as reasonable following recovery, the system should be fully backed up ... ideally at the next scheduled backup period.” | A.1 §5.6; A.2 §5.7; A.3 §5.8 |
+| “At the organization-defined frequency” for contingency reviews/tests | CP-2, CP-3, CP-4 | “Reviews the contingency plan for the information system [Assignment: organization-defined frequency]”; “provides refresher training [Assignment: organization-defined frequency]”; “Tests and/or exercises the contingency plan ... [Assignment: organization-defined frequency]” | Appendix E, CP-2/CP-3/CP-4 |
+| “At least yearly” / “at the organization defined frequency (e.g., yearly)” | CP-4 / plan maintenance | “Clarify ‘at least yearly’ to ‘at the organization defined frequency (e.g., yearly)’” | Errata |
+| “More often” for moderate/high impact plan review | CP-2 / plan maintenance | “The plans for moderate- or high-impact systems should be reviewed more often.” | 3.6 |
+| “Frequently” / “more frequent reviews” | CP-2 / plan maintenance | “Certain elements, such as contact lists, will require more frequent reviews.” | 3.6 |
+| “Within 24 hours” | CP-7 / site readiness logistics | “In many cases, mobile sites may be delivered to the desired location within 24 hours” | 3.4.3 |
+| “Several days to weeks” | CP-7 / recovery time for cold site | “Depending on the size and complexity of a system, recovery could take several days to weeks to complete.” | 5.1.5 |
+| “Several hours to several days” | CP-7 / recovery time for warm site | “Recovery to a warm site can take several hours to several days” | 5.1.5 |
+| “Within 30 hours / 36 hours / 72 hours” examples | BIA only; not control requirements | Example downtime values shown for mission/business processes: “Prepare Report ... 30 hours”; “Create Budget ... 36 hours”; “Respond to Inquiries ... 36 hours”; “Invoice Operations ... 72 hours” | 3.2.1 figure |
+| “24 hours to rebuild or replace” example | BIA only; not control requirement | “Web Server 1 ... 24 hours to rebuild or replace” | Appendix B, §3.3 |
+| “48 hours” / “72 hours” / “12 hours (last backup)” example | BIA only; not control requirement | “Pay vendor invoice ... MTD 72 hours / RTO 48 hours / RPO 12 hours (last backup)” | Appendix B, §3.1.1 |
+| “Long-term backup power solution may be needed” / generator automatic on interruption | Preventive measure; no exact cadence | “A gas or diesel generator can ensure that mainframe processing is not interrupted by a power outage.” | 5.4.2 |
+| “Periodic” test/exercise / review | CP-4 / plan maintenance | “Organizations should conduct TT&E events periodically, following organizational or system changes, or the issuance of new TT&E guidance, or as otherwise needed.” | 3.5 |
+| “Routinely” conduct full and incremental backups; “periodically validated” | CP-9 | “Full and incremental backups should be routinely conducted, stored offsite, rotated, and periodically validated.” | Appendix F, Operation/Maintenance Phase |
+| “As needed” / “as otherwise needed” | CP-3 / CP-4 / plan maintenance | “or as otherwise needed” | 3.5 |
+| “Shortly thereafter” training for new personnel | CP-3 | “Personnel newly appointed to ISCP roles should receive training shortly thereafter.” | 3.5.2 |
+| “Soon after” / “at the first few hours” availability issue | Informational, not a cadence | “paper or electronic versions of the plan are unavailable for the first few hours” | 3.5.2 |
+| “Soon after the primary data and databases are updated” | CP-10 / HA-related synchronization | “In many cases, hot site data and databases are updated concurrently with or soon after the primary data and databases are updated.” | 5.1.5 |
+| “During planned and unplanned maintenance activities” | CP-4 / functional exercise opportunity | “Planned and unplanned maintenance activities may also present opportunities to execute and document a Functional Exercise.” | 3.5.3 |
+| “At the next scheduled backup period” with offsite copy | CP-9 | “This backup should go offsite with the other media” | A.2 §5.7; A.3 §5.8 |
+| “Within [Assignment: organization-defined time period] of contingency plan activation” | CP-2 (1)/(3)/(4)/(5)/(6), CP-7, CP-8 | “The organization plans for the resumption of essential missions and business functions within [Assignment: organization-defined time period] of contingency plan activation”; “full resumption ... within [Assignment: organization-defined time period]” | Appendix E, CP-2 and CP-7/CP-8 |
+| “Within [Assignment: organization-defined time period] consistent with recovery time objectives” | CP-7 | “resumption ... within [Assignment: organization-defined time period consistent with recovery time objectives]” | Appendix E, CP-7 |
+| “Within [Assignment: organization-defined transfer rate consistent with recovery time and recovery point objectives]” | CP-9 | “transfers information system backup information to the alternate storage site [Assignment: organization-defined transfer rate consistent with the recovery time and recovery point objectives]” | Appendix E, CP-9 |
+| “At the organization-defined frequency (e.g., yearly)” for TT&E tables | CP-4 | “For low-impact systems, a tabletop exercise at an organization-defined frequency is sufficient”; “For moderate-impact systems, a functional exercise at an organization-defined frequency should be conducted”; “For high-impact systems, a full-scale functional exercise at an organization-defined frequency should be conducted.” | 3.5.4; Appendix A templates |
+| “At the organization defined frequency (e.g. yearly) or whenever there is a significant change” | CP-4 / plan maintenance | “All ISCPs should be reviewed and tested at the organization defined frequency (e.g. yearly) or whenever there is a significant change to the system.” | A.1 Appendix I; A.2 Appendix J; A.3 Appendix J |
+| “Within [RTO hours]” placeholders in templates | CP-2 / plan scope, not fixed cadence | “designed to recover {system name} within {RTO hours}” | A.1 §1.2; A.2 §1.2; A.3 §1.2 |
+| “Last backup” reference for RPO | CP-9 / BIA | “RPO ... can be recovered (given the most recent backup copy of the data)” / “12 hours (last backup)” | 3.2.1; Appendix B |
+| “No specific cadence stated” for contingency plan review/update | CP-1/CP-2/CP-3/CP-4/CP-9 / plan maintenance | The source generally uses “organization-defined frequency” or “periodically/regularly/routinely” in many places; it does not provide one universal fixed cadence for all systems. | 3.5, 3.6, Appendix E, Appendix F |
+
+- **Daily / weekly / monthly / quarterly / annually / every X days / within X days / retention period specifics explicitly stated**
+  - **Daily**
+    - “daily or weekly” as examples of backup frequency in backup policy. **Likely control:** CP-9. Source: 3.4.2.
+    - “System administrators responsible for maintaining daily information system operations.” **Not a cadence requirement; role description.** Source: 1.3.
+  - **Weekly**
+    - “daily or weekly” backup frequency examples. **Likely control:** CP-9. Source: 3.4.2.
+    - Example report generation step: “Select Weekly.” **Test example, not operational cadence.** Source: Appendix A.1/A.2/A.3 Appendix E.
+  - **Monthly**
+    - No explicit monthly cadence stated.
+  - **Quarterly**
+    - No explicit quarterly cadence stated.
+  - **Annually**
+    - “reviewed annually and updated as necessary” in sample policy. **Likely control:** CP-1 / CP-2. Source: 3.1.
+    - “tested annually” in sample policy. **Likely control:** CP-4. Source: 3.1.
+    - “Training should be provided at least annually.” **Likely control:** CP-3. Source: 3.5.2.
+    - “will be tested at least annually.” **Likely control:** CP-4. Source: A.1/A.2/A.3 Plan Approval.
+    - “at the organization defined frequency (e.g., yearly)” for review/testing schedules. **Likely control:** CP-2 / CP-4. Sources: A.1 Appendix I; A.2 Appendix J; A.3 Appendix J.
+  - **Every 30 days / 60 days / 90 days / 365 days**
+    - No explicit 30/60/90/365-day cadence stated for maintenance, backup, testing, or review.
+  - **Within X days / hours**
+    - “within 12 hours” for COOP functions. **COOP-related, not SP 800-53 cadence.** Source: 2.2.2; 3.2.1; Appendix C.
+    - “up to 30 days” for COOP functions. **COOP-related.** Source: 2.2.2; Appendix C.
+    - “within 24 hours” for mobile sites delivery. **Operational logistics.** Source: 3.4.3.
+    - “30 to 60 minutes” UPS backup power. **Operational duration.** Source: 5.1.3.
+    - “several hours to several days” warm-site recovery; “several days to weeks” cold-site recovery. **Operational duration.** Source: 5.1.5.
+    - “at the next scheduled backup period” for full system backup after recovery. **Likely control:** CP-9. Sources: A.1 §5.6; A.2 §5.7; A.3 §5.8.
+  - **Retention period**
+    - No explicit retention period stated for backups, logs, documentation, or records.
+
+- **Control-frequency mapping where stated**
+  - **CP-1**: formal contingency planning policy/procedures; review/update at organization-defined frequency. Source: Appendix E CP-1.
+  - **CP-2**: contingency plan; review at organization-defined frequency; coordinate with related plans. Source: Appendix E CP-2.
+  - **CP-3**: contingency training; refresher training at organization-defined frequency; at least annually in guide. Source: Appendix E CP-3; 3.5.2.
+  - **CP-4**: contingency plan testing/exercises; frequency organization-defined; guide gives annual examples and TT&E schedules. Source: Appendix E CP-4; 3.5.4; Appendix A templates.
+  - **CP-6**: alternate storage site; no cadence specified. Source: Appendix E CP-6.
+  - **CP-7**: alternate processing site; no cadence specified, but site readiness/agreements and recovery time period apply. Source: Appendix E CP-7.
+  - **CP-8**: telecommunications services; no cadence specified, but contracts/agreements and recovery time period apply. Source: Appendix E CP-8.
+  - **CP-9**: information system backup; backups at organization-defined frequency consistent with RTO/RPO; tests of backups at organization-defined frequency. Source: Appendix E CP-9.
+  - **CP-10**: recovery/reconstitution; no explicit cadence, but known secure state, failover, and restoration time periods. Source: Appendix E CP-10.
+
+- **Explicit absence statements in the source**
+  - “Contingency Plan Update (Withdrawn)” — CP-5 is withdrawn. Source: Table 2-1 / Table E-1 / Appendix E.
+  - No specific frequency is given for:
+    - contingency plan review/update beyond “organization-defined frequency,” “annually,” “periodically,” “regularly,” or “more often” for certain systems;
+    - backups beyond “daily or weekly” examples and “organization-defined frequency consistent with recovery time and recovery point objectives”;
+    - testing beyond “organization-defined frequency” and yearly examples;
+    - retention periods for backups/logs/media.

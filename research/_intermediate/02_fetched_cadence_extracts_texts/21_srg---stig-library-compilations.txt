@@ -1,0 +1,37 @@
+URL: https://public.cyber.mil/stigs/compilations/
+TITLE: SRG / STIG Library Compilations
+ERROR: None
+
+- **Source section: “SRG/STIG Compilations”**
+  - **Compilation release/update cadence**
+    - **Quote/paraphrase:** “The Library Compilation .zip files will be updated and released during each SRG-STIG Update Release Cycle to capture all newly updated or released SRGs, STIGs, and Tools.”
+    - **Control mapping:** CM / CA / SI / MA / AU / CP / IR / PE / AC / IA — **not explicitly stated in source**
+    - **Cadence:** **Each SRG-STIG Update Release Cycle**
+    - **Specific numeric interval:** **Not stated**
+  - **Mid-cycle content availability**
+    - **Quote/paraphrase:** “New SRG-STIG content released mid cycle will be individually downloadable from IASE as released.”
+    - **Control mapping:** CM / CA / SI / MA / AU / CP / IR / PE / AC / IA — **not explicitly stated in source**
+    - **Cadence:** **Mid cycle / as released**
+    - **Specific numeric interval:** **Not stated**
+  - **Current-force completeness disclaimer**
+    - **Quote/paraphrase:** “every attempt will be made to provide a complete set of currently in force SRGs, STIGs, and related tools, [but] DISA makes no guarantee as to the completeness of the compilation or the currently in force status of the contents.”
+    - **Control mapping:** Not stated
+    - **Cadence/timeline:** None stated
+  - **Updated date shown for compilation listing**
+    - **Quote/paraphrase:** “Compilation - SRG-STIG Library — 09 Apr 2025”
+    - **Control mapping:** Not stated
+    - **Cadence/timeline:** **One-time listed update date**
+  - **Updated date shown for read me**
+    - **Quote/paraphrase:** “Compilation - SRG-STIG Library - READ ME — 08 Aug 2024”
+    - **Control mapping:** Not stated
+    - **Cadence/timeline:** **One-time listed update date**
+
+- **Specific requested maintenance frequencies (daily, weekly, monthly, quarterly, annually, every 30/60/90/365 days, within X days, retention period):**
+  - **Daily:** Not stated
+  - **Weekly:** Not stated
+  - **Monthly:** Not stated
+  - **Quarterly:** Not stated
+  - **Annually:** Not stated
+  - **Every 30/60/90/365 days:** Not stated
+  - **Within X days:** Not stated
+  - **Retention period:** Not stated

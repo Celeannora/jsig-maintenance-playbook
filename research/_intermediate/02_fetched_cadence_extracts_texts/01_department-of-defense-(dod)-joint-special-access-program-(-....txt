@@ -1,0 +1,103 @@
+URL: https://www.dcsa.mil/portals/91/documents/ctp/nao/JSIG_2016April11_Final_(53Rev4).pdf
+TITLE: department of defense (dod) joint special access program ( ...
+ERROR: None
+
+| Cadence / timeline | Source section / page | Likely control family / ID | Exact requirement quoted or closely paraphrased |
+|---|---|---|---|
+| within 30 days of approval | Preface “Summary of Changes” / PAGE 1-2 | PM, CA, AC | “Waivers to these controls will be submitted to the DoD SAPCO and DoD SAP CIO within 30 days of approval.” |
+| effective immediately | Preface / PAGE 1-2 | General applicability | “The entirety of this document is effective immediately.” |
+| within 5 years of publication | Preface “Effective Date” / PAGE 1-2 | PM | “This document must be reissued, cancelled, or certified current within 5 years of its publication to be considered current.” |
+| annually | 1.5.3 Chief Information Officer (CIO) / PAGE 1-15 | PM | CIO responsibility includes “reporting annually to the head of the agency on the overall effectiveness of the organization’s information security program, including progress of remedial actions.” |
+| periodically update / periodically | Responsibilities (JSCS WG) / PAGE 1-2 and 1.5.14 ISSM / PAGE 1-20 | PM, CM | JSCS WG shall “develop, maintain, and periodically update the policies and procedures related to RMF...” and ISSM shall “manage, maintain, and execute the information security continuous monitoring plan.” |
+| ongoing basis | 2.1 Introduction to the RMF / PAGE 2-24 | CA, SI, AU, CM | RMF Step 6: “Monitor the security controls in the IS on an ongoing basis to include assessing control effectiveness, documenting changes to the system or its environment of operation, conducting security impact analyses of the associated changes, and reporting the security state of the system to designated organizational officials.” |
+| early in SDLC / by necessity later in life cycle if not done then | 2.2.2 System Development Life Cycle (SDLC) / PAGE 2-26 | RA, SA, CA, CM | “Risk management tasks begin early in the SDLC...” and if not adequately performed during initiation/development/acquisition, “the tasks will, by necessity, be undertaken later in the life...” |
+| as early as possible | 1.5.12 Information System Owner (ISO) / PAGE 1-19 and 1.5.7 SCA / PAGE 1-17 | CA | ISO shall “Coordinate with the AO to ensure the appropriate SCA (or other AO designee) is identified as early as possible for ongoing coordination on security decisions.” |
+| as soon as possible / as early as possible | 1.5.14 ISSM and 1.5.12 ISO / PAGE 1-20, PAGE 1-19 | CM, CA | ISSM shall “coordinate IS security inspections, tests, and reviews”; ISO shall ensure SCA participation is identified “as early as possible.” |
+| within established timeframes | 1.5.12 Information System Owner (ISO) / PAGE 1-20 | CA, CM | ISO shall “Ensure the POA&M is updated to describe the planned tasks for correcting identified weaknesses within the established timeframes and address any residual findings.” |
+| periodic testing | 1.5.14 ISSM / PAGE 1-20 | SI, CA | ISSM shall “Ensure periodic testing is conducted to evaluate the security posture of IS by employing various intrusion/attack detection and monitoring tools (shared responsibility with ISSOs).” |
+| periodic reviews | 1.5.15 ISSO / PAGE 1-22 | CA, CM | ISSO shall “Conduct periodic reviews of information systems to ensure compliance with the security authorization package.” |
+| periodic updates / current | 1.5.15 ISSO / PAGE 1-22 | CM | ISSO shall “Ensure all IS security-related documentation is current and accessible to properly authorized individuals.” |
+| periodic / ongoing monitoring plan | 1.5.14 ISSM / PAGE 1-20 | CA, SI, CM | ISSM shall “Manage, maintain, and execute the information security continuous monitoring plan.” |
+| no specific cadence stated; risk-based / organization-defined | Multiple introductory sections | General | The source repeatedly states that RMF/JSIG activities are “tailored,” “ongoing,” “periodic,” or “within the established timeframes,” but does not give a specific daily/weekly/monthly/quarterly frequency in the visible text for most controls. |
+
+### Explicit cadence / timeline statements in visible text
+
+- **Within 30 days of approval**
+  - **Section:** Preface, “Summary of Changes” / PAGE 1-2
+  - **Likely family/control:** PM, CA, AC
+  - **Quoted requirement:** “Waivers to these controls will be submitted to the DoD SAPCO and DoD SAP CIO within 30 days of approval.”
+
+- **Effective immediately**
+  - **Section:** Preface / PAGE 1-2
+  - **Likely family/control:** General applicability
+  - **Quoted requirement:** “The entirety of this document is effective immediately.”
+
+- **Within 5 years of publication**
+  - **Section:** Preface, “Effective Date” / PAGE 1-2
+  - **Likely family/control:** PM
+  - **Quoted requirement:** “This document must be reissued, cancelled, or certified current within 5 years of its publication to be considered current.”
+
+- **Annually**
+  - **Section:** 1.5.3 Chief Information Officer (CIO) / PAGE 1-15
+  - **Likely family/control:** PM
+  - **Quoted requirement:** CIO responsibilities include “reporting annually to the head of the agency on the overall effectiveness of the organization’s information security program, including progress of remedial actions.”
+
+- **Early in SDLC**
+  - **Section:** 2.2.2 System Development Life Cycle (SDLC) / PAGE 2-26
+  - **Likely family/control:** RA, SA, CA, CM
+  - **Quoted requirement:** “Risk management tasks begin early in the SDLC...”
+
+- **By necessity later in the life cycle if not done during initiation/development/acquisition**
+  - **Section:** 2.2.2 System Development Life Cycle (SDLC) / PAGE 2-26
+  - **Likely family/control:** RA, SA, CA, CM
+  - **Quoted requirement:** If risk management tasks are not adequately performed during initiation, development, and acquisition phases, “the tasks will, by necessity, be undertaken later in the life...”
+
+- **Ongoing basis**
+  - **Section:** 2.1 Introduction to the RMF / PAGE 2-24
+  - **Likely family/control:** CA, SI, AU, CM
+  - **Quoted requirement:** RMF Step 6: “Monitor the security controls in the IS on an ongoing basis to include assessing control effectiveness, documenting changes to the system or its environment of operation, conducting security impact analyses of the associated changes, and reporting the security state of the system to designated organizational officials.”
+
+- **Periodically update / periodically**
+  - **Section:** Responsibilities (JSCS WG) / PAGE 1-2; 1.5.14 ISSM / PAGE 1-20
+  - **Likely family/control:** PM, CM
+  - **Quoted requirement:** JSCS WG shall “develop, maintain, and periodically update the policies and procedures related to RMF...” and ISSM shall “manage, maintain, and execute the information security continuous monitoring plan.”
+
+- **As early as possible**
+  - **Section:** 1.5.12 Information System Owner (ISO) / PAGE 1-19
+  - **Likely family/control:** CA
+  - **Quoted requirement:** “Coordinate with the AO to ensure the appropriate SCA (or other AO designee) is identified as early as possible for ongoing coordination on security decisions.”
+
+- **Within established timeframes**
+  - **Section:** 1.5.12 Information System Owner (ISO) / PAGE 1-20
+  - **Likely family/control:** CA, CM
+  - **Quoted requirement:** “Ensure the POA&M is updated to describe the planned tasks for correcting identified weaknesses within the established timeframes and address any residual findings.”
+
+- **Periodic testing**
+  - **Section:** 1.5.14 ISSM / PAGE 1-20
+  - **Likely family/control:** SI
+  - **Quoted requirement:** “Ensure periodic testing is conducted to evaluate the security posture of IS by employing various intrusion/attack detection and monitoring tools (shared responsibility with ISSOs).”
+
+- **Periodic reviews**
+  - **Section:** 1.5.15 ISSO / PAGE 1-22
+  - **Likely family/control:** CA, CM
+  - **Quoted requirement:** “Conduct periodic reviews of information systems to ensure compliance with the security authorization package.”
+
+- **Current and accessible**
+  - **Section:** 1.5.15 ISSO / PAGE 1-22
+  - **Likely family/control:** CM
+  - **Quoted requirement:** “Ensure all IS security-related documentation is current and accessible to properly authorized individuals.”
+
+### Statements where the page gives only general / non-specific cadence
+
+- **No explicit daily / weekly / monthly / quarterly / 60 / 90 / 365-day cadence appears in the visible text provided.**
+- The visible text uses general timing language such as:
+  - “effective immediately”
+  - “within 30 days of approval”
+  - “within 5 years”
+  - “annually”
+  - “periodically”
+  - “ongoing basis”
+  - “as early as possible”
+  - “within the established timeframes”
+  - “early in the SDLC”
+- **For most controls on the page, no specific fixed maintenance frequency is stated in the visible excerpt.**

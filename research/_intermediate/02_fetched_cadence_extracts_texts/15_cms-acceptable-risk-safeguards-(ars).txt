@@ -1,0 +1,27 @@
+URL: https://security.cms.gov/policy-guidance/cms-acceptable-risk-safeguards-ars
+TITLE: CMS Acceptable Risk Safeguards (ARS)
+ERROR: None
+
+## Documented operational cadence/frequency/timeline items in the page
+
+| Source section | Control family/control ID | Exact / closely paraphrased requirement | Cadence / timeline |
+|---|---|---|---|
+| CMS tailoring example 1 | **AC-2** (Account Management) | “Reviews accounts for compliance with account management requirements **at least every 90 days for High and Moderate systems or 365 days for Low systems**” | **Every 90 days** (High/Moderate); **every 365 days** (Low) |
+| CMS tailoring example 1 | **AC-2** (Account Management) | “**Notify account managers within an organization-defined timeframe** when temporary accounts are no longer required or when information system users are terminated or transferred or information system usage or need-to-know/need-to-share changes.” | **Within an organization-defined timeframe** |
+| CMS tailoring example 1 | **AC-2** (Account Management) | “Reviews non-general user accounts for compliance with account management requirements **no less often than every 30 days**” | **Every 30 days** |
+| CMS tailoring example 1 | **AC-2** (Account Management) | “General user accounts are reviewed **every 90 days** in accordance with NIST SP 800-63 (latest) and Program XYZ processes and procedures” | **Every 90 days** |
+| CMS tailoring example 2 | **PE-13** (Emergency Lighting) | “BDC performs regular **(quarterly) tests** to ensure emergency lighting is operational.” | **Quarterly** |
+
+## Explicitly stated non-specific / risk-based cadence language
+
+| Source section | Control family/control ID | Exact / closely paraphrased requirement | Cadence status |
+|---|---|---|---|
+| Security and privacy controls / control customization discussion | Various controls and enhancements | Controls may be tailored, and implementation may involve “organizationally defined parameters/values/attributes”; ARS customization must consider mission, business, risks, and environment. | **No specific cadence stated**; frequency may be **organization-defined** or **risk-based** |
+| How can ARS be customized? | Various controls | “Business Owners must consider implementation of compensating controls as part of a **risk-based decision process**.” | **No specific cadence stated** |
+| Security and privacy controls | Various controls | “Control Review Frequency” is the frequency in which the System Security Privacy Officers must review or evaluate the control; “Assessment Frequency” is the frequency in which the control must be assessed by a third-party assessor. | **No numeric cadence given in this section** |
+| How can ARS be customized? / tailoring | Various controls | Tailoring can assign “specific values to organization-defined … control parameters” and may strengthen controls; reductions require documentation and AO approval. | **No specific cadence stated** |
+
+## Absence notes
+- The page does **not** provide additional daily, weekly, monthly, annual, 60-day, or 365-day operational maintenance schedules beyond the items listed above.
+- The page does **not** provide specific cadence text for MA, CM, AU, SI, CA, CP, IR, IA controls on this page, except the PE-13 quarterly example and the AC-2 examples.
+- The page does **not** list an explicit frequency for control review or assessment for all controls; it only defines those fields generally.

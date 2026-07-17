@@ -1,0 +1,131 @@
+URL: https://www.hhs.gov/guidance/sites/default/files/hhs-guidance-documents/CMS/117_Systems_security-MAC-ARS.pdf
+TITLE: Medicare Administrative contractor Acceptable risk ...
+ERROR: None
+
+## AU-6 / AU-11 logs review and retention
+
+| Control ID | Documented concrete cadence / retention | Exact quote |
+|---|---:|---|
+| AU-6 | **Not found on the provided page.** No AU-6 control text, frequency, or retention period is explicitly shown on the provided page. | — |
+| AU-11 | **Not found on the provided page.** No AU-11 control text, frequency, or retention period is explicitly shown on the provided page. | — |
+| AC-02(04) | **Logs / audit results reviewed, analyzed, and reported in accordance with AU-6**; exact AU-6 frequency not stated here. | “Account management audit records are defined in accordance with AU-2 and reviewed, analyzed, and reported in accordance with AU-6.” |
+
+## AC-2 account review, disablement, temporary accounts
+
+| Control ID | Documented concrete cadence / timeline | Exact quote |
+|---|---:|---|
+| AC-02 | **Review accounts at least every 365 days for all systems.** | “Review accounts for compliance with account management requirements at least every 365 days for all systems;” |
+| AC-02 | **Notify account managers within 30 days** when accounts are no longer required. | “Notify account managers and defined personnel or roles (defined in applicable security/privacy plans) within: 1. thirty (30) days when accounts are no longer required;” |
+| AC-02 | **Notify account managers within 30 days** when users are terminated or transferred. | “2. thirty (30) days when users are terminated or transferred;” |
+| AC-02 | **Notify account managers within 30 days** when system usage or need-to-know changes for an individual. | “3. thirty (30) days when system usage or need-to-know changes for an individual;” |
+| AC-02 | **Temporary / privileged accounts no longer required, users terminated/transferred, need-to-know changes: notify within 12 hours** in HVA implementation. | “Notify appropriate organization personnel within 12 hours when temporary accounts or privileged accounts are no longer required, users are terminated or transferred, and when user’s need-to-know changes” |
+| AC-02(01) | **Review of automated account management results: annually (365 days)**. | “Control Review Frequency  Annually (365 Days)” |
+| AC-02(02) | **Emergency accounts automatically disabled within 24 hours of activation.** | “Emergency accounts will be automatically disabled within 24 hours of activation;” |
+| AC-02(02) | **Temporary accounts duration not to exceed 30 days for High systems.** | “The duration of temporary accounts will not exceed: (a) 30 days for High systems” |
+| AC-02(02) | **Temporary accounts duration not to exceed 60 days for Moderate systems.** | “(b) 60 days for Moderate systems.” |
+| AC-02(03) | **Disable accounts within 30 days** when expired, no longer associated with a user/individual, or in violation of organizational policy. | “Disable accounts within thirty (30) days when the accounts: (1) Have expired; (2) Are no longer associated with a user or individual; (3) Are in violation of organizational policy;” |
+| AC-02(03) | **Disable accounts when inactive within 30 days for High systems.** | “Disable accounts when the accounts have been inactive within 30 days for High Systems” |
+| AC-02(03) | **Disable accounts when inactive within 60 days for Moderate systems.** | “or 60 days for Moderate Systems.” |
+| AC-02(07) | **Review of privileged user accounts: no exact frequency is organization-defined / not specified.** | “Control Review Frequency  Not Specified” |
+| AC-02(09) | **Use of shared and group accounts only when business need is documented and approved in advance.** No timing cadence stated. | “Only permit the use of shared and group accounts when a business need can be documented and approved, in advance, by the Authorizing Official (AO).” |
+| AC-02(11) | **No exact review cadence beyond annual control review frequency; usage conditions enforced per system-defined conditions.** | “Control Review Frequency  Annually (365 Days)” |
+| AC-02(12) | **Review/monitor atypical usage: quarterly.** | “Control Review Frequency  Quarterly” |
+| AC-02(13) | **Disable high-risk individuals’ accounts immediately, not to exceed 30 minutes, for High systems.** | “Immediately, not to exceed 30 minutes, for systems categorized under FIPS 199 with a security categorization of High;” |
+| AC-02(13) | **Disable high-risk individuals’ accounts within 60 minutes for Moderate systems.** | “Within 60 minutes for systems not categorized under FIPS 199 as having a security categorization of Moderate.” |
+| AC-06(07) | **Review assigned privileges no less often than every 90 days.** | “Review no less often than every ninety (90) days the privileges assigned to defined roles or classes of users to validate the need for such privileges;” |
+| AC-06(07) | **HVA: conduct quarterly reviews of rights assigned to privileged accounts.** | “as well as conduct quarterly reviews of the rights assigned to privileged accounts.” |
+| AC-06(07) | **HVA privileged account access re-authorized no less often than annually.** | “Privileged account access is to be reauthorized for the HVA no less often than annually.” |
+| AC-06(07) | **HVA user accounts reviewed no less often than annually.** | “User accounts are to be reviewed no less often than annually for compliance with account management requirements;” |
+
+### AC-2 temporary accounts / disablement specifics
+- “Temporary and emergency accounts are intended for short-term use.”
+- “Organizations establish temporary accounts as part of normal account activation procedures when there is a need for short-term accounts without the demand for immediacy in account activation.”
+- “Emergency and temporary accounts are not to be confused with infrequently used accounts… Such accounts remain available and are not subject to automatic disabling or removal dates.”
+- “Conditions for disabling or deactivating accounts include when shared/group, emergency, or temporary accounts are no longer required and when individuals are transferred or terminated.”
+
+## IA authenticators / certificates
+
+| Control ID | Documented concrete cadence / timeline | Exact quote |
+|---|---:|---|
+| IA-5 | **Not found on the provided page.** No IA-5 authenticator/certificate lifecycle frequency is explicitly shown on the provided page. | — |
+| IA-12(06) | **Mentioned only as added/removed notice; no cadence or retention.** | “Added IA-12(06) – ACCEPT EXTERNALLY-PROOFED IDENTITIES” |
+| AC-02 | **Shared/group authenticators changed when individuals are removed from the group**; no fixed period stated. | “Establish and implement a process for changing shared or group account authenticators (if deployed) when individuals are removed from the group;” |
+| AC-02 | **HVA same requirement repeated.** | “Item k: establish and implement a process for changing shared or group account authenticators (if deployed) when individuals are removed from the group;” |
+| AC-17 | **User IDs assigned to vendors recertified every 365 days.** | “User IDs assigned to vendors will be recertified within every three hundred sixty-five (365) days.” |
+
+## CP-4 contingency plan test; CP-9 backup testing
+
+| Control ID | Documented concrete cadence / timeline | Exact quote |
+|---|---:|---|
+| CP-4 | **Not found on the provided page.** No CP-4 contingency plan testing frequency is explicitly shown on the provided page. | — |
+| CP-9 | **Not found on the provided page.** No CP-9 backup testing frequency is explicitly shown on the provided page. | — |
+
+## IR-3 incident response testing / training
+
+| Control ID | Documented concrete cadence / timeline | Exact quote |
+|---|---:|---|
+| IR-3 | **Not found on the provided page.** No IR-3 incident response testing/training frequency is explicitly shown on the provided page. | — |
+
+## PE-2 / PE-3 physical access reviews
+
+| Control ID | Documented concrete cadence / timeline | Exact quote |
+|---|---:|---|
+| PE-2 | **Referenced only as a related control; no frequency text shown.** | “Related Controls … PE-2” |
+| PE-3 | **Not found on the provided page.** No PE-3 physical access review cadence is explicitly shown on the provided page. | — |
+
+## SI-2 / SI-3 vulnerability / malware
+
+| Control ID | Documented concrete cadence / timeline | Exact quote |
+|---|---:|---|
+| SI-2 | **Not found on the provided page.** No SI-2 vulnerability/remediation frequency is explicitly shown on the provided page. | — |
+| SI-3 | **Not found on the provided page.** No SI-3 malware protection review/update frequency is explicitly shown on the provided page. | — |
+| AC-17 | **Current anti-virus software** required for remote-access devices; no review cadence stated. | “Current anti-virus software;” |
+| AC-17 | **Host-based intrusion detection system** required for remote-access devices; no review cadence stated. | “Host-based intrusion detection system;” |
+| AC-07 | **Related controls include AU-6 and IA-5**; no SI-2/SI-3 cadence. | “Related Controls AC-2, AC-9, AU-2, AU-6, IA-5;” |
+
+## CM inventory / change reviews
+
+| Control ID | Documented concrete cadence / timeline | Exact quote |
+|---|---:|---|
+| CM-8 | **Not found on the provided page.** No CM-8 inventory cadence is explicitly shown on the provided page. | — |
+| CM-3 | **Not found on the provided page.** No CM-3 change control cadence is explicitly shown on the provided page. | — |
+| CM-5 | **Referenced as a related control in AC-02 / AC-03 / AC-06 etc.; no direct frequency.** | “Related Controls … CM-5” |
+| CM-11 | **Referenced as a related control; no direct frequency.** | “Related Controls … CM-11” |
+| AC-06(01) | **Quarterly review frequency** for access to security functions. | “Control Review Frequency  Quarterly” |
+| AC-06(02) | **Annually (365 days)**. | “Control Review Frequency  Annually (365 Days)” |
+| AC-06(03) | **Quarterly**. | “Control Review Frequency  Quarterly” |
+| AC-06(05) | **Quarterly**. | “Control Review Frequency  Quarterly” |
+| AC-06(07) | **Annually (365 days)** with 90-day privilege review in control statement. | “Control Review Frequency  Annually (365 Days)” / “Review no less often than every ninety (90) days…” |
+| AC-06(09) | **Annually (365 days)**. | “Control Review Frequency  Annually (365 Days)” |
+| AC-06(10) | **Annually (365 days)**. | “Control Review Frequency  Annually (365 Days)” |
+
+## MA maintenance
+
+| Control ID | Documented concrete cadence / timeline | Exact quote |
+|---|---:|---|
+| MA-3 | **Referenced as related control only; no cadence shown.** | “Related Controls … MA-3, MA-5” |
+| MA-4 | **Referenced as related control only; no cadence shown.** | “Related Controls … MA-4, SC-10, SC-23” |
+| MA-5 | **Referenced as related control only; no cadence shown.** | “Related Controls … MA-3, MA-5” |
+| MA-6 | **Not found on the provided page.** No MA-6 maintenance-testing/inspection cadence is explicitly shown on the provided page. | — |
+
+## Additional concrete cadences/timelines on the page that are relevant
+
+| Control ID | Documented concrete cadence / timeline | Exact quote |
+|---|---:|---|
+| AC-01 | **Policy and procedures reviewed/updated at least every 3 years.** | “Policy at least every three (3) years … Procedures at least every three (3) years” |
+| AC-01 | **Implementation Standard control review frequency: annually (365 days).** | “Control Review Frequency Annually (365 Days)” |
+| AC-02(05) | **Users log out when inactivity exceeds 90 minutes and at end of normal work period.** | “Require that users log out when the time-period of inactivity exceeds 90 minutes and at the end of the user’s normal work period.” |
+| AC-11 | **Device lock after 15 minutes of inactivity.** | “Prevent further access to the system by initiating a device lock after fifteen (15) minutes of inactivity” |
+| AC-11 | **For remote and mobile devices, inactivity no more than 15 minutes before device lock occurs.** | “Period of inactivity must be no more than 15 minutes before device lock occurs for remote and mobile devices” |
+| AC-12 | **Automatic session termination after defined conditions or trigger events.** No fixed period stated. | “Automatically terminate a user session after defined conditions or trigger events requiring session disconnect” |
+| AC-07 | **High: 3 invalid login attempts in 120-minute window.** | “lock out the user account automatically after three (3) invalid login attempts during a 120-minute time window.” |
+| AC-07 | **Moderate: 5 invalid login attempts in 120-minute window; lockout minimum 1 hour.** | “five (5) invalid login attempts during a 120-minute time window… persist for a minimum of one (1) hour.” |
+| AC-07 | **Low: 5 invalid login attempts in 120-minute window; disable access at least 15 minutes.** | “disable access for at least fifteen (15) minutes after five (5) invalid login attempts during a 120-minute time window.” |
+| AC-07(02) | **Purge or wipe mobile device after five consecutive unsuccessful device logon attempts.** | “Purge or wipe information from mobile devices … after five consecutive, unsuccessful device logon attempts.” |
+| AC-17 | **Vendor user IDs recertified every 365 days.** | “User IDs assigned to vendors will be recertified within every three hundred sixty-five (365) days.” |
+| AC-17 | **Immediate termination/suspension of interconnection within 1 hour** when judged unacceptable risk. | “immediate termination and/or suspension, within 1 hour, of any interconnection” |
+
+## Explicit absences requested
+- **AU-6 / AU-11 log review and retention:** not explicitly shown on this provided page.
+- **AC-2 temporary accounts:** explicit 30-day, 24-hour, 12-hour, and 60-day statements are present as quoted above.
+- **CP-4, CP-9, IR-3, PE-3, SI-2, SI-3, CM-8, CM-3, MA-6:** not explicitly shown on this provided page.

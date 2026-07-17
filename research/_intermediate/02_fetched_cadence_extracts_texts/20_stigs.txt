@@ -1,0 +1,17 @@
+URL: https://public.cyber.mil/stigs/
+TITLE: STIGs
+ERROR: None
+
+- **Page scope / availability**
+  - The page **does not provide any operational cadence/frequency/timeline details** for maintenance schedules.
+  - It only states that the site contains STIGs/SRGs for DoD IT systems and that the guidance “bridges the gap between the National Institute of Standards and Technology Special Publication 800-53 and risk management framework (RMF).”
+
+| Source section | Extracted text | Cadence/frequency/timeline | Likely control family/control ID |
+|---|---|---|---|
+| Page body (STIGs) | “This site contains the Security Technical Implementation Guides and Security Requirements Guides for the Department of Defense (DOD) information technology systems as mandated by DODI 8500.01.” | Not stated | Not stated |
+| Page body (STIGs) | “This guidance bridges the gap between the National Institute of Standards and Technology Special Publication 800-53 and risk management framework (RMF).” | Not stated | Not stated |
+
+- **Explicit absence**
+  - No daily, weekly, monthly, quarterly, annual, 30/60/90/365-day, “within X days,” or retention-period requirements are stated on this page.
+  - No control family/control ID references (MA, CM, AU, SI, CA, CP, IR, PE, AC, IA) are stated on this page.
+  - No risk-based or org-defined frequency language is stated on this page.

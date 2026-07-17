@@ -1,0 +1,50 @@
+URL: https://www.gsa.gov/system/files/Contingency-Planning-(CP)-%5BCIO-IT-Security-06-29-Rev-7%5D.pdf
+TITLE: Contingency Planning (CP) CIO-IT Security-06-29
+ERROR: None
+
+| Control ID | Exact frequency / timeline / retention period explicitly stated | Closely quoted source text | Notes |
+|---|---:|---|---|
+| CP-01 | Policy: **“annually, as part of CIO 2100.1 update”**; Procedures: **“at least every three (3) years”** | “Review and update the current contingency planning: 1. Policy [annually, as part of CIO 2100.1 update] and following [changes to Federal or GSA policies, requirements, or guidance]; and 2. Procedures [at least every three (3) years] and following [changes to Federal or GSA policies, requirements, or guidance].” | GSA-specific contingency planning policy/procedures; not one of the requested AU/AC/IA etc. controls, but included because it contains concrete cadence. |
+| CP-02 | **“annually”** | “Review the contingency plan for the system [annually];” |  |
+| CP-03 | Training: **“Within [30 days]”** of assuming role; **“[Every two years] thereafter”**; content review/update **“[every two years]”** | “Provide contingency training to system users consistent with assigned roles and responsibilities: 1. Within [30 days] of assuming a contingency role or responsibility; 2. When required by system changes; and 3. [Every two years] thereafter; and b. Review and update contingency training content [every two years] and following [incidents that impacted continuity of operations].” |  |
+| CP-04 | Testing: **“[annually]”** | “Test the contingency plan for the system [annually] using the following tests to determine the effectiveness of the plan and the readiness to execute the plan: [GSA IT Security Procedural Guide: Contingency Planning (CP) CIO-IT Security-06-29].” |  |
+| CP-06 | No explicit frequency/retention period stated | No cadence stated in control text. |  |
+| CP-07 | No explicit frequency/retention period stated | No cadence stated in control text. |  |
+| CP-08 | Provider evidence of testing/training: **“at least annually”** | “Obtain evidence of contingency testing and training by providers [at least annually].” |  |
+| CP-09 | Backup testing: **“[at least annually]”** for CP-09(01); backup frequency itself is **“at a frequency that meets the system's recovery time and recovery point objectives per its BIA”** | “Conduct backups of user-level information … [at a frequency that meets the system's recovery time and recovery point objectives per its BIA];” “Conduct backups of system-level information … [at a frequency that meets the system's recovery time and recovery point objectives per its BIA];” “Conduct backups of system documentation … [at a frequency that meets the system's recovery time and recovery point objectives per its BIA];” “Test backup information [at least annually] to verify media reliability and information integrity.” | This page does not specify retention period for backups. |
+| CP-10 | No explicit frequency/retention period stated | No cadence stated in control text. |  |
+
+| Requested area | Exact frequency / timeline / retention period explicitly stated on page | Closely quoted source text | Control ID |
+|---|---|---|---|
+| **AU-6 / AU-11 logs review and retention** | **Not present on this page** | No AU-6 or AU-11 content appears in this document. | AU-6, AU-11 |
+| **AC-2 account review, disablement, temporary accounts** | **Not present on this page** | No AC-2 content appears in this document. | AC-2 |
+| **IA authenticators / certificates** | **Not present on this page** | No IA control content appears in this document. | IA |
+| **CP-4 contingency plan test** | **Annually** | “Test the contingency plan for the system [annually]…” | CP-04 |
+| **CP-9 backup testing** | **At least annually** | “Test backup information [at least annually] to verify media reliability and information integrity.” | CP-09(01) |
+| **IR-3 incident response testing / training** | **Not present on this page** | IR-3 content does not appear in this document. The document only references incident response coordination/testing in contingency planning context. | IR-3 |
+| **PE-2 / PE-3 physical access reviews** | **Not present on this page** | No PE-2 or PE-3 content appears in this document. | PE-2, PE-3 |
+| **SI-2 / SI-3 vulnerability / malware** | **Not present on this page** | No SI-2 or SI-3 content appears in this document. | SI-2, SI-3 |
+| **CM inventory / change reviews** | **Not present on this page** | No CM control content appears in this document. | CM |
+| **MA maintenance** | **Not present on this page** | No MA control content appears in this document. | MA |
+
+| Additional concrete timelines / cadences / periods explicitly stated | Closely quoted source text | Control / section |
+|---|---|---|
+| **“at least annually”** for contingency plan testing and exercises | “The contingency plan must be maintained routinely and exercised/tested at least annually…” | Section 3.6 |
+| **Annual contingency plan testing for all systems** | “GSA requires annual contingency plan testing for all systems to determine the plan’s effectiveness and the organization’s readiness to execute the plan.” | Section 3.6 |
+| Low impact systems: **annual tabletop exercise** | “For low impact systems, an annual tabletop exercise is sufficient.” | Section 3.6 |
+| Moderate impact systems: functional exercise **“at least once every three years”**; tabletop acceptable in other years | “For moderate impact systems, a functional exercise must be conducted at least once every three years. A tabletop exercise is acceptable in other years.” | Section 3.6 |
+| High impact systems: functional exercise **annually** | “For high impact systems, a functional exercise must be conducted annually.” | Section 3.6 |
+| Plan maintenance/review: **“reviewed and updated annually”** / **“at least annually”** | “The contingency plan should be reviewed and updated annually…”; “The plan must be reviewed for accuracy and completeness at least annually or whenever significant changes occur to any element of the plan.” | Section 3.7 |
+| CP-02 contingency plan review: **annually** | “Review the contingency plan for the system [annually];” | CP-02 |
+| CP-03 training upon role assumption: **within 30 days** | “Within [30 days] of assuming a contingency role or responsibility;” | CP-03 |
+| CP-03 training thereafter: **every two years** | “[Every two years] thereafter;” | CP-03 |
+| CP-03 training content review/update: **every two years** | “Review and update contingency training content [every two years]…” | CP-03 |
+| CP-04 plan testing: **annually** | “Test the contingency plan for the system [annually]…” | CP-04 |
+| CP-08 provider evidence of testing/training: **at least annually** | “Obtain evidence of contingency testing and training by providers [at least annually].” | CP-08(04) |
+| CP-09 backup testing: **at least annually** | “Test backup information [at least annually] to verify media reliability and information integrity.” | CP-09(01) |
+| CP-01 policy update: **annually, as part of CIO 2100.1 update** | “Policy [annually, as part of CIO 2100.1 update]…” | CP-01 |
+| CP-01 procedures update: **at least every three (3) years** | “Procedures [at least every three (3) years]…” | CP-01 |
+| CIO 2100.1 contingency plans: **developed and revised annually, as necessary** | “Contingency plans must be developed and revised annually, as necessary, for all IT systems IAW GSA CIO-IT Security-06-29.” | Appendix B, Chapter 4, Policy for Protect Function |
+| CIO 2100.1 contingency plans: **annually tested** | “Contingency plans must be annually tested IAW GSA CIO-IT Security-06-29.” | Appendix B, Chapter 4, Policy for Protect Function |
+| Incident response/contingency plans tested annually | “All information systems must have their contingency plans and incident response plans tested annually.” | Appendix B, Chapter 6, Policy for Respond Function |
+| Personnel with contingency responsibilities trained **annually** | “Personnel with contingency planning responsibilities must be trained in their contingency roles and responsibilities with respect to the information system annually.” | Appendix B, Chapter 6, Policy for Respond Function |

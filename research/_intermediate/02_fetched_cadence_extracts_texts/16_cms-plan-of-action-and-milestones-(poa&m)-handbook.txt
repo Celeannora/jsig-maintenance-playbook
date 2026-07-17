@@ -1,0 +1,72 @@
+URL: https://security.cms.gov/learn/cms-plan-action-and-milestones-poam-handbook
+TITLE: CMS Plan of Action and Milestones (POA&M) Handbook
+ERROR: None
+
+### CMS POA&M Handbook — documented operational cadence / frequency / timeline details
+
+| Source section | Exact / closely paraphrased requirement | Cadence / timeline | Likely control family / ID |
+|---|---|---:|---|
+| **Last Reviewed / header** | “Last Reviewed: 4/5/2023” | Date stamp only | N/A |
+| **POA&M process overview** | POA&Ms are tracked in CFACTS for risk management and compliance. | Ongoing | CA, CM, AU |
+| **What is a POA&M?** | POA&M provides “milestones for correcting the weaknesses, and scheduled completion dates for the milestones.” | Scheduled completion dates | CA, CM, SI, AU |
+| **Weakness severity levels** | “Senior management must be notified and immediate or near immediate corrective action must be taken.” (for significant deficiency) | Immediate / near-immediate | IR, CA, AU, SI |
+| **Weakness severity levels** | “Corrective actions for a reportable condition may be scheduled over a longer period of time.” | Longer period of time; no specific cadence | CA, SI, AU |
+| **Weakness severity levels** | Weaknesses “must be mitigated in a timely and efficient manner, as resources permit.” | Timely; no specific cadence | CA, SI |
+| **Finding weaknesses** | Weaknesses may be found through “Continuous Diagnostics and Mitigation (CDM) efforts.” | Continuous | CA, SI, AU |
+| **Finding weaknesses** | Sources listed include “Annual Assessments” | Annual | CA, AU, SI, CM |
+| **Finding weaknesses** | Sources listed include “Vulnerability Scanning” | No explicit frequency in this section | SI, CA, AU |
+| **Finding weaknesses** | Sources listed include “Penetration Testing” | No explicit frequency in this section | CA, SI, AU |
+| **Proactive** | “Proactive weakness identification occurs during regular system reviews conducted by CMS.” | Regular; no specific cadence | CA, AU, CM |
+| **Root Cause Analysis (RCA)** | “All weaknesses must be examined to determine their root cause prior to documentation in the POA&M.” | Before documentation | CA |
+| **Prioritizing weaknesses** | Weaknesses “will normally require more immediate resolution” if on a High or Moderate system or contributing to material weakness / significant deficiency / reportable condition. | More immediate | CA, SI, AU |
+| **Develop a Corrective Action Plan (CAP)** | CAP must include “a timeline for correcting the weakness including a completion date.” | Timeline / completion date | CA, CM, SI |
+| **Appropriate milestones** | Milestones must be “Time-related – specify when the result(s) can be achieved.” | Time-related; no specific cadence | CA |
+| **Appropriate milestones** | “Each weakness must have at least one corresponding milestone with an estimated completion date and resource requirements.” | Estimated completion date | CA |
+| **Compliant milestones example: vulnerability scanning** | “Implement an ongoing process to evaluate and update the inventory, the SSPP, and the vulnerability scans on a regular basis; (3/15/2019)” | Ongoing / regular basis; no fixed interval | SI, CA, CM |
+| **Compliant milestones example: audit logs** | “Audit logs are not periodically reviewed” → milestones include review policy, identify SO, training, and follow-up review. | Periodically; follow-up review date shown in example only | AU |
+| **CAP entry into CFACTS** | “The status of the POA&M will automatically be moved from ‘draft’ to ‘ongoing’ 30 days after the weakness creation date.” | **30 days** after weakness creation | CA, CM |
+| **CAP entry into CFACTS** | “Once a milestone has been accepted/approved and closed, the record must be retained for one year.” | **1 year** retention | AU, CA, CM |
+| **Determine resource and funding availability** | Example question: “Can the task be accomplished within a week or will it take several months?” | Within a week / several months (examples only) | CA |
+| **Assign a completion date** | Scheduled completion date is determined using “the remediation and mitigation timeline, the risk level, and the severity level.” | Risk/severity-based; no fixed cadence | CA, SI |
+| **Assign a completion date** | “The milestone(s) completion date must not exceed the scheduled completion date assigned to the weakness.” | Completion date ceiling | CA |
+| **Assign a completion date** | “The scheduled completion date established at the creation of the weakness must not be modified after the weakness is reported to OMB.” | Fixed after OMB reporting | CA |
+| **Assign a completion date** | “If a weakness is not remediated within the scheduled completion date, a new estimated completion date must be determined and documented…” | Upon missing scheduled completion date | CA |
+| **Execute the Corrective Action Plan (CAP)** | If milestone completion extends past original estimated completion date, “an update to the milestone and the completion date…must be captured” in CFACTS. | Upon extension past original date | CA, CM |
+| **Execute the Corrective Action Plan (CAP)** | If scheduled completion date has passed, weakness must default to “Delayed” status and a justification with a new estimated completion date documented. | Upon passing scheduled completion date | CA |
+| **Verify weakness completion** | “CMS requires that all information in the POA&M be updated at least quarterly” | **At least quarterly** | CA, AU, CM |
+| **Verify weakness completion** | ISSO review includes validating weakness identification/prioritization, ensuring resources, and ensuring the schedule is appropriate and achievable. | Quarterly review cadence implied by update requirement | CA, AU |
+| **Accept risk when applicable** | “After approval, RBDs shall be reviewed at least annually” | **At least annually** | CA, IR, AU |
+| **Accept risk when applicable** | RBDs must be “updated as events occur and information changes.” | Event-driven / as-needed | CA |
+| **Reports** | “CMS reports its remediation efforts on a monthly basis.” | **Monthly** | CA, AU |
+| **Reports** | “CMS must submit POA&M updates at least once a month (by the 3rd business day of each month)” | **At least monthly; by 3rd business day of each month** | CA, AU |
+| **Reports** | “The information in the POA&M must be maintained continuously” | Continuous | CA, CM, AU |
+| **Reports** | Completed POA&Ms retained “for up to one year from the date of completion.” | **Up to 1 year** | AU, CA, CM |
+| **Weakness remediation and mitigation timeline** | “Critical within 15 days” | **15 days** | CA, SI, AU |
+| **Weakness remediation and mitigation timeline** | “High within 30 days” | **30 days** | CA, SI, AU |
+| **Weakness remediation and mitigation timeline** | “Moderate within 90 days” | **90 days** | CA, SI, AU |
+| **Weakness remediation and mitigation timeline** | “Low within 365 days” | **365 days** | CA, SI, AU |
+| **Weakness remediation and mitigation timeline** | Timelines are “based on the date the weakness is identified, not the date the POA&M is created.” | Identification-date driven | CA, AU |
+| **Weakness remediation and mitigation timeline** | If more time is needed, “the justification with a modified estimated completion date shall be documented…” | On extension need / before overrun | CA |
+| **Weakness remediation and mitigation timeline** | If weaknesses are not remediated within scheduled completion date, “the status shall change to ‘Delayed’.” | Upon missing scheduled completion date | CA |
+| **Weaknesses discovered during a government audit** | Weaknesses identified during a government audit “shall be documented in the POA&M after the audit draft report is produced.” | After draft audit report is produced | AU, CA |
+| **Weaknesses discovered during a government audit** | “Systems must review and update POA&Ms at least quarterly.” | **At least quarterly** | CA, AU |
+| **Weaknesses discovered during a government audit** | “Compensating controls must be in place and documented until weaknesses are remediated or mitigated to an acceptable level of risk.” | Until remediation/acceptable risk | CA, AU |
+| **POA&M Glossary — Annual Assessment** | “Within every three hundred sixty-five (365) days” | **Every 365 days** | CA, AU, SI |
+| **POA&M Glossary — Risk accepted** | “The weakness and corresponding risk must be monitored periodically to ensure the associated risk remains at an acceptable level.” | Periodically; no specific cadence | CA, IR |
+| **POA&M Glossary — Scheduled or estimated completion date** | “A realistic estimate of the amount of time it will take to complete all associated milestones” | Estimate-based; no fixed cadence | CA |
+| **POA&M Glossary — Ongoing** | “A status assigned when a weakness is in the process of being mitigated and has not yet exceeded the original scheduled completion date.” | Ongoing until scheduled date not exceeded | CA |
+| **POA&M Glossary — Delayed** | “A status assigned when a weakness continues to be mitigated after the original scheduled completion date has passed.” | After scheduled date passes | CA |
+| **POA&M Glossary — Pending verification** | Milestones/corrective actions completed but require review and sign-off. | Upon completion awaiting verification | CA, AU |
+| **POA&M Glossary — Draft** | Weakness requires review and approval prior to official entry in POA&M. | Pre-entry / pre-approval | CA, AU |
+| **POA&M Glossary — Completed** | Status when all corrective actions are completed or closed and weakness verified as successfully mitigated. | Upon completion | CA, AU |
+| **POA&M Glossary — FISMA** | Requires agencies to “conduct annual IT security reviews of all programs and systems” and report results to OMB. | Annual | CA, AU, SI |
+
+### Explicit absences / no specific cadence stated
+- **Many items are risk-based or org-defined with no fixed interval given**:
+  - “regular system reviews”
+  - “regular basis”
+  - “periodically”
+  - “longer period of time”
+  - “timely and efficient manner”
+  - “as events occur and information changes”
+- **Vulnerability scanning, penetration testing, audit-log review, and CDM** are mentioned, but **this page does not specify a fixed frequency** for those activities beyond the examples and general statements above.

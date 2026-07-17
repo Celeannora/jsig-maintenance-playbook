@@ -1,0 +1,100 @@
+URL: https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf
+TITLE: Computer Security Incident Handling Guide
+ERROR: None
+
+### Document scope / absence of NIST SP 800-53 Rev 4 / RMF / JSIG style maintenance schedules
+- **No explicit NIST SP 800-53 Rev 4 / RMF / JSIG maintenance cadence schedules are documented in this page.**
+- The source is **NIST SP 800-61 Rev. 2 (Computer Security Incident Handling Guide)**, and it provides **incident-response operational guidance**, not control-implementation frequencies for **MA, CM, AU, SI, CA, CP, IR, PE, AC, IA** controls.
+- Where timing appears, it is generally **incident-response process timing** or **organization-defined / risk-based** language rather than fixed control-maintenance cadences.
+
+---
+
+## Extracted operational cadence / frequency / timeline items
+
+| Cadence / timeline | Exact requirement / paraphrase | Likely control family / control ID |
+|---|---|---|
+| **At least annually** | “Once an organization develops a plan and gains management approval, the organization should implement the plan and **review it at least annually** to ensure the organization is following the roadmap for maturing the capability and fulfilling their goals for incident response.” | **IR** (incident response plan review/maintenance); possibly **CA/CM** style maintenance, but not stated as a control |
+| **24-hours-a-day, 7-days-a-week (24/7)** | “The most prevalent arrangement is for the organization to outsource **24-hours-a-day, 7-days-a-week (24/7) monitoring** of intrusion detection sensors, firewalls, and other security devices…” | **AU / SI / IR** (monitoring and incident detection); also operations support |
+| **24/7 availability** | “Most organizations need incident response staff to be available **24/7**.” | **IR** |
+| **Real-time availability** | “Real-time availability is the best for incident response because the longer an incident lasts, the more potential there is for damage and loss.” | **IR** |
+| **At all times** | “The jump kit should be ready to go **at all times**.” | **IR / MA** (readiness/support equipment), but not a control schedule |
+| **At least two computing devices per incident handler** | “Each incident handler should have access to **at least two computing devices**…” | **IR** support readiness |
+| **Continually monitoring** | “Continually monitoring for attacks is essential.” | **AU / SI / IR** |
+| **Regularly** | “Organizations should establish logging standards and procedures to ensure that adequate information is collected by logs and security software and that the data is reviewed **regularly**.” | **AU / SI** |
+| **Frequent log reviews** | “Conducting **frequent log reviews** should keep the knowledge fresh…” | **AU** |
+| **Baseline level of logging** | “Organizations should require a **baseline level of logging on all systems** and a higher baseline level on critical systems.” | **AU** |
+| **Higher baseline level on critical systems** | Same sentence as above. | **AU** |
+| **Periodically** | “Lessons learned meetings can also be held **periodically** for lesser incidents as time and resources permit.” | **IR** |
+| **Within several days of the end of the incident** | “The meeting should be held **within several days of the end of the incident**.” | **IR** |
+| **Designated intervals** | “Because of the changing nature of information technology and changes in personnel, the incident response team should review all related documentation and procedures for handling incidents at **designated intervals**.” | **IR** |
+| **As soon as the team suspects that an incident has occurred** | “An incident response team that suspects that an incident has occurred should **immediately start recording all facts** regarding the incident.” | **IR** |
+| **As soon as one suspects that an incident may have occurred** | “It is generally desirable to acquire evidence from a system of interest **as soon as one suspects that an incident may have occurred**.” | **IR / AU** (evidence handling / logging) |
+| **Whenever evidence is transferred** | “Whenever evidence is transferred from person to person, chain of custody forms should detail the transfer and include each party’s signature.” | **IR** |
+| **Each step from detection to final resolution** | “Every step taken from the time the incident was detected to its final resolution should be documented and timestamped.” | **IR** |
+| **Initial notification, regular status updates** | Policy should state “what must be reported to whom and at what times (e.g., **initial notification, regular status updates**).” | **IR** |
+| **Daily briefings** | “Possible communication methods include… **In person (e.g., daily briefings)**” | **IR** |
+| **After a brief time—perhaps 15 minutes** | “Generally, the first step is to duplicate the initial contact. After waiting for a brief time—**perhaps 15 minutes**—the caller should escalate the incident to a higher level…” | **IR** |
+| **Three years after all necessary follow-up actions have been completed** | “General Records Schedule (GRS) 24… specifies that ‘computer security incident handling, reporting and follow-up records’ should be destroyed **‘3 years after all necessary follow-up actions have been completed.’**” | **IR / AU** (records retention) |
+| **Months or years after the incident ends** | “Most organizations choose to retain all evidence for **months or years after the incident ends**.” | **IR** |
+| **In some cases, several years** | “If it is possible that the attacker will be prosecuted, evidence may need to be retained until all legal actions have been completed. In some cases, this may take **several years**.” | **IR** |
+| **180 days** | “For example, an organization may state that email messages should be retained for only **180 days**.” | **AU / IR** (data retention context) |
+| **Days to weeks** | “For large-scale incidents, recovery may take months; the intent of the early phases should be to increase the overall security with relatively quick (**days to weeks**) high value changes…” | **IR** |
+| **Months** | “For large-scale incidents, recovery may take **months**…” | **IR** |
+| **Every day / per day volume** | “Thousands or even **millions** of intrusion detection sensor alerts per day.” | **AU / SI** (monitoring volume, not a schedule) |
+| **Every week** | “Counting the number of precursor port scans that occur **each week**…” | **AU / SI** (metric example, not a control schedule) |
+| **Every 12 hours** | Example: “an organization is losing Internet connectivity every **12 hours**…” | No control cadence; example only |
+| **Saturday afternoon / Tuesday morning / Monday morning etc.** | Scenario-specific timestamps describing sample incidents. | No maintenance cadence; scenario examples only |
+| **One or more designated alternates** | “A single employee, with **one or more designated alternates**, should be in charge of incident response.” | **IR** |
+| **At least one mechanism should permit anonymous reporting** | “Incident reporting mechanisms… at least one mechanism should permit people to report incidents anonymously.” | **IR** |
+| **Before an incident occurs** | “The incident response team should discuss information sharing… **before an incident occurs** to establish policies and procedures…” | **IR** |
+| **Before incidents occur** | “An organization’s incident response team should plan its incident coordination with those parties **before incidents occur**…” | **IR** |
+| **When needed / whenever appropriate** | “Organizations often need to communicate with outside parties regarding an incident, and they should do so **whenever appropriate**…” | **IR** |
+| **Promptly / quickly / rapidly** | Numerous operational terms, e.g., “respond quickly,” “rapidly perform an initial analysis,” “contain the incident quickly and effectively.” | **IR** |
+| **As soon as the handler believes an incident has occurred** | In checklist: “**As soon as the handler believes an incident has occurred**, begin documenting the investigation and gathering evidence.” | **IR** |
+
+---
+
+## Additional explicit timing / retention details
+
+- **Review incident response documentation and procedures at designated intervals**
+  - Quote: “the incident response team should review all related documentation and procedures for handling incidents at designated intervals.”
+  - **No specific interval is given.**
+
+- **Log retention policy duration is organization-defined / data-retention dependent**
+  - Quote: “The length of time to maintain log data is dependent on several factors, including the organization’s data retention policies and the volume of data.”
+  - **No fixed cadence is given.**
+
+- **Evidence retention is organization-defined**
+  - Quote: “Organizations should establish policy for how long evidence from an incident should be retained.”
+  - The page says most organizations retain evidence for **months or years**, and some cases **several years**.
+  - **No exact universal retention period is mandated in this document.**
+
+- **Lessons learned timing**
+  - Quote: “The meeting should be held within several days of the end of the incident.”
+  - Also: “Lessons learned meetings can also be held periodically for lesser incidents as time and resources permit.”
+  - **No fixed periodic frequency is given for lesser incidents.**
+
+- **Status updates**
+  - Quote: policy should specify “what must be reported to whom and at what times (e.g., initial notification, regular status updates).”
+  - **No fixed cadence is defined.**
+
+- **Training frequency**
+  - The page says the incident response plan should indicate “how often incident handlers should be trained,” but **does not specify a frequency**.
+
+- **Periodic risk assessments**
+  - Quote: “Periodic risk assessments of systems and applications should determine what risks are posed…”
+  - **No exact period is given.**
+
+- **Ongoing / continuous**
+  - “Continuously monitored” host security.
+  - “Continually monitoring for attacks is essential.”
+  - **No exact interval is given.**
+
+---
+
+## Control-family mapping notes explicitly supported by the page
+- **IR**: incident response policy, plan, procedures, coordination, notification, escalation, lessons learned, evidence handling, retention, reporting.
+- **AU**: logging, auditing, log retention, log review, timestamps, evidence in logs.
+- **SI**: monitoring, intrusion detection/prevention, malware detection, SIEM, alerting.
+- **CM**: configuration/baseline-related language appears only indirectly via host hardening, configuration checklists, and router/firewall rulesets; **no explicit cadence** stated.
+- **MA / CA / CP / PE / AC / IA**: **no explicit maintenance cadence/frequency/timeline requirements documented on this page** beyond general incident-response-adjacent process advice.

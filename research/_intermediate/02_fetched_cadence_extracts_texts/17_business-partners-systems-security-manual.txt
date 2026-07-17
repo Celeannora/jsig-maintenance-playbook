@@ -1,0 +1,117 @@
+URL: https://www.cms.gov/regulations-and-guidance/guidance/manuals/downloads/117_systems_security.pdf
+TITLE: Business Partners Systems Security Manual
+ERROR: None
+
+| Source section | Control family / likely control ID | Extracted cadence / timeline | Exact requirement quoted or closely paraphrased |
+|---|---|---|---|
+| Record of Changes | — | Effective: 02-28-25; Implementation: 08-18-25; Issued: 07-17-25; Rev. 15.1 | “(Rev. 15.1; Issued: 07-17-25; Effective: 02-28-25; Implementation: 08-18-25)” |
+| 1 - Introduction | — | 90 days | “The contractor shall correct weaknesses, findings, gaps, or other deficiencies within 90 days of receipt of any final audit or evaluation report regardless of finding severity, unless otherwise authorized by CMS.” |
+| 1 - Introduction | — | every 365 days | “The contractor shall review, update and approve all policies and procedures every 365 days and not every three years as stated in the MAC ARS.” |
+| 1 - Introduction | AC | at least once every ninety (90) days | “The contractor shall review system accounts (as defined in ARS control AC-02), at least once every ninety (90) days.” |
+| 1 - Introduction | AC | at least annually | “Any other accounts shall be reviewed at least annually.” |
+| 2.1 - Key Personnel Roles | — | each year / annually | “The principal SSO shall earn a minimum of 40 hours in continuing professional education credits each year.” |
+| 3 - IT Systems Security Program Management | — | no specific cadence stated | “Testing shall be performed to ensure that information security controls are operating as intended.” (No specific frequency stated in this section.) |
+| 3.02 - Reporting Requirements / Table 3.1 | AU / CM / CA / CP / IR / AC / IA / CP | As necessary | “System Security Profile – Section 3.7 | As necessary” |
+| 3.02 - Reporting Requirements / Table 3.1 | CA | One third of the controls shall be tested each year so all controls are tested during a 3-year period | “CMS Annual FISMA Assessment (FA) – Section 3.5.1 | One third of the controls shall be tested each year so all controls are tested during a 3-year period.” |
+| 3.02 - Reporting Requirements / Table 3.1 | CA | every 365 days, or upon significant change | “The SSPP for each General Support System (GSS) and MA shall be reviewed, updated, and approved by management every 365 days, or upon significant change.” |
+| 3.02 - Reporting Requirements / Table 3.1 | CA | every 365 days, or upon significant change | “The information security risk assessment for each GSS and MA shall be reviewed, updated, and approved by management every 365 days, or upon significant change.” |
+| 3.02 - Reporting Requirements / Table 3.1 | CA | each federal FY | “Certification (CPIC) – Section 3.4 | Each federal FY” |
+| 3.02 - Reporting Requirements / Table 3.1 | CP | every 365 days, or upon significant change; tested annually | “CPs shall be reviewed, updated, and approved by management every 365 days, or upon significant change. CPs shall be tested annually.” |
+| 3.02 - Reporting Requirements / Table 3.1 | IR | As necessary | “Incident Reporting and Response – Section 3.6 | As necessary” |
+| 3.02 - Reporting Requirements / Table 3.1 | CA | As necessary to acquire and maintain a CMS CIO-granted Authorization to Operate | “Authorization To Operate – Section 3.8 | As necessary to acquire and maintain a CMS CIO-granted Authorization to Operate.” |
+| 3.1 - System Security and Privacy Plan (SSPP) | CA | every 365 days | “Business partners are required to update and re-certify the SSPP every 365 days unless there are changes that would necessitate a more frequent update.” |
+| 3.1 - System Security and Privacy Plan (SSPP) | CA | within 365 days from the previous certification date | “SSPP shall be recertified within 365 days from the previous certification date.” |
+| 3.1 - System Security and Privacy Plan (SSPP) | CA | prior to recertification; within the original certification timeframe | “The SSPP shall also be reviewed prior to recertification (within the original certification timeframe) to determine whether an update is required.” |
+| 3.1 - System Security and Privacy Plan (SSPP) | CA | within 10 business days | “Within 10 business days of updating, developing or recertifying an SSPP, CFACTS must be updated.” |
+| 3.2 - Information Security Risk Assessment (ISRA) | RA / CA | annual | “Business partners are required to perform an annual ISRA...” |
+| 3.2 - Information Security Risk Assessment (ISRA) | RA / CA | within 365 days from the previous certification date | “ISRAs shall be updated and recertified within 365 days from the previous certification date.” |
+| 3.2 - Information Security Risk Assessment (ISRA) | RA / CA | prior to recertification; within the original certification timeframe | “The ISRA shall also be reviewed prior to recertification (within the original certification timeframe) to determine whether an update is required.” |
+| 3.2 - Information Security Risk Assessment (ISRA) | RA / CA | within 10 business days | “Within 10 business days of updating, developing or recertifying an ISRA, CFACTS must be updated.” |
+| 3.2 - Information Security Risk Assessment (ISRA) | RA / CA | not more than 365 days earlier than the security and privacy plan certification date | “the ISRA used to support an SSPP cannot be dated more than 365 days earlier than the security and privacy plan certification date.” |
+| 3.3 - IT Systems Contingency Plan (ITSCP) | CP | reviewed as part of a documented SDLC, whenever new systems are planned or upon significant change | “Reviewed as part of a documented System Development Life Cycle, whenever new systems are planned or upon significant change” |
+| 3.3 - IT Systems Contingency Plan (ITSCP) | CP | when new safeguards are implemented | “Reviewed when new safeguards are implemented” |
+| 3.3 - IT Systems Contingency Plan (ITSCP) | CP | within 365 days | “Reviewed and approved within 365 days to ensure accuracy” |
+| 3.3 - IT Systems Contingency Plan (ITSCP) | CP | within 365 days; each individual Medicare contract type every 365 days | “Tested within 365 days. If backup facility testing is done by Medicare contract type... each individual Medicare contract type shall be tested every 365 days.” |
+| 3.3 - IT Systems Contingency Plan (ITSCP) | CP | within 10 business days | “A newly approved IT Systems CP shall be updated in the CFACTS and submitted to CMS within 10 business days.” |
+| 3.4 - Certification Package for Internal Controls (CPIC) | CA | initially and then by annual reassessments | “Certification is the formal process by which a contractor official verifies, initially and then by annual reassessments...” |
+| 3.4 - Certification Package for Internal Controls (CPIC) | CA | each federal Fiscal Year (FY); no later than September 30 | “Each contractor is required to self-certify to CMS its information security compliance within each federal Fiscal Year (FY)... CMS shall continue to require annual, formal re-certifications within each FY no later than September 30...” |
+| 3.5.1 - Annual FISMA Assessment (FA) | CA | at least 1/3 of controls each year; all controls over a 3-year period | “At least 1/3 of controls must be tested each year, and all controls shall be tested over a 3-year period.” |
+| 3.5.1 - Annual FISMA Assessment (FA) | CA | annually | “Business Owners... annually test their internal controls” |
+| 3.5.1 - Annual FISMA Assessment (FA) | CA | within 365 calendar days of the prior test | “The annual FA testing requirement has been interpreted by OMB as being within 365 calendar days of the prior test.” |
+| 3.5.1 - Annual FISMA Assessment (FA) | CA | 3-year rotation; repeated until notification from CMS | “a 3-year rotation of MAC ARS control families was established by CMS. After the 3-year rotation is completed, the testing rotation shall be repeated until notification from CMS is received.” |
+| 3.5.1 - Annual FISMA Assessment (FA) | CA | within 365 days of the attestation due date | “All management-directed and independent testing conducted within 365 days of the attestation due date may be used to meet the requirement...” |
+| 3.5.2 - Plan of Action and Milestones (POA&M) | CA | monthly; due by the 1st of each month | “Business partners are required to prepare a monthly POA&M update which is due by the 1st of each month.” |
+| 3.5.2.1 - Background | CA | annual | “FISMA requires that federal agencies provide annual reporting...” |
+| 3.5.2.1 - Background | CA | periodic | “periodic POA&Ms reporting the status of known security weaknesses...” |
+| 3.5.2.2 - POA&M Components/Submission Format | CA | on the 1st business day of each month | “ongoing milestones for all corrective action plans will be updated on the 1st business day of each month.” |
+| 3.5.2.2 - POA&M Components/Submission Format | CA | within 30 calendar days | “Within 30 calendar days (or as otherwise directed by CMS) of the final results for every internal/external audit/review, an initial POA&M is due to CMS...” |
+| 3.5.2.2 - POA&M Components/Submission Format | CA | monthly | “On a monthly basis, business partners shall provide updates in the CFACTS...” |
+| 3.5.2.2 - POA&M Components/Submission Format | CA | beyond 90 days | “If the contractor needs additional time to complete a POA&M beyond 90 days...” |
+| 3.5.3 - Timing Requirements for Compliance Conditions | — | yearly / 365 days | “Yearly/365 days: Any document/process to be reviewed on a yearly basis shall be performed no later than the same calendar month each year.” |
+| 3.5.3 - Timing Requirements for Compliance Conditions | — | bi-annual / every 6 months / 180 days | “Bi-Annual/Every 6 Months/180 days...” |
+| 3.5.3 - Timing Requirements for Compliance Conditions | — | quarterly / 90 days | “Quarterly/90 days...” and “performed within 4 business days before or after the scheduled review date” |
+| 3.5.3 - Timing Requirements for Compliance Conditions | — | monthly / 30 days | “Monthly/30 days: The document/process review shall be performed within 2 business days before or after the scheduled review completion date each month.” |
+| 3.5.3 - Timing Requirements for Compliance Conditions | — | weekly / 7 days | “Weekly/7 days: Weekly/7 days document/process reviews shall be performed on the same day every week.” |
+| 3.5.3 - Timing Requirements for Compliance Conditions | — | daily / 24 hours | “Daily/24 hours document/process reviews shall be performed on the next business day.” |
+| 3.5.3 - Timing Requirements for Compliance Conditions | — | one-time exceptions approved by CMS ISSO | “Exceptions to the timing requirements can be implemented with the approval of the CMS ISSO.” |
+| 3.6 - Security Incident Reporting and Response | IR | timely; no later than 40 days after initial reporting | “Final reports for all incidents shall be submitted timely but no later than 40 days after the initial reporting of an incident.” |
+| 3.6 - Security Incident Reporting and Response | IR | immediately | “the SSO or another identified individual shall immediately perform an analysis...” |
+| 3.6 - Security Incident Reporting and Response | IR | as soon as the incident comes to the attention of an information system user | “All suspected security incidents or events shall be reported... as soon as an incident comes to the attention of an information system user.” |
+| 3.7 - System Security Profile | CA / AU / CP / IR | no specific cadence stated | “The System Security Profile is a copy of the documents that are maintained in the CFACTS and submitted to CMS as requested.” |
+| 3.8 - Authorization To Operate | CA | as necessary to acquire and maintain ATO | “Business partners are required to acquire and maintain a CMS issued Authorization to Operate (ATO) for each FISMA system.” |
+| 3.9 - Identity Proofing | IA / AC | no specific cadence stated | No cadence/frequency/timeline stated; only process requirements are described. |
+| 3.10 - Patch Management | SI / CM | 15 calendar days | “The patching requirement is 15 calendar days for all critical patches...” |
+| 3.10 - Patch Management | SI / CM | 30 calendar days | “...and 30 calendar days for all other patches.” |
+| 3.10 - Patch Management | SI / CM | within every 365 days | “Re-evaluation of the justification must be performed within every 365 days.” |
+| 3.10 - Patch Management | SI / CM | daily (patches released daily) | “New patches are released daily...” |
+| 3.11 - Security Configuration Management | CM | within 30 days from the time of discovery | “any misconfiguration shall be updated/corrected within 30 days from the time of discovery.” |
+| 3.11.1 - Security Technical Implementation Guides (STIG) | CM | no specific cadence stated | No cadence/frequency/timeline stated; mandatory use of latest publicly available DISA STIG is described. |
+| 3.11.3 - National Institute of Standards and Technology (NIST) | CM | no specific cadence stated | No cadence/frequency/timeline stated. |
+| 3.12 - End of Life Technology Components | CM / SI | no specific cadence stated | No cadence/frequency/timeline stated; references planning/removal before security updates end. |
+| 3.13 - Cloud Computing | CA / CM / SI | at least annually | “This review should be performed at least annually.” |
+| 3.13 - Cloud Computing | SI / CM | no specific cadence stated | “Monitor and track risks identified from the cloud service provider.” No specific frequency stated. |
+| 3.14 - MAC ARS Control Parameter Tailoring | CM | prior to CFACTS submission | “Notification of tailoring needs to be communicated with DMSSOO prior to CFACTS submission.” |
+| 3.15 - Data Loss Prevention | SI / CM | no specific cadence stated | No cadence/frequency/timeline stated. |
+| 3.16 - Wireless Access Monitoring | AC / SI | periodically, but at least quarterly | “Monitoring activities should be performed on a periodic basis as needed, but at least quarterly...” |
+| 3.17 - Malicious Code Protection | SI | no specific cadence stated | References timing specified within SI-3, but this page does not state the specific SI-3 timing; only says it should meet SI-3. |
+| 3.18 - Authorized Software | CM / SI | no less often than every 72 hours | “If the whitelisting of software is a manual process, then the process to review and update the list of authorized software programs must be completed no less often than every seventy-two (72) hours.” |
+| 3.18 - Authorized Software | CM / SI | whenever the authorized software changes or new software is authorized | “If automated tools are used... the automated tools must be updated whenever the authorized software changes or new software is authorized...” |
+| 3.18 - Authorized Software | CM / SI | no less often than every 72 hours | “...or perform a scan of the network for unauthorized software no less often than every seventy-two (72) hours...” |
+| 3.18 - Authorized Software | CM / SI | every 90 days | “management must review and formally document the list of approved software every 90 days.” |
+| 3.19 - Data Encryption | SC | no specific cadence stated | No cadence/frequency/timeline stated; only risk assessment and encryption conditions are described. |
+| 3.20 - Firewall Ruleset Reviews | CM / SI | periodically; at a minimum, on a yearly basis | “management shall develop policies and procedures to periodically review firewall rulesets/configurations... but at a minimum, on a yearly basis.” |
+| 3.20 - Firewall Ruleset Reviews | CM / SI | no specific cadence stated | No fixed frequency beyond “at a minimum, on a yearly basis”; risk-based approach for determining exact frequency. |
+| 3.21 - Artificial Intelligence (AI) | CA / CM / SI | periodic validation | “Policies and procedures for periodic validation will need to be documented...” |
+| 3.21 - Artificial Intelligence (AI) | CA / CM / SI | periodic assessment | “Periodic assessment is required...” |
+| 4.1 - Sensitive Information Protection Requirement | PE | no specific cadence stated | No cadence/frequency/timeline stated. |
+| 4.1.1 - Restricted Area | PE | end of each month | “Each restricted area register shall be closed out at the end of each month...” |
+| 4.1.1 - Restricted Area | PE | each month | “Each month a new AAL shall be posted...” |
+| 4.1.2 - Security Room | PE | whenever cleaning and/or maintenance are performed | “Whenever cleaning and/or maintenance are performed, and sensitive systems and/or information may be accessible, the cleaning and/or maintenance shall be done in the presence of an authorized employee.” |
+| 4.1.3 - Secured Area | PE | no specific cadence stated | No cadence/frequency/timeline stated; “periodic inspection” is mentioned without a specified interval. |
+| 4.1.4.2 - Security Container | PE | no specific cadence stated | “strict control of the keys is mandatory” but no frequency stated. |
+| 4.1.5 - Locking System | PE | no specific cadence stated | No cadence/frequency/timeline stated. |
+| 4.1.6 - Physical Intrusion Detection System (IDS) | PE | no specific cadence stated | No cadence/frequency/timeline stated. |
+| 4.1.7 - Minimum Protection Alternatives | PE | no specific cadence stated | No cadence/frequency/timeline stated. |
+| 4.2 - Encryption Requirements for Data Leaving Data Centers | SC | within 24 hours | “Within 24 hours, all boxes on each shipment shall be scanned into the storage facility’s tracking system and inserted into the storage racks.” |
+| 5 - Secure Use of the Internet | CA / AC / IA / SC | prior written approval; prior to release into production | “With prior written approval...” and “an independent (third-party) assessment... prior to its release into production is required...” |
+| 5 - Secure Use of the Internet | CA / SI | annual penetration test | “The existing requirement for an annual penetration test of the contractor network shall include any approved Internet infrastructure within the FISMA boundary.” |
+| 5 - Secure Use of the Internet | CA / SI | current versions (no cadence specified) | “Compliance with the current versions of NIST SP 800-41... 800-144...” |
+| References | CP | no specific cadence stated | References NIST SP 800-34, NIST SP 800-12, FISCAM, OMB A-123, OMB A-130; no explicit maintenance cadence. |
+| Appendix A, 1 Introduction | CP | no specific cadence stated | “The ITSCP needs to be developed in accordance with the CMS RMH Chapter 6 Contingency Planning document.” No explicit cadence in this paragraph. |
+| Appendix A, 3 Definition of an acceptable ITSCP | CP | regular basis; within recommended recovery periods | “can be sufficiently tested on an established regular basis within recommended recovery periods” |
+| Appendix A, 4.1 Contingency Planning | CP | no specific cadence stated | No cadence/frequency/timeline stated. |
+| Appendix A, 5 IT Systems Contingency Plan, item 8 | CP | frequency of file backup documented | “Is the frequency of file backup documented?” No interval provided. |
+| Appendix A, 5 IT Systems Contingency Plan, item 12 | CP | annually reviewed and tested within every 365 days; updated within every 365 days | “Is the CP annually reviewed and tested within every 365 days?” and “Is there a provision for updating the CP within every 365 days?” |
+| Appendix A, 6 Testing | CP | annually | “CMS requires testing of the CP annually under conditions that simulate an emergency or a disaster.” |
+| Appendix A, 6 Testing | CP | within every 365 days | “CMS requires that the critical IT systems shall be tested within every 365 days...” |
+| Appendix A, 6 Testing | CP | after a substantive system change | “A CP shall also be tested after a substantive system change that necessitates a revision to the CP.” |
+| Appendix A, 6.3 Test Types | CP | annual test cycle | “For those applications that are both hosted at CMS and not participating in a broader recovery test... during their annual test cycle, a tabletop test is required.” |
+| Appendix A, 6.4 Test Planning | CP | no specific cadence stated | No cadence/frequency/timeline stated. |
+| Appendix A, 9 ITSCP Changes | CP | whenever one or more of the following events occurs | “The ITSCP shall be reviewed/updated whenever one or more of the following events occurs...” |
+| Appendix B, 2 Safeguards against Employee Fraud | AC / IA / AU / CM / CP / IR / PE / SI | periodic and situational notices | “Notices, both periodic and situational, are effective and necessary...” |
+| Appendix B, 3 Checklist for Medicare Fraud | AU / CA / SI / AC / IA | regularly | “Are fiscal operations regularly audited relative to fraud vulnerability?” |
+| Appendix B, 3 Checklist for Medicare Fraud | AU / CA / SI / AC / IA | periodically and randomly | “Are fraud audits conducted both periodically and randomly?” |
+
+| Explicit absences / no specific cadence stated | Relevant sections |
+|---|---|
+| No fixed daily/weekly/monthly/quarterly/annual cadence stated beyond “periodic,” “risk-based,” “as needed,” “current versions,” or “no specific frequency” | 3.9 Identity Proofing; 3.11.1 STIG; 3.11.3 NIST; 3.12 End of Life Technology Components; 3.15 Data Loss Prevention; 3.17 Malicious Code Protection (this page does not state SI-3 timing); 4.1 Sensitive Information Protection Requirement; 4.1.3 Secured Area; 4.1.4.2 Security Container; 4.1.5 Locking System; 4.1.6 Physical IDS; 4.1.7 Minimum Protection Alternatives; 4.1.2 except “whenever”; 6.4 Test Planning |

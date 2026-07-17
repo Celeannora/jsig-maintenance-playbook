@@ -1,0 +1,34 @@
+URL: https://public.cyber.mil/stigs/compilations/
+TITLE: SRG / STIG Library Compilations
+ERROR: None
+
+| Requested item | Extracted information | Exact cadence/timeline stated? | Closely quoted source text |
+|---|---|---:|---|
+| STIG update/release cycles | The page states that the “Library Compilation .zip files will be updated and released during each SRG-STIG Update Release Cycle” to capture “all newly updated or released SRGs, STIGs, and Tools.” It also states: “New SRG-STIG content released mid cycle will be individually downloadable from IASE as released. These SRGs-STIGs will appear in the subsequent release of the Library Compilation.” | Yes, but only at the level of “each SRG-STIG Update Release Cycle”; no duration or calendar interval is stated. | “The Library Compilation .zip files will be updated and released during each SRG-STIG Update Release Cycle to capture all newly updated or released SRGs, STIGs, and Tools.” / “New SRG-STIG content released mid cycle will be individually downloadable from IASE as released.” / “These SRGs-STIGs will appear in the subsequent release of the Library Compilation.” |
+| SRG/STIG Library compilations frequency | The page identifies the compilations and shows one current listing dated “09 Apr 2025” for “Compilation - SRG-STIG Library” and the READ ME dated “08 Aug 2024.” It does not state a fixed compilation frequency beyond being updated during each SRG-STIG Update Release Cycle. | No exact cadence stated. | “The Library Compilation .zip files will be updated and released during each SRG-STIG Update Release Cycle...” |
+| IAVA/IAVM remediation timelines | No IAVA/IAVM remediation timelines are stated on this page. | No exact cadence stated; not present on page. | No relevant text present on this page. |
+| Continuous monitoring cadence | No continuous monitoring cadence is stated on this page. | No exact cadence stated; not present on page. | No relevant text present on this page. |
+| JSIG/RMF ongoing monitoring | No JSIG/RMF ongoing monitoring cadence is stated on this page. | No exact cadence stated; not present on page. | No relevant text present on this page. |
+| Annual reporting | No annual reporting cadence is stated on this page. | No exact cadence stated; not present on page. | No relevant text present on this page. |
+| Control assessment schedules | No control assessment schedules are stated on this page. | No exact cadence stated; not present on page. | No relevant text present on this page. |
+
+| Control family / control ID mapping requested | Extracted information from page | Present on page? |
+|---|---|---:|
+| CM | No CM control family/control ID mapping is stated on this page. | No |
+| SI | No SI control family/control ID mapping is stated on this page. | No |
+| CA | No CA control family/control ID mapping is stated on this page. | No |
+| AU | No AU control family/control ID mapping is stated on this page. | No |
+| MA | No MA control family/control ID mapping is stated on this page. | No |
+
+### Other concrete details explicitly stated on the page
+
+- “The DoD Cyber Exchange is working a known issue with accessing links on Cyber Exchange Public.”
+- “If you have a CAC please access links on Cyber Exchange NIPR while we work to resolve this issue.”
+- The compilation files are “SRG-STIG Library Compilation .zip files.”
+- The files are “compilations of DoD Security Requirements Guides (SRGs) and DoD Security Technical Implementation Guides (STIGs), as well as some other content that may be available through the Cyber Exchange web site’s STIG pages.”
+- “Specifically excluded are Security Readiness Review (SRR) Tools (scripts and OVAL Benchmarks), Group policy objects, and draft SRGs and STIGs.”
+- “See SRG-STIG Library Compilation READ ME for more information to include download / extraction instructions and a FAQ.”
+- “While every attempt will be made to provide a complete set of currently in force SRGs, STIGs, and related tools, DISA makes no guarantee as to the completeness of the compilation or the currently in force status of the contents.”
+- Under “SRG/STIG Compilations” the listed items and update dates are:
+  - “Compilation - SRG-STIG Library” — “09 Apr 2025”
+  - “Compilation - SRG-STIG Library - READ ME” — “08 Aug 2024”

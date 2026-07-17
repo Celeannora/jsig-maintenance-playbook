@@ -1,0 +1,52 @@
+URL: https://github.com/GSA/fedramp-tailored/blob/master/_guidance/controls/CP-9.md
+TITLE: fedramp-tailored/_guidance/controls/CP-9.md at master · GSA/fedramp-tailored
+ERROR: None
+
+| Control ID | Requested topic | Documented concrete cadence / timeline / retention period | Exact quote / closely quoted text | Notes |
+|---|---|---:|---|---|
+| CP-9 | Backup of user-level information | Daily incremental; weekly full backups | “FedRAMP requires **daily incremental and weekly full backups**.” | In CP-9(a) Control Objective; the base control requirement itself says “**[Assignment: organization-defined frequency consistent with recovery time and recovery point objectives]**.” |
+| CP-9 | Backup of system-level information | Daily incremental; weekly full backups | “FedRAMP requires **daily incremental and weekly full backups**.” | In CP-9(b) Control Objective; base control requirement is organization-defined frequency consistent with RTO/RPO. |
+| CP-9 | Backup of information system documentation including security-related documentation | Daily incremental; weekly full backups | “FedRAMP requires **daily incremental and weekly full backups**.” | In CP-9(c) Control Objective; base control requirement is organization-defined frequency consistent with RTO/RPO. |
+| CP-9 | Backup information protection at storage locations | Not stated | “Describe how the organization protects the confidentiality, integrity, and availability of backup information at storage locations.” | No explicit cadence or retention period stated in this page for part (d). |
+
+## Extracted control text and specifics
+
+### CP-9 control requirement
+- “The organization:
+  - a. Conducts backups of user-level information contained in the information system **[Assignment: organization-defined frequency consistent with recovery time and recovery point objectives]**;
+  - b. Conducts backups of system-level information contained in the information system **[Assignment: organization-defined frequency consistent with recovery time and recovery point objectives]**;
+  - c. Conducts backups of information system documentation including security-related documentation **[Assignment: organization-defined frequency consistent with recovery time and recovery point objectives]**; and
+  - d. Protects the confidentiality, integrity, and availability of backup information at storage locations.”
+
+### CP-9(a) user-level information
+- “Describe how the organization conducts backups of user-level information contained in the information system **daily incremental; weekly full backups** consistent with recovery time and recovery point objectives.”
+- “The service provider shall determine what elements of the cloud environment require the Information System Backup control.”
+- “The service provider shall determine how Information System Backup is going to be verified and appropriate periodicity of the check.”
+- “The service provider maintains **at least three backup copies of user-level information (at least one of which is available online)** or provides an equivalent alternative.”
+- “This includes data stored on file systems, within databases or within any other storage media.”
+- “Applications performing backups must be capable of backing up user-level information per the FedRAMP-defined frequency.”
+- “Database backups provide the required means to restore databases after compromise or loss.”
+
+### CP-9(b) system-level information
+- “Describe how the organization conducts backups of system-level information contained in the information system **daily incremental; weekly full backups** consistent with recovery time and recovery point objectives.”
+- “System-level information includes **system-state information, operating system and application software, and licenses**.”
+- “Applications performing backups must be capable of backing up system-level information per the FedRAMP-defined frequency.”
+- “The service provider maintains at least three backup copies of system-level information (at least one of which is available online) or provides an equivalent alternative.”
+
+### CP-9(c) information system documentation including security-related documentation
+- “Describe how the organization conducts backups of information system documentation including security-related documentation contained in the information system **daily incremental; weekly full backups** consistent with recovery time and recovery point objectives.”
+- “Information system documentation including security-related documentation includes the **system configuration baselines, security settings, user guides, standard operating procedures, and authorization documentation**.”
+- “This control requires the network device(s) to support the organizational central backup process for user account information associated with the network device(s).”
+- “However, the best practice is a centralized backup rather than each network device performing discrete backups.”
+- “Applications performing backups must be capable of backing up Information system documentation including security-related documentation per the FedRAMP-defined frequency.”
+- “The service provider maintains at least three backup copies of system-level information (at least one of which is available online) or provides an equivalent alternative.”  
+  - Note: this sentence appears in the page under CP-9(c) exactly as written.
+
+### CP-9(d) protection of backup information
+- “Describe how the organization protects the confidentiality, integrity, and availability of backup information at storage locations.”
+- “The focus of part (d) is to describe how the confidentiality, integrity, and availability of each of the (i) user-level backups, the (ii) system-level backups, and the (iii) information system documentation including all security related documentation backups is maintained at the backup storage locations.”
+
+## Organization-defined / no explicit frequency statements present on this page
+- CP-9(a), CP-9(b), and CP-9(c) base control requirements: “**organization-defined frequency consistent with recovery time and recovery point objectives**.”
+- CP-9(d): no cadence stated.
+- The page states “**appropriate periodicity of the check**” for verification, but does not assign a specific frequency there.

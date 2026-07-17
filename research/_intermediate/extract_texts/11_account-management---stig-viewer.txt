@@ -1,0 +1,29 @@
+URL: https://www.stigviewer.com/controls/nist-800-53/AC-2
+TITLE: Account Management - STIG Viewer
+ERROR: None
+
+| Control ID | Control / Topic | Exact frequency / timeline / retention period stated | Closely quoted source text | Notes on organization-defined / absence |
+|---|---|---|---|---|
+| AC-2 | Account Management | “Notify account managers and {{ insert: param, ac-02_odp.05 }} within: {{ insert: param, ac-02_odp.06 }} when accounts are no longer required; {{ insert: param, ac-02_odp.07 }} when users are terminated or transferred; and {{ insert: param, ac-02_odp.08 }} when system usage or need-to-know changes for an individual” | “Notify account managers and {{ insert: param, ac-02_odp.05 }} within:\n{{ insert: param, ac-02_odp.06 }} when accounts are no longer required;\n{{ insert: param, ac-02_odp.07 }} when users are terminated or transferred; and\n{{ insert: param, ac-02_odp.08 }} when system usage or need-to-know changes for an individual” | All three timing values are organization-defined parameters. |
+| AC-2 | Account Management | “Review accounts for compliance with account management requirements {{ insert: param, ac-02_odp.10 }}” | “Review accounts for compliance with account management requirements {{ insert: param, ac-02_odp.10 }}" | Frequency is organization-defined. |
+| AC-2 | Temporary accounts / account disablement | “Temporary and emergency accounts are intended for short-term use.” | “Temporary and emergency accounts are intended for short-term use.” | No exact duration or review interval stated. |
+| AC-2 | Temporary accounts / account disablement | “Organizations establish temporary accounts as part of normal account activation procedures when there is a need for short-term accounts without the demand for immediacy in account activation.” | “Organizations establish temporary accounts as part of normal account activation procedures when there is a need for short-term accounts without the demand for immediacy in account activation.” | No exact duration or review interval stated. |
+| AC-2 | Temporary accounts / account disablement | “Conditions for disabling or deactivating accounts include when shared/group, emergency, or temporary accounts are no longer required and when individuals are transferred or terminated.” | “Conditions for disabling or deactivating accounts include when shared/group, emergency, or temporary accounts are no longer required and when individuals are transferred or terminated.” | No exact timeline stated beyond the condition. |
+| AC-2 | Shared/group authenticators | “Establish and implement a process for changing shared or group account authenticators (if deployed) when individuals are removed from the group” | “Establish and implement a process for changing shared or group account authenticators (if deployed) when individuals are removed from the group” | No exact cadence stated. |
+| AC-2 | Account removal / transfer | “Align account management processes with personnel termination and transfer processes.” | “Align account management processes with personnel termination and transfer processes.” | No exact timeline stated. |
+
+### Requested items not explicitly present on the provided page
+| Requested control/topic | Presence on page |
+|---|---|
+| AU-6 log review | Not present |
+| AU-11 log retention | Not present |
+| IA authenticators / certificates | Not present |
+| CP-4 contingency plan test | Not present |
+| CP-9 backup testing | Not present |
+| IR-3 incident response testing/training | Not present |
+| PE-2 physical access reviews | Not present |
+| PE-3 physical access reviews | Not present |
+| SI-2 vulnerability / malware | Not present |
+| SI-3 malware | Not present |
+| CM inventory/change reviews | Not present |
+| MA maintenance | Not present |

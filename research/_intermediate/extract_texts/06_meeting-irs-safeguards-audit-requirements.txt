@@ -1,0 +1,55 @@
+URL: https://www.irs.gov/privacy-disclosure/meeting-irs-safeguards-audit-requirements
+TITLE: Meeting IRS Safeguards audit requirements
+ERROR: None
+
+| Control ID | Documented concrete cadence/timeline/retention period | Closely quoted source text | Notes |
+|---|---:|---|---|
+| AU-6 | "Audit logs must be reviewed periodically as defined by the policy" | "Audit logs must be reviewed periodically as defined by the policy" | Frequency is organization-defined; no exact period stated for AU-6 on the page. |
+| AU-11 | "Audit information shall be retained for 6 years." | "Audit information shall be retained for 6 years." | Exact retention period stated. |
+| AU-11 | "The audit logs will be reviewed on a daily basis" | "Audit Log - Daily Review – RACF System Administrator - The audit logs will be reviewed on a daily basis for the following violations:" | This is an example schedule, not explicitly labeled AU-11 on the page, but it is audit-log review cadence. |
+| AU-11 | "weekly/monthly basis" | "Audit Log - Weekly/Monthly Review - RACF System Administrator & RACF SA Manager - The audit logs will be reviewed on a weekly/monthly basis for the following violations/changes:" | This is an example schedule, not explicitly labeled AU-11 on the page. |
+| AU-11 | "quarterly basis" | "Audit Log - Quarterly Review - RACF Auditor team – The audit logs are to be reviewed on a quarterly basis for the following changes/accesses:" | This is an example schedule, not explicitly labeled AU-11 on the page. |
+| AC-2 | No exact frequency/timeline stated | No explicit AC-2 frequency or timeline stated on the page | The page includes related account-management audit content only: "Audit Account Management: Reports changes to user accounts." |
+| AC-2 | No exact disablement timeline stated | No explicit disablement cadence/timeline stated on the page | The page includes "Audit Logon Events" and "Audit Account Management" examples, but no AC-2 disablement period. |
+| AC-2 | No temporary-account timeline stated | No explicit temporary-account timeline stated on the page | Not found. |
+| IA | No exact authenticator/certificate lifecycle cadence stated | No explicit IA frequency/timeline stated on the page | Not found on this page. |
+| CP-4 | No contingency plan test cadence stated | No explicit CP-4 test frequency stated on the page | Not found. |
+| CP-9 | No backup testing cadence stated | No explicit CP-9 backup test frequency stated on the page | Not found. |
+| IR-3 | No incident response testing/training cadence stated | No explicit IR-3 testing/training frequency stated on the page | Not found. |
+| PE-2 | No physical access review cadence stated | No explicit PE-2 frequency stated on the page | Not found. |
+| PE-3 | No physical access review/approval cadence stated | No explicit PE-3 frequency stated on the page | Not found. |
+| SI-2 | No vulnerability scan/remediation cadence stated | No explicit SI-2 frequency stated on the page | Not found. |
+| SI-3 | No malware protection update/scan cadence stated | No explicit SI-3 frequency stated on the page | Not found. |
+| CM | No inventory/change-review cadence stated | No explicit CM frequency stated on the page | Not found. |
+| MA | No maintenance cadence stated | No explicit MA frequency stated on the page | Not found. |
+
+## Audit-log review cadences explicitly stated on the page
+
+| Review schedule label | Exact cadence | Closely quoted source text | Control ID on page |
+|---|---:|---|---|
+| Daily Review | daily basis | "Audit Log - Daily Review – RACF System Administrator - The audit logs will be reviewed on a daily basis for the following violations:" | Not explicitly mapped to a control ID on the page |
+| Weekly/Monthly Review | weekly/monthly basis | "Audit Log - Weekly/Monthly Review - RACF System Administrator & RACF SA Manager - The audit logs will be reviewed on a weekly/monthly basis for the following violations/changes:" | Not explicitly mapped to a control ID on the page |
+| Quarterly Review | quarterly basis | "Audit Log - Quarterly Review - RACF Auditor team – The audit logs are to be reviewed on a quarterly basis for the following changes/accesses:" | Not explicitly mapped to a control ID on the page |
+
+## Audit-log review details quoted from the page
+
+| Cadence | Personnel named | Items to be reviewed |
+|---|---|---|
+| Daily Review | "RACF System Administrator" | "Data set access violations"; "Resource access violations"; "Program use violations" |
+| Weekly/Monthly Review | "RACF System Administrator & RACF SA Manager" | "Failed logon attempts – RACF user violation report"; "Special and operation privileges" |
+| Quarterly Review | "RACF Auditor team" | "Trusted STC accesses"; "FTP userids/logonids/ACIDs accesses"; "Global Control Options" |
+
+## Retention period explicitly stated
+
+| Control ID | Exact retention period | Closely quoted source text |
+|---|---:|---|
+| AU-11 | 6 years | "Audit information shall be retained for 6 years." |
+
+## Other explicit timing/frequency-related statements on the page
+
+| Topic | Closely quoted source text | Explicit cadence? |
+|---|---|---|
+| Windows audit policy examples | "The following sizes should be the minimums:" | No cadence; storage minimums only |
+| Windows event log overwrite handling | "The third most common issue is that the Event Viewer logs are not set to “Do Not Overwrite Events (clear log manually).”" | No cadence; retention/overwrite setting only |
+| Cisco syslog sequence numbers | No time period stated; only configuration guidance | No cadence |
+| Cisco NTP authentication | No time period stated; only configuration guidance | No cadence |
