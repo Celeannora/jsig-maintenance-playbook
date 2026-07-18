@@ -113,3 +113,20 @@ self-attachment was kept as the universal default and this is documented as
 a known cosmetic limitation rather than "fixed" with an unreliable heuristic.
 Baseline mark data (X/S/+ values) is unaffected in all cases since these rows
 carry no marks at all.
+
+## 2026-07-17 (later same day): Downstream reconciliation use of this extraction
+
+The verbatim family extractions above were used to build
+`execution-plan/tools/build_control_title_index.py`, which parses all 26
+family files for real control/enhancement titles, and
+`execution-plan/tools/build_control_language_crosswalk.py`, which cross-
+checks every Control ID cited in `MAINTENANCE-PLAN.md`'s Master Calendar
+against those real titles. Result: all 127 distinct Control IDs cited
+resolved cleanly with zero mismatches (see
+`execution-plan/CONTROL-LANGUAGE-CROSSWALK.md`). `role_task_index.json` and
+the 17 role runbooks now carry pointers to real verbatim JSIG control
+language via this crosswalk. The Master Calendar's task list, frequencies,
+and Control ID assignments themselves were intentionally left unmodified in
+this pass -- reconciling those against real JSIG ODP values (as opposed to
+just verifying the Control IDs already assigned) remains an explicitly
+out-of-scope, unstarted future phase (see `PROGRESS.md` Open Questions).
