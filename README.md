@@ -43,6 +43,13 @@ MAINTENANCE-PLAN.md                 # THE actionable plan: daily ops & sustainme
                                      # tables + deep-dive domain analysis, 110-task master calendar,
                                      # roles matrix, phased implementation sequencing, risks/gaps
 
+execution-plan/                     # Actionable, generate-and-use tooling built on top of everything above:
+  README.md                         # Start here for this folder -- RACI matrix, 17 role runbooks, escalation
+                                     # routing, variance-record generation, STIG/CVE reference tooling
+  RACI-MATRIX.md                    # Generated Responsible/Accountable/Consulted/Informed for all 110 tasks
+  CONTROL-LANGUAGE-CROSSWALK.md     # Reconciles every Control ID cited in the calendar against real JSIG titles
+  runbooks/<Role>.md                # Actionable per-role task runbook, one per JSIG role
+
 PROGRESS.md                         # Implementation tracking checklist (fill in as you stand up the program)
 AGENTS.md                           # How AI coding/planning agents should work in this repo
 manifest.txt                        # Flat file inventory
@@ -52,12 +59,13 @@ manifest.txt                        # Flat file inventory
 
 1. Clone the repo — no internet access is required afterward. All external guidance cited in `MAINTENANCE-PLAN.md` and the research file has a local copy under `references/external-sources/`.
 2. Start with `MAINTENANCE-PLAN.md` §1 (Executive Summary) and §1A (Daily Operations & Sustainment Focus) for the day-to-day checklist.
-3. Look up your role in `playbooks/roles/INDEX.md` for what you specifically own.
-4. Use `reference/JSIG/control-families/INDEX.md` to jump to any control family's full text and JSIG tailoring notes.
+3. Look up your role in `playbooks/roles/INDEX.md` for what you specifically own, then find your role's actionable task runbook in `execution-plan/runbooks/` (start with `execution-plan/README.md`).
+4. Use `reference/JSIG/control-families/INDEX.md` for the control inventory, and `references/JSIG-source/chapter-3-*-family.md` for the full verbatim JSIG family text (real ODP values and SAP-specific guidance) -- the latter supersedes the former's NIST-boilerplate placeholders; see `reference/JSIG/appendices/EXTRACTION-LIMITATIONS.md` for what changed. `execution-plan/CONTROL-LANGUAGE-CROSSWALK.md` maps every Control ID in the Master Calendar to its real title.
 5. Track real-world implementation progress in `PROGRESS.md`.
 
 ## Known gaps (see also `reference/JSIG/appendices/EXTRACTION-LIMITATIONS.md` and `references/JSIG-source/EXTRACTION-LOG.md`)
 
-- Exact JSIG organization-defined parameter (ODP) values and the full Appendix C SAP baseline tables were only partially extracted from the source PDF (parser/access limitations) — verify against the primary JSIG PDF before using any specific numeric ODP in an actual SSP.
+- Full verbatim JSIG family text and the complete 963-row Appendix C SAP baseline table have since been extracted (real ODP values and SAP-specific guidance, in `references/JSIG-source/`) -- the earlier partial-extraction limitation is resolved; see `reference/JSIG/appendices/EXTRACTION-LIMITATIONS.md`.
+- `MAINTENANCE-PLAN.md`'s 110-task Master Calendar itself (task list, frequencies, Control ID assignments) has not yet been reconciled against these real ODP values -- Control IDs *cited* in the calendar have been verified to resolve to real titles (`execution-plan/CONTROL-LANGUAGE-CROSSWALK.md`, 127/127 resolved), but the calendar's *cadences* have not; this remains an open, unscoped future phase (see `PROGRESS.md` Open questions).
 - Cadences in `MAINTENANCE-PLAN.md` are drawn from **documented Federal analogues** (FedRAMP, IRS, DoD, GSA, NIST) where JSIG itself does not publish a universal numeric schedule — every such cadence is flagged inline as either sourced or as a reasoned interim default pending your organization's JSIG tailoring.
 - This is planning-only material. No classified, program-specific, or ATO-package content is or should be added to this repository.

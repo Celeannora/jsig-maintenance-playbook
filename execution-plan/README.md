@@ -13,6 +13,8 @@ execution-plan/
 ├── ROLE-CROSSWALK.md                  # Operational job titles → the 17 JSIG §1.5 formal roles
 ├── RACI-MATRIX.md                     # Generated: Responsible/Accountable/Consulted/Informed for all 110
 │                                       # Master Calendar tasks, plus a per-role task-count rollup
+├── CONTROL-LANGUAGE-CROSSWALK.md      # Generated: every Control ID cited in the Master Calendar (127 distinct
+│                                       # IDs across 110 tasks) resolved against real verbatim JSIG family text
 ├── templates/
 │   ├── AUDIT-ARTIFACT-TEMPLATE.md     # Canonical 10-section scaffold every runbook/evidence record follows
 │   ├── VARIANCE-RISK-ACCEPTANCE-TEMPLATE.md   # Severity-scoped specialization of the scaffold for
@@ -27,7 +29,11 @@ execution-plan/
 │   ├── build_raci_matrix.py           # Regenerates RACI-MATRIX.md from MAINTENANCE-PLAN.md + ROLE-CROSSWALK.md
 │   ├── build_role_task_index.py       # Regenerates data/role_task_index.json: per-role, deduplicated
 │   │                                   # executing/accountable/consulted/informed task lists (the grounding
-│   │                                   # source every runbooks/<Role>.md Task Index is built from)
+│   │                                   # source every runbooks/<Role>.md Task Index is built from), each task
+│   │                                   # enriched with a control_titles field resolved via control_title_index.json
+│   ├── build_control_title_index.py   # Regenerates data/control_title_index.json from the full verbatim JSIG
+│   │                                   # family extractions (../references/JSIG-source/chapter-3-*-family.md)
+│   ├── build_control_language_crosswalk.py  # Regenerates ../CONTROL-LANGUAGE-CROSSWALK.md
 │   ├── data/stig_reference.json       # Committed: curated STIG reference DB (built from stig_intake/)
 │   ├── data/cve_reference.json        # Committed when built: curated CVE reference DB (built from cve_intake/)
 │   ├── data/cve_mirror.json           # Gitignored: optional full NVD mirror, local-only, can be hundreds of MB
@@ -77,6 +83,16 @@ python3 execution-plan/tools/generate_variance.py CVE-2021-44228
 ```
 
 The tool fails closed (non-zero exit, no file written) if the ID format isn't recognized or the ID isn't in the reference database — it will never fabricate finding text to fill the gap. See `execution-plan/tools/README.md` for the full CLI reference, including `--reference-db` to point at a different database file.
+
+### 3a. Regenerate the control-language crosswalk after editing a family extraction file
+
+If `references/JSIG-source/chapter-3-*-family.md` changes (e.g. a correction), re-run in order:
+
+```bash
+python3 execution-plan/tools/build_control_title_index.py       # rebuilds data/control_title_index.json
+python3 execution-plan/tools/build_control_language_crosswalk.py  # rebuilds CONTROL-LANGUAGE-CROSSWALK.md
+python3 execution-plan/tools/build_role_task_index.py            # re-resolves each task's control_titles field
+```
 
 ### 4. Regenerate the RACI matrix after editing the Master Calendar or the crosswalk
 
