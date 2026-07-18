@@ -1,116 +1,156 @@
-# JSIG Appendix E Definitions
+# JSIG Appendix E - Definitions
 
 Source URL: https://www.dcsa.mil/portals/91/documents/ctp/nao/JSIG_2016April11_Final_(53Rev4).pdf
 
-Extraction note: Verbatim/near-verbatim extraction via document-aware fetch, retrieved 2026-07-17. Tool-returned content follows; no content has been inferred beyond the returned extraction.
+Archived source (used for extraction, direct URL returns HTTP 403): http://web.archive.org/web/20260405054539/https://www.dcsa.mil/portals/91/documents/ctp/nao/JSIG_2016April11_Final_(53Rev4).pdf
+
+Extraction note: Verbatim extraction via `pdftotext -layout` against the complete 378-page JSIG PDF (retrieved 2026-07-17 from the Wayback Machine snapshot below, since the direct DCSA URL returns HTTP 403). This supersedes any prior lower-fidelity extraction of this section. Running page headers/footers inserted by the PDF layout have been stripped; no wording has been added, summarized, or altered.
 
 ---
 
-Appendix E: Definitions
+APPENDIX E:                Definitions
+Application                        Software program that performs a specific function directly for a user
+                                   and can be executed without access to system control, monitoring, or
+                                   administrative privileges. [CNSSI 4009]
+Clearing                           Clearing is the process of eradicating the data on media before reusing
+                                   the media in an environment that provides an acceptable level of
+                                   protection for the data that was on the media before clearing. In
+                                   general, laboratory techniques allow the retrieval of information that
+                                   has been cleared, but normal operations do not allow such retrieval.
+Closed Source Software (CSS)       Also known as Proprietary software.
+Commercial off-the-Shelf           Copyrighted or open source vendor software publicly available for
+(COTS) Software                    purchase.
+Controlled Interface (CI)          A boundary with a set of mechanisms that enforces the security
+                                   policies and controls the flow of information between interconnected
+                                   information systems. [CNSSI 4009]
+Cross Domain Solution (CDS)        A form of controlled interface that provides the ability to manually
+                                   and/or automatically access and/or transfer information between
+                                   different security domains. [CNSSI 4009]
+Data Spill or Classified           Classified data is spilled either onto an unclassified information system
+Information Spillage               or to an information system with a lower [or different] level of
+                                   classification [or access]. [CNSSI 4009] Also referred to as data
+                                   exfiltration – the unauthorized transfer of data from a system.
+Denial of Service (DoS) or         The prevention of authorized access to resources or the delaying of
+Distributed Denial of Service      time-critical operations. DDoS is a technique that uses numerous hosts
+(DDoS)                             to perform the attack. [CNSSI 4009]
+Event                              Any observable occurrence in a system and/or network. Events
+                                   sometimes provide indication that an incident is occurring. [CNSSI
+                                   4009]
+Freeware                           Copyrighted software given away for free by the author. Although it is
+                                   available for free, the author retains the copyright and does not
+                                   distribute source code, so other people cannot market the software as
+                                   their own.
+Government off-the-Shelf           Software developed with government funds for government use.
+(GOTS) Software
+Incident                           An assessed occurrence that actually or potentially jeopardizes the
+                                   confidentially, integrity or availability of an information system; or the
+                                   information the system processes, stores, or transmits; or that
+                                   constitutes a violation or imminent threat of violation of security
+                                   policies, security procedures or acceptable use policies.[CNSSI 4009]
+Initial Denial Authority           An official granted authority by the head of a DoD Component to
+                                   withhold records requested under the Freedom of Information Act.
+Intellectual Property              Creations of the mind such as musical, literary, and artistic works;
+                                   inventions; and symbols, names, images, and designs used in
+                                   commerce, including copyrights, trademarks, patents, and related
+                                   rights. Under intellectual property law, the holder of one of these
+                                   abstract properties has certain exclusive rights to the creative work,
+                                   commercial symbol, or invention by which it is covered.[CNSSI-4009]
 
-| Term | Definition |
-|---|---|
-| Access Agreement | A signed written agreement for users with access privileges to SAP information systems and/or SAP data that establishes the conditions for access to the information system and/or data. Access agreements may be included in other documents such as Rules of Behavior, NDA, and Nondisclosure Agreements. |
-| Accountability | The property that ensures that actions of an entity can be traced uniquely to that entity. |
-| Acquisition | The process of obtaining information technology and services in support of an information system. |
-| Activity | The procedure(s), practices, or action(s) taken to implement a security control and/or to correct a security deficiency. |
-| Advance Redaction | The review of output from an information system to ensure that all non-releasable information is removed or obscured before the output is released to an unauthorized individual, organization, or system. |
-| Agency | A department or establishment in the executive branch of the Federal Government, including a Government corporation, and a military department. |
-| All-Source Intelligence | Intelligence derived from all intelligence disciplines, including human intelligence, imagery intelligence, signals intelligence, measurement and signature intelligence, and open-source intelligence. |
-| Authentication | Verifying the identity of a user, process, or device, often as a prerequisite to allowing access to resources in an information system. |
-| Authorization | Access privileges granted to a user, program, or process or the act of granting those privileges. |
-| Availability | Ensuring timely and reliable access to and use of information. |
-| Baseline | A set of information security controls that has been established for a specific purpose. |
-| Boundary Protection | Monitoring and controlling communications at the external boundary of an information system and at key internal boundaries within the system. |
-| Capability | The ability to perform or accomplish something. |
-| Categorical Level | The discrete level assigned to an information system based on the impact of a loss of confidentiality, integrity, or availability. |
-| Central Management | The implementation of a formal, centralized approach to security management. |
-| Certification | A comprehensive assessment of the management, operational, and technical security controls in an information system, made in support of security authorization to determine the extent to which the controls are implemented correctly, operating as intended, and producing the desired outcome with respect to meeting the security requirements for the system. |
-| Chief Information Security Officer (CISO) | The senior organizational official responsible for carrying out the CIO security responsibilities under FISMA. |
-| Classified Information | Information that has been determined to require protection against unauthorized disclosure and is marked to indicate its classified status when in documentary form. |
-| Clearance | A formal determination that an individual is eligible for access to classified information or to occupy a position of trust. |
-| Common Control | A security control inherited by one or more information systems. |
-| Common Control Provider (CCP) | The individual, group, or organization responsible for development, implementation, assessment, authorization, and monitoring of common controls. |
-| Compromise | A violation of security policy where information is exposed to unauthorized individuals, or a loss of control of system security. |
-| Component | One of the parts of a system. |
-| Confidentiality | Preserving authorized restrictions on information access and disclosure, including means for protecting personal privacy and proprietary information. |
-| Configuration Management | A collection of activities focused on establishing and maintaining the integrity of information system products and information systems, through control of changes to hardware, software, firmware, documentation, test, test fixtures, and test documentation throughout the life cycle of the system. |
-| Contingency Plan | A management policy and procedures used to guide an enterprise response to a perceived loss of mission capability. |
-| Control | A safeguard or countermeasure prescribed for an information system or organization designed to protect the confidentiality, integrity, and availability of its information. |
-| Counterintelligence | Information gathered and activities conducted to protect against espionage, other intelligence activities, sabotage, or assassinations conducted for or on behalf of foreign powers, organizations, or persons, or international terrorist activities. |
-| Credible Threat | A threat that is realistic and has a defined likelihood of occurrence. |
-| Criticality | The importance of a system or information in achieving mission objectives, and the value of the system or information to the organization or to the nation. |
-| Data Mining Protection | Protective measures used to prevent or detect unauthorized data mining, aggregation, or inference activities. |
-| Defense in Depth | Information security strategy integrating people, technology, and operations capabilities to establish variable barriers across multiple layers and missions of the organization. |
-| Denial of Service | The prevention of authorized access to resources or the delaying of time-critical operations. |
-| Department of Defense (DoD) Special Access Program (SAP) Community | DoD components, agencies, organizations, contractors, and other entities that participate in SAP activities and/or handle SAP information. |
-| Designated Accrediting Authority (DAA) | See Authorizing Official (AO). |
-| Disclosure | The release, transfer, provision of access to, or divulging in any manner of information outside the organization holding the information. |
-| Discretionary Access Control | A means of restricting access to information based on the identity of users and/or groups to which they belong. |
-| DoD Information System | An information system owned by or operated on behalf of DoD. |
-| Domain | An environment or context that is managed according to a common policy. |
-| Dual Authorization | The enforcement of two-person control; access to a critical function or the ability to perform a critical action requires approval or action by two authorized individuals. |
-| Dynamic Baseline | A baseline that is adjusted in response to changes in risk, threat, mission, or environment. |
-| Electronic Information | Information recorded in any form that is an electronic signal or generated, sent, communicated, received, or stored by electronic, optical, or similar means. |
-| Enterprise Architecture | The description of an organization’s operational and technical environment and the relationships among its components. |
-| External Information System | An information system that is not owned, operated, or controlled by the organization but is used to process, store, or transmit the organization’s information. |
-| Foreign National | A person who is not a citizen or national of the United States. |
-| General User | An individual who uses an information system but does not have special access privileges or administrative responsibilities. |
-| Government Employee | An individual employed by a U.S. Government organization. |
-| Handle | To collect, process, transfer, use, or disseminate information. |
-| High Water Mark | The highest impact level among the security objectives associated with an information system. |
-| Information | Any communication or representation of knowledge such as facts, data, or opinions in any medium or form. |
-| Information Assurance (IA) | Measures that protect and defend information and information systems by ensuring their availability, integrity, authentication, confidentiality, and non-repudiation. |
-| Information Owner/Steward | An organizational official with statutory, management, or operational authority for specific information who has the responsibility for establishing the policies and procedures governing its generation, collection, processing, dissemination, and disposal. |
-| Information System (IS) | A discrete set of information resources organized for the collection, processing, maintenance, use, sharing, dissemination, or disposition of information. |
-| Information System Security Officer (ISSO) | An individual responsible for ensuring the appropriate operational security posture is maintained for an information system. |
-| Information System Security Manager (ISSM) | An individual who serves as a principal advisor on all matters, technical and otherwise, involving the security of information systems under his/her purview. |
-| Information Technology | Any equipment or interconnected system or subsystem of equipment that is used in the automatic acquisition, storage, analysis, evaluation, manipulation, management, movement, control, display, switching, interchange, transmission, or reception of data or information. |
-| Integrity | Guarding against improper information modification or destruction, and includes ensuring information non-repudiation and authenticity. |
-| Insider Threat | The threat that an insider will use his or her authorized access, wittingly or unwittingly, to do harm to the security of the organization. |
-| Interface | A shared boundary between two functional units, defined by various characteristics pertaining to the functions, physical interconnections, signal characteristics, and other properties. |
-| Interconnection | The direct connection of information systems for the purpose of sharing data and other information resources. |
-| Interoperability | The ability of information systems to work together within and across organizational boundaries to exchange information and use the information that has been exchanged. |
-| Least Privilege | The principle that users and processes are granted only those privileges necessary to perform assigned tasks. |
-| Loss of Confidence | The concern that classified information or information systems may be compromised, resulting in reduced trust or reliability. |
-| Management Control | The actions taken by management to direct or influence the behavior of the organization. |
-| Marking | The application of designators to indicate the classification, sensitivity, or handling caveats of information. |
-| Mission | The purpose that is set forth in the charter of the organization. |
-| Need-to-Know | A determination made by an authorized holder of classified information that a prospective recipient requires access to specific classified information in order to perform or assist in a lawful and authorized governmental function. |
-| Network | A collection of components and mechanisms interconnected by communications paths. |
-| Non-Repudiation | Assurances that the sender of data is provided with proof of delivery and the recipient is provided with proof of the sender’s identity. |
-| Nondisclosure Agreement (NDA) | A written agreement in which an individual agrees not to disclose information to unauthorized persons. |
-| Object | A passive entity that contains or receives information. |
-| Operational Control | The actions taken by management to ensure that the system is operated securely. |
-| Organization | A group of people and facilities with an arrangement of responsibilities, authorities, and relationships. |
-| Overlay | A specification of additional security controls, guidance, and/or requirements that are intended to complement or elaborate the baseline security controls. |
-| Passive Attack | An attack in which an unauthorized party gains access to an asset and does not alter it. |
-| Personally Identifiable Information (PII) | Information which can be used to distinguish or trace an individual’s identity, either alone or when combined with other information that is linked or linkable to a specific individual. |
-| Platform IT (PIT) System | A system that is a platform or component of a weapon system and is used to perform a military function. |
-| Privileged User | A user who is authorized to perform security-relevant functions that ordinary users are not authorized to perform. |
-| Program Manager (PM) | The individual responsible for ensuring that a system or program is acquired and fielded to meet user requirements. |
-| Reciprocity | Mutual agreement among participating enterprises to accept each other’s security assessments in order to reuse information system resources and/or to accept each other’s assessed security posture in order to share information. |
-| Reconstitute | To restore information systems to operation after a disruption or compromise. |
-| Risk | A measure of the extent to which an entity is threatened by a potential circumstance or event, and is typically a function of the adverse impacts and likelihood of occurrence. |
-| Risk Assessment | The process of identifying, estimating, and prioritizing risks to organizational operations, organizational assets, individuals, other organizations, and the Nation, resulting from the operation of an information system. |
-| Risk Executive (Function) (REF) | An individual or group within an organization that helps to ensure that risk-related considerations for individual information systems are viewed from an organization-wide perspective. |
-| Risk Management | The process of identifying, analyzing, assessing, and responding to risk. |
-| Security Control | A safeguard or countermeasure prescribed for an information system or organization to protect the confidentiality, integrity, and availability of its information. |
-| Security Control Assessor (SCA) | The individual, group, or organization responsible for conducting an assessment of security controls employed within or inherited by an information system. |
-| Security Authorization | The official management decision given by a senior organizational official to authorize operation of an information system and to explicitly accept the risk to organizational operations and assets, individuals, other organizations, and the Nation. |
-| Security Category | The characterization of information or an information system based on an assessment of the potential impact that a loss of confidentiality, integrity, or availability could have on organizational operations, organizational assets, individuals, other organizations, and the Nation. |
-| Security Impact Level | The level corresponding to the potential impact on confidentiality, integrity, and availability determined from the security categorization. |
-| Security Plan | A formal document that provides an overview of the security requirements for an information system and describes the security controls in place or planned for meeting those requirements. |
-| Security Relevant | Pertaining to any action, feature, setting, or condition that can affect the security posture of an information system. |
-| Sensitive Compartmented Information (SCI) | Classified information concerning or derived from intelligence sources, methods, or analytical processes that is required to be handled within formal access control systems established by the Director of National Intelligence. |
-| Service | A department of the Department of Defense. |
-| Special Access Program (SAP) | A program established for a specific classified purpose that requires special access controls beyond those normally provided for access to classified information. |
-| Stakeholder | An individual or organization with a vested interest in the outcome of a process or activity. |
-| System | A set of interacting or interdependent components forming an integrated whole. |
-| System Owner (SO) | The official responsible for the overall procurement, development, integration, modification, or operation and maintenance of an information system. |
-| System Security Plan (SSP) | A formal document that provides an overview of the security requirements for an information system and describes the security controls in place or planned for meeting those requirements. |
-| Tailoring | The process by which security control baselines are modified to align with the organization’s specific mission/business needs, environment, and risk tolerance. |
-| Technical Control | The security controls implemented in the information system through the use of hardware, software, and firmware. |
-| Threat | Any circumstance or event with the potential to adversely impact organizational operations, organizational assets, individuals, other organizations, or the Nation. |
-| User | An individual, or a process acting on behalf of an individual, authorized to access an information system. |
-| Vulnerability | Weakness in an information system, system security procedures, internal controls, or implementation that could be exploited by a threat source. |
+Appendix E-Definitions                                                                            PAGE E-376
+Local Area Network (LAN)     A group of computers and network devices connected together over a
+                             relatively small geographic area. A LAN may be isolated – no
+                             connections outside the system boundary or facility; or interconnected
+                             to another system or LAN.
+Mobile Device                Mobile devices include portable computing and communications
+                             devices with information storage capability (e.g., notebook computers,
+                             personal digital assistants, cellular telephones, digital cameras, and
+                             audio recording devices). [NIST SP 800-53 Rev4] See also Portable
+                             Electronic Device (PED).
+Nonce                        A time-varying value that has at most a negligible chance of repeating,
+                             for example, a random value that is generated anew for each use, a
+                             timestamp, a sequence number, or some combination of these. [NIST
+                             SP 800-102] [See also CNSSI 4009 definition]
+Non-persistent Information   Any information not authorized to be stored within a facility, both
+                             digital and non-digital. This includes ensuring that information
+                             systems resident to a facility do not retain data locally after session
+                             termination beyond what the facility is approved for. [See PE-1]
+Open Source Software (OSS)   The 16 October 2009 memorandum from the DoD CIO, "Clarifying
+                             Guidance Regarding Open Source Software (OSS)" defines OSS is
+                             defined as “software for which the human-readable source code is
+                             available for use, study, re-use, modification, enhancement, and
+                             redistribution by the users of that software.” The program source code
+                             is generally developed as a community in which programmers improve
+                             upon the code and share the changes.
+                             See http://dodcio.defense.gov/OpenSourceSoftwareFAQ.aspx for more
+                             details.
+Organization                 Within this document the entity identified as ‘organization’ varies. It
+                             refers to that element (government unit or company) to which the ISO
+                             belongs unless handled at a higher echelon.
+Portable Electronic Device   Any non-stationary electronic apparatus with singular or multiple
+(PED)                        capabilities of recording, storing, and/or transmitting data, voice,
+                             video, or photo images. This includes but is not limited to laptops,
+                             personal digital assistants, pocket personal computers, palmtops, MP3
+                             players, cellular telephones, video cameras, and pagers.[CNSSI 4009]
+Platform Information         Platform IT refers to computer resources, both hardware and software,
+Technology (PIT)             that are physically part of, dedicated to, or essential in real time to the
+                             mission performance of special purpose systems such as weapons,
+                             training simulators, diagnostic test and maintenance equipment,
+                             calibration equipment, equipment used in the research and
+                             development of weapons systems, medical technologies, transport
+                             vehicles, buildings, and utility distribution systems such as water and
+                             electric. [DoD 8500.01E; DoDI 8580.1] Note: Do not choose this
+                             definition unless your system is designated as a PIT.
+Public Domain Software       Software not protected by copyright laws of any nation that may be
+                             freely used without permission of, or payment to, the creator, and that
+                             carries no warranties from, or liabilities to the creator. [CNSSI 4009]
+
+Appendix E-Definitions                                                                      PAGE E-377
+Security Enforcing         Operating System (OS), access control applications, audit applications,
+                           device control applications, second party applications that perform IA,
+                           account management, anti-virus, firewall; capable of making changes
+                           to the security substructure of the system: modifies a user’s account or
+                           changes permissions on objects such as enforcing Discretionary access
+                           Control (DAC), Mandatory Access Control (MAC), Network Access
+                           Control (NAC).
+Security Non-interfering   Does not enforce or support any aspect of the system security policy,
+                           but due to its presence inside the security boundary, e.g., code running
+                           a privileged hardware mode within the OS, risk is elevated.
+Security Supporting        Impacts a security process or procedures: e.g., software used to
+                           perform technical review for Assured File Transfer (AFT); software
+                           that is only used by privileged users of the system in the performance
+                           of their duties; removing a backup server which may affect
+                           availability; code or script that authenticates the user and determines
+                           authorization.
+Shareware                  Software distributed on the basis of an honor system. Most shareware
+                           is delivered free of charge, but the author usually requests that the user
+                           pay a small fee if they continue to use the program. By sending the
+                           small fee, the user is registered with the producer who in turn provides
+                           assistance and updates. Shareware is inexpensive because it is usually
+                           produced by a single programmer and is offered directly to customers.
+                           Thus, there is practically no packaging or advertising expenses. Note
+                           that shareware differs from public-domain software in that shareware
+                           is copyrighted and source code is not made available. This means that
+                           the user cannot sell a shareware product as his/her own.
+Standalone                 A standalone IS may include desktop, laptop, and notebook personal
+                           computers, and any other hand-held electronic device containing
+                           classified information. Standalone IS by definition are not connected
+                           to any LAN or other type of network, i.e., peripherals allowed, but no
+                           network interface card (NIC) in use, no protected distribution system
+                           (PDS) in place, no additional computers connected.
+State of the Practice      The highest level of development at a particular time (especially the
+                           present time; e.g., current incident response tools/techniques; current
+                           intrusion detection tools, techniques, procedures).
+System Types               Examples include: LAN, WAN, standalone, CI, CDS, PIT, application
+Unattended IS Components   Discovery of unlocked active session without user present.
+Unattended Processing      Automated processes executed/running on a user’s behalf while no
+                           users are physically present in the area/facility.
+Unauthorized Access        Any access that violates the stated security policy. [CNSSI 4009]
+Unauthorized Disclosure    An event involving the exposure of information to entities not
+                           authorized access to the information. [CNSSI 4009]
+Unauthorized Monitoring    Any monitoring of an IS without written approval from security
+                           authorities.
+Unauthorized Software      Software obtained through unofficial channels and installed without
+                           proper approval.
+Wide Area Network (WAN)    Computer network that spans a relatively large geographical area.
+
+Appendix E-Definitions                                                                    PAGE E-378
