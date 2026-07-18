@@ -1,0 +1,40 @@
+# Gap Analysis — Maintenance Tasking Coverage (JSIG + Operational Calendars)
+
+> Point-in-time critique written 2026-07-17, after `OPERATIONAL-TASKING.md` and `mrc-cards-ops/` were added alongside the JSIG-driven `MAINTENANCE-PLAN.md`. Captures known weaknesses and uncovered areas so they aren't lost between sessions. Not a generated file — hand-authored, update by hand.
+
+## Coverage today
+
+- **`MAINTENANCE-PLAN.md`** — 110 tasks, every row traces to a real JSIG Control ID.
+- **`OPERATIONAL-TASKING.md`** — 34 tasks, non-JSIG functional/health tasking for AD/DCs (12), Exchange (9), security-tool operational health (3), general Windows Server (10).
+- 144 tasks total, each with a generated MRC-style card (`mrc-cards/`, `mrc-cards-ops/`).
+
+## Structural weaknesses (not missing tasks, but weak assumptions in existing ones)
+
+1. **Frequencies are judgment calls, not validated.** Daily/Weekly/Monthly/Quarterly assignments in both calendars reflect general practice, not this organization's actual incident history, DC count, or maintenance-window constraints.
+2. **No cross-task dependency model.** Every MRC/MRC-OPS card is atomic — e.g. a failed DCDIAG (Ops #2) doesn't formally gate or flag the GPO replication check (Ops #11) that depends on healthy DCs.
+3. **Tool-health tasks check plumbing, not efficacy.** Ops #22–24 confirm the Trellix/McAfee agent, Splunk forwarder, and Nessus engine are alive and reporting — not whether Trellix DAT versions are current fleet-wide, whether Splunk correlation searches are still firing correctly, or whether Nessus credentialed scans are actually succeeding (vs. the engine merely being up).
+
+## Uncovered areas (genuine gaps, zero tasking in either calendar)
+
+| Category | Gap | Why it matters |
+|---|---|---|
+| Network infrastructure | No switch/router/firewall config backup, firmware currency, or HA/failover state check | JSIG boundary-protection tasks (#7, #56, #65) audit rule sets/logs, not the device layer itself |
+| Virtualization hosts | No hypervisor (Hyper-V/VMware) health, datastore capacity, cluster failover, or snapshot-sprawl tasking | If any DC/Exchange server is virtualized, the host layer is invisible to both calendars |
+| Database layer | No SQL Server (or other DB) health tasking beyond Exchange's own database | Any other LOB app database is a blind spot |
+| Physical security equipment | JSIG reviews logs/lists (#31–33) but nothing checks whether badge readers, cameras, or IDS sensors are themselves functioning | Same class of gap we just closed for cyber tools (Ops #22–24), still open for physical security hardware |
+| Power/environmental infrastructure | JSIG #12 monitors temp/humidity as a control; no UPS battery test, generator load-bank test, or facility power-redundancy tasking exists | Availability risk with zero operational tasking |
+| Personnel continuity | No on-call rotation verification or single-point-of-failure/cross-training tracking | An AD/Exchange design understood by only one admin is an unmanaged risk |
+| Documentation currency | No calendar task to periodically re-validate the runbooks/RACI/both calendars stay accurate | Done manually via ad hoc link-audits this session; not yet a recurring task in either calendar |
+| Cross-domain solution / guards | If data moves across enclaves via a CDS/guard, it has no dedicated tasking beyond the generic boundary-protection task | High-risk infrastructure with no dedicated coverage |
+| Patch staging/test environment | Ops #29 covers deploying functional patches; nothing verifies the test/staging tier is itself healthy and representative before rollout | Patch failures often trace to an unmaintained test tier |
+| Wireless/RF | JSIG #54 reviews the authorization *list*; nothing actively scans for rogue access points or RF emissions | Relevant given TEMPEST tasking already at JSIG #100 |
+| Hardware support contracts | JSIG #50 tracks software EOL/EOS; no tracking for hardware warranty/maintenance contract expiration | Distinct risk from software end-of-life |
+
+## Suggested priority if extending coverage
+
+1. Network infrastructure health/config-backup tasking
+2. Virtualization-host health tasking
+3. Physical-security-equipment operational health (parallel structure to Ops #22–24)
+4. Everything else in the table above, roughly in the order listed
+
+Each, if built, should follow the same generate-don't-hand-author pattern used for `OPERATIONAL-TASKING.md` — a script-driven task list plus matching MRC-style cards — rather than hand-typed files.
