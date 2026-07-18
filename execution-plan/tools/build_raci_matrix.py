@@ -103,6 +103,28 @@ ALL_17_ROLES = [
     "Privileged Users", "General Users", "MBO",
 ]
 
+# Normalizes a ROLE_MAP executing-label (free text, e.g. "Privileged User (as SA, under
+# ISSO supervision)") down to the canonical JSIG-formal role name it denotes, so the
+# rollup in build_role_rollup() can actually match it against ALL_17_ROLES. Without this,
+# descriptive executing labels never match a canonical role name and get silently dropped.
+EXECUTING_LABEL_TO_ROLE = {
+    "Privileged User (as SA, under ISSO supervision)": "Privileged Users",
+    "Privileged User (as NA, under ISSO supervision)": "Privileged Users",
+    "ISSO": "ISSO",
+    "ISSO / SOC analyst": "ISSO",
+    "ISSM": "ISSM",
+    "PSO (or ISSM if no dedicated FSO/PSO billet)": "PSO",
+    "PSO": "PSO",
+    "Information Owner/Steward (or dedicated privacy office)": "Information Owner/Steward",
+    "Information Owner/Steward": "Information Owner/Steward",
+    "ISSM (or delegated training-office function)": "ISSM",
+    "ISSM or ISO (organization-dependent)": "ISSM",  # primary; ISO is the org-dependent alternate
+    "Configuration Control Board (ISSM has veto authority)": "ISSM",  # board chaired/vetoed by ISSM
+    "ISSO (day-to-day execution)": "ISSO",
+    "ISSO / CND Team (day-to-day execution)": "ISSO",
+    "SCA / SCAR": "SCA",
+}
+
 
 def parse_calendar():
     lines = open(CALENDAR_FILE, encoding="utf-8").read().splitlines()
@@ -162,12 +184,15 @@ def build_role_rollup(rows_mapped):
     for row, mapped in rows_mapped:
         for acc in mapped["accountable_all"]:
             bump(acc, "accountable")
-        # crude match of executing-label back to a JSIG role for the rollup
+        # Match each raw Responsible-column token's EXECUTING half (ROLE_MAP[...][1]),
+        # normalized to a canonical role name, for the true hands-on-executor rollup --
+        # NOT the accountable half, which would just double-count the Accountable column.
         for label in row["responsible_raw"].split(","):
             label = label.strip()
-            mapped_role = ROLE_MAP.get(label, (None, None))[0]
-            if mapped_role:
-                bump(mapped_role, "responsible")
+            _, exe_label = ROLE_MAP.get(label, (None, None))
+            exe_role = EXECUTING_LABEL_TO_ROLE.get(exe_label, exe_label)
+            if exe_role:
+                bump(exe_role, "responsible")
         for tok in re.split(r"[,/]", mapped["consulted"]):
             bump(tok.strip(), "consulted")
         for tok in re.split(r"[,/]", mapped["informed"]):
