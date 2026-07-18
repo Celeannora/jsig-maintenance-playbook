@@ -2,6 +2,8 @@
 
 The AO is the senior authorization official defined in [JSIG §1.5.5](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md), sitting above the ISSM/ISSO operational tier and coordinating with the REF, CIO, CISO, CCP, ISO, and SCA during the security authorization process, per [playbooks/roles/AO.md](../../playbooks/roles/AO.md). Executes 0 Master Calendar tasks directly, is Accountable for 0, Consulted on 3, Informed on 83 — see [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md) Part B for the full rollup.
 
+For the real verbatim JSIG title behind any Control ID cited in this runbook, see [CONTROL-LANGUAGE-CROSSWALK.md](../CONTROL-LANGUAGE-CROSSWALK.md), which reconciles every Control ID in the Master Calendar against the full verbatim JSIG family extractions.
+
 ## 1. Role Overview
 
 The AO is a senior official or executive with authority to formally assume responsibility for operating an information system at an acceptable level of risk to organizational operations, assets, individuals, other organizations, and national security. The AO must be a U.S. citizen and government employee, typically holds budgetary oversight or mission/business responsibility for the system, and — through the security authorization process — is accountable for the security risks associated with system operation. See [playbooks/roles/AO.md](../../playbooks/roles/AO.md) for the full role narrative, JSIG-cited duties, and key artifacts owned.

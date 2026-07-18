@@ -2,6 +2,8 @@
 
 The ISSO is the operational-security-posture role defined in [JSIG §1.5.15](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md), sitting under the ISSM in day-to-day standing but assuming ISSM duties in the ISSM's absence, per [playbooks/roles/ISSO.md](../../playbooks/roles/ISSO.md). Executes 21 Master Calendar tasks directly, is Accountable for 17, Consulted on 53, Informed on 3 — see [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md) Part B for the full rollup.
 
+For the real verbatim JSIG title behind any Control ID cited in this runbook, see [CONTROL-LANGUAGE-CROSSWALK.md](../CONTROL-LANGUAGE-CROSSWALK.md), which reconciles every Control ID in the Master Calendar against the full verbatim JSIG family extractions.
+
 ## 1. Role Overview
 
 The ISSO holds day-to-day, hands-on responsibility for an information system's operational security posture, including physical/environmental protection, personnel security, incident handling, and security training/awareness, working in close collaboration with the ISSM and ISO. The ISSO actively monitors the system and its environment — including SSP updates, change coordination, and audit-record review — and is appointed in writing by the responsible site authority. See [playbooks/roles/ISSO.md](../../playbooks/roles/ISSO.md) for the full role narrative, JSIG-cited duties, and key artifacts owned.

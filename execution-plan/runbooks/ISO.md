@@ -2,6 +2,8 @@
 
 The ISO is the system-lifecycle-owning official defined in [JSIG §1.5.12](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md), coordinating with the AO, SCA, Information Owner/Steward, and ISSM/ISSO per [playbooks/roles/ISO.md](../../playbooks/roles/ISO.md). Executes 0 Master Calendar tasks directly, is Accountable for 0, Consulted on 0, Informed on 0 — see [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md) Part B for the full rollup.
 
+For the real verbatim JSIG title behind any Control ID cited in this runbook, see [CONTROL-LANGUAGE-CROSSWALK.md](../CONTROL-LANGUAGE-CROSSWALK.md), which reconciles every Control ID in the Master Calendar against the full verbatim JSIG family extractions.
+
 ## 1. Role Overview
 
 The ISO is an organizational official (government PM, or contractor PM for contractor-owned systems) responsible for the procurement, development, integration, modification, operation, maintenance, and disposal of an information system, addressing the operational interests of the user community and ensuring compliance with information security requirements throughout the system's lifecycle. See [playbooks/roles/ISO.md](../../playbooks/roles/ISO.md) for the full role narrative, JSIG-cited duties, and key artifacts owned.

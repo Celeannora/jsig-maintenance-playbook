@@ -2,6 +2,8 @@
 
 The MBO is the organizational official with operational responsibility for the mission or business process a system supports, and the key stakeholder for system lifecycle decisions, per [JSIG §1.5.11](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md), sitting alongside the AO and Information System Owner as a governance-tier stakeholder rather than an operational-control executor per [playbooks/roles/MBO.md](../../playbooks/roles/MBO.md). Executes 0 Master Calendar tasks directly, is Accountable for 0, Consulted on 0, Informed on 0 — see [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md) Part B for the full rollup.
 
+For the real verbatim JSIG title behind any Control ID cited in this runbook, see [CONTROL-LANGUAGE-CROSSWALK.md](../CONTROL-LANGUAGE-CROSSWALK.md), which reconciles every Control ID in the Master Calendar against the full verbatim JSIG family extractions.
+
 ## 1. Role Overview
 
 The MBO ensures information security requirements are integrated into the system development life cycle and represents mission/business risk tolerance into AO authorization decisions, but does not itself perform or sign off on any recurring Master Calendar control task. See [playbooks/roles/MBO.md](../../playbooks/roles/MBO.md) for the full role narrative, JSIG-cited duties, and key artifacts owned.

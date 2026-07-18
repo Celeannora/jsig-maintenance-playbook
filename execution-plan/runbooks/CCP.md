@@ -2,6 +2,8 @@
 
 The CCP is the common-security-control steward defined in [JSIG §1.5.8](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md), coordinating with the AO and inheriting ISOs per [playbooks/roles/CCP.md](../../playbooks/roles/CCP.md). Executes 0 Master Calendar tasks directly, is Accountable for 0, Consulted on 0, Informed on 0 — see [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md) Part B for the full rollup.
 
+For the real verbatim JSIG title behind any Control ID cited in this runbook, see [CONTROL-LANGUAGE-CROSSWALK.md](../CONTROL-LANGUAGE-CROSSWALK.md), which reconciles every Control ID in the Master Calendar against the full verbatim JSIG family extractions.
+
 ## 1. Role Overview
 
 The CCP is an individual, group, or organization responsible for the development, implementation, assessment, and monitoring of common security controls — controls inherited by one or more information systems — so that inheriting systems do not need to separately assess and document those controls. See [playbooks/roles/CCP.md](../../playbooks/roles/CCP.md) for the full role narrative, JSIG-cited duties, and key artifacts owned.

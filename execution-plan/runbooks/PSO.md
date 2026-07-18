@@ -2,6 +2,8 @@
 
 The PSO is defined in [JSIG §1.5.9](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md) by reference only — to DoDM 5205.07, SAP Security Manual, all volumes — with the substantive PSO duty list established outside JSIG's own text; per [playbooks/roles/PSO.md](../../playbooks/roles/PSO.md), the PSO is the program-security authority the AO coordinates all assessments with, and the facility/personnel-security counterpart to the ISSM/ISSO's technical-security chain. Executes 17 Master Calendar tasks directly, is Accountable for 17, Consulted on 0, Informed on 1 — see [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md) Part B for the full rollup.
 
+For the real verbatim JSIG title behind any Control ID cited in this runbook, see [CONTROL-LANGUAGE-CROSSWALK.md](../CONTROL-LANGUAGE-CROSSWALK.md), which reconciles every Control ID in the Master Calendar against the full verbatim JSIG family extractions.
+
 ## 1. Role Overview
 
 The PSO owns program-level physical security, facility security (SAPF access, environmental controls, TEMPEST/TSCM), and personnel security (clearance actions, access agreements, position risk designations) — the functions [execution-plan/ROLE-CROSSWALK.md](../ROLE-CROSSWALK.md) maps from the "Facility Security Officer" and "Personnel Security Officer" operational titles. The PSO coordinates with the AO on assessment scheduling, advises the SCA/ISO on impact-level determinations, and coordinates with the ISSM on external/interconnected-system approvals. See [playbooks/roles/PSO.md](../../playbooks/roles/PSO.md) for the full role narrative, JSIG-cited duties, and key artifacts owned.

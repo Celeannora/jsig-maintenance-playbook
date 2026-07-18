@@ -2,6 +2,8 @@
 
 The Risk Executive (Function) (REF) is the organization-wide risk-visibility role defined in [JSIG §1.5.2](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md), serving as an adjunct advisor to the AO/DAO with no authorization authority of its own, per [playbooks/roles/Risk-Executive-Function.md](../../playbooks/roles/Risk-Executive-Function.md). Executes 0 Master Calendar tasks directly, is Accountable for 0, Consulted on 0, Informed on 3 — see [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md) Part B for the full rollup.
 
+For the real verbatim JSIG title behind any Control ID cited in this runbook, see [CONTROL-LANGUAGE-CROSSWALK.md](../CONTROL-LANGUAGE-CROSSWALK.md), which reconciles every Control ID in the Master Calendar against the full verbatim JSIG family extractions.
+
 ## 1. Role Overview
 
 The REF ensures information-system risk — including authorization decisions — is viewed from an organization-wide perspective consistent with strategic goals, and that risk management is handled consistently across the organization alongside other risk types. It must be comprised of U.S. citizens who are government employees. See [playbooks/roles/Risk-Executive-Function.md](../../playbooks/roles/Risk-Executive-Function.md) for the full role narrative, JSIG-cited duties, and key artifacts owned.

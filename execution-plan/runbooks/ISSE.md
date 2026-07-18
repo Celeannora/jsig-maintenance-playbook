@@ -2,6 +2,8 @@
 
 The ISSE is the security-engineering role defined in [JSIG §1.5.13](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md), sitting alongside the ISO's development team and coordinating with the SCA at design-review milestones, per [playbooks/roles/ISSE.md](../../playbooks/roles/ISSE.md). Executes 0 Master Calendar tasks directly, is Accountable for 0, Consulted on 0, Informed on 0 — see [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md) Part B for the full rollup.
 
+For the real verbatim JSIG title behind any Control ID cited in this runbook, see [CONTROL-LANGUAGE-CROSSWALK.md](../CONTROL-LANGUAGE-CROSSWALK.md), which reconciles every Control ID in the Master Calendar against the full verbatim JSIG family extractions.
+
 ## 1. Role Overview
 
 The ISSE conducts information system security engineering: capturing and refining security requirements and ensuring they are effectively integrated into information systems through security architecting, design, development, and configuration. The ISSE is an integral member of the development team designing or upgrading a system, applying secure-design, secure-architecture, and secure-coding best practices rather than performing calendar-cadence compliance monitoring. See [playbooks/roles/ISSE.md](../../playbooks/roles/ISSE.md) for the full role narrative, JSIG-cited duties, and key artifacts owned.

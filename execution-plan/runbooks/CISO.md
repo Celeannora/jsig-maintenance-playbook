@@ -2,6 +2,8 @@
 
 The CISO carries out the CIO's FISMA security responsibilities per [JSIG §1.5.4](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md), serving as the primary liaison between the CIO and the organization's AOs, ISOs, CCPs, and ISSM/ISSOs, per [playbooks/roles/CISO.md](../../playbooks/roles/CISO.md). Executes 0 Master Calendar tasks directly, is Accountable for 0, Consulted on 0, Informed on 6 — see [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md) Part B for the full rollup.
 
+For the real verbatim JSIG title behind any Control ID cited in this runbook, see [CONTROL-LANGUAGE-CROSSWALK.md](../CONTROL-LANGUAGE-CROSSWALK.md), which reconciles every Control ID in the Master Calendar against the full verbatim JSIG family extractions.
+
 ## 1. Role Overview
 
 The CISO, also known as a Senior Information Security Officer, must possess professional qualifications for the role, maintain information security as a primary (not collateral) duty, and head an office resourced to help the organization achieve more secure information and systems, reporting FISMA activity within channels to the cognizant authority's SAPCO. It may also be appointed to coordinate, develop, implement, and maintain the organization-wide information security program. See [playbooks/roles/CISO.md](../../playbooks/roles/CISO.md) for the full role narrative, JSIG-cited duties, and key artifacts owned.

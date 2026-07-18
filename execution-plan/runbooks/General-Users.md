@@ -2,6 +2,8 @@
 
 General Users are individuals granted standard (non-privileged) access to an information system to perform mission, business, or operational tasks, per [JSIG §1.5.17](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md), which defines this role entirely by reference to Account Management [AC-2] and Rules of Behavior [PL-4] rather than an enumerated duty list, per [playbooks/roles/General-Users.md](../../playbooks/roles/General-Users.md). Executes 0 Master Calendar tasks directly, is Accountable for 0, Consulted on 0, Informed on 0 — see [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md) Part B for the full rollup.
 
+For the real verbatim JSIG title behind any Control ID cited in this runbook, see [CONTROL-LANGUAGE-CROSSWALK.md](../CONTROL-LANGUAGE-CROSSWALK.md), which reconciles every Control ID in the Master Calendar against the full verbatim JSIG family extractions.
+
 ## 1. Role Overview
 
 General Users are the subjects of, not the operators of, the recurring control tasks in this plan: they acknowledge rules of behavior, complete required training, and report incidents they encounter, but the ISSO/ISSM/Information Owner/Steward own the actual account-management, training-delivery, and rules-of-behavior control tasks that govern them. See [playbooks/roles/General-Users.md](../../playbooks/roles/General-Users.md) for the full role narrative, JSIG-cited duties, and key artifacts owned.

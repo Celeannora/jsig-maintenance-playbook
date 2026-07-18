@@ -2,6 +2,8 @@
 
 The DAO is the delegated authorization official defined in [JSIG §1.5.6](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md), acting on behalf of the AO within the scope of a written delegation letter and coordinating with the SCA and ISO for delegated systems, per [playbooks/roles/DAO.md](../../playbooks/roles/DAO.md). Executes 0 Master Calendar tasks directly, is Accountable for 0, Consulted on 3, Informed on 83 — see [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md) Part B for the full rollup.
 
+For the real verbatim JSIG title behind any Control ID cited in this runbook, see [CONTROL-LANGUAGE-CROSSWALK.md](../CONTROL-LANGUAGE-CROSSWALK.md), which reconciles every Control ID in the Master Calendar against the full verbatim JSIG family extractions.
+
 ## 1. Role Overview
 
 The DAO is an organizational official appointed in writing and authorized to act on behalf of an AO in carrying out and coordinating security-authorization activities, including — when explicitly delegated — the authority to authorize a system to operate. The DAO must be a government employee with a broad and strategic understanding of the DoD SAP Community, using that understanding to weigh competing equities (mission, security, budget, schedule, counterintelligence, civil liberties/privacy, and other policy requirements) when determining acceptable risk. See [playbooks/roles/DAO.md](../../playbooks/roles/DAO.md) for the full role narrative, JSIG-cited duties, and key artifacts owned.

@@ -2,6 +2,8 @@
 
 The Agency/Component Head is the DoD SAP Component Head defined in [JSIG §1.5.1](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md), sitting at the top of the org hierarchy above the Authorizing Official (AO), Risk Executive Function (REF), and CIO per [playbooks/roles/Agency-Component-Head.md](../../playbooks/roles/Agency-Component-Head.md). Executes 0 Master Calendar tasks directly, is Accountable for 0, Consulted on 0, Informed on 0 — see [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md) Part B for the full rollup.
 
+For the real verbatim JSIG title behind any Control ID cited in this runbook, see [CONTROL-LANGUAGE-CROSSWALK.md](../CONTROL-LANGUAGE-CROSSWALK.md), which reconciles every Control ID in the Master Calendar against the full verbatim JSIG family extractions.
+
 ## 1. Role Overview
 
 The Component Head bears ultimate responsibility for mission accomplishment and for adequately mitigating risk to the element, its individuals, and the Nation; it appoints the AO(s) for every DoD Information System (IS) and Platform IT (PIT) system under its purview and establishes, in writing, the component's SAP senior authorizing official — the sole waiver authority for non-tailorable controls. See [playbooks/roles/Agency-Component-Head.md](../../playbooks/roles/Agency-Component-Head.md) for the full role narrative, JSIG-cited duties, and key artifacts owned.

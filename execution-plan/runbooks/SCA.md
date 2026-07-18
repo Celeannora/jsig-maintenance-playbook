@@ -2,6 +2,8 @@
 
 The SCA is the independent-assessment role defined in [JSIG §1.5.7](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md), appointed in writing by the AO and operating under the AO's direction, per [playbooks/roles/SCA.md](../../playbooks/roles/SCA.md). Executes 3 Master Calendar tasks directly, is Accountable for 3, Consulted on 5, Informed on 0 — see [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md) Part B for the full rollup.
 
+For the real verbatim JSIG title behind any Control ID cited in this runbook, see [CONTROL-LANGUAGE-CROSSWALK.md](../CONTROL-LANGUAGE-CROSSWALK.md), which reconciles every Control ID in the Master Calendar against the full verbatim JSIG family extractions.
+
 ## 1. Role Overview
 
 The SCA conducts a comprehensive, independent assessment of the management, operational, and technical security controls employed within or inherited by an information system, determining overall control effectiveness and recommending corrective actions for discovered weaknesses. Within the DoD SAP Community, an ISSM or other AO designee may be delegated in writing to perform assessments on the SCA's behalf, but must forward results to the SCA for further action. See [playbooks/roles/SCA.md](../../playbooks/roles/SCA.md) for the full role narrative, JSIG-cited duties, and key artifacts owned.

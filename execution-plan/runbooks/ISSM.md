@@ -2,6 +2,8 @@
 
 The ISSM is the principal advisor on all matters, technical and otherwise, involving the security of information systems under their purview, per [JSIG §1.5.14](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md), sitting between the AO/DAO governance tier and the ISSO's day-to-day execution tier per [playbooks/roles/ISSM.md](../../playbooks/roles/ISSM.md). Executes 30 Master Calendar tasks directly, is Accountable for 77, Consulted on 39, Informed on 20 — see [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md) Part B for the full rollup. This is the heaviest role in the Master Calendar by combined executing + accountable volume.
 
+For the real verbatim JSIG title behind any Control ID cited in this runbook, see [CONTROL-LANGUAGE-CROSSWALK.md](../CONTROL-LANGUAGE-CROSSWALK.md), which reconciles every Control ID in the Master Calendar against the full verbatim JSIG family extractions.
+
 ## 1. Role Overview
 
 The ISSM is appointed in writing by the respective chain of command and must retain a copy of that appointment letter; ISSM duties are never a collateral assignment. The role develops and maintains the formal IS security program and policies, oversees the ISSOs under its purview (appointing them in writing, ensuring their training, and assuming their duties in their absence), manages the continuous monitoring plan, maintains the organization's cybersecurity documentation repository, and ensures serious or unresolved vulnerabilities and violations are escalated to the AO/DAO. See [playbooks/roles/ISSM.md](../../playbooks/roles/ISSM.md) for the full role narrative, JSIG-cited duties, and key artifacts owned.

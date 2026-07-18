@@ -2,6 +2,8 @@
 
 The CIO is the FISMA-responsible organizational official defined in [JSIG §1.5.3](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md), sitting between the Agency/Component Head and the CISO — whom the CIO designates — per [playbooks/roles/CIO.md](../../playbooks/roles/CIO.md). Executes 0 Master Calendar tasks directly, is Accountable for 0, Consulted on 0, Informed on 0 — see [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md) Part B for the full rollup.
 
+For the real verbatim JSIG title behind any Control ID cited in this runbook, see [CONTROL-LANGUAGE-CROSSWALK.md](../CONTROL-LANGUAGE-CROSSWALK.md), which reconciles every Control ID in the Master Calendar against the full verbatim JSIG family extractions.
+
 ## 1. Role Overview
 
 The CIO designates a CISO, develops and maintains organization-wide information security policy, oversees training for security-responsible personnel, assists senior officials with their security responsibilities, and reports annually to the agency head on information security program effectiveness. The CIO must be a U.S. citizen and government employee, and works closely with the AO — supported by the REF and CISO — to ensure the organization-wide security program is effectively implemented. See [playbooks/roles/CIO.md](../../playbooks/roles/CIO.md) for the full role narrative, JSIG-cited duties, and key artifacts owned.
