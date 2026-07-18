@@ -146,8 +146,8 @@ Reverse index of Part A: for each of the 17 JSIG-formal roles, how many of the 1
 | ISSO | 17 | 21 | 53 | 3 |
 | ISSE | 0 | 0 | 0 | 0 |
 | SCA | 3 | 3 | 5 | 0 |
-| Information Owner/Steward | 11 | 13 | 0 | 0 |
-| Privileged Users | 0 | 53 | 0 | 0 |
+| Information Owner/Steward | 11 | 11 | 0 | 0 |
+| Privileged Users | 0 | 49 | 0 | 0 |
 | General Users | 0 | 0 | 0 | 0 |
 | MBO | 0 | 0 | 0 | 0 |
 

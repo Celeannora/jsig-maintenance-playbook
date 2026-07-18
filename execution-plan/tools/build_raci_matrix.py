@@ -187,12 +187,20 @@ def build_role_rollup(rows_mapped):
         # Match each raw Responsible-column token's EXECUTING half (ROLE_MAP[...][1]),
         # normalized to a canonical role name, for the true hands-on-executor rollup --
         # NOT the accountable half, which would just double-count the Accountable column.
+        # Dedupe per row on the CANONICAL exe_role (post-normalization), not the raw label:
+        # rows like "Data Owner, Privacy Officer" or "System Administrator, Network
+        # Administrator" name two different raw tokens that both normalize to the same
+        # canonical role (Information Owner/Steward, Privileged Users respectively) --
+        # bumping once per raw token would double-count that single task for that role.
+        exe_roles_this_row = []
         for label in row["responsible_raw"].split(","):
             label = label.strip()
             _, exe_label = ROLE_MAP.get(label, (None, None))
             exe_role = EXECUTING_LABEL_TO_ROLE.get(exe_label, exe_label)
-            if exe_role:
-                bump(exe_role, "responsible")
+            if exe_role and exe_role not in exe_roles_this_row:
+                exe_roles_this_row.append(exe_role)
+        for exe_role in exe_roles_this_row:
+            bump(exe_role, "responsible")
         for tok in re.split(r"[,/]", mapped["consulted"]):
             bump(tok.strip(), "consulted")
         for tok in re.split(r"[,/]", mapped["informed"]):
