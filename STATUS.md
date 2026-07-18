@@ -1,6 +1,6 @@
 # Project Status
 
-> Living status doc — **update this file at the end of every session** (unlike `TURNOVER.md`, which was a one-time, point-in-time handoff written 2026-07-17 and is now historical). This file supersedes `TURNOVER.md` as the "resume work here" entry point. `TURNOVER.md` is kept for historical record only.
+> **Last updated: 2026-07-17** — update this line and the content below at the end of every session. Unlike `TURNOVER.md` (a one-time, point-in-time handoff written 2026-07-17, now historical), this file is the living "resume work here" entry point. `TURNOVER.md` is kept for historical record only.
 
 ## Quick orientation (read in this order)
 
