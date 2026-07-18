@@ -34,6 +34,7 @@ execution-plan/
 │   ├── build_control_title_index.py   # Regenerates data/control_title_index.json from the full verbatim JSIG
 │   │                                   # family extractions (../references/JSIG-source/chapter-3-*-family.md)
 │   ├── build_control_language_crosswalk.py  # Regenerates ../CONTROL-LANGUAGE-CROSSWALK.md
+│   ├── build_mrc_cards.py             # Regenerates mrc-cards/ (all 110 Maintenance Requirement Cards + INDEX.md)
 │   ├── data/stig_reference.json       # Committed: curated STIG reference DB (built from stig_intake/)
 │   ├── data/cve_reference.json        # Committed when built: curated CVE reference DB (built from cve_intake/)
 │   ├── data/cve_mirror.json           # Gitignored: optional full NVD mirror, local-only, can be hundreds of MB
@@ -45,9 +46,15 @@ execution-plan/
 ├── variance-records/                  # Output directory: generated Variance/Risk-Acceptance records land here
 │                                       # (.gitkeep only — this directory's contents are typically program-specific
 │                                       #  and should be reviewed before committing any real finding to source control)
-└── runbooks/                          # Section 6 actionable task runbooks for all 17 JSIG §1.5 roles (complete —
-                                        # see Completed deliverables below): _EXECUTION-PATTERNS.md,
-                                        # _AUTHORING-BRIEF.md, and one <Role>.md per role
+├── runbooks/                          # Section 6 actionable task runbooks for all 17 JSIG §1.5 roles (complete —
+│                                       # see Completed deliverables below): _EXECUTION-PATTERNS.md,
+│                                       # _AUTHORING-BRIEF.md, and one <Role>.md per role
+└── mrc-cards/                         # Generated: one Maintenance Requirement Card (MRC-<###>.md) per Master
+                                        # Calendar task (110 total) + INDEX.md — a Navy-PMS-style actionable card
+                                        # (identification, control text, RACI, tools, numbered procedure,
+                                        # validation/escalation, sign-off) per task. Names real environment
+                                        # tools (Windows Server/AD, Trellix/McAfee HBSS, Splunk, Nessus) —
+                                        # the one place in execution-plan/ that isn't vendor-agnostic, by design.
 ```
 
 ## Quick-start workflows
@@ -108,16 +115,27 @@ This re-parses all 110 tasks and rewrites `RACI-MATRIX.md` in place — Part A (
 
 [`templates/ESCALATION-MATRIX.md`](templates/ESCALATION-MATRIX.md) defines the CAT-tiered SLA and sign-off routing that both `generate_variance.py`'s output and `RACI-MATRIX.md`'s task-level defaults are built to match: CAT I escalates to AO/DAO, CAT II to ISSM, CAT III to ISSO, with the ISSM standing as a consulted reviewer at every tier. Use it as the reference when a generated variance record's SLA is about to lapse or a sign-off is contested.
 
+### 6. Regenerate the Maintenance Requirement Cards after editing the calendar, RACI, or a runbook's execution pattern
+
+`mrc-cards/MRC-<###>.md` (one per Master Calendar task, 110 total) and `mrc-cards/INDEX.md` are generated, not hand-authored. If you edit `MAINTENANCE-PLAN.md` §4, `ROLE-CROSSWALK.md`, `data/control_title_index.json`, or a role runbook's Pattern/Custom assignment in its "## 5. Execution Procedures" section, re-run:
+
+```bash
+python3 execution-plan/tools/build_mrc_cards.py
+```
+
+Each card resolves its Pattern (A–H) or Custom procedure from the matching role runbook where one exists (preferred — reviewed/authored data) and falls back to a keyword heuristic (`PATTERN_KEYWORD_RULES` in the script) only for a task with no runbook entry; the script prints how many of the 110 came from each source so you can see at a glance whether any card needs closer review. Do not hand-edit an individual `MRC-*.md` file — edit the source runbook, calendar, or crosswalk and regenerate.
+
 ## Design principles
 
 - **Generate, don't hand-author, for anything structured.** `RACI-MATRIX.md`, the STIG/CVE reference databases, and every Variance/Risk-Acceptance record are produced by a script from a documented source of truth, so they stay internally consistent and can be regenerated on demand instead of drifting via manual edits.
 - **Fail closed.** Every tool in `tools/` exits non-zero and writes nothing rather than guess at missing data, silently downgrade a severity, or mark an operation complete when it partially failed.
-- **Offline-only, vendor-agnostic.** No cloud or SaaS product is referenced by name anywhere in this folder's templates or generated output — every example uses generic terms ("local ticketing/GRC system," "local vulnerability scanner") so the material stays usable on an air-gapped network.
+- **Offline-only, vendor-agnostic.** No cloud or SaaS product is referenced by name anywhere in this folder's templates or generated output — every example uses generic terms ("local ticketing/GRC system," "local vulnerability scanner") so the material stays usable on an air-gapped network. **One documented exception:** `mrc-cards/` names real tools (Windows Server/Active Directory, Trellix/McAfee HBSS-style endpoint suite, Splunk, Nessus) per an explicit request to ground those specific cards in one organization's actual environment — see `build_mrc_cards.py`'s `TOOL_KEYWORD_RULES`/`FAMILY_TOOL_DEFAULTS` to retarget for a different tool stack.
 - **One severity model, reused everywhere.** The CAT I/II/III sign-off chain (`RACI_BY_CAT` in `generate_variance.py`) is the same one documented in `ESCALATION-MATRIX.md` and reflected in `RACI-MATRIX.md`'s task-level Accountable/Consulted/Informed assignments — there is only one escalation model in this repo, not three slightly different ones.
 
 ## Completed deliverables
 
 - **`runbooks/`** — Section 6 actionable task runbooks for all 17 JSIG §1.5 roles: Agency/Component Head, Risk Executive Function, CIO, CISO, AO, DAO, CCP, ISO, ISSE, MBO, General Users, ISSM, ISSO, Privileged Users, PSO, Information Owner/Steward, SCA. Each `<Role>.md` follows the 10-section scaffold in `templates/AUDIT-ARTIFACT-TEMPLATE.md` (via the shared Sections 6–10 defined once in `runbooks/_EXECUTION-PATTERNS.md`) and is grounded in `tools/data/role_task_index.json`, never hand-typed against the Master Calendar. `runbooks/_AUTHORING-BRIEF.md` documents the authoring rules (never fabricate a task/control ID, never name a vendor, verify every internal link, keep procedure text proportionate to task volume) that every role file was built and reviewed against. Zero-task governance roles (Agency/Component Head, Risk Executive Function, CIO, CCP, ISO, ISSE, General Users, MBO) still get a full runbook documenting their governance/oversight actions even though they hold no Master Calendar Responsible/Accountable task.
+- **`mrc-cards/`** — one Maintenance Requirement Card (`MRC-<###>.md`) per Master Calendar task, all 110, plus `INDEX.md`. Each card is a self-contained, sign-off-ready document: identification, real verbatim control text, RACI, primary tool(s) for this environment, a full numbered procedure (Pattern A–H or the task's own Custom steps, resolved from the authoring role's runbook — all 110 resolved from runbook-authored assignments, zero from the keyword-heuristic fallback), the standard Validation/Evidence/Findings/Escalation/Closure fields, and a blank Preparer/Reviewer sign-off block. Generated by `tools/build_mrc_cards.py`.
 
 ## Backlog (not yet built)
 
