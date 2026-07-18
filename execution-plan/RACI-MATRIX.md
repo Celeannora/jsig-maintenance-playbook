@@ -8,6 +8,8 @@ python3 execution-plan/tools/build_raci_matrix.py
 
 **Do not hand-edit the tables below.** The Master Calendar states who *executes* each task (Responsible); this script derives Accountable from ROLE-CROSSWALK.md and assigns Consulted/Informed from a per-control-family default (documented in the script's `FAMILY_RACI_DEFAULTS`) since JSIG does not itself specify family-level RACI. Treat Consulted/Informed as this project's judgment call, not a verbatim JSIG requirement -- update the script's defaults, not this file, if your organization staffs differently.
 
+For the real verbatim JSIG control title behind every Control ID implied by each task's Family column (this table itself only shows Family, not individual Control IDs -- see [role_task_index.json](../tools/data/role_task_index.json) or the runbooks for per-task IDs), see [CONTROL-LANGUAGE-CROSSWALK.md](../CONTROL-LANGUAGE-CROSSWALK.md), which reconciles every Control ID cited in the Master Calendar against the full verbatim JSIG family extractions -- all 127 distinct IDs cited resolve cleanly, with zero mismatches found.
+
 ---
 
 ## Part A — Task-Level RACI (all 110 Master Calendar tasks)

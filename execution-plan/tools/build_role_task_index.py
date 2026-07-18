@@ -15,6 +15,14 @@ not re-derive RACI logic by hand -- to get an exact, source-of-truth list of
 which Master Calendar tasks belong in a given role's runbook, with full
 task metadata (family, control IDs, frequency, RACI positions) attached.
 
+Each task's "control_titles" field additionally resolves each cited Control
+ID to its real verbatim JSIG title (via control_title_index.json, built by
+build_control_title_index.py from the full family extractions) -- "title":
+null means that ID did not resolve (see CONTROL-LANGUAGE-CROSSWALK.md for
+the full reconciliation report). This never changes which Control ID(s) a
+task cites; it only adds the real title alongside the ID already in
+MAINTENANCE-PLAN.md's calendar.
+
 Regenerate any time with:
     python3 execution-plan/tools/build_role_task_index.py
 (Run this AFTER build_raci_matrix.py if you've edited the calendar or
@@ -22,6 +30,7 @@ crosswalk, so both stay in sync.)
 """
 import json
 import os
+import re
 import sys
 
 sys.path.insert(0, os.path.dirname(__file__))
@@ -34,15 +43,37 @@ from build_raci_matrix import (  # noqa: E402
 )
 
 OUT_FILE = os.path.join(os.path.dirname(__file__), "data", "role_task_index.json")
+TITLE_INDEX_FILE = os.path.join(os.path.dirname(__file__), "data", "control_title_index.json")
+ID_TOKEN_RE = re.compile(r"[A-Z]{2}-\d+(?:\(\d+\))?")
 
 
-def task_summary(row, mapped):
+def load_title_index():
+    """Real verbatim JSIG control titles, from build_control_title_index.py.
+    Used only to enrich this file with 'control_titles' -- never to change
+    which Control ID(s) a task cites (that stays sourced from the calendar).
+    """
+    if not os.path.exists(TITLE_INDEX_FILE):
+        return {}
+    with open(TITLE_INDEX_FILE, encoding="utf-8") as f:
+        return json.load(f)
+
+
+def resolve_control_titles(controls_cell, title_index):
+    resolved = []
+    for cid in ID_TOKEN_RE.findall(controls_cell):
+        hit = title_index.get(cid)
+        resolved.append({"id": cid, "title": hit["title"] if hit else None, "source": hit["source"] if hit else None})
+    return resolved
+
+
+def task_summary(row, mapped, title_index):
     return {
         "num": row["num"],
         "task": row["task"],
         "family": row["family"],
         "frequency": row["freq"],
         "controls": row["controls"],
+        "control_titles": resolve_control_titles(row["controls"], title_index),
         "responsible_raw": row["responsible_raw"],
         "accountable": mapped["accountable"],
         "consulted": mapped["consulted"],
@@ -53,11 +84,12 @@ def task_summary(row, mapped):
 def main():
     rows = parse_calendar()
     rows_mapped = [(row, map_row(row)) for row in rows]
+    title_index = load_title_index()
 
     index = {role: {"executing": [], "accountable": [], "consulted": [], "informed": []} for role in ALL_17_ROLES}
 
     for row, mapped in rows_mapped:
-        summary = task_summary(row, mapped)
+        summary = task_summary(row, mapped, title_index)
 
         for acc in mapped["accountable_all"]:
             if acc in index:
