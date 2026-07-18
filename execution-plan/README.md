@@ -36,6 +36,7 @@ execution-plan/
 │   ├── build_control_language_crosswalk.py  # Regenerates ../CONTROL-LANGUAGE-CROSSWALK.md
 │   ├── build_mrc_cards.py             # Regenerates mrc-cards/ (all 110 Maintenance Requirement Cards + INDEX.md)
 │   ├── build_operational_tasking.py   # Regenerates ../OPERATIONAL-TASKING.md + mrc-cards-ops/ (34 tasks + INDEX.md)
+│   ├── build_network_infra_tasking.py # Regenerates ../NETWORK-INFRASTRUCTURE-TASKING.md + mrc-cards-netinfra/ (16 tasks + INDEX.md)
 │   ├── data/stig_reference.json       # Committed: curated STIG reference DB (built from stig_intake/)
 │   ├── data/cve_reference.json        # Committed when built: curated CVE reference DB (built from cve_intake/)
 │   ├── data/cve_mirror.json           # Gitignored: optional full NVD mirror, local-only, can be hundreds of MB
@@ -47,6 +48,10 @@ execution-plan/
 ├── OPERATIONAL-TASKING.md              # Generated: a SECOND, separate calendar for pure IT-operations/functional-
 │                                       # health sysadmin tasking (AD/DC, Exchange, tool-stack health, general
 │                                       # Windows Server) that JSIG does not drive — no row cites a Control ID.
+├── NETWORK-INFRASTRUCTURE-TASKING.md   # Generated: a THIRD, separate calendar for switch/router/firewall config
+│                                       # backup, firmware currency, and HA/failover health — closes the #1 gap
+│                                       # identified in GAP-ANALYSIS.md. No row cites a Control ID.
+├── GAP-ANALYSIS.md                    # Hand-authored critique of tasking coverage — update by hand, not generated.
 ├── variance-records/                  # Output directory: generated Variance/Risk-Acceptance records land here
 │                                       # (.gitkeep only — this directory's contents are typically program-specific
 │                                       #  and should be reviewed before committing any real finding to source control)
@@ -59,9 +64,12 @@ execution-plan/
 │                                       # validation/escalation, sign-off) per task. Names real environment
 │                                       # tools (Windows Server/AD, Trellix/McAfee HBSS, Splunk, Nessus) —
 │                                       # the one place in execution-plan/ that isn't vendor-agnostic, by design.
-└── mrc-cards-ops/                     # Generated: one MRC-OPS-<###>.md per OPERATIONAL-TASKING.md task (34 total)
-                                        # + INDEX.md, same card shape as mrc-cards/ but for non-JSIG operational
-                                        # tasking (see build_operational_tasking.py).
+├── mrc-cards-ops/                     # Generated: one MRC-OPS-<###>.md per OPERATIONAL-TASKING.md task (34 total)
+│                                       # + INDEX.md, same card shape as mrc-cards/ but for non-JSIG operational
+│                                       # tasking (see build_operational_tasking.py).
+└── mrc-cards-netinfra/                # Generated: one MRC-NET-<###>.md per NETWORK-INFRASTRUCTURE-TASKING.md
+                                        # task (16 total) + INDEX.md, same card shape, for switch/router/firewall
+                                        # health (see build_network_infra_tasking.py).
 ```
 
 ## Quick-start workflows
@@ -142,6 +150,16 @@ python3 execution-plan/tools/build_operational_tasking.py
 
 No row in this calendar cites a JSIG Control ID as its driver — see `OPERATIONAL-TASKING.md`'s "Purpose and scope" section for which tasks operationally support (without being formally required by) a nearby control family. Do not hand-edit `OPERATIONAL-TASKING.md` or an individual `MRC-OPS-*.md` file — edit `OPS_TASKS` and regenerate.
 
+### 8. Regenerate the Network Infrastructure Tasking calendar and MRC-NET cards
+
+`NETWORK-INFRASTRUCTURE-TASKING.md` and `mrc-cards-netinfra/MRC-NET-<###>.md` (16 total) + `INDEX.md` close the #1 gap identified in `GAP-ANALYSIS.md`: switch/router/firewall configuration backup, firmware currency, and HA/failover readiness — a layer neither the JSIG calendar nor the operational calendar covers. If you edit `NET_TASKS` in the script, re-run:
+
+```bash
+python3 execution-plan/tools/build_network_infra_tasking.py
+```
+
+No row cites a JSIG Control ID. Tool names stay generic/vendor-agnostic since no network device vendor has been established in this repository, unlike `mrc-cards/` and `mrc-cards-ops/`. Do not hand-edit `NETWORK-INFRASTRUCTURE-TASKING.md` or an individual `MRC-NET-*.md` file — edit `NET_TASKS` and regenerate.
+
 ## Design principles
 
 - **Generate, don't hand-author, for anything structured.** `RACI-MATRIX.md`, the STIG/CVE reference databases, and every Variance/Risk-Acceptance record are produced by a script from a documented source of truth, so they stay internally consistent and can be regenerated on demand instead of drifting via manual edits.
@@ -154,9 +172,11 @@ No row in this calendar cites a JSIG Control ID as its driver — see `OPERATION
 - **`runbooks/`** — Section 6 actionable task runbooks for all 17 JSIG §1.5 roles: Agency/Component Head, Risk Executive Function, CIO, CISO, AO, DAO, CCP, ISO, ISSE, MBO, General Users, ISSM, ISSO, Privileged Users, PSO, Information Owner/Steward, SCA. Each `<Role>.md` follows the 10-section scaffold in `templates/AUDIT-ARTIFACT-TEMPLATE.md` (via the shared Sections 6–10 defined once in `runbooks/_EXECUTION-PATTERNS.md`) and is grounded in `tools/data/role_task_index.json`, never hand-typed against the Master Calendar. `runbooks/_AUTHORING-BRIEF.md` documents the authoring rules (never fabricate a task/control ID, never name a vendor, verify every internal link, keep procedure text proportionate to task volume) that every role file was built and reviewed against. Zero-task governance roles (Agency/Component Head, Risk Executive Function, CIO, CCP, ISO, ISSE, General Users, MBO) still get a full runbook documenting their governance/oversight actions even though they hold no Master Calendar Responsible/Accountable task.
 - **`mrc-cards/`** — one Maintenance Requirement Card (`MRC-<###>.md`) per Master Calendar task, all 110, plus `INDEX.md`. Each card is a self-contained, sign-off-ready document: identification, real verbatim control text, RACI, primary tool(s) for this environment, a full numbered procedure (Pattern A–H or the task's own Custom steps, resolved from the authoring role's runbook — all 110 resolved from runbook-authored assignments, zero from the keyword-heuristic fallback), the standard Validation/Evidence/Findings/Escalation/Closure fields, and a blank Preparer/Reviewer sign-off block. Generated by `tools/build_mrc_cards.py`.
 - **`OPERATIONAL-TASKING.md` + `mrc-cards-ops/`** — a second, separate 34-task calendar (plus one `MRC-OPS-<###>.md` card per task + `INDEX.md`) for non-JSIG IT-operations/functional-health sysadmin tasking: Active Directory/domain-controller health (replication, DCDIAG, DNS, SYSVOL, FSMO, trusts, backups, object cleanup), Exchange health (DAG, mailbox databases, transport queues, certificates, client access), the security-tool stack's own operational health (Trellix/McAfee ePO agent coverage, Splunk forwarder health, Nessus scanner/plugin health), and general Windows Server care-and-feeding (AD CS, scheduled tasks, service-account passwords, hardware/RAID, functional patching, licensing, file/print, DHCP). No row cites a JSIG Control ID; a few tasks operationally support (without being required by) a nearby control family, documented in prose only. Generated by `tools/build_operational_tasking.py`.
+- **`NETWORK-INFRASTRUCTURE-TASKING.md` + `mrc-cards-netinfra/`** — a third, separate 16-task calendar (plus one `MRC-NET-<###>.md` card per task + `INDEX.md`) closing the #1 gap identified in `GAP-ANALYSIS.md`: switch/router configuration backup and firmware currency, firewall configuration backup and firmware currency, core switch/router and firewall HA/failover readiness testing, out-of-band management health, AAA (TACACS+/RADIUS) health, SNMP/syslog health, spanning-tree health, SSH host-key/management-certificate currency, network hardware environmental health, and VLAN/trunk configuration consistency. No row cites a JSIG Control ID. Tool names stay generic/vendor-agnostic (no network vendor established in this repo). Generated by `tools/build_network_infra_tasking.py`.
 
 ## Backlog (not yet built)
 
+- Remaining `GAP-ANALYSIS.md` items beyond network infrastructure (now closed): virtualization-host health, database layer beyond Exchange, physical security equipment operational health, power/environmental infrastructure, personnel continuity, documentation-currency as a recurring task, cross-domain-solution/guard-specific tasking, patch-staging-tier health, wireless/RF rogue-AP scanning, hardware support-contract expiration tracking.
 - `STATUS-2026-07-17.md` is a point-in-time snapshot written at the end of a specific work session — useful for historical context on what was tested when, but not an onboarding document. Treat this README, not the status file, as the current entry point.
 
 ---
