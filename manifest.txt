@@ -3,6 +3,7 @@ AGENTS.md
 MAINTENANCE-PLAN.md
 PROGRESS.md
 README.md
+execution-plan/CONTROL-LANGUAGE-CROSSWALK.md
 execution-plan/RACI-MATRIX.md
 execution-plan/README.md
 execution-plan/ROLE-CROSSWALK.md
@@ -31,11 +32,14 @@ execution-plan/templates/AUDIT-ARTIFACT-TEMPLATE.md
 execution-plan/templates/ESCALATION-MATRIX.md
 execution-plan/templates/VARIANCE-RISK-ACCEPTANCE-TEMPLATE.md
 execution-plan/tools/README.md
+execution-plan/tools/build_control_language_crosswalk.py
+execution-plan/tools/build_control_title_index.py
 execution-plan/tools/build_raci_matrix.py
 execution-plan/tools/build_role_task_index.py
 execution-plan/tools/cve_intake/.gitkeep
 execution-plan/tools/cve_intake/cve_list.example.txt
 execution-plan/tools/cve_reference_builder.py
+execution-plan/tools/data/control_title_index.json
 execution-plan/tools/data/role_task_index.json
 execution-plan/tools/data/stig_reference.json
 execution-plan/tools/generate_variance.py
