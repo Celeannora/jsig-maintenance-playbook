@@ -35,6 +35,7 @@ execution-plan/
 │   │                                   # family extractions (../references/JSIG-source/chapter-3-*-family.md)
 │   ├── build_control_language_crosswalk.py  # Regenerates ../CONTROL-LANGUAGE-CROSSWALK.md
 │   ├── build_mrc_cards.py             # Regenerates mrc-cards/ (all 110 Maintenance Requirement Cards + INDEX.md)
+│   ├── build_operational_tasking.py   # Regenerates ../OPERATIONAL-TASKING.md + mrc-cards-ops/ (34 tasks + INDEX.md)
 │   ├── data/stig_reference.json       # Committed: curated STIG reference DB (built from stig_intake/)
 │   ├── data/cve_reference.json        # Committed when built: curated CVE reference DB (built from cve_intake/)
 │   ├── data/cve_mirror.json           # Gitignored: optional full NVD mirror, local-only, can be hundreds of MB
@@ -43,18 +44,24 @@ execution-plan/
 │   │                                   # zips) here before running stig_reference_builder.py
 │   └── cve_intake/                    # Drop a CVE ID list (see cve_list.example.txt) here before running
 │                                       # cve_reference_builder.py fetch-list
+├── OPERATIONAL-TASKING.md              # Generated: a SECOND, separate calendar for pure IT-operations/functional-
+│                                       # health sysadmin tasking (AD/DC, Exchange, tool-stack health, general
+│                                       # Windows Server) that JSIG does not drive — no row cites a Control ID.
 ├── variance-records/                  # Output directory: generated Variance/Risk-Acceptance records land here
 │                                       # (.gitkeep only — this directory's contents are typically program-specific
 │                                       #  and should be reviewed before committing any real finding to source control)
 ├── runbooks/                          # Section 6 actionable task runbooks for all 17 JSIG §1.5 roles (complete —
 │                                       # see Completed deliverables below): _EXECUTION-PATTERNS.md,
 │                                       # _AUTHORING-BRIEF.md, and one <Role>.md per role
-└── mrc-cards/                         # Generated: one Maintenance Requirement Card (MRC-<###>.md) per Master
-                                        # Calendar task (110 total) + INDEX.md — a Navy-PMS-style actionable card
-                                        # (identification, control text, RACI, tools, numbered procedure,
-                                        # validation/escalation, sign-off) per task. Names real environment
-                                        # tools (Windows Server/AD, Trellix/McAfee HBSS, Splunk, Nessus) —
-                                        # the one place in execution-plan/ that isn't vendor-agnostic, by design.
+├── mrc-cards/                         # Generated: one Maintenance Requirement Card (MRC-<###>.md) per Master
+│                                       # Calendar task (110 total) + INDEX.md — a Navy-PMS-style actionable card
+│                                       # (identification, control text, RACI, tools, numbered procedure,
+│                                       # validation/escalation, sign-off) per task. Names real environment
+│                                       # tools (Windows Server/AD, Trellix/McAfee HBSS, Splunk, Nessus) —
+│                                       # the one place in execution-plan/ that isn't vendor-agnostic, by design.
+└── mrc-cards-ops/                     # Generated: one MRC-OPS-<###>.md per OPERATIONAL-TASKING.md task (34 total)
+                                        # + INDEX.md, same card shape as mrc-cards/ but for non-JSIG operational
+                                        # tasking (see build_operational_tasking.py).
 ```
 
 ## Quick-start workflows
@@ -125,17 +132,28 @@ python3 execution-plan/tools/build_mrc_cards.py
 
 Each card resolves its Pattern (A–H) or Custom procedure from the matching role runbook where one exists (preferred — reviewed/authored data) and falls back to a keyword heuristic (`PATTERN_KEYWORD_RULES` in the script) only for a task with no runbook entry; the script prints how many of the 110 came from each source so you can see at a glance whether any card needs closer review. Do not hand-edit an individual `MRC-*.md` file — edit the source runbook, calendar, or crosswalk and regenerate.
 
+### 7. Regenerate the Operational Tasking calendar and MRC-OPS cards
+
+`OPERATIONAL-TASKING.md` and `mrc-cards-ops/MRC-OPS-<###>.md` (34 total) + `INDEX.md` are a second, separate, generated deliverable for non-JSIG IT-operations/functional-health sysadmin tasking (Active Directory/domain controllers, Exchange, the security-tool stack's own operational health, general Windows Server) — `MAINTENANCE-PLAN.md` is never touched by this generator. If you edit `OPS_TASKS` in the script (add/remove/re-scope a task), re-run:
+
+```bash
+python3 execution-plan/tools/build_operational_tasking.py
+```
+
+No row in this calendar cites a JSIG Control ID as its driver — see `OPERATIONAL-TASKING.md`'s "Purpose and scope" section for which tasks operationally support (without being formally required by) a nearby control family. Do not hand-edit `OPERATIONAL-TASKING.md` or an individual `MRC-OPS-*.md` file — edit `OPS_TASKS` and regenerate.
+
 ## Design principles
 
 - **Generate, don't hand-author, for anything structured.** `RACI-MATRIX.md`, the STIG/CVE reference databases, and every Variance/Risk-Acceptance record are produced by a script from a documented source of truth, so they stay internally consistent and can be regenerated on demand instead of drifting via manual edits.
 - **Fail closed.** Every tool in `tools/` exits non-zero and writes nothing rather than guess at missing data, silently downgrade a severity, or mark an operation complete when it partially failed.
-- **Offline-only, vendor-agnostic.** No cloud or SaaS product is referenced by name anywhere in this folder's templates or generated output — every example uses generic terms ("local ticketing/GRC system," "local vulnerability scanner") so the material stays usable on an air-gapped network. **One documented exception:** `mrc-cards/` names real tools (Windows Server/Active Directory, Trellix/McAfee HBSS-style endpoint suite, Splunk, Nessus) per an explicit request to ground those specific cards in one organization's actual environment — see `build_mrc_cards.py`'s `TOOL_KEYWORD_RULES`/`FAMILY_TOOL_DEFAULTS` to retarget for a different tool stack.
+- **Offline-only, vendor-agnostic.** No cloud or SaaS product is referenced by name anywhere in this folder's templates or generated output — every example uses generic terms ("local ticketing/GRC system," "local vulnerability scanner") so the material stays usable on an air-gapped network. **Documented exceptions:** `mrc-cards/` and `mrc-cards-ops/`/`OPERATIONAL-TASKING.md` name real tools (Windows Server/Active Directory, Trellix/McAfee HBSS-style endpoint suite, Splunk, Nessus) per an explicit request to ground those specific deliverables in one organization's actual environment — see `build_mrc_cards.py`'s `TOOL_KEYWORD_RULES`/`FAMILY_TOOL_DEFAULTS` and `build_operational_tasking.py`'s `OPS_TASKS` to retarget for a different tool stack.
 - **One severity model, reused everywhere.** The CAT I/II/III sign-off chain (`RACI_BY_CAT` in `generate_variance.py`) is the same one documented in `ESCALATION-MATRIX.md` and reflected in `RACI-MATRIX.md`'s task-level Accountable/Consulted/Informed assignments — there is only one escalation model in this repo, not three slightly different ones.
 
 ## Completed deliverables
 
 - **`runbooks/`** — Section 6 actionable task runbooks for all 17 JSIG §1.5 roles: Agency/Component Head, Risk Executive Function, CIO, CISO, AO, DAO, CCP, ISO, ISSE, MBO, General Users, ISSM, ISSO, Privileged Users, PSO, Information Owner/Steward, SCA. Each `<Role>.md` follows the 10-section scaffold in `templates/AUDIT-ARTIFACT-TEMPLATE.md` (via the shared Sections 6–10 defined once in `runbooks/_EXECUTION-PATTERNS.md`) and is grounded in `tools/data/role_task_index.json`, never hand-typed against the Master Calendar. `runbooks/_AUTHORING-BRIEF.md` documents the authoring rules (never fabricate a task/control ID, never name a vendor, verify every internal link, keep procedure text proportionate to task volume) that every role file was built and reviewed against. Zero-task governance roles (Agency/Component Head, Risk Executive Function, CIO, CCP, ISO, ISSE, General Users, MBO) still get a full runbook documenting their governance/oversight actions even though they hold no Master Calendar Responsible/Accountable task.
 - **`mrc-cards/`** — one Maintenance Requirement Card (`MRC-<###>.md`) per Master Calendar task, all 110, plus `INDEX.md`. Each card is a self-contained, sign-off-ready document: identification, real verbatim control text, RACI, primary tool(s) for this environment, a full numbered procedure (Pattern A–H or the task's own Custom steps, resolved from the authoring role's runbook — all 110 resolved from runbook-authored assignments, zero from the keyword-heuristic fallback), the standard Validation/Evidence/Findings/Escalation/Closure fields, and a blank Preparer/Reviewer sign-off block. Generated by `tools/build_mrc_cards.py`.
+- **`OPERATIONAL-TASKING.md` + `mrc-cards-ops/`** — a second, separate 34-task calendar (plus one `MRC-OPS-<###>.md` card per task + `INDEX.md`) for non-JSIG IT-operations/functional-health sysadmin tasking: Active Directory/domain-controller health (replication, DCDIAG, DNS, SYSVOL, FSMO, trusts, backups, object cleanup), Exchange health (DAG, mailbox databases, transport queues, certificates, client access), the security-tool stack's own operational health (Trellix/McAfee ePO agent coverage, Splunk forwarder health, Nessus scanner/plugin health), and general Windows Server care-and-feeding (AD CS, scheduled tasks, service-account passwords, hardware/RAID, functional patching, licensing, file/print, DHCP). No row cites a JSIG Control ID; a few tasks operationally support (without being required by) a nearby control family, documented in prose only. Generated by `tools/build_operational_tasking.py`.
 
 ## Backlog (not yet built)
 
