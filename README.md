@@ -63,6 +63,38 @@ manifest.txt                        # Flat file inventory
 4. Use `reference/JSIG/control-families/INDEX.md` for the control inventory, and `references/JSIG-source/chapter-3-*-family.md` for the full verbatim JSIG family text (real ODP values and SAP-specific guidance) -- the latter supersedes the former's NIST-boilerplate placeholders; see `reference/JSIG/appendices/EXTRACTION-LIMITATIONS.md` for what changed. `execution-plan/CONTROL-LANGUAGE-CROSSWALK.md` maps every Control ID in the Master Calendar to its real title.
 5. Track real-world implementation progress in `PROGRESS.md`.
 
+## Operational workflow
+
+How a role-holder actually uses this repo day to day, from onboarding through executing a task to handling a finding:
+
+```mermaid
+flowchart TD
+    A[Clone repo offline] --> B[Read README.md]
+    B --> C["MAINTENANCE-PLAN.md sections 1 / 1A<br/>Daily Ops and Sustainment Focus"]
+    B --> D["Find your role in<br/>playbooks/roles/INDEX.md"]
+    D --> E["Open your runbook:<br/>execution-plan/runbooks/ROLE.md"]
+    E --> F["Task Index: Executing vs<br/>Accountable-only tasks"]
+    F --> G["Look up task in<br/>RACI-MATRIX.md Part A"]
+    G --> H["Resolve real control title via<br/>CONTROL-LANGUAGE-CROSSWALK.md"]
+    H --> I["Execute task per runbook's<br/>Execution Procedure"]
+    I --> J{Finding or deviation?}
+    J -->|No| K["Record evidence,<br/>mark complete in PROGRESS.md"]
+    J -->|"Yes: STIG or CVE ID"| L["Run generate_variance.py --id ID"]
+    L --> M["Variance/Risk-Acceptance record<br/>written to variance-records/"]
+    M --> N{Severity CAT tier?}
+    N -->|CAT I: Critical/High| O[Escalate to AO/DAO]
+    N -->|CAT II: Moderate| P[Escalate to ISSM]
+    N -->|CAT III: Low| Q[Escalate to ISSO]
+    O --> R["ISSM consulted/reviews<br/>at every tier"]
+    P --> R
+    Q --> R
+    R --> S["Sign-off recorded;<br/>PROGRESS.md updated"]
+    K --> T["Repeat at task's cadence<br/>per MAINTENANCE-PLAN.md section 4"]
+    S --> T
+```
+
+See [execution-plan/README.md](execution-plan/README.md) for the commands behind each generated artifact (RACI matrix, crosswalk, variance records) and [templates/ESCALATION-MATRIX.md](execution-plan/templates/ESCALATION-MATRIX.md) for the full CAT-tier SLA/sign-off routing.
+
 ## Known gaps (see also `reference/JSIG/appendices/EXTRACTION-LIMITATIONS.md` and `references/JSIG-source/EXTRACTION-LOG.md`)
 
 - Full verbatim JSIG family text and the complete 963-row Appendix C SAP baseline table have since been extracted (real ODP values and SAP-specific guidance, in `references/JSIG-source/`) -- the earlier partial-extraction limitation is resolved; see `reference/JSIG/appendices/EXTRACTION-LIMITATIONS.md`.
