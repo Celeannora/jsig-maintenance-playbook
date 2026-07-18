@@ -1,0 +1,611 @@
+URL: https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-40r4.pdf
+TITLE: Guide to Enterprise Patch Management Planning: - NIST
+ERROR: None
+
+- **Document**
+  - **NIST SP 800-40r4**
+  - **Title:** *Guide to Enterprise Patch Management Planning: Preventive Maintenance for Technology*
+  - **Date:** **April 2022**
+
+- **Purpose and scope**
+  - Help organizations improve **enterprise patch management planning** to strengthen **management of risk**.
+  - Treat enterprise patch management as **preventive maintenance for an organization’s technology**.
+  - Applies to all types of computing technology assets, including:
+    - **IT**
+    - **operational technology (OT)**
+    - **Internet of Things (IoT)**
+    - **mobile devices**
+    - **cloud computing**
+  - Applies to all types of patchable software, including:
+    - **applications**
+    - **operating systems**
+    - **firmware**
+  - Notes that patch management technologies are minimally discussed; **NIST SP 1800-31** provides information on technologies to implement IT patch management policies and processes.
+
+- **Enterprise patch management definition**
+  - Enterprise patch management is the process of:
+    - **identifying**
+    - **prioritizing**
+    - **acquiring**
+    - **installing**
+    - **verifying the installation**
+  - Applies to:
+    - **patches**
+    - **updates**
+    - **upgrades**
+  - Throughout an organization.
+
+- **Audience**
+  - Primary audience:
+    - **chief information officers**
+    - **chief information security officers**
+    - **cybersecurity directors and managers**
+    - others responsible for managing organizational risk related to the use of software
+  - Other audiences:
+    - business and mission owners
+    - security engineers and architects
+    - system administrators
+    - security operations personnel
+
+- **Publication structure**
+  - **Section 2**: risk response approaches for software vulnerabilities and overview of enterprise patch management life cycle
+  - **Section 3**: principles and actionable recommendations for enterprise patch management planning
+  - **References**
+  - **Appendix A**: NIST Cybersecurity Framework Subcategories and SP 800-53 controls most important for enterprise patch management policies and processes
+  - **Appendix B**: acronym list
+
+- **Risk responses**
+  - Four types of risk responses:
+    1. **Accept**
+       - Accept the risk from vulnerable software as is
+       - Examples:
+         - rely on existing security controls to prevent vulnerability exploitation
+         - determine the potential impact is low enough that no additional action is needed
+    2. **Mitigate**
+       - Reduce the risk by:
+         - eliminating vulnerabilities
+         - deploying additional security controls to reduce vulnerability exploitation
+       - Examples:
+         - patching vulnerable software
+         - disabling a vulnerable feature
+         - upgrading to a newer software version without the vulnerabilities
+         - using firewalls and network segmentation to isolate vulnerable assets
+    3. **Transfer**
+       - Reduce the risk by sharing some consequences with another party
+       - Examples:
+         - purchasing cybersecurity insurance
+         - replacing conventional software installations with **software-as-a-service (SaaS)** where the vendor/managed service provider takes care of patching
+    4. **Avoid**
+       - Ensure the risk does not occur by eliminating the attack surface
+       - Examples:
+         - uninstalling the vulnerable software
+         - decommissioning assets with the vulnerabilities
+         - disabling computing capabilities in assets that can function without them
+
+- **Why immediate patching may not be viable**
+  - Patch may not be available yet
+  - Vendor may no longer support the vulnerable software
+  - Need to wait for a scheduled outage window
+  - Need to perform testing first
+  - Need to update other software that interacts with the software to be patched
+  - Need to train employees on new features or interfaces
+  - Some patches may be a higher priority, so other patches are delayed due to limited resources
+  - Manufacturer may require delayed schedule for assets with human safety implications in a highly regulated sector because extensive testing and certification must be performed first
+  - In some cases, organizations implementing updates on their own may be voiding the product warranty and preventing future support from the manufacturer
+  - Need to comply with specific legal, regulatory, or business requirements
+  - Example: need **FIPS-validated cryptographic modules** for protecting data, but the upgraded software’s cryptographic modules are not yet FIPS-validated
+
+- **Software vulnerability management life cycle**
+  - Applies to all risk response approaches
+  - Steps:
+    1. **Know when new software vulnerabilities affect your organization’s assets**
+       - Includes applications, operating systems, and firmware
+       - Know what assets the organization uses and which software and software versions those assets run
+       - Track down to the level of **packages and libraries**
+       - Keep track of new vulnerabilities in that software
+       - Example sources:
+         - vulnerability feeds from software vendors
+         - security researchers
+         - **National Vulnerability Database (NVD)**
+    2. **Plan the risk response**
+       - Assess the risk the vulnerability poses
+       - Choose which form of risk response, or combination of forms, to use
+       - Decide how to implement the risk response
+       - Example:
+         - determine risk is elevated because the vulnerability is present in many organization assets and is being exploited in the wild
+         - choose mitigation
+         - mitigate by upgrading vulnerable software and altering configuration settings
+    3. **Execute the risk response**
+       - Common phases:
+         a. Prepare the risk response
+         b. Implement the risk response
+         c. Verify the risk response
+         d. Continuously monitor the risk response
+  - Administrative activities throughout the life cycle:
+    - updating documentation
+    - audit logging
+    - generating actionable insights and reports as part of enterprise change management
+  - Robust change management policies and processes are described as fundamental
+
+- **Risk response execution phases**
+  - **Prepare to deploy the patch**
+    - Prioritize the patch
+    - Schedule patch deployment
+    - Acquire the patch
+    - Validate the patch
+    - Test the patch
+  - **Deploy the patch**
+    - Distribute the patch
+    - Validate the patch
+    - Install the patch
+    - Change software configuration and state
+    - Resolve any issues
+  - **Verify deployment**
+    - Ensure the patch has been installed successfully and taken effect
+    - Automated means are generally needed to achieve verification at scale
+  - **Monitor the deployed patches**
+    - Confirm the patch is still installed
+    - Verify the patch has not been uninstalled by a user or an attacker
+    - Verify an unpatched version has not been restored from a backup
+    - Verify the device has not been reset to a vulnerable factory-default state
+    - Monitor for behavior changes after patching
+    - May help detect/respond/recover if the installed patch was itself compromised
+
+- **Prepare to deploy the patch — common steps**
+  - **Prioritize the patch**
+    - Higher priority if deployment would reduce cybersecurity risk more than other patches
+    - Lower priority if it addresses a low-risk vulnerability on a small number of low-importance assets
+  - **Schedule patch deployment**
+    - Many organizations schedule patch deployments as part of enterprise change management activities
+  - **Acquire the patch**
+    - Downloaded from the internet
+    - Built internally by developers or system administrators
+    - Provided through removable media
+  - **Validate the patch**
+    - Authenticity and integrity should be confirmed
+    - Preferably by automated means
+    - Before the patch is tested or installed
+  - **Test the patch**
+    - May be tested before deployment
+    - Intended to reduce operational risk by identifying problems before production
+    - Testing may be manual or automated
+
+- **Deploy the patch — factors affecting deployment**
+  - Type of software being updated:
+    - firmware
+    - operating system (OS)
+    - application
+  - Asset platform type:
+    - IT
+    - OT
+    - IoT
+    - mobile
+    - cloud
+    - virtual machine (VM)
+    - containers
+  - Platform traits:
+    - managed/unmanaged asset
+    - on-premises or not
+    - virtualized or not
+    - containerized or not
+  - Environmental limitations:
+    - network connectivity
+    - bandwidth
+
+- **Deploy the patch — common steps**
+  - **Distribute the patch**
+    - Organization-controlled:
+      - automatically
+      - manually
+      - as scheduled
+    - Vendor-controlled:
+      - delivered from the cloud
+  - **Validate the patch**
+    - Confirm authenticity and integrity before installation
+    - Preferably through automated means
+  - **Install the patch**
+    - Automatically
+    - Manually when directed by a user, administrator, vendor, or tool
+    - As a result of other software being installed or updated
+    - Through replacement of removable media used by an asset
+    - Some installations require administrator privileges
+      - Example: firmware patches for a system basic input/output system (**BIOS**)
+    - Some installations require user participation or cooperation
+  - **Change software configuration and state**
+    - Examples:
+      - restarting patched software
+      - rebooting the operating system or platform
+      - redeploying applications
+      - altering software configuration settings
+    - In other cases, no such changes are needed
+  - **Resolve any issues**
+    - Side effects may:
+      - alter existing security configuration settings
+      - add new settings
+      - create a new security problem while fixing the original one
+    - Operational issues may require:
+      - uninstalling the patch
+      - reverting to the previous version
+      - restoring software or asset from backups
+
+- **Recommendations for enterprise patch management planning**
+  - Principles:
+    - **Problems are inevitable; be prepared for them**
+    - **Simplify decision making**
+    - **Rely on automation**
+    - **Start improvements now**
+  - Patch management challenges noted:
+    - trade-off between earlier deployment and more testing
+    - patches more quickly reduce attacker window but increase operational disruption risk
+    - testing decreases disruption risk but increases attacker window
+    - testing can consume considerable staff resources and still miss problems
+    - dynamic and dispersed computing assets
+    - large number of installed software components
+    - different processes/technology by asset type:
+      - OT
+      - IoT
+      - mobile
+      - cloud
+      - traditional IT
+      - virtual machines
+      - containers
+    - many organizations are unable to keep up with patching
+    - patching often becomes reactive rather than proactive
+
+- **Reduce patching-related disruptions**
+  - Decrease the number of vulnerabilities introduced into environments
+  - Methods:
+    - **Harden software**
+      - enforce least privilege
+      - enforce least functionality
+      - deactivate or uninstall software services, features, and other components not needed
+      - reference: *Security Measures for “EO-Critical Software” Use Under Executive Order (EO) 14028 (July 9, 2021)*
+    - Acquire software likely to have fewer vulnerabilities over time
+    - Work with software development partners likely to introduce fewer vulnerabilities over time
+      - consider:
+        - rigor of secure software development practices
+        - how quickly issues are addressed and patches released
+        - how often problems are associated with their patches
+        - transparency in security-related communications
+    - Use managed services instead of software when feasible
+    - Select stacks or platforms likely to have fewer vulnerabilities over time
+      - example: running software within a small container instead of a larger operating system
+    - Run applications on stacks/platforms where patching is a fundamental part of the deployed technology and is less likely to disrupt operations
+      - example: modernizing and running software within cloud-based containers instead of on-premises server operating systems
+    - Take advantage of existing toolchains that already build applications with updated components and test them before production release
+
+- **Inventory your software and assets**
+  - Establish and constantly maintain up-to-date software inventories for physical and virtual computing assets, including:
+    - OT
+    - IoT
+    - container assets
+  - Inventory may be in a single enterprise asset inventory or split among multiple resources
+  - A comprehensive inventory is ideal but may be impossible
+  - Goal: maintain a close-to-comprehensive inventory by relying on automation to:
+    - constantly discover new assets
+    - collect up-to-date information on all assets
+  - Vendors may provide machine-consumable data on asset software composition, such as **software bill of materials (SBOM)**, to augment inventories
+  - Without constant updates, inventories become outdated and inaccurate
+  - Monthly or quarterly inventory updates by vulnerability scan are described as a model that should no longer be used
+  - Inventory automation techniques and tools:
+    - leverage inventory capabilities built into platforms and assets whenever feasible
+    - APIs built into cloud-based platforms may enable continuous updates
+    - vulnerability scans and passive network monitoring on local networks can contribute to asset inventories, especially discovery
+    - if vulnerability scans are used for inventories, authenticated scanning is needed to detect changes
+  - Patching should be approached from a per-asset perspective
+  - Software inventories should include each computing asset’s:
+    - technical characteristics
+    - mission/business characteristics
+  - Decisions for risk responses and priorities should not be based solely on software and software versions
+
+- **Characteristics to inventory**
+  - Technical characteristics:
+    - asset’s platform type
+      - IT
+      - OT
+      - IoT
+      - mobile
+      - cloud
+      - VM
+    - party who administrates the asset
+      - IT department
+      - third party
+      - end user
+      - vendor/manufacturer
+      - shared responsibility model
+    - applications, services, or other mechanisms used to manage the asset
+      - endpoint management software
+      - virtual machine manager
+      - container management software
+    - asset’s network connectivity in terms of:
+      - protocols
+      - frequency/duration
+      - bandwidth
+    - technical security controls already in place to safeguard the asset
+    - primary user(s) or interconnected services and their privileges
+  - Mission/business characteristics:
+    - asset’s role and importance to the organization
+    - laws, regulations, or policies that specify how soon a new vulnerability in the asset must be addressed
+    - contractual restrictions on patching
+      - example: highly regulated asset can only be patched by its manufacturer after testing and certification
+    - mission/business restrictions on risk responses for that asset
+      - example: asset can only be rebooted during a monthly maintenance outage
+  - Tracking these characteristics supports:
+    - better decision making regarding risk responses and priorities
+    - zero-trust architecture efforts
+    - incident response investigations if patching history is tracked
+
+- **Define risk response scenarios**
+  - Scenarios:
+    - **Routine patching**
+      - standard procedure for patches on a regular release cycle not elevated to emergency status
+      - most patching falls under this scenario
+      - routine patching often postponed and neglected because it does not have emergency urgency
+      - delaying routine patching increases windows of opportunity for attackers
+      - delaying routine patching makes emergency patching more difficult, time-consuming, and disruptive because previous dependent patches must first be installed
+    - **Emergency patching**
+      - procedure to address patching emergencies in a crisis situation
+      - examples:
+        - severe vulnerability
+        - vulnerability being actively exploited
+      - if vulnerable assets have already been compromised, emergency patching may be part of incident response
+      - needs to be handled as efficiently as possible to prevent imminent exploitation
+    - **Emergency mitigation**
+      - emergency procedure in a crisis situation to temporarily mitigate vulnerabilities before a patch is available
+      - mitigation may or may not need to be rolled back afterward
+      - sometimes needed because of patch issues
+      - examples:
+        - patch is flawed and does not correct a vulnerability
+        - patch inadvertently disrupts other software or systems
+        - patch could even be compromised
+    - **Unpatchable assets**
+      - isolation or other methods to mitigate risk of systems that cannot be easily patched
+      - typically required if routine patching cannot accommodate these systems within a reasonable time frame
+      - examples:
+        - vendor not providing patches
+        - asset at end-of-life
+        - asset does not support updates
+        - asset needs to run uninterrupted for an extended period because it provides mission-critical functions
+      - new vulnerability may necessitate a change in mitigation methods
+
+- **Assign each asset to a maintenance group**
+  - Use:
+    - software inventories
+    - technical and business/mission characteristics
+    - risk response scenarios
+  - Define a maintenance group as a set of assets with similar characteristics that generally have the same software maintenance needs for each risk response scenario
+  - Maintenance needs include:
+    - patch schedule
+    - patch testing needs
+    - outage restrictions
+    - level of impact if vulnerable software is compromised
+    - other mitigation and risk response forms, including temporary mitigations when patches are not yet available
+  - Define groups at the best level of granularity decided by the organization
+  - Periodically reassess maintenance group definitions and adjust as needed
+  - Assets or asset types should not be labeled as “exceptions”; there should be maintenance groups for them
+  - If an asset cannot be patched or should not be patched, it still has software maintenance needs and should belong to a maintenance group
+
+- **Simplified examples of possible maintenance groups**
+
+| Maintenance group | Software to patch | Outage restrictions | Existing mitigations | Level of impact to the organization if compromised |
+|---|---|---|---|---|
+| Mobile workforce laptops for standard end users | Firmware, operating systems, and client applications for end user devices | Tolerant to downtime | Endpoint security controls running on the laptops | Moderate |
+| On-premises datacenter (including servers, network equipment, storage, etc.) | Firmware, operating systems, and applications for server platforms | Must adhere to scheduled outage windows for all non-emergency situations | Network-based security controls restricting access to the assets and security controls running on the assets themselves | High |
+| Legacy OT assets | None; existing software is no longer supported and cannot be patched | Must adhere to scheduled outage windows for all non-emergency situations | Network isolation, physical security controls | High |
+| Smartphones for the mobile workforce | Operating systems and mobile apps | Tolerant to downtime | Mobile device security controls running on the smartphones | Moderate |
+| On-premises servers for automated software testing | Firmware, server operating systems, virtualization software, server and client guest operating systems, server and client applications | Usually tolerant to downtime | Network-based security controls restricting access to the assets, and security controls running on the assets themselves | Moderate |
+| Containers with customer-facing applications in the public cloud | Container operating systems, application modules | Highly tolerant to downtime | Security controls running on the container operating system | High |
+
+- **Other possible maintenance-group bases**
+  - Personnel roles
+    - software developer workstations
+    - system administrator workstations
+  - Asset importance
+    - low-impact IoT consumer assets
+    - OT and IoT assets with life-safety impact
+
+- **Define maintenance plans for each maintenance group**
+  - Define a maintenance plan for each maintenance group for each applicable risk response scenario
+  - A maintenance plan defines:
+    - actions to be taken when a scenario occurs for a maintenance group
+    - timeframes for beginning and ending each action
+    - other pertinent information
+  - Define a risk assessment process for:
+    - determining which plan should be used at any given time
+    - deciding when to switch from one plan to another as understanding of risk changes
+  - Named external references relevant to maintenance planning:
+    - **Known Exploited Vulnerabilities Catalog**
+      - list of vulnerabilities considered particularly important to mitigate
+      - criteria include:
+        - exploited in the wild
+        - patches or other mitigations available
+      - created and maintained by **Cybersecurity and Infrastructure Security Agency (CISA)**
+    - **CISA Binding Operational Directive 22-01**
+      - requires federal agencies to remediate new vulnerabilities added to the catalog within **two weeks**
+    - **CISA Cybersecurity Incident & Vulnerability Response Playbooks**
+      - Vulnerability Response Playbook standardizes the high-level process for agencies responding to urgent and high-priority vulnerabilities being actively exploited in the wild
+
+- **Maintenance plans for Scenario 1, Routine Patching**
+  - Consider adopting **phased deployments**
+  - A small subset of assets receive the patch first
+  - These assets act as **canaries (bellwethers)** for identifying issues and determining likely operational impact
+  - If canary assets indicate minimal impact, deployment can expand to more or all vulnerable assets
+  - Significant problems can be addressed before rollout expands, or a different risk response like a temporary mitigation can be planned instead of the patch while problems are resolved
+  - For larger routine patch rollouts, especially those directly impacting users:
+    - multiple rounds of canary assets could be used
+    - example first round:
+      - technically knowledgeable users
+      - system administrators
+      - security engineers
+      - lasts a few days
+    - example second round:
+      - “early adopters” across the organization
+      - willing to try app updates for a few weeks and report problems
+    - early adopters should ideally be representative of the entire user community who will eventually use the patch
+  - Organizations should offer flexibility with how soon routine patches are to be installed
+  - Organizations should force installation after a **grace period** has ended
+  - Forcing installation can be:
+    - direct, like triggering patch execution
+    - indirect, like preventing network access for unpatched assets until patched
+
+- **Maintenance plans for Scenario 2, Emergency Patching**
+  - Use the same general approach as routine patching, except with a **highly accelerated schedule**
+  - Even under emergency circumstances, it may still be beneficial to first deploy a new patch to a small number of canary assets to confirm the patch is not corrupted and does not break the software
+  - Canary period could last:
+    - a few minutes
+    - a few hours
+  - Emergency patching itself could occur in the following:
+    - hours
+    - days
+  - Timing depends on how urgent the emergency is
+
+- **Maintenance plans for Scenario 3, Emergency Mitigation**
+  - Plan for the **quick implementation of multiple types of emergency mitigations**
+  - Mitigations may require:
+    - deactivating system functionality
+    - isolating an asset from other assets
+    - automated mechanisms to apply these changes
+  - Processes, procedures, and tools must be in place or time may be lost and vulnerable assets may be compromised
+  - Plan to replace emergency mitigations with permanent fixes
+  - Once a permanent fix such as a patch is available:
+    - the patch will need to be deployed
+    - the mitigation removed
+  - Schedules should be set and enforced for:
+    - patch deployment
+    - mitigation removal
+
+- **Maintenance plans for Scenario 4, Unpatchable Assets**
+  - Plan to implement multiple types of long-term risk mitigation methods besides patching
+  - There should be an approved set of methods for each maintenance group
+  - Methods should be reviewed and analyzed in advance by security architects/engineers to determine adequacy in mitigating risk
+  - Reference given: **Section 3 of NIST SP 800-207**
+    - describes use of:
+      - micro-segmentation
+      - software-defined perimeters
+      - other risk mitigation methods for isolating assets based on a defined policy
+  - Plan to implement multiple types of mitigations to protect vulnerable unpatchable assets
+  - Also implement mitigations as needed to prevent exploitation of specific vulnerabilities that long-term methods do not adequately address
+  - Periodically reevaluate alternatives to patching:
+    - conduct a risk assessment to see if alternatives remain sufficiently effective
+    - conduct a cost-benefit analysis to see if assets provide sufficient value compared with additional costs of mitigating, transferring, or accepting risk of unpatchable assets
+
+- **Exceptions to maintenance plans**
+  - Closely track and monitor all exceptions to maintenance plans
+  - Maintenance groups should be defined to minimize assets considered “exceptions”
+  - Some exceptions are inevitable
+  - All exceptions should be reviewed regularly to determine if the maintenance plan can be implemented now
+  - Assets with similar long-term exceptions might need to be moved to a separate maintenance group with its own maintenance plan
+
+- **Choose actionable enterprise-level patching metrics**
+  - Metrics roles:
+    - estimating the relative importance of a new vulnerability so remediation can be prioritized appropriately
+      - examples:
+        - routine patching
+        - emergency patching
+        - mitigations
+    - monitoring and tracking patch management progress
+    - supporting continuous improvement and effectiveness program
+  - Potential audiences for metrics:
+    - CEO / Board of Directors
+    - CIO
+    - CISO
+    - mission/business unit leadership
+    - application developers
+    - security and system administrators
+    - other cybersecurity and IT personnel
+  - Organizations should take advantage of low-level metrics already collected
+  - Existing information sources include:
+    - inventories of software and assets
+    - technical and mission/business characteristics
+    - vulnerability details such as:
+      - **Common Vulnerability Scoring System (CVSS)** scores
+      - threat intelligence about vulnerabilities being exploited
+      - other metrics provided by vulnerability management tools
+  - Overly simplistic metrics, such as counting the number of vulnerabilities and percentage patched, are not actionable
+  - Example of not actionable:
+    - “10 % of your assets were not being patched”
+  - Table 1 provides an example of actionable performance metrics:
+    - cells reflect percentage of assets patched by maintenance plan deadlines
+    - cells also reflect average (mean) time and median time for patching
+    - organization defines categories for asset importance and vulnerability importance
+  - Metrics can be analyzed by:
+    - platform
+    - business unit
+    - maintenance group
+    - other characteristics
+  - Metrics can provide values relevant to:
+    - organizational executives
+    - technology leadership
+    - IT operations staff
+    - compliance professionals
+  - Organizations should frequently update low-level metrics and strive for accuracy
+  - Monthly vulnerability scanning is given as an example of too infrequent update frequency
+  - Less accurate methods, such as passive (unauthenticated) instead of active (authenticated) vulnerability scans, generally underreport vulnerabilities and skew higher-level metrics
+
+- **Table 1: Vulnerability Mitigation Time Summary Matrix**
+
+| Vulnerability Importance \ Asset Importance | Low | Moderate | High |
+|---|---|---|---|
+| Low | By deadline: 64.7 %; Average time: 80.4 days; Median time: 75.2 days | By deadline: 72.4 %; Average time: 34.7 days; Median time: 33.7 days | By deadline: 85.0 %; Average time: 14.6 days; Median time: 8.1 days |
+| Medium | By deadline: 66.5 %; Average time: 75.1 days; Median time: 70.7 days | By deadline: 68.7 %; Average time: 33.2 days; Median time: 31.6 days | By deadline: 71.4 %; Average time: 12.9 days; Median time: 10.5 days |
+| High | By deadline: 68.6 %; Average time: 62.1 days; Median time: 58.0 days | By deadline: 78.8 %; Average time: 26.8 days; Median time: 22.1 days | By deadline: 85.5 %; Average time: 8.8 days; Median time: 8.1 days |
+| Critical | By deadline: 81.4 %; Average time: 44.4 days; Median time: 41.3 days | By deadline: 92.3 %; Average time: 21.2 days; Median time: 23.9 days | By deadline: 95.2 %; Average time: 5.2 days; Median time: 5.1 days |
+
+- **Consider software maintenance in procurement**
+  - Organizations should take software maintenance into consideration when procuring software
+  - Sample questionnaire:
+    1. Will you be releasing updates for this software to address vulnerabilities?
+    2. Approximately how many patches, updates, and upgrades do you expect to release each year for this software? On average, how quickly do you expect to address each vulnerability and release a patch? Do you bundle patches together or is each patch separate? How often do you anticipate releasing emergency updates?
+    3. For how many years are you committed to correcting vulnerabilities in the software?
+    4. Will you release updates on a regular schedule, as needed, or both? If a schedule will be followed, what is that schedule (weekly, monthly, quarterly, etc.)?
+    5. Do you have a vulnerability disclosure and incident response program for your software? How transparent are you in your security-related communications to your customers?
+    6. When a vulnerability in your software becomes public but a patch, update, or upgrade is not available, how do you recommend that customers protect their computing assets running your software? Will you provide an emergency mitigation to prevent vulnerability exploitation while maintaining most or all software functionality?
+    7. When your software is patched or updated, how disruptive will that be to the operating software? For instance, will it require restarting the software, rebooting the asset on which the software is running, etc.?
+    8. How do you test your patches before release? How often do customers experience significant issues with your patches? Do you provide rollback capabilities for uninstalling patches?
+
+- **Mappings to NIST Guidance and Frameworks**
+  - NIST SP 800-53 Rev. 5 controls most important for enterprise patch management planning:
+    - **CM-2, Baseline Configuration**
+    - **CM-3, Configuration Change Control**
+    - **CM-8, System Component Inventory**
+    - **RA-7, Risk Response**
+    - **SI-2, Flaw Remediation**
+    - **SR-2, Supply Chain Risk Management Plan**
+    - **SR-3, Supply Chain Controls and Processes**
+    - **SR-5, Acquisition Strategies, Tools, and Methods**
+  - Cybersecurity Framework subcategories most important for enterprise patch management planning:
+    - **ID.AM-1**: Physical devices and systems within the organization are inventoried
+    - **ID.AM-2**: Software platforms and applications within the organization are inventoried
+    - **ID.AM-4**: External information systems are catalogued
+    - **ID.AM-5**: Resources (e.g., hardware, devices, data, time, personnel, and software) are prioritized based on their classification, criticality, and business value
+    - **ID.BE-3**: Priorities for organizational mission, objectives, and activities are established and communicated
+    - **ID.BE-5**: Resilience requirements to support delivery of critical services are established for all operating states (e.g., under duress/attack, during recovery, normal operations)
+    - **ID.GV-3**: Legal and regulatory requirements regarding cybersecurity, including privacy and civil liberties obligations, are understood and managed
+    - **ID.RA-5**: Threats, vulnerabilities, likelihoods, and impacts are used to determine risk
+    - **ID.RA-6**: Risk responses are identified and prioritized
+    - **ID.SC-1**: Cyber supply chain risk management processes are identified, established, assessed, managed, and agreed to by organizational stakeholders
+    - **PR.IP-1**: A baseline configuration of information technology/industrial control systems is created and maintained incorporating security principles (e.g., concept of least functionality)
+    - **PR.IP-3**: Configuration change control processes are in place
+    - **PR.IP-12**: A vulnerability management plan is developed and implemented
+
+- **Named roles and entities**
+  - **CISA**
+    - created and maintains the Known Exploited Vulnerabilities Catalog
+    - released Cybersecurity Incident & Vulnerability Response Playbooks
+  - **security architects/engineers**
+    - review and analyze approved mitigation methods in advance for unpatchable assets
+  - **CEO / Board of Directors**
+  - **CIO**
+  - **CISO**
+  - **mission/business unit leadership**
+  - **application developers**
+  - **security and system administrators**
+  - **other cybersecurity and IT personnel**
+  - Example user groups in phased deployment:
+    - technically knowledgeable users
+    - system administrators
+    - security engineers
+    - early adopters
+
+- **Absence**
+  - No explicit POA&M template, ticket template, playbook template heading, RACI matrix, or detailed fielded audit evidence/artifact checklist is provided in the extracted page text beyond the cited metrics, inventory characteristics, maintenance plan/scenario structure, and questionnaire items.

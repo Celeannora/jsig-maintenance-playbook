@@ -1,0 +1,277 @@
+URL: https://www.fedramp.gov/resources/documents/rev4/REV_4_CSP_Annual_Assessment_Guidance.pdf
+TITLE: FedRAMP ANNUAL ASSESSMENT GUIDANCE
+ERROR: None
+
+## Document metadata
+- Title: FedRAMP ANNUAL ASSESSMENT GUIDANCE
+- Version: 2.0
+- Date: November 24, 2017
+
+## Revision history
+| Date | Version | Page(s) | Description | Author |
+|---|---:|---|---|---|
+| 04/05/2016 | 1.0 | All | Initial draft guidance on completing annual assessments based on FedRAMP NIST SP 800 53 Revision 4, FedRAMP baseline security requirements, and FedRAMP continuous monitoring requirements. | FedRAMP PMO |
+| 06/06/2017 | 1.0 | Cover | Updated logo | FedRAMP PMO |
+| 11/24/2017 | 2.0 | All | Updated to the new template | FedRAMP PMO |
+
+## Contact
+- Questions about FedRAMP or this document should be directed to info@fedramp.gov.
+- Website: http://www.fedramp.gov
+
+## Purpose, scope, assumptions, compliance
+- Purpose:
+  - Facilitate a structured approach to completing security assessments and reports required to meet FedRAMP compliance based on NIST SP 800-53, revision 4.
+  - Describe a recommended methodology for determining the scope of the annual assessments and reports including a recommended methodology for addressing risks associated with continuing to leverage cloud services that have not yet completed the transition FedRAMP NIST SP 800-53, revision 4.
+- Scope:
+  - Completing annual assessments in compliance with NIST SP 800-53, revision 4, FedRAMP baseline security requirements, FedRAMP continuous monitoring requirements, and CSP-specific cloud service implementations.
+- Assumptions:
+  - The Cloud Service is currently compliant with FedRAMP based on NIST SP 800-53, revision 4.
+  - The CSP, at a minimum, is conducting continuous monitoring in compliance with the current FedRAMP Continuous Monitoring and Strategy Guide.
+  - All services and components included in the boundary for authorization will be assessed for compliance with applicable controls determined as in-scope for this assessment.
+  - CSPs will be required to identify the impact and risks associated with leveraging systems that have not yet become FedRAMP NIST SP 800-53, revision 4, compliant.
+- Compliance:
+  - FedRAMP approved CSPs (those with an existing P-ATO) must comply with this guidance for all annual assessments completed following transition from FedRAMP NIST SP 800-53, revision 3 to FedRAMP NIST SP 800-53, revision 4.
+  - Not doing so may be considered a failure to maintain an adequate risk management program and result in escalation actions as described in the FedRAMP P-ATO Management and Revocation Guide.
+
+## Tasks required to complete the assessment
+### 2.1 Develop schedule
+Major milestone activities:
+- Review and update, as required, the System Security Plan (SSP) and attachments.
+- Conduct Incident Response Plan Test and provide the Incident Response Plan Test Report.
+- Conduct Contingency Plan functional test and include the Contingency Plan Test Report.
+- Complete the Annual Assessment Security Assessment Plan (SAP).
+- Conduct testing.
+- Complete Annual Assessment Security Assessment Report (SAR).
+- Complete the Plan of Action and Milestones (POA&M).
+- Submit the complete Annual Assessment package, including the SAR and attachments, updated SSP and attachments, updated SAP, and POA&M to FedRAMP PMO or Agency AO.
+- The schedule must include timeframes and resources to support technical and quality assurance reviews of all deliverables.
+
+### 2.2 Review and update documentation
+- The CSP is required to review the SSP and all attachments and update as necessary at least annually to incorporate system changes and/or changes in processes and procedures.
+- The CSP is required to review and update implementation details (e.g., who, what, how) as necessary for all controls that are “in-scope” for this assessment to ensure adequate details are provided.
+- The FedRAMP PMO periodically publishes updates to the document templates and the CSP should review these new templates to ensure significant changes either are incorporated into the CSP’s documents or new documents are created to address the changes prior to performing the updates.
+
+### 2.3 Determine scope of assessment
+- The determination of the FedRAMP NIST SP 800-53 revision 4 “in-scope” set of controls for annual assessments is based on the following:
+  - FedRAMP-selected controls
+  - FedRAMP-selected controls, not-included for testing by CSP
+  - CSP-specific controls, selected by CSP
+  - Additional testing requirements
+  - Control selection process
+  - Completed worksheet must be included in the SAP and SAR prepared and submitted by the 3PAO
+
+### 2.3.1 FedRAMP-selected controls
+- Core controls:
+  - Controls and enhancements (including parameters) that have an associated NIST SP 800-53, revision 4 and/or FedRAMP-defined operational frequency that is:
+    - CSP-defined
+    - FedRAMP-defined
+    - Less than 3 years, including those that are at varied timeframes (e.g. hourly, daily, monthly, quarterly) and continuous
+  - Controls FedRAMP has determined are critical to protecting the information system.
+  - Controls FedRAMP has determined necessary to ensure continued operation and implementation of the control as intended, based on the NIST definition of volatility.
+- NIST reference:
+  - NIST SP 800-137, dated September 2011, Section 3.2.2, Establish Monitoring and Assessment Frequencies, page 28.
+
+### 2.3.2 FedRAMP-selected controls, not-included for testing by CSP
+- Controls that are not applicable to the CSP’s implementation are not required to be tested on an annual basis.
+- Controls that are fully “inherited” and entirely the responsibility of a leveraged provider are not required to be tested by the CSP leveraging those services.
+- The 3PAO is required to validate:
+  - that Not Applicable controls are not applicable
+  - that the inherited services and/or controls continue to meet the terms of use in accordance with the FedRAMP P-ATO or Agency ATO
+
+### 2.3.3 CSP-specific controls, selected by CSP
+- CSP-selected controls that may be required to address periodicity requirements (e.g., testing is required at least once every 3 years).
+- CSP-selected controls required to address system changes that have been implemented by the CSP since the last annual assessment, including:
+  - closed POA&M items
+  - Vendor Dependencies (VDs)
+  - Deviation Requests (DRs)
+  - system changes
+
+### 2.3.4 Additional testing requirements
+- The 3PAO must evaluate (review and/or test), as necessary, all items related to continuous monitoring activities.
+- The 3PAO must evaluate all open POA&M items (including Vendor Dependencies).
+- The 3PAO must evaluate POA&M closures to confirm adequate closure.
+- The 3PAO must validate and confirm continued applicability of Deviation Requests:
+  - False Positives
+  - Risk Adjustments
+  - Operational Requirements
+
+### 2.3.5 Control selection process
+- CSPs must complete the FedRAMP Annual Assessment Control Selection Workbook, in Section 5, to determine the controls selected for testing in the annual assessment.
+
+### 2.3.6 Completed worksheet must be included in the SAP and SAR prepared and submitted by the 3PAO
+- The FedRAMP Annual Assessment Control Selection Workbook template has two sections:
+  - General system information
+  - List of Core Controls, CSP-Specific Controls, and Comments
+
+## FedRAMP Annual Assessment Control Selection Worksheet
+
+### Table 1 – FedRAMP Annual Assessment Control Selection Worksheet General Information Description
+| General Information | Details |
+|---|---|
+| Date | Provide the date the template is completed. |
+| CSP | The Vendor Name as supplied in any of the documents provided to the AO. |
+| System Name | The Information System Name as supplied in any of the documents provided to the AO. |
+| 3PAO | The name of the 3PAO completing the assessment. |
+
+### Table 2 – FedRAMP Annual Assessment Controls Selection Worksheet – Selected List of Core Controls
+| Column Header | Content Description |
+|---|---|
+| Column A – Item No. | This is the item number of the control all CSPs are required to test. |
+| Column B – Control ID | This is the NIST SP 800-53 revision 4 unique control identifiers for the core controls all CSPs are required to test. |
+| Column A – Totals | This row indicates the total controls listed in List of Core Controls (column B) and FedRAMP- Selected Controls Not Included for Testing by CSP (column D); and CSP-Specific, Selected controls (column G). |
+| Column B – Number | This is the item number of the core controls required for testing |
+| Column C – Divider | This column separates List of Core Controls (column B) from FedRAMP- Selected Controls Not Included for Testing by CSP (column D) |
+
+### Table 3 – FedRAMP Annual Assessment Controls Selection Worksheet – Selected Controls Not Included for Testing by CSP
+| Column Header | Content Description |
+|---|---|
+| Column D – Indicate Rationale: Not Applicable/Not Implemented, Inherited from a Leveraged System | These are core controls that the CSP has selected to exclude from testing. The CSP is required to indicate the rationale for the determination for excluding this control from the scope of testing and the 3PAO must validate this rationale. For example, the control is not applicable because the requirement is related to a service or component that has not been implemented by the CSP (e.g., wireless access) or a control is fully inherited from a leveraged. The 3PAO is required to validate that Not Applicable controls are not applicable. The total number of controls in this column will be entered in the last row of the list. |
+| Column E – Divider | The column separates FedRAMP- Selected Controls Not Included for Testing by CSP (column D) from CSP-Specific Controls, Selected by CSP (columns F-H). |
+
+### Table 4 – FedRAMP Annual Assessment Controls Selection Worksheet – CSP: Specific Controls Selected by CSP
+| Column Header | Content Description |
+|---|---|
+| Column F – Item | This is the item number of the additional control selected for testing based on CSP-specific implementations and continuous monitoring activities. |
+| Column G – Control ID | This is the list of NIST SP 800-53 Rev4 unique control identifiers for the additional controls selected for testing by the CSP for this annual assessment. |
+| Column H – Indicate Rationale: POA&M Closure, DR, System Change, Periodic Testing Requirement | The CSP is required to indicate the rationale for the determination to test this control. For example, the control requirement is related to a Deviation Request for a False Positive, Risk Adjustment, and/or Operational Requirement, Vendor Dependencies, or a system change implemented by the CSP since the last annual assessment. The 3PAO is required to validate these items for continued applicability to the system. |
+| Column I – Comments | Additional information related to the controls selected for testing may be provided in this column. |
+| Column J – Divider | This column separates the CSP-Specific Controls from the Total Number of Controls Selected for This Assessment. |
+
+### Table 5 – FedRAMP Annual Assessment Controls Selection Worksheet – Total Number of Controls Selected for This Assessment
+| Column Header | Content Description |
+|---|---|
+| Column K – Total Number of Controls Selected for This Assessment | This column provides a total number of controls selected for this assessment. The number is calculated in the last row of the table by subtracting the total in Column D from the total in Column B and adding the total in Column H. |
+
+## Complete security assessment
+- 3PAOs must complete all security assessments in accordance with the same processes and procedures required by FedRAMP.
+- The scope of the assessment will be based on the results of the control selection process and the testing will utilize the FedRAMP Revision 4 Test Cases and the requirements specified in the FedRAMP Continuous Monitoring and Strategy Guide.
+
+### 2.4.1 Security Assessment Plan (SAP)
+- The 3PAO prepares and submits the Security Assessment Plan (SAP) utilizing the FedRAMP revision 4 Security Assessment Plan Template for Annual Assessments located on the FedRAMP website (fedramp.gov).
+- The SAP clearly defines the process, procedures, and methodologies for testing.
+- The scope of controls to be tested is based on the control selection process defined in this document.
+- Include only those test cases for selected controls.
+- Some test cases may need to be modified to address CSP-specific implementations as described in the SSP and other supporting documentation.
+- The test cases may need to be modified for those controls selected for validation of closed POA&M items, DRs, Vendor Dependencies, and system changes.
+
+### 2.4.2 Security Assessment Report (SAR)
+- The 3PAO prepares and submits the Security Assessment Report (SAR) utilizing the FedRAMP revision 4 Security Assessment Report Template for Annual Assessments.
+- The SAR clearly defines the process, procedures, and methodologies utilized for testing as required and documents all the results of the testing conducted.
+- The SAR clearly identifies what was tested and what was not tested as part of this assessment, especially related to non-applicable controls and inherited controls from leveraged systems as may be applicable.
+- The SAR clearly identifies known risks associated with leveraged systems, if applicable.
+
+### 2.4.2.1 JAB and/or AO determine whether the overall risk posture of the system, as defined in the SAR, is acceptable. Security assessment test cases
+- The 3PAO prepares and submits the FedRAMP Security Assessment Test Cases and supporting documentation as part of the SAR.
+- The test cases contain all the FedRAMP NIST SP 800-53, revision 4, control requirements with associated required test methods for each of the selected controls.
+- The 3PAO fully completes and documents the assessment information related to the controls selected for the assessment, e.g.:
+  - detailed observations and evidence
+  - implementation status
+  - findings
+  - risk exposure information
+
+## FedRAMP Security Assessment Test Cases worksheets
+
+### Table 6 – FedRAMP Security Assessment Test Cases – System Content Description
+| Column | Content Description |
+|---|---|
+| Column A | System Name |
+| Column B | CSP Name |
+| Sensitivity Level | This is the security impact level of the system (Moderate/Low). |
+
+### Table 7 – FedRAMP Security Assessment Test Cases – Control Summary Column Content Description
+| Column Header | Content Description |
+|---|---|
+| Column B – CONTROL TITLE (NIST SP 800-53 Rev 4) | This is the NIST SP 800-53 revision 4 control title. |
+| Column C – Control Baseline – Low | This lists the FedRAMP NIST SP 800-53 revision 4 baseline controls at the low impact level. |
+| Column D – Control Baseline – Moderate | This lists the FedRAMP NIST SP 800-53 revision 4 baseline controls at the moderate impact level. |
+| Column E – Implementation Status | Specify the implementation status of the control at the completion of testing [implemented/partially implemented/ planned/ alternative implementation/not applicable]. |
+| Column F – Findings | Specify the status of the control at the completion of testing [satisfied/other than satisfied]. |
+| Column G – Risk Exposure | Specify the risk exposure to the system if the vulnerability associated with this control is exploited [high/moderate/low]. |
+| Column H – Prior Findings | Specify the status of any prior finding associated with this control. |
+| Column I – Prior Risk | Specify the risk exposure to the system if the vulnerability associated with this control is exploited [high/moderate/low]. |
+
+### Table 8 – FedRAMP Security Assessment Test Cases – Controls “AC” through “SI” Column Content Description
+| Column Header | Content Description |
+|---|---|
+| Column A – Name | This is the NIST SP 800-53 revision 4 unique control identifier. |
+| Column B – Title | This is the NIST SP 800-53 revision 4 control title. |
+| Column C – Decision | This specifies each of the security control requirements to be tested. |
+| Column D – Examine | This specifies what is required to be examined to determine the implementation of the control requirement. |
+| Column E – Test | This specifies what is required to be tested to determine the implementation of the control requirement. |
+| Column F – Interview | This specifies the interview requirements to determine the implementation of the control requirement. |
+| Column G – Observations and Evidence | Specify and fully describe the testing and observations from the testing, including references to artifacts utilized as evidence to support the observations. Specify full document references [title, version, date, and page numbers] for all documentation artifacts. Specify full names, roles, and dates of interviews. Specify the tests conducted at a level of detail that enables them to be replicated. |
+| Column H – Implementation Status | Specify the implementation status of the control at the completion of testing [implemented/partially implemented/ planned/ alternative implementation/not applicable]. |
+| Column I – <date> Findings | Insert the date of the testing in the Column Header and specify the status of the control at the completion of testing for each test [satisfied/other than satisfied]. |
+| Column I – Prior Risk | Specify the risk exposure to the system if the vulnerability associated with this control is exploited [high/moderate/low]. |
+| Column J – Likelihood | Specify the likelihood a threat will exploit the vulnerability identified [high/moderate/low]. |
+| Column K – Impact | Specify the impact to the system if the threat successfully exploits the vulnerability [high/moderate/low]. |
+| Column L – Risk Exposure | Specify the risk exposure to the system if the vulnerability associated with this control is exploited [high/moderate/low]. |
+| Column M – Risk Description | Fully describe the details of the risks to this specific system if the vulnerability is exploited. |
+| Column N – Recommendation for Mitigation | Fully describe the recommendation for remediation of the risk associated with this control. |
+| Column O – Assessor POC | Specify the assessor name and contact information [e.g., email, phone] for each test. |
+| Column P – Divider | This column separates the results of the current assessments from results and findings from previous assessments. |
+| Column Q – <Date> Prior Findings | Insert the date of the previous assessment and specify the status of a prior finding associated with this control. [satisfied/other than satisfied]. |
+| Column R – <Date> Prior Risk | Insert the date of the previous assessment and specify the risk exposure to the system if the vulnerability associated with this control is exploited. [High/Moderate/Low]. |
+
+## Plan of Action and Milestones (POA&M)
+- The CSP prepares and submits the Plan of Action and Milestones (POA&M) utilizing the FedRAMP Plan of Action and Milestone (POA&M) Template Completion Guide.
+- The CSP documents all residual risks identified in the SAR and defines a plan for remediation of those risks in the template provided and provides an inventory list of the system tested.
+- The CSP includes known risks identified by the 3PAO that are associated with leveraged systems in the POA&M.
+
+## Methodology for managing risks associated with inherited controls
+### 3.1 Methodology for testing inherited controls
+- The methodology for testing controls inherited from a FedRAMP compliant system (leveraged system) is explicitly based on how the requirement is described in the SSP.
+- The SSP for the Cloud Service leveraging a system clearly defines the roles and responsibilities for every control requirement.
+- The CSP must describe how the control is implemented and how it is using the inherited control in the leveraged system SSP.
+- Example:
+  - A Physical and Environmental (PE) control might be fully inherited from the leveraged system.
+  - The CSP describes “how” the PE control requirement is implemented, including stating it is fully inherited from the leveraged system.
+  - There is a subsection in the control implementation description that states “what” the leveraged system is providing to meet the requirement but not “how” the leveraged system meets the requirement.
+  - The 3PAO must verify the CSP is using the control consistent with the SSP.
+- Example:
+  - A control requirement might be a “shared” control, where the System and the leveraged system implement portions of a requirement to fully meet the requirement.
+  - The CSP would define “what” and “how” the CSP is implementing the portion they are responsible for, and there would be a subsection in the implementation description where the “what” being provided by the leveraged system is described.
+  - The description of “how” the leveraged system implements their portion of the control would be found in the leveraged system SSP.
+- The scope of testing for the CSP leveraging a FedRAMP compliant leveraged system includes only control requirements that the CSP is responsible for implementing, either wholly or partially.
+- The 3PAO tests only the control requirement implemented by the CSP and assumes the leveraged system is compliant with the requirements based on their initial and continued P-ATO or ATO status.
+- The scope of testing does not include “testing” of the implementation by the leveraged system.
+- If the leveraged system provides a service such as auditing/logging or trouble ticketing, the 3PAO must collect evidence from only the CSP that the leveraged system is providing those services (e.g., audit logs/reports).
+
+### 3.2 Methodology for reporting and managing risks associated with inherited controls
+- The 3PAO may have identified some known risks associated with the system leveraged by a CSP.
+- These risks may be due to a “gap” in implementation of all the requirements in a control between the CSP and the leveraged system.
+- These risks may result from the CSP not having fully implemented a requirement that they are responsible for implementing or the leveraged system may not have fully implemented and tested the FedRAMP NIST SP 800-53, revision 4 baseline requirements.
+- The 3PAO must include these known risks in the SAR.
+- The CSP must include these known risks in the POA&M, including Vendor Dependencies, and track and report the status of those risks as part of continuous monitoring activities.
+- Example:
+  - The CSP indicates in the POA&M that they have communicated with the applicable POC of the leveraged system to determine the current status of remediation of those risks at least every 30 days.
+
+## Example scenario
+- IaaS CSP currently has only implemented FedRAMP NIST SP 800-53, revision 3 requirements.
+- SaaS leveraging the IaaS has implemented FedRAMP NIST SP 800-53, revision 4.
+- During the assessment of the SaaS, it was determined that the leveraged IaaS had not transitioned to implementation of FedRAMP NIST SP 800-53, revision 4.
+- To be compliant, the SaaS CSP must have the following:
+  - Have a SAR that identifies the gaps in the inherited controls (gaps from Rev. 3 to Rev. 4)
+  - The SaaS POA&M must track these deficiencies
+  - These findings are identified as “Vendor Dependencies”
+  - The SaaS CSP must verify the status of these deficiencies every 30 days and document the status in the POA&M
+  - The SaaS SSP must reflect these inherited controls are partially implemented or planned based on the SAR findings
+  - The SaaS SSP text for these inherited controls must include “Pending full implementation and testing by <CSP/System Name>”
+  - Closure of these POA&Ms can occur once the leveraged IaaS CSP meets the FedRAMP NIST SP 800-53, revision 4 requirements and has fully and successfully tested the implementation of these controls
+- Similar requirements apply whenever a CSP claims vendor dependency as the reason for an open POA&M item.
+- During the annual assessment, the 3PAO verifies the applicable requirements are met.
+
+## General requirements
+- Use latest version for all FedRAMP document templates located on the FedRAMP website, such as SSP, CP, SAP, and SAR.
+- Ensure that all requirements are addressed and documented completely.
+- Identify specifically what was included in the scope of the assessment and what was excluded, including the rationale for both.
+- Ensure there are enough resources to complete the required tasks in the timeframes defined.
+- Develop and implement a schedule that supports completion of the assessment prior to anniversary date of P-ATO or ATO.
+- Develop and implement a schedule that provides for revisions and updates to draft documents based on FedRAMP and AO technical reviews.
+- Ensure that all findings are included in the SAR and POA&M.
+
+## Additional references
+- FedRAMP Annual Assessment Control Selection Workbook: provided in Section 5; “CLICK HERE to download”
+- FedRAMP Revision 4 Test Cases v 1.0 workbook can be found on the FedRAMP website at https://www.fedramp.gov/resources/templates-3/
+- The master list of FedRAMP acronym and glossary definitions for all FedRAMP templates is available on the FedRAMP website Documents page under Program Overview Documents: https://www.fedramp.gov/resources/documents-2016/
+- Suggestions about corrections, additions, or deletions should be sent to info@fedramp.gov

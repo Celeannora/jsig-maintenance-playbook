@@ -1,0 +1,482 @@
+URL: https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-128.pdf
+TITLE: Guide for Security-Focused Configuration Management of ...
+ERROR: None
+
+### Operational runbook / SOP structure and cadence
+- **Chapter Two: The Fundamentals**
+  - **2.1 Overview**
+  - **2.1.1 Basic Configuration Management**
+  - **2.1.2 The Challenge of Protecting Information and Managing Risk**
+  - **2.1.3 Role of Security-Focused Configuration Management**
+  - **2.2 The Phases of Security-Focused Configuration Management**
+  - **2.2.1 Planning**
+  - **2.2.2 Identifying and Implementing Configurations**
+  - **2.2.3 Controlling Configuration Changes**
+  - **2.2.4 Monitoring**
+  - **2.3 Security-Focused Configuration Management Concepts**
+  - **2.3.1 Configuration Management Policy and Procedures**
+  - **2.3.2 Configuration Management Plan**
+  - **2.3.3 Configuration Control Board**
+  - **2.3.4 Component Inventory**
+  - **2.3.5 Configuration Items**
+  - **2.3.6 Secure Configurations of Information Systems**
+  - **2.3.7 Baseline Configuration**
+  - **2.3.8 Configuration Change Control**
+  - **2.3.9 Security Impact Analysis**
+  - **2.3.10 Configuration Monitoring**
+  - **2.4 SecCM Roles and Responsibilities**
+- **Chapter Three: The Process**
+  - **3.1 Planning**
+  - **3.1.1 Planning at the Organizational Level**
+  - **3.1.2 Planning at the System Level**
+  - **3.2 Identifying and Implementing Configurations**
+  - **3.2.1 Establish Secure Configurations**
+  - **3.2.2 Implement Secure Configurations**
+  - **3.3 Controlling Configuration Change**
+  - **3.3.1 Implement Access Restrictions for Change**
+  - **3.3.2 Implement the Configuration Change Control Process**
+  - **3.3.3 Conduct Security Impact Analysis**
+  - **3.3.4 Record and Archive**
+  - **3.4 SecCM Monitoring**
+  - **3.4.1 Assessment and Reporting**
+  - **3.4.2 Implement and Manage Tools for SecCM Monitoring**
+  - **3.5 Using Security Content Automation Protocol (SCAP)**
+
+### Recurring security / compliance task execution
+- **SecCM phases**
+  - **Planning**
+  - **Identifying and Implementing Configurations**
+  - **Controlling Configuration Changes**
+  - **Monitoring**
+- **Planning phase activities**
+  - Develop policy and procedures
+  - Disseminate policy throughout the organization
+  - Establish a Configuration Control Board (CCB)
+  - Create a component inventory
+  - Identify configuration items
+  - Develop baseline configuration
+  - Develop configuration change control process
+  - Develop monitoring and reporting process
+  - Develop SecCM monitoring strategy
+  - Define changes that do not require configuration change control
+  - Develop SecCM training
+  - Identify approved IT products
+  - Identify tools
+  - Establish configuration test environment and program
+- **System-level planning phase outputs**
+  - Completed SecCM Plan
+  - Established Configuration Control Board
+  - Accurate system component inventory
+  - Defined configuration items for the system
+- **Identifying and Implementing Configurations**
+  - Establish secure configurations
+  - Prioritize configurations
+  - Test configurations
+  - Resolve issues and document deviations
+  - Record and approve the baseline configuration
+  - Deploy the baseline configuration
+- **Controlling Configuration Changes**
+  - Implement access restrictions for change
+  - Implement configuration change control process
+  - Conduct security impact analysis
+  - Record and archive
+- **Monitoring**
+  - Assessment and reporting
+  - Implement and manage tools for SecCM monitoring
+- **SCAP use**
+  - Automate configuration management
+  - Produce assessment evidence
+  - Automatically verify installation of patches
+  - Check system security configuration settings against an expected baseline
+  - Examine systems for signs of compromise
+
+### Roles and responsibilities
+| Role | Responsibilities explicitly stated |
+|---|---|
+| **Chief Information Officer (CIO)** | Designates and/or provides a SecCM Program Manager for the organization; approves the organizational SecCM plan and policies. |
+| **Senior Agency Information Security Officer (SAISO)** | May act as the SecCM Program Manager for the organization; may provide staff with security expertise to serve on the CCB and/or conduct security impact analyses. |
+| **Authorizing Official (AO)** | Manages or participates in the CCB for systems s/he authorizes; may provide technical staff to conduct and/or review security impact analyses; coordinates with the Risk Executive (Function) on SecCM issues; makes final determination whether a given change or set of changes continues to be an acceptable security risk. |
+| **System Owner** | Identifies, defines, and ensures implementation of the aspects of SecCM for the information system not defined by the organization; ensures implementation of organizational-level SecCM requirements for the system. |
+| **SecCM Program Manager** | Develops SecCM policies and procedures; provides direction; oversees implementation of the SecCM program for the organization and/or system level; facilitates communications; considers dashboard/web site/email/newsletter communications; provides knowledge and direction in policies, procedures, communications, training, defined roles and responsibilities, support, oversight of program activities, and coordination with stakeholders. |
+| **System Security Officer (SSO)** | Assists the system owner with implementation of SecCM for the system; conducts configuration monitoring activities (reporting and analysis); may serve on the CCB. |
+| **System Administrator (SA)** | Implements agreed-upon secure baseline configurations; incorporates secure configuration settings for IT products; assists with security impact analyses and configuration monitoring activities as needed; may be included in determining baseline configuration for each CI; may serve on the CCB; responsible for complying with SecCM policies and implementing/following SecCM procedures. |
+| **System/Software Developer** | Ensures secure configuration settings are built into applications in accordance with security requirements; assists with security impact analyses and configuration monitoring activities as needed; may be included in determining baseline configuration for relevant CIs; may serve on the CCB; responsible for complying with SecCM policies and implementing/following SecCM procedures. |
+| **System User (SU)** | Initiates change requests; assists with functional testing; complies with SecCM requirements. |
+| **Configuration Control Board (CCB)** | Review and approve changes to an information system; acts as a check and balance on configuration change activity; ensures changes are held to organizationally defined criteria before implementation; gatekeeper for changes introduced into a system. |
+
+### CCB / escalation / exception handling / decisioning
+- **CCB**
+  - Typically consists of **two or more individuals**
+  - Represents various perspectives from within the organization
+  - May be less formal for systems with limited size, scope, and criticality
+  - Organization determines size and formality appropriate for a given system or systems
+  - Establishment is part of the Planning phase
+  - Supports **CM-3 Configuration Change Control**
+- **CCB charter**
+  - May define:
+    - Membership
+    - Roles and responsibilities of members
+    - Reporting relationship to oversight body like an **Executive Steering Committee** or the **Risk Executive (Function)**
+    - How the CCB operates
+    - How to handle changes
+    - Range of dispositions: **approved, not approved, on hold, etc.**
+    - Evaluation criteria
+    - Quorum required to make configuration change control-related decisions
+- **CCB size/formality**
+  - Low-impact and/or small, uncomplicated systems: CCB may be composed of as few as **two members** (typically the system owner and the SSO)
+  - High-impact systems and complex moderate-impact systems: CCB may be composed of at least **three individuals**, at least one of whom is a system owner or SSO
+- **Decision escalation / risk acceptance**
+  - AO coordinates with the Risk Executive (Function) on SecCM issues
+  - AO makes final determination whether a given change or set of changes continues to be an acceptable security risk
+  - If change is significant enough that system authorization is in question, meet with AO and System Owner to determine if re-authorization is necessary; **CCB or RE(F) may also be involved**
+- **Exception / unscheduled / unauthorized changes**
+  - Some changes may be **preapproved** or **exempt from configuration control**
+  - If exempt or pre-approved, note this on the change request and allow the change to be made without further analysis or approval
+  - System documentation may still require updating
+  - Unscheduled changes are still managed and controlled
+  - Instructions for handling unscheduled changes and unauthorized changes discovered later are included in configuration change control procedures
+  - Unscheduled changes are reviewed/resolved by the CCB as soon as is practical after they are made
+  - Requirements for retroactive analysis, testing, and approval of changes implemented outside of the change control process are included in procedures
+- **Approval / escalation criteria**
+  - Criteria for changes that are preapproved or exempt from configuration control
+  - Criteria to determine whether a change is significant enough to trigger consideration of system reauthorization activities
+  - Criteria for elevating a change request from system level approval to organizational approval
+  - Requirements for rollback of changes
+  - Requirements for management of unscheduled changes tailored to support expedited reviews and approvals
+
+### Cadence / frequencies / schedules
+- **SecCM monitoring strategy**
+  - Includes a **schedule** for SecCM monitoring and associated reporting
+  - Includes **scheduled and ad hoc assessments**
+  - Monitoring schedule may coincide with scheduled releases such that assessments are performed **before and after deployments**
+  - Schedule includes provisions for reviewing and revising the SecCM monitoring strategy
+- **CCB charter sample**
+  - State the **frequency of regularly scheduled CCB meetings**
+  - State the conditions that trigger a **special meeting**
+- **SecCM policy**
+  - Policies are **periodically reviewed and updated**
+- **Monitoring strategy**
+  - Strategy and procedures are **reviewed and revised** to ensure organizational security requirements continue to be met
+- **Tools**
+  - If automated tools are used for component inventory, procedures may describe **how often they will run**
+- **Tests**
+  - Configuration test environment used for testing IT products, tools, and proposed changes prior to rollout
+  - Virtual environments are recommended for testing secure configurations
+  - Monitoring can coincide with release cycles
+
+### Audit evidence / artifacts / records
+- **SecCM policy records**
+  - Records of configuration management activities to be maintained
+  - Information to be included in each type of record
+  - Who is responsible for writing/keeping the records
+  - Procedures for protecting, accessing, auditing, and ultimately deleting such records
+- **Artifacts explicitly named**
+  - Configuration Management Plan
+  - SecCM Plan
+  - Change requests
+  - Approvals
+  - Security impact analyses
+  - Reporting on SecCM
+  - CCB minutes
+  - Actions to be taken
+  - Assigned responsibilities for actions
+  - Reports generated
+  - Approvals/disapprovals and rationale
+  - System Security Plans
+  - Security Assessment Reports
+  - Security Status Reports
+  - Risk Assessments
+  - Plans of Action & Milestones
+  - Technical designs
+  - Baseline configurations
+  - Component inventory
+  - Configuration change control records
+  - Audit records
+  - Inventory reports
+  - Monitoring reports
+  - Security assessment reports
+  - Output from automated tools
+  - Media library records
+  - Archived baseline configurations
+- **Security impact analysis / monitoring evidence**
+  - Evidence can be produced automatically by SCAP-enabled tools
+  - SCAP-expressed checklists can automatically generate standardized assessment and compliance evidence
+  - Monitoring reports can support metrics and continuous monitoring requirements
+  - Results of monitoring are reported to management
+  - Archived baseline configurations are useful for incident response and traceability support during formal audits
+- **Configuration change control evidence**
+  - Record the change request
+  - Document security impact analysis findings
+  - Document testing results
+  - Document implemented changes to baseline
+  - Retain several iterations of baselines for audit, incident response, and historical purposes
+- **Configuration monitoring evidence**
+  - Systems inconsistent with baseline configuration
+  - Unapproved components
+  - Disparities between approved baseline and actual configuration
+  - Querying audit records/log monitoring to identify unauthorized change events
+  - Reviewing configuration change control records including security impact analyses
+  - Reports used as input to RMF continuous monitoring
+- **Media library**
+  - Stores, protects, and controls all authorized versions of media CIs
+  - May include commercially licensed software, custom-developed software, and other artifacts and documents generated throughout the SDLC
+
+### Templates / forms / headings
+- **Appendix D: Sample Outline for a Security Configuration Management Plan**
+  - **1. INTRODUCTION**
+    - **1.1 BACKGROUND**
+    - **1.2 OVERVIEW OF SYSTEM**
+      - **1.2.1 System Mission**
+      - **1.2.2 Data Flow Description**
+      - **1.2.3 System Architecture**
+      - **1.2.4 System Administration and Management Activities**
+    - **1.3 PURPOSE OF THIS DOCUMENT**
+    - **1.4 SCOPE**
+    - **1.5 APPLICABLE POLICIES AND PROCEDURES**
+  - **2. SecCM PROGRAM**
+    - **2.1 SecCM ROLES AND RESPONSIBILITIES**
+    - **2.2 SecCM PROGRAM ADMINISTRATION**
+      - **2.2.1 SecCM Policies and Procedures (included herein or by reference)**
+      - **2.2.2 Configuration Control Board Functions**
+      - **2.2.3 Establishment of Change Control Board at the Organization Level**
+      - **2.2.4 Establishment of Change Control Board at the System Level**
+      - **2.2.5 Schedules and Resource Requirements**
+    - **2.3 SecCM TOOLS**
+      - **2.3.1 SCM Tools**
+      - **2.3.2 SCM Library**
+    - **2.4 SecCM RETENTION, ARCHIVING, STORAGE AND DISPOSAL**
+  - **3. SecCM ACTIVITIES**
+    - **3.1 CONFIGURATION IDENTIFICATION**
+      - **3.1.1 Types of Configuration Items (CI)**
+      - **3.1.2 Identification Criteria**
+      - **3.1.3 Configuration Item Labeling**
+    - **3.2 CONFIGURATION BASELINING**
+      - **3.2.1 Identification of Applicable Common Secure Configurations**
+      - **3.2.2 Information System Component CI Baselines**
+      - **3.2.3 Non-Component Object CI Baselines**
+    - **3.3 CONFIGURATION CHANGE CONTROL**
+      - **3.3.1 Handling of Scheduled, Unscheduled, and Unauthorized Changes**
+      - **3.3.2 Security Impact Analysis**
+      - **3.3.3 Testing**
+      - **3.3.4 Submission of Findings to the Change Control Board**
+      - **3.3.5 Change Control Board Evaluation and Approval Process**
+      - **3.3.6 Recording Requirements**
+    - **3.4 SecCM MONITORING**
+      - **3.4.1 Organization Level Tools**
+      - **3.4.2 System Level Tools**
+      - **3.4.3 Monitoring Requirements and Frequencies**
+    - **3.5 SecCM REPORTING**
+      - **3.5.1 Report Recipients**
+      - **3.5.2 Reviewing Reports**
+  - **Potential SecCM Plan Appendices**
+    - **CCB Charter**
+    - **Change Request Form Template**
+    - **Security Impact Analysis Report Format**
+    - **References**
+- **Appendix E: Sample Change Request**
+  - **1. Date Prepared**
+  - **2. Title of Change Request**
+  - **3. Change Initiator/Project Manager**
+  - **4. Change Description**
+  - **5. Change Justification**
+  - **6. Urgency of Change: {Scheduled/Urgent/Unscheduled}**
+  - **7. System Components/CIs to be Changed**
+  - **8. Other System Components, CIs, or Systems to Be Affected by Change**
+  - **9. Personnel involved with the Change**
+  - **10. Expected Security Impact of Change**
+  - **11. Expected Functional Impact of Change**
+  - **12. Expected Impact of Not Doing Change**
+  - **13. Potential Interface/Integration Issues**
+  - **14. Required Changes to Existing Applications**
+  - **15. Project work plan including change implementation date, deliverables, and back-out plan**
+  - **16. Funding Required to Implement Change**
+  - **Change Approved/Disapproved (include justification and/or further action to be taken if disapproved)**
+  - **Authorized Signature(s)**
+  - **NOTE: Supporting documentation may be attached to the Change Request.**
+- **Appendix H: CCB Charter Sample**
+  - **PURPOSE**
+  - **SCOPE OF AUTHORITY**
+  - **MEMBERSHIP**
+  - **OPERATING PROCEDURES**
+  - **DECISION-MAKING PROCESS**
+  - **COMMUNICATING STATUS**
+- **Appendix I: Sample Security Impact Analysis Template**
+  - **Table 1: Initiative/Release Background**
+  - **Table 2: Initiative/Release Description and Potential Security Issues**
+  - **Table 3: Change Type Worksheet**
+  - **Table 4: Device Impact Worksheet**
+  - **Table 5: Testing Worksheet**
+  - **Table 6: Analysis Worksheet**
+  - **ATTACHMENT I: SECURITY IMPACT WORKSHEET**
+
+### Table: Appendix I captured fields
+| Table | Fields / headings explicitly stated |
+|---|---|
+| **Table 1: Initiative/Release Background** | Initiative/Release Name; Project Type; System Changes; Baseline Changes; Security Risks; Planned Deployment Initiation Date; Planned Deployment Completion Date; System(s) Impacted by change; Current Security Categorization of Impacted System(s); [Insert initiative/release background info required by the organization as applicable] |
+| **Table 2: Initiative/Release Description and Potential Security Issues** | What are the business requirements driving the change?; Please provide a description of the proposed change(s), including ALL additions, deletions, and modifications.; Is the Technical Lead and/or Project Lead aware of any potential security-related issues or challenges associated with this change? If so, briefly describe them or provide and attachment describing them. |
+| **Table 3: Change Type Worksheet** | Change Type; Applicable? (Mark X if Applicable); Explanation (If Applicable); New network device(s) (e.g., router, switch, firewall, VPN gateway); New server(s); New workstation(s) (desktops or laptops); Other new HW; Decommissioning of existing HW; New virtual server; New OS; Upgrade of existing OS; New COTS application; Upgrade or patch of COTS application; New custom application; Upgrade or bug fix for existing custom application; New DBMS (e.g., Microsoft SQL Server or Oracle); Upgrade of existing DBMS (e.g., Oracle 9i to 10g); Addition of new DB instance; Modification of an existing DB instance (e.g., changes to a table); New or upgraded Middleware application or service; Modifications to ports, protocols, and services used or provided by the system; Changes intended to address security requirements or improve/modify the security of the system (e.g., cryptographic modules, security patch, authentication, authorization, role changes); New information type processed, stored, or transmitted on the system; Interface change (addition/removed); Change of location; Other change |
+| **Table 4: Device Impact Worksheet** | System Name; Device Name; IP Address; Manufacturer; Model; Serial No.; Asset/Component Property ID; OS; Software Description |
+| **Table 5: Testing Worksheet** | Please describe the tests that were conducted against the change?; Please provide a description of the test results for each change (or provide reference to another document with test results). |
+| **Table 6: Analysis Worksheet** | Analysis, Recommendations, and Requirements; [Reviewed by: Name (Title)]; Signature; [Insert relevant role]; [Date] |
+
+### File / appendix-specific fields and controls
+- **Organizational SecCM policy includes**
+  - Purpose
+  - Scope
+  - Roles
+  - Responsibilities
+  - Activities
+  - Common secure configurations
+  - Records
+- **SecCM procedures address**
+  - Templates
+  - Component Inventory
+  - Baseline Configuration
+  - Common Secure Configurations
+  - Patch Management
+  - Configuration Change Control
+  - Help Desk Procedures
+  - SDLC Procedures
+  - Monitoring
+  - Media Library Procedures
+- **Component inventory data elements explicitly listed**
+  - Unique Identifier and/or Serial Number
+  - System of which the component is a part
+  - Type of component
+  - Manufacturer/Model information
+  - Operating System Type and Version/Service Pack Level
+  - Presence of virtual machines
+  - Application Software Version/License information
+  - Physical location
+  - Logical location
+  - Media Access Control (MAC) address
+  - Owner
+  - Operational status
+  - Primary and secondary administrators
+  - Primary user
+  - Status of the component
+  - Relationships to other system components in the inventory
+  - Relationships to/dependencies on other systems
+  - Other systems supported by this component
+  - Identification of any Service-Level Agreements (SLA) that apply to the component
+  - Applicable common secure configurations
+  - Configuration item (CI) of which it is a part
+  - Controls supported by this component
+  - Identification of any incident logs that apply to the component
+- **Configuration item data elements explicitly listed**
+  - The system of which the CI is a part
+  - Logical and/or physical placement within the system
+  - Ownership and management information
+  - Inventory of system components that makes up the CI
+  - Inventory of documentation that makes up the CI
+  - Version numbers for components and non-component objects
+  - Relationship to/dependencies on other CIs within the system
+  - Information related to custom software used within the CI
+  - IT products or components common secure configurations
+  - Any other information needed to rebuild or reconstitute the CI
+- **SCAP-enabled evidence / components**
+  - Extensible Configuration Checklist Description Format (XCCDF) 1.2
+  - Open Vulnerability and Assessment Language (OVAL) 5.11.2
+  - Open Checklist Interactive Language (OCIL) 2.0
+  - Asset Reporting Format (ARF) 1.1
+  - Asset Identification 1.1
+  - Common Platform Enumeration (CPE) 2.3
+  - Software Identification (SWID) Tags 2015
+  - Common Configuration Enumeration (CCE) 5
+  - Common Vulnerabilities and Exposures (CVE)
+  - Common Vulnerability Scoring System (CVSS) 3
+  - Common Configuration Scoring System (CCSS) 1.0
+  - Trust Model for Security Automation Data (TMSAD) 1.0
+- **Automation / reporting requirements**
+  - At minimum, organizations consider tools that can automatically assess configuration settings of system components
+  - Select automated tools that can scan different system components running different operating systems, identify current configuration settings, and indicate where current settings are noncompliant with policy
+  - Tools may integrate with help desk, inventory management, incident response, SIEM, dashboard products
+  - Standardized reporting capability including ability to tailor output and drill down
+  - Data consolidation into SIEM tools and dashboard products
+  - Automated tools can facilitate reporting for Security Information and Event Management applications
+  - Normalize data to combine, correlate, analyze, and report monitoring outputs consistently
+
+### Fields captured in monitoring / analysis / reporting
+- **Monitoring reconciliation questions**
+  - Who made the change
+  - Whether the change occurred in a scheduled maintenance window
+  - Whether the change matches a previously detected and approved change
+  - Whether the change corresponds with an approved change request, help desk ticket, or product release
+- **Monitoring metrics examples**
+  - Percentage of systems implemented in accordance with approved baselines
+  - Percentage of IT products configured in accordance with organizationally defined common secure configurations
+  - Percentage of system changes subjected to security impact analyses
+- **Security impact analysis worksheet questions**
+  - AC
+  - AT
+  - AU
+  - CM
+  - IA
+  - MA
+  - MP
+  - PE
+  - SC
+  - SI
+
+### Security / compliance task execution specifics
+- **Secure configuration establishment may include**
+  - Secure values for OS and application features
+  - Services and ports
+  - Network protocols and network interfaces
+  - Methods of remote access
+  - Access controls
+  - Management of identifiers/accounts
+  - Authentication controls
+  - Audit settings
+  - System settings
+  - Cryptography using [FIPS 140-3]-validated cryptographic protocols and algorithms
+  - Vendor-released patches in response to vulnerabilities
+  - Approved, signed software, if supported
+  - Safeguards through software for endpoint machines
+  - Network protections
+  - Physical/logical location of component
+  - Maintaining technical specification and design documentation, system security documentation, system procedures
+- **Configuration change control steps**
+  - Request the change
+  - Record the request for the proposed change
+  - Determine if the proposed change requires configuration control
+  - Analyze the proposed change for its security impact on the system
+  - Test the proposed change for security and functional impacts
+  - Approve the change
+  - Implement the approved change
+  - Verify that the change was implemented correctly
+  - Close out the change request
+- **Security impact analysis steps**
+  - Understand the change
+  - Identify vulnerabilities
+  - Assess risks
+  - Assess impact on existing security controls
+  - Plan safeguards and countermeasures
+- **Monitoring activities**
+  - Scanning to discover components not recorded in the inventory
+  - Scanning to identify disparities between the approved baseline configuration and the actual configuration for a system
+  - Implementation of automated change monitoring tools
+  - Querying audit records/log monitoring to identify unauthorized change events
+  - Running system integrity checks
+  - Reviewing configuration change control records including security impact analyses
+  - Taking remedial action such as quarantining unregistered device(s), blocking insecure protocols, sending alerts, rolling back changes, restoring from backups, updating inventory, updating baseline configurations
+
+### Notifications / communication
+- **SecCM Program Manager**
+  - Facilitates communications regarding SecCM policies, procedures, issues, etc., within the organization
+  - Considers security information management console or “dashboard”
+  - Considers Web site updates, emails, and newsletters
+- **CCB sample charter “COMMUNICATING STATUS”**
+  - Communicate each decision to:
+    - the individual who requested the change
+    - senior management
+    - project management
+    - affected team members who must implement the change
+    - higher- or lower-level CCBs
+    - any other stakeholders
+  - Indicate where decisions and supporting information, rationale, or data will be stored
+
+### Absence notes
+- **No SLAs, severity bands, or response-time SLAs** are stated for operational handling.
+- **No ticket workflow system names** are stated beyond help desk, email, paper-based requests, and automated tools.
+- **No explicit remediation POA&M workflow** is defined beyond Plans of Action & Milestones being updated in record-and-archive activities.

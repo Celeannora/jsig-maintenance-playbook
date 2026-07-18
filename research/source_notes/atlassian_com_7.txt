@@ -1,0 +1,200 @@
+URL: https://www.atlassian.com/incident-management/incident-response/how-to-create-an-incident-response-playbook
+TITLE: How to create an incident response playbook
+ERROR: None
+
+## Incident response playbook structure and SOP content
+
+### Purpose and uses
+- Incident response playbooks are described as:
+  - Standard procedures and steps for responding and resolving incidents in real time.
+  - Including peacetime training and exercises to prepare the team for the next incident.
+- Playbooks are a key component of DevOps and IT Ops incident management, as well as cybersecurity.
+- Playbooks set the organization’s policies and practices for responding to unplanned outages.
+- Playbooks help teams bring order to chaos and make sure everyone responds to incidents and security threats consistently.
+- An incident management handbook gives the team a set of processes for responding to, resolving, and learning from every incident, whether it is a security issue or another emerging vulnerability.
+- Content can include:
+  - runbooks
+  - checklists
+  - templates
+  - training exercises
+  - security attack scenarios
+  - simulation drills
+
+### The article’s 5 incident response playbook steps
+1. Define incidents for your organization
+2. Establish predesignated roles
+3. Enforce a consistent process
+4. Enable rapid response
+5. Facilitate comprehensive postmortems
+
+## Definitions and incident scope
+
+### “What is an Incident?”
+- An incident is defined as:
+  - an event that causes disruption to or a reduction in the quality of a service which requires an emergency response
+- Teams who follow ITIL or ITSM practices may use the term:
+  - “major incident”
+
+### Resolution and postmortem boundary
+- An incident is resolved when the affected service resumes functioning in its usual way.
+- This includes only tasks required to restore full functionality.
+- This excludes follow-on tasks such as:
+  - root cause identification
+  - mitigation
+- Those excluded tasks are part of the postmortem.
+- The incident postmortem is done after the incident to:
+  - determine the root cause
+  - assign actions to ensure it is addressed before it can cause a repeat incident
+
+## Roles and responsibilities
+
+### Roles used at Atlassian
+| Role | Responsibility |
+|---|---|
+| Incident Manager | Has overall responsibility and authority for the incident. Empowered to take any action necessary to resolve the incident, which includes paging additional responders in the organization and keeping those involved in an incident focused on restoring service as quickly as possible. |
+| Tech Lead | A senior technical responder. Responsible for developing theories about what is broken and why, deciding on changes, and running the technical team. Works closely with the incident manager. |
+| Communications Manager | A person familiar with public communications, possibly from the customer support team or public relations. Responsible for writing and sending internal and external communications. |
+
+### Role design intent
+- Roles and responsibilities are designated to ensure:
+  - all necessary steps are covered
+  - no duplicate work occurs
+  - communication runs smoothly and effectively
+- Individuals on the incident response team are familiar with each role and know what they are responsible for during an incident.
+
+## Process structure, phases, and flow
+
+### Consistent process guidance
+- Outline key steps and phases.
+- Make sure team members are clear on:
+  - what is expected during each phase
+  - what comes next
+- Atlassian outlines the incident response flow over:
+  - seven steps
+  - three phases
+- The flow is intended to drive the incident from:
+  - detection
+  - to resolution
+
+### Process description
+- As a new incident is detected:
+  - the incident manager begins initiating internal communication
+  - the incident manager begins response organization
+- Then the team works on:
+  - fixing the cause of the incident
+  - reaching a resolution
+- Strong organization in this stage facilitates action, which is powered by frequent communication.
+- Adhering to a consistent process leads to:
+  - faster resolution
+  - a postmortem exercise
+
+## Templates, checklists, and rapid-response aids
+
+### Rapid response guidance
+- Incident playbooks need to be simple enough for teams to follow in times of stress.
+- Atlassian’s process includes a major incident manager “cheat sheet.”
+- The cheat sheet outlines key steps like:
+  - assessment
+  - escalation
+  - delegation
+- The cheat sheet is in a one-page format.
+
+### Play / training reference
+- Try running an Incident Response Values play.
+- Purpose:
+  - improve team cohesiveness
+  - work out potential misunderstandings prior to an incident
+- Use the Atlassian Team Playbook to better understand the team’s process in order to build a dynamic playbook.
+
+## Postmortem and remediation records
+
+### Postmortem purpose
+- A postmortem seeks to maximize the value of an incident by:
+  - understanding all contributing causes
+  - documenting the incident for future reference and pattern discovery
+  - enacting effective preventative actions to reduce the likelihood or impact of recurrence
+
+### Postmortem methods used at Atlassian
+- Face-to-face meetings
+  - help drive appropriate analysis
+  - align the team on what needs fixing
+- Postmortem approvals
+  - by delivery and operations team managers
+  - incentivize teams to do them thoroughly
+- Designate priority actions
+  - with assigned Service Level Objectives (SLO)
+  - with reminders and reports to ensure they are completed
+
+### Postmortem reference
+- A step-by-step outline of the Atlassian incident response postmortem can be found on:
+  - page 46 of the Incident Management Handbook
+
+## Audit evidence / artifacts explicitly mentioned
+- Incident Management Handbook
+- major incident manager “cheat sheet”
+- Incident Response Values play
+- Atlassian Team Playbook
+- postmortem documentation
+- reminders and reports for assigned priority actions with SLO
+- page 46 of the Incident Management Handbook for the postmortem outline
+
+## Cadence, frequency, and timing
+- Peacetime training and exercises are included in playbooks.
+- Incident teams are constantly:
+  - training
+  - refining
+  - testing
+  - improving
+- Frequent communication is emphasized during incident response.
+- “No one has time to debate best practices” when an incident occurs.
+- There are no explicit recurring frequencies, schedules, or SLA values stated beyond:
+  - assigned Service Level Objectives (SLO)
+  - reminders and reports to ensure completion
+
+## POA&M / remediation tracking
+- The page does not explicitly use the terms POA&M, remediation record, or ticketing system.
+- What is available:
+  - postmortem assigns actions
+  - priority actions are designated
+  - actions are assigned Service Level Objectives (SLO)
+  - reminders and reports ensure completion
+
+## Fields captured / issue fields
+- The page states that the postmortem includes:
+  - outline of the postmortem process
+  - issue fields
+- No specific issue field names are listed in the page.
+
+## Escalation and exception handling
+- The major incident manager cheat sheet outlines:
+  - assessment
+  - escalation
+  - delegation
+- Incident Manager may page additional responders in the organization.
+- The playbook should be flexible and adapt to changing situations.
+- Incidents are scenarios where things do not go according to plan.
+
+## Directly stated numbered/structured content
+
+### Atlassian’s 5 best practices for managing an incident
+1. Define incidents for your organization
+2. Establish predesignated roles
+3. Enforce a consistent process
+4. Enable rapid response
+5. Facilitate comprehensive postmortems
+
+### Atlassian incident response flow
+- Seven steps
+- Three phases
+- Drives the incident from detection to resolution
+
+### Page/handbook references
+- Incident Management Handbook
+- Page 46 of the Incident Management Handbook contains a step-by-step outline of the incident response postmortem
+
+## Missing explicit details
+- No explicit ticket templates are provided.
+- No explicit RACI matrix is provided.
+- No explicit recurring cadence, schedule, or frequency values are provided.
+- No explicit severity levels are provided.
+- No explicit SLA values are provided beyond SLO mention.

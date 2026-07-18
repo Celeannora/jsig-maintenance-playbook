@@ -1,0 +1,205 @@
+URL: https://www.irs.gov/pub/safeguard/iir-template.pdf
+TITLE: [PDF] Internal Inspections Report - IRS
+ERROR: None
+
+- **Document title:** Internal Inspections Report - IRS
+- **Template name:** Internal Inspection Template
+- **Required location fields**
+  - Type of Office:
+  - Physical Address:
+  - Prepared by:
+  - Date:
+
+- **Required signature/acknowledgment fields**
+  - Official Conducting Internal Inspection
+  - Date
+  - Head of Location Being Reviewed
+  - Date
+  - Agency Reviewer
+  - Date
+
+- **Purpose / overall objective**
+  - “To measure the level of compliance with Federal disclosure regulations as defined in Pub 1075 and as documented in agency policies and procedures.”
+
+- **Instructions / recurring compliance task execution**
+  - Agencies are required to conduct internal inspections as part of their compliance with Publication 1075.
+  - The questions serve as an agency internal inspection checklist to identify security procedures and federal security implementation for protecting Federal Tax Information.
+  - Document provides:
+    - High level questions related directly to Pub 1075 requirements
+    - Pub 1075 references
+    - Pass/Fail/NA: To notate agency compliance
+    - Notes: Location for additional comments specific to the question
+  - The agency should complete the contact information below for all parties involved in supplying information for this Internal Inspection.
+    - Name
+    - Title
+    - E-mail
+  - Below, please supply the requested information for the Plan of Action and Milestones (POA&M) created as a result of the findings from this Internal Inspection.
+    - Date (POA&M) created:
+    - Date all Findings from POA&M Remediated:
+
+- **RACI / role responsibilities**
+  - Official Conducting Internal Inspection
+    - submits Internal Inspection Report to the headquarters function of this agency as part of the IRS Safeguards Internal Inspections requirement
+  - Head of Location Being Reviewed
+    - acknowledges review of the Internal Inspection Report
+    - initiates appropriate corrective actions for any deficiencies identified
+  - Agency Reviewer
+    - acknowledges review of the Internal Inspection Report
+
+- **Phases / sections / objectives**
+  - I. Preliminary
+    - Objective: To obtain a general understanding of safeguarding of Federal Taxpayer Information (FTI) in areas being reviewed.
+  - II. Record Keeping Requirements (Publication 1075 section 2.A) IRC Section 6103 p 4 A
+    - Objective: To ascertain that adequate policies, procedures, and systems are in place to identify, store, protect, and track FTI from receipt to destruction.
+  - III. Secure Storage (Publication 1075 section 2.B) IRC Section 6103 p 4 B
+    - Objective: To ascertain adequate security of the building or section of building where the FTI is located.
+  - IV. Restricting Access (Publication 1075 section 2.C) IRC Section 6103(p)(4)(C)
+    - Objective: To determine whether access to FTI is adequately controlled and restricted.
+  - V. Disposing Federal Taxpayer Information Publication 1075 section 2.F IRC Section 6103 p 4 F
+    - Objective: To determine if FTI is disposed of properly.
+  - VI. Cybersecurity Requirements
+    - Objective: To determine if information technology security and privacy requirements are met to adequately protect FTI.
+  - VI. Conclusion
+    - A. The agency must implement a process for ensuring that a POA&M is developed and monitored in accordance with Pub 1075.
+    - B. Complete Internal Inspection Report
+    - C. Retain Internal Inspection Report for 5 years
+
+- **Checklist / operational questions and fields captured**
+
+| Section | Item | Required information / question |
+|---|---|---|
+| I. Preliminary | A | Complete the Internal Inspection Document |
+| I. Preliminary | B | Obtain and review a copy of last internal inspection report. Follow up on open items from the previous inspection. |
+| I. Preliminary | C | Obtain a list of all FTI (paper/electronic) housed at this location |
+| I. Preliminary | C | Paper FTI received/created |
+| I. Preliminary | C | Electronic FTI received/created |
+| I. Preliminary | D | Obtain and review a list of all employees/contractors with authorized access to FTI. The list must contain: |
+| I. Preliminary | D | FTI access by individual name |
+| I. Preliminary | D | Use of access by individual name |
+| I. Preliminary | E | Obtain and review the policies and procedures for safeguarding FTI. |
+| II. Record Keeping Requirements | A | Is the paper FTI recorded/tracked in accordance with Pub 1075? |
+| II. Record Keeping Requirements | B | Is the electronic FTI recorded/tracked in accordance with Pub 1075? |
+| II. Record Keeping Requirements | C | Does the agency disclose to state auditors? If the agency discloses to state auditors, do the agency log in accordance with Pub 1075? |
+| II. Record Keeping Requirements | D | Does the agency retain the FTI logs in accordance with Pub 1075? |
+| III. Secure Storage | A | Does the physical security provide two barriers to prevent unauthorized access to FTI? (in accordance with Pub 1075 requirements for Minimum Protection Standards-MPS) |
+| III. Secure Storage | B | Does the agency follow the requirements for visitor access logs in accordance with Pub 1075 for areas containing FTI? Are visitor logs closed and reviewed at least monthly in accordance with Pub 1075? |
+| III. Secure Storage | C | Does the agency use an authorized access list (AAL) for access to FTI? Is the AAL maintained in accordance with Pub 1075? |
+| III. Secure Storage | D | Are non-AAL visitors escorted in accordance with Pub 1075? |
+| III. Secure Storage | E | Review physical security and key/combination/electronic controls and verify they are in accordance with Pub 1075. |
+| III. Secure Storage | F | Are records on key/combination/electronic access cards maintained in accordance with Pub 1075? |
+| III. Secure Storage | G | Are authorized personnel required to wear an identification badge when serving as a secondary barrier for FTI in accordance with Pub 1075? |
+| III. Secure Storage | H | Is FTI safeguarded in accordance with Pub 1075 when in transit (offsite storage, other offices, etc.)? |
+| III. Secure Storage | I | Is the FTI, sent to an offsite storage facility, protected from access by unauthorized individuals at all times? (If the answer is no, offsite storage facility must be reviewed.) |
+| III. Secure Storage | J | Are employees allowed to work at an alternate work site? Is the FTI, at the alternate work site, safeguarded in accordance with Pub 1075? |
+| III. Secure Storage | K | Does the agency retain ownership and control of all hardware, software and end-point equipment receiving, storing, processing or transmitting FTI? If the answer is no, is the agency using Virtual Desktop Infrastructure (VDI)? |
+| IV. Restricting Access | A | Is access to FTI restricted to only authorized personnel who have a need to know? |
+| IV. Restricting Access | B | Is all FTI clearly labeled “Federal Tax Information” in accordance with Pub 1075 (paper and electronic)? |
+| IV. Restricting Access | C | Has the agency initiated background investigations for all employees and contractors with access to FTI in accordance with Pub 1075? |
+| IV. Restricting Access | D | Is FTI commingled with other information? Can FTI within agency records be located and separated easily? |
+| IV. Restricting Access | E | Is FTI disclosed to personnel outside of the agency (contractors, other agencies, etc.)? Are the disclosures tracked in accordance with Pub 1075? List personnel/offices (which FTI is disclosed). |
+| IV. Restricting Access | F | Are personnel following the agency policy for transmitting FTI via email? (policy in preliminary section) |
+| IV. Restricting Access | G | Are personnel following the agency policy for transmitting FTI via fax? (policy in preliminary section) |
+| V. Disposing Federal Taxpayer Information | A | Does the agency return FTI to the IRS when no longer needed? |
+| V. Disposing Federal Taxpayer Information | B | Does the agency destroy paper FTI in accordance with Pub 1075? |
+| V. Disposing Federal Taxpayer Information | C | Does the agency destroy electronic FTI in accordance with Pub 1075? |
+| V. Disposing Federal Taxpayer Information | D | Does the agency sanitize physical media containing FTI before it leaves the physical or systemic control of the agency? |
+| V. Disposing Federal Taxpayer Information | E | Does the agency ensure FTI is not disclosed during disposal processes? |
+| VI. Cybersecurity Requirements | A | Does the agency perform vulnerability assessments in accordance with Pub 1075? |
+| VI. Cybersecurity Requirements | B | Does the agency require multi-factor authentication for remote access in accordance with Pub 1075? |
+| VI. Cybersecurity Requirements | C | Does the agency encrypt FTI in the LAN in accordance with Pub 1075? Provide a description of how the FTI is encrypted. |
+| VI. Cybersecurity Requirements | D | Does the agency follow the process for changes to information systems in accordance with Pub 1075? |
+| VI. Cybersecurity Requirements | E | Does the agency manage their information accounts in accordance with Pub 1075? |
+| VI. Cybersecurity Requirements | F | Does the agency implement auditing procedures on information systems in accordance with Pub 1075? |
+| VI. Cybersecurity Requirements | G | Does the agency manage information system authenticators in accordance with Pub 1075? |
+| VI. Cybersecurity Requirements | H | Does the agency have standard baseline configurations for information systems processing FTI in accordance with Pub 1075? |
+| VI. Cybersecurity Requirements | I | Does the agency maintain active vendor support for all devices on its network? |
+| VI. Cybersecurity Requirements | J | Does the agency have a current inventory of all information system components in accordance with Pub 1075? |
+| VI. Cybersecurity Requirements | K | Does the agency maintain a Plan of Action and Milestones (POA&M) in accordance with Pub 1075? |
+| VI. Cybersecurity Requirements | L | Does the agency assess the security controls in the information system and its environment in accordance with Pub 1075? |
+
+- **Publication 1075 references explicitly stated**
+  - Section 2.D.3
+  - Section 2.D.9
+  - Section 1.0
+  - Section 1.2
+  - Section 2.A
+  - Section 2.A.2
+  - Section 2.A.4
+  - Exhibit 9
+  - Section 2.B
+  - Section 2.B.2
+  - Section 2.B.3
+  - Section 2.B.3.2
+  - Section 2.B.3.4
+  - Sections 2.B.3.3
+  - 2.B.3.5
+  - Section 2.B.4
+  - Section 2.B.6
+  - Section 2.B.7
+  - Sections 2.B.7.1
+  - 3.3.7
+  - Section 2.C.1
+  - Sections 2.C.5
+  - 2.C.5.1
+  - 2.C.6
+  - Section 3.3.2
+  - Section 3.3.3
+  - Section 2.F
+  - Sections 2.F.1
+  - 2.F.2
+  - Sections 2.F.3
+  - 2.F.4
+  - Section 3.0
+  - Section 4.16 RA-5
+  - Section 4.1 AC-17
+  - 4.7 IA-2
+  - 4.9 MA-4
+  - 4.18 SC-13
+  - 4.18 SC-28
+  - Section 4.5 CM-3
+  - Section 4.2 AC-2
+  - Section 4.3
+  - Section 4.7 IA-5
+  - Section 4.5 CM-2
+  - Section 4.17 SA-22
+  - Section 4.5 CM-8
+  - Section 4.4 CA-5
+  - Section 4.4 CA-2
+
+- **Audit evidence / artifacts / records to obtain or review**
+  - Copy of last internal inspection report
+  - List of all FTI (paper/electronic) housed at this location
+    - Paper FTI received/created
+    - Electronic FTI received/created
+  - List of all employees/contractors with authorized access to FTI
+    - FTI access by individual name
+    - Use of access by individual name
+  - Policies and procedures for safeguarding FTI
+  - FTI logs
+  - Visitor access logs
+  - Authorized access list (AAL)
+  - Physical security and key/combination/electronic controls
+  - Records on key/combination/electronic access cards
+  - Documentation of disclosures to personnel outside of the agency
+    - personnel/offices (which FTI is disclosed)
+  - Description of how the FTI is encrypted
+  - POA&M
+    - Date (POA&M) created
+    - Date all Findings from POA&M Remediated
+  - Internal Inspection Report retained for 5 years
+
+- **Cadence / frequency / timing**
+  - Visitor logs are closed and reviewed at least monthly
+  - Internal Inspection Report retained for 5 years
+
+- **Escalation / exception handling**
+  - If the answer is no, offsite storage facility must be reviewed.
+  - The Head of Location Being Reviewed initiates appropriate corrective actions for any deficiencies identified.
+  - The agency must implement a process for ensuring that a POA&M is developed and monitored in accordance with Pub 1075.
+
+- **Status / completion fields**
+  - Pass/Fail/N/A
+  - Notes
+
+- **Absence**
+  - No specific severity values or SLA values are stated on the page.

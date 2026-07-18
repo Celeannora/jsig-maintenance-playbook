@@ -1,0 +1,109 @@
+URL: https://learn.microsoft.com/en-us/security/operations/incident-response-planning
+TITLE: Incident response planning | Microsoft Learn
+ERROR: None
+
+## Operational runbook / SOP structure
+- Use this table as a checklist to prepare your Security Operations Center (SOC) to respond to cybersecurity incidents.
+
+| Done | Activity | Description | Benefit |
+|--|--|--|--|
+|  | Table top exercises | Conduct periodic table top exercises of foreseeable business-impacting cyber incidents that force your organization's management to contemplate difficult risk-based decisions. | Firmly establishes and illustrates cybersecurity as a business issue. Develops muscle memory and surfaces difficult decisions and decisions rights issues across the organization. |
+|  | Determine pre-attack decisions and decision-makers | As a complement to table top exercises, determine risk-based decisions, criteria for making decisions, and who must make and execute those decisions. For example: Who/when/if to seek assistance from law enforcement? Who/when/if to enlist incident responders? Who/when/if to pay ransom? Who/when/if to notify external auditors? Who/when/if to notify privacy regulatory authorities? Who/when/if to notify securities regulators? Who/when/if to notify board of directors or audit committee? Who has authority to shut down mission-critical workloads? | Defines the initial response parameters and contacts to involve that streamline the response to an incident. |
+|  | Maintaining privilege | Typically, advice can be privileged, but facts are discoverable. Train key incident leaders in communicating advice, facts and opinions under privilege so that privilege is preserved and risk is reduced. | Maintaining privilege can be a messy process when considering the multitude of communications channels, including e-mail, collaboration platforms, chats, documents, artifacts. For example, you can use Microsoft Teams Rooms. A consistent approach across incident personnel and supporting external organizations can help reduce any potential legal exposure. |
+|  | Insider trading considerations | Contemplate notifications to management that should be taken to reduce securities violations risk. | Boards and external auditors tend to appreciate that you have mitigations that will reduce the risk of questionable securities trades during periods of turbulence. |
+|  | Incident roles and responsibilities playbook | Establish basic roles and responsibilities that allow various processes to maintain focus and forward progress. When your response team is remote, it can require other considerations for time zones and proper handoff to investigators. You might have to communicate across other teams that might be involved, such as vendor teams. | **Technical Incident Leader** – Always in the incident, synthesizing inputs and findings and planning next actions. **Communications Liaison** – Removes the burden of communicating to management from the Technical Incident Leader so they can remain involved in the incident without loss of focus. This activity should include managing executive messaging and interactions with other third parties such as regulators. **Incident Recorder** – Removes the burden of recording findings, decisions, and actions from an incident responder and produces an accurate accounting of the incident from beginning to end. **Forward Planner** – Working with mission-critical business process owners, formulates business continuity activities and preparations that contemplate information system impairment that lasts for 24, 48, 72, 96 hours, or more. **Public Relations** – In the event of an incident that is likely to garner public attention, with Forward Planner, contemplates and drafts public communication approaches that address likely outcomes. |
+|  | Privacy incident response playbook | To satisfy increasingly strict privacy regulations, develop a jointly owned playbook between SecOps and the privacy office. This playbook will allow rapid evaluation of potential privacy issues that might arising out of security incidents. | It's difficult to evaluate security incidents for their potential to impact privacy because most security incidents arise in a highly technical SOC. The incidents must quickly get surfaced to a privacy office (often with a 72-hour notification expectation) where regulatory risk is determined. |
+|  | Penetration testing | Conduct point-in-time simulated attacks against business-critical systems, critical infrastructure, and backups to identify weaknesses in security posture. Typically, this activity is conducted by a team of external experts focused on bypassing preventative controls and surfacing key vulnerabilities. | In light of recent human-operated ransomware incidents, penetration testing should be conducted against an increased scope of infrastructure, particularly the ability to attack and control backups of mission-critical systems and data. |
+|  | Red Team / Blue Team / Purple Team / Green Team | Conduct continuous or periodic simulated attacks against business-critical systems, critical infrastructure, backups to identify weaknesses in security posture. Typically, this activity is conducted by internal attack teams (Red teams) who are focused on testing the effectiveness of detective controls and teams (Blue teams). For example, you can use Attack simulation training in Microsoft Defender XDR for Office 365 and Attack tutorials & simulations for Microsoft Defender XDR for Endpoint. | Red, Blue, and Purple team attack simulations, when done well, serve a multitude of purposes: - Allows engineers from across the IT organization to simulate attacks on their own infrastructure disciplines. - Surfaces gaps in visibility and detection. - Raises the security engineering skills across the board. - Serves as a more continuous and expansive process. The Green Team implements changes in IT or security configuration. |
+|  | Business continuity planning | For mission-critical business processes, design and test continuity processes that allow the minimum viable business to function during times of information systems impairment. For example, use an Azure backup and restore plan to protect your critical business systems during an attack to ensure a rapid recovery of your business operations. | - Highlights the fact that there's no continuity workaround for the impairment or absence of IT systems. - Can emphasize the need and funding for sophisticated digital resilience over simpler backup and recovery. |
+|  | Disaster recovery | For information systems that support mission-critical business processes, you should design and test hot/cold and hot/warm backup and recovery scenarios, including staging times. | Organizations that conduct bare metal builds often find activities that are impossible to replicate or don't fit into the service level objectives. Mission-critical systems running on unsupported hardware many times can't be restored to modern hardware. Restore of backups is often not tested and experiences issues. Backups may be further offline such that staging times haven't been factored into recovery objectives. |
+|  | Out-of-band communications | Prepare for how you would communicate in the the following scenarios: - Email and collaboration service impairment - Ransom of documentation repositories - Unavailability of personnel phone numbers. | Although it's a difficult exercise, determine how to store important information immutably in off-line devices and locations for distribution at scale. For example: - Phone numbers - Topologies - Build documents - IT restoration procedures |
+|  | Hardening, hygiene, and lifecycle management | In line with Center for Internet Security (CIS) Top 20 security controls, harden your infrastructure and perform thorough hygiene activities. | In response to recent human-operated ransomware incidents, Microsoft has issued specific guidance for protecting every stage of the cyberattack kill chain. This guidance applies to Microsoft capabilities or the capabilities of other providers. Of particular note are: - The creation and maintenance of immutable backup copies in the event of ransomed systems. You might also consider how to keep immutable log files that complicate the attacker's ability to cover their tracks. - Risks related to unsupported hardware for disaster recovery. |
+|  | Incident response planning | At the outset of the incident, decide on: - Important organizational parameters. - Assignment of people to roles and responsibilities. - The sense-of-urgency (such as 24x7 and business hours). - Staff for sustainability for the duration. | There's a tendency to throw all available resources at an incident in the beginning, in the hope of a quick resolution. Once you recognize or anticipate that an incident will go for an extended period of time, take on a different posture that with your staff and suppliers that allows them to settle in for a longer haul. |
+|  | Incident responders | Establish clear expectations with one another. A popular format of reporting ongoing activities includes: - What have we done (and what were the results)? - What are we doing (and what results will be produced and when)? - What do we plan to do next (and when is it realistic to expect results)? | Incident responders come with different techniques and approaches, including dead box analysis, big data analysis, and the ability to produce incremental results. Starting with clear expectations will facilitate clear communications. |
+
+## RACI / role responsibilities
+- **Technical Incident Leader** – Always in the incident, synthesizing inputs and findings and planning next actions.
+- **Communications Liaison** – Removes the burden of communicating to management from the Technical Incident Leader so they can remain involved in the incident without loss of focus. This activity should include managing executive messaging and interactions with other third parties such as regulators.
+- **Incident Recorder** – Removes the burden of recording findings, decisions, and actions from an incident responder and produces an accurate accounting of the incident from beginning to end.
+- **Forward Planner** – Working with mission-critical business process owners, formulates business continuity activities and preparations that contemplate information system impairment that lasts for 24, 48, 72, 96 hours, or more.
+- **Public Relations** – In the event of an incident that is likely to garner public attention, with Forward Planner, contemplates and drafts public communication approaches that address likely outcomes.
+
+## Cadence / frequency
+- **Periodic** table top exercises
+- **Point-in-time** simulated attacks
+- **Continuous or periodic** simulated attacks
+- **72-hour notification expectation** for privacy office surface-up, as stated
+- Incident response planning at the **outset of the incident**
+- Forward Planner preparations for impairment lasting **24, 48, 72, 96 hours, or more**
+
+## Audit evidence / artifacts
+- Advice
+- Facts
+- Opinions under privilege
+- E-mail
+- Collaboration platforms
+- Chats
+- Documents
+- Artifacts
+- Executive messaging
+- Interactions with other third parties such as regulators
+- Findings
+- Decisions
+- Actions
+- Accurate accounting of the incident from beginning to end
+- Important information stored immutably in off-line devices and locations
+- Phone numbers
+- Topologies
+- Build documents
+- IT restoration procedures
+
+## Escalation / exception handling
+- Determine pre-attack decisions and decision-makers for:
+  - seek assistance from law enforcement
+  - enlist incident responders
+  - pay ransom
+  - notify external auditors
+  - notify privacy regulatory authorities
+  - notify securities regulators
+  - notify board of directors or audit committee
+  - authority to shut down mission-critical workloads
+- Privacy incidents should quickly get surfaced to a privacy office; stated as often with a **72-hour notification expectation**
+- Out-of-band communications scenarios:
+  - Email and collaboration service impairment
+  - Ransom of documentation repositories
+  - Unavailability of personnel phone numbers
+
+## Template headings / reporting structure
+- A popular format of reporting ongoing activities includes:
+  - What have we done (and what were the results)?
+  - What are we doing (and what results will be produced and when)?
+  - What do we plan to do next (and when is it realistic to expect results)?
+
+## Fields captured
+- Important organizational parameters
+- Assignment of people to roles and responsibilities
+- Sense-of-urgency (**24x7 and business hours**)
+- Staff for sustainability for the duration
+- Risk-based decisions
+- Criteria for making decisions
+- Who must make and execute those decisions
+- Results
+- When results will be produced
+- When it is realistic to expect results
+
+## Tables
+### Key Microsoft security resources
+
+| Resource | Description |
+|--|--|
+| 2021 Microsoft Digital Defense Report | A report that encompasses learnings from security experts, practitioners, and defenders at Microsoft to empower people everywhere to defend against cyberthreats. |
+| Microsoft Cybersecurity Reference Architectures | A set of visual architecture diagrams that show Microsoft's cybersecurity capabilities and their integration with Microsoft cloud platforms such as Microsoft 365 and Microsoft Azure and third-party cloud platforms and apps. |
+| Minutes matter infographic download | An overview of how Microsoft's SecOps team does incident response to mitigate ongoing attacks. |
+| Azure Cloud Adoption Framework security operations | Strategic guidance for leaders establishing or modernizing a security operation function. |
+| Microsoft security best practices for security operations | How to best use your SecOps center to move faster than the attackers targeting your organization. |
+| Microsoft cloud security for IT architects model | Security across Microsoft cloud services and platforms for identity and device access, threat protection, and information protection. |
+| Microsoft security documentation | Additional security guidance from Microsoft. |
+
+## Explicit absence
+- No POA&M or remediation records are provided.

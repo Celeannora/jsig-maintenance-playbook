@@ -1,0 +1,23 @@
+URL: https://sre.google/workbook/part-II-practices/
+TITLE: Part II - Practices
+ERROR: None
+
+- **Operational runbook/SOP structure:** Not present on the page.
+- **Recurring security/compliance task execution:** Not present on the page.
+- **Audit evidence/artifacts:** Not present on the page.
+- **POA&M or remediation records:** Not present on the page.
+- **RACI/role responsibilities:** Not present on the page.
+- **Task/ticket/playbook templates:** Not present on the page.
+- **Escalation/exception handling:** Not present on the page.
+- **Cadence:** Not present on the page.
+- **Fields captured:** Not present on the page.
+
+### Extracted information available
+- **Page title:** Part II - Practices
+- **Heading:** Part II. Practices
+- **Content described:**
+  - “Building upon the solid foundation of SRE principles covered in Foundations, Part II dives deep into how to conduct SRE-related activities that Google has found important for operating at scale.”
+  - “Some of these topics, such as data processing pipelines and managing load, won’t apply to all organizations.”
+  - “Other topics, such as safely handling changes with configuration and canarying, on-call practices, and what to do when things go wrong, contain valuable lessons for any SRE team.”
+  - “This part also introduces an important SRE skill—Non-Abstract Large System Design (NALSD)—and presents a detailed example of how to practice this design process.”
+  - “As we move from SRE foundations to practices, we wanted to provide a bit more context on the relationship between operational duties and project work, and the engineering it takes to accomplish both strategically.”

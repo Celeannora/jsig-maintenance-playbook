@@ -6,3 +6,8 @@ Thumbs.db
 # Python cache (from research scripts, if re-run)
 __pycache__/
 *.pyc
+
+# Full-catalog CVE mirror (built by cve_reference_builder.py mirror/mirror-update) --
+# hundreds of MB at full scale, local-only cache, never committed. The small curated
+# execution-plan/tools/data/cve_reference.json (built by fetch/fetch-list) IS committed.
+execution-plan/tools/data/cve_mirror.json

@@ -1,0 +1,113 @@
+URL: https://response.pagerduty.com/
+TITLE: PagerDuty Incident Response Documentation
+ERROR: None
+
+## Operational runbook / SOP structure
+| Section | Listed pages / topics | Descriptions explicitly stated |
+|---|---|---|
+| Home | PagerDuty Incident Response Documentation | “This documentation covers parts of the PagerDuty Incident Response process.” “It is a cut-down version of our internal documentation used at PagerDuty for any major incidents and to prepare new employees for on-call responsibilities.” “It provides information not only on preparing for an incident, but also what to do during and after the incident.” “It is intended to be used by on-call practitioners and those involved in an operational incident response process (or those wishing to enact a formal incident response process).” |
+| Being On-Call | Being On-Call; Alerting Principles | “A guide to being on-call, both what your responsibilities are, and what they are not.” “The principles we use to determine what things page an engineer, and what time of day they page.” |
+| Before an Incident | What is an Incident?; Severity Levels; Different Roles for Incidents; Incident Call Etiquette; Complex Incidents | “Before we can talk about incident response, we need to define what an incident actually is.” “Information on our severity level classification. What constitutes a SEV-3 vs SEV-1? What response do they get?” “Information on the roles during an incident(i.e. Incident Commander (IC), Scribe, etc.)” “Our etiquette guidelines for incident calls (before you find yourself in one).” “Our guide for handling larger, more complex incidents.” |
+| During an Incident | During an Incident; Security Incident Response | “Information and processes during a major incident.” “Security incidents are handled differently than normal operational incidents.” |
+| After an Incident | After an Incident; Postmortem Process; Postmortem Template; Effective Postmortems | “Our followup-processes, how we make sure we don't repeat mistakes, and are always improving.” “Information on what to do after an incident is resolved.” “Information on our postmortem process, what's involved, and how to write or run a postmortem.” “The template we use for writing our postmortems for major incidents.” “A guide for writing effective postmortems.” |
+| Crisis Response | Introduction; Terminology; Crisis Leadership; Crisis Response Operations; Pre-crisis Phase; PagerDuty for CRMOps | “Incident response is about more than dealing with technical incidents.” “A crisis can happen at any time.” “How you handle your worst day will leave lasting impressions about your brand and its perceived value in the eyes of your current and potential customers.” “An introduction to crisis response and who this document is intended for.” “A list of key terms and concepts used in this guide.” “Incorporating basic principles and your values in your response.” “Activating your crisis response plans.” “Capitalizing on preparedness activities to keep your teams ready and engaged.” “How PagerDuty leverages PagerDuty for crisis response management operations.” |
+| Training | Training Overview; Glossary of Incident Response Terms | “An overview of our training guides and additional training material from third parties.” “A collection of terms that you may hear being used along with their definitions.” |
+| Training Guides | Incident Commander Training; Deputy Training; Scribe Training; Subject Matter Expert Training; Customer Liaison Training; Internal Liaison Training | “A guide to becoming an Incident Commander.” “How to be a Deputy and back up the Incident Commander.” “A guide to Scribing.” “A guide on responsibilities and behavior for all participants in a major incident.” “A guide on how to act as our public representative during an incident.” “A guide on how to liaise with internal teams during an incident.” |
+| Training Courses | Incident Response Training Course | “An introductory course on incident response and the role of the Incident Commander (IC).” |
+| Additional Resources | Reading; ChatOps; Anti-Patterns | “Recommended reading material relevant to incident response.” “Description of the chat bot commands we've referenced in this documentation.” “List of things we've tried and then rejected - learn from our mistakes.” |
+
+## Recurring security / compliance task execution
+- Security Incident Response: “Security incidents are handled differently than normal operational incidents.”
+- Crisis Response Operations: “Activating your crisis response plans.”
+- Pre-crisis Phase: “Capitalizing on preparedness activities to keep your teams ready and engaged.”
+- After an Incident: “Our followup-processes, how we make sure we don't repeat mistakes, and are always improving.”
+- Postmortem Process: “Information on our postmortem process, what's involved, and how to write or run a postmortem.”
+
+## Audit evidence / artifacts
+- Postmortem Template: “The template we use for writing our postmortems for major incidents.”
+- Postmortem Process: “how to write or run a postmortem.”
+- Glossary of Incident Response Terms: “A collection of terms that you may hear being used along with their definitions.”
+- ChatOps: “Description of the chat bot commands we've referenced in this documentation.”
+- Training Overview: “additional training material from third parties.”
+- Incident Response Training Course: “An introductory course on incident response and the role of the Incident Commander (IC).”
+
+## POA&M / remediation records
+- No POA&M, remediation record, or equivalent record format is explicitly stated on this page.
+- After an Incident: “how we make sure we don't repeat mistakes, and are always improving.”
+
+## RACI / role responsibilities
+| Role / topic | Explicit information |
+|---|---|
+| Incident Commander (IC) | Mentioned in “Different Roles for Incidents” as one of the roles during an incident. Mentioned in “Incident Response Training Course” as “the role of the Incident Commander (IC).” |
+| Scribe | Mentioned in “Different Roles for Incidents” as one of the roles during an incident. Mentioned in “Scribe Training” as “A guide to Scribing.” |
+| Deputy | Mentioned in “Deputy Training” as “How to be a Deputy and back up the Incident Commander.” |
+| Subject Matter Expert | Mentioned in “Subject Matter Expert Training” as “A guide on responsibilities and behavior for all participants in a major incident.” |
+| Customer Liaison | Mentioned in “Customer Liaison Training” as “A guide on how to act as our public representative during an incident.” |
+| Internal Liaison | Mentioned in “Internal Liaison Training” as “A guide on how to liaise with internal teams during an incident.” |
+| On-call practitioners | Documentation “is intended to be used by on-call practitioners and those involved in an operational incident response process.” |
+| Those involved in an operational incident response process | Same intent statement as above. |
+| Those wishing to enact a formal incident response process | Same intent statement as above. |
+
+## Task / ticket / playbook templates
+- Postmortem Template: “The template we use for writing our postmortems for major incidents.”
+
+## Escalation / exception handling
+- Alerting Principles: “The principles we use to determine what things page an engineer, and what time of day they page.”
+- Security Incident Response: “Security incidents are handled differently than normal operational incidents.”
+- Severity Levels: “What constitutes a SEV-3 vs SEV-1? What response do they get?”
+- Complex Incidents: “Our guide for handling larger, more complex incidents.”
+- Different Roles for Incidents: “Information on the roles during an incident(i.e. Incident Commander (IC), Scribe, etc.)”
+- Incident Call Etiquette: “Our etiquette guidelines for incident calls (before you find yourself in one).”
+
+## Cadence
+- No explicit cadence, frequency, or schedule values are stated on this page.
+- Only time-related phrase explicitly stated: “what time of day they page” in Alerting Principles.
+
+## Fields captured
+- No explicit fields, form fields, record fields, or data capture schema are stated on this page.
+
+## Named phases
+| Phase / section | Explicit description |
+|---|---|
+| Before an Incident | “Reading material for things you probably want to know before an incident occurs.” |
+| During an Incident | “Information and processes during a major incident.” |
+| After an Incident | “Our followup-processes, how we make sure we don't repeat mistakes, and are always improving.” |
+| Pre-crisis Phase | “Capitalizing on preparedness activities to keep your teams ready and engaged.” |
+
+## Explicit severity / response references
+- Severity Levels: “What constitutes a SEV-3 vs SEV-1? What response do they get?”
+- Alerting Principles: “what things page an engineer, and what time of day they page.”
+
+## Explicit named documentation / page titles
+- Home
+- Being On-Call
+- Alerting Principles
+- What is an Incident?
+- Severity Levels
+- Different Roles for Incidents
+- Incident Call Etiquette
+- Complex Incidents
+- During an Incident
+- Security Incident Response
+- After an Incident
+- Postmortem Process
+- Postmortem Template
+- Effective Postmortems
+- Introduction
+- Terminology
+- Crisis Leadership
+- Crisis Response Operations
+- Pre-crisis Phase
+- PagerDuty for CRMOps
+- Training Overview
+- Glossary of Incident Response Terms
+- Incident Commander Training
+- Deputy Training
+- Scribe Training
+- Subject Matter Expert Training
+- Customer Liaison Training
+- Internal Liaison Training
+- Incident Response Training Course
+- Reading
+- ChatOps
+- Anti-Patterns

@@ -1,0 +1,52 @@
+URL: https://support.atlassian.com/jira-service-management-cloud/docs/playbook-templates-for-jira-service-management/
+TITLE: Playbook templates for Jira Service Management
+ERROR: None
+
+- **Page title:** Playbook templates for Jira Service Management
+- **Availability / plans:**
+  - Playbook templates are available on **Jira Service Management Premium** and **Enterprise** plans.
+- **Purpose / structure:**
+  - Playbook templates help standardize common ITSM, IT Operations, and HR service workflows without building playbooks from scratch.
+  - Each template provides a ready-made structure that combines guided steps and automation to help agents resolve work items consistently and efficiently.
+  - Designed for Jira Service Management admins who want to standardize operational processes and reduce errors in complex workflows.
+  - Each template includes:
+    - a predefined set of steps (instructional and/or automation rule steps)
+    - automation steps mapped to reusable automation rule templates where applicable
+  - You can start from a template and customize it to match your team’s tools, policies, and workflows.
+- **Access / navigation:**
+  - Go to **Space settings > Playbooks > Templates**.
+  - You can preview templates and start creating a playbook with prefilled fields.
+
+## IT Operations playbook templates
+
+| Template name | Use when | Typical steps include |
+|---|---|---|
+| High CPU on Amazon RDS | An Amazon RDS database instance shows sustained or unexpected CPU spikes affecting performance. | check RDS CPU metrics; retrieve instance details; analyze slow queries; scale or reboot the DB instance; validate CPU reduction; document findings |
+| Jenkins deployment failure | A Jenkins deployment fails and requires immediate investigation and containment. | fetch the latest Jenkins build status; review deployment logs; validate Jenkins system health |
+| Major incident response plan (planned) | An incident has high business impact and requires cross-team coordination. | identify service owners; gather response resources; communicate with leadership; manage Statuspage updates; initiate post-incident review |
+| Manage change rollback | A deployment or change needs to be reverted to restore service. | prepare rollback and notify stakeholders; execute rollback; verify rollback success; communicate results |
+| Manage stakeholder communications | An incident requires timely, consistent external communication. | confirm affected services; create incident on Statuspage; post status updates; close the incident |
+| Restart service with Azure runbook | A service restart is required to mitigate an incident. | check logs and health metrics; notify stakeholders; start Azure runbook; verify service health; communicate outcome |
+
+## ITSM playbook templates
+
+| Template name | Use when | Typical steps include |
+|---|---|---|
+| Provision software license | A user requests access to licensed software or a specific role. | check user roles and entitlements; check existing access; request manager approval (optional); provision access; notify the requester |
+
+## HR Service Management (HRSM) templates
+
+| Template name | Use when | Typical steps include |
+|---|---|---|
+| IT setup for new employee | A new employee joins and needs IT access and setup. | create employee account; provide group and tool access; create onboarding tasks; complete onboarding |
+
+- **Supported requested categories on page:**
+  - Operational runbook/SOP structure: templates provide a predefined set of steps and automation rule steps.
+  - Recurring security/compliance task execution: not explicitly stated.
+  - Audit evidence/artifacts: not explicitly stated.
+  - POA&M or remediation records: not explicitly stated.
+  - RACI/role responsibilities: not explicitly stated.
+  - Task/ticket/playbook templates: listed above.
+  - Escalation/exception handling: not explicitly stated.
+  - Cadence: not explicitly stated.
+  - Fields captured: prefilled fields are mentioned; specific fields are not listed.

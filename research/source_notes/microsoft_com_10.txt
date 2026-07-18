@@ -1,0 +1,23 @@
+URL: https://learn.microsoft.com/en-us/security/operations/incident-response-playbooks
+TITLE: Incident response playbooks
+ERROR: None
+
+| Category | Extracted information |
+|---|---|
+| Operational runbook / SOP structure | Review the following incident response playbooks to understand how to detect and contain these different types of attacks: <ul><li>Phishing</li><li>Password spray</li><li>App consent grant</li><li>Compromised and malicious applications</li></ul> |
+| Playbook contents | Each playbook includes: <ul><li><strong>Prerequisites:</strong> The specific requirements you need to complete before starting the investigation. For example, logging that should be turned on and roles and permissions that are required.</li><li><strong>Workflow:</strong> The logical flow that you should follow to perform the investigation.</li><li><strong>Checklist:</strong> A list of tasks for the steps in the flow chart. This checklist can be helpful in highly regulated environments to verify what you have done.</li><li><strong>Investigation steps:</strong> Detailed step-by-step guidance for the specific investigation.</li></ul> |
+| Recurring security/compliance task execution | Need to respond quickly to security attacks to contain the attack and limit the damage. |
+| Audit evidence / artifacts | Checklist can be helpful in highly regulated environments to verify what you have done. |
+| RACI / role responsibilities | Roles and permissions are required. |
+| Task / ticket / playbook templates | Incident response playbooks. |
+| Escalation / exception handling | Microsoft will respond with detailed incident response guidance through various communication channels, primarily through the Microsoft Security Blog. Microsoft Incident Response team provides fast, flexible services that will remove a bad actor from your environment, build resilience for future attacks, and help mend your defenses after a breach. |
+| Cadence | As new widespread cyberattacks happen, Microsoft will respond with detailed incident response guidance. |
+| Fields captured | Logging that should be turned on. Roles and permissions that are required. |
+
+| Additional resources / named items | Extracted information |
+|---|---|
+| Incident response resources | <ul><li>Overview for Microsoft security products and resources for new-to-role and experienced analysts</li><li>Planning for your Security Operations Center (SOC)</li><li>Microsoft Defender XDR incident response</li><li>Microsoft Defender for Cloud (Azure)</li><li>Microsoft Sentinel incident response</li><li>Microsoft Incident Response team guide shares best practices for security teams and leaders</li><li>Microsoft Incident Response guides help security teams analyze suspicious activity</li></ul> |
+| Additional resources - Documentation | <ul><li>Phishing investigation — Learn how to identify and investigate phishing attacks, protect data, and minimize further risks.</li><li>Microsoft Incident Response ransomware approach and best practices — Understand how Microsoft Incident Response responds to ransomware attacks and their recommendations for containment and post-incident activities.</li><li>Password spray investigation — Learn how to identify and investigate password spray attacks, protect data, and minimize further risks.</li><li>Compromised and malicious applications investigation — Learn how to investigate if one or more applications in a customer tenant are compromised.</li><li>Incident response planning — Understand how to plan for incident response in your security operations center.</li><li>Incident response overview — Understand the role of incident response and the process of responding to an incident.</li><li>App consent grant investigation — Learn how to identify and investigate app consent attacks, protect data, and minimize further risks.</li></ul> |
+| Training | Threat response with Microsoft Sentinel playbooks - Training — Provide an introduction to implementing threat response with Microsoft Sentinel playbooks. |
+| Certification | Microsoft Certified: Security Operations Analyst Associate - Certifications — Investigate, search for, and mitigate threats using Microsoft Sentinel, Microsoft Defender for Cloud, and Microsoft 365 Defender. |
+| Last updated | 10/24/2024 |

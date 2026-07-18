@@ -1,0 +1,197 @@
+URL: https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-34r1.pdf
+TITLE: NIST 800-34, Rev 1 Contingency Planning Guide for Federal ...
+ERROR: None
+
+| Item | Extracted information |
+|---|---|
+| Document | NIST Special Publication 800-34 Rev. 1, Contingency Planning Guide for Federal Information Systems |
+| Date | May 2010 |
+| Scope relevant to operational runbook/SOP structure | Information system contingency planning process; information system contingency plan development; activation and notification phase; recovery phase; reconstitution phase; plan appendices; test, training, and exercise (TT&E); plan maintenance |
+| Named plan phases | Activation and Notification Phase; Recovery Phase; Reconstitution Phase |
+| Named plan components / structure | Supporting Information; Activation and Notification Phase; Recovery Phase; Reconstitution Phase; Appendices |
+| Seven-step contingency planning process | 1. Develop the contingency planning policy statement. 2. Conduct the business impact analysis (BIA). 3. Identify preventive controls. 4. Create contingency strategies. 5. Develop an information system contingency plan. 6. Ensure plan testing, training, and exercises. 7. Ensure plan maintenance. |
+| Claimed plan use | “user’s manual” for executing the strategy in the event of a disruption |
+| Plan applicability | All federal information systems must have a contingency plan |
+| Plan types listed | Business Continuity Plan (BCP); Continuity of Operations (COOP) Plan; Crisis Communications Plan; Critical Infrastructure Protection (CIP) Plan; Cyber Incident Response Plan; Disaster Recovery Plan (DRP); Information System Contingency Plan (ISCP); Occupant Emergency Plan (OEP) |
+
+| Role / responsibility area | Extracted information |
+|---|---|
+| ISCP Coordinator | Typically a functional or resource manager within the organization; develops the strategy in cooperation with other functional and resource managers associated with the system or the mission/business processes supported by the system; typically manages development and execution of the contingency plan |
+| Senior management | Must support a contingency program and be included in the process to develop the program policy |
+| Designated authority | Has the authority to activate the contingency plan; only one individual should have this authority; a successor should be clearly identified to assume that responsibility if necessary |
+| Plan development roles | Roles and responsibilities section presents the overall structure of contingency teams, including hierarchy and coordination mechanisms and requirements among the teams; teams and team members should be designated for specific response and recovery roles during contingency plan activation |
+| Management team | Provides overall guidance following a major system disruption or emergency; responsible for activating the contingency plan and supervising the execution of contingency operations; facilitates communications among other teams and supervises information system contingency plan tests and exercises |
+| Team leader | Directs overall team operations, acts as the team’s representative to management, and liaises with other team leaders; disseminates information to team members and approves any decisions that must be made within the team; should have a designated alternate |
+| Senior management official | Such as the CIO; has ultimate authority to activate the plan and to make decisions regarding spending levels, acceptable risk, and interagency coordination; typically leads the management team |
+| Outage Assessment Team | Representative title; notified after disruption for outage assessment |
+| Team staffing guidance | Personnel should be chosen based on skills and knowledge; ideally, teams are staffed with personnel responsible for the same or similar functions under normal conditions; teams should be sufficient in size to remain viable if some members are unavailable to respond; alternate team members may be designated; personnel from another geographic area or contractors/vendors may be coordinated and trained as an alternate team |
+
+| Recurring task / cadence | Extracted information |
+|---|---|
+| Policy review/update cadence | “reviewed annually and updated as necessary” in sample policy statement |
+| Policy elements | Roles and responsibilities; scope as applies to common platform types and organization functions; resource requirements; training requirements; exercise and testing schedules; plan maintenance schedule; minimum frequency of backups and storage of backup media |
+| BIA timing | Performed during the Initiation phase of the SDLC; may need to be conducted again during the Development/Acquisition phase as the system design evolves and components change |
+| TT&E cadence | Conduct TT&E events periodically, following organizational or system changes, or the issuance of new TT&E guidance, or as otherwise needed |
+| Training cadence | Training should be provided at least annually; personnel newly appointed to ISCP roles should receive training shortly thereafter |
+| Plan maintenance cadence | Reviewed for accuracy and completeness at an organization-defined frequency or whenever significant changes occur to any element of the plan; plans for moderate- or high-impact systems should be reviewed more often |
+| Backup cadence | Policies should specify the minimum frequency and scope of backups; frequent scheduled backups; full and incremental backups should be routinely conducted, stored offsite, rotated, and periodically validated |
+| TT&E frequency by impact level | Low-impact systems: tabletop exercise at an organization-defined frequency is sufficient; Moderate-impact systems: functional exercise at an organization-defined frequency should be conducted; High-impact systems: full-scale functional exercise at an organization-defined frequency should be conducted |
+| Appendix A sample low-impact test schedule | Tabletop facilitator due April 1; develop tabletop test plan May 1; invite participants May 10; conduct tabletop test May 31; finalize after action report and lessons learned June 10; update ISCP based on lessons learned June 30; approve and distribute updated version of ISCP July 15 |
+| Appendix A sample moderate-impact test schedule | Identify functional test facilitator March 1; determine type and scope of functional test March 15; develop functional test plan April 1; invite participants May 10; conduct functional test May 31; finalize after action report and lessons learned June 10; update ISCP based on lessons learned June 30; approve and distribute updated version of ISCP July 15 |
+| Appendix A sample high-impact test schedule | Identify failover test facilitator March 1; determine scope of failover test (include other systems?) March 15; develop failover test plan April 1; invite participants July 10; conduct functional test July 31; finalize after action report and lessons learned August 15; update ISCP based on lessons learned September 15; approve and distribute updated version of ISCP September 30 |
+
+| Fields captured / required in plan | Extracted information |
+|---|---|
+| Supporting Information section | Background; Scope; Assumptions |
+| Scope section fields | FIPS 199 impact level; associated RTOs; alternate site and data storage capabilities (as applicable) |
+| Assumptions section | List of assumptions used in developing the ISCP; list of situations that are not applicable |
+| Concept of Operations section | System description; overview of three phases; roles and responsibilities |
+| System description fields | General description of the information system; information system architecture; location(s); other important technical considerations; input/output diagram; system architecture diagram including security devices; content can usually be taken from the System Security Plan |
+| Roles and responsibilities section | Overall structure of contingency teams; hierarchy; coordination mechanisms and requirements among the teams; overview of team member roles and responsibilities in a contingency situation |
+| Activation criteria | Extent of any damage to the system (physical, operational, or cost); criticality of the system to the organization’s mission; expected duration of the outage lasting longer than the RTO |
+| Notification procedures | Methods used to notify recovery personnel during business and non business hours; initial notification sequence; primary and alternate contact methods; procedures if an individual cannot be contacted |
+| Contact list fields | Team position; name; home contact; work contact; cell phone; email addresses; home addresses |
+| Notification content may include | Nature of the outage or disruption; any known outage estimates; response and recovery details; where and when to convene for briefing or further response instructions; instructions to prepare for relocation for estimated time period; instructions to complete notifications using the call tree |
+| Outage assessment fields | Cause of the outage or disruption; potential for additional disruptions or damage; status of physical infrastructure; inventory and functional status of system equipment; type of damage to system equipment or data; items to be replaced; estimated time to restore normal services |
+| Sequence of recovery activities | Recover steps are to be written in stepwise, sequential format; recovery priorities identified in the BIA; system’s MTD; escalation steps; instructions to coordinate with other teams; shipment of data backup media from offsite storage; hardware; copies of the recovery plan; software programs; package/transport/purchase materials required to recover the system |
+| Recovery procedures | Obtain authorization to access damaged facilities and/or geographic area; notify internal and external business partners; obtain necessary office supplies and work space; obtain and install necessary hardware components; obtain and load backup media; restore critical operating system and application software; restore system data to a known state; test system functionality including security controls; connect system to network or other external systems; operate alternate equipment successfully |
+| Recovery escalation / notification | Define and describe events, thresholds, or other types of triggers necessary for additional action; additional notifications for more recovery staff; messages and status updates to leadership; notices for additional resources |
+| Reconstitution validation steps | Concurrent Processing; Validation Data Testing; Validation Functionality Testing |
+| Reconstitution deactivation activities | Notifications; Cleanup; Offsite Data Storage; Data Backup; Event Documentation |
+| Event documentation artifacts | Recovery/reconstitution log or other documentation of reconstitution activities; activity logs; functionality and data testing results; lessons learned documentation; After Action Report |
+| Plan appendices common list | Contact information for contingency planning team personnel; vendor contact information including offsite storage and alternate site POCs; BIA; detailed recovery procedures and checklists; detailed validation testing procedures and checklists; equipment and system requirements lists; alternate mission/business processing procedures; ISCP testing and maintenance procedures; system interconnections; vendor SLAs, reciprocal agreements with other organizations, and other vital records |
+| Appendix A low-impact template headings | 1. Introduction; 1.1 Background; 1.2 Scope; 1.3 Assumptions; 2. Concept of Operations; 2.1 System Description; 2.2 Overview of Three Phases; 2.3 Roles and Responsibilities; 3. Activation and Notification; 3.1 Activation Criteria and Procedure; 3.2 Notification; 3.3 Outage Assessment; 4. Recovery; 4.1 Sequence of Recovery Activities; 4.2 Recovery Procedures; 4.3 Recovery Escalation Notices/Awareness; 5. Reconstitution; 5.1 Validation Data Testing; 5.2 Validation Functionality Testing; 5.3 Recovery Declaration; 5.4 Notification (users); 5.5 Cleanup; 5.6 Data Backup; 5.7 Event Documentation; 5.8 Deactivation |
+| Appendix A moderate-impact template headings | 1. Introduction; 1.1 Background; 1.2 Scope; 1.3 Assumptions; 2. Concept of Operations; 2.1 System Description; 2.2 Overview of Three Phases; 2.3 Roles and Responsibilities; 3. Activation and Notification; 3.1 Activation Criteria and Procedure; 3.2 Notification; 3.3 Outage Assessment; 4. Recovery; 4.1 Sequence of Recovery Activities; 4.2 Recovery Procedures; 4.3 Recovery Escalation Notices/Awareness; 5. Reconstitution; 5.1 Validation Data Testing; 5.2 Validation Functionality Testing; 5.3 Recovery Declaration; 5.4 Notification (users); 5.5 Cleanup; 5.6 Offsite Data Storage; 5.7 Data Backup; 5.8 Event Documentation; 5.9 Deactivation |
+| Appendix A high-impact template headings | 1. Introduction; 1.1 Background; 1.2 Scope; 1.3 Assumptions; 2. Concept of Operations; 2.1 System Description; 2.2 Overview of Three Phases; 2.3 Roles and Responsibilities; 3. Activation and Notification; 3.1 Activation Criteria and Procedure; 3.2 Notification; 3.3 Outage Assessment; 4. Recovery; 4.1 Sequence of Recovery Activities; 4.2 Recovery Procedures; 4.3 Recovery Escalation Notices/Awareness; 5. Reconstitution; 5.1 Concurrent Processing; 5.2 Validation Data Testing; 5.3 Validation Functionality Testing; 5.4 Recovery Declaration; 5.5 Notification (users); 5.6 Cleanup; 5.7 Offsite Data Storage; 5.8 Data Backup; 5.9 Event Documentation; 5.10 Deactivation |
+
+| Audit evidence / artifacts / records | Extracted information |
+|---|---|
+| Plan approval statement | Statement in accordance with the agency’s contingency planning policy to affirm that the ISCP is complete and has been tested sufficiently; affirm designated authority responsible for continued maintenance and testing; approved and signed by the system designated authority |
+| Plan approval sample evidence | “This plan was last tested on {insert exercise date}; the test, training, and exercise (TT&E) material associated with this test can be found {TT&E results appendix or location}.” |
+| Record of changes fields | Page #; Change Comment; Date of Change; Signature |
+| Supporting documents stored with plan | Contracts with vendors (SLAs and other contracts); software licenses; system user manuals; security manuals; operating procedures |
+| Documentation to be kept current | Alternate site contract including testing times; offsite storage contract; software licenses; MOUs or vendor SLAs; hardware and software requirements; system interconnection agreements; security requirements; recovery strategy; contingency policies; training and awareness materials; testing scope; other plans, e.g., COOP, BCP |
+| TT&E documentation | For each TT&E activity conducted, results are documented in an after-action report, and Lessons Learned corrective actions are captured for updating information in the ISCP |
+| Test results artifact | After Action Report |
+| Lessons learned artifact | Lessons Learned documentation |
+| Reconstitution documentation | Recovery/reconstitution log or other documentation of reconstitution activities; all recovery and reconstitution events should be well documented, including actions taken and problems encountered during the recovery and reconstitution efforts |
+| Event documentation responsibilities | Each ISCP team or person is responsible to document their actions during the recovery and reconstitution effort and provide that documentation to the ISCP Coordinator |
+| Appendix E system validation test plan artifact | System acceptance procedures performed after the system has been recovered and prior to putting the system into full operation and returned to users |
+| Appendix A sample validation test plan fields | Procedure; Expected Results; Actual Results; Successful?; Performed by |
+| Appendix B BIA template prepared on | {insert BIA completion date} |
+
+| BIA / recovery metrics and values | Extracted information |
+|---|---|
+| BIA purpose | Identify and prioritize system components by correlating them to mission/business process(es) the system supports, and use this information to characterize the impact on the process(es) if the system were unavailable |
+| BIA steps | 1. Determine mission/business processes and recovery criticality. 2. Identify resource requirements. 3. Identify recovery priorities for system resources. |
+| Impact categories example | Cost |
+| Example impact values for cost | Severe; Moderate; Minimal |
+| Example values and ranges | Severe - temp staffing, overtime, fees are greater than $1 million; Moderate – fines, penalties, liabilities potential $550k; Minimal – new contracts, supplies $75k |
+| MTD definition | Total amount of time leaders/managers are willing to accept for a mission/business process outage or disruption and includes all impact considerations |
+| RTO definition | Maximum amount of time that a system resource can remain unavailable before there is an unacceptable impact on other system resources, supported mission/business processes, and the MTD |
+| RPO definition | Point in time, prior to a disruption or system outage, to which mission/business process data must be recovered after an outage |
+| BIA time values example | Pay vendor invoice MTD 72 hours; RTO 48 hours; RPO 12 hours (last backup) |
+| BIA output example resource priority | Web Server 1; Optiplex GX280; 24 hours to rebuild or replace |
+| Table 3-1 fields | System Resource/Component; Platform/OS/Version (as applicable); Description |
+| Table 3-2 fields | FIPS 199 Availability Impact Level; Information System Target Priority and Recovery; Backup / Recovery Strategy |
+| Table 3-2 low-impact example | Low priority - any outage with little impact, damage, or disruption to the organization; Backup: Tape backup; Strategy: Relocate or Cold site |
+| Table 3-2 moderate-impact example | Important or moderate priority - any system that, if disrupted, would cause a moderate problem to the organization and possibly other networks or systems; Backup: Optical backup, WAN/VLAN replication; Strategy: Cold or Warm site |
+| Table 3-2 high-impact example | Mission-critical or high priority - the damage or disruption to these systems would cause the most impact on the organization, mission, and other networks and systems; Backup: Mirrored systems and disc replication; Strategy: Hot site |
+| Sample alternate site criteria fields | Site; Cost; Hardware; Equipment; Telecommunications; Setup Time; Location |
+| Sample alternate site criteria values | Cold Site: Low; None; None; Long; Fixed. Warm Site: Medium; Partial; Partial/Full; Medium; Fixed. Hot Site: Medium/High; Full; Full; Short; Fixed |
+| Contingency strategy budget template fields | Contingency Resources; Strategies; Vendor Costs; Hardware Costs; Software Costs; Travel / Shipping Costs; Labor / Contractor Costs; Testing Costs; Supply Costs |
+| Budget planning template entries | Alternate Site: Cold Site; Warm Site; Hot Site. Offsite Storage: Commercial; Internal; SLA. Equipment Replacement: Storage; Existing Use |
+| Table 3-4 numbering as printed | “Table 3-34: Sample Alternate Site Criteria” |
+| Table 3-5 numbering as printed | “Table 3-5: Contingency Strategy Budget Planning Template” |
+
+| Security / compliance task execution and controls | Extracted information |
+|---|---|
+| CP controls count | Nine Contingency Planning (CP) security controls |
+| CP controls listed | CP-1 Contingency Planning Policy and Procedures; CP-2 Contingency Plan; CP-3 Contingency Training; CP-4 Contingency Plan Testing and Exercise; CP-5 Contingency Plan Update (Withdrawn); CP-6 Alternate Storage Site; CP-7 Alternate Processing Site; CP-8 Telecommunications Services; CP-9 Information System Backup; CP-10 Information System Recovery and Reconstitution |
+| Low impact CP applicability | CP-1, CP-2, CP-3, CP-4, CP-9, CP-10; CP-6 Not Selected; CP-7 Not Selected; CP-8 Not Selected |
+| Moderate impact CP applicability | CP-1, CP-2 (1), CP-3, CP-4 (1), CP-6 (1) (3), CP-7 (1) (2) (3) (5), CP-8 (1) (2), CP-9 (1), CP-10 (2) (3) |
+| High impact CP applicability | CP-1, CP-2 (1) (2) (3), CP-3 (1), CP-4 (1) (2) (4), CP-6 (1) (2) (3), CP-7 (1) (2) (3) (4) (5), CP-8 (1) (2) (3) (4), CP-9 (1) (2) (3), CP-10 (2) (3) (4) |
+| CP-1 control | Organization develops, disseminates, and reviews/updates [Assignment: organization-defined frequency] a formal, documented contingency planning policy that addresses purpose, scope, roles, responsibilities, management commitment, coordination among organizational entities, and compliance; and formal, documented procedures to facilitate implementation of the contingency planning policy and associated contingency planning controls |
+| CP-2 control | Organization develops a contingency plan for the information system; distributes copies to key contingency personnel and organizational elements; coordinates contingency planning activities with incident handling activities; reviews the contingency plan [Assignment: organization-defined frequency]; revises the contingency plan to address changes; communicates contingency plan changes to key contingency personnel and organizational elements |
+| CP-2 enhancement (1) | Organization coordinates contingency plan development with organizational elements responsible for related plans |
+| CP-2 enhancement (2) | Organization conducts capacity planning so necessary capacity for information processing, telecommunications, and environmental support exists during contingency operations |
+| CP-2 enhancement (3) | Organization plans for the resumption of essential missions and business functions within [Assignment: organization-defined time period] of contingency plan activation |
+| CP-2 enhancement (4) | Organization plans for the full resumption of missions and business functions within [Assignment: organization-defined time period] of contingency plan activation |
+| CP-2 enhancement (5) | Organization plans for the continuance of essential missions and business functions with little or no loss of operational continuity and sustains that continuity until full information system restoration at primary processing and/or storage sites |
+| CP-2 enhancement (6) | Organization provides for the transfer of all essential missions and business functions to alternate processing and/or storage sites with little or no loss of operational continuity and sustains that continuity through restoration to primary processing and/or storage sites |
+| CP-3 control | Organization trains personnel in their contingency roles and responsibilities with respect to the information system and provides refresher training [Assignment: organization-defined frequency] |
+| CP-3 enhancement (1) | Organization incorporates simulated events into contingency training |
+| CP-3 enhancement (2) | Organization employs automated mechanisms to provide a more thorough and realistic training environment |
+| CP-4 control | Organization tests and/or exercises the contingency plan for the information system [Assignment: organization-defined frequency] using [Assignment: organization-defined tests and/or exercises] to determine effectiveness and readiness; and reviews the contingency plan test/exercise results and initiates corrective actions |
+| CP-4 enhancement (1) | Organization coordinates contingency plan testing and/or exercises with organizational elements responsible for related plans |
+| CP-4 enhancement (2) | Organization tests/exercises the contingency plan at the alternate processing site to familiarize contingency personnel with the facility and available resources and to evaluate the site’s capabilities to support contingency operations |
+| CP-4 enhancement (3) | Organization employs automated mechanisms to more thoroughly and effectively test/exercise the contingency plan |
+| CP-4 enhancement (4) | Organization includes a full recovery and reconstitution of the information system to a known secure state as part of contingency plan testing |
+| CP-6 control | Organization establishes an alternate storage site including necessary agreements to permit the storage and recovery of information system backup information |
+| CP-6 enhancement (1) | Alternate storage site geographically separated from the primary storage site so as not to be susceptible to the same hazards |
+| CP-6 enhancement (2) | Alternate storage site configured to facilitate recovery operations in accordance with recovery time and recovery point objectives |
+| CP-6 enhancement (3) | Organization identifies potential accessibility problems to the alternate storage site in the event of an area-wide disruption or disaster and outlines explicit mitigation actions |
+| CP-7 control | Organization establishes an alternate processing site including necessary agreements to permit the resumption of information system operations for essential missions and business functions within [Assignment: organization-defined time period consistent with recovery time objectives] when primary processing capabilities are unavailable; and ensures equipment and supplies required to resume operations within the time period are available at the alternate site or contracts are in place |
+| CP-7 enhancement (1) | Alternate processing site separated from the primary processing site so as not to be susceptible to the same hazards |
+| CP-7 enhancement (2) | Identifies potential accessibility problems and outlines explicit mitigation actions |
+| CP-7 enhancement (3) | Alternate processing site agreements contain priority-of-service provisions in accordance with availability requirements |
+| CP-7 enhancement (4) | Alternate processing site fully configured and ready to be used as the operational site supporting essential missions and business functions |
+| CP-7 enhancement (5) | Alternate processing site provides information security measures equivalent to that of the primary site |
+| CP-8 control | Organization establishes alternate telecommunications services including necessary agreements to permit the resumption of information system operations for essential missions and business functions within [Assignment: organization-defined time period] when primary telecommunications capabilities are unavailable |
+| CP-8 enhancement (1) | Develops primary and alternate telecommunications service agreements with priority-of-service provisions; and requests Telecommunications Service Priority for all telecommunications services used for national security emergency preparedness when provided by a common carrier |
+| CP-8 enhancement (2) | Obtains alternate telecommunications services with consideration for reducing the likelihood of sharing a single point of failure with primary telecommunications services |
+| CP-8 enhancement (3) | Obtains alternate telecommunications service providers separated from primary service providers so as not to be susceptible to the same hazards |
+| CP-8 enhancement (4) | Requires primary and alternate telecommunications service providers to have contingency plans |
+| CP-9 control | Organization conducts backups of user-level information; conducts backups of system-level information including system-state information; conducts backups of information system documentation including security-related documentation; and protects confidentiality and integrity of backup information at the storage location |
+| CP-9 enhancement (1) | Tests backup information [Assignment: organization-defined frequency] to verify media reliability and information integrity |
+| CP-9 enhancement (2) | Uses a sample of backup information in the restoration of selected information system functions as part of contingency plan testing |
+| CP-9 enhancement (3) | Stores backup copies of the operating system and other critical information system software, as well as copies of the information system inventory, in a separate facility or in a fire-rated container that is not collocated with the operational system |
+| CP-9 enhancement (5) | Transfers information system backup information to the alternate storage site [Assignment: organization-defined transfer rate consistent with the recovery time and recovery point objectives] |
+| CP-9 enhancement (6) | Accomplishes information system backup by maintaining a redundant secondary system, not collocated, that can be activated without loss of information or disruption to the operation |
+| CP-10 control | Organization provides for the recovery and reconstitution of the information system to a known state after a disruption, compromise, or failure |
+| CP-10 enhancement (2) | Organization implements transaction recovery for information systems that are transaction-based |
+| CP-10 enhancement (3) | Organization provides compensating security controls for [Assignment: organization-defined circumstances that inhibit recovery to a known, secure state] |
+| CP-10 enhancement (4) | Organization provides the capability to re-image information system components in accordance with [Assignment: organization defined restoration time-periods] from configuration-controlled and integrity-protected disk images representing a secure operational state for the components |
+| CP-10 enhancement (5) | Organization provides [Selection: real-time; near real-time] [Assignment: organization-defined failover capability for the information system] |
+| CP-10 enhancement (6) | Organization protects backup and restoration hardware, firmware, and software |
+| Non-required / withdrawn | CP-5 Contingency Plan Update (Withdrawn) |
+| Backup policy specifics | Minimum frequency and scope of backups (e.g., daily or weekly, incremental or full); location of stored data; file-naming conventions; media rotation frequency; method for transporting data offsite |
+| Offsite storage criteria | Geographic area; accessibility; security; environment; cost |
+| Backup methods listed | Full backup; Incremental backup; Differential backup |
+| Backup media / storage technologies listed | Magnetic disk; tape; optical disks such as compact disks (CDs); electronic vaulting; network storage; tape library systems; network attached storage (NAS); storage area network (SAN) |
+| Backup questions | Where and how will media be stored? What data should be backed up and how often should it be backed up? How quickly are the backups to be retrieved? Who is authorized to retrieve the media? Where will the media be delivered and what is the rotation schedule? Who will restore the data? What is the media-labeling scheme? How long will the backup media be retained? When the media are stored onsite, what environmental controls are provided? What is the appropriate backup medium? |
+| Equipment interoperability considerations | Backup device must be compatible with the platform operating system and applications and should be easy to install onto different models or types of systems |
+| Storage volume considerations | Amount of data to be backed up should determine the appropriate backup solution |
+| Media life consideration | Each type of medium has a different use and storage life beyond which the media cannot be relied on for effective data recovery |
+| Backup software consideration | Backup solution can be as simple as a file copy using the operating system file manager; larger data transfers may need a third-party application to automate and schedule the file backup |
+| Alternate processing site types | Cold Sites; Warm Sites; Hot Sites; Mobile Sites; Mirrored Sites |
+| Cold site characteristics | Basic infrastructure and environmental controls available; no equipment or telecommunications established or in place; sufficient room to house needed equipment; least expensive alternate processing site solution; recovery time longest |
+| Warm site characteristics | Basic infrastructure of cold sites; sufficient computer and telecommunications equipment installed and available; equipment not loaded with software or data required to operate the system; more expensive than a cold site; recovery can take several hours to several days |
+| Hot site characteristics | Fully operational equipment and capacity to quickly take over system operations; sufficient equipment and most current version of production software installed; adequate storage for production system data; most expensive option |
+| HA definition | Uptime of 99.999 percent or better |
+| HA deployment note | HA can be implemented at a single site; HA processes should be extended to an alternate location; block mirroring to an alternate site should be considered |
+| Telecommunications link types | T-1; T-3; Frame Relay; Asynchronous Transfer Mode (ATM); Synchronous Optical Network (SONET) |
+| T-1 details | Dedicated phone connection supporting data rates of 1.544 Megabits per second (Mbps); 24 individual 64-kbps channels |
+| T-3 details | Dedicated phone connection supporting data rates of about 45 Mbps; 672 individual channels each supporting 64 kbps; also referred to as Digital Signal (DS) 3 |
+| Frame Relay details | Packet-switching protocol for connecting devices on a WAN; data routed over virtual circuits; support data transfer rates at T-1 and T-3 speeds |
+| ATM details | Transfers data at high speeds using packets of fixed size; support data transfer rates from 25 to 622 Mbps and provide guaranteed throughput |
+| SONET details | Standard for synchronous data transmission on optical media; supports gigabit transmission rates |
+| Remote access security requirements | Verify user identity through electronic authentication (e-authentication); four levels of protection from minimal identity verification (Level 1) to cryptographic two-factor authentication keys (Level 4); multifactor authentication and data encryption should be implemented if communications contain FIPS 199 moderate- or high-impact information |
+| Wireless contingency security | Data encryption should be employed if communications traffic contains FIPS 199 moderate- or high-impact information |
+| Mainframe contingency measures | Store backup media offsite; document system configurations and vendors; coordinate with network security policy and system security controls; utilize results from the BIA |
+| Mainframe backup/power solutions | Redundant system components; UPS and power monitoring and management systems; gas or diesel generator; RAID for DASDs; replacement system available at an alternate warm or hot site; vendor-support contracts; remote journaling or electronic vaulting; disk replication; virtualization; NAS or SAN technologies |
+| Appendix F SDLC phases | Initiation; Development/Acquisition; Implementation/Assessment; Operation/Maintenance; Disposal/Sunset |
+| Appendix F control implementation during SDLC | CP-1 during Initiation; CP-6, CP-7, CP-8, CP-9 during Initiation and Acquisition/Development; CP-2, CP-3, CP-4 during Implementation/Assessment; CP-2, CP-3, CP-4, CP-9, CP-10 during Operation/Maintenance; CP-2, CP-9, CP-10 during Sunset/Disposition |
+| Appendix F control descriptions | Contingency planning requirements should be considered when a new system is conceived; design should incorporate redundancy and robustness; recovery strategy documented into formal ISCP with ST&E; exercises and tests should be conducted on a scheduled basis; full and incremental backups should be routinely conducted, stored offsite, rotated, and periodically validated; original system ISCP maintained in ready state until new system is operational and fully tested |
+| Appendix B BIA data collection methods | Individual/group interviews; workshops; email; questionnaires; any combination of these |
+| Appendix B impact categories | Impact categories and values should be created to characterize levels of severity; examples may include cost; organizations could consider harm to individuals and ability to perform mission |
+| Appendix B alternate means field | Description of any alternate means (secondary processing or manual work-around) for recovering the mission/business process(es) that rely on the system; if none exist, so state |
+
+| Specific absence statements explicitly in page | Extracted information |
+|---|---|
+| POA&M or remediation record template | Plan of Action and Milestone is mentioned in context of RTO not feasible; no dedicated POA&M template is provided |
+| RACI matrix | No RACI matrix is provided |
+| Ticket template | No ticket template is provided |
+| Escalation severity / SLA values | No numeric escalation severity values or SLA response-time values are provided beyond stated recovery/time targets, T-1/T-3 bandwidths, and “response and onsite times” fields in vendor contact list |
+| Issue tracking fields | No issue tracking template is provided |
+| Exception handling | Only stated as “when it is not feasible to immediately meet the RTO and the MTD is inflexible, a Plan of Action and Milestone should be initiated to document the situation and plan for its mitigation” |

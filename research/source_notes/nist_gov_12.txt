@@ -1,0 +1,38 @@
+URL: https://csrc.nist.gov/pubs/sp/800/53/a/r5/final
+TITLE: SP 800-53A Rev. 5, Assessing Security and Privacy Controls in ...
+ERROR: None
+
+- **Publication**
+  - `SP 800-53A Rev. 5, Assessing Security and Privacy Controls in ...`
+  - **Date Published:** January 2022
+  - **Supersedes:** `SP 800-53A Rev. 4 (12/18/2014)`
+
+- **Document history**
+  - `08/03/21: SP 800-53A Rev. 5 (Draft)`
+  - `01/25/22: SP 800-53A Rev. 5 (Final)`
+
+- **Publication**
+  - `https://doi.org/10.6028/NIST.SP.800-53Ar5`
+  - Download URL
+
+- **Supplemental Material**
+  - `SP 800-53A Release 5.2.0`
+  - `OSCAL GitHub`
+
+- **Publication Parts**
+  - `SP 800-53B`
+  - `SP 800-53 Rev. 5`
+
+- **Planning Note (08/27/2025)**
+  - On August 27, 2025, NIST issued a minor release of SP 800-53A (`Release 5.2.0`) that includes the following changes:
+    - Updates can include corrections, clarifications, or other minor changes in the publication that are either editorial or substantive in nature.
+    - Any potential updates for SP 800-53A and its derivative data formats that are not yet published in an errata update or revision—including additional issues and potential corrections—will be posted as they are identified.
+    - Please report any potential updates to `sp80053-comments@nist.gov`.
+  - `None selected`
+  - The same minor release statement is repeated under the planning note.
+
+- **Executive Order / statutory reference**
+  - `Executive Order 14306, Federal Information Security Modernization Act`
+
+- **Operational runbook/SOP structure, recurring security/compliance task execution, audit evidence/artifacts, POA&M/remediation records, RACI/role responsibilities, task/ticket/playbook templates, escalation/exception handling, cadence, fields captured**
+  - Not present in the provided page.

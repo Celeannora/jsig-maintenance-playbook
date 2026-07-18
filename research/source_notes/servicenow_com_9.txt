@@ -1,0 +1,181 @@
+URL: https://www.servicenow.com/docs/r/security-management/security-incident-response/use-the-playbook.html
+TITLE: Resolve security threats with the playbook - ServiceNow
+ERROR: None
+
+- **Resolve security threats with the playbook**
+  - **Release version:** Australia
+  - **Updated:** March 12, 2026
+  - **Read time:** 8 minutes
+  - **Purpose:** Use the Playbook to resolve certain types of security threats in a step-by-step manner.
+  - **Examples of threats:** phishing attacks; threats caused by malicious code activity.
+  - **Role required:** `sn_si.admin` or `admin`
+
+- **Playbook structure / phases / task flow**
+  - Each group of tasks:
+    - Analysis
+    - Contain
+    - and so forth
+  - Task groups guide the user through questions and activities for resolving the threat.
+  - As tasks are completed, subsequent tasks are presented based on choices made.
+  - Grayed out groups may be activated by choices made.
+  - Example groups and purposes:
+    - **Analysis**: determine the validity and scope of the threat.
+    - **Contain**: isolate the threat to a specific user or asset.
+    - **Eradicate**: remove malware or reimage the host.
+    - **Recover**: mentioned as a possible grayed out group.
+    - **Review**: mentioned as a possible grayed out group.
+  - The playbook guides the user to the next state when all tasks for a state are completed.
+  - Continue working on each task until all tasks are completed to resolve the threat and close the security incident.
+
+- **Task execution details**
+  - Enter **work notes** as each task is worked through to help analyze similar attacks in the future.
+  - After a threat is identified, the playbook can be used to:
+    - quarantine the threat
+    - isolate similarly affected assets
+    - remove malware
+  - Knowledge articles:
+    - included in each task
+    - provide tips and other information to help perform needed steps
+    - base system includes knowledge articles for each playbook task
+    - custom knowledge articles can be written and associated with playbook tasks
+  - Some tasks ask a question, such as:
+    - `"Is Email Part of Campaign?"`
+    - Perform necessary analysis and select **Yes** or **No**.
+  - Some tasks are transitional and instruct the user to perform an action, such as:
+    - adding observables to a security incident
+    - after completing the action, click **Mark as Completed**
+  - Knowledge articles appear when work on a task starts, if associated.
+
+- **Security incident selection / filtering**
+  - Security Incidents screen shows security incidents assigned to the user.
+  - Filter options:
+    - **Assigned to me**
+    - all open incidents
+    - all unassigned incidents
+  - Quick Filters can be used to view incidents of a particular type, such as:
+    - only Critical incidents
+  - Consider prioritizing security incidents with **high risk scores**.
+  - If the playbook pane on the right-hand edge is closed, click the playbook icon to open it.
+  - If no playbook is assigned:
+    - select a playbook from the **Selected Playbook** choice list
+    - assign a different playbook to the security incident
+  - Phishing category security incident:
+    - Phishing Playbook is automatically available
+    - select the playbook icon to open the playbook
+
+- **Phishing playbook**
+  - Tasks help analyze, contain, and eradicate a phishing threat.
+  - Tasks are organized into states:
+    - Analysis
+    - Contain
+    - and so forth
+  - When all tasks for a state are completed, the playbook guides the user to the next state.
+  - **Recover task:** not used in the Phishing playbook.
+
+- **How security incidents are created from user-reported phishing attacks**
+  - During Security Incident Response setup, the system administrator creates a series of **email matching rules** that identify emails containing signs of phishing.
+  - Employees receiving a suspicious email can send it as an **.EML attachment** to the phishing email address defined by the organization.
+  - When received:
+    - the .EML attachment is parsed
+    - its information is compared to the email matching rules
+    - if a match is found, a security incident is created
+  - Security incident created contains:
+    - **Short description** includes `User Reported Phishing`, followed by the actual subject from the originating email
+    - the **.EML file** is attached
+    - if the .EML contained observables, they are parsed, and enrichment and threat lookups are automatically performed
+
+- **Analysis state**
+  - Tasks performed:
+    - determine the validity of the incident
+    - study the impact of the potential threat
+    - coordinate an effective response to the incident
+  - As tasks are worked through:
+    - familiarize yourself with the knowledge articles
+    - open the email attachment and examine it for common phishing elements
+    - review threat lookup results
+
+- **Contain state**
+  - Tasks review the details of the email.
+  - To ensure threats cannot enter the organization, update network defenses in the form of:
+    - Intrusion Defense System (IDS) signatures and rules
+    - Intrusion Prevention System (IPS) signatures and rules
+  - As tasks are worked through:
+    - take actions to limit threat impacts, such as isolating the impacted devices
+    - examine the observables attached to the email
+    - determine whether any email contents are associated with a known threat, including:
+      - URL
+      - Email sender
+      - Phishing URL
+      - IP address of the sender's SMTP server
+
+- **Eradicate state**
+  - After updated signatures and rules are deployed to the antivirus solution, use tasks to determine if malware is present and handle it accordingly.
+  - As tasks are worked through:
+    - scan the endpoints of affected devices for the presence of malware
+    - remove any malware found
+    - as a last resort, wipe and reimage the host devices
+
+- **Review state**
+  - If a phishing attack is determined to be a false alarm during Analysis:
+    - the security incident moves to the Review state
+    - users need to be notified so they know it is safe to open the email attachment
+
+- **Closed state**
+  - When all tasks in the playbook have been completed:
+    - the security incident is moved to the Closed state
+    - **closing comments must be entered before the incident can be closed**
+
+- **Cancelled state**
+  - When a security incident is in the Review state and users have been successfully informed that the email is not a threat:
+    - the Cancelled state becomes active
+    - the security incident can be cancelled
+
+- **Associate a knowledge article with a playbook task**
+  - **Role required:** `sn_sir.knowledge_admin`, and either `sn_si.admin` or `admin`
+  - Before beginning:
+    - note the text associated with each task
+    - example first task in the Phishing category: `Was Alert Employee-Submitted?`
+    - this is the short description of the task
+    - exact text is needed to associate a knowledge article
+  - Procedure:
+    1. Navigate to .
+    2. Create and publish a knowledge article for a specific playbook task.
+    3. Navigate to .
+    4. Create a runbook, filling in the following information:
+       | Field | Description |
+       |---|---|
+       | Knowledge article | Select the published knowledge article you want to associate with the playbook task. |
+       | Table | Select Security Incident Response Task `[sn_si_task]`. |
+       | Condition | Set the condition builder to: |
+       | Condition - Option | Select Short description. |
+       | Condition - Operator | Select is. |
+       | Condition - Input value | Enter the short description for the task, exactly as it appears in the playbook. |
+    5. Click Submit.
+  - Result:
+    - the next time you run the playbook and select this task, the associated knowledge article is displayed
+
+- **Add a custom task to the playbook**
+  - The Security Analyst Workspace base system includes a series of tasks for each threat category.
+  - Custom tasks can be created to meet the unique needs of the system or customers.
+  - **Role required:** `sn_si.basic` or `security_admin`
+  - Procedure:
+    1. With the playbook open, select **Add Task**.
+    2. The **Add Custom Task** screen opens.
+    3. Fill in the fields, as needed.
+
+  - **Add Custom Task screen fields**
+    | Field | Description |
+    |---|---|
+    | Number | [Read only] The automatically-generated security incident task number. |
+    | Parent | The number of the related security incident. |
+    | Configuration item | The configuration item affected by the security issue, if any. |
+    | Affected user | The user affected by the security issue, if any. |
+    | Priority | Select the priority used to determine when this task should be performed. |
+    | Security Incident State | The current state of the security response task. You can select a future state, if needed. |
+    | Outcome type | If you have the `sn_si.basic` role, select Yes/No as the outcome type. If you have the `security_admin` role, you can create a custom outcome type with multiple custom output values. For example, you can define a task with dependant values based on the threat category. |
+    | Assignment group | The assignment group from which the assigned worker will be selected. |
+    | Assigned to | The individual assigned to perform the task. |
+    | Short description | A description of the Security Incident playbook task. |
+    | Description | Enter a description for the selected task. |
+  - After entries are completed, select **Add Task**.
+  - The task is inserted in the playbook following the current task.

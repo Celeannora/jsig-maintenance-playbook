@@ -1,0 +1,199 @@
+URL: https://www.irs.gov/privacy-disclosure/meeting-irs-safeguards-audit-requirements
+TITLE: Meeting IRS Safeguards audit requirements
+ERROR: None
+
+- **Document / source**
+  - **Page title:** Meeting IRS Safeguards audit requirements
+  - **Source:** IRS Publication 1075, Tax Information Security Guidelines for Federal, State and Local Agencies and Entities
+  - **Referenced sections:** section 5.6.2; exhibit 9
+  - **Purpose stated:** provide a scenario based technical assistance memo to assist agencies in better understanding and implementing audit based requirements for Safeguards
+
+- **Audit trail / audit log definition and required contents**
+  - Audit trail or audit log is a chronological sequence of audit records (audit events)
+  - Each audit record contains evidence directly pertaining to and resulting from the execution of a business process or system function
+  - Audit records should be generated when subjects perform business related activities with system resources
+  - Audit records should also be produced when adversaries try to perform unauthorized activities on the system resources
+  - Each audit record captures details related to the underlying event:
+    - Date and time of the event
+    - Unique ID of the user
+    - Type of event
+    - Success or failure of event
+    - Origin of the request
+    - Name of the object introduced/deleted
+    - Description of modification to security databases
+  - Audit trail should be comprehensive enough to historically recreate the sequence of events leading to successful and unsuccessful access attempts to FTI
+  - Questions the audit trail should help answer:
+    - Has an unauthorized access to FTI occurred?
+    - Was that particular user authorized to have access to FTI?
+    - Did they have a need-to-know at the time to gain access to FTI?
+    - Was the FTI altered in any way?
+    - Did the FTI leave the system?
+    - Was FTI disclosed?
+
+- **Exhibit 9 audit trail capture requirements**
+  1. All successful login and logoff attempts
+  2. All unsuccessful login and authorization attempts
+  3. All identification and authentication attempts
+  4. All actions, connections and requests performed by privileged users
+     - privileged user definition included in page:
+       - a user who, by virtue of function, and/or seniority, has been allocated powers within the computer system, which are significantly greater than those available to the majority of users
+       - includes, for example, the system administrator(s) and network administrator(s)
+       - responsible for keeping the system available
+       - may need powers to create new user profiles as well as add to or amend the powers and access rights of existing users
+  5. All actions, connections and requests performed by privileged functions
+  6. All changes to logical access control authorities (e.g., rights, permissions)
+  7. All system changes with the potential to compromise the integrity of audit policy configurations, security policy configurations and audit record generation services
+  8. Creation, modification and deletion of objects including files, directories and user accounts
+  9. Creation, modification and deletion of user accounts and group accounts
+  10. Creation, modification and deletion of user account and group account privileges
+  11. Capture:
+      - the date of the system event
+      - the time of the system event
+      - the type of system event initiated
+      - the user account, system account, service or process responsible for initiating the system event
+  12. System start-up and shutdown functions
+  13. Modifications to administrator account(s) and administrator group account(s) including:
+      - escalation of user account privileges commensurate with administrator-equivalent account(s)
+      - adding or deleting users from the administrator group account(s)
+  14. Enabling or disabling of audit report generation services
+  15. Command line changes, batch file changes and queries made to the system (e.g., operating system, application, and database)
+  16. Audit trail must be protected from unauthorized access, use, deletion or modification
+  17. Audit trail must be restricted to personnel routinely responsible for performing security audit functions
+
+- **Agency audit areas to address**
+  1. Audit and accountability policy and procedures must be developed, documented, disseminated, and updated
+  2. Auditable events must be identified and captured
+  3. Content of audit records should be understood and defined
+  4. Proper audit storage capacity must be determined and allocated
+  5. Audit logs must be reviewed periodically as defined by the policy
+  6. Processes must be in place to handle auditing failures
+  7. Audit logs must be monitored, analyzed and reporting
+  8. Time stamps must be enforced to be able to correlate events from multiple sources
+  9. The audit information is sensitive and must be protected
+  10. Audit information shall be retained for 6 years
+
+- **Operational guidance / cadence / workflow**
+  - Audit capabilities exist at operating system, application, and database level
+  - In most cases, auditing at a single layer will not capture the 17 items offered as guidance by Exhibit 9
+  - Agencies should examine the layer closest to the FTI data
+  - Example:
+    - if FTI is stored in a database, audit everything at the table and/or record level in the database that contains FTI
+    - log system access events e.g., log-in / log-out at the OS level
+    - if FTI is stored in flat files and an application uses the FTI flat data files, audit within the application if it can capture read/update activity
+    - if application is not used or does not offer granular enough auditing, leverage operating system auditing capabilities
+  - Collecting all audit data is only half the battle
+  - Audit data should be monitored, analyzed, protected and retained
+  - Policies and procedures should be in place along with collection and correlation of audit logs from all systems that receive, process, store or transmit FTI
+  - Policies should clearly define the “who, what, where, when and why” with respect to audit logs
+  - Policies should address all requirements for auditing
+  - Policies often describe the “what” but neglect the “who” and the process by which logs are monitored, reviewed, protected and retained
+  - Expected in policy and procedures:
+    - some kind of schedule for reviewing particular audit logs
+    - process and workflow for dealing with violations and anomalous activities
+    - a quick report even in the form of an email to management whenever these activities occur
+  - “One of the most common findings” is not having a comprehensive audit policy and associated procedures implemented to ensure the system audits activities, generates audit reports, and archives audit data
+
+- **Audit log review schedule example**
+  
+  | Audit Log Review | Roles | Frequency | Violations / Changes to Review |
+  |---|---|---|---|
+  | Audit Log - Daily Review | RACF System Administrator | Daily | Data set access violations; Resource access violations; Program use violations |
+  | Audit Log - Weekly/Monthly Review | RACF System Administrator & RACF SA Manager | Weekly/Monthly | Failed logon attempts – RACF user violation report; Special and operation privileges |
+  | Audit Log - Quarterly Review | RACF Auditor team | Quarterly | Trusted STC accesses; FTP userids/logonids/ACIDs accesses; Global Control Options |
+
+- **Named roles / responsibilities**
+  - RACF System Administrator
+  - RACF SA Manager
+  - RACF Auditor team
+  - system administrator(s)
+  - network administrator(s)
+  - personnel routinely responsible for performing security audit functions
+  - management
+  - agency
+  - operating system, database, and application vendors (vendor-provided configuration guidance referenced)
+  - IRS Safeguards Computer Security Evaluation Matrix (SCSEM) referenced for a particular technology
+
+- **Evidence / artifacts explicitly mentioned**
+  - audit logs
+  - audit reports
+  - archived audit data
+  - email to management whenever violations or anomalous activities occur
+  - vendor-provided configuration guidance
+  - IRS Safeguards Computer Security Evaluation Matrix (SCSEM)
+  - Security log in Event Viewer
+  - RACF user violation report
+  - syslog messages
+  - NTP authentication keys
+  - SMF audit logs
+  - SMF audit files
+  - router log files
+  - log server
+  - access control list associated with SYS1.MAN* (denoted by SYS1.* high-level qualifier)
+
+- **Mainframe - RACF**
+  
+  | Finding | Discussion | Risk | Recommendation |
+  |---|---|---|---|
+  | RACF AUDIT operand is not in effect | Analysis of the SETROPTS global settings resource classes are not defined to the AUDIT operand. When enabled, the AUDIT operand ensures RACF logs (1) all changes to resource profiles (RACDEF) and (2) all uses of supervisor calls (SVC) and/or System Authorization Facility (SAF) calls requesting access to specified resources (RACROUTE REQUEST). | If the AUDIT operand is not enabled, RACF will not log (1) all changes to resource profiles, and (2) supervisor calls requesting access to resources. Consequently, unauthorized access to the system and FTI could occur without detection. | Enable the SETROPTS AUDIT operand for all active resource classes used to ensure RACF logs: (1) all changes to resource profiles; and (2) all uses of supervisor calls or SAF calls requesting access to specified resources. In effect the active and audit list of classes should be identical. |
+  | STATISTICS processing is not in effect | Analysis of the SETROPTS global settings found the STATISTICS parameter set to NONE. STATISTICS processing records access to resources in specific classes that are protected by discrete profiles. The STATISTICS option permits an installation to record statistics on discrete profiles to see how their respective data sets and resources within specific resource classes are being used. Specific resources with unique security concerns, such as those with FTI, should be protected with a discrete profile. STATISTICS processing is used to determine how that resource is being accessed and how many times it is being accessed. | If access to resource profiles are not audited, unauthorized access to the system and FTI could occur without detection. | The agency should enable the SETROPTS STATISTICS parameter for all active RACF resource classes (ACTIVE CLASSES) defined for FTI resources. |
+  | The ATTRIBUTES setting needs improvement | Analysis of the SETROPTS global settings found that OPERAUDIT and INITSTATS are not defined to the ATTRIBUTES operand. The system activities of personnel assigned system-level authorities must be audited at all times by activating INITSTATS, SAUDIT, OPERAUDIT, and CMDVIOL. INITSTATS records statistics on all user profiles in the system. | If the ATTRIBUTES operand does not contain INITSTATS, SAUDIT, OPERAUDIT, and CMDVIOL then RACF will not log all the activities of personnel assigned system-level authorities. Consequently, unauthorized access to the system and FTI could occur without detection. | Enable the SETROPTS ATTRIBUTES operand to include INITSTATS, SAUDIT, OPERAUDIT, and CMDVIOL. |
+  | Access controls to SMF audit logs need improvement | Analysis of the access control list associated with SYS1.MAN* (denoted by SYS1.* high-level qualifier) identified the following control deficiencies requiring management attention and prompt corrective action: 1. User Group TSXXXXX has ALTER authority to the SMF audit logs. 2. User Group DPXXX has ALTER authority to the SMF audit logs. 3. User ID TSXXXX has UPDATE authority to the SMF audit logs. | Users with the ALTER access authority can create, modify, or delete the SMS audit logs thereby compromising the integrity of the audit trail. Consequently, unauthorized access to the system and FTI could occur without detection. Users with the UPDATE or READ access authority can access the SMF audit logs and potentially copy these files to their own libraries. Consequently, unauthorized access to the system and FTI could occur without detection. | Remove users and user groups identified with ALTER access authority to the SMF audit logs and develop, approve, and implement written procedures for granting, restricting, and terminating emergency access to SMF audit files to resolve technical contingencies as needed. |
+
+- **Windows**
+  - Auditing with Windows Server 2003 and XP is configured in several different ways
+  - Auditing is generally turned on through a security policy, which is another part of Group Policy
+  - These security policies are generally accessed through Administrative Tools
+  - Most common issue: agency does not enable auditing for both “success” and “failure” on the following types:
+  
+  | Audit type | Description |
+  |---|---|
+  | Audit Account Logon Events | Tracks user logon and logoff events |
+  | Audit Account Management | Reports changes to user accounts |
+  | Audit Directory Service Access | Reports access and changes to the directory service. If the system is a member server or XP system, directory service is NTLM-based, and consists of user accounts and group policies |
+  | Audit Logon Events | Reports success/failure of any local or remote access-based logon |
+  | Audit Object Access | Reports file and folder access. Must be implemented here, and then the individual file/folder must be configured for auditing within its properties in order to fully enable this feature |
+  | Audit Policy Change | Reports changes to group policies |
+  | Audit Privilege Use | Related to Audit Object Access: reports when permissions are utilized such as read, or full control |
+  | Audit System Events | Reports standard system events. Not security related |
+
+  - Second most common issue: agency does not allocate enough storage capacity for these events
+  
+  | Log size field | Minimum |
+  |---|---|
+  | Maximum application log size | 16384 kilobytes |
+  | Maximum security log size | 81920 kilobytes |
+  | Maximum system log size | 16384 kilobytes |
+
+  - Third most common issue: Event Viewer logs are not set to “Do Not Overwrite Events (clear log manually).”
+  - This prevents logs from being overwritten and reduces possibility of deletion prior to system admin review or archiving
+  - In cases where FTI is stored on a Windows device, it becomes necessary to audit the file or folder access where the FTI resides
+  - This is a two part process where the audit policy must be changed, and then the file or folder must be flagged for auditing
+  - From that point, items will appear in the Security log of the Event Viewer
+
+  - **Auditing User Access of Files, Folders, and Printers**
+    1. Click Start, click Control Panel, click Performance and Maintenance, and then click Administrative Tools.
+    2. Double-click Local Security Policy.
+    3. In the left pane, double-click Local Policies to expand it.
+    4. In the left pane, click Audit Policy to display the individual policy settings in the right pane.
+    5. Double-click Audit object access.
+    6. To audit successful access of specified files, folders and printers, select the Success check box.
+    7. To audit unsuccessful access to these objects, select the Failure check box.
+    8. To enable auditing of both, select both check boxes.
+    9. Click OK.
+
+  - **Specifying Files, Folders, and Printers to Audit**
+    1. In Windows Explorer, locate the file or folder you want to audit. To audit a printer, locate it by clicking Start, and then clicking Printers and Faxes.
+    2. Right-click the file, folder, or printer that you want to audit, and then click Properties.
+    3. Click the Security tab, and then click Advanced.
+    4. Click the Auditing tab, and then click Add.
+    5. In the Enter the object name to select box, type the name of the user or group whose access you want to audit. You can browse the computer for names by clicking Advanced, and then clicking Find Now in the Select User or Group dialog box.
+    6. Click OK. Select the Successful or Failed check boxes for the actions you want to audit, and then click OK.
+    7. Click OK, and then click OK.
+
+- **Cisco routers**
+  
+  | Finding | Discussion | Risk | Recommendation |
+  |---|---|---|---|
+  | Sequence numbers are not used for syslog messages | Each system status message logged in the system logging process has a sequence reference number applied. The service sequence-numbers command makes that number visible by displaying it with the message. The sequence number is displayed as the first part of the system status message. | Sequence numbering on syslog messages enables an auditing control to indicate if any messages are missing. Without visible sequence numbers some syslog messages may be lost during transmission and would not be accounted for, thus weakening the effectiveness of the system logging. This is turn weakens the integrity of FTI system’s audit trails. | Implement sequence numbering for syslog messages. Recommended commands: `Router#config terminal`; `Router(config)#service sequence-numbers` |
+  | NTP authentication is not used | Time synchronization can be authenticated to ensure that the local router obtains its time services only from known sources. By default, network time synchronization is unauthenticated. Uses pre-placed keys to establish a trusted community of NTP servers and peers. Cisco routers support only MD5 authentication for NTP. | With a sophisticated attack, an attacker could use NTP informational queries to discover the timeservers to which a router is synchronized, and then through an attack such as DNS cache poisoning, redirect a router to a system under their control. Manipulating the time on a router this way could make it difficult to identify when incidents truly happened and could also be used to confuse any time-based security measures you have in place. This weakens the integrity of FTI system’s audit trails. | Use NTP authentication between clients, servers, and peers to ensure that time is synchronized to approved servers only. Enable NTP authentication with the `ntp authenticate` command. Define an NTP authentication key with the `ntp authentication-key` command. A unique number identifies each NTP key. This number is the first argument to the `ntp authentication-key` command. Use the `ntp trusted-key` command to tell the router which keys are valid for authentication. The `ntp trusted-key` command's only argument is the number of the key defined in the previous step. To enable authentication on the router and define key number 10: `Router#config terminal`; `Router(config)#ntp authenticate`; `Router(config)#ntp authentication-key 10 md5`; `Router(config)#ntp trusted-key 10`. If external NTP servers require authentication, configure a router to use authentication when contacting those servers by using the `ntp server` command with the key argument. To authenticate NTP peers, configure the same key on both systems and use the `ntp peer` command with the key argument to configure authentication. |
+  | Dedicated log servers are not used | Currently a dedicated log server is not used. A host should be configured for the sole purpose of storing logs from the routers. Log servers should be included as a part of network engineering to house and protect the router log files. Log servers should be sized with respect to the amount of traffic produced by the routers on the network, therefore correlating to the amount of log entries routers would produce. | Without a dedicated, protected log server to house the router’s logs, there is risk of logs being deleted or overwritten from the router’s buffered memory before they are able to be analyzed. Security events indicating possible network attacks would go unnoticed allowing the network to be compromised without any advanced warning. | Assign a host as the dedicated log server. The log server should be connected to a trusted or protected network, or an isolated and dedicated router interface. Harden the log host by removing all unnecessary services and accounts. |

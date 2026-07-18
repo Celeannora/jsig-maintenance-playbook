@@ -1,0 +1,183 @@
+URL: https://github.com/PagerDuty/incident-response-docs/blob/master/docs/during/security_incident_response.md
+TITLE: incident-response-docs/docs/during/security_incident_response.md at master · PagerDuty/incident-response-docs
+ERROR: None
+
+- **Document**
+  - `security_incident_response.md`
+  - Cover description: `Checklist of actions for responding to a security incident at PagerDuty.`
+  - **Last Reviewed:** `YYYY-MM-DD`
+  - **Last Tested:** `YYYY-MM-DD`
+
+- **Operational structure / escalation**
+  - **Incident Commander Required**
+    - Security incidents involve an **Incident Commander** who will delegate tasks to relevant responders.
+    - Tasks may be performed in parallel as assigned by the IC.
+    - Page one at the earliest possible opportunity: `!ic page`
+  - **Not Sure it's a Security Incident?**
+    - Trigger the process anyway.
+    - The Incident Commander will make a determination on if response is needed.
+
+- **Checklist**
+  1. Stop the attack in progress.
+  2. Cut off the attack vector.
+  3. Assemble the response team.
+  4. Isolate affected instances.
+  5. Identify timeline of attack.
+  6. Identify compromised data.
+  7. Assess risk to other systems.
+  8. Assess risk of re-attack.
+  9. Apply additional mitigations, additions to monitoring, etc.
+  10. Forensic analysis of compromised systems.
+  11. Internal communication.
+  12. Involve law enforcement.
+  13. Reach out to external parties that may have been used as vector for attack.
+  14. External communication.
+
+- **Attack Mitigation**
+  - Stop the attack as quickly as you can, via any means necessary.
+  - Shut down servers, network isolate them, turn off a data center if you have to.
+  - Common actions:
+    - Shutdown the instance from the provider console.
+    - Do not delete or terminate if you can help it, as forensic analysis will be needed.
+    - If logged into the box:
+      - Reinstate default iptables rules to restrict traffic.
+      - `kill -9` any active session you think is an attacker.
+      - Change root password and update `/etc/shadow` to lock out all other users.
+      - `sudo shutdown now`
+
+- **Cut Off Attack Vector**
+  - Identify the likely attack vectors and path/fix them so they cannot be re-exploited immediately after stopping the attack.
+  - If a third-party provider is suspected compromised:
+    - Delete all accounts except your own and those of others who are physically present.
+    - Immediately rotate your password and MFA tokens.
+  - If a service application was an attack vector:
+    - Disable any relevant code paths.
+    - Or shut down the service entirely.
+
+- **Assemble Response Team**
+  - Identify the key responders for the security incident and keep them all in the loop.
+  - Set up a secure method of communicating all information associated with the incident.
+  - Details on the incident, or even the fact that an incident has occurred, should be kept private to responders until confident the attack is not being triggered internally.
+  - **Actions**
+    - Page an Incident Commander if not already done so.
+    - They will appoint the usual incident command roles.
+    - The incident command team will be responsible for keeping documentation of actions taken.
+    - The incident command team will be responsible for notifying internal stakeholders as appropriate.
+    - Give the project an innocuous codename for chats/documents.
+      - Example: `sapphire-unicorn`
+    - Start the voice call if not already in progress.
+    - Setup chat room using the codename of the incident.
+    - Invite all responders to the voice call and chat room.
+      - The security team should always be included.
+      - A representative for any affected services should be included.
+      - Executive stakeholders and legal counsel should be invited at earliest possible opportunity, but prioritize operational responders first.
+    - Do not communicate with anyone not on the response team about the incident until forensics have been performed.
+    - Prefix all emails and chat topics with `Attorney Work Project`.
+
+- **Isolate Affected Instances**
+  - Any instances affected by the attack should be immediately isolated from any other instances.
+  - As soon as possible, an image of the system should be taken and put into a read-only cold storage for later forensic analysis.
+  - **Actions**
+    - Blacklist the IP addresses for any affected instances from all other hosts.
+    - Turn off and shutdown the instances immediately if not already done to stop the attack.
+    - Take a disk image for any disks attached to the instances.
+    - Ship the disk images to an off-site cold storage location.
+    - Make sure these images are read-only and cannot be tampered with.
+
+- **Identify Timeline of Attack**
+  - Work with all tools at your disposal to identify the timeline of the attack and exactly what the attacker did.
+  - **Capture**
+    - Any reconnaissance the attacker performed on the system before the attack started.
+    - When the attacker gained access to the system.
+    - What actions the attacker performed on the system, and when.
+    - How long the attacker had access to the system before they were detected.
+    - How long the attacker had access to the system before they were kicked out.
+    - Any queries the attacker ran on databases.
+    - Whether the attacker still has access to the system via another back door.
+    - Monitor logs for unusual activity.
+
+- **Compromised Data**
+  - Using forensic analysis of log files, time-series graphs, and any other information/tools at your disposal, attempt to identify what information was compromised, if any.
+  - **Capture**
+    - Any data that was compromised during the attack.
+      - Was any data exfiltrated from a database?
+      - What keys were on the system that are now considered compromised?
+      - Was the attacker able to identify other components of the system (map out the network, etc)?
+    - Find exactly what customer data has been compromised, if any.
+
+- **Assess Risk**
+  - Based on the data that was compromised, assess the risk to other systems.
+  - **Capture**
+    - Does the attacker have enough information to find another way in?
+    - Were any passwords or keys stored on the host?
+      - If so, they should be considered compromised regardless of how they were stored.
+    - Any user accounts that were used in the initial attack should rotate all of their keys and passwords on every other system they have an account.
+
+- **Apply Additional Mitigations**
+  - Start applying mitigations to other parts of your system.
+  - **Actions**
+    - Rotate any compromised data.
+    - Identify any new alerting which is needed to notify of a similar breach.
+    - Block any IP addresses associated with the attack.
+    - Identify any keys/credentials that are compromised and revoke their access immediately.
+
+- **Forensic Analysis**
+  - Once confident the systems are secured and enough monitoring is in place to detect another attack, move onto the forensic analysis stage.
+  - **Actions**
+    - Take any read-only images created and any access logs available, and comb through them for more information about the attack.
+    - Identify exactly what happened, how it happened, and how to prevent it in future.
+    - Keep track of all IP addresses involved in the attack.
+    - Monitor logs for any attempt to regain access to the system by the attacker.
+
+- **Internal Communication**
+  - **Delegate to:** `VP or Director of Engineering`
+  - Communicate internally only once confident, via forensic analysis, that the attack was not sourced internally.
+  - **Actions**
+    - Don't go into too much detail.
+    - Overview the timeline.
+    - Discuss mitigation steps taken.
+    - Follow up with more information once it is known.
+
+- **Liaise With Law Enforcement / External Actors**
+  - **Delegate to:** `VP or Director of Engineering`
+  - Work with law enforcement to identify the source of the attack.
+  - Let any system owners know that systems under their control may be compromised.
+  - **Actions**
+    - Contact local law enforcement.
+    - Contact the FBI.
+    - Contact operators for any systems used in the attack; their systems may also have been compromised.
+    - Contact security companies to help in assessing risk and any PR next steps.
+    - Contact your cyber insurance provider.
+
+- **External Communication**
+  - **Delegate to:** `Marketing Team`
+  - Once all information is validated as accurate, timeline of events is known, exactly what information was compromised and how it was compromised is known, and it is certain it won't happen again, prepare and release a public statement to customers.
+  - The public statement should inform customers of the compromised information and any steps they need to take.
+  - **Actions / fields**
+    - Include the date in the title of any announcement so that it is never confused for a potential new breach.
+    - Don't say `"We take security very seriously."`
+    - Be honest, accept responsibility, and present the facts, along with exactly how the company plans to prevent such things in future.
+    - Be as detailed as possible with the timeline.
+    - Be as detailed as possible in what information was compromised and how it affects customers.
+    - If storing something that should not have been stored, be honest about it.
+    - Don't name and shame any external parties that might have caused the compromise.
+    - If they have already publicly disclosed, link to their disclosure.
+    - Release the external communication as soon as possible, preferably within a few days of the compromise.
+    - If possible, get in touch with customers' internal security teams before the general public notice is sent.
+
+- **Communicating During an Incident**
+  - Prefer voice call and Slack over any other methods.
+  - Avoid email.
+    - If email is absolutely needed:
+      - Subject of emails should be `Attorney Work Project` and nothing else.
+      - If the email chain has **ANY** contacts not with the `@pagerduty.com` domain, make sure emails are encrypted.
+  - Do not use SMS to communicate about the incident.
+    - Only exception: to tell someone to move to a more secure channel, e.g. `Please join Slack ASAP.`
+  - Do not disseminate anything about the incident to those outside the response team until approval to do so.
+
+- **Additional Reading**
+  - `Computer Security Incident Handling Guide` (NIST)
+  - `Incident Handler's Handbook` (SANS)
+  - `Responding to IT Security Incidents` (Microsoft)
+  - `Defining Incident Management Processes for CSIRTs: A Work in Progress` (CMU)
+  - `Creating and Managing Computer Security Incident Handling Teams (CSIRTS)` (CERT)

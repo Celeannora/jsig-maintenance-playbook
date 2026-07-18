@@ -1,0 +1,139 @@
+URL: https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/ops_ready_to_support_use_runbooks.html
+TITLE: OPS07-BP03 Use runbooks to perform procedures - Operational Excellence Pillar
+ERROR: None
+
+- **Runbook definition and purpose**
+  - A runbook is a documented process to achieve a specific outcome.
+  - Runbooks consist of a series of steps that someone follows to get something done.
+  - In cloud operations, runbooks are used to reduce risk and achieve desired outcomes.
+  - At its simplest, a runbook is a checklist to complete a task.
+  - Runbooks are an essential part of operating a workload.
+  - Runbooks provide consistent outcomes no matter who uses them.
+  - Runbooks should be published in a central location.
+  - Runbooks should be updated as the process evolves.
+  - Updating runbooks is a key component of a change management process.
+  - Runbooks should include guidance on error handling, tools, permissions, exceptions, and escalations in case a problem occurs.
+
+- **Desired outcome**
+  - Your team has a collection of step-by-step guides for performing workload tasks.
+  - The runbooks contain the desired outcome.
+  - The runbooks contain necessary tools and permissions.
+  - The runbooks contain instructions for error handling.
+  - The runbooks are stored in a central location (version control system).
+  - The runbooks are updated frequently.
+  - Example capability: runbooks provide capabilities for teams to monitor, communicate, and respond to AWS Health events for critical accounts during application alarms, operational issues, and planned lifecycle events.
+
+- **Common anti-patterns**
+  - Relying on memory to complete each step of a process.
+  - Manually deploying changes without a checklist.
+  - Different team members performing the same process but with different steps or outcomes.
+  - Letting runbooks drift out of sync with system changes and automation.
+
+- **Benefits**
+  - Reducing error rates for manual tasks.
+  - Operations are performed in a consistent manner.
+  - New team members can start performing tasks sooner.
+  - Runbooks can be automated to reduce toil.
+
+- **Level of risk exposed if this best practice is not established**
+  - Medium
+
+- **Implementation guidance**
+  - At a minimum, runbooks should consist of a step-by-step text document.
+  - The desired outcome should be clearly indicated.
+  - Clearly document necessary special permissions or tools.
+  - Provide detailed guidance on error handling and escalations in case something goes wrong.
+  - List the runbook owner.
+  - Publish the runbook in a central location.
+  - Validate the runbook by having someone else on your team run it.
+  - As procedures evolve, update runbooks in accordance with your change management process.
+  - As the organization matures, text runbooks should be automated.
+  - AWS Systems Manager automations can transform flat text into automations that can be run against your workload.
+  - Automations can be run in response to events, reducing the operational burden to maintain your workload.
+  - AWS Systems Manager Automation provides a low-code visual design experience to create automation runbooks more easily.
+
+- **Customer example**
+  - AnyCompany Retail must perform database schema updates during software deployments.
+  - The Cloud Operations Team worked with the Database Administration Team to build a runbook for manually deploying these changes.
+  - The runbook listed each step in the process in checklist form.
+  - It included a section on error handling in case something went wrong.
+  - They published the runbook on their internal wiki along with their other runbooks.
+  - The Cloud Operations Team plans to automate the runbook in a future sprint.
+
+- **Implementation steps**
+  1. If you don't have an existing documentation repository or wiki, create a new version control repository in your version control system.
+  2. Identify a process that does not have a runbook.
+  3. An ideal process is one that is conducted semiregularly, short in number of steps, and has low impact failures.
+  4. In your document repository, create a new draft Markdown document using the template.
+  5. Fill in Runbook Title and the required fields under Runbook Info.
+  6. Starting with the first step, fill in the Steps portion of the runbook.
+  7. Give the runbook to a team member.
+  8. Have them use the runbook to validate the steps.
+  9. If something is missing or needs clarity, update the runbook.
+  10. Publish the runbook to your internal documentation store.
+  11. Once published, tell your team and other stakeholders.
+  12. Over time, build a library of runbooks.
+  13. As the library grows, start working to automate runbooks.
+
+- **Level of effort for the implementation plan**
+  - Low
+  - The minimum standard for a runbook is a step-by-step text guide.
+  - Automating runbooks can increase the implementation effort.
+
+- **Runbook template**
+  - **Template heading:** `# Runbook Title`
+  - **Template heading:** `## Runbook Info`
+
+| Runbook ID | Description | Tools Used | Special Permissions | Runbook Author | Last Updated | Escalation POC |
+|---|---|---|---|---|---|---|
+| RUN001 | What is this runbook for? What is the desired outcome? | Tools | Permissions | Your Name | 2022-09-21 | Escalation Name |
+
+  - **Template heading:** `## Steps`
+  - `1. Step one`
+  - `2. Step two`
+
+- **Runbook Info fields captured**
+  - Runbook ID
+  - Description
+  - Tools Used
+  - Special Permissions
+  - Runbook Author
+  - Last Updated
+  - Escalation POC
+
+- **Resources**
+  - Related best practices:
+    - OPS02-BP02 Processes and procedures have identified owners
+    - OPS07-BP04 Use playbooks to investigate issues
+    - OPS10-BP01 Use a process for event, incident, and problem management
+    - OPS10-BP02 Have a process per alert
+    - OPS11-BP04 Perform knowledge management
+  - Related documents:
+    - Achieving Operational Excellence using automated playbook and runbook
+    - AWS Systems Manager: Working with runbooks
+    - Migration playbook for AWS large migrations - Task 4: Improving your migration runbooks
+    - Use AWS Systems Manager Automation runbooks to resolve operational tasks
+  - Related videos:
+    - AWS re:Invent 2019: DIY guide to runbooks, incident reports, and incident response
+    - How to automate IT Operations on AWS | Amazon Web Services
+    - Integrate Scripts into AWS Systems Manager
+  - Related examples:
+    - Well-Architected Labs: Automating operations with Playbooks and Runbooks
+    - AWS Blog Post: Build a Cloud Automation Practice for Operational Excellence: Best Practices from AWS Managed Services
+    - AWS Systems Manager: Automation walkthroughs
+    - AWS Systems Manager: Restore a root volume from the latest snapshot runbook
+    - Building an AWS incident response runbook using Jupyter notebooks and CloudTrail Lake
+    - Gitlab - Runbooks
+    - Rubix - A Python library for building runbooks in Jupyter Notebooks
+    - Using Document Builder to create a custom runbook
+  - Related services:
+    - AWS Systems Manager Automation
+
+- **Explicit absences**
+  - No POA&M records are provided.
+  - No remediation records are provided.
+  - No RACI table is provided.
+  - No ticket template is provided.
+  - No playbook template is provided.
+  - No recurring security/compliance task cadence is provided beyond “frequently,” “semiregularly,” and “as procedures evolve.”
+  - No severity or SLA values are provided.

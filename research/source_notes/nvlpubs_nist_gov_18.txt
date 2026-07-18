@@ -1,0 +1,929 @@
+URL: https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf
+TITLE: Computer Security Incident Handling Guide
+ERROR: None
+
+- **Publication status / supersession**
+  - Withdrawn Publication
+  - Series/Number: NIST Special Publication (SP) 800-61 Revision 2
+  - Title: Computer Security Incident Handling Guide
+  - Publication Date(s): August 2012
+  - Withdrawal Date: April 3, 2025
+  - Withdrawal Note: NIST SP 800-61 Rev. 2 is withdrawn and superseded in its entirety by NIST SP 800-61r3 (Revision 3)
+  - Superseding Publication(s):
+    - Series/Number: NIST SP 800-61r3
+    - Title: Incident Response Recommendations and Considerations for Cybersecurity Risk Management: A CSF 2.0 Community Profile
+    - Author(s): A. Nelson; S. Rekhi; M. Souppaya; K. Scarfone
+    - Publication Date(s): April 3, 2025
+    - URL/DOI: https://doi.org/10.6028/NIST.SP.800-61r3
+    - Contact: Computer Security Division (Information Technology Laboratory)
+    - Related Information:
+      - https://csrc.nist.gov/pubs/sp/800/61/r3/final
+      - https://csrc.nist.gov/projects/incident-response
+
+- **Formal incident response capability / operating structure**
+  - Organizations must create, provision, and operate a formal incident response capability.
+  - Federal law requires Federal agencies to report incidents to the United States Computer Emergency Readiness Team (US-CERT) office within the Department of Homeland Security (DHS).
+  - FISMA requires Federal agencies to establish incident response capabilities.
+  - Each Federal civilian agency must designate a primary and secondary point of contact (POC) with US-CERT and report all incidents consistent with the agency’s incident response policy.
+  - Establishing an incident response capability should include:
+    - Creating an incident response policy and plan
+    - Developing procedures for performing incident handling and reporting
+    - Setting guidelines for communicating with outside parties regarding incidents
+    - Selecting a team structure and staffing model
+    - Establishing relationships and lines of communication between the incident response team and other groups, both internal (e.g., legal department) and external (e.g., law enforcement agencies)
+    - Determining what services the incident response team should provide
+    - Staffing and training the incident response team
+
+- **Roles / responsibilities / dependencies**
+  - **Policy Elements**
+    - Statement of management commitment
+    - Purpose and objectives of the policy
+    - Scope of the policy (to whom and what it applies and under what circumstances)
+    - Definition of computer security incidents and related terms
+    - Organizational structure and definition of roles, responsibilities, and levels of authority
+      - Should include:
+        - Authority of the incident response team to confiscate or disconnect equipment
+        - Authority to monitor suspicious activity
+        - Requirements for reporting certain types of incidents
+        - Requirements and guidelines for external communications and information sharing (e.g., what can be shared with whom, when, and over what channels)
+        - Handoff and escalation points in the incident management process
+    - Prioritization or severity ratings of incidents
+    - Performance measures
+    - Reporting and contact forms
+  - **Plan Elements**
+    - Mission
+    - Strategies and goals
+    - Senior management approval
+    - Organizational approach to incident response
+    - How the incident response team will communicate with the rest of the organization and with other organizations
+    - Metrics for measuring the incident response capability and its effectiveness
+    - Roadmap for maturing the incident response capability
+    - How the program fits into the overall organization
+    - Review the plan at least annually
+  - **Procedure Elements / SOPs**
+    - Standard operating procedures (SOPs) are a delineation of the specific technical processes, techniques, checklists, and forms used by the incident response team.
+    - SOPs should be reasonably comprehensive and detailed.
+    - SOPs should be tested to validate their accuracy and usefulness, then distributed to all team members.
+    - Training should be provided for SOP users.
+  - **Incident response personnel**
+    - A single employee, with one or more designated alternates, should be in charge of incident response.
+    - In a fully outsourced model, this person oversees and evaluates the outsourcer’s work.
+    - All other models generally have a team manager and one or more deputies who assumes authority in the absence of the team manager.
+    - Managers:
+      - Act as a liaison with upper management and other teams and organizations
+      - Defuse crisis situations
+      - Ensure that the team has the necessary personnel, resources, and skills
+      - Are technically adept and have excellent communication skills
+      - Are ultimately responsible for ensuring that incident response activities are performed properly
+    - Technical lead:
+      - Person with strong technical skills and incident response experience
+      - Assumes oversight of and final responsibility for the quality of the team’s technical work
+    - Incident lead:
+      - Larger teams often assign an incident lead as the primary POC for handling a specific incident
+      - Held accountable for the incident’s handling
+      - May coordinate handlers’ activities, gather information from handlers, provide incident updates to other groups, and ensure that the team’s needs are met
+    - Team member skills:
+      - System administration
+      - Network administration
+      - Programming
+      - Technical support
+      - Intrusion detection
+      - Problem solving skills
+      - Critical thinking abilities
+      - Teamwork skills
+      - Communication skills
+      - Speaking skills
+      - Writing skills
+  - **Dependencies within organizations**
+    - Management
+      - Establishes incident response policy, budget, and staffing
+      - Ultimately responsible for coordinating incident response among various stakeholders, minimizing damage, and reporting to Congress, OMB, the General Accounting Office (GAO), and other parties
+    - Information Assurance
+      - May be needed during prevention, containment, eradication, and recovery
+      - Example: altering network security controls (e.g., firewall rulesets)
+    - IT Support
+      - Technical experts such as system and network administrators
+      - Assist and usually have the best understanding of the technology they manage
+      - Can ensure appropriate actions are taken for the affected system, such as whether to disconnect an attacked system
+    - Legal Department
+      - Review incident response plans, policies, and procedures to ensure compliance with law and Federal guidance, including the right to privacy
+      - Guidance sought if incident may have legal ramifications, including evidence collection, prosecution of a suspect, or a lawsuit
+      - Guidance sought if there may be a need for a memorandum of understanding (MOU) or other binding agreements involving liability limitations for information sharing
+    - Public Affairs and Media Relations
+      - May need to inform the media and the public
+    - Human Resources
+      - May be involved if an employee is suspected of causing an incident
+      - Example: disciplinary proceedings
+    - Business Continuity Planning
+      - Incident response policies and procedures and business continuity processes should be in sync
+      - Made aware of incidents and impacts to fine-tune business impact assessments, risk assessments, and continuity of operations plans
+      - May be valuable in planning responses to denial of service (DoS) conditions
+    - Physical Security and Facilities Management
+      - May be needed because some incidents occur through breaches of physical security or involve coordinated logical and physical attacks
+      - May need access to facilities during incident handling, e.g., to acquire a compromised workstation from a locked office
+
+- **Incident response team structure / staffing models**
+  - **Team Models**
+    - Central Incident Response Team
+      - A single incident response team handles incidents throughout the organization
+      - Effective for small organizations and organizations with minimal geographic diversity in terms of computing resources
+    - Distributed Incident Response Teams
+      - Multiple incident response teams, each responsible for a particular logical or physical segment of the organization
+      - Effective for large organizations (e.g., one team per division) and for organizations with major computing resources at distant locations (e.g., one team per geographic region, one team per major facility)
+      - Teams should be part of a single coordinated entity so that the incident response process is consistent and information is shared among teams
+    - Coordinating Team
+      - Provides advice to other teams without authority over those teams
+      - Example: a departmentwide team may assist individual agencies’ teams
+      - Not addressed in detail in this document
+  - **Staffing Models**
+    - Employees
+      - Organization performs all incident response work, with limited technical and administrative support from contractors
+    - Partially Outsourced
+      - Organization outsources portions of incident response work
+      - Common arrangements:
+        - Outsource 24-hours-a-day, 7-days-a-week (24/7) monitoring of intrusion detection sensors, firewalls, and other security devices to an offsite managed security services provider (MSSP)
+        - MSSP identifies and analyzes suspicious activity and reports each detected incident to the organization’s incident response team
+        - Some organizations perform basic incident response work in-house and call on contractors to assist with handling incidents, particularly more serious or widespread incidents
+    - Fully Outsourced
+      - Organization completely outsources incident response work, typically to an onsite contractor
+      - Most likely used when the organization needs a full-time, onsite incident response team but does not have enough available, qualified employees
+      - Organization will have employees supervising and overseeing the outsourcer’s work
+  - **Team model selection factors**
+    - Need for 24/7 availability
+      - Incident handlers can be contacted by phone
+      - May require onsite presence
+      - Real-time availability is best
+    - Full-time versus part-time team members
+      - Existing group such as the IT help desk can act as a first POC for incident reporting
+      - Help desk members can be trained to perform initial investigation and data gathering and then alert the incident response team if it appears that a serious incident has occurred
+    - Employee morale
+      - Incident response work is very stressful
+      - Segregating roles, particularly reducing administrative work team members are responsible for performing, can be a significant boost to morale
+    - Cost
+      - Incident response-specific costs should be included in budgets
+      - Includes sufficient funding for training and maintaining skills
+      - Additional costs:
+        - Physical security for the team’s work areas
+        - Communications mechanisms
+    - Staff expertise
+      - Outsourcers may possess deeper knowledge of intrusion detection, forensics, vulnerabilities, exploits, and other aspects of security
+      - MSSPs may be able to correlate events among customers to identify new threats more quickly
+      - Internal technical staff usually have better knowledge of the organization’s environment
+  - **Outsourcing considerations**
+    - Current and Future Quality of Work
+      - Consider current quality and efforts to ensure future quality
+      - Examples:
+        - Minimizing turnover and burnout
+        - Providing a solid training program for new employees
+      - Assess the quality of the outsourcer’s work objectively
+    - Division of Responsibilities
+      - Document appropriate actions for decision points
+      - Example: partially outsourced model where outsourcer provides incident data and recommendations; internal team makes operational decisions
+    - Sensitive Information Revealed to the Contractor
+      - Restrict access to sensitive information
+      - Example: contractor may determine what user ID was used in an incident but not know what person is associated with the user ID
+      - Non-disclosure agreements (NDAs) are one possible option
+    - Lack of Organization-Specific Knowledge
+      - Provide regularly updated documents defining:
+        - What incidents the organization is concerned about
+        - Which resources are critical
+        - What the level of response should be under various sets of circumstances
+      - Report all changes and updates made to IT infrastructure, network configuration, and systems
+    - Lack of Correlation
+      - Correlation among multiple data sources is very important
+      - Outsourcer may require administrative privileges to critical systems and security device logs remotely over a secure channel
+    - Handling Incidents at Multiple Locations
+      - Consider where the outsourcer is located
+      - Consider how quickly it can have an incident response team at any facility
+      - Consider onsite visits
+      - Consider whether there are certain facilities or areas where the outsourcer should not be permitted to work
+    - Maintaining Incident Response Skills In-House
+      - Organizations that completely outsource incident response should strive to maintain basic incident response skills in-house
+      - Organization should be prepared to perform its own incident handling if outsourcer is unavailable
+      - Technical staff must be able to understand the significance, technical implications, and impact of the outsourcer’s recommendations
+
+- **Communication / outside parties / escalation / exception handling**
+  - Organizations often need to communicate with outside parties regarding an incident, including:
+    - Law enforcement
+    - Media
+    - Vendors
+    - Victim organizations
+    - Internet service providers (ISPs)
+    - Other incident response teams
+    - Software vendors
+    - Other involved parties
+  - Organizations should predetermine communication guidelines so that only appropriate information is shared with the right parties.
+  - The incident response team should discuss information sharing with the organization’s public affairs office, legal department, and management before an incident occurs.
+  - The team should document all contacts and communications with outside parties for liability and evidentiary purposes.
+  - **The Media**
+    - Establish media communications procedures that comply with the organization’s policies on media interaction and information disclosure
+    - Beneficial to designate a single point of contact (POC) and at least one backup contact
+    - Recommended actions:
+      - Conduct training sessions on interacting with the media regarding incidents
+      - Establish procedures to brief media contacts on issues and sensitivities before discussing with the media
+      - Maintain a statement of the current status of the incident
+      - Remind all staff of general procedures for handling media inquiries
+      - Hold mock interviews and press conferences during incident handling exercises
+    - Example media questions:
+      - Who attacked you? Why?
+      - When did it happen? How did it happen? Did this happen because you have poor security practices?
+      - How widespread is this incident? What steps are you taking to determine what happened and to prevent future occurrences?
+      - What is the impact of this incident? Was any personally identifiable information (PII) exposed? What is the estimated cost of this incident?
+  - **Law Enforcement**
+    - Multiple levels available in the United States:
+      - Federal investigatory agencies (e.g., the Federal Bureau of Investigation [FBI] and the U.S. Secret Service)
+      - District attorney offices
+      - State law enforcement
+      - Local (e.g., county) law enforcement
+    - Law enforcement agencies in other countries may also be involved
+    - Agencies have an Office of Inspector General (OIG) for investigation of violation of the law within each agency
+    - Incident response team should become acquainted with law enforcement representatives before an incident occurs to discuss:
+      - Conditions under which incidents should be reported
+      - How reporting should be performed
+      - What evidence should be collected
+      - How evidence should be collected
+    - Law enforcement should be contacted through designated individuals in a manner consistent with the requirements of the law and the organization’s procedures
+    - Many organizations prefer to appoint one incident response team member as the primary POC with law enforcement
+    - Do not contact multiple agencies because doing so might result in jurisdictional conflicts
+    - Potential jurisdictional issues should be understood
+  - **Incident Reporting Organizations / US-CERT**
+    - FISMA requires Federal agencies to report incidents to US-CERT
+    - US-CERT is a governmentwide incident response organization that assists Federal civilian agencies in their incident handling efforts
+    - US-CERT does not replace existing agency response teams; it augments their efforts by serving as a focal point for dealing with incidents
+    - US-CERT analyzes agency-provided information to identify trends and indicators of attacks
+    - Each agency must designate a primary and secondary POC with US-CERT and report all incidents consistent with the agency’s incident response policy
+    - Organizations should create a policy that states who is designated to report incidents and how incidents should be reported
+    - Requirements, categories, and timeframes for reporting incidents to US-CERT are on the US-CERT website
+    - All Federal agencies must ensure that incident response procedures adhere to US-CERT’s reporting requirements and that procedures are followed properly
+    - All organizations are encouraged to report incidents to their appropriate CSIRTs
+    - If an organization does not have its own CSIRT, it can report incidents to other organizations, including Information Sharing and Analysis Centers (ISACs)
+    - ISAC sectors listed:
+      - Communications
+      - Electric Sector
+      - Financial Services
+      - Information Technology
+      - Research and Education
+  - **Other outside parties**
+    - Organization’s ISP
+      - May need assistance blocking a major network-based attack or tracing its origin
+    - Owners of Attacking Addresses
+      - If attacks originate from an external organization’s IP address space, handlers may want to talk to designated security contacts for the organization to alert them or ask them to collect evidence
+      - Highly recommended to coordinate such communications with US-CERT or an ISAC
+    - Software Vendors
+      - May be asked about significance of log entries or known false positives for intrusion detection signatures
+      - More information may be needed if a server appears compromised through an unknown software vulnerability
+      - May provide information on known threats
+    - Other Incident Response Teams
+      - Proactively sharing information can facilitate more effective and efficient incident handling
+      - Examples of groups that promote information sharing:
+        - Forum of Incident Response and Security Teams (FIRST)
+        - Government Forum of Incident Response and Security Teams (GFIRST)
+        - Anti-Phishing Working Group (APWG)
+    - Affected External Parties
+      - In some jurisdictions, organizations are required to notify all parties affected by an incident
+      - Preferable to notify affected external parties before the media or other external organizations do so
+      - Handlers should give out only appropriate information
+      - Federal agencies are required to develop and implement a breach notification policy for personally identifiable information (PII)
+      - Incident handlers should understand how actions differ when a PII breach is suspected, such as notifying additional parties or notifying parties within a shorter timeframe
+      - National Conference of State Legislatures has a list of state security breach notification laws
+
+- **Incident lifecycle / phases / cadence**
+  - Incident response life cycle phases:
+    - Preparation
+    - Detection and Analysis
+    - Containment, Eradication, and Recovery
+    - Post-Incident Activity
+  - Preparation phase:
+    - Establishing and training an incident response team
+    - Acquiring necessary tools and resources
+    - Selecting and implementing controls based on risk assessments to limit incidents
+  - Detection and Analysis phase:
+    - Analyze precursors and indicators
+    - Determine whether an incident has occurred
+    - Determine type, extent, and magnitude
+    - Perform initial analysis to determine scope
+    - Prioritize subsequent activities
+  - Containment, Eradication, and Recovery phase:
+    - Contain incident before it overwhelms resources or increases damage
+    - Eradicate malware, breached accounts, exploited vulnerabilities, affected hosts
+    - Restore systems to normal operation
+    - Confirm systems function normally
+    - Remediate vulnerabilities
+    - Implement additional monitoring
+  - Post-Incident Activity phase:
+    - Lessons learned
+    - Using collected incident data
+    - Evidence retention
+  - Incident handling checklist sequence:
+    - Determine whether an incident has occurred
+    - Analyze the precursors and indicators
+    - Look for correlating information
+    - Perform research (e.g., search engines, knowledge base)
+    - As soon as the handler believes an incident has occurred, begin documenting the investigation and gathering evidence
+    - Prioritize handling based on relevant factors
+    - Report the incident to the appropriate internal personnel and external organizations
+    - Acquire, preserve, secure, and document evidence
+    - Contain the incident
+    - Eradicate the incident
+      - Identify and mitigate all vulnerabilities that were exploited
+      - Remove malware, inappropriate materials, and other components
+      - If more affected hosts are discovered, repeat Detection and Analysis steps (1.1, 1.2), then contain and eradicate for them
+    - Recover from the incident
+      - Return affected systems to an operationally ready state
+      - Confirm affected systems are functioning normally
+      - If necessary, implement additional monitoring to look for future related activity
+    - Create a follow-up report
+    - Hold a lessons learned meeting
+  - **Cadence / frequency**
+    - Incident response plan should be reviewed at least annually
+    - Lessons learned meeting:
+      - After a major incident
+      - Optionally periodically after lesser incidents as resources permit
+      - Within several days of the end of the incident
+    - Lessons learned meetings can cover multiple incidents in a single meeting
+    - Regular review of logs should occur
+    - Follow-up reports should be kept for a period of time as specified in record retention policies
+    - Evidence retention may be months or years after incident ends
+    - Incident handling records under GRS 24: destroy 3 years after all necessary follow-up actions have been completed
+    - For large-scale incidents, recovery may take months
+    - Early remediation phases: days to weeks high value changes
+    - Later phases: longer-term changes and ongoing work
+  - **Communication cadence / status updates**
+    - Incident response policies should include provisions concerning incident reporting, at a minimum:
+      - What must be reported to whom
+      - At what times
+        - Initial notification
+        - Regular status updates
+    - The team may need to provide status updates to certain parties, even in some cases the entire organization
+    - Communication methods can include:
+      - Email
+      - Website (internal, external, or portal)
+      - Telephone calls
+      - In person (e.g., daily briefings)
+      - Voice mailbox greeting
+      - Paper
+
+- **Preparation / tools / resources / facilities**
+  - Incident Handler Communications and Facilities:
+    - Contact information for team members and others within and outside the organization (primary and backup contacts), such as law enforcement and other incident response teams; information may include phone numbers, email addresses, public encryption keys, and instructions for verifying the contact’s identity
+    - On-call information for other teams within the organization, including escalation information
+    - Incident reporting mechanisms:
+      - Phone numbers
+      - Email addresses
+      - Online forms
+      - Secure instant messaging systems
+      - At least one mechanism should permit anonymous reporting
+    - Issue tracking system for tracking incident information, status, etc.
+    - Smartphones for off-hour support and onsite communications
+    - Encryption software for communications among team members, within the organization and with external parties; for Federal agencies, software must use a FIPS-validated encryption algorithm
+    - War room for central communication and coordination
+      - If a permanent war room is not necessary or practical, create a procedure for procuring a temporary war room when needed
+    - Secure storage facility for securing evidence and other sensitive materials
+  - Incident Analysis Hardware and Software:
+    - Digital forensic workstations and/or backup devices to create disk images, preserve log files, and save other relevant incident data
+    - Laptops for analyzing data, sniffing packets, and writing reports
+    - Spare workstations, servers, and networking equipment, or the virtualized equivalents
+    - Blank removable media
+    - Portable printer to print copies of log files and other evidence from non-networked systems
+    - Packet sniffers and protocol analyzers to capture and analyze network traffic
+    - Digital forensic software to analyze disk images
+    - Removable media with trusted versions of programs to gather evidence from systems
+    - Evidence gathering accessories:
+      - Hard-bound notebooks
+      - Digital cameras
+      - Audio recorders
+      - Chain of custody forms
+      - Evidence storage bags and tags
+      - Evidence tape
+  - Incident Analysis Resources:
+    - Port lists, including commonly used ports and Trojan horse ports
+    - Documentation for OSs, applications, protocols, and intrusion detection and antivirus products
+    - Network diagrams and lists of critical assets, such as database servers
+    - Current baselines of expected network, system, and application activity
+    - Cryptographic hashes of critical files
+  - Incident Mitigation Software:
+    - Access to images of clean OS and application installations for restoration and recovery purposes
+  - Jump kit:
+    - Portable case that contains materials needed during an investigation
+    - Should be ready to go at all times
+    - Typically includes:
+      - Laptop loaded with appropriate software (e.g., packet sniffers, digital forensics)
+      - Backup devices
+      - Blank media
+      - Basic networking equipment and cables
+    - Team should avoid borrowing items from the jump kit
+  - Each incident handler should have access to at least two computing devices
+    - One investigative laptop used to perform packet sniffing, malware analysis, and all other actions that risk contaminating the laptop
+    - This laptop should be scrubbed and all software reinstalled before being used for another incident
+    - Incident handlers should be allowed to specify basic technical requirements for special-purpose investigative laptops whenever possible
+    - A standard laptop, smart phone, or other computing device should be used for writing reports, reading email, and other duties unrelated to hands-on incident analysis
+  - Exercises involving simulated incidents can be very useful for preparing staff for incident handling
+
+- **Attack vectors / categories**
+  - External/Removable Media
+    - Attack executed from removable media (e.g., flash drive, CD) or a peripheral device
+  - Attrition
+    - Attack that employs brute force methods to compromise, degrade, or destroy systems, networks, or services
+    - Example: DDoS intended to impair or deny access to a service or application; brute force attack against authentication mechanism such as passwords, CAPTCHAS, or digital signatures
+  - Web
+    - Attack executed from a website or web-based application
+    - Example: cross-site scripting attack used to steal credentials or a redirect to a site that exploits a browser vulnerability and installs malware
+  - Email
+    - Attack executed via an email message or attachment
+    - Example: exploit code disguised as an attached document or a link to a malicious website in the body of an email message
+  - Impersonation
+    - Attack involving replacement of something benign with something malicious
+    - Examples: spoofing, man in the middle attacks, rogue wireless access points, and SQL injection attacks
+  - Improper Usage
+    - Any incident resulting from violation of an organization’s acceptable usage policies by an authorized user, excluding the above categories
+    - Example: a user installs file sharing software, leading to the loss of sensitive data; or a user performs illegal activities on a system
+  - Loss or Theft of Equipment
+    - The loss or theft of a computing device or media used by the organization, such as a laptop, smartphone, or authentication token
+  - Other
+    - An attack that does not fit into any of the other categories
+
+- **Signs of an incident / precursors / indicators**
+  - Precursors are a sign that an incident may occur in the future.
+  - Indicators are a sign that an incident may have occurred or may be occurring now.
+  - Most attacks do not have identifiable or detectable precursors from the target’s perspective.
+  - Examples of precursors:
+    - Web server log entries that show the usage of a vulnerability scanner
+    - An announcement of a new exploit that targets a vulnerability of the organization’s mail server
+    - A threat from a group stating that the group will attack the organization
+  - Examples of indicators:
+    - A network intrusion detection sensor alerts when a buffer overflow attempt occurs against a database server
+    - Antivirus software alerts when it detects that a host is infected with malware
+    - A system administrator sees a filename with unusual characters
+    - A host records an auditing configuration change in its log
+    - An application logs multiple failed login attempts from an unfamiliar remote system
+    - An email administrator sees a large number of bounced emails with suspicious content
+    - A network administrator notices an unusual deviation from typical network traffic flows
+
+- **Sources of precursors and indicators / fields captured**
+  - **Alerts**
+    - IDPSs
+      - Record:
+        - Date and time the attack was detected
+        - Type of attack
+        - Source and destination IP addresses
+        - Username, if applicable and known
+      - Use attack signatures
+      - Must be kept up to date
+      - Produce false positives
+    - SIEMs
+      - Generate alerts based on analysis of log data
+    - Antivirus and antispam software
+      - Antivirus detects various forms of malware, generates alerts, and prevents malware from infecting hosts
+      - Antispam detects spam and prevents it from reaching users’ mailboxes
+      - Spam may contain malware, phishing attacks, and other malicious content
+    - File integrity checking software
+      - Detects changes made to important files during incidents
+      - Uses a hashing algorithm to obtain a cryptographic checksum for each designated file
+      - By regularly recalculating checksums and comparing them with previous values, changes to files can be detected
+    - Third-party monitoring services
+      - Fraud detection services notify an organization if its IP addresses, domain names, etc. are associated with current incident activity involving other organizations
+      - Free real-time blacklists with similar information
+      - CSIRC notification list
+  - **Logs**
+    - Operating system, service and application logs
+      - Particularly audit-related data
+      - Frequently of great value when an incident occurs
+      - Record which accounts were accessed and what actions were performed
+      - Require a baseline level of logging on all systems and a higher baseline level on critical systems
+      - Logs can be used for analysis by correlating event information
+    - Network device logs
+      - Firewalls and routers usually log blocked connection attempts
+      - Valuable in identifying network trends and correlating events detected by other devices
+    - Network flows
+      - Communication session occurring between hosts
+      - Can be used to find anomalous network activity caused by malware, data exfiltration, and other malicious acts
+      - Standards:
+        - NetFlow
+        - sFlow
+        - IPFIX
+  - **Publicly available information**
+    - Information on new vulnerabilities and exploits
+      - NVD contains information on vulnerabilities
+      - US-CERT periodically provides threat update information through briefings, web postings, and mailing lists
+      - CERT®/CC periodically provides threat update information through briefings, web postings, and mailing lists
+  - **People**
+    - People from within the organization
+      - Users, system administrators, network administrators, security staff, and others may report signs of incidents
+      - Important to validate all such reports
+      - One approach: ask people how confident they are of the accuracy of the information
+      - Recording this estimate along with the information provided can help during incident analysis
+    - People from other organizations
+      - Reports of incidents that originate externally should be taken seriously
+      - External users may report indicators such as a defaced web page or an unavailable service
+      - Other incident response teams may also report incidents
+      - Need mechanisms for external parties to report indicators and for trained staff to monitor those mechanisms carefully
+      - Example: phone number and email address configured to forward messages to the help desk
+
+- **Incident analysis / documentation / evidence / templates / fields captured**
+  - Incident response team should work quickly to analyze and validate each incident, following a pre-defined process and documenting each step taken.
+  - Initial analysis should determine:
+    - Incident’s scope
+    - Which networks, systems, or applications are affected
+    - Who or what originated the incident
+    - How the incident is occurring
+      - What tools or attack methods are being used
+      - What vulnerabilities are being exploited
+  - Recommendations for making incident analysis easier and more effective:
+    - Profile networks and systems
+      - Measuring characteristics of expected activity
+      - Examples: file integrity checking software; monitoring network bandwidth usage to determine average and peak usage levels
+    - Understand normal behaviors
+      - Study networks, systems, and applications to understand normal behavior
+      - Review log entries and security alerts
+      - Conduct frequent log reviews
+      - Review gives analyst indication of reliability of each source
+    - Create a Log Retention Policy
+      - Specifies how long log data should be maintained
+      - Older log entries may show reconnaissance activity or previous instances of similar attacks
+      - Length of time depends on organization’s data retention policies and volume of data
+    - Perform Event Correlation
+      - Correlate events among multiple indicator sources
+      - Example: firewall log has source IP address; application log contains username; host logs can determine whether attack was successful
+    - Keep All Host Clocks Synchronized
+      - Use Network Time Protocol (NTP)
+      - Consistent timestamps in logs are preferable
+    - Maintain and Use a Knowledge Base of Information
+      - Should include information needed for quick reference during incident analysis
+      - Can be text documents, spreadsheets, and relatively simple databases
+      - Should contain explanations of the significance and validity of precursors and indicators, such as:
+        - IDPS alerts
+        - Operating system log entries
+        - Application error codes
+    - Use Internet Search Engines for Research
+      - Separate workstations should be used for research to minimize risk
+    - Run Packet Sniffers to Collect Additional Data
+      - Can capture network traffic
+      - Configure sniffer to record traffic that matches specified criteria
+      - Some organizations may require permission before using packet sniffers
+    - Filter the Data
+      - Investigate most suspicious activity at minimum
+      - One strategy is to filter out categories of indicators that tend to be insignificant
+      - Another strategy is to show only categories of highest significance
+    - Seek Assistance from Others
+      - Internal resources:
+        - Information security staff
+      - External resources:
+        - US-CERT
+        - Other CSIRTs
+        - Contractors with incident response expertise
+  - Incident documentation requirements
+    - Suspected incident: immediately start recording all facts regarding the incident
+    - Logbook is an effective and simple medium
+    - Alternatives:
+      - Laptops
+      - Audio recorders
+      - Digital cameras
+    - Document every step taken from the time the incident was detected to its final resolution
+    - Every document regarding the incident should be dated and signed by the incident handler
+    - Work in teams of at least two whenever possible:
+      - One person can record and log events
+      - The other person performs technical tasks
+    - Incident communications and documents should be encrypted or otherwise protected so only authorized personnel can read them
+  - Issue tracking system should contain:
+    - Current status of the incident
+      - new
+      - in progress
+      - forwarded for investigation
+      - resolved
+    - Summary of the incident
+    - Indicators related to the incident
+    - Other incidents related to this incident
+    - Actions taken by all incident handlers on this incident
+    - Chain of custody, if applicable
+    - Impact assessments related to the incident
+    - Contact information for other involved parties
+      - system owners
+      - system administrators
+    - A list of evidence gathered during the incident investigation
+    - Comments from incident handlers
+    - Next steps to be taken
+      - rebuild the host
+      - upgrade an application
+  - Incident response team should safeguard incident data and restrict access to it
+    - Example: only authorized personnel should have access to the incident database
+
+- **Incident prioritization / severity / SLA / escalation**
+  - Prioritizing the handling of the incident is the most critical decision point in the incident handling process.
+  - Incidents should not be handled on a first-come, first-served basis.
+  - Prioritize based on:
+    - Functional Impact of the Incident
+      - Current and likely future negative impact to business functions
+    - Information Impact of the Incident
+      - Effect on confidentiality, integrity, and availability of the organization’s information
+    - Recoverability from the Incident
+      - Time and types of resources required to recover
+  - Business impact = combining functional impact and information impact
+  - Functional Impact Categories
+    - None: No effect to the organization’s ability to provide all services to all users
+    - Low: Minimal effect; the organization can still provide all critical services to all users but has lost efficiency
+    - Medium: Organization has lost the ability to provide a critical service to a subset of system users
+    - High: Organization is no longer able to provide some critical services to any users
+  - Information Impact Categories
+    - None: No information was exfiltrated, changed, deleted, or otherwise compromised
+    - Privacy Breach: Sensitive personally identifiable information (PII) of taxpayers, employees, beneficiaries, etc. was accessed or exfiltrated
+    - Proprietary Breach: Unclassified proprietary information, such as protected critical infrastructure information (PCII), was accessed or exfiltrated
+    - Integrity Loss: Sensitive or proprietary information was changed or deleted
+  - Recoverability Effort Categories
+    - Regular: Time to recovery is predictable with existing resources
+    - Supplemented: Time to recovery is predictable with additional resources
+    - Extended: Time to recovery is unpredictable; additional resources and outside help are needed
+    - Not Recoverable: Recovery from the incident is not possible (e.g., sensitive data exfiltrated and posted publicly); launch investigation
+  - Escalation process
+    - Should state how long a person should wait for a response and what to do if no response occurs
+    - Example:
+      - duplicate the initial contact
+      - after perhaps 15 minutes, escalate to incident response team manager
+      - if no response, escalate again to higher level of management
+      - repeat until someone responds
+  - Response time depends on:
+    - Type of incident
+    - Criticality of the resources and data that are affected
+    - Severity of the incident
+    - Existing Service Level Agreements (SLA) for affected resources
+    - Time and day of the week
+    - Other incidents that the team is handling
+  - Highest priority is handling incidents likely to cause the most damage to the organization or to other organizations
+
+- **Incident reporting / notification fields**
+  - Incident response policies should include provisions concerning incident reporting
+    - At a minimum:
+      - What must be reported to whom
+      - At what times
+        - Initial notification
+        - Regular status updates
+  - Parties typically notified:
+    - CIO
+    - Head of information security
+    - Local information security officer
+    - Other incident response teams within the organization
+    - External incident response teams, if appropriate
+    - System owner
+    - Human resources
+    - Public affairs
+    - Legal department
+    - US-CERT
+    - Law enforcement, if appropriate
+  - Communication methods:
+    - Email
+    - Website (internal, external, or portal)
+    - Telephone calls
+    - In person
+    - Voice mailbox greeting
+    - Paper
+
+- **Containment / eradication / recovery**
+  - Containment
+    - Important before an incident overwhelms resources or increases damage
+    - Provides time for developing a tailored remediation strategy
+    - Essential part of containment is decision-making:
+      - Shut down a system
+      - Disconnect it from a network
+      - Disable certain functions
+    - Organizations should define acceptable risks in dealing with incidents and develop strategies accordingly
+    - Separate containment strategies should be created for each major incident type
+    - Criteria for determining appropriate strategy:
+      - Potential damage to and theft of resources
+      - Need for evidence preservation
+      - Service availability
+      - Time and resources needed to implement the strategy
+      - Effectiveness of the strategy
+      - Duration of the solution
+        - emergency workaround to be removed in four hours
+        - temporary workaround to be removed in two weeks
+        - permanent solution
+    - Sandbox redirection may be used in certain cases to monitor attacker activity and gather additional evidence
+      - Discuss with legal department to determine if feasible
+    - Delayed containment is dangerous because attacker could escalate unauthorized access or compromise other systems
+    - Some attacks may cause additional damage when contained
+      - Example: malicious process may overwrite or encrypt all data on host’s hard drive when subsequent pings fail after disconnection
+  - Evidence gathering and handling
+    - Primary reason: resolve the incident
+    - May also be needed for legal proceedings
+    - Evidence, including compromised systems, should be preserved and clearly documented
+    - Evidence should be collected according to procedures that meet all applicable laws and regulations
+    - Evidence should be accounted for at all times
+    - Chain of custody forms should detail each transfer and include each party’s signature
+    - Detailed log should be kept for all evidence including:
+      - Identifying information
+        - location
+        - serial number
+        - model number
+        - hostname
+        - media access control (MAC) addresses
+        - IP addresses of a computer
+      - Name, title, and phone number of each individual who collected or handled the evidence during the investigation
+      - Time and date, including time zone, of each occurrence of evidence handling
+      - Locations where the evidence was stored
+    - Acquire evidence from a system of interest as soon as one suspects that an incident may have occurred
+    - Initial system snapshot may do more good than most other actions
+    - Better to get a snapshot of the system as-is rather than after others have altered it
+    - Users and system administrators should be made aware of steps that they should take to preserve evidence
+  - Identifying attacking hosts
+    - Validate the attacking host’s IP address
+    - Research the attacking host through search engines
+    - Use incident databases
+    - Monitor possible attacker communication channels
+      - Example: IRC
+    - Treat such information only as a potential lead, not as fact
+  - Eradication and recovery
+    - After containment, eradication may be necessary to eliminate components of the incident, such as deleting malware and disabling breached user accounts, and identifying and mitigating all vulnerabilities that were exploited
+    - During eradication, identify all affected hosts within the organization so that they can be remediated
+    - In recovery, administrators restore systems to normal operation, confirm systems are functioning normally, and remediate vulnerabilities if applicable
+    - Recovery actions may include:
+      - Restoring systems from clean backups
+      - Rebuilding systems from scratch
+      - Replacing compromised files with clean versions
+      - Installing patches
+      - Changing passwords
+      - Tightening network perimeter security
+        - firewall rulesets
+        - boundary router access control lists
+    - Higher levels of system logging or network monitoring are often part of recovery
+    - Eradication and recovery should be done in a phased approach so remediation steps are prioritized
+    - For large-scale incidents, recovery may take months
+    - Early phases should increase overall security with relatively quick high value changes
+    - Later phases should focus on longer-term changes and ongoing work
+
+- **Lessons learned / audit / remediation records / POA&M-like records**
+  - Lessons learned meeting
+    - Hold after a major incident
+    - Optionally periodically for lesser incidents as time and resources permit
+    - Held within several days of the end of the incident
+    - Questions to answer:
+      - Exactly what happened, and at what times?
+      - How well did staff and management perform in dealing with the incident?
+      - Were the documented procedures followed?
+      - Were they adequate?
+      - What information was needed sooner?
+      - Were any steps or actions taken that might have inhibited the recovery?
+      - What would the staff and management do differently the next time a similar incident occurs?
+      - How could information sharing with other organizations have been improved?
+      - What corrective actions can prevent similar incidents in the future?
+      - What precursors or indicators should be watched for in the future to detect similar incidents?
+      - What additional tools or resources are needed to detect, analyze, and mitigate future incidents?
+    - Multiple incidents can be covered in a single lessons learned meeting
+    - Major points of agreement and action items should be documented and communicated to parties who could not attend
+    - Reports from lessons learned meetings are good material for training new team members
+    - Updating incident response policies and procedures is another important part
+    - Incident response team should review all related documentation and procedures for handling incidents at designated intervals
+  - Follow-up report
+    - Create for each incident
+    - Valuable for future use
+    - Provides reference for handling similar incidents
+    - Formal chronology of events, including timestamped information such as log data from systems, is important for legal reasons
+    - Monetary estimate of amount of damage caused is important
+    - May become basis for subsequent prosecution activity by entities such as the U.S. Attorney General’s office
+    - Should be kept for a period of time as specified in record retention policies
+  - Using collected incident data
+    - Objective and subjective data from lessons learned should be produced
+    - Data may be used to justify additional funding of the incident response team
+    - Study of incident characteristics may indicate systemic security weaknesses and threats, as well as changes in incident trends
+    - Data can be put back into the risk assessment process, leading to additional controls
+    - Data can be used to measure success of incident response team
+    - Data can be used to determine if a change to incident response capabilities causes corresponding change in team performance
+    - Required incident reporting information must be collected to meet requirements
+    - Organizations should focus on collecting actionable data
+    - Possible metrics:
+      - Number of Incidents Handled
+      - Time Per Incident
+        - Total amount of labor spent
+        - Elapsed time from beginning of incident to discovery
+        - Elapsed time to initial impact assessment
+        - Elapsed time to each stage of incident handling process
+          - containment
+          - recovery
+        - Time to respond to initial report
+        - Time to report incident to management and, if necessary, appropriate external entities
+      - Objective Assessment of Each Incident
+        - Reviewing logs, forms, reports, and other incident documentation for adherence to established policies and procedures
+        - Identifying which precursors and indicators were recorded
+        - Determining if the incident caused damage before it was detected
+        - Determining if the actual cause was identified, and identifying:
+          - vector of attack
+          - vulnerabilities exploited
+          - characteristics of targeted or victimized systems, networks, and applications
+        - Determining if the incident is a recurrence of a previous incident
+        - Calculating estimated monetary damage
+        - Measuring the difference between the initial impact assessment and the final impact assessment
+        - Identifying which measures, if any, could have prevented the incident
+      - Subjective Assessment of Each Incident
+        - Incident response team members may assess their own performance, other team members, and the entire team
+        - Resource owner may assess whether incident was handled efficiently and if outcome was satisfactory
+    - Organizations may periodically audit their incident response programs
+      - At a minimum, an incident response audit should evaluate:
+        - Incident response policies, plans, and procedures
+        - Tools and resources
+        - Team model and structure
+        - Incident handler training and education
+        - Incident documentation and reports
+        - Measures of success discussed earlier in this section
+  - Evidence retention
+    - Policy should define how long evidence from an incident should be retained
+    - Most organizations choose to retain all evidence for months or years after the incident ends
+    - Factors:
+      - Prosecution
+        - If attacker may be prosecuted, evidence may need to be retained until all legal actions have been completed
+        - Evidence that seems insignificant now may become more important in the future
+      - Data retention
+        - Example: email messages retained only 180 days
+        - Disk image containing thousands of emails may not be kept for more than 180 days unless necessary
+        - GRS 24 specifies that incident handling records should be kept for three years
+      - Cost
+        - Original hardware, hard drives, compromised systems, hard drives and removable media used to hold disk images are individually inexpensive
+        - Storing many such components for years can be substantial
+        - Functional computers needed to use stored hardware and media must also be retained
+
+- **Incident-related data elements / template headings / fields captured**
+  - Organizations should identify a standard set of incident-related data elements to be collected for each incident.
+  - Two sets:
+    - Basic elements collected when incident is reported
+    - Additional elements collected by incident handlers during response
+  - These form basis for the incident reporting database
+  - **Basic Data Elements**
+    - Contact Information for the Incident Reporter and Handler
+      - Name
+      - Role
+      - Organizational unit (e.g., agency, department, division, team) and affiliation
+      - Email address
+      - Phone number
+      - Location (e.g., mailing address, office room number)
+    - Incident Details
+      - Status change date/timestamps (including time zone): when the incident started, when the incident was discovered/detected, when the incident was reported, when the incident was resolved/ended, etc.
+      - Physical location of the incident (e.g., city, state)
+      - Current status of the incident (e.g., ongoing attack)
+      - Source/cause of the incident (if known), including hostnames and IP addresses
+      - Description of the incident (e.g., how it was detected, what occurred)
+      - Description of affected resources (e.g., networks, hosts, applications, data), including systems’ hostnames, IP addresses, and function
+      - If known, incident category, vectors of attack associated with the incident, and indicators related to the incident (traffic patterns, registry keys, etc.)
+      - Prioritization factors (functional impact, information impact, recoverability, etc.)
+      - Mitigating factors (e.g., stolen laptop containing sensitive data was using full disk encryption)
+      - Response actions performed (e.g., shut off host, disconnected host from network)
+      - Other organizations contacted (e.g., software vendor)
+    - General Comments
+  - **Incident Handler Data Elements**
+    - Current Status of the Incident Response
+    - Summary of the Incident
+    - Incident Handling Actions
+      - Log of actions taken by all handlers
+      - Contact information for all involved parties
+      - List of evidence gathered
+    - Incident Handler Comments
+    - Cause of the Incident (e.g., misconfigured application, unpatched host)
+    - Cost of the Incident
+    - Business Impact of the Incident
+
+- **Training / exercises / tabletop**
+  - Appendix A incident handling scenarios are for tabletop discussions
+  - Incident handling scenarios are an inexpensive and effective way to build incident response skills and identify potential issues with incident response processes
+  - Team discusses each question and determines the most likely answer
+  - Goal is to determine what the team would really do and compare that with policies, procedures, and generally recommended practices
+  - Organizations are strongly encouraged to adapt these questions and scenarios for use in their own incident response exercises
+  - Exercises involving simulated incidents can also be very useful for preparing staff for incident handling
+
+- **Crisis handling steps**
+  - This is a list of the major steps to be performed when a technical professional believes that a serious incident has occurred and the organization does not have an incident response capability available.
+  - Steps:
+    1. Document everything
+       - Every action performed
+       - Every piece of evidence
+       - Every conversation with users, system owners, and others regarding the incident
+    2. Find a coworker who can provide assistance
+       - Handling will be much easier if two or more people work together
+       - One person can perform actions while the other documents them
+    3. Analyze the evidence to confirm that an incident has occurred
+       - Perform additional research as necessary
+       - Reach out to other technical professionals within the organization for additional help
+    4. Notify the appropriate people within the organization
+       - CIO
+       - Head of information security
+       - Local security manager
+       - Use discretion when discussing details
+       - Tell only the people who need to know
+       - Use communication mechanisms that are reasonably secure
+       - If attacker has compromised email services, do not send emails about the incident
+    5. Notify US-CERT and/or other external organizations for assistance in dealing with the incident
+    6. Stop the incident if it is still in progress
+       - Disconnect affected systems from the network
+       - Modify firewall and router configurations to stop network traffic that is part of an incident, such as a DoS attack
+    7. Preserve evidence from the incident
+       - Make backups, preferably disk image backups, not file system backups, of affected systems
+       - Make copies of log files that contain evidence related to the incident
+    8. Wipe out all effects of the incident
+       - Malware infections
+       - Inappropriate materials (e.g., pirated software)
+       - Trojan horse files
+       - Any other changes made to systems by incidents
+       - If a system has been fully compromised, rebuild it from scratch or restore it from a known good backup
+    9. Identify and mitigate all vulnerabilities that were exploited
+       - Identify vulnerabilities in operating systems or applications
+       - Eliminate or otherwise mitigate them so the incident does not recur
+    10. Confirm that operations have been restored to normal
+       - Make sure that data, applications, and other services affected by the incident have been returned to normal operations
+    11. Create a final report
+       - Detail the incident handling process
+       - Provide an executive summary of what happened and how a formal incident response capability would have helped to handle the situation, mitigate the risk, and limit the damage more quickly

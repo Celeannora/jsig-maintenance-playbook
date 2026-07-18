@@ -1,0 +1,232 @@
+URL: https://www.dcsa.mil/Portals/91/Documents/CTP/special/SAP_RMF_Checklist_17Nov2017.docx
+TITLE: SAP RMF Checklist
+ERROR: None
+
+- **Document title:** SAP RMF Checklist
+- **Version:** 1.1
+- **Document type:** Special Access Program (SAP) Risk Management Framework (RMF) Cybersecurity Compliance Checklist
+- **Fields at top of page:**
+  - Reviewer: [__________]
+  - Date: [__________]
+  - Organization: [__________]
+  - System: [__________]
+
+- **Scope / use statements:**
+  - This checklist does not replace the AO/DAO-approved SSP or SCTM for a particular system.
+  - Evidence of system specific continuous monitoring results for a system can be provided to satisfy these self-assessment requirements if the scope of continuous monitoring assessments includes the items on this checklist.
+  - This checklist serves as an aid for the inspection and assessment of information systems, networks, and components under the purview of the Department of Defense (DoD) Special Access Program Central Office (SAPCO) and DoD Service/Agency SAPCOs.
+  - Based on the criteria specified within the JSIG, this checklist may be used in conjunction with the SAP Security Compliance Checklist in preparation for formal inspections and staff assistance visits.
+
+- **Instructions / exception handling fields:**
+  - Check Yes or No based on self-assessment of the organization and/or system(s) implementation.
+  - Enter "S" for SCTM into the Yes column if deviations from the JSIG requirements exist that are approved in the SCTM.
+  - Enter "P" for POA&M in the No column if deviations are documented in a POA&M that has been accepted by the AO.
+  - For Non-Tailorable controls if "No" then indicate in the remarks if the Senior AO for the system has endorsed a waiver.
+
+- **Checklist response columns:**
+  - ID#
+  - Questions
+  - References
+  - Yes
+  - No
+  - N/A
+  - Remarks
+
+- **Section headings and checklist items with cadence, roles, artifacts, approvals, and fields captured:**
+
+| Section | ID# | Question / Requirement | References | Cadence / SLA / Threshold | Roles / Approvals / Artifacts / Fields |
+|---|---:|---|---|---|---|
+| ROLES AND RESPONSIBILITIES | 1 | Are the ISSM, and/or ISSO appointed to their position and performing their responsibilities as per the JSIG? | JSIG 1.5.14; JSIG 1.5.15 |  | ISSM; ISSO |
+| ROLES AND RESPONSIBILITIES | 2 | Are privileged users adhering to, and performing their duties, as per their established role-based responsibilities, acceptable system use agreement, privileged user guides, etc.? | JSIG 1.5.16; JSIG PL-4; JSIG PS-6 |  | privileged users |
+| POLICY AND PROCEDURES | 3 | Have tailored controls been reviewed at least annually as part of the continuous monitoring program? | JSIG Chapter 3, Page 3-43 | at least annually | continuous monitoring program |
+| ACCESS CONTROL | 4 | Are procedures in place for (a)creating, (b)activating, (c)modifying, (d)monitoring, (e)disabling, and (f)removing accounts that comply with provisions outlined in the JSIG? | JSIG AC-2 |  | procedures; accounts |
+| ACCESS CONTROL | 5 | Are accounts reviewed at least annually for changes in personnel status? | JSIG AC-2 | at least annually | accounts; personnel status |
+| ACCESS CONTROL | 6 | Are all accounts which have been inactive for a minimum of 90 days automatically disabled? | JSIG AC-2(3) | minimum of 90 days | accounts |
+| ACCESS CONTROL | 7 | If the site has unattended processing requirements, are the procedures: (1) Documented? (2) Approved by the AO/DAO? (3) Implemented as approved? | JSIG SSP 3.1; JSIG AC-11; JSIG AC-3 |  | AO/DAO approval; documented procedures |
+| ACCESS CONTROL | 8 | If the site has periods processing requirements are the procedures: (1) Documented? (2) Approved by the AO/DAO? (3) Implemented as approved? | JSIG SSP 4.0; JSIG SC-4; JSIG SC-4(2); JSIG AC-3 |  | AO/DAO approval; documented procedures |
+| ACCESS CONTROL | 9 | Are procedures for all manual Data Transfers between IS, also known as Assured File Transfers (AFT): (1) Documented? (2) Approved by the AO/DAO? (3) Implemented as approved? | JSIG AC-4; JSIG AC-3 |  | AO/DAO approval; documented procedures |
+| ACCESS CONTROL | 10 | Are duties of individuals with SAP IS access separated to prevent malicious activity without collusion? (At a minimum, system administrators shall not also perform security audit functions, and DTAs shall not perform media custodian duties without explicit AO/DAO approval.) | JSIG AC-5 |  | system administrators; security audit functions; DTAs; media custodian duties; explicit AO/DAO approval |
+| ACCESS CONTROL | 11 | Is the principle of least privilege implemented and enforced, allowing only authorized accesses for users that are necessary to accomplish assigned tasks, and is assignment of privileged use reviewed on a quarterly basis? | JSIG AC-6; JSIG AC-6(7) | quarterly | privileged use |
+| ACCESS CONTROL | 12 | Are privileged users (except the DTA role) required to use separate, non-privileged accounts when performing non-privileged functions? | JSIG AC-6(2) |  | privileged users; DTA role |
+| ACCESS CONTROL | 13 | Are the number of super user (administrator/root) accounts strictly limited to the maximum extent possible? | JSIG AC-6(5) |  | super user accounts |
+| ACCESS CONTROL | 14 | Are user accounts locked after a maximum of 3 unsuccessful logon attempts within a 15 minute time period requiring an administrator to unlock the account? | JSIG AC-7 | maximum of 3 unsuccessful logon attempts within a 15 minute time period | administrator unlock |
+| ACCESS CONTROL | 15 | Do all IS display the current DoD Notice and Consent Banner, retain the message until the user acknowledges the usage conditions, and take explicit actions to log on to, or further access, the information system? | JSIG AC-8 |  | current DoD Notice and Consent Banner; user acknowledgment |
+| ACCESS CONTROL | 16 | Do all SAP IS implement a screen lock within 15 minutes of user inactivity or upon initiation by the user? | JSIG AC-11 | within 15 minutes of user inactivity | screen lock |
+| ACCESS CONTROL | 17 | Is a password required for reentry into the system following the session being locked? | JSIG AC-11 |  | password |
+| ACCESS CONTROL | 18 | When activated, does the session lock place an unclassified pattern onto the display? | JSIG AC-11(1) |  | unclassified pattern |
+| ACCESS CONTROL | 19 | Are usage restrictions/requirements documented for wireless access? | JSIG AC-18 |  | documented restrictions/requirements |
+| ACCESS CONTROL | 20 | If allowed, are all wireless access methods documented and approved by the AO? | JSIG AC-18 |  | documented; AO approval |
+| ACCESS CONTROL | 21 | Does the organization monitor for unauthorized wireless access points/connections? | JSIG SI-4 |  | monitor unauthorized wireless access points/connections |
+| ACCESS CONTROL | 22 | Are usage restrictions/requirements documented for mobile devices? | JSIG AC-19 |  | documented restrictions/requirements |
+| ACCESS CONTROL | 23 | If allowed, are mobile devices documented and approved by the AO? | JSIG AC-19 |  | documented; AO approval |
+| AWARENESS AND TRAINING | 24 | Is Privileged User training provided to users assigned to positions requiring privileged access before authorizing access to SAP IS, prior to performing assigned duties, when required by system changes, and at least annually thereafter? | JSIG AT-3; JSIG PL-4 | before authorizing access; prior to performing assigned duties; when required by system changes; at least annually thereafter | Privileged User training; users assigned to positions requiring privileged access |
+| AWARENESS AND TRAINING | 25 | Are all personnel performing privileged user functions (e.g., security audits, system/network administration, database administration, DTA, etc.) current on training and certification(s) applicable for the position they hold? | DoD 8570.1-M or replacement; JSIG AT-3; JSIG AT-4 |  | personnel performing privileged user functions |
+| AUDIT AND ACCOUNTABILITY | 26 | If automated audit collection is not supported, is use of manual audits documented in the SSP and approved by the AO? | JSIG AU-1 |  | manual audits; SSP; AO approval |
+| AUDIT AND ACCOUNTABILITY | 27 | Are all SAP IS configured to audit the events specified in AU-2 of the JSIG? | JSIG AU-2 |  | audit events |
+| AUDIT AND ACCOUNTABILITY | 28 | Are all SAP IS configured to capture the following content, at a minimum, for each audited event: (1)User ID (2)Type of event/action (3)Success or failure of event/action (4)Date (5)Time (6)Terminal or workstation ID (7)Entity that initiated event/action (8)Entity that completed event/action (9)Remote Access | JSIG AU-3 |  | User ID; Type of event/action; Success or failure of event/action; Date; Time; Terminal or workstation ID; Entity that initiated event/action; Entity that completed event/action; Remote Access |
+| AUDIT AND ACCOUNTABILITY | 29 | Is auditing configured and audit record storage capacity allocated to reduce the likelihood of such capacity being exceeded? | JSIG AU-4 |  | audit record storage capacity |
+| AUDIT AND ACCOUNTABILITY | 30(1) | Are the audit logs/reports (manual and automated) reviewed at least weekly, or at a frequency approved in the SSP? | JSIG AU-6 | at least weekly, or at a frequency approved in the SSP | audit logs/reports (manual and automated); SSP approval |
+| AUDIT AND ACCOUNTABILITY | 30(2) | Are the results of these reviews documented in either an electronic or manual log? | JSIG AU-6 |  | electronic or manual log |
+| AUDIT AND ACCOUNTABILITY | 31 | Does the IS use an internal system clock for audit time stamps, and are all clocks accurate to within one minute? | JSIG AU-8 | within one minute | internal system clock |
+| AUDIT AND ACCOUNTABILITY | 32 | Does the SAP IS protect audit information and audit tools from unauthorized access, modification and deletion? | JSIG AU-9 |  | audit information; audit tools |
+| AUDIT AND ACCOUNTABILITY | 33 | Does the organization limit access to audit functionality to only a small subset of privileged users? | JSIG AU-9(4) |  | privileged users |
+| AUDIT AND ACCOUNTABILITY | 34 | Are audit records retained for a minimum of five (5) years for SAP information? (The AO has the authority to scale back the retention period depending on the mission of the IS. Such relief must be documented in writing). | JSIG AU-11 | minimum of five (5) years | AO; documented in writing; retention relief |
+| SECURITY ASSESSMENT AND AUTHORIZATION | 35 | Are all connections of an IS to an external IS documented in the SSP and authorized through an ISA, if applicable? | JSIG CA-3 |  | SSP; ISA |
+| SECURITY ASSESSMENT AND AUTHORIZATION | 36 | Have all IS POA&Ms been updated at least quarterly by the ISO and/or delegate (e.g., ISSM/ISSO)? | JSIG CA-5 | at least quarterly | ISO; delegate; ISSM; ISSO; POA&M |
+| SECURITY ASSESSMENT AND AUTHORIZATION | 37 | Is a current ATO and security authorization package available including, at a minimum: a signed version of the SSP, SAR, RAR, and POA&M? | JSIG CA-6 |  | ATO; security authorization package; signed version of the SSP; SAR; RAR; POA&M |
+| SECURITY ASSESSMENT AND AUTHORIZATION | 38 | Does the organization monitor the security controls of all IS on an ongoing basis? (Continuous Monitoring). | JSIG CA-7 | ongoing basis | Continuous Monitoring |
+| SECURITY ASSESSMENT AND AUTHORIZATION | 39 | Have continuous monitoring reports been provided to the AO/DAO at least annually? | JSIG CA-7 | at least annually | continuous monitoring reports; AO/DAO |
+| CONFIGURATION MANAGEMENT | 40 | Does the software baseline configuration (e.g., SSP S/W list to include version or release numbers) accurately reflect the current IS? | JSIG CM-2; JSIG CM-7(5) |  | software baseline configuration; SSP S/W list; version or release numbers |
+| CONFIGURATION MANAGEMENT | 41 | Does the hardware baseline configuration (e.g., SSP H/W list) accurately reflect the current IS to include any laptops, test equipment, projectors, cameras, mobile and other peripheral devices within the authorization boundary? | JSIG CM-2; CM-8 |  | hardware baseline configuration; SSP H/W list; laptops; test equipment; projectors; cameras; mobile and other peripheral devices; authorization boundary |
+| CONFIGURATION MANAGEMENT | 42 | Does the H/W List contain as a minimum: Type, Make, Model, Quantity, Serial Number, Memory (Y/N) and Memory Type, as well as Location? | JSIG CM-8 |  | H/W List fields: Type, Make, Model, Quantity, Serial Number, Memory (Y/N), Memory Type, Location |
+| CONFIGURATION MANAGEMENT | 43 | Does the ISSM/ISSO ensure S/W and H/W changes are tested, validated, documented, and approved by the AO/DAO (as required) prior to implementing on the system? | JSIG CM-3; JSIG CM-4 | prior to implementing on the system | ISSM/ISSO; AO/DAO approval |
+| CONFIGURATION MANAGEMENT | 44 | Do all IS conform to security configuration/hardening guidance (e.g., lockdown, hardening, security guides, security technical implementation guides (STIGs), or benchmarks) prior to being introduced into a production environment? Are deviations from the guidance documented and justified? | JSIG CM-6 | prior to being introduced into a production environment | documented and justified deviations |
+| CONFIGURATION MANAGEMENT | 45 | Does the organization monitor, control and document changes to the configuration settings? | JSIG CM-6 |  | configuration settings |
+| CONFIGURATION MANAGEMENT | 46 | Has the IS been configured to provide only essential capabilities and allow only the necessary ports, protocols, and services and reviewed at least annually to identify and eliminate unnecessary PPSs? | JSIG CM-7; JSIG CM 7(1) | at least annually | essential capabilities; ports, protocols, and services; PPSs |
+| CONFIGURATION MANAGEMENT | 47 | Has the IS been configured to disable the capability for automatic execution of code (e.g., AutoRun/AutoPlay)? | JSIG CM-7 |  | AutoRun/AutoPlay |
+| CONFIGURATION MANAGEMENT | 48 | Does the ISSM ensure all additions, changes or modifications to hardware, software, or firmware are coordinated, via the SCA, with the AO/DAO and are reported within the continuous monitoring program? | JSIG CA-7; JSIG CM-3 | within the continuous monitoring program | ISSM; SCA; AO/DAO |
+| CONTINGENCY PLANNING | 49 | Are backups conducted at least weekly, and do they include both user and system-level data? | JSIG CP-9 | at least weekly | backups; user and system-level data |
+| CONTINGENCY PLANNING | 50 | Is backup information protected to ensure its confidentiality and integrity? | JSIG CP-9 |  | backup information |
+| CONTINGENCY PLANNING | 51 | Have procedures to provide for recovery and reconstitution of the IS to a known state following a disruption, compromise or failure been documented and included in the ISCP or SSP? | JSIG CP-10 |  | procedures; ISCP or SSP |
+| IDENTIFICATION AND AUTHENTICATION | 52 | Does the IS uniquely identify and authenticate all users (or processes acting on behalf of users)? | JSIG IA-2 |  | users; processes acting on behalf of users |
+| IDENTIFICATION AND AUTHENTICATION | 53 | Does the IS uniquely identify and authenticate all types of devices before establishing a connection (e.g., servers, workstations, multi-function devices, printers, routers, scanners, VoIP & VTC devices, etc.)? | JSIG IA-3 |  | devices |
+| IDENTIFICATION AND AUTHENTICATION | 54 | Are all authenticators (e.g., passwords, PINs, smart cards, tokens, PKI private certificates) protected commensurate with the information sensitivity accessible by the associated entity? | JSIG PL-4 |  | authenticators |
+| IDENTIFICATION AND AUTHENTICATION | 55 | Is the reuse of user, group and device identifiers prevented for the life of the system? | JSIG IA-4 | for the life of the system | user, group and device identifiers |
+| IDENTIFICATION AND AUTHENTICATION | 56 | Do passwords comply with the IA-5(1) requirements for complexity, number of characters, minimum and maximum lifetime restrictions, and minimum password generations/history before reuse? | JSIG IA-5(1) |  | password complexity; number of characters; minimum and maximum lifetime restrictions; minimum password generations/history before reuse |
+| IDENTIFICATION AND AUTHENTICATION | 57 | Are any unencrypted (clear text) passwords stored or transmitted on/by the system, embedded into applications or access scripts, or stored on function keys? | JSIG IA-5(1)(c); JSIG IA-5(7) |  | unencrypted passwords; applications; access scripts; function keys |
+| INCIDENT HANDLING | 58 | Does the organization test and/or exercise the incident response capability for the IS to determine the incident response effectiveness and document the results? If there were no incidents, are simulated incidents used? | JSIG IR-3 |  | incident response capability; document the results; simulated incidents |
+| INCIDENT HANDLING | 59 | Are all incidents and events (potential or actual) documented and reported immediately via secure communications to the cognizant PSO and to the AO/DAO within 24 hours? | JSIG IR-6 | immediately; within 24 hours | secure communications; cognizant PSO; AO/DAO |
+| INCIDENT HANDLING | 60 | Are copies of the incident response plan distributed to all personnel with a role or responsibility for implementing the plan? | JSIG IR-8 |  | incident response plan; personnel with a role or responsibility |
+| MAINTENANCE | 61 | Has the organization established a process for authorizing personnel (both cleared and uncleared) to conduct maintenance on the IS? | JSIG MA-5 |  | process; personnel (both cleared and uncleared) |
+| MAINTENANCE | 62 | If appropriately cleared personnel are unavailable to perform maintenance, does the organization provide a fully cleared and technically qualified escort to monitor and record their activities in a maintenance log? | JSIG MA-5 |  | fully cleared and technically qualified escort; maintenance log |
+| MAINTENANCE | 63 | Does the organization record all IS repairs and maintenance activity in a maintenance log for the life of the IS and maintain the log for a minimum of one (1) year after equipment decommissioning or disposal? | JSIG MA-2 | minimum of one (1) year after equipment decommissioning or disposal | maintenance log |
+| MAINTENANCE | 64 | Are all off-site maintenance activities specifically authorized prior to the off-site maintenance being performed? | JSIG MA-2 | prior to the off-site maintenance being performed | off-site maintenance activities |
+| MAINTENANCE | 65 | Are all devices sanitized prior to off-site maintenance? | JSIG MA-2 | prior to off-site maintenance | devices sanitized |
+| MAINTENANCE | 66 | Is the IS checked to verify all controls are still functioning properly following any/all maintenance activities? | JSIG MA-2 | following any/all maintenance activities | controls |
+| MEDIA PROTECTION | 67 | Does the organization sanitize/reuse/dispose of SAP IT components and devices IAW the JSIG and current SAPCO guidance? | JSIG MP-6; DoD SAPCO Disposition Memo, dtd 27 July 2017 |  | sanitize/reuse/dispose; SAPCO guidance |
+| MEDIA PROTECTION | 68 | Is all media protected using encryption during transport outside controlled areas? | JSIG MP-5 | during transport outside controlled areas | media encryption |
+| PHYSICAL AND ENVIRONMENTAL PROTECTION | 69 | Do all KVM switches comply with the requirements specified in PE-5 overprint in the JSIG? | JSIG PE-5 |  | KVM switches; PE-5 overprint |
+| PHYSICAL AND ENVIRONMENTAL PROTECTION | 70 | Are all exceptions to KVM requirements approved by the AO or designee? | JSIG PE-5 |  | exceptions; AO or designee approval |
+| PLANNING | 71 | (1) Is each SSP reviewed at least annually and updated as follows: (2) When hardware/software configuration changes occur? (3) When the system is relocated? (4) When the security categorization changes? (5) When connected to additional networks? | JSIG PL-2 | at least annually | SSP; hardware/software configuration changes; system relocation; security categorization changes; additional networks |
+| PERSONNEL SECURITY | 72 | Does the organization ensure that every user accessing SAP IS processing, storing, or transmitting classified information is cleared and indoctrinated for the highest classification and for all of the relevant types of information to which they have access on the system? | JSIG PS-3 |  | users; cleared; indoctrinated |
+| PERSONNEL SECURITY | 73 | Does the organization disable, upon employment termination, information system access within, if voluntary: as soon as possible, not to exceed 5 working days? If involuntary: within same day as termination? | JSIG PS-4 | voluntary: as soon as possible, not to exceed 5 working days; involuntary: within same day as termination | employment termination; information system access |
+| PERSONNEL SECURITY | 74 | Does the organization retain all signed User (System) Access Agreements for a minimum of two (2) years after access is removed? | JSIG PS-6 | minimum of two (2) years after access is removed | signed User (System) Access Agreements |
+| RISK ASSESSMENT | 75 | Does the organization scan for vulnerabilities in the information system and hosted applications using AO-approved assessment tools at least quarterly and when new vulnerabilities potentially affecting the system/applications are identified and reported? | JSIG RA-5 | at least quarterly; when new vulnerabilities potentially affecting the system/applications are identified and reported | AO-approved assessment tools |
+| RISK ASSESSMENT | 76 | Does the ISSM/ISSO ensure all vulnerability scan reports are analyzed to determine whether reported vulnerabilities apply to the IS (i.e., are the vulnerabilities validated as applicable or false positives)? | JSIG RA-5 |  | ISSM/ISSO; vulnerability scan reports; applicable; false positives |
+| SYSTEM AND COMMUNICATIONS PROTECTION | 77 | Does the organization protect against unauthorized physical connections? | JSIG SC-7(14) |  | unauthorized physical connections |
+| SYSTEM AND COMMUNICATIONS PROTECTION | 78 | Does the IS utilize PDS or encryption during transmission external to the approved space? | JSIG SC-8(1) |  | PDS; encryption; transmission external to the approved space |
+| SYSTEM AND COMMUNICATIONS PROTECTION | 79 | Are all collaborative computing devices used IAW the requirements documented in the JSIG SC-15 (e.g. no remote activation, explicit indication of use, etc.)? | JSIG SC-15 |  | collaborative computing devices; no remote activation; explicit indication of use |
+| SYSTEM AND COMMUNICATIONS PROTECTION | 80 | Does the organization authorize, monitor, and control the use of mobile code within the information system? | JSIG SC-18 |  | mobile code |
+| SYSTEM AND INFORMATION INTEGRITY | 81 | Does the organization identify, report, and correct information system flaws? | JSIG SI-2 |  | information system flaws |
+| SYSTEM AND INFORMATION INTEGRITY | 82 | Does the organization test software and firmware updates related to flaw remediation for effectiveness and potential side effects before installation? | JSIG SI-2 | before installation | software and firmware updates; flaw remediation |
+| SYSTEM AND INFORMATION INTEGRITY | 83 | Does the organization install security-relevant software and firmware updates within thirty (30) days of the release of the updates? | JSIG SI-2 | within thirty (30) days of the release of the updates | security-relevant software and firmware updates |
+| SYSTEM AND INFORMATION INTEGRITY | 84 | Does the organization employ malicious code protection mechanisms at information system entry and exit points (e.g., firewalls, mail servers, web servers, proxy servers, remote-access servers, workstations, laptops, and mobile devices) to detect and eradicate malicious code? | JSIG SI-3 |  | malicious code protection mechanisms |
+| SYSTEM AND INFORMATION INTEGRITY | 85 | Does the organization update malicious code protection mechanisms whenever new releases are available in accordance with organizational configuration management policy and procedures or every thirty (30) days as a minimum? | JSIG SI-3 | every thirty (30) days as a minimum | malicious code protection mechanisms |
+| SYSTEM AND INFORMATION INTEGRITY | 86 | Does the organization configure malicious code protection mechanisms to perform periodic scans of the information system at least weekly and real-time scans of files from external sources at endpoints and network entry/exit points as the files are downloaded, opened, or executed in accordance with organizational security policy? | JSIG SI-3 | at least weekly | periodic scans; real-time scans; endpoints; network entry/exit points |
+| SYSTEM AND INFORMATION INTEGRITY | 87 | Does the organization configure malicious code protection mechanisms to block and quarantine malicious code then send an alert to the system administrator? | JSIG SI-3 |  | block and quarantine; alert to the system administrator |
+| SYSTEM AND INFORMATION INTEGRITY | 88 | Is each IS that uses removable media configured to automatically scan the removable media for malicious code? If the IS cannot be configured to automatically scan removable media for malicious code, is a user initiated scan conducted? | JSIG SI-3 |  | removable media; user initiated scan |
+| SYSTEM AND INFORMATION INTEGRITY | 89 | If the IS is not capable of scanning removable media for malicious code, is the removable media scanned on a separate IS? | JSIG SI-3 |  | removable media; separate IS |
+| SYSTEM AND INFORMATION INTEGRITY | 90 | Is the SAP IS monitored for unauthorized connections? | JSIG SI-4 |  | unauthorized connections |
+| NON-TAILORABLE [SAP TAILORED-IN] CONTROLS | 91 | Is access to all IS endpoints (e.g., I/O ports) explicitly authorized (such as access to USB ports, CD/DVD drives, microphones, and cameras as well as least privilege on ability to make changes to port security implemented on switches)? | JSIG AC-6(1) |  | IS endpoints; I/O ports; USB ports; CD/DVD drives; microphones; cameras; port security on switches |
+| NON-TAILORABLE [SAP TAILORED-IN] CONTROLS | 91(1) | Do all IS technically enforce restrictions on the ability to write to removable media? | JSIG AC-6(1) |  | removable media |
+| NON-TAILORABLE [SAP TAILORED-IN] CONTROLS | 91(2) | By default, is all write functionality disabled? | JSIG AC-6(1) |  | write functionality disabled |
+| NON-TAILORABLE [SAP TAILORED-IN] CONTROLS | 91(3) | Do all IS audit access (read and write) to removable media? | JSIG AC-6(1) |  | audit access; removable media |
+| NON-TAILORABLE [SAP TAILORED-IN] CONTROLS | 91(4) | Do all IS log when the write functionality is enabled? And, after the write functions are completed, do all IS log when the write functionality is again disabled? | JSIG AU-2.a |  | log when write functionality is enabled/disabled |
+| NON-TAILORABLE [SAP TAILORED-IN] CONTROLS | 92 | Does the organization replace information system components when support for the components is no longer available from the developer, vendor, or manufacturer? And for those components with mission/business needs that require their continued use does the organization document justification and approval from the AO? | JSIG SA-22 |  | replacement; justification; AO approval |
+| NON-TAILORABLE [SAP TAILORED-IN] CONTROLS | 93 | Do all IS protect the confidentiality of all SAP information at rest through the use of encryption (i.e., DAR encryption)? | JSIG SC-28 |  | encryption; DAR encryption |
+
+- **Audit evidence / artifacts explicitly named:**
+  - SSP
+  - SCTM
+  - POA&M
+  - ATO
+  - security authorization package
+  - signed version of the SSP
+  - SAR
+  - RAR
+  - continuous monitoring results
+  - continuous monitoring reports
+  - manual audits
+  - audit logs/reports (manual and automated)
+  - electronic log
+  - manual log
+  - audit records
+  - maintenance log
+  - incident response plan
+  - vulnerability scan reports
+  - H/W List
+  - S/W list
+  - User (System) Access Agreements
+  - DoD Notice and Consent Banner
+  - DoD SAPCO Disposition Memo, dtd 27 July 2017
+  - acceptable system use agreement
+  - privileged user guides
+  - ISA
+  - ISCP
+
+- **POA&M / remediation-related items:**
+  - Enter "P" for POA&M in the No column if deviations are documented in a POA&M that has been accepted by the AO.
+  - Have all IS POA&Ms been updated at least quarterly by the ISO and/or delegate (e.g., ISSM/ISSO)?
+  - A current ATO and security authorization package must include, at a minimum, a signed version of the SSP, SAR, RAR, and POA&M.
+  - The AO has authority to scale back audit record retention period depending on mission of the IS; such relief must be documented in writing.
+  - For Non-Tailorable controls if "No" then indicate in the remarks if the Senior AO for the system has endorsed a waiver.
+
+- **Roles explicitly named:**
+  - Reviewer
+  - ISSM
+  - ISSO
+  - privileged users
+  - DTA role
+  - system administrators
+  - DTAs
+  - AO
+  - DAO
+  - ISO
+  - cognizant PSO
+  - SCA
+  - Senior AO
+  - delegate
+
+- **Frequencies / cadences / thresholds / SLAs explicitly stated:**
+  - at least annually
+  - annually
+  - at least quarterly
+  - quarterly
+  - at least weekly
+  - weekly
+  - minimum of 90 days
+  - maximum of 3 unsuccessful logon attempts within a 15 minute time period
+  - screen lock within 15 minutes of user inactivity
+  - 15 minute time period
+  - minimum of five (5) years
+  - minimum of one (1) year after equipment decommissioning or disposal
+  - minimum of two (2) years after access is removed
+  - within thirty (30) days of the release of the updates
+  - immediately
+  - within 24 hours
+  - voluntary termination access disablement: as soon as possible, not to exceed 5 working days
+  - involuntary termination access disablement: within same day as termination
+  - all clocks accurate to within one minute
+
+- **Fields captured / required content explicitly stated:**
+  - For audited events, capture at minimum:
+    - User ID
+    - Type of event/action
+    - Success or failure of event/action
+    - Date
+    - Time
+    - Terminal or workstation ID
+    - Entity that initiated event/action
+    - Entity that completed event/action
+    - Remote Access
+  - H/W List minimum fields:
+    - Type
+    - Make
+    - Model
+    - Quantity
+    - Serial Number
+    - Memory (Y/N)
+    - Memory Type
+    - Location
+
+- **No explicit RACI matrix, runbook/SOP phases, ticket template, or playbook template is present on this page.**

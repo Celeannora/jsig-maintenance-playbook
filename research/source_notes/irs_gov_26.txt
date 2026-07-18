@@ -1,0 +1,80 @@
+URL: https://www.irs.gov/privacy-disclosure/safeguards-technical-assistance-memorandum-stax-audit-logs
+TITLE: Safeguards technical assistance memorandum STAX audit ...
+ERROR: None
+
+## Operational runbook / SOP structure
+- **Source reference**
+  - IRS Publication 1075
+  - Section **5.6.2**
+  - **Exhibit 9**
+
+## Recurring security/compliance task execution
+- **Audit logs**
+  - Audit logs should be archived and stored on a central log server where access can be restricted through system permissions.
+  - If logs are configured to automatically archive and transmit to a central server for storage, the risk of exceeding audit log storage capacity and overwriting logs on the STAX system is mitigated.
+- **Audit information retention**
+  - IRS Publication 1075 requires all agencies ensure that audit information is archived for **six years** to enable the recreation of computer-related accesses to both the operating system and to the application wherever FTI is stored.
+- **Storage guidance**
+  - There is no specific Publication 1075 requirement that logs must be stored in paper and CD format.
+  - It is recommended that audit logs **not** be stored in paper format to minimize the potential for the audit data being compromised.
+  - CD is an acceptable storage format for audit logs.
+  - It is recommended that **write-once media** be used to ensure that log files are not inadvertently erased and integrity of the files is maintained.
+- **Physical security if CDs are used**
+  - CDs used for storage of audit logs are subject to Publication 1075 Minimum Protection Standards for physical security of **two barrier rule** for access to FTI under normal security:
+    - Secured perimeter/locked container
+    - Locked perimeter/secured interior
+    - Locked perimeter/security container
+
+## Audit evidence / artifacts
+- **Audit logs**
+  - Records of system and network security
+  - May contain sensitive information regarding transactions with FTI
+- **Archived audit information**
+  - Must be archived for **six years**
+  - Enables recreation of computer-related accesses to:
+    - Operating system
+    - Application wherever FTI is stored
+
+## POA&M / remediation records
+- **Not stated in page**
+
+## RACI / role responsibilities
+- **Management of audit logs**
+  - Should be handled by individuals that are **not users/administrators** of the systems for which the logs are kept.
+  - Ideally, an **agency security office** would perform the audit log activities to provide an “independence” or “separation of duties”.
+  - If an agency’s Disclosure and Security Offices have consolidated and an agency security office is not possible, the agency should designate **someone in the newly consolidated office** with responsibility for managing the system audit logs.
+  - The newly assigned individual/s **must not have administrator rights** on the system/s being audited.
+
+## Task / ticket / playbook templates
+- **Not stated in page**
+
+## Escalation / exception handling
+- If the agency’s Disclosure and Security Offices have consolidated, the ideal separation of duties arrangement may not be possible.
+- In that case, the agency should designate someone in the newly consolidated office with responsibility for managing the system audit logs.
+- The designated individual/s must not have administrator rights on the system/s being audited.
+
+## Cadence / frequency
+- **Audit information archived for six years**
+- No other recurring cadence or schedule stated.
+
+## Fields captured
+- **Not stated in page**
+
+## Named standards / references
+- IRS Publication 1075
+- NIST SP 800-92, Guide to Computer Security Log Management
+- NIST SP 800-53, Recommended Security Controls for Federal Information Systems
+
+## Specific requirements and storage/security details
+| Item | Explicit details |
+|---|---|
+| Paper copy requirement for STAX log | No specific Publication 1075 requirement states the logs must be stored in paper and CD format |
+| Paper storage recommendation | Audit logs are recommended not to be stored in paper format |
+| CD storage acceptability | CD is an acceptable storage format for audit logs |
+| Media recommendation | Write-once media is recommended for CDs |
+| Physical security for CDs | Subject to Publication 1075 Minimum Protection Standards for physical security of two barrier rule for access to FTI under normal security |
+| Two barrier rule options | Secured perimeter/locked container; Locked perimeter/secured interior; Locked perimeter/security container |
+| Locked definition | An area or container that has a lock and the keys or combinations are controlled |
+| Security container definition | A lockable metal container with a resistance to forced penetration, with a security lock and keys or combinations are controlled |
+| Central log server | Ideally logs would be archived and stored on a central log server |
+| Benefit of auto-archive/transmit | Mitigates the risk of exceeding audit log storage capacity and overwriting logs on the STAX system |

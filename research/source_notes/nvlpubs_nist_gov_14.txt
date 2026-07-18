@@ -1,0 +1,42 @@
+URL: https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf
+TITLE: Security and Privacy Controls for Information Systems and ...
+ERROR: None
+
+| Requested area | Extracted information |
+|---|---|
+| Operational runbook / SOP structure | - **Chapter One**: Introduction<br>- **Chapter Two**: The Fundamentals<br>- **Chapter Three**: The Controls<br>- **References**<br>- **Appendix A**: Glossary<br>- **Appendix B**: Acronyms<br>- **Appendix C**: Control Summaries<br>- Chapter Three includes, for each control, a **discussion section** to explain the purpose of each control and to provide useful information regarding control implementation and assessment, a **list of related controls**, and a **list of references** |
+| Recurring security/compliance task execution | - Organizations are to **categorize systems, select and implement security and privacy controls, assess the effectiveness of the controls, authorize the systems for operation, and continuously monitor the systems**<br>- Continuous monitoring of information systems and organizations to determine the ongoing effectiveness of controls, changes in information systems and environments of operation, and the state of security and privacy organization-wide<br>- Organizations continuously assess security and privacy risks to organizational operations and assets, individuals, other organizations, and the Nation<br>- Risk management process is applied to manage risk on an ongoing basis |
+| Audit evidence / artifacts | - The RMF provides a basis for the **reciprocal acceptance of security and privacy control assessment evidence and authorization decisions**<br>- Chapter Three control entries include a **discussion section**, **related controls**, and **references**<br>- The publication notes that security and privacy controls can be used to demonstrate compliance with governmental, organizational, or institutional security and privacy requirements |
+| POA&M / remediation records | - **Not stated on this page** |
+| RACI / role responsibilities | - **Individuals with system, information security, privacy, or risk management and oversight responsibilities**: authorizing officials, chief information officers, senior agency information security officers, senior agency officials for privacy<br>- **Individuals with system development responsibilities**: mission owners, program managers, system engineers, system security engineers, privacy engineers, hardware and software developers, system integrators, acquisition or procurement officials<br>- **Individuals with logistical or disposition-related responsibilities**: program managers, procurement officials, system integrators, property managers<br>- **Individuals with security and privacy implementation and operations responsibilities**: mission or business owners, system owners, information owners or stewards, system administrators, continuity planners, system security or privacy officers<br>- **Individuals with security and privacy assessment and monitoring responsibilities**: auditors, Inspectors General, system evaluators, control assessors, independent verifiers and validators, analysts<br>- **Commercial entities**: industry partners producing component products and systems, creating security and privacy technologies, or providing services or capabilities that support information security or privacy<br>- **Responsible officials** must understand security and privacy risks, current status of programs, and controls planned or in place to make informed judgments and investments<br>- **Authorizing officials or their designated representatives**: by accepting the security and privacy plans, agree to the security and privacy controls proposed to meet security and privacy requirements for organizations and systems |
+| Task / ticket / playbook templates | - **Not stated on this page** |
+| Escalation / exception handling | - National security systems are **not subject to FISMA requirements** unless controls are otherwise required or approved by federal officials exercising policy authority over such systems<br>- Controls may be selected for national security systems as otherwise required or with approval of federal officials exercising policy authority over such systems<br>- No specific escalation workflow, exception process, or ticketing escalation SLA stated on this page |
+| Cadence / frequency | - **Continuous monitoring** is explicitly stated<br>- Controls are reviewed and revised **periodically**<br>- Proposed modifications to security and privacy controls go through a **rigorous and transparent public review process**<br>- The publication notes that organizations may use control parameter values including **organization-defined frequency** in control enhancements, but no specific frequencies are given on this page |
+| Fields captured | - Security and privacy requirements derived from **laws, executive orders, directives, regulations, policies, standards, mission needs**<br>- Questions organizations should answer: **What security and privacy controls are needed?** **Have the selected controls been implemented or is there a plan in place to do so?** **What is the required level of assurance?**<br>- The risk management process identifies, assesses, responds to, and monitors security and privacy risks arising from information and systems<br>- The risk management strategy considers **cost, schedule, performance, and supply chain issues** associated with design, development, acquisition, deployment, operation, sustainment, and disposal<br>- Controls may require **derived requirements** or **instantiated control parameter values**<br>- Organizational risk assessments inform the control selection process and produce an agreed-upon set of controls addressing specific mission or business needs consistent with organizational risk tolerance |
+
+| Structured data / tables explicitly present on the page | Extracted information |
+|---|---|
+| **Table 1: Security and Privacy Control Families** | | ID | FAMILY | |---|---| | AC | Access Control | | AT | Awareness and Training | | AU | Audit and Accountability | | CA | Assessment, Authorization, and Monitoring | | CM | Configuration Management | | CP | Contingency Planning | | IA | Identification and Authentication | | IR | Incident Response | | MA | Maintenance | | MP | Media Protection | | PE | Physical and Environmental Protection | | PL | Planning | | PM | Program Management | | PS | Personnel Security | | PT | PII Processing and Transparency | | RA | Risk Assessment | | SA | System and Services Acquisition | | SC | System and Communications Protection | | SI | System and Information Integrity | | SR | Supply Chain Risk Management |
+
+| Named phases / process steps explicitly stated | Extracted information |
+|---|---|
+| Risk management process | - Identify<br>- Assess<br>- Respond<br>- Monitor |
+| System development life cycle (SDLC) context | - Controls may require additional specification where employed in the SDLC<br>- Requirements may be categorized by where they are employed in the SDLC and for what purpose |
+
+| Preserved named publications / references explicitly stated | Extracted information |
+|---|---|
+| NIST SP 800-53 | Revision 5 |
+| NIST SP 800-53A | Security and privacy control effectiveness guidance |
+| NIST SP 800-53B | Federal control baselines; tailoring guidance; overlays |
+| NIST SP 800-37 | Risk Management Framework |
+| NIST SP 800-30 | Risk assessment process guidance |
+| NIST SP 800-39 | Risk management processes and strategies |
+| NIST CSF | Cybersecurity Framework |
+| NIST PF | Privacy Framework |
+| FISMA | Federal Information Security Modernization Act |
+| OMB A-130 | Required federal information security and privacy requirements context |
+| PRIVACT | Privacy Act of 1974 |
+| CNSSP 22 | National security systems guidance |
+| CNSSI 1253 | National security systems guidance |
+| DODI 8510.01 | Department of Defense guidance |
+| HSPD-7 | Critical infrastructure and key resources |

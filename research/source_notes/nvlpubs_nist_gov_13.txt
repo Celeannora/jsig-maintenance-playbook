@@ -1,0 +1,167 @@
+URL: https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53Ar5.pdf
+TITLE: Assessing Security and Privacy Controls in Information ...
+ERROR: None
+
+| Category | Extracted information |
+|---|---|
+| Publication | NIST Special Publication 800-53A Revision 5 |
+| Title | Assessing Security and Privacy Controls in Information Systems and Organizations |
+| Date | January 2022 |
+| Scope | Methodology and set of procedures for conducting assessments of security and privacy controls employed within systems and organizations within an effective risk management framework |
+| Key lifecycle phases explicitly referenced | initiation; development/acquisition; implementation; operations and maintenance; disposition (disposal) |
+| Assessment lifecycle use | assessments are executed at various phases of the system development life cycle; routinely conducted during development/acquisition and implementation; conducted during operations and maintenance; conducted at end of life cycle for disposal |
+| Related frameworks/publications | Risk Management Framework (RMF); [SP 800-37]; [SP 800-53]; [SP 800-53B]; [SP 800-39]; [SP 800-137]; [SP 800-47], Revision 1; [OMB A-130]; [FISMA]; [CNSSI 1253]; [FIPS 199]; [SP 800-60 Vol 1]; [SP 800-60 Vol 2]; [NARA CUI]; [FedRAMP]; [ISO 15408]; [FIPS 140-3] |
+| Supplemental formats | assessment procedures in Chapter 4 are published in CSV, plain text, and OSCAL; available from publication details page and OSCAL Content Git Repository |
+
+### Operational runbook / SOP structure and cadence
+
+| Section / Step | Explicit content |
+|---|---|
+| Chapter Three process | prepare for security and privacy control assessments; develop security and privacy assessment plans; conduct security and privacy control assessments; analyze assessment report results; assess security and privacy capabilities |
+| Table 1: Prepare step purpose | address a range of issues pertaining to the cost, schedule, scope, and performance of the control assessment |
+| Table 1: Primary roles | Authorizing Official; Authorizing Official Designated Representative; system owner; common control provider; control assessors |
+| Table 1: Supporting roles | System security officer; system privacy officer |
+| Table 1: Outcomes | The objective, scope, and timeframe of control assessment determined; Key organizational stakeholders notified and necessary resources allocated; Assessors/assessment teams identified; Artifacts collected and provided to assessors/assessment teams; Mechanism to minimize ambiguities and misunderstandings about control implementation and identified control deficiencies or weaknesses established; Assessors/assessment teams understand the organization’s operations, structure, objective, scope, and timeframe of control assessment |
+| Preparation activities by organization | ensuring appropriate policies covering security and privacy control assessments are in place and understood by all affected organizational elements; ensuring all steps in the RMF prior to the security or privacy control assessment step have been successfully completed and received appropriate management oversight; establishing objective and scope of assessments; ensuring common controls and common portion of hybrid controls assigned to appropriate organizational entities (common control providers) for development and implementation; notifying key organizational officials of impending assessments and allocating necessary resources; establishing appropriate communication channels among organizational officials with an interest in the assessments; establishing time frames for completing the assessments and key milestone decision points required by the organization; identifying and selecting appropriate assessors/assessment teams and considering issues of assessor independence; providing artifacts to assessors/assessment teams; establishing a mechanism between the organization and the assessors and/or assessment teams to minimize ambiguities or misunderstandings about implementation and related weaknesses or deficiencies |
+| Preparation activities by assessors/assessment teams | obtaining a general understanding of the organization’s operations, including mission, functions, and business processes; obtaining an understanding of the structure of the system and the security and privacy controls being assessed; identifying the organizational entities responsible for development and implementation of the common controls or common portion of hybrid controls; meeting with appropriate organizational officials to ensure common understanding for assessment objectives and proposed rigor and scope; obtaining artifacts needed for the assessment; establishing appropriate organizational points of contact; obtaining previous assessment results that may be reused |
+| Reuse / prior evidence | organizations are encouraged to take advantage of control assessment results and associated assessment documentation, artifacts, and evidence available for system components from previous assessments, including independent third-party testing, evaluation, and validation; previous assessment results may be appropriately reused for the current assessment; examples include Inspector General reports, audits, vulnerability scans, physical security inspections, developmental testing and evaluation, vendor flaw remediation activities, [ISO 15408] evaluations |
+| Assessment plan inputs | information about controls to be assessed, including results from assessments of risk; platform-specific dependencies in hardware, software, or firmware; assessment procedures needed as a result of organization-specific controls not included in [SP 800-53] |
+| Cadence / frequency | the frequency of assessments and monitoring is determined by the organization, system owner, and/or common control provider and is approved by the authorizing official; security and privacy controls are assessed on an ongoing basis in accordance with ISCM strategy and privacy continuous monitoring strategy |
+| End-of-life / disposal | security and privacy assessments are conducted to ensure important organizational information, including personally identifiable information, are purged from the system prior to disposal and organizational retention schedules are adhered to |
+
+### Roles / responsibilities / RACI-like content
+
+| Role / party | Explicit responsibilities / notes |
+|---|---|
+| Authorizing Official | approves frequency of ongoing assessments and monitoring; makes risk-based decision on whether to place the system into operation or continue its operation |
+| Authorizing Official Designated Representative | primary role in Prepare step |
+| system owner | primary role in Prepare step; identifies and coordinates with other parties; may determine assessment frequency with common control provider; evaluates control assessment results; inheriting controls is not responsible for common control assessments |
+| common control provider | primary role in Prepare step; responsible for common control assessments and assessments of the common part of hybrid controls |
+| control assessors | primary role in Prepare step; conduct assessments and obtain evidence |
+| system security officer | supporting role in Prepare step |
+| system privacy officer | supporting role in Prepare step |
+| system security and privacy officers | involved in assessments; listed among parties with oversight responsibilities |
+| Inspectors General | individuals with information security and privacy assessment and monitoring responsibilities; may conduct assessments; use previous assessment results such as IG reports |
+| auditors | individuals with assessment and monitoring responsibilities; listed among roles responsible for conducting control assessments |
+| analysts | individuals with information security and privacy assessment and monitoring responsibilities |
+| authorizing officials / chief information officers / senior information security officers / senior agency officials for privacy / chief privacy officers / system managers / information security and privacy managers | individuals with system, security, privacy, risk management, and oversight responsibilities |
+| system owners / common control providers / information owners/stewards / mission and business owners / system administrators / system security officers / system privacy officers | individuals with information security and privacy implementation and operational responsibilities |
+| mission and business owners | other interested parties in control assessments |
+| information owners/stewards | other interested parties in control assessments when role is filled by someone other than the system owner |
+| system developers | produce design/development artifacts and may participate in assessments/interviews |
+| system integrators | listed among individuals with system development responsibilities |
+| information security engineers / privacy engineers | listed among individuals with system development responsibilities |
+
+### Evidence, artifacts, and audit/assessment outputs
+
+| Artifact / evidence / record | Explicit use |
+|---|---|
+| policies | provided to assessors/assessment teams; examined as assessment objects |
+| procedures | provided to assessors/assessment teams; examined as assessment objects |
+| plans | provided to assessors/assessment teams; examined as assessment objects; includes system security plans, privacy plans, configuration management plan |
+| specifications | provided to assessors/assessment teams; examined as assessment objects; includes system security and privacy requirements, functional specifications |
+| designs | provided to assessors/assessment teams; examined as assessment objects; includes architectural designs, system design documentation |
+| records | provided to assessors/assessment teams; examined as assessment objects; includes administrator/operator manuals, system documentation, information exchange agreements, previous assessment results, legal requirements |
+| administrator/operator manuals | provided to assessors/assessment teams |
+| system documentation | provided to assessors/assessment teams |
+| information exchange agreements | provided to assessors/assessment teams |
+| previous assessment results | provided to assessors/assessment teams; reused for current assessment |
+| legal requirements | provided to assessors/assessment teams |
+| audit records | potential assessment objects for several controls |
+| system monitoring records | potential assessment objects for AC-17(01) |
+| system configuration settings and associated documentation | potential assessment objects for several controls |
+| change control records | potential assessment objects for CM-04 and CM-02 |
+| security impact analysis documentation | potential assessment object for CM-04 |
+| privacy impact analysis documentation | potential assessment object for CM-04 |
+| privacy impact assessment | potential assessment object for CM-04 |
+| privacy risk assessment documentation | potential assessment object for CM-04 |
+| system design documentation | potential assessment object for CM-04, CM-02, AC-17, AC-17(01), CA-03, MP-07 |
+| analysis tools and associated outputs | potential assessment object for CM-04 |
+| system security plan | potential assessment object for CM-04, CM-02, MP-07, AC-17, AC-17(01), CA-03 |
+| privacy plan | potential assessment object for CM-04, CM-02, CA-03 |
+| access control policy | potential assessment object for AC-17, AC-17(01), CA-03 |
+| configuration management policy | potential assessment object for CM-04, CM-02 |
+| procedures addressing remote access implementation and usage, including restrictions | potential assessment object for AC-17 |
+| procedures addressing security impact analyses for changes to the system | potential assessment object for CM-04 |
+| procedures addressing privacy impact analyses for changes to the system | potential assessment object for CM-04 |
+| procedures addressing the baseline configuration of the system | potential assessment object for CM-02 |
+| procedures addressing media usage restrictions | potential assessment object for MP-07 |
+| rules of behavior | potential assessment object for MP-07 |
+| enterprise architecture documentation | potential assessment object for CM-02 |
+| system architecture and configuration documentation | potential assessment object for CM-02 |
+| system component inventory | potential assessment object for CM-02 |
+| remote access authorizations | potential assessment object for AC-17 |
+| system audit records | potential assessment object for AC-17, CM-04, CM-02, AC-17(01) |
+| system monitoring records | potential assessment object for AC-17(01) |
+| system interconnection security agreements | potential assessment object for CA-03 |
+| information exchange security agreements | potential assessment object for CA-03 |
+| memoranda of understanding or agreements | potential assessment object for CA-03 |
+| service level agreements | potential assessment object for CA-03 |
+| non-disclosure agreements | potential assessment object for CA-03 |
+| privacy impact assessment | potential assessment object for CM-04 |
+| privacy risk assessment documentation | potential assessment object for CM-04 |
+| change control board or similar | personnel group for interview for CM-04 |
+
+### Recurring assessment methods, object types, and template headings
+
+| Heading / template field | Explicit content |
+|---|---|
+| Assessment procedure structure | assessment objective; potential assessment methods and objects; determine if statements; Examine / Interview / Test methods |
+| Assessment objects | specifications; mechanisms; activities; individuals |
+| Assessment methods | examine; interview; test |
+| Examine method | reviewing, inspecting, observing, studying, or analyzing one or more assessment objects to facilitate assessor understanding, achieve clarification, or obtain evidence |
+| Interview method | holding discussions with individuals or groups of individuals within an organization to facilitate assessor understanding, achieve clarification, or obtain evidence |
+| Test method | exercising one or more assessment objects under specified conditions to compare the actual state of the object to the desired state or expected behavior of the object |
+| Depth attribute values | basic; focused; comprehensive |
+| Coverage attribute values | basic; focused; comprehensive |
+| ODP numbering convention | “XX-nn_ODP”; if more than one ODP for the assessment procedure, “_ODP” is followed by square-bracketed sequential numbers starting from “01” |
+| ODP reference style | unique identifier and phrase “<... SELECTED PARAMETER VALUE(S)>” surrounded by < > |
+| Assignment operations | organization defines a value such as frequency, circumstances, personnel, or roles |
+| Selection operations | organization selects one or more options provided in the ODP |
+| Enhancement numbering | sequential parenthetical numbers such as AC-17(01); assessment objectives numbered sequentially with bracketed numbers for further granularity |
+
+### Assessment plan / control assessment content and fields captured
+
+| Field / content | Explicit content |
+|---|---|
+| Assessment objective | determines whether control requirements are satisfied |
+| Assessment findings | used to help determine overall effectiveness of the control and to help authorizing official make informed risk-based decision |
+| Traceability | determination statements are linked to content of control to ensure traceability back to fundamental control requirements |
+| Control granularization example | AC-17a.[01], AC-17a.[02], AC-17a.[03], AC-17b; CM-04[01], CM-04[02] |
+| Organization-defined parameters in assessment procedures | defined first and separately from control-item determination statements |
+| Use of controls in assessment planning | organization determines assessment methods needed to provide level of assurance required |
+| Risk basis | privacy risk assessment or security categorization primarily determines level of effort, depth, and coverage |
+| Assessment plan specifies | level of rigor for documentation review; number of similar assessment objects to test |
+
+### Specific control examples and their template headings
+
+| Control / heading | Explicit assessment objectives and related fields |
+|---|---|
+| AC-17 Remote Access | AC-17a.[01] usage restrictions are established and documented for each type of remote access allowed; AC-17a.[02] configuration/connection requirements are established and documented for each type of remote access allowed; AC-17a.[03] implementation guidance is established and documented for each type of remote access allowed; AC-17b. each type of remote access to the system is authorized prior to allowing such connections |
+| AC-17 potential methods/objects | Examine: access control policy; procedures addressing remote access implementation and usage, including restrictions; configuration management plan; system configuration settings and associated documentation; remote access authorizations; system audit records; system security plan; other relevant documents or records. Interview: organizational personnel with responsibilities for managing remote access connections; system/network administrators; organizational personnel with information security responsibilities. Test: remote access management capability for the system |
+| CM-04 Impact Analyses | CM-04[01] changes to the system are analyzed to determine potential security impacts prior to change implementation; CM-04[02] changes to the system are analyzed to determine potential privacy impacts prior to change implementation |
+| CM-04 potential methods/objects | Examine: configuration management policy; procedures addressing security impact analyses for changes to the system; procedures addressing privacy impact analyses for changes to the system; configuration management plan; security impact analysis documentation; privacy impact analysis documentation; privacy impact assessment; privacy risk assessment documentation; system design documentation; analysis tools and associated outputs; change control records; system audit records; system security plan; privacy plan; other relevant documents or records. Interview: organizational personnel with responsibility for conducting security impact analyses; organizational personnel with responsibility for conducting privacy impact analyses; organizational personnel with information security and privacy responsibilities; system developer; system/network administrators; members of change control board or similar. Test: organizational processes for security impact analyses; organizational processes for privacy impact analyses |
+| CM-02 Baseline Configuration | CM-02_ODP[01] the frequency of baseline configuration review and update is defined; CM-02_ODP[02] the circumstances requiring baseline configuration review and update are defined; CM-02a.[01] a current baseline configuration of the system is developed and documented; CM-02a.[02] a current baseline configuration of the system is maintained under configuration control; CM-02b.01 the baseline configuration of the system is reviewed and updated <CM-02_ODP[01] frequency>; CM-02b.02 the baseline configuration of the system is reviewed and updated when required due to <CM-02_ODP[02] circumstances>; CM-02b.03 the baseline configuration of the system is reviewed and updated when system components are installed or upgraded |
+| CM-02 potential methods/objects | Examine: configuration management policy; procedures addressing the baseline configuration of the system; configuration management plan; enterprise architecture documentation; system design documentation; system security plan; privacy plan; system architecture and configuration documentation; system configuration settings and associated documentation; system component inventory; change control records; other relevant documents or records. Interview: organizational personnel with configuration management responsibilities; organizational personnel with information security and privacy responsibilities; system/network administrators. Test: organizational processes for managing baseline configurations; automated mechanisms supporting configuration control of the baseline configuration |
+| MP-07 Media Use | MP-07_ODP[01] types of system media to be restricted or prohibited from use on systems or system components are defined; MP-07_ODP[02] one of the following PARAMETER VALUES is selected to be applied on specific types of system media: {restrict; prohibit}; MP-07_ODP[03] systems or system components on which the use of specific types of system media to be restricted or prohibited are defined; MP-07_ODP[04] controls to restrict or prohibit the use of specific types of system media on systems or system components are defined; MP-07a. the use of <MP-07_ODP[01] types of system media> is <MP-07_ODP[02] SELECTED PARAMETER VALUE> on <MP-07_ODP[03] systems or system components> using <MP-07_ODP[04] controls>; MP-07b. the use of portable storage devices in organizational systems is prohibited when such devices have no identifiable owner |
+| MP-07 potential methods/objects | Examine: system media protection policy; system use policy; procedures addressing media usage restrictions; rules of behavior; system design documentation; system configuration settings and associated documentation; audit records; system security plan; other relevant documents or records. Interview: organizational personnel with system media use responsibilities; organizational personnel with information security responsibilities; system/network administrators. Test: organizational processes for media use; automated mechanisms restricting or prohibiting use of system media on systems or system components |
+| CA-03 Information Exchange | CA-03_ODP[01] one or more of the following PARAMETER VALUES is/are selected: {interconnection security agreements; information exchange security agreements; memoranda of understanding or agreement; service level agreements; user agreements; non-disclosure agreements; <CA-03_ODP[02] type of agreement>}; CA-03_ODP[02] the type of agreement used to approve and manage the exchange of information is defined (if selected); CA-03_ODP[03] the frequency at which to review and update agreements is defined; CA-03a. the exchange of information between system and other systems is approved and managed using <CA-03_ODP[01] SELECTED PARAMETER VALUE(S)>; CA-03b.[01] the interface characteristics are documented as part of each exchange agreement; CA-03b.[02] security requirements are documented as part of each exchange agreement; CA-03b.[03] privacy requirements are documented as part of each exchange agreement; CA-03b.[04] controls are documented as part of each exchange agreement; CA-03b.[05] responsibilities for each system are documented as part of each exchange agreement; CA-03b.[06] the impact level of the information communicated is documented as part of each exchange agreement; CA-03c. agreements are reviewed and updated <CA-03_ODP[03] frequency> |
+| CA-03 potential methods/objects | Examine: access control policy; procedures addressing system connections; system and communications protection policy; system interconnection security agreements; information exchange security agreements; memoranda of understanding or agreements; service level agreements; non-disclosure agreements; system design documentation; system configuration settings and associated documentation; system security plan; privacy plan; other relevant documents or records. Interview: organizational personnel with responsibilities for developing, implementing, or approving system interconnection agreements; organizational personnel with information security and privacy responsibilities; personnel managing the system(s) to which the interconnection security agreement applies |
+| AC-17(01) Remote Access | AC-17(01)[01] automated mechanisms are employed to monitor remote access methods; AC-17(01)[02] automated mechanisms are employed to control remote access methods |
+| AC-17(01) potential methods/objects | Examine: access control policy; procedures addressing remote access to the system; system design documentation; system configuration settings and associated documentation; system audit records; system monitoring records; system security plan; other relevant documents or records. Interview: system/network administrators; organizational personnel with information security responsibilities; system developers. Test: automated mechanisms monitoring and controlling remote access methods |
+
+### Chapters / appendices relevant to SOP templates and evidence
+
+| Location | Content |
+|---|---|
+| Chapter Three | process for preparing, developing plans, conducting assessments, analyzing results, and assessing capabilities |
+| Chapter Four | catalog of security and privacy assessment procedures that can be used to develop plans for assessing security controls |
+| Appendix C | assessment method descriptions |
+| Appendix D | penetration testing |
+| Appendix E | assessment reports |
+| Appendix F | ongoing assessment and automation |
+| Chapter Two | includes format and content of assessment procedures |
+
+### Absence notes
+- POA&M or remediation records: no explicit POA&M template or POA&M field set is shown in the extracted page text; only “records of remediation actions” are explicitly mentioned.
+- Escalation / exception handling: no explicit escalation workflow, exception process, severity values, or SLA values are stated on the extracted page text.

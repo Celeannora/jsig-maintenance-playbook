@@ -1,0 +1,68 @@
+URL: https://github.com/PagerDuty/incident-response-docs/blob/master/docs/about.md
+TITLE: incident-response-docs/docs/about.md at master · PagerDuty/incident-response-docs
+ERROR: None
+
+- **Operational runbook / SOP structure**
+  - This site documents parts of the PagerDuty Incident Response process.
+  - It is a cut-down version of internal documentation.
+  - Used at PagerDuty for any major incidents.
+  - Used to prepare new employees for on-call responsibilities.
+  - Provides information on:
+    - preparing for an incident
+    - what to do during an incident
+    - what to do after an incident
+  - Described as a collection of pages detailing how to efficiently deal with any major incidents that might arise.
+  - Includes information on how to go on-call effectively.
+  - Includes lessons learned the hard way.
+  - Includes training material for getting you up to speed quickly.
+  - Intended for on-call practitioners and those involved in an operational incident response process, or those wishing to enact a formal incident response process.
+  - Covered topics explicitly listed:
+    - preparing to go on-call
+    - definitions of severities
+    - incident call etiquette
+    - how to run a postmortem
+    - postmortem template
+    - security incident response process
+
+- **Recurring security/compliance task execution**
+  - Security incident response process is included.
+  - No recurring security/compliance task schedule, checklist, or execution cadence is stated on this page.
+
+- **Audit evidence / artifacts**
+  - Postmortem template is provided.
+  - No audit evidence/artifact list is stated on this page.
+
+- **POA&M or remediation records**
+  - No POA&M, remediation record, or remediation tracking details are stated on this page.
+
+- **RACI / role responsibilities**
+  - Roles explicitly mentioned:
+    - on-call practitioners
+    - those involved in an operational incident response process
+    - those wishing to enact a formal incident response process
+    - new employees
+  - No RACI matrix or explicit responsibility assignments are stated on this page.
+
+- **Task / ticket / playbook templates**
+  - Postmortem template is explicitly mentioned.
+  - No other task, ticket, or playbook templates are stated on this page.
+
+- **Escalation / exception handling**
+  - Incident call etiquette is explicitly covered.
+  - No escalation flow, exception handling process, or severity-based escalation matrix is stated on this page.
+
+- **Cadence**
+  - Used for any major incidents.
+  - No recurring cadence, frequency, or SLA values are stated on this page.
+
+- **Fields captured**
+  - `cover` | `hero` | `hero_alt_text`
+    - `assets/img/covers/incident_response_docs.png`
+    - `assets/img/headers/iStock-1097331490-3992x2242-e4f3f2d.png`
+    - `PagerDuty`
+
+- **Missing information explicitly stated on the page**
+  - Phone bridge numbers are not included.
+  - Names of internal tools and systems which are not (yet) open sourced are not included.
+  - Images of dashboards are not included.
+  - Anything specific to PagerDuty or too sensitive to share is removed.
