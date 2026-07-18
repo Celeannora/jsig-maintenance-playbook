@@ -231,8 +231,8 @@ def main():
     lines.append(
         "For the real verbatim JSIG control title behind every Control ID implied by each task's Family "
         "column (this table itself only shows Family, not individual Control IDs -- see "
-        "[role_task_index.json](../tools/data/role_task_index.json) or the runbooks for per-task IDs), see "
-        "[CONTROL-LANGUAGE-CROSSWALK.md](../CONTROL-LANGUAGE-CROSSWALK.md), which reconciles every Control ID "
+        "[role_task_index.json](tools/data/role_task_index.json) or the runbooks for per-task IDs), see "
+        "[CONTROL-LANGUAGE-CROSSWALK.md](CONTROL-LANGUAGE-CROSSWALK.md), which reconciles every Control ID "
         "cited in the Master Calendar against the full verbatim JSIG family extractions -- all 127 distinct "
         "IDs cited resolve cleanly, with zero mismatches found.\n"
     )
