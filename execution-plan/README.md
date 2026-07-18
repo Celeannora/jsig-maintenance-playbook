@@ -25,9 +25,13 @@ execution-plan/
 │   ├── stig_reference_builder.py      # Builds/updates the offline STIG reference DB from XCCDF/zip imports
 │   ├── cve_reference_builder.py       # Builds/updates the offline CVE reference DB from NVD (targeted or full mirror)
 │   ├── build_raci_matrix.py           # Regenerates RACI-MATRIX.md from MAINTENANCE-PLAN.md + ROLE-CROSSWALK.md
+│   ├── build_role_task_index.py       # Regenerates data/role_task_index.json: per-role, deduplicated
+│   │                                   # executing/accountable/consulted/informed task lists (the grounding
+│   │                                   # source every runbooks/<Role>.md Task Index is built from)
 │   ├── data/stig_reference.json       # Committed: curated STIG reference DB (built from stig_intake/)
 │   ├── data/cve_reference.json        # Committed when built: curated CVE reference DB (built from cve_intake/)
 │   ├── data/cve_mirror.json           # Gitignored: optional full NVD mirror, local-only, can be hundreds of MB
+│   ├── data/role_task_index.json      # Committed: generated per-role task index (see build_role_task_index.py)
 │   ├── stig_intake/                   # Drop XCCDF files or STIG zips (including nested Library Compilation
 │   │                                   # zips) here before running stig_reference_builder.py
 │   └── cve_intake/                    # Drop a CVE ID list (see cve_list.example.txt) here before running
@@ -35,7 +39,9 @@ execution-plan/
 ├── variance-records/                  # Output directory: generated Variance/Risk-Acceptance records land here
 │                                       # (.gitkeep only — this directory's contents are typically program-specific
 │                                       #  and should be reviewed before committing any real finding to source control)
-└── runbooks/                          # NOT YET BUILT — see Backlog below (.gitkeep placeholder only)
+└── runbooks/                          # Section 6 actionable task runbooks for all 17 JSIG §1.5 roles (complete —
+                                        # see Completed deliverables below): _EXECUTION-PATTERNS.md,
+                                        # _AUTHORING-BRIEF.md, and one <Role>.md per role
 ```
 
 ## Quick-start workflows
@@ -93,9 +99,12 @@ This re-parses all 110 tasks and rewrites `RACI-MATRIX.md` in place — Part A (
 - **Offline-only, vendor-agnostic.** No cloud or SaaS product is referenced by name anywhere in this folder's templates or generated output — every example uses generic terms ("local ticketing/GRC system," "local vulnerability scanner") so the material stays usable on an air-gapped network.
 - **One severity model, reused everywhere.** The CAT I/II/III sign-off chain (`RACI_BY_CAT` in `generate_variance.py`) is the same one documented in `ESCALATION-MATRIX.md` and reflected in `RACI-MATRIX.md`'s task-level Accountable/Consulted/Informed assignments — there is only one escalation model in this repo, not three slightly different ones.
 
+## Completed deliverables
+
+- **`runbooks/`** — Section 6 actionable task runbooks for all 17 JSIG §1.5 roles: Agency/Component Head, Risk Executive Function, CIO, CISO, AO, DAO, CCP, ISO, ISSE, MBO, General Users, ISSM, ISSO, Privileged Users, PSO, Information Owner/Steward, SCA. Each `<Role>.md` follows the 10-section scaffold in `templates/AUDIT-ARTIFACT-TEMPLATE.md` (via the shared Sections 6–10 defined once in `runbooks/_EXECUTION-PATTERNS.md`) and is grounded in `tools/data/role_task_index.json`, never hand-typed against the Master Calendar. `runbooks/_AUTHORING-BRIEF.md` documents the authoring rules (never fabricate a task/control ID, never name a vendor, verify every internal link, keep procedure text proportionate to task volume) that every role file was built and reviewed against. Zero-task governance roles (Agency/Component Head, Risk Executive Function, CIO, CCP, ISO, ISSE, General Users, MBO) still get a full runbook documenting their governance/oversight actions even though they hold no Master Calendar Responsible/Accountable task.
+
 ## Backlog (not yet built)
 
-- **`runbooks/`** — Section 6 actionable task runbooks for all 17 JSIG §1.5 roles, following the 10-section scaffold in `templates/AUDIT-ARTIFACT-TEMPLATE.md`. Currently only a `.gitkeep` placeholder. This is the largest remaining deliverable in the execution plan.
 - `STATUS-2026-07-17.md` is a point-in-time snapshot written at the end of a specific work session — useful for historical context on what was tested when, but not an onboarding document. Treat this README, not the status file, as the current entry point.
 
 ---
