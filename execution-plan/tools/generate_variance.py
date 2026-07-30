@@ -4,23 +4,31 @@ generate_variance.py
 
 Generates a filled Variance / Risk-Acceptance Record (per
 execution-plan/templates/VARIANCE-RISK-ACCEPTANCE-TEMPLATE.md) for ONE
-finding, identified by EITHER a STIG Vulnerability ID (e.g. "V-253259",
-looked up in the offline database built by stig_reference_builder.py) OR
-a CVE ID (e.g. "CVE-2021-44228", looked up in the offline database built
-by cve_reference_builder.py) -- the identifier's format is auto-detected,
-so the same command works for either a STIG compliance-audit finding or a
-Nessus vulnerability-scan finding.
+finding, identified by ANY of three ID formats -- the format is
+auto-detected, so the same command works for a STIG compliance-audit
+finding or either shape of a Nessus vulnerability-scan finding:
+  - STIG Vulnerability ID (e.g. "V-253259"), looked up in the offline
+    database built by stig_reference_builder.py.
+  - CVE ID (e.g. "CVE-2021-44228"), looked up in the offline database
+    built by cve_reference_builder.py -- use this when your scan report
+    names a specific CVE.
+  - Nessus Plugin ID (e.g. "156327", digits only), looked up in the
+    offline database built by nessus_reference_builder.py -- use this
+    when your scan report's primary identifier is the numeric Plugin ID
+    (common for local-check/informational plugins that cite no CVE at
+    all, or when you want the record keyed on the exact ID the scan
+    report shows).
 
 This intentionally does NOT parse live Nessus/.SCC/OSCAP scan-result
 files. The offline reference database (built by bulk-importing official
-DISA XCCDF/.zip documents, or by fetching official NVD CVE metadata)
-supplies the official finding metadata; the human preparer supplies the
-asset-specific, scan-specific facts by hand in Sections 2 and 6 of the
-generated document. This keeps the tool simple, reliable, and independent
-of any particular scan tool's export format -- if you later want to
-pre-fill Section 6 from an actual scan export, treat that as a separate,
-optional enhancement layered on top of this generator, not a prerequisite
-for it.
+DISA XCCDF/.zip documents, fetching official NVD CVE metadata, or
+fetching Tenable's public plugin metadata) supplies the official finding
+metadata; the human preparer supplies the asset-specific, scan-specific
+facts by hand in Sections 2 and 6 of the generated document. This keeps
+the tool simple, reliable, and independent of any particular scan tool's
+export format -- if you later want to pre-fill Section 6 from an actual
+scan export, treat that as a separate, optional enhancement layered on
+top of this generator, not a prerequisite for it.
 
 OUTPUT FORMATS
 --------------
@@ -42,9 +50,18 @@ USAGE
       --detection-date 2026-07-17 \\
       --preparer "J. Smith, ISSO"
 
-  # CVE / Nessus finding -- exact same flags, just a CVE-shaped --id:
+  # CVE finding -- exact same flags, just a CVE-shaped --id:
   python3 generate_variance.py \\
       --id CVE-2021-44228 \\
+      --asset LINUX-APP-017 \\
+      --system-scope "Example Enclave A" \\
+      --detection-method "Nessus vulnerability scan" \\
+      --detection-date 2026-07-17 \\
+      --preparer "J. Smith, ISSO"
+
+  # Nessus Plugin ID finding -- same flags again, a bare-digits --id:
+  python3 generate_variance.py \\
+      --id 156327 \\
       --asset LINUX-APP-017 \\
       --system-scope "Example Enclave A" \\
       --detection-method "Nessus vulnerability scan" \\
@@ -57,7 +74,8 @@ USAGE
 
   # Optional: override which reference DB file is used for whichever ID
   # type is detected (default: data/stig_reference.json for STIG IDs,
-  # data/cve_reference.json for CVE IDs):
+  # data/cve_reference.json for CVE IDs, data/nessus_reference.json for
+  # Nessus Plugin IDs):
   python3 generate_variance.py --id V-253259 --reference-db /path/to/db.json ...
 
 If --asset/--system-scope/etc. are omitted, the generated document keeps
@@ -75,6 +93,7 @@ from datetime import datetime, timedelta, timezone
 
 DEFAULT_STIG_DB = os.path.join(os.path.dirname(__file__), "data", "stig_reference.json")
 DEFAULT_CVE_DB = os.path.join(os.path.dirname(__file__), "data", "cve_reference.json")
+DEFAULT_NESSUS_DB = os.path.join(os.path.dirname(__file__), "data", "nessus_reference.json")
 DEFAULT_OUTPUT_DIR = os.path.normpath(
     os.path.join(os.path.dirname(__file__), "..", "variance-records")
 )
@@ -102,11 +121,15 @@ RACI_BY_CAT = {
     },
 }
 
-# Format markers this tool recognizes. Anything that matches neither is
-# rejected rather than guessed at -- fails closed per this project's
-# design principle of never fabricating or assuming asset/finding facts.
+# Format markers this tool recognizes. Anything that matches none of
+# these is rejected rather than guessed at -- fails closed per this
+# project's design principle of never fabricating or assuming
+# asset/finding facts. Checked in this order (STIG, then CVE, then
+# Nessus) so the bare-digits Nessus pattern -- which would otherwise be
+# the most permissive -- never shadows the other two.
 STIG_ID_RE = re.compile(r"^V-\d+$", re.IGNORECASE)
 CVE_ID_RE = re.compile(r"^CVE-\d{4}-\d{4,}$", re.IGNORECASE)
+NESSUS_ID_RE = re.compile(r"^\d+$")
 
 # ---------------------------------------------------------------------------
 # Nexus design-system colors (kept in sync with the project's other
@@ -128,13 +151,15 @@ COLOR_HEADER_FILL = "#F2F1EC"
 
 
 def detect_id_type(raw_id):
-    """Return 'STIG' or 'CVE' based on the --id format, or None if it
-    matches neither recognized pattern."""
+    """Return 'STIG', 'CVE', or 'NESSUS' based on the --id format, or
+    None if it matches none of the three recognized patterns."""
     value = raw_id.strip()
     if STIG_ID_RE.match(value):
         return "STIG"
     if CVE_ID_RE.match(value):
         return "CVE"
+    if NESSUS_ID_RE.match(value):
+        return "NESSUS"
     return None
 
 
@@ -143,8 +168,10 @@ def load_db(db_path, id_type):
         print(f"No reference database found at {db_path}.")
         if id_type == "STIG":
             print("Run: python3 stig_reference_builder.py build")
-        else:
+        elif id_type == "CVE":
             print("Run: python3 cve_reference_builder.py fetch --id <CVE-ID>")
+        else:
+            print("Run: python3 nessus_reference_builder.py fetch --id <PLUGIN-ID>")
         sys.exit(1)
     with open(db_path, encoding="utf-8") as f:
         return json.load(f)
@@ -207,7 +234,12 @@ def build_context(finding, id_type, args):
     """Compute every value that both the Markdown and HTML renderers need
     to agree on (record ID, due date, RACI, etc.) exactly once, so the two
     output formats for the same invocation can never drift apart."""
-    id_value = finding["vuln_id"] if id_type == "STIG" else finding["cve_id"]
+    if id_type == "STIG":
+        id_value = finding["vuln_id"]
+    elif id_type == "CVE":
+        id_value = finding["cve_id"]
+    else:
+        id_value = finding["plugin_id"]
     cat = finding.get("cat", "UNKNOWN")
     raci = RACI_BY_CAT.get(cat, RACI_BY_CAT["CAT III"])
     sla_days = SLA_DAYS_BY_CAT.get(cat, 180)
@@ -222,13 +254,15 @@ def build_context(finding, id_type, args):
     asset_safe = re.sub(r"[^A-Za-z0-9_-]", "_", args.asset) if args.asset else "UNSPECIFIED-ASSET"
     record_id = f"VAR-{id_value}-{asset_safe}-{detection_date.strftime('%Y%m%d')}"
 
-    generated_note_source = (
-        "the offline STIG reference database" if id_type == "STIG" else "the offline CVE reference database"
-    )
-    official_source_desc = (
-        finding.get("source_file", "unknown source file") if id_type == "STIG"
-        else "NVD CVE API 2.0"
-    )
+    if id_type == "STIG":
+        generated_note_source = "the offline STIG reference database"
+        official_source_desc = finding.get("source_file", "unknown source file")
+    elif id_type == "CVE":
+        generated_note_source = "the offline CVE reference database"
+        official_source_desc = "NVD CVE API 2.0"
+    else:
+        generated_note_source = "the offline Nessus plugin reference database"
+        official_source_desc = "Tenable Nessus Plugin Detail Page"
 
     return {
         "id_value": id_value,
@@ -250,7 +284,8 @@ def build_context(finding, id_type, args):
 
 def _section1_identity_rows_md(finding, id_type, cat):
     """Identifier-specific rows for Section 1 -- the part of the record
-    that differs between a STIG finding and a CVE finding."""
+    that differs between a STIG finding, a CVE finding, and a Nessus
+    Plugin ID finding."""
     if id_type == "STIG":
         cci_refs = ", ".join(finding.get("cci_refs", [])) or "*(none listed in benchmark)*"
         return f"""| STIG Vulnerability ID | {md_cell(finding['vuln_id'])} |
@@ -262,23 +297,43 @@ def _section1_identity_rows_md(finding, id_type, cat):
 | Severity / CAT Level | {cat} (raw severity: {md_cell(finding.get('severity', ''))}) |
 | CCI Reference(s) | {md_cell(cci_refs)} |"""
 
-    # CVE
-    cwe_refs = ", ".join(finding.get("cwe_refs", [])) or "*(none published)*"
-    if finding.get("cisa_kev_listed"):
-        kev_row = (
-            f"\n| CISA KEV Status | **Listed** since {md_cell(finding.get('cisa_kev_date_added', ''))}"
-            f" -- official due date {md_cell(finding.get('cisa_kev_due_date', ''))} "
-            f"(see Section 8 for required action) |"
-        )
-    else:
-        kev_row = "\n| CISA KEV Status | Not listed |"
-    return f"""| CVE ID | {md_cell(finding['cve_id'])} |
+    if id_type == "CVE":
+        cwe_refs = ", ".join(finding.get("cwe_refs", [])) or "*(none published)*"
+        if finding.get("cisa_kev_listed"):
+            kev_row = (
+                f"\n| CISA KEV Status | **Listed** since {md_cell(finding.get('cisa_kev_date_added', ''))}"
+                f" -- official due date {md_cell(finding.get('cisa_kev_due_date', ''))} "
+                f"(see Section 8 for required action) |"
+            )
+        else:
+            kev_row = "\n| CISA KEV Status | Not listed |"
+        return f"""| CVE ID | {md_cell(finding['cve_id'])} |
 | CVSS Version | {md_cell(finding.get('cvss_version'), '*(unscored -- see Severity below)*')} |
 | CVSS Vector | {md_cell(finding.get('cvss_vector'), '*(none)*')} |
 | CVSS Base Score | {finding.get('cvss_base_score') if finding.get('cvss_base_score') is not None else '*(none)*'} |
 | Finding Title | {md_cell(finding.get('title', ''))} |
 | Severity / CAT Level | {cat} (raw severity: {md_cell(finding.get('cvss_base_severity', ''))}; basis: {md_cell(finding.get('cat_basis', ''))}) |
 | CWE Reference(s) | {md_cell(cwe_refs)} |{kev_row}"""
+
+    # NESSUS
+    cve_refs = ", ".join(finding.get("cve_refs", [])) or "*(none cited by this plugin)*"
+    if finding.get("cisa_kev_listed"):
+        kev_row = (
+            f"\n| CISA KEV Status | **Listed**"
+            + (f" since {md_cell(finding.get('cisa_kev_date_added', ''))}" if finding.get('cisa_kev_date_added') else "")
+            + " -- see Section 8 for guidance |"
+        )
+    else:
+        kev_row = "\n| CISA KEV Status | Not listed |"
+    return f"""| Nessus Plugin ID | {md_cell(finding['plugin_id'])} |
+| Plugin Family | {md_cell(finding.get('family', ''))} |
+| Finding Title | {md_cell(finding.get('title', ''))} |
+| Related CVE(s) | {md_cell(cve_refs)} |
+| CVSS Version | {md_cell(finding.get('cvss_version'), '*(unscored -- see Severity below)*')} |
+| CVSS Vector | {md_cell(finding.get('cvss_vector'), '*(none)*')} |
+| CVSS Base Score | {finding.get('cvss_base_score') if finding.get('cvss_base_score') is not None else '*(none)*'} |
+| Severity / CAT Level | {cat} (raw severity: {md_cell(finding.get('cvss_base_severity', ''))}; basis: {md_cell(finding.get('cat_basis', ''))}) |
+| VPR Score (Tenable) | {finding.get('vpr_score') if finding.get('vpr_score') is not None else '*(none)*'} |{kev_row}"""
 
 
 def _section8_body_md(finding, id_type):
@@ -299,17 +354,17 @@ def _section8_body_md(finding, id_type):
 
 {finding.get('fix_text', '*(none in benchmark)*')}"""
 
-    # CVE
-    references = list(dict.fromkeys(finding.get("references", [])))
-    ref_list = "\n".join(f"- {r}" for r in references) or "*(none published)*"
-    kev_action = ""
-    if finding.get("cisa_kev_listed"):
-        kev_action = f"""
+    if id_type == "CVE":
+        references = list(dict.fromkeys(finding.get("references", [])))
+        ref_list = "\n".join(f"- {r}" for r in references) or "*(none published)*"
+        kev_action = ""
+        if finding.get("cisa_kev_listed"):
+            kev_action = f"""
 
 **CISA Required Action (KEV-listed, verbatim):**
 
 {finding.get('cisa_kev_required_action', '*(none published)*')}"""
-    return f"""| Field | Value |
+        return f"""| Field | Value |
 |---|---|
 | Official Finding Description | {md_cell(finding.get('description', ''))} |
 | NVD Last Modified | {md_cell(finding.get('last_modified', ''))} |
@@ -318,15 +373,50 @@ def _section8_body_md(finding, id_type):
 
 {ref_list}{kev_action}"""
 
+    # NESSUS
+    see_also = list(dict.fromkeys(finding.get("see_also", [])))
+    see_also_list = "\n".join(f"- {r}" for r in see_also) or "*(none published)*"
+    other_refs = finding.get("other_refs", [])
+    other_refs_line = (
+        ", ".join(f"{r['id_type']} {r['id']}" for r in other_refs) if other_refs else "*(none)*"
+    )
+    kev_note = ""
+    if finding.get("cisa_kev_listed"):
+        kev_note = (
+            "\n\n**CISA Known Exploited Vulnerabilities (KEV):** This plugin is associated with a "
+            "KEV-listed vulnerability. Tenable's plugin page does not republish CISA's verbatim "
+            "required-action text -- consult the CVE-keyed record for the affected CVE (via "
+            "`cve_reference_builder.py`) or the official "
+            "[CISA KEV catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) directly "
+            "for the exact required action and due date."
+        )
+    return f"""| Field | Value |
+|---|---|
+| Synopsis | {md_cell(finding.get('synopsis', ''))} |
+| Official Finding Description | {md_cell(finding.get('description', ''))} |
+| Other Reference ID(s) | {md_cell(other_refs_line)} |
+
+**Official Solution / Fix Text:**
+
+{finding.get('solution', '*(none published)*')}
+
+**See Also (Tenable):**
+
+{see_also_list}{kev_note}"""
+
 
 def _source_citation_md(finding, id_type):
     if id_type == "STIG":
         return (f"Official content sourced from: {finding.get('source_file', 'unknown')} "
                 f"(imported from https://public.cyber.mil/stigs/downloads/ "
                 f"or the quarterly SRG-STIG Library Compilation into the offline reference database).")
-    return (f"Official content sourced from: NVD CVE API 2.0 "
-            f"(https://services.nvd.nist.gov/rest/json/cves/2.0), fetched {finding.get('fetched_at', 'unknown')} "
-            f"into the offline reference database.")
+    if id_type == "CVE":
+        return (f"Official content sourced from: NVD CVE API 2.0 "
+                f"(https://services.nvd.nist.gov/rest/json/cves/2.0), fetched {finding.get('fetched_at', 'unknown')} "
+                f"into the offline reference database.")
+    return (f"Official content sourced from: Tenable Nessus Plugin Detail Page "
+            f"({finding.get('source_url', 'https://www.tenable.com/plugins/nessus/')}), "
+            f"fetched {finding.get('fetched_at', 'unknown')} into the offline reference database.")
 
 
 def render_variance_record_markdown(finding, id_type, args, ctx):
@@ -369,9 +459,9 @@ def render_variance_record_markdown(finding, id_type, args, ctx):
 | Field | Value |
 |---|---|
 | Required Access | Read access to the affected asset's configuration baseline; read access to the offline reference database |
-| Required Tools | Offline {"STIG" if id_type == "STIG" else "CVE"} reference database; local ticketing/GRC system record for cross-linking |
+| Required Tools | Offline {"STIG" if id_type == "STIG" else ("CVE" if id_type == "CVE" else "Nessus plugin")} reference database; local ticketing/GRC system record for cross-linking |
 | Preparer | {md_blank_cell(args.preparer)} |
-| Input Artifacts | Official {"DISA STIG check/fix text" if id_type == "STIG" else "NVD CVE metadata"} below; prior variance record for this finding/asset pair, if this is a renewal |
+| Input Artifacts | Official {"DISA STIG check/fix text" if id_type == "STIG" else ("NVD CVE metadata" if id_type == "CVE" else "Tenable Nessus plugin metadata")} below; prior variance record for this finding/asset pair, if this is a renewal |
 
 ## 4. RACI (Severity-Tiered \u2014 {cat})
 
@@ -386,7 +476,7 @@ def render_variance_record_markdown(finding, id_type, args, ctx):
 
 ## 5. Execution Steps (Preparation)
 
-1. Confirm the {"Vulnerability" if id_type == "STIG" else "CVE"} ID and affected asset(s) above are correct.
+1. Confirm the {"Vulnerability" if id_type == "STIG" else ("CVE" if id_type == "CVE" else "Nessus Plugin")} ID and affected asset(s) above are correct.
 2. Fill in Section 2's Detection Method and Reporting Period.
 3. Complete Section 6 (Validation) with the actual observed state of the asset \u2014 first-person, factual, not a restatement of the official text below.
 4. Route the draft to the Consulted role(s) in Section 4 for comments before requesting sign-off.
@@ -590,26 +680,51 @@ def _section1_identity_rows_html(finding, id_type, cat):
 <tr><th>Severity / CAT Level</th><td><strong>{esc(cat)}</strong> (raw severity: {esc(finding.get('severity', ''))})</td></tr>
 <tr><th>CCI Reference(s)</th><td>{cci_refs if cci_refs.startswith('<em>') else esc(cci_refs)}</td></tr>"""
 
-    # CVE
-    cwe_refs = ", ".join(finding.get("cwe_refs", [])) or "<em>(none published)</em>"
-    if finding.get("cisa_kev_listed"):
-        kev_row = (
-            f'<tr><th>CISA KEV Status</th><td><strong style="color:{COLOR_WARNING};">Listed</strong> '
-            f"since {esc(finding.get('cisa_kev_date_added', ''))} "
-            f"&mdash; official due date {esc(finding.get('cisa_kev_due_date', ''))} "
-            f"(see Section 8 for required action)</td></tr>"
-        )
-    else:
-        kev_row = "<tr><th>CISA KEV Status</th><td>Not listed</td></tr>"
-    cvss_score = finding.get('cvss_base_score')
-    cvss_score_display = esc(cvss_score) if cvss_score is not None else "<em>(none)</em>"
-    return f"""<tr><th>CVE ID</th><td>{esc(finding['cve_id'])}</td></tr>
+    if id_type == "CVE":
+        cwe_refs = ", ".join(finding.get("cwe_refs", [])) or "<em>(none published)</em>"
+        if finding.get("cisa_kev_listed"):
+            kev_row = (
+                f'<tr><th>CISA KEV Status</th><td><strong style="color:{COLOR_WARNING};">Listed</strong> '
+                f"since {esc(finding.get('cisa_kev_date_added', ''))} "
+                f"&mdash; official due date {esc(finding.get('cisa_kev_due_date', ''))} "
+                f"(see Section 8 for required action)</td></tr>"
+            )
+        else:
+            kev_row = "<tr><th>CISA KEV Status</th><td>Not listed</td></tr>"
+        cvss_score = finding.get('cvss_base_score')
+        cvss_score_display = esc(cvss_score) if cvss_score is not None else "<em>(none)</em>"
+        return f"""<tr><th>CVE ID</th><td>{esc(finding['cve_id'])}</td></tr>
 <tr><th>CVSS Version</th><td>{esc(finding.get('cvss_version')) or '<em>(unscored &mdash; see Severity below)</em>'}</td></tr>
 <tr><th>CVSS Vector</th><td>{esc(finding.get('cvss_vector')) or '<em>(none)</em>'}</td></tr>
 <tr><th>CVSS Base Score</th><td>{cvss_score_display}</td></tr>
 <tr><th>Finding Title</th><td>{esc(finding.get('title', ''))}</td></tr>
 <tr><th>Severity / CAT Level</th><td><strong>{esc(cat)}</strong> (raw severity: {esc(finding.get('cvss_base_severity', ''))}; basis: {esc(finding.get('cat_basis', ''))})</td></tr>
 <tr><th>CWE Reference(s)</th><td>{cwe_refs if cwe_refs.startswith('<em>') else esc(cwe_refs)}</td></tr>
+{kev_row}"""
+
+    # NESSUS
+    cve_refs = ", ".join(finding.get("cve_refs", [])) or "<em>(none cited by this plugin)</em>"
+    if finding.get("cisa_kev_listed"):
+        kev_row = (
+            f'<tr><th>CISA KEV Status</th><td><strong style="color:{COLOR_WARNING};">Listed</strong>'
+            + (f" since {esc(finding.get('cisa_kev_date_added', ''))}" if finding.get('cisa_kev_date_added') else "")
+            + " &mdash; see Section 8 for guidance</td></tr>"
+        )
+    else:
+        kev_row = "<tr><th>CISA KEV Status</th><td>Not listed</td></tr>"
+    cvss_score = finding.get('cvss_base_score')
+    cvss_score_display = esc(cvss_score) if cvss_score is not None else "<em>(none)</em>"
+    vpr_score = finding.get('vpr_score')
+    vpr_score_display = esc(vpr_score) if vpr_score is not None else "<em>(none)</em>"
+    return f"""<tr><th>Nessus Plugin ID</th><td>{esc(finding['plugin_id'])}</td></tr>
+<tr><th>Plugin Family</th><td>{esc(finding.get('family', ''))}</td></tr>
+<tr><th>Finding Title</th><td>{esc(finding.get('title', ''))}</td></tr>
+<tr><th>Related CVE(s)</th><td>{cve_refs if cve_refs.startswith('<em>') else esc(cve_refs)}</td></tr>
+<tr><th>CVSS Version</th><td>{esc(finding.get('cvss_version')) or '<em>(unscored &mdash; see Severity below)</em>'}</td></tr>
+<tr><th>CVSS Vector</th><td>{esc(finding.get('cvss_vector')) or '<em>(none)</em>'}</td></tr>
+<tr><th>CVSS Base Score</th><td>{cvss_score_display}</td></tr>
+<tr><th>Severity / CAT Level</th><td><strong>{esc(cat)}</strong> (raw severity: {esc(finding.get('cvss_base_severity', ''))}; basis: {esc(finding.get('cat_basis', ''))})</td></tr>
+<tr><th>VPR Score (Tenable)</th><td>{vpr_score_display}</td></tr>
 {kev_row}"""
 
 
@@ -623,28 +738,64 @@ def _section8_body_html(finding, id_type):
 <h3>Official Fix Text</h3>
 <pre class="official-text">{esc(finding.get('fix_text', '(none in benchmark)'))}</pre>"""
 
-    # CVE
-    references = list(dict.fromkeys(finding.get("references", [])))
-    if references:
-        ref_list_html = "<ul class=\"ref-list\">" + "".join(
-            f'<li><a href="{esc(r)}">{esc(r)}</a></li>' for r in references
-        ) + "</ul>"
-    else:
-        ref_list_html = "<p><em>(none published)</em></p>"
+    if id_type == "CVE":
+        references = list(dict.fromkeys(finding.get("references", [])))
+        if references:
+            ref_list_html = "<ul class=\"ref-list\">" + "".join(
+                f'<li><a href="{esc(r)}">{esc(r)}</a></li>' for r in references
+            ) + "</ul>"
+        else:
+            ref_list_html = "<p><em>(none published)</em></p>"
 
-    kev_block = ""
-    if finding.get("cisa_kev_listed"):
-        kev_block = f"""<div class="kev-alert">
+        kev_block = ""
+        if finding.get("cisa_kev_listed"):
+            kev_block = f"""<div class="kev-alert">
 <h3>CISA Known Exploited Vulnerabilities (KEV) &mdash; Required Action (verbatim)</h3>
 {esc_multiline(finding.get('cisa_kev_required_action', ''), '<em>(none published)</em>')}
 </div>"""
 
-    return f"""<table>
+        return f"""<table>
 <tr><th>Official Finding Description</th><td>{esc_multiline(finding.get('description', ''), '<em>(none)</em>')}</td></tr>
 <tr><th>NVD Last Modified</th><td>{esc(finding.get('last_modified', ''))}</td></tr>
 </table>
 <h3>Official References (NVD)</h3>
 {ref_list_html}
+{kev_block}"""
+
+    # NESSUS
+    see_also = list(dict.fromkeys(finding.get("see_also", [])))
+    if see_also:
+        see_also_html = "<ul class=\"ref-list\">" + "".join(
+            f'<li><a href="{esc(r)}">{esc(r)}</a></li>' for r in see_also
+        ) + "</ul>"
+    else:
+        see_also_html = "<p><em>(none published)</em></p>"
+
+    other_refs = finding.get("other_refs", [])
+    other_refs_line = (
+        ", ".join(f"{esc(r['id_type'])} {esc(r['id'])}" for r in other_refs) if other_refs else "<em>(none)</em>"
+    )
+
+    kev_block = ""
+    if finding.get("cisa_kev_listed"):
+        kev_block = f"""<div class="kev-alert">
+<h3>CISA Known Exploited Vulnerabilities (KEV)</h3>
+<p>This plugin is associated with a KEV-listed vulnerability. Tenable's plugin page does not
+republish CISA's verbatim required-action text &mdash; consult the CVE-keyed record for the
+affected CVE (via <code>cve_reference_builder.py</code>) or the official
+<a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog">CISA KEV catalog</a>
+directly for the exact required action and due date.</p>
+</div>"""
+
+    return f"""<table>
+<tr><th>Synopsis</th><td>{esc_multiline(finding.get('synopsis', ''), '<em>(none)</em>')}</td></tr>
+<tr><th>Official Finding Description</th><td>{esc_multiline(finding.get('description', ''), '<em>(none)</em>')}</td></tr>
+<tr><th>Other Reference ID(s)</th><td>{other_refs_line}</td></tr>
+</table>
+<h3>Official Solution / Fix Text</h3>
+<pre class="official-text">{esc(finding.get('solution', '(none published)'))}</pre>
+<h3>See Also (Tenable)</h3>
+{see_also_html}
 {kev_block}"""
 
 
@@ -654,9 +805,14 @@ def _source_citation_html(finding, id_type):
                 f'(imported from <a href="https://public.cyber.mil/stigs/downloads/">'
                 f"https://public.cyber.mil/stigs/downloads/</a> "
                 f"or the quarterly SRG-STIG Library Compilation into the offline reference database).")
-    return (f'Official content sourced from: NVD CVE API 2.0 '
-            f'(<a href="https://services.nvd.nist.gov/rest/json/cves/2.0">'
-            f"https://services.nvd.nist.gov/rest/json/cves/2.0</a>), "
+    if id_type == "CVE":
+        return (f'Official content sourced from: NVD CVE API 2.0 '
+                f'(<a href="https://services.nvd.nist.gov/rest/json/cves/2.0">'
+                f"https://services.nvd.nist.gov/rest/json/cves/2.0</a>), "
+                f"fetched {esc(finding.get('fetched_at', 'unknown'))} into the offline reference database.")
+    source_url = finding.get('source_url', 'https://www.tenable.com/plugins/nessus/')
+    return (f'Official content sourced from: Tenable Nessus Plugin Detail Page '
+            f'(<a href="{esc(source_url)}">{esc(source_url)}</a>), '
             f"fetched {esc(finding.get('fetched_at', 'unknown'))} into the offline reference database.")
 
 
@@ -711,9 +867,9 @@ Structure per <code>execution-plan/templates/VARIANCE-RISK-ACCEPTANCE-TEMPLATE.m
 <h2>3. Preconditions</h2>
 <table>
 <tr><th>Required Access</th><td>Read access to the affected asset's configuration baseline; read access to the offline reference database</td></tr>
-<tr><th>Required Tools</th><td>Offline {"STIG" if id_type == "STIG" else "CVE"} reference database; local ticketing/GRC system record for cross-linking</td></tr>
+<tr><th>Required Tools</th><td>Offline {"STIG" if id_type == "STIG" else ("CVE" if id_type == "CVE" else "Nessus plugin")} reference database; local ticketing/GRC system record for cross-linking</td></tr>
 <tr><th>Preparer</th><td>{html_blank(args.preparer)}</td></tr>
-<tr><th>Input Artifacts</th><td>Official {"DISA STIG check/fix text" if id_type == "STIG" else "NVD CVE metadata"} below; prior variance record for this finding/asset pair, if this is a renewal</td></tr>
+<tr><th>Input Artifacts</th><td>Official {"DISA STIG check/fix text" if id_type == "STIG" else ("NVD CVE metadata" if id_type == "CVE" else "Tenable Nessus plugin metadata")} below; prior variance record for this finding/asset pair, if this is a renewal</td></tr>
 </table>
 
 <h2>4. RACI (Severity-Tiered &mdash; {esc(cat)})</h2>
@@ -728,7 +884,7 @@ Structure per <code>execution-plan/templates/VARIANCE-RISK-ACCEPTANCE-TEMPLATE.m
 
 <h2>5. Execution Steps (Preparation)</h2>
 <ol class="steps">
-<li>Confirm the {"Vulnerability" if id_type == "STIG" else "CVE"} ID and affected asset(s) above are correct.</li>
+<li>Confirm the {"Vulnerability" if id_type == "STIG" else ("CVE" if id_type == "CVE" else "Nessus Plugin")} ID and affected asset(s) above are correct.</li>
 <li>Fill in Section 2's Detection Method and Reporting Period.</li>
 <li>Complete Section 6 (Validation) with the actual observed state of the asset &mdash; first-person, factual, not a restatement of the official text below.</li>
 <li>Route the draft to the Consulted role(s) in Section 4 for comments before requesting sign-off.</li>
@@ -797,8 +953,9 @@ Structure per <code>execution-plan/templates/VARIANCE-RISK-ACCEPTANCE-TEMPLATE.m
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--id", required=True,
-                         help="Finding ID: a STIG Vulnerability ID (e.g. V-253259) or a CVE ID "
-                              "(e.g. CVE-2021-44228) -- the type is auto-detected from the format")
+                         help="Finding ID: a STIG Vulnerability ID (e.g. V-253259), a CVE ID "
+                              "(e.g. CVE-2021-44228), or a Nessus Plugin ID (e.g. 156327) -- "
+                              "the type is auto-detected from the format")
     parser.add_argument("--asset", default="", help="Affected asset/hostname identifier")
     parser.add_argument("--system-scope", default="", dest="system_scope", help="System/enclave name")
     parser.add_argument("--detection-method", default="", dest="detection_method")
@@ -807,7 +964,8 @@ def main():
     parser.add_argument("--reference-db", default=None, dest="reference_db",
                          help="Override the reference DB path for whichever ID type is detected "
                               "(default: data/stig_reference.json for STIG IDs, "
-                              "data/cve_reference.json for CVE IDs)")
+                              "data/cve_reference.json for CVE IDs, "
+                              "data/nessus_reference.json for Nessus Plugin IDs)")
     parser.add_argument("--output-dir", default=DEFAULT_OUTPUT_DIR, dest="output_dir")
     parser.add_argument("--format", default="both", dest="format", choices=["md", "html", "both"],
                          help="Output format(s) to write (default: both)")
@@ -818,12 +976,19 @@ def main():
         print(f"'{args.id}' does not match a recognized ID format.")
         print("  STIG Vulnerability ID format: V-NNNNNN (e.g. V-253259)")
         print("  CVE ID format:                CVE-YYYY-NNNN... (e.g. CVE-2021-44228)")
+        print("  Nessus Plugin ID format:      digits only (e.g. 156327)")
         sys.exit(1)
 
-    db_path = args.reference_db or (DEFAULT_STIG_DB if id_type == "STIG" else DEFAULT_CVE_DB)
+    if id_type == "STIG":
+        default_db = DEFAULT_STIG_DB
+    elif id_type == "CVE":
+        default_db = DEFAULT_CVE_DB
+    else:
+        default_db = DEFAULT_NESSUS_DB
+    db_path = args.reference_db or default_db
     db = load_db(db_path, id_type)
 
-    lookup_id = args.id.strip() if id_type == "STIG" else args.id.strip().upper()
+    lookup_id = args.id.strip() if id_type in ("STIG", "NESSUS") else args.id.strip().upper()
     finding = db.get("findings", {}).get(lookup_id)
     if not finding:
         if id_type == "STIG":
@@ -832,10 +997,14 @@ def main():
                   f"{len(db.get('source_files', []))} official STIG file(s)).")
             print("Import the relevant official STIG .zip/xccdf into execution-plan/tools/stig_intake/ "
                   "and re-run stig_reference_builder.py build.")
-        else:
+        elif id_type == "CVE":
             print(f"'{args.id}' not found in the offline CVE reference database "
                   f"({db.get('finding_count', 0)} CVE(s) cached).")
             print(f"Run: python3 cve_reference_builder.py fetch --id {args.id}")
+        else:
+            print(f"'{args.id}' not found in the offline Nessus plugin reference database "
+                  f"({db.get('finding_count', 0)} plugin(s) cached).")
+            print(f"Run: python3 nessus_reference_builder.py fetch --id {args.id}")
         sys.exit(1)
 
     ctx = build_context(finding, id_type, args)

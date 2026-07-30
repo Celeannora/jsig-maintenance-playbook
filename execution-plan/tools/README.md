@@ -2,7 +2,7 @@
 
 Turns an official DISA STIG finding ID (e.g. `V-253259`) into a ready-to-review, ready-to-sign Variance/Risk-Acceptance Record — without any live scan-tool integration and without any internet access at generation time.
 
-This folder also builds and maintains a matching offline reference database for **CVE IDs** (e.g. `CVE-2021-44228`), the identifier a Nessus scan flags rather than a STIG check — see [CVE reference tooling](#cve-reference-tooling-nessus-findings) below. `generate_variance.py` accepts either identifier type in the same `--id` flag (STIG `V-NNNNNN` or CVE `CVE-YYYY-NNNN...`) and auto-detects which one you passed, so the same command renders a variance record from a STIG compliance-audit finding or a Nessus/CVE vulnerability-scan finding. It writes both a Markdown record (source of truth, meant to be committed) and a standalone HTML record (inline CSS, opens in any browser, no external assets) by default — see [Step 2](#step-2--generate-a-variancerisk-acceptance-record) below.
+This folder also builds and maintains matching offline reference databases for two other identifier types a Nessus scan report can hand you: **CVE IDs** (e.g. `CVE-2021-44228`) — see [CVE reference tooling](#cve-reference-tooling-nessus-findings) below — and bare numeric **Nessus Plugin IDs** (e.g. `156327`) — see [Nessus Plugin ID reference tooling](#nessus-plugin-id-reference-tooling) below. Prefer the CVE path when your scan output names a specific CVE (NVD is the official source of record for CVE metadata); use the Plugin ID path when what you have is the scan report's numeric Plugin ID itself, or when the plugin cites no CVE at all (common for local version-check and informational plugins). `generate_variance.py` accepts all three identifier types in the same `--id` flag (STIG `V-NNNNNN`, CVE `CVE-YYYY-NNNN...`, or a bare-digits Plugin ID) and auto-detects which one you passed, so the same command renders a variance record from a STIG compliance-audit finding or either shape of a Nessus vulnerability-scan finding. It writes both a Markdown record (source of truth, meant to be committed) and a standalone HTML record (inline CSS, opens in any browser, no external assets) by default — see [Step 2](#step-2--generate-a-variancerisk-acceptance-record) below.
 
 ## Why this exists
 
@@ -37,7 +37,7 @@ An earlier iteration of this tool set planned to parse live scan-tool export fil
    routed for peer review + severity-tiered sign-off (Section 4/10 of the record)
 ```
 
-The same pipeline works for a CVE ID (e.g. `CVE-2021-44228`) once it's been fetched into `data/cve_reference.json` by `cve_reference_builder.py` — see [CVE reference tooling](#cve-reference-tooling-nessus-findings) below.
+The same pipeline works for a CVE ID (e.g. `CVE-2021-44228`) once it's been fetched into `data/cve_reference.json` by `cve_reference_builder.py` — see [CVE reference tooling](#cve-reference-tooling-nessus-findings) below — or for a bare Nessus Plugin ID (e.g. `156327`) once it's been fetched into `data/nessus_reference.json` by `nessus_reference_builder.py` — see [Nessus Plugin ID reference tooling](#nessus-plugin-id-reference-tooling) below.
 
 ## Step 1 — Bulk import official STIG documents
 
@@ -105,6 +105,27 @@ An optional `NVD_API_KEY` environment variable (free, [request one here](https:/
 
 CVSS severity is mapped to CAT level (CRITICAL/HIGH -> CAT I, MEDIUM -> CAT II, LOW -> CAT III, unscored -> CAT I provisional/fail-closed), and any CISA KEV-listed CVE is floored to CAT I regardless of CVSS score -- see `execution-plan/templates/ESCALATION-MATRIX.md` Sections 1a and 6 for the authoritative, cited definitions this logic implements.
 
+## Nessus Plugin ID reference tooling
+
+A Nessus scan report's *primary* identifier for every finding is a numeric **Plugin ID** (e.g. `156327`) — the CVE(s) a plugin cites, if any, are secondary metadata on that plugin, and many plugins (local version checks, informational checks, misconfigurations) cite no CVE at all. `nessus_reference_builder.py` builds the offline reference database for this identifier type, fetching authoritative plugin metadata (title, family, synopsis, description, solution/fix text, CVSS score/vector, related CVE IDs, VPR score, CISA KEV status) from Tenable's public [plugin detail pages](https://www.tenable.com/plugins) — no login or API key required.
+
+Unlike the CVE side, there is no public bulk/mirror feed for the full plugin catalog, so there is only one workflow (targeted, per-ID):
+
+```
+# One plugin:
+python3 nessus_reference_builder.py fetch --id 156327
+
+# A batch (e.g. everything a Nessus scan flagged on one asset), one Plugin ID per line in a text file:
+python3 nessus_reference_builder.py fetch-list --file nessus_intake/plugin_list.txt
+
+# Sanity-check after fetching (no network):
+python3 nessus_reference_builder.py lookup --id 156327
+```
+
+This writes to `data/nessus_reference.json` by default. Re-running `fetch`/`fetch-list` for an ID already cached refreshes it with Tenable's latest plugin text (plugins are periodically revised as Tenable improves detection logic or updates references).
+
+The same CVSS-severity-to-CAT mapping and CISA KEV escalation floor described above apply here too (see `execution-plan/templates/ESCALATION-MATRIX.md` Sections 1a and 6) — a plugin's own CVSS v3 score/vector is preferred over v2 when both are published, and KEV status is read from Tenable's own `cisaKnownExploitedDate`/`on_cisa_kev` fields. Unlike NVD, Tenable's plugin page does not republish CISA's verbatim required-action text, so a KEV-listed plugin's generated record points the preparer to the CVE-keyed record (via `cve_reference_builder.py`, if the plugin cites a CVE) or the official [CISA KEV catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) directly, rather than fabricating that text.
+
 ## Step 2 — Generate a Variance/Risk-Acceptance Record
 
 ```
@@ -122,7 +143,7 @@ This looks up `V-253259` in the offline database, determines its CAT level, comp
 - `VAR-V-253259-WIN11-WKSTN-042-20260717.md` — Markdown, diff-friendly, the source of truth meant to be committed to the repo.
 - `VAR-V-253259-WIN11-WKSTN-042-20260717.html` — a standalone HTML record with inline CSS and no external assets, so it opens directly in any browser, prints cleanly to PDF, or can be emailed/attached as-is. Official check/fix text, CVE descriptions, and NVD reference links are rendered read-only; a CISA KEV-listed CVE gets a highlighted "Required Action" callout in Section 8.
 
-Same `--id` flag works for a CVE ID (e.g. `--id CVE-2021-44228`) once it's cached via `cve_reference_builder.py` — the identifier format is auto-detected, so no separate flag is needed to switch between a STIG finding and a Nessus/CVE finding.
+Same `--id` flag works for a CVE ID (e.g. `--id CVE-2021-44228`) once it's cached via `cve_reference_builder.py`, or a bare Nessus Plugin ID (e.g. `--id 156327`) once it's cached via `nessus_reference_builder.py` — the identifier format is auto-detected, so no separate flag is needed to switch between a STIG finding, a CVE finding, or a Nessus Plugin ID finding.
 
 Use `--format md` or `--format html` to restrict output to just one format; the default is `both`.
 
@@ -151,4 +172,7 @@ ISSM is a standing reviewer at every tier. Complete Sections 6–7 (actual obser
 | `cve_intake/` | Drop zone for a text file of CVE IDs, one per line, for `fetch-list` |
 | `data/cve_reference.json` | Small, curated CVE database (built by `fetch`/`fetch-list`) — git-friendly, meant to be committed |
 | `data/cve_mirror.json` | Full-catalog CVE mirror (built by `mirror`/`mirror-update`) — large, local-only, .gitignore this |
+| `nessus_reference_builder.py` | Fetches official Tenable Nessus Plugin ID metadata into an offline Nessus plugin reference database (`fetch`, `fetch-list`, `lookup` — no bulk mirror mode, Tenable publishes no bulk feed) |
+| `nessus_intake/` | Drop zone for a text file of Nessus Plugin IDs, one per line, for `fetch-list` |
+| `data/nessus_reference.json` | Small, curated Nessus plugin database (built by `fetch`/`fetch-list`) — git-friendly, meant to be committed |
 | `data/stig_reference.json` | The built offline reference database (regenerate any time by re-running Step 1) |

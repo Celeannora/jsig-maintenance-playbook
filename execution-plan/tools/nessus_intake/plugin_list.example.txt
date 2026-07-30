@@ -1,0 +1,4 @@
+# One Nessus Plugin ID per line. Blank lines and lines starting with # are ignored.
+# Copy this file to plugin_list.txt (the default fetch-list target) and edit,
+# or pass --file with any path.
+156327
