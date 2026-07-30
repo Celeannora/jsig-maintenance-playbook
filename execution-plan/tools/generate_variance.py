@@ -22,6 +22,15 @@ pre-fill Section 6 from an actual scan export, treat that as a separate,
 optional enhancement layered on top of this generator, not a prerequisite
 for it.
 
+OUTPUT FORMATS
+--------------
+By default this writes BOTH a Markdown record (the source of truth,
+diff-friendly, meant to be committed to the repo) and a standalone,
+self-contained HTML record (inline CSS, no external assets -- open
+directly in a browser, print to PDF, or email) to the same output
+directory, sharing the same record ID as the filename stem. Use
+--format to restrict to just one.
+
 USAGE
 -----
   # STIG finding:
@@ -42,6 +51,10 @@ USAGE
       --detection-date 2026-07-17 \\
       --preparer "J. Smith, ISSO"
 
+  # Markdown only, or HTML only:
+  python3 generate_variance.py --id V-253259 --format md ...
+  python3 generate_variance.py --id V-253259 --format html ...
+
   # Optional: override which reference DB file is used for whichever ID
   # type is detected (default: data/stig_reference.json for STIG IDs,
   # data/cve_reference.json for CVE IDs):
@@ -53,6 +66,7 @@ this script never fabricates asset-specific facts.
 """
 
 import argparse
+import html as html_lib
 import json
 import os
 import re
@@ -94,6 +108,24 @@ RACI_BY_CAT = {
 STIG_ID_RE = re.compile(r"^V-\d+$", re.IGNORECASE)
 CVE_ID_RE = re.compile(r"^CVE-\d{4}-\d{4,}$", re.IGNORECASE)
 
+# ---------------------------------------------------------------------------
+# Nexus design-system colors (kept in sync with the project's other
+# generated deliverables, e.g. execution-plan/../ccr-form templates), used
+# only by the HTML renderer. See skills/design-foundations for the palette.
+# ---------------------------------------------------------------------------
+COLOR_BG = "#F7F6F2"
+COLOR_SURFACE = "#FFFFFF"
+COLOR_SURFACE_ALT = "#F9F8F5"
+COLOR_BORDER = "#D4D1CA"
+COLOR_TEXT = "#28251D"
+COLOR_TEXT_MUTED = "#7A7974"
+COLOR_TEXT_FAINT = "#BAB9B4"
+COLOR_PRIMARY = "#01696F"
+COLOR_PRIMARY_HOVER = "#0C4E54"
+COLOR_WARNING = "#964219"
+COLOR_WARNING_FILL = "#FBF1EA"
+COLOR_HEADER_FILL = "#F2F1EC"
+
 
 def detect_id_type(raw_id):
     """Return 'STIG' or 'CVE' based on the --id format, or None if it
@@ -122,89 +154,59 @@ def blank(value):
     return value if value else "*(fill in)*"
 
 
-def _section1_identity_rows(finding, id_type, cat):
-    """Identifier-specific rows for Section 1 -- the part of the record
-    that differs between a STIG finding and a CVE finding."""
-    if id_type == "STIG":
-        cci_refs = ", ".join(finding.get("cci_refs", [])) or "*(none listed in benchmark)*"
-        return f"""| STIG Vulnerability ID | {finding['vuln_id']} |
-| STIG Rule ID | {finding.get('rule_id', '')} |
-| STIG Rule Version (short ID) | {finding.get('stig_id', '')} |
-| Benchmark / STIG Title | {finding.get('benchmark_title', '')} |
-| Benchmark Release | {finding.get('release', '')} |
-| Finding Title | {finding.get('title', '')} |
-| Severity / CAT Level | {cat} (raw severity: {finding.get('severity', '')}) |
-| CCI Reference(s) | {cci_refs} |"""
-
-    # CVE
-    cwe_refs = ", ".join(finding.get("cwe_refs", [])) or "*(none published)*"
-    kev_row = ""
-    if finding.get("cisa_kev_listed"):
-        kev_row = (
-            f"\n| CISA KEV Status | **Listed** since {finding.get('cisa_kev_date_added', '')}"
-            f" -- official due date {finding.get('cisa_kev_due_date', '')} "
-            f"(see Section 8 for required action) |"
-        )
-    else:
-        kev_row = "\n| CISA KEV Status | Not listed |"
-    return f"""| CVE ID | {finding['cve_id']} |
-| CVSS Version | {finding.get('cvss_version') or '*(unscored -- see Severity below)*'} |
-| CVSS Vector | {finding.get('cvss_vector') or '*(none)*'} |
-| CVSS Base Score | {finding.get('cvss_base_score') if finding.get('cvss_base_score') is not None else '*(none)*'} |
-| Finding Title | {finding.get('title', '')} |
-| Severity / CAT Level | {cat} (raw severity: {finding.get('cvss_base_severity', '')}; basis: {finding.get('cat_basis', '')}) |
-| CWE Reference(s) | {cwe_refs} |{kev_row}"""
+def md_cell(value, default=""):
+    """Sanitize a dynamic (finding- or CLI-sourced) string for safe use
+    inside a Markdown table cell. Table cells are delimited by literal
+    '|' characters and cannot contain raw newlines -- official STIG/CVE
+    description text and free-text CLI args (asset name, preparer, etc.)
+    are not guaranteed to avoid either, so without this escaping a
+    literal '|' or embedded newline in the source text would silently
+    corrupt the rendered table (misaligned or missing columns) in
+    whatever Markdown/Word/HTML renderer consumes the .md file
+    downstream."""
+    if value is None or value == "":
+        return default
+    s = str(value)
+    s = s.replace("\r\n", "\n").replace("\r", "\n")
+    s = s.replace("|", "\\|")
+    s = s.replace("\n", "<br>")
+    return s
 
 
-def _section8_body(finding, id_type):
-    """Identifier-specific body for Section 8 -- STIG has official
-    check/fix text from the XCCDF Rule; CVE has no equivalent concept, so
-    it surfaces the NVD description, references, and (if KEV-listed) the
-    verbatim CISA-required action instead."""
-    if id_type == "STIG":
-        return f"""| Field | Value |
-|---|---|
-| Official Finding Description | {finding.get('description', '')} |
-
-**Official Check Text:**
-
-{finding.get('check_text', '*(none in benchmark)*')}
-
-**Official Fix Text:**
-
-{finding.get('fix_text', '*(none in benchmark)*')}"""
-
-    # CVE
-    references = list(dict.fromkeys(finding.get("references", [])))
-    ref_list = "\n".join(f"- {r}" for r in references) or "*(none published)*"
-    kev_action = ""
-    if finding.get("cisa_kev_listed"):
-        kev_action = f"""
-
-**CISA Required Action (KEV-listed, verbatim):**
-
-{finding.get('cisa_kev_required_action', '*(none published)*')}"""
-    return f"""| Field | Value |
-|---|---|
-| Official Finding Description | {finding.get('description', '')} |
-| NVD Last Modified | {finding.get('last_modified', '')} |
-
-**Official References (NVD):**
-
-{ref_list}{kev_action}"""
+def md_blank_cell(value):
+    return md_cell(value, default="*(fill in)*")
 
 
-def _source_citation(finding, id_type):
-    if id_type == "STIG":
-        return (f"Official content sourced from: {finding.get('source_file', 'unknown')} "
-                f"(imported from https://public.cyber.mil/stigs/downloads/ "
-                f"or the quarterly SRG-STIG Library Compilation into the offline reference database).")
-    return (f"Official content sourced from: NVD CVE API 2.0 "
-            f"(https://services.nvd.nist.gov/rest/json/cves/2.0), fetched {finding.get('fetched_at', 'unknown')} "
-            f"into the offline reference database.")
+def esc(value, default=""):
+    """HTML-escape a dynamic string for safe interpolation into the
+    generated HTML document. Official STIG check/fix text routinely
+    contains characters like '<', '>', and '&' (registry paths,
+    comparisons, ampersands in product names) that would otherwise be
+    interpreted as markup and silently break or truncate the page."""
+    if value is None or value == "":
+        return default
+    return html_lib.escape(str(value), quote=True)
 
 
-def render_variance_record(finding, id_type, args):
+def esc_multiline(value, default="<span class=\"fill-in\">(none)</span>"):
+    """HTML-escape then convert newlines to <br> for multi-line official
+    text (STIG check/fix text, CVE descriptions) rendered outside a
+    <pre> block."""
+    if value is None or value == "":
+        return default
+    return esc(value).replace("\n", "<br>")
+
+
+def html_blank(value):
+    if value:
+        return esc(value)
+    return "<span class=\"fill-in\">(fill in)</span>"
+
+
+def build_context(finding, id_type, args):
+    """Compute every value that both the Markdown and HTML renderers need
+    to agree on (record ID, due date, RACI, etc.) exactly once, so the two
+    output formats for the same invocation can never drift apart."""
     id_value = finding["vuln_id"] if id_type == "STIG" else finding["cve_id"]
     cat = finding.get("cat", "UNKNOWN")
     raci = RACI_BY_CAT.get(cat, RACI_BY_CAT["CAT III"])
@@ -228,9 +230,116 @@ def render_variance_record(finding, id_type, args):
         else "NVD CVE API 2.0"
     )
 
+    return {
+        "id_value": id_value,
+        "cat": cat,
+        "raci": raci,
+        "sla_days": sla_days,
+        "detection_date_str": detection_date_str,
+        "due_date": due_date,
+        "record_id": record_id,
+        "generated_note_source": generated_note_source,
+        "official_source_desc": official_source_desc,
+        "generated_at_utc": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
+    }
+
+
+# ---------------------------------------------------------------------------
+# Markdown rendering
+# ---------------------------------------------------------------------------
+
+def _section1_identity_rows_md(finding, id_type, cat):
+    """Identifier-specific rows for Section 1 -- the part of the record
+    that differs between a STIG finding and a CVE finding."""
+    if id_type == "STIG":
+        cci_refs = ", ".join(finding.get("cci_refs", [])) or "*(none listed in benchmark)*"
+        return f"""| STIG Vulnerability ID | {md_cell(finding['vuln_id'])} |
+| STIG Rule ID | {md_cell(finding.get('rule_id', ''))} |
+| STIG Rule Version (short ID) | {md_cell(finding.get('stig_id', ''))} |
+| Benchmark / STIG Title | {md_cell(finding.get('benchmark_title', ''))} |
+| Benchmark Release | {md_cell(finding.get('release', ''))} |
+| Finding Title | {md_cell(finding.get('title', ''))} |
+| Severity / CAT Level | {cat} (raw severity: {md_cell(finding.get('severity', ''))}) |
+| CCI Reference(s) | {md_cell(cci_refs)} |"""
+
+    # CVE
+    cwe_refs = ", ".join(finding.get("cwe_refs", [])) or "*(none published)*"
+    if finding.get("cisa_kev_listed"):
+        kev_row = (
+            f"\n| CISA KEV Status | **Listed** since {md_cell(finding.get('cisa_kev_date_added', ''))}"
+            f" -- official due date {md_cell(finding.get('cisa_kev_due_date', ''))} "
+            f"(see Section 8 for required action) |"
+        )
+    else:
+        kev_row = "\n| CISA KEV Status | Not listed |"
+    return f"""| CVE ID | {md_cell(finding['cve_id'])} |
+| CVSS Version | {md_cell(finding.get('cvss_version'), '*(unscored -- see Severity below)*')} |
+| CVSS Vector | {md_cell(finding.get('cvss_vector'), '*(none)*')} |
+| CVSS Base Score | {finding.get('cvss_base_score') if finding.get('cvss_base_score') is not None else '*(none)*'} |
+| Finding Title | {md_cell(finding.get('title', ''))} |
+| Severity / CAT Level | {cat} (raw severity: {md_cell(finding.get('cvss_base_severity', ''))}; basis: {md_cell(finding.get('cat_basis', ''))}) |
+| CWE Reference(s) | {md_cell(cwe_refs)} |{kev_row}"""
+
+
+def _section8_body_md(finding, id_type):
+    """Identifier-specific body for Section 8 -- STIG has official
+    check/fix text from the XCCDF Rule; CVE has no equivalent concept, so
+    it surfaces the NVD description, references, and (if KEV-listed) the
+    verbatim CISA-required action instead."""
+    if id_type == "STIG":
+        return f"""| Field | Value |
+|---|---|
+| Official Finding Description | {md_cell(finding.get('description', ''))} |
+
+**Official Check Text:**
+
+{finding.get('check_text', '*(none in benchmark)*')}
+
+**Official Fix Text:**
+
+{finding.get('fix_text', '*(none in benchmark)*')}"""
+
+    # CVE
+    references = list(dict.fromkeys(finding.get("references", [])))
+    ref_list = "\n".join(f"- {r}" for r in references) or "*(none published)*"
+    kev_action = ""
+    if finding.get("cisa_kev_listed"):
+        kev_action = f"""
+
+**CISA Required Action (KEV-listed, verbatim):**
+
+{finding.get('cisa_kev_required_action', '*(none published)*')}"""
+    return f"""| Field | Value |
+|---|---|
+| Official Finding Description | {md_cell(finding.get('description', ''))} |
+| NVD Last Modified | {md_cell(finding.get('last_modified', ''))} |
+
+**Official References (NVD):**
+
+{ref_list}{kev_action}"""
+
+
+def _source_citation_md(finding, id_type):
+    if id_type == "STIG":
+        return (f"Official content sourced from: {finding.get('source_file', 'unknown')} "
+                f"(imported from https://public.cyber.mil/stigs/downloads/ "
+                f"or the quarterly SRG-STIG Library Compilation into the offline reference database).")
+    return (f"Official content sourced from: NVD CVE API 2.0 "
+            f"(https://services.nvd.nist.gov/rest/json/cves/2.0), fetched {finding.get('fetched_at', 'unknown')} "
+            f"into the offline reference database.")
+
+
+def render_variance_record_markdown(finding, id_type, args, ctx):
+    cat = ctx["cat"]
+    raci = ctx["raci"]
+    sla_days = ctx["sla_days"]
+    due_date = ctx["due_date"]
+    record_id = ctx["record_id"]
+    detection_date_str = ctx["detection_date_str"]
+
     doc = f"""# Variance / Risk-Acceptance Record \u2014 {record_id}
 
-> Generated by `execution-plan/tools/generate_variance.py` from {generated_note_source} on {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}. Official finding text (Sections 1 and 8) is sourced verbatim from {official_source_desc} \u2014 do not hand-edit those fields; refresh the reference database instead. Sections 2, 3, 6, 7, 9, and 10 require human input and are intentionally left as fill-in prompts below.
+> Generated by `execution-plan/tools/generate_variance.py` from {ctx['generated_note_source']} on {ctx['generated_at_utc']}. Official finding text (Sections 1 and 8) is sourced verbatim from {ctx['official_source_desc']} \u2014 do not hand-edit those fields; refresh the reference database instead. Sections 2, 3, 6, 7, 9, and 10 require human input and are intentionally left as fill-in prompts below.
 >
 > Identifier type: **{id_type}**. Structure per `execution-plan/templates/VARIANCE-RISK-ACCEPTANCE-TEMPLATE.md`.
 
@@ -239,10 +348,10 @@ def render_variance_record(finding, id_type, args):
 | Field | Value |
 |---|---|
 | Variance Record ID | {record_id} |
-{_section1_identity_rows(finding, id_type, cat)}
-| System / Enclave Scope | {blank(args.system_scope)} |
+{_section1_identity_rows_md(finding, id_type, cat)}
+| System / Enclave Scope | {md_blank_cell(args.system_scope)} |
 | Document Version | v1.0 |
-| Last Reviewed | {blank(args.detection_date)} |
+| Last Reviewed | {md_blank_cell(args.detection_date)} |
 
 ## 2. Trigger and Cadence
 
@@ -250,7 +359,7 @@ def render_variance_record(finding, id_type, args):
 |---|---|
 | Trigger Condition | Configuration/vulnerability review identified this finding as **Open** *(preparer: confirm or correct)* |
 | Detection Date | {detection_date_str} |
-| Detection Method | {blank(args.detection_method)} |
+| Detection Method | {md_blank_cell(args.detection_method)} |
 | Reporting Period | *(fill in)* |
 | Re-Review / Decision Due Date | **{due_date}** ({sla_days}-day SLA for {cat}, per `execution-plan/templates/ESCALATION-MATRIX.md`) |
 | Repository Location | `execution-plan/variance-records/{record_id}.md` |
@@ -261,7 +370,7 @@ def render_variance_record(finding, id_type, args):
 |---|---|
 | Required Access | Read access to the affected asset's configuration baseline; read access to the offline reference database |
 | Required Tools | Offline {"STIG" if id_type == "STIG" else "CVE"} reference database; local ticketing/GRC system record for cross-linking |
-| Preparer | {blank(args.preparer)} |
+| Preparer | {md_blank_cell(args.preparer)} |
 | Input Artifacts | Official {"DISA STIG check/fix text" if id_type == "STIG" else "NVD CVE metadata"} below; prior variance record for this finding/asset pair, if this is a renewal |
 
 ## 4. RACI (Severity-Tiered \u2014 {cat})
@@ -305,11 +414,11 @@ def render_variance_record(finding, id_type, args):
 
 ## 8. Findings and Exceptions (Official Reference \u2014 Auto-Populated)
 
-{_section8_body(finding, id_type)}
+{_section8_body_md(finding, id_type)}
 
 | Field | Value |
 |---|---|
-| Affected Asset(s) | {blank(args.asset)} |
+| Affected Asset(s) | {md_blank_cell(args.asset)} |
 | Exception Type | \u2610 Risk Acceptance &nbsp;&nbsp; \u2610 Compensating Control &nbsp;&nbsp; \u2610 False Positive Correction &nbsp;&nbsp; \u2610 Remediation In Progress |
 | Rationale | *(fill in)* |
 | Compensating Controls | *(fill in, if any)* |
@@ -330,7 +439,7 @@ def render_variance_record(finding, id_type, args):
 
 | Role | Name | Signature | Date | Decision Recorded |
 |---|---|---|---|---|
-| Preparer | {blank(args.preparer)} | | | |
+| Preparer | {md_blank_cell(args.preparer)} | | | |
 | ISSM (standing reviewer, all tiers) | | | | |
 | **{raci['accountable']}** (Accountable per Section 4) | | | | |
 
@@ -340,9 +449,349 @@ def render_variance_record(finding, id_type, args):
 | Lessons Learned / Runbook Update Flag | *(fill in)* |
 
 ---
-*{_source_citation(finding, id_type)}*
+*{_source_citation_md(finding, id_type)}*
 """
-    return record_id, doc
+    return doc
+
+
+# ---------------------------------------------------------------------------
+# HTML rendering
+# ---------------------------------------------------------------------------
+
+HTML_STYLE = f"""
+    :root {{
+      color-scheme: light;
+    }}
+    * {{ box-sizing: border-box; }}
+    body {{
+      font-family: Calibri, "Segoe UI", Arial, sans-serif;
+      background: {COLOR_BG};
+      color: {COLOR_TEXT};
+      margin: 0;
+      padding: 32px 16px;
+      line-height: 1.5;
+    }}
+    .doc {{
+      max-width: 900px;
+      margin: 0 auto;
+      background: {COLOR_SURFACE};
+      border: 1px solid {COLOR_BORDER};
+      padding: 40px 48px 32px;
+    }}
+    h1 {{
+      font-size: 26px;
+      color: {COLOR_PRIMARY};
+      border-bottom: 2px solid {COLOR_PRIMARY};
+      padding-bottom: 10px;
+      margin: 0 0 20px;
+    }}
+    h2 {{
+      font-size: 19px;
+      color: {COLOR_PRIMARY};
+      margin: 32px 0 10px;
+      border-bottom: 1px solid {COLOR_BORDER};
+      padding-bottom: 6px;
+    }}
+    h3 {{
+      font-size: 15px;
+      color: {COLOR_TEXT};
+      margin: 16px 0 6px;
+    }}
+    .meta-note {{
+      background: {COLOR_SURFACE_ALT};
+      border-left: 4px solid {COLOR_PRIMARY};
+      padding: 12px 16px;
+      font-size: 13px;
+      color: {COLOR_TEXT_MUTED};
+      margin-bottom: 8px;
+    }}
+    .meta-note strong {{ color: {COLOR_TEXT}; }}
+    .id-badge {{
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      color: {COLOR_PRIMARY};
+      background: {COLOR_SURFACE_ALT};
+      border: 1px solid {COLOR_PRIMARY};
+      border-radius: 3px;
+      padding: 2px 8px;
+      margin-bottom: 10px;
+    }}
+    table {{
+      width: 100%;
+      border-collapse: collapse;
+      margin: 4px 0 22px;
+      font-size: 13.5px;
+    }}
+    th, td {{
+      text-align: left;
+      padding: 8px 12px;
+      border: 1px solid {COLOR_BORDER};
+      vertical-align: top;
+    }}
+    th {{
+      background: {COLOR_HEADER_FILL};
+      font-weight: 600;
+      width: 30%;
+      white-space: nowrap;
+    }}
+    td.accountable {{ font-weight: 700; color: {COLOR_PRIMARY}; }}
+    .fill-in {{ color: {COLOR_TEXT_FAINT}; font-style: italic; }}
+    pre.official-text {{
+      background: {COLOR_SURFACE_ALT};
+      border: 1px solid {COLOR_BORDER};
+      padding: 12px 14px;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 12.5px;
+      color: {COLOR_TEXT};
+      margin: 6px 0 16px;
+    }}
+    .kev-alert {{
+      background: {COLOR_WARNING_FILL};
+      border: 2px solid {COLOR_WARNING};
+      padding: 12px 16px;
+      margin: 10px 0 18px;
+      font-size: 13.5px;
+    }}
+    .kev-alert h3 {{ color: {COLOR_WARNING}; margin: 0 0 6px; font-size: 14px; }}
+    .checklist span {{
+      display: inline-block;
+      margin: 0 22px 6px 0;
+      white-space: nowrap;
+    }}
+    ol.steps {{ padding-left: 22px; font-size: 13.5px; }}
+    ol.steps li {{ margin-bottom: 6px; }}
+    a {{ color: {COLOR_PRIMARY}; }}
+    footer {{
+      margin-top: 36px;
+      font-size: 11.5px;
+      color: {COLOR_TEXT_MUTED};
+      border-top: 1px solid {COLOR_BORDER};
+      padding-top: 12px;
+      font-style: italic;
+    }}
+    .ref-list {{ font-size: 13px; margin: 6px 0 16px; padding-left: 20px; }}
+    .ref-list li {{ margin-bottom: 3px; word-break: break-all; }}
+"""
+
+
+def _section1_identity_rows_html(finding, id_type, cat):
+    if id_type == "STIG":
+        cci_refs = ", ".join(finding.get("cci_refs", [])) or "<em>(none listed in benchmark)</em>"
+        return f"""<tr><th>STIG Vulnerability ID</th><td>{esc(finding['vuln_id'])}</td></tr>
+<tr><th>STIG Rule ID</th><td>{esc(finding.get('rule_id', ''))}</td></tr>
+<tr><th>STIG Rule Version (short ID)</th><td>{esc(finding.get('stig_id', ''))}</td></tr>
+<tr><th>Benchmark / STIG Title</th><td>{esc(finding.get('benchmark_title', ''))}</td></tr>
+<tr><th>Benchmark Release</th><td>{esc(finding.get('release', ''))}</td></tr>
+<tr><th>Finding Title</th><td>{esc(finding.get('title', ''))}</td></tr>
+<tr><th>Severity / CAT Level</th><td><strong>{esc(cat)}</strong> (raw severity: {esc(finding.get('severity', ''))})</td></tr>
+<tr><th>CCI Reference(s)</th><td>{cci_refs if cci_refs.startswith('<em>') else esc(cci_refs)}</td></tr>"""
+
+    # CVE
+    cwe_refs = ", ".join(finding.get("cwe_refs", [])) or "<em>(none published)</em>"
+    if finding.get("cisa_kev_listed"):
+        kev_row = (
+            f'<tr><th>CISA KEV Status</th><td><strong style="color:{COLOR_WARNING};">Listed</strong> '
+            f"since {esc(finding.get('cisa_kev_date_added', ''))} "
+            f"&mdash; official due date {esc(finding.get('cisa_kev_due_date', ''))} "
+            f"(see Section 8 for required action)</td></tr>"
+        )
+    else:
+        kev_row = "<tr><th>CISA KEV Status</th><td>Not listed</td></tr>"
+    cvss_score = finding.get('cvss_base_score')
+    cvss_score_display = esc(cvss_score) if cvss_score is not None else "<em>(none)</em>"
+    return f"""<tr><th>CVE ID</th><td>{esc(finding['cve_id'])}</td></tr>
+<tr><th>CVSS Version</th><td>{esc(finding.get('cvss_version')) or '<em>(unscored &mdash; see Severity below)</em>'}</td></tr>
+<tr><th>CVSS Vector</th><td>{esc(finding.get('cvss_vector')) or '<em>(none)</em>'}</td></tr>
+<tr><th>CVSS Base Score</th><td>{cvss_score_display}</td></tr>
+<tr><th>Finding Title</th><td>{esc(finding.get('title', ''))}</td></tr>
+<tr><th>Severity / CAT Level</th><td><strong>{esc(cat)}</strong> (raw severity: {esc(finding.get('cvss_base_severity', ''))}; basis: {esc(finding.get('cat_basis', ''))})</td></tr>
+<tr><th>CWE Reference(s)</th><td>{cwe_refs if cwe_refs.startswith('<em>') else esc(cwe_refs)}</td></tr>
+{kev_row}"""
+
+
+def _section8_body_html(finding, id_type):
+    if id_type == "STIG":
+        return f"""<table>
+<tr><th>Official Finding Description</th><td>{esc_multiline(finding.get('description', ''), '<em>(none)</em>')}</td></tr>
+</table>
+<h3>Official Check Text</h3>
+<pre class="official-text">{esc(finding.get('check_text', '(none in benchmark)'))}</pre>
+<h3>Official Fix Text</h3>
+<pre class="official-text">{esc(finding.get('fix_text', '(none in benchmark)'))}</pre>"""
+
+    # CVE
+    references = list(dict.fromkeys(finding.get("references", [])))
+    if references:
+        ref_list_html = "<ul class=\"ref-list\">" + "".join(
+            f'<li><a href="{esc(r)}">{esc(r)}</a></li>' for r in references
+        ) + "</ul>"
+    else:
+        ref_list_html = "<p><em>(none published)</em></p>"
+
+    kev_block = ""
+    if finding.get("cisa_kev_listed"):
+        kev_block = f"""<div class="kev-alert">
+<h3>CISA Known Exploited Vulnerabilities (KEV) &mdash; Required Action (verbatim)</h3>
+{esc_multiline(finding.get('cisa_kev_required_action', ''), '<em>(none published)</em>')}
+</div>"""
+
+    return f"""<table>
+<tr><th>Official Finding Description</th><td>{esc_multiline(finding.get('description', ''), '<em>(none)</em>')}</td></tr>
+<tr><th>NVD Last Modified</th><td>{esc(finding.get('last_modified', ''))}</td></tr>
+</table>
+<h3>Official References (NVD)</h3>
+{ref_list_html}
+{kev_block}"""
+
+
+def _source_citation_html(finding, id_type):
+    if id_type == "STIG":
+        return (f"Official content sourced from: {esc(finding.get('source_file', 'unknown'))} "
+                f'(imported from <a href="https://public.cyber.mil/stigs/downloads/">'
+                f"https://public.cyber.mil/stigs/downloads/</a> "
+                f"or the quarterly SRG-STIG Library Compilation into the offline reference database).")
+    return (f'Official content sourced from: NVD CVE API 2.0 '
+            f'(<a href="https://services.nvd.nist.gov/rest/json/cves/2.0">'
+            f"https://services.nvd.nist.gov/rest/json/cves/2.0</a>), "
+            f"fetched {esc(finding.get('fetched_at', 'unknown'))} into the offline reference database.")
+
+
+def render_variance_record_html(finding, id_type, args, ctx):
+    cat = ctx["cat"]
+    raci = ctx["raci"]
+    sla_days = ctx["sla_days"]
+    due_date = ctx["due_date"]
+    record_id = ctx["record_id"]
+    detection_date_str = ctx["detection_date_str"]
+
+    doc = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Variance / Risk-Acceptance Record \u2014 {esc(record_id)}</title>
+<style>
+{HTML_STYLE}
+</style>
+</head>
+<body>
+<div class="doc">
+
+<div class="id-badge">{esc(id_type)} FINDING</div>
+<h1>Variance / Risk-Acceptance Record &mdash; {esc(record_id)}</h1>
+
+<div class="meta-note">
+Generated by <code>execution-plan/tools/generate_variance.py</code> from {esc(ctx['generated_note_source'])} on {esc(ctx['generated_at_utc'])}. Official finding text (Sections 1 and 8) is sourced verbatim from {esc(ctx['official_source_desc'])} &mdash; <strong>do not hand-edit those fields</strong>; refresh the reference database instead. Sections 2, 3, 6, 7, 9, and 10 require human input and are intentionally left as fill-in prompts below.<br><br>
+Structure per <code>execution-plan/templates/VARIANCE-RISK-ACCEPTANCE-TEMPLATE.md</code>.
+</div>
+
+<h2>1. Identity</h2>
+<table>
+<tr><th>Variance Record ID</th><td>{esc(record_id)}</td></tr>
+{_section1_identity_rows_html(finding, id_type, cat)}
+<tr><th>System / Enclave Scope</th><td>{html_blank(args.system_scope)}</td></tr>
+<tr><th>Document Version</th><td>v1.0</td></tr>
+<tr><th>Last Reviewed</th><td>{html_blank(args.detection_date)}</td></tr>
+</table>
+
+<h2>2. Trigger and Cadence</h2>
+<table>
+<tr><th>Trigger Condition</th><td>Configuration/vulnerability review identified this finding as <strong>Open</strong> <em>(preparer: confirm or correct)</em></td></tr>
+<tr><th>Detection Date</th><td>{esc(detection_date_str)}</td></tr>
+<tr><th>Detection Method</th><td>{html_blank(args.detection_method)}</td></tr>
+<tr><th>Reporting Period</th><td><span class="fill-in">(fill in)</span></td></tr>
+<tr><th>Re-Review / Decision Due Date</th><td><strong>{esc(due_date)}</strong> ({sla_days}-day SLA for {esc(cat)}, per <code>execution-plan/templates/ESCALATION-MATRIX.md</code>)</td></tr>
+<tr><th>Repository Location</th><td><code>execution-plan/variance-records/{esc(record_id)}.md</code></td></tr>
+</table>
+
+<h2>3. Preconditions</h2>
+<table>
+<tr><th>Required Access</th><td>Read access to the affected asset's configuration baseline; read access to the offline reference database</td></tr>
+<tr><th>Required Tools</th><td>Offline {"STIG" if id_type == "STIG" else "CVE"} reference database; local ticketing/GRC system record for cross-linking</td></tr>
+<tr><th>Preparer</th><td>{html_blank(args.preparer)}</td></tr>
+<tr><th>Input Artifacts</th><td>Official {"DISA STIG check/fix text" if id_type == "STIG" else "NVD CVE metadata"} below; prior variance record for this finding/asset pair, if this is a renewal</td></tr>
+</table>
+
+<h2>4. RACI (Severity-Tiered &mdash; {esc(cat)})</h2>
+<table>
+<tr><th>Responsible (prepares record)</th><td>{esc(raci['responsible'])}</td></tr>
+<tr><th>Accountable (final accept/reject authority)</th><td class="accountable">{esc(raci['accountable'])}</td></tr>
+<tr><th>Consulted</th><td>{esc(raci['consulted'])}</td></tr>
+<tr><th>Informed</th><td>{esc(raci['informed'])}</td></tr>
+<tr><th>Evidence Owner</th><td>ISSO</td></tr>
+<tr><th>Escalation Owner</th><td>ISSM</td></tr>
+</table>
+
+<h2>5. Execution Steps (Preparation)</h2>
+<ol class="steps">
+<li>Confirm the {"Vulnerability" if id_type == "STIG" else "CVE"} ID and affected asset(s) above are correct.</li>
+<li>Fill in Section 2's Detection Method and Reporting Period.</li>
+<li>Complete Section 6 (Validation) with the actual observed state of the asset &mdash; first-person, factual, not a restatement of the official text below.</li>
+<li>Route the draft to the Consulted role(s) in Section 4 for comments before requesting sign-off.</li>
+<li>Route to the Accountable role in Section 4 for the risk decision. Do not proceed to Closure (Section 10) until that signature is captured.</li>
+</ol>
+
+<h2>6. Validation</h2>
+<table>
+<tr><th>Assessment Method</th><td><em>(Examine / Interview / Test &mdash; state which was used)</em></td></tr>
+<tr><th>Expected Result (per official reference text)</th><td>See official reference text in Section 8</td></tr>
+<tr><th>Actual Result Observed</th><td><span class="fill-in">(fill in &mdash; what was actually found on the asset)</span></td></tr>
+<tr><th>Pass / Fail</th><td><em>(Pass = Not a Finding; Fail = Open)</em></td></tr>
+<tr><th>Reviewed By</th><td><span class="fill-in">(fill in)</span></td></tr>
+<tr><th>Review Date</th><td><span class="fill-in">(fill in)</span></td></tr>
+</table>
+
+<h2>7. Evidence Package</h2>
+<table>
+<tr><th>Artifact List</th><td><span class="fill-in">(fill in)</span></td></tr>
+<tr><th>Repository Path</th><td><code>execution-plan/variance-records/evidence/{esc(record_id)}/</code></td></tr>
+<tr><th>Retention Period</th><td>Per local records-retention policy (minimum: current + 1 prior accreditation cycle)</td></tr>
+<tr><th>Chain-of-Custody Note</th><td><span class="fill-in">(fill in)</span></td></tr>
+</table>
+
+<h2>8. Findings and Exceptions (Official Reference &mdash; Auto-Populated)</h2>
+{_section8_body_html(finding, id_type)}
+<table>
+<tr><th>Affected Asset(s)</th><td>{html_blank(args.asset)}</td></tr>
+<tr><th>Exception Type</th><td class="checklist"><span>&#9744; Risk Acceptance</span><span>&#9744; Compensating Control</span><span>&#9744; False Positive Correction</span><span>&#9744; Remediation In Progress</span></td></tr>
+<tr><th>Rationale</th><td><span class="fill-in">(fill in)</span></td></tr>
+<tr><th>Compensating Controls</th><td><span class="fill-in">(fill in, if any)</span></td></tr>
+<tr><th>POA&amp;M ID</th><td><span class="fill-in">(fill in, if applicable)</span></td></tr>
+</table>
+
+<h2>9. Remediation and Escalation</h2>
+<table>
+<tr><th>Decision</th><td class="checklist"><span>&#9744; Accept Risk</span><span>&#9744; Reject &mdash; Remediate</span><span>&#9744; Mitigate with Compensating Control</span></td></tr>
+<tr><th>Remediation Plan (if not accepting as-is)</th><td><span class="fill-in">(fill in)</span></td></tr>
+<tr><th>Owner</th><td><span class="fill-in">(fill in)</span></td></tr>
+<tr><th>Scheduled Completion Date</th><td><span class="fill-in">(fill in &mdash; must not exceed {esc(due_date)} unless a separately approved POA&amp;M milestone applies)</span></td></tr>
+<tr><th>Escalation Trigger</th><td>Automatic if {esc(due_date)} is missed &mdash; see <code>execution-plan/templates/ESCALATION-MATRIX.md</code></td></tr>
+<tr><th>Escalation Owner</th><td>ISSM</td></tr>
+</table>
+
+<h2>10. Closure and Sign-Off</h2>
+<table>
+<tr><th>Role</th><th>Name</th><th>Signature</th><th>Date</th><th>Decision Recorded</th></tr>
+<tr><td>Preparer</td><td>{html_blank(args.preparer)}</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>ISSM (standing reviewer, all tiers)</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td class="accountable">{esc(raci['accountable'])} (Accountable per Section 4)</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+<table>
+<tr><th>Next Due Date (re-review)</th><td>{esc(due_date)}, or sooner if the Decision above requires earlier follow-up</td></tr>
+<tr><th>Lessons Learned / Runbook Update Flag</th><td><span class="fill-in">(fill in)</span></td></tr>
+</table>
+
+<footer>{_source_citation_html(finding, id_type)}</footer>
+
+</div>
+</body>
+</html>
+"""
+    return doc
 
 
 def main():
@@ -360,6 +809,8 @@ def main():
                               "(default: data/stig_reference.json for STIG IDs, "
                               "data/cve_reference.json for CVE IDs)")
     parser.add_argument("--output-dir", default=DEFAULT_OUTPUT_DIR, dest="output_dir")
+    parser.add_argument("--format", default="both", dest="format", choices=["md", "html", "both"],
+                         help="Output format(s) to write (default: both)")
     args = parser.parse_args()
 
     id_type = detect_id_type(args.id)
@@ -387,15 +838,30 @@ def main():
             print(f"Run: python3 cve_reference_builder.py fetch --id {args.id}")
         sys.exit(1)
 
-    record_id, doc = render_variance_record(finding, id_type, args)
+    ctx = build_context(finding, id_type, args)
+    record_id = ctx["record_id"]
+    cat = ctx["cat"]
 
     os.makedirs(args.output_dir, exist_ok=True)
-    out_path = os.path.join(args.output_dir, f"{record_id}.md")
-    with open(out_path, "w", encoding="utf-8") as f:
-        f.write(doc)
 
-    cat = finding.get("cat", "UNKNOWN")
-    print(f"Generated: {out_path}")
+    written = []
+    if args.format in ("md", "both"):
+        md_doc = render_variance_record_markdown(finding, id_type, args, ctx)
+        md_path = os.path.join(args.output_dir, f"{record_id}.md")
+        with open(md_path, "w", encoding="utf-8") as f:
+            f.write(md_doc)
+        written.append(md_path)
+
+    if args.format in ("html", "both"):
+        html_doc = render_variance_record_html(finding, id_type, args, ctx)
+        html_path = os.path.join(args.output_dir, f"{record_id}.html")
+        with open(html_path, "w", encoding="utf-8") as f:
+            f.write(html_doc)
+        written.append(html_path)
+
+    print("Generated:")
+    for path in written:
+        print(f"  {path}")
     print(f"  ID type:  {id_type}")
     print(f"  Finding:  {finding.get('title', '')}")
     print(f"  Severity: {cat}")

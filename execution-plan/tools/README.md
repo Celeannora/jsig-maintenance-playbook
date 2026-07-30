@@ -2,7 +2,7 @@
 
 Turns an official DISA STIG finding ID (e.g. `V-253259`) into a ready-to-review, ready-to-sign Variance/Risk-Acceptance Record — without any live scan-tool integration and without any internet access at generation time.
 
-This folder also builds and maintains a matching offline reference database for **CVE IDs** (e.g. `CVE-2021-44228`), the identifier a Nessus scan flags rather than a STIG check — see [CVE reference tooling](#cve-reference-tooling-nessus-findings) below. Wiring CVE lookups into `generate_variance.py` itself (so it renders a variance record from either identifier type) is tracked as a follow-on step and not yet built; today `generate_variance.py` only accepts STIG IDs.
+This folder also builds and maintains a matching offline reference database for **CVE IDs** (e.g. `CVE-2021-44228`), the identifier a Nessus scan flags rather than a STIG check — see [CVE reference tooling](#cve-reference-tooling-nessus-findings) below. `generate_variance.py` accepts either identifier type in the same `--id` flag (STIG `V-NNNNNN` or CVE `CVE-YYYY-NNNN...`) and auto-detects which one you passed, so the same command renders a variance record from a STIG compliance-audit finding or a Nessus/CVE vulnerability-scan finding. It writes both a Markdown record (source of truth, meant to be committed) and a standalone HTML record (inline CSS, opens in any browser, no external assets) by default — see [Step 2](#step-2--generate-a-variancerisk-acceptance-record) below.
 
 ## Why this exists
 
@@ -30,11 +30,14 @@ An earlier iteration of this tool set planned to parse live scan-tool export fil
    generate_variance.py --id V-253259 --asset ... --preparer ...
             |
             v
-   ../variance-records/VAR-V-253259-<asset>-<date>.md
+   ../variance-records/VAR-V-253259-<asset>-<date>.md   (source of truth, commit this)
+   ../variance-records/VAR-V-253259-<asset>-<date>.html  (standalone, browser-ready copy)
             |
             v
    routed for peer review + severity-tiered sign-off (Section 4/10 of the record)
 ```
+
+The same pipeline works for a CVE ID (e.g. `CVE-2021-44228`) once it's been fetched into `data/cve_reference.json` by `cve_reference_builder.py` — see [CVE reference tooling](#cve-reference-tooling-nessus-findings) below.
 
 ## Step 1 — Bulk import official STIG documents
 
@@ -114,7 +117,14 @@ python3 generate_variance.py \
     --preparer "J. Smith, ISSO"
 ```
 
-This looks up `V-253259` in the offline database, determines its CAT level, computes the correct SLA due date from `execution-plan/templates/ESCALATION-MATRIX.md`, assigns the correct severity-tiered sign-off chain, and writes a filled Markdown record to `execution-plan/variance-records/`.
+This looks up `V-253259` in the offline database, determines its CAT level, computes the correct SLA due date from `execution-plan/templates/ESCALATION-MATRIX.md`, assigns the correct severity-tiered sign-off chain, and writes filled records to `execution-plan/variance-records/`. By default it writes **both**:
+
+- `VAR-V-253259-WIN11-WKSTN-042-20260717.md` — Markdown, diff-friendly, the source of truth meant to be committed to the repo.
+- `VAR-V-253259-WIN11-WKSTN-042-20260717.html` — a standalone HTML record with inline CSS and no external assets, so it opens directly in any browser, prints cleanly to PDF, or can be emailed/attached as-is. Official check/fix text, CVE descriptions, and NVD reference links are rendered read-only; a CISA KEV-listed CVE gets a highlighted "Required Action" callout in Section 8.
+
+Same `--id` flag works for a CVE ID (e.g. `--id CVE-2021-44228`) once it's cached via `cve_reference_builder.py` — the identifier format is auto-detected, so no separate flag is needed to switch between a STIG finding and a Nessus/CVE finding.
+
+Use `--format md` or `--format html` to restrict output to just one format; the default is `both`.
 
 Any asset-specific flags you omit are left as explicit `*(fill in)*` prompts in the output — the tool never fabricates asset-specific facts, only official reference content.
 
@@ -135,7 +145,7 @@ ISSM is a standing reviewer at every tier. Complete Sections 6–7 (actual obser
 | File | Purpose |
 |---|---|
 | `stig_reference_builder.py` | Bulk-imports official DISA `.zip`/XCCDF documents (single products or the full quarterly Library Compilation, nested zips included) into the offline STIG reference database |
-| `generate_variance.py` | Generates one Variance/Risk-Acceptance Record from a STIG finding ID + the STIG reference database |
+| `generate_variance.py` | Generates one Variance/Risk-Acceptance Record (Markdown + standalone HTML, `--format` to restrict) from a STIG or CVE finding ID + the matching offline reference database |
 | `stig_intake/` | Drop zone for official `.zip` packages or extracted `*-xccdf.xml` files |
 | `cve_reference_builder.py` | Fetches/mirrors official NVD CVE metadata into an offline CVE reference database (`fetch`, `fetch-list`, `lookup`, `mirror`, `mirror-update`) |
 | `cve_intake/` | Drop zone for a text file of CVE IDs, one per line, for `fetch-list` |
