@@ -11,3 +11,8 @@ __pycache__/
 # hundreds of MB at full scale, local-only cache, never committed. The small curated
 # execution-plan/tools/data/cve_reference.json (built by fetch/fetch-list) IS committed.
 execution-plan/tools/data/cve_mirror.json
+
+# Role assignments captured by execution-plan/tools/start_here.py -- who holds each
+# JSIG role is program-specific/named data, out of scope for this unclassified,
+# general-framework reference repo (see root README's Scope note). Local-only.
+execution-plan/tools/data/role_assignments.local.json

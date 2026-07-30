@@ -57,6 +57,7 @@ manifest.txt                        # Flat file inventory
 
 ## How to use this offline
 
+0. First time here? Run `python3 start_here.py` for an interactive setup wizard -- checks your environment, optionally records who holds each of the 17 JSIG roles (local-only, never committed), and walks you through importing STIG/CVE/Nessus data with a practice output record at the end. See `execution-plan/tools/README.md` for details. Safe to re-run any time; entirely optional.
 1. Clone the repo — no internet access is required afterward. All external guidance cited in `MAINTENANCE-PLAN.md` and the research file has a local copy under `references/external-sources/`.
 2. Start with `MAINTENANCE-PLAN.md` §1 (Executive Summary) and §1A (Daily Operations & Sustainment Focus) for the day-to-day checklist.
 3. Look up your role in `playbooks/roles/INDEX.md` for what you specifically own, then find your role's actionable task runbook in `execution-plan/runbooks/` (start with `execution-plan/README.md`).

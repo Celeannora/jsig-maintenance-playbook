@@ -23,9 +23,12 @@ execution-plan/
 │                                       # CAT III→ISSO; ISSM stands as reviewer at every tier)
 ├── tools/
 │   ├── README.md                      # Full docs for the tooling below (read before running anything)
-│   ├── generate_variance.py           # Finding ID (STIG or CVE) → filled-in Variance/Risk-Acceptance record
+│   ├── start_here.py                  # Interactive setup wizard — environment check, optional role
+│   │                                   # assignment, guided walkthrough of workflows 1-3 below
+│   ├── generate_variance.py           # Finding ID (STIG, CVE, or Nessus Plugin ID) → filled-in Variance/Risk-Acceptance record
 │   ├── stig_reference_builder.py      # Builds/updates the offline STIG reference DB from XCCDF/zip imports
 │   ├── cve_reference_builder.py       # Builds/updates the offline CVE reference DB from NVD (targeted or full mirror)
+│   ├── nessus_reference_builder.py    # Builds/updates the offline Nessus Plugin ID reference DB from Tenable (targeted only)
 │   ├── build_raci_matrix.py           # Regenerates RACI-MATRIX.md from MAINTENANCE-PLAN.md + ROLE-CROSSWALK.md
 │   ├── build_role_task_index.py       # Regenerates data/role_task_index.json: per-role, deduplicated
 │   │                                   # executing/accountable/consulted/informed task lists (the grounding
@@ -40,11 +43,15 @@ execution-plan/
 │   ├── data/stig_reference.json       # Committed: curated STIG reference DB (built from stig_intake/)
 │   ├── data/cve_reference.json        # Committed when built: curated CVE reference DB (built from cve_intake/)
 │   ├── data/cve_mirror.json           # Gitignored: optional full NVD mirror, local-only, can be hundreds of MB
+│   ├── data/nessus_reference.json     # Committed when built: curated Nessus Plugin ID reference DB
+│   ├── data/role_assignments.local.json  # Gitignored: who holds each JSIG role, captured by start_here.py
 │   ├── data/role_task_index.json      # Committed: generated per-role task index (see build_role_task_index.py)
 │   ├── stig_intake/                   # Drop XCCDF files or STIG zips (including nested Library Compilation
 │   │                                   # zips) here before running stig_reference_builder.py
-│   └── cve_intake/                    # Drop a CVE ID list (see cve_list.example.txt) here before running
-│                                       # cve_reference_builder.py fetch-list
+│   ├── cve_intake/                    # Drop a CVE ID list (see cve_list.example.txt) here before running
+│   │                                   # cve_reference_builder.py fetch-list
+│   └── nessus_intake/                 # Drop a Nessus Plugin ID list (see plugin_list.example.txt) here before
+│                                       # running nessus_reference_builder.py fetch-list
 ├── OPERATIONAL-TASKING.md              # Generated: a SECOND, separate calendar for pure IT-operations/functional-
 │                                       # health sysadmin tasking (AD/DC, Exchange, tool-stack health, general
 │                                       # Windows Server) that JSIG does not drive — no row cites a Control ID.
@@ -74,21 +81,29 @@ execution-plan/
 
 ## Quick-start workflows
 
-Run these from the repository root. Each assumes Python 3 with no third-party dependencies beyond the standard library (`stig_reference_builder.py`/`cve_reference_builder.py` use only stdlib `urllib`, `zipfile`, `xml`, `json`).
+Run these from the repository root. Each assumes Python 3 with no third-party dependencies beyond the standard library (`stig_reference_builder.py`/`cve_reference_builder.py`/`nessus_reference_builder.py` use only stdlib `urllib`, `zipfile`, `xml`, `json`).
+
+### 0. First time here? Run the setup wizard
+
+```bash
+python3 start_here.py
+```
+
+An interactive, six-step wizard that checks your environment (Python version, network reachability, what's already cached), optionally records who holds each of the 17 JSIG §1.5 roles (saved to a local, gitignored file — never committed, per this repo's unclassified/general-framework scope), and then walks you through workflows 1–3 below against your own STIG/CVE/Nessus data, finishing with one practice Variance/Risk-Acceptance record so you can see real generated output before touching anything program-specific. It never edits `MAINTENANCE-PLAN.md` and never commits to git — it only runs the same commands documented below, printing each one before running it. Use `python3 start_here.py --check-only` for a fast, read-only status check, or `--skip-roles`/`--skip-stig`/`--skip-cve`/`--skip-nessus`/`--skip-sample` to skip individual steps. Safe to re-run any time. See `execution-plan/tools/README.md`'s [Quickstart wizard](tools/README.md#quickstart-wizard) section for full details.
 
 ### 1. Build or refresh the STIG reference database
 
 ```bash
 # Drop one or more XCCDF files, or a DISA quarterly Library Compilation zip
 # (public.cyber.mil/stigs/compilations), into execution-plan/tools/stig_intake/, then:
-python3 execution-plan/tools/stig_reference_builder.py --intake-dir execution-plan/tools/stig_intake
+python3 execution-plan/tools/stig_reference_builder.py build
 ```
 
 ### 2. Build or refresh the CVE reference database
 
 ```bash
 # Targeted (small, curated list — what gets committed to the repo):
-python3 execution-plan/tools/cve_reference_builder.py fetch-list --input execution-plan/tools/cve_intake/cve_list.example.txt
+python3 execution-plan/tools/cve_reference_builder.py fetch-list --file execution-plan/tools/cve_intake/cve_list.example.txt
 
 # Full local mirror (large, gitignored, local-only cache — optional):
 python3 execution-plan/tools/cve_reference_builder.py mirror
@@ -97,11 +112,12 @@ python3 execution-plan/tools/cve_reference_builder.py mirror-update   # repeatab
 
 ### 3. Generate a Variance/Risk-Acceptance record for a finding
 
-`generate_variance.py` auto-detects whether you passed a STIG Vulnerability ID (`V-\d+`) or a CVE ID (`CVE-\d{4}-\d{4,}`) and routes to the matching reference database automatically:
+`generate_variance.py` auto-detects whether you passed a STIG Vulnerability ID (`V-\d+`), a CVE ID (`CVE-\d{4}-\d{4,}`), or a bare numeric Nessus Plugin ID, and routes to the matching reference database automatically:
 
 ```bash
-python3 execution-plan/tools/generate_variance.py V-253259
-python3 execution-plan/tools/generate_variance.py CVE-2021-44228
+python3 execution-plan/tools/generate_variance.py --id V-253259
+python3 execution-plan/tools/generate_variance.py --id CVE-2021-44228
+python3 execution-plan/tools/generate_variance.py --id 156327
 ```
 
 The tool fails closed (non-zero exit, no file written) if the ID format isn't recognized or the ID isn't in the reference database — it will never fabricate finding text to fill the gap. See `execution-plan/tools/README.md` for the full CLI reference, including `--reference-db` to point at a different database file.

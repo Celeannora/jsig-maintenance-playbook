@@ -1,5 +1,7 @@
 # Variance / Risk-Acceptance Tooling
 
+**New to this repo?** Run `python3 start_here.py` from the repo root (or `python3 start_here.py` in this folder) for an interactive wizard that checks your environment, optionally records who holds each of the 17 JSIG roles, and walks you through Steps 1–2 below with your own data — see [Quickstart wizard](#quickstart-wizard) below.
+
 Turns an official DISA STIG finding ID (e.g. `V-253259`) into a ready-to-review, ready-to-sign Variance/Risk-Acceptance Record — without any live scan-tool integration and without any internet access at generation time.
 
 This folder also builds and maintains matching offline reference databases for two other identifier types a Nessus scan report can hand you: **CVE IDs** (e.g. `CVE-2021-44228`) — see [CVE reference tooling](#cve-reference-tooling-nessus-findings) below — and bare numeric **Nessus Plugin IDs** (e.g. `156327`) — see [Nessus Plugin ID reference tooling](#nessus-plugin-id-reference-tooling) below. Prefer the CVE path when your scan output names a specific CVE (NVD is the official source of record for CVE metadata); use the Plugin ID path when what you have is the scan report's numeric Plugin ID itself, or when the plugin cites no CVE at all (common for local version-check and informational plugins). `generate_variance.py` accepts all three identifier types in the same `--id` flag (STIG `V-NNNNNN`, CVE `CVE-YYYY-NNNN...`, or a bare-digits Plugin ID) and auto-detects which one you passed, so the same command renders a variance record from a STIG compliance-audit finding or either shape of a Nessus vulnerability-scan finding. It writes both a Markdown record (source of truth, meant to be committed) and a standalone HTML record (inline CSS, opens in any browser, no external assets) by default — see [Step 2](#step-2--generate-a-variancerisk-acceptance-record) below.
@@ -38,6 +40,18 @@ An earlier iteration of this tool set planned to parse live scan-tool export fil
 ```
 
 The same pipeline works for a CVE ID (e.g. `CVE-2021-44228`) once it's been fetched into `data/cve_reference.json` by `cve_reference_builder.py` — see [CVE reference tooling](#cve-reference-tooling-nessus-findings) below — or for a bare Nessus Plugin ID (e.g. `156327`) once it's been fetched into `data/nessus_reference.json` by `nessus_reference_builder.py` — see [Nessus Plugin ID reference tooling](#nessus-plugin-id-reference-tooling) below.
+
+## Quickstart wizard
+
+`start_here.py` is a thin, transparent front end over everything below it — it shells out to the same `stig_reference_builder.py` / `cve_reference_builder.py` / `nessus_reference_builder.py` / `generate_variance.py` commands documented in this file (printing each command before running it), rather than reimplementing any logic. Use it when you want a guided first pass; use the commands directly, as documented below, once you know the tool set.
+
+```
+python3 start_here.py              # full interactive walkthrough, 6 steps
+python3 start_here.py --check-only # environment/status check only, no prompts
+python3 start_here.py --skip-roles --skip-cve --skip-nessus  # skip specific steps
+```
+
+It never edits `MAINTENANCE-PLAN.md` and never commits anything to git. Role assignments it collects (Step 2 of 6) are saved only to a local, gitignored file (`data/role_assignments.local.json`) — this repo's scope is unclassified, general-framework reference material, so named/program-specific data never gets committed. Safe to re-run any time; every step is idempotent or additive.
 
 ## Step 1 — Bulk import official STIG documents
 
@@ -165,6 +179,7 @@ ISSM is a standing reviewer at every tier. Complete Sections 6–7 (actual obser
 
 | File | Purpose |
 |---|---|
+| `start_here.py` | Interactive setup wizard — environment check, optional role assignment, and guided walkthrough of Steps 1–2 below (see [Quickstart wizard](#quickstart-wizard)) |
 | `stig_reference_builder.py` | Bulk-imports official DISA `.zip`/XCCDF documents (single products or the full quarterly Library Compilation, nested zips included) into the offline STIG reference database |
 | `generate_variance.py` | Generates one Variance/Risk-Acceptance Record (Markdown + standalone HTML, `--format` to restrict) from a STIG or CVE finding ID + the matching offline reference database |
 | `stig_intake/` | Drop zone for official `.zip` packages or extracted `*-xccdf.xml` files |
@@ -176,3 +191,4 @@ ISSM is a standing reviewer at every tier. Complete Sections 6–7 (actual obser
 | `nessus_intake/` | Drop zone for a text file of Nessus Plugin IDs, one per line, for `fetch-list` |
 | `data/nessus_reference.json` | Small, curated Nessus plugin database (built by `fetch`/`fetch-list`) — git-friendly, meant to be committed |
 | `data/stig_reference.json` | The built offline reference database (regenerate any time by re-running Step 1) |
+| `data/role_assignments.local.json` | Who holds each JSIG role, captured by `start_here.py` — local-only, gitignored, never committed |
