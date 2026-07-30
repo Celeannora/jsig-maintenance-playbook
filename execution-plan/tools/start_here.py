@@ -210,10 +210,14 @@ def check_environment():
 
 def assign_roles():
     print_header(f"Step 2 of 6 -- Who holds each of the {TOTAL_ROLE_COUNT} JSIG roles? (optional, local-only)")
-    print("Enter a name/title for each role, or press Enter to leave it unassigned.")
     print("Saved to a LOCAL, gitignored file -- a person's name is never committed to this")
-    print("shared reference repo (see the root README's Scope note).\n")
+    print("shared reference repo (see the root README's Scope note).")
+    if not yesno(f"\nWalk through all {TOTAL_ROLE_COUNT} roles now? (You can also do this later.)", False):
+        print("Skipped -- re-run this wizard anytime, or edit "
+              f"{(DATA_DIR / 'role_assignments.local.json').relative_to(REPO_ROOT)} directly.")
+        return {}
 
+    print("\nEnter a name/title for each role, or press Enter to leave it unassigned.\n")
     assignments = {}
     for group_name, roles in ROLE_GROUPS:
         print(f"-- {group_name} --")
@@ -274,7 +278,8 @@ def setup_stig():
         print("     (or the quarterly Library Compilation bundle at")
         print("     https://public.cyber.mil/stigs/compilations/ for everything at once)")
         print(f"  2. Copy them into {STIG_INTAKE_DIR.relative_to(REPO_ROOT)}/ , unmodified -- no need to unzip")
-        print("  3. Re-run this wizard, or run: python3 execution-plan/tools/stig_reference_builder.py build")
+        print("  3. Re-run this wizard (python3 start_here.py), or run:")
+        print("     python3 execution-plan/tools/stig_reference_builder.py build")
         print("Skipping for now -- this is expected on a fresh, offline checkout.")
 
 
@@ -367,7 +372,7 @@ def print_summary(assignments):
     print("  - execution-plan/README.md: full tooling reference (RACI matrix, runbooks, escalation routing)")
     print("  - execution-plan/runbooks/<Role>.md: your day-to-day task runbook once you know your role")
     print("  - PROGRESS.md: fill in by hand as you actually stand up each phase -- this wizard doesn't edit it")
-    print("\nRe-run this wizard anytime: python3 execution-plan/tools/start_here.py")
+    print("\nRe-run this wizard anytime: python3 start_here.py")
 
 
 def main():
