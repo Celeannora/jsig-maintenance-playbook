@@ -21,28 +21,49 @@ constraint for this environment.
 
 WHERE THE SOURCE FILES COME FROM (READ THIS BEFORE AUTOMATING FURTHER)
 -----------------------------------------------------------------------
-An automated crawler against https://public.cyber.mil/stigs/downloads/ was
-evaluated and is NOT reliable: the page is a Salesforce Lightning Web
-Runtime (LWR) experience that renders its file list inside nested Shadow
-DOM components and resolves the actual download URL only after a click
-inside an authenticated browser session -- there is no static HTML link,
-REST endpoint, or predictable URL pattern to script against safely. Rather
-than ship a brittle scraper that will silently break (or look like it
-works while quietly returning stale/empty data -- unacceptable for a
-compliance system), this tool is built around BULK, HUMAN-INITIATED IMPORT
-of the official documents instead:
+An automated crawler against the per-product listing page
+(https://public.cyber.mil/stigs/downloads/) was evaluated and is NOT
+reliable: that page is a Salesforce Lightning Web Runtime (LWR) experience
+that renders its file list inside nested Shadow DOM components and
+resolves each individual STIG's actual download URL (with its own
+arbitrary version/release string) only after a click inside a rendered
+browser session -- there is no static HTML link, REST endpoint, or
+predictable per-product URL pattern to script against safely.
 
-  1. A person with normal (unclassified, no-CAC-required) access visits
-     https://public.cyber.mil/stigs/downloads/ , and downloads however
-     many official STIG/SRG .zip packages are needed -- one at a time or
-     dozens in a batch. (CUI-marked content on cyber.mil requires a CAC
-     and is out of scope for this tool -- handle those manually per your
-     org's CUI process.)
-  2. ALL of those .zip files (unmodified, exactly as downloaded) are
-     copied into execution-plan/tools/stig_intake/ -- no manual
-     unzipping required, see BULK IMPORT below.
-  3. This script is run once to import the whole batch and (re)build the
-     offline reference database in one pass.
+The quarterly SRG-STIG LIBRARY COMPILATION is different: DISA hosts the
+compiled .zip on a plain static file server (dl.dod.cyber.mil,
+"wp-content/uploads/..." -- a bare WordPress media path, unauthenticated,
+no query tokens, no shadow DOM) at a PREDICTABLE URL pattern:
+  https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/U_SRG-STIG_Library_<Month>_<Year>.zip
+This was confirmed directly (HEAD requests against several recent months
+all returned plain HTTP 200 with normal static-file cache headers, no
+auth/redirect). Because that pattern is stable and safely automatable,
+`fetch-compilation` below walks backward from the current month to find
+the latest published release and downloads it for you. Per-product STIGs
+still require the manual, human-initiated download described below --
+DO NOT attempt to guess per-product zip filenames/versions automatically.
+
+Two ways to get source files into stig_intake/:
+
+  A. AUTOMATED (recommended -- gets everything at once, one command):
+     python3 stig_reference_builder.py fetch-compilation
+     Downloads the current quarterly SRG-STIG Library Compilation (all
+     unclassified STIGs/SRGs bundled together, currently ~350-400 MB)
+     directly into stig_intake/. Then just run `build` as usual.
+
+  B. MANUAL (for a single product, or CUI-marked content):
+     1. A person with normal (unclassified, no-CAC-required) access visits
+        https://public.cyber.mil/stigs/downloads/ , and downloads however
+        many official STIG/SRG .zip packages are needed -- one at a time
+        or dozens in a batch. (CUI-marked content on cyber.mil requires a
+        CAC and is out of scope for this tool -- handle those manually
+        per your org's CUI process.)
+     2. ALL of those .zip files (unmodified, exactly as downloaded) are
+        copied into execution-plan/tools/stig_intake/ -- no manual
+        unzipping required, see BULK IMPORT below.
+
+Either way, this script is then run once to import the whole batch and
+(re)build the offline reference database in one pass.
 
 This is not a limitation of laziness -- it is the correct architecture for
 an air-gapped/offline environment anyway: production scan/review machines
@@ -74,6 +95,10 @@ products/STIGs as are present, at any nesting depth found.
 
 USAGE
 -----
+  # One-time/periodic connected step: pull the latest official quarterly
+  # compilation straight into stig_intake/ (see fetch-compilation below):
+  python3 stig_reference_builder.py fetch-compilation
+
   # Drop N official .zip packages (or already-extracted *-xccdf.xml files)
   # into stig_intake/, then bulk-import all of them in one pass:
   python3 stig_reference_builder.py build
@@ -84,6 +109,22 @@ USAGE
 
   # Look up one finding ID after the database is built (sanity check):
   python3 stig_reference_builder.py lookup --id V-253259
+
+FETCH-COMPILATION
+------------------
+Downloads the current quarterly SRG-STIG Library Compilation directly
+into stig_intake/ (or --dest), by walking backward from the current month
+(e.g. July 2026, then June 2026, ...) issuing a HEAD request against
+  https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/U_SRG-STIG_Library_<Month>_<Year>.zip
+until one resolves (HTTP 200), then streaming that file to disk. Stops
+and reports failure after --max-months-back (default 6) with no hit --
+it never fabricates or guesses a URL it hasn't confirmed live. Requires
+network access to dl.dod.cyber.mil (unclassified, no CAC/login needed).
+The downloaded file is the UNCLASSIFIED compilation only; CUI-marked
+content still requires the manual CAC-gated process described above.
+
+  python3 stig_reference_builder.py fetch-compilation
+  python3 stig_reference_builder.py fetch-compilation --dest /path/to/stig_intake --max-months-back 12
 
 OUTPUT FORMAT (stig_reference.json)
 ------------------------------------
@@ -125,6 +166,8 @@ import json
 import os
 import re
 import sys
+import urllib.error
+import urllib.request
 from datetime import datetime, timezone
 from xml.etree import ElementTree as ET
 
@@ -135,6 +178,86 @@ SEVERITY_TO_CAT = {"high": "CAT I", "medium": "CAT II", "low": "CAT III"}
 
 DEFAULT_INTAKE_DIR = os.path.join(os.path.dirname(__file__), "stig_intake")
 DEFAULT_OUTPUT = os.path.join(os.path.dirname(__file__), "data", "stig_reference.json")
+
+COMPILATION_URL_TEMPLATE = (
+    "https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/"
+    "U_SRG-STIG_Library_{month}_{year}.zip"
+)
+DEFAULT_MAX_MONTHS_BACK = 6
+_USER_AGENT = "jsig-variance-tooling/1.0"
+
+
+def _compilation_candidate_urls(max_months_back):
+    """Yield (month_name, year, url) tuples walking backward from the
+    current month, oldest search bound = max_months_back months ago.
+    Never guesses beyond that -- caller reports failure if none hit."""
+    cursor = datetime.now(timezone.utc)
+    for _ in range(max_months_back + 1):
+        month = cursor.strftime("%B")
+        year = cursor.year
+        url = COMPILATION_URL_TEMPLATE.format(month=month, year=year)
+        yield month, year, url
+        # Step back one month (handle January -> December/year rollover).
+        prev_month = cursor.month - 1 or 12
+        prev_year = cursor.year - 1 if cursor.month == 1 else cursor.year
+        cursor = cursor.replace(year=prev_year, month=prev_month, day=1)
+
+
+def fetch_compilation(dest_dir, max_months_back=DEFAULT_MAX_MONTHS_BACK):
+    """Discover and download the latest published quarterly SRG-STIG
+    Library Compilation into dest_dir. Confirms each candidate URL with a
+    HEAD request before downloading anything -- never fabricates a URL it
+    hasn't verified live. Returns the downloaded file path, or None on
+    failure (after printing a clear reason to stderr)."""
+    os.makedirs(dest_dir, exist_ok=True)
+
+    for month, year, url in _compilation_candidate_urls(max_months_back):
+        req = urllib.request.Request(url, method="HEAD", headers={"User-Agent": _USER_AGENT})
+        try:
+            with urllib.request.urlopen(req, timeout=10) as resp:
+                size = resp.headers.get("Content-Length")
+        except urllib.error.HTTPError as e:
+            if e.code == 404:
+                print(f"  [..] {month} {year}: not published (404), trying earlier month", file=sys.stderr)
+                continue
+            print(f"  [FAIL] {month} {year}: HTTP {e.code} checking {url}", file=sys.stderr)
+            return None
+        except urllib.error.URLError as e:
+            print(f"  [FAIL] network error reaching dl.dod.cyber.mil: {e.reason}", file=sys.stderr)
+            print("  This intake step requires network access to dl.dod.cyber.mil.", file=sys.stderr)
+            return None
+
+        size_mb = f"{int(size) / (1024 * 1024):.0f} MB" if size else "unknown size"
+        print(f"  [FOUND] {month} {year} compilation ({size_mb}) -- {url}")
+        dest_path = os.path.join(dest_dir, os.path.basename(url))
+        print(f"  Downloading to {dest_path} ...")
+        get_req = urllib.request.Request(url, headers={"User-Agent": _USER_AGENT})
+        try:
+            with urllib.request.urlopen(get_req, timeout=30) as resp, open(dest_path, "wb") as out:
+                downloaded = 0
+                while True:
+                    chunk = resp.read(1024 * 1024)
+                    if not chunk:
+                        break
+                    out.write(chunk)
+                    downloaded += len(chunk)
+        except (urllib.error.HTTPError, urllib.error.URLError) as e:
+            print(f"  [FAIL] download interrupted: {e}", file=sys.stderr)
+            if os.path.exists(dest_path):
+                os.remove(dest_path)
+            return None
+
+        print(f"  [OK] downloaded {downloaded / (1024 * 1024):.0f} MB -> {dest_path}")
+        print("  Next: python3 stig_reference_builder.py build")
+        return dest_path
+
+    print(
+        f"  [FAIL] no compilation found for the last {max_months_back} months. "
+        "DISA may have changed the file naming pattern, or the release is delayed -- "
+        "check https://public.cyber.mil/stigs/compilations/ manually.",
+        file=sys.stderr,
+    )
+    return None
 
 
 def _strip_html_entities(text):
@@ -384,6 +507,10 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = parser.add_subparsers(dest="command", required=True)
 
+    fetch_p = sub.add_parser("fetch-compilation", help="Download the latest official quarterly SRG-STIG Library Compilation into the intake folder")
+    fetch_p.add_argument("--dest", default=DEFAULT_INTAKE_DIR, help="Folder to download into (default: stig_intake/)")
+    fetch_p.add_argument("--max-months-back", type=int, default=DEFAULT_MAX_MONTHS_BACK, help="How many months to search backward before giving up")
+
     build_p = sub.add_parser("build", help="Parse intake XCCDF files into the offline reference database")
     build_p.add_argument("--intake-dir", default=DEFAULT_INTAKE_DIR)
     build_p.add_argument("--output", default=DEFAULT_OUTPUT)
@@ -394,7 +521,10 @@ def main():
 
     args = parser.parse_args()
 
-    if args.command == "build":
+    if args.command == "fetch-compilation":
+        result = fetch_compilation(args.dest, args.max_months_back)
+        sys.exit(0 if result else 1)
+    elif args.command == "build":
         build_reference_db(args.intake_dir, args.output)
     elif args.command == "lookup":
         sys.exit(lookup(args.output, args.id))

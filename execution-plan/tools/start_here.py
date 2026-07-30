@@ -272,15 +272,27 @@ def setup_stig():
         if yesno("Rebuild the STIG reference database from these files now?", True):
             run_tool([sys.executable, str(TOOLS_DIR / "stig_reference_builder.py"), "build"])
     else:
-        print(f"\nNo files in {STIG_INTAKE_DIR.relative_to(REPO_ROOT)}/ yet. To populate it:")
-        print("  1. From a normal (unclassified, no-CAC-required) connected workstation, download")
-        print("     official STIG/SRG .zip packages from https://public.cyber.mil/stigs/downloads/")
-        print("     (or the quarterly Library Compilation bundle at")
-        print("     https://public.cyber.mil/stigs/compilations/ for everything at once)")
-        print(f"  2. Copy them into {STIG_INTAKE_DIR.relative_to(REPO_ROOT)}/ , unmodified -- no need to unzip")
-        print("  3. Re-run this wizard (python3 start_here.py), or run:")
-        print("     python3 execution-plan/tools/stig_reference_builder.py build")
-        print("Skipping for now -- this is expected on a fresh, offline checkout.")
+        print(f"\nNo files in {STIG_INTAKE_DIR.relative_to(REPO_ROOT)}/ yet.")
+        print("This tool can fetch the current quarterly SRG-STIG Library Compilation")
+        print("directly (unclassified, no CAC/login needed, currently ~350-400 MB) from:")
+        print("  https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/U_SRG-STIG_Library_<Month>_<Year>.zip")
+        if yesno(f"Download it now into {STIG_INTAKE_DIR.relative_to(REPO_ROOT)}/? (~350-400 MB)", False):
+            ok = run_tool([sys.executable, str(TOOLS_DIR / "stig_reference_builder.py"), "fetch-compilation"])
+            if ok and yesno("Build the STIG reference database from it now?", True):
+                run_tool([sys.executable, str(TOOLS_DIR / "stig_reference_builder.py"), "build"])
+            elif not ok:
+                print("  Download failed -- see the error above. You can retry later with:")
+                print("     python3 execution-plan/tools/stig_reference_builder.py fetch-compilation")
+        else:
+            print("\nTo populate it manually instead:")
+            print("  1. From a normal (unclassified, no-CAC-required) connected workstation, download")
+            print("     official STIG/SRG .zip packages from https://public.cyber.mil/stigs/downloads/")
+            print("     (or the quarterly Library Compilation bundle at")
+            print("     https://public.cyber.mil/stigs/compilations/ for everything at once)")
+            print(f"  2. Copy them into {STIG_INTAKE_DIR.relative_to(REPO_ROOT)}/ , unmodified -- no need to unzip")
+            print("  3. Re-run this wizard (python3 start_here.py), or run:")
+            print("     python3 execution-plan/tools/stig_reference_builder.py build")
+            print("Skipping for now -- this is expected on a fresh, offline checkout.")
 
 
 def setup_cve():

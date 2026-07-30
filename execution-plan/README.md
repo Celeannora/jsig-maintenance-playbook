@@ -94,9 +94,13 @@ An interactive, six-step wizard that checks your environment (Python version, ne
 ### 1. Build or refresh the STIG reference database
 
 ```bash
-# Drop one or more XCCDF files, or a DISA quarterly Library Compilation zip
-# (public.cyber.mil/stigs/compilations), into execution-plan/tools/stig_intake/, then:
+# Auto-download the current quarterly DISA Library Compilation, then build:
+python3 execution-plan/tools/stig_reference_builder.py fetch-compilation
 python3 execution-plan/tools/stig_reference_builder.py build
+
+# Or manually drop one or more XCCDF files, or a DISA quarterly Library
+# Compilation zip (public.cyber.mil/stigs/compilations), into
+# execution-plan/tools/stig_intake/, then run `build` the same way.
 ```
 
 ### 2. Build or refresh the CVE reference database

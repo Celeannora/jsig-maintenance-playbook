@@ -55,15 +55,21 @@ It never edits `MAINTENANCE-PLAN.md` and never commits anything to git. Role ass
 
 ## Step 1 — Bulk import official STIG documents
 
-You have two official options, both supported by the same command — pick whichever fits how much you want to import at once:
+You have three official options — pick whichever fits how much you want to import at once:
 
-**Option A — targeted, one/few products at a time.** From a normal (unclassified, no-CAC-required) connected workstation, visit [public.cyber.mil/stigs/downloads](https://public.cyber.mil/stigs/downloads/) and download the specific official STIG/SRG `.zip` package(s) you need.
+**Option A — automated, everything in one command (recommended).** DISA hosts the quarterly **SRG-STIG Library Compilation** `.zip` (bundling *every* current unclassified STIG/SRG) at a stable, unauthenticated, script-safe URL on `dl.dod.cyber.mil` — confirmed by direct HEAD request, unlike the JS-rendered listing pages. Run:
+   ```
+   python3 stig_reference_builder.py fetch-compilation
+   ```
+   This walks backward from the current month to find the latest published release, downloads it (~350-400 MB) straight into `execution-plan/tools/stig_intake/`, and tells you to run `build` next. No browser, no manual download. `start_here.py` also offers this automatically during Step 3 if the intake folder is empty.
+
+**Option B — targeted, one/few products at a time (manual).** From a normal (unclassified, no-CAC-required) connected workstation, visit [public.cyber.mil/stigs/downloads](https://public.cyber.mil/stigs/downloads/) and download the specific official STIG/SRG `.zip` package(s) you need.
    - CUI-marked content on `cyber.mil` requires a CAC. This tool only handles unclassified content; CUI STIGs are out of scope and should be handled per your organization's CUI process.
-   - A live automated crawler against this page was evaluated and rejected: the page is a dynamic, shadow-DOM-based experience with no stable link pattern to script against safely. Manual download of the `.zip` is the reliable path — this is a one-time or periodic action on a connected admin workstation, not a runtime dependency.
+   - A live automated crawler against this per-product page was evaluated and rejected: the page is a dynamic, shadow-DOM-based experience with no stable link pattern to script against safely (unlike the compilation `.zip` in Option A, which is a plain static file). Manual download is the reliable path for a single product — this is a one-time or periodic action on a connected admin workstation, not a runtime dependency.
 
-**Option B — everything in one shot.** DISA also publishes a quarterly **SRG-STIG Library Compilation** `.zip` at [public.cyber.mil/stigs/compilations](https://public.cyber.mil/stigs/compilations/) bundling *every* current STIG/SRG as nested per-product `.zip` files inside one outer `.zip`. This is the repeatable "download all STIG IDs at once" mechanism: re-download this single file each quarter and re-run `build` to refresh the entire database in one step.
+**Option C — everything in one shot, manual download.** Same quarterly **SRG-STIG Library Compilation** `.zip` as Option A, but downloaded by hand from [public.cyber.mil/stigs/compilations](https://public.cyber.mil/stigs/compilations/) instead of via `fetch-compilation` — useful if `dl.dod.cyber.mil` isn't reachable from your scripting environment but is reachable from a browser.
 
-1. Copy the `.zip` file(s) — exactly as downloaded, no need to unzip, and no need to unpack the nested per-product zips inside a Library Compilation either — into `execution-plan/tools/stig_intake/`. You can also drop in already-extracted `*-xccdf.xml` files directly if you have them.
+1. If you used Option A, the file is already in place — skip to step 2. Otherwise, copy the `.zip` file(s) — exactly as downloaded, no need to unzip, and no need to unpack the nested per-product zips inside a Library Compilation either — into `execution-plan/tools/stig_intake/`. You can also drop in already-extracted `*-xccdf.xml` files directly if you have them.
 2. Run:
    ```
    python3 stig_reference_builder.py build
@@ -180,7 +186,7 @@ ISSM is a standing reviewer at every tier. Complete Sections 6–7 (actual obser
 | File | Purpose |
 |---|---|
 | `start_here.py` | Interactive setup wizard — environment check, optional role assignment, and guided walkthrough of Steps 1–2 below (see [Quickstart wizard](#quickstart-wizard)) |
-| `stig_reference_builder.py` | Bulk-imports official DISA `.zip`/XCCDF documents (single products or the full quarterly Library Compilation, nested zips included) into the offline STIG reference database |
+| `stig_reference_builder.py` | `fetch-compilation` auto-downloads the current quarterly Library Compilation; `build` bulk-imports official DISA `.zip`/XCCDF documents (single products or the full compilation, nested zips included) into the offline STIG reference database |
 | `generate_variance.py` | Generates one Variance/Risk-Acceptance Record (Markdown + standalone HTML, `--format` to restrict) from a STIG or CVE finding ID + the matching offline reference database |
 | `stig_intake/` | Drop zone for official `.zip` packages or extracted `*-xccdf.xml` files |
 | `cve_reference_builder.py` | Fetches/mirrors official NVD CVE metadata into an offline CVE reference database (`fetch`, `fetch-list`, `lookup`, `mirror`, `mirror-update`) |
