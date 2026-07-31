@@ -119,6 +119,11 @@ GUIDE_CARDS = {
     5,  # MRC-OPS-005 -- FSMO role holder verification
     6,  # MRC-OPS-006 -- Domain/forest trust health check
     7,  # MRC-OPS-007 -- Domain controller System State backup verification
+    8,  # MRC-OPS-008 -- Stale computer/user Active Directory object cleanup
+    9,  # MRC-OPS-009 -- Domain controller disk space and event log health check
+    10,  # MRC-OPS-010 -- Netlogon/KDC/DNS Server service health check
+    11,  # MRC-OPS-011 -- Group Policy Object replication and health check
+    12,  # MRC-OPS-012 -- Active Directory database (ntds.dit) size/health review
 }
 
 

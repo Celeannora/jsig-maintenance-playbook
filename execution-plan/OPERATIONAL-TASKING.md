@@ -21,11 +21,11 @@
 | 5 | Monthly | FSMO role holder verification † | Active Directory / Domain Controllers | System Administrator | ISSM | ISSO | AO/DAO |
 | 6 | Monthly | Domain/forest trust health check † | Active Directory / Domain Controllers | System Administrator | ISSM | ISSO | AO/DAO |
 | 7 | Weekly | Domain controller System State backup verification † | Active Directory / Domain Controllers | System Administrator | ISSM | ISSO | AO/DAO |
-| 8 | Monthly | Stale computer/user Active Directory object cleanup | Active Directory / Domain Controllers | System Administrator | ISSM | ISSO | AO/DAO |
-| 9 | Daily | Domain controller disk space and event log health check | Active Directory / Domain Controllers | System Administrator | ISSM | ISSO | AO/DAO |
-| 10 | Daily | Netlogon/KDC/DNS Server service health check | Active Directory / Domain Controllers | System Administrator | ISSM | ISSO | AO/DAO |
-| 11 | Monthly | Group Policy Object replication and health check | Active Directory / Domain Controllers | System Administrator | ISSM | ISSO | AO/DAO |
-| 12 | Quarterly | Active Directory database (ntds.dit) size/health review | Active Directory / Domain Controllers | System Administrator | ISSM | ISSO | AO/DAO |
+| 8 | Monthly | Stale computer/user Active Directory object cleanup † | Active Directory / Domain Controllers | System Administrator | ISSM | ISSO | AO/DAO |
+| 9 | Daily | Domain controller disk space and event log health check † | Active Directory / Domain Controllers | System Administrator | ISSM | ISSO | AO/DAO |
+| 10 | Daily | Netlogon/KDC/DNS Server service health check † | Active Directory / Domain Controllers | System Administrator | ISSM | ISSO | AO/DAO |
+| 11 | Monthly | Group Policy Object replication and health check † | Active Directory / Domain Controllers | System Administrator | ISSM | ISSO | AO/DAO |
+| 12 | Quarterly | Active Directory database (ntds.dit) size/health review † | Active Directory / Domain Controllers | System Administrator | ISSM | ISSO | AO/DAO |
 | 13 | Weekly | Mailbox database health and whitespace review | Exchange Messaging | System Administrator | ISSM | ISSO | AO/DAO |
 | 14 | Daily | Database Availability Group (DAG) health and failover readiness check | Exchange Messaging | System Administrator | ISSM | ISSO | AO/DAO |
 | 15 | Daily | Mail queue / transport health check (stuck-queue check) | Exchange Messaging | System Administrator | ISSM | ISSO | AO/DAO |

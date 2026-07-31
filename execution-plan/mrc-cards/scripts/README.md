@@ -37,3 +37,8 @@ Every script in this folder must follow this shape so an admin unfamiliar with a
 | MRC-OPS-005 | [`MRC-OPS-005.ps1`](MRC-OPS-005.ps1) | [FSMO role holder verification](../ops/MRC-OPS-005.md) |
 | MRC-OPS-006 | [`MRC-OPS-006.ps1`](MRC-OPS-006.ps1) | [Domain/forest trust health check](../ops/MRC-OPS-006.md) |
 | MRC-OPS-007 | [`MRC-OPS-007.ps1`](MRC-OPS-007.ps1) | [Domain controller System State backup verification](../ops/MRC-OPS-007.md) |
+| MRC-OPS-008 | [`MRC-OPS-008.ps1`](MRC-OPS-008.ps1) | [Stale computer/user Active Directory object cleanup](../ops/MRC-OPS-008.md) |
+| MRC-OPS-009 | [`MRC-OPS-009.ps1`](MRC-OPS-009.ps1) | [Domain controller disk space and event log health check](../ops/MRC-OPS-009.md) |
+| MRC-OPS-010 | [`MRC-OPS-010.ps1`](MRC-OPS-010.ps1) | [Netlogon/KDC/DNS Server service health check](../ops/MRC-OPS-010.md) |
+| MRC-OPS-011 | [`MRC-OPS-011.ps1`](MRC-OPS-011.ps1) | [Group Policy Object replication and health check](../ops/MRC-OPS-011.md) |
+| MRC-OPS-012 | [`MRC-OPS-012.ps1`](MRC-OPS-012.ps1) | [Active Directory database (ntds.dit) size/health review](../ops/MRC-OPS-012.md) |
