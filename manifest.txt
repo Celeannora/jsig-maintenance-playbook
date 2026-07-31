@@ -8,6 +8,7 @@ execution-plan/RACI-MATRIX.md
 execution-plan/README.md
 execution-plan/ROLE-CROSSWALK.md
 execution-plan/mrc-cards/README.md
+execution-plan/mrc-cards/scripts/README.md
 execution-plan/STATUS-2026-07-17.md
 execution-plan/runbooks/.gitkeep
 execution-plan/runbooks/AO.md
