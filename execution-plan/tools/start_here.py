@@ -300,6 +300,11 @@ def setup_cve():
     raw = ask("Comma-separated CVE IDs to fetch now, e.g. CVE-2021-44228 (Enter to skip): ")
     if not raw:
         print("Skipped -- fetch any CVE later with: cve_reference_builder.py fetch --id <ID>")
+        print("Want the full NVD catalog instead of targeted lookups? There's an opt-in")
+        print("full-mirror mode (~367,000 records, hundreds of MB, written to a separate")
+        print("cve_mirror.json so the small curated cache stays git-friendly):")
+        print("  python3 execution-plan/tools/cve_reference_builder.py mirror")
+        print("  python3 execution-plan/tools/cve_reference_builder.py mirror-update   # refresh later")
         return
     for cve_id in (x.strip() for x in raw.split(",") if x.strip()):
         ok = run_tool([sys.executable, str(TOOLS_DIR / "cve_reference_builder.py"), "fetch", "--id", cve_id])
@@ -312,6 +317,9 @@ def setup_nessus():
     raw = ask("Comma-separated Nessus Plugin IDs to fetch now, e.g. 156327 (Enter to skip): ")
     if not raw:
         print("Skipped -- fetch any plugin later with: nessus_reference_builder.py fetch --id <ID>")
+        print("Note: Tenable does not publish a bulk/mirror feed for its plugin catalog (unlike")
+        print("NVD for CVEs), so there is no full-database option here -- only targeted fetches,")
+        print("one ID or a batch list at a time, from https://www.tenable.com/plugins/nessus/<id>")
         return
     for plugin_id in (x.strip() for x in raw.split(",") if x.strip()):
         ok = run_tool([sys.executable, str(TOOLS_DIR / "nessus_reference_builder.py"), "fetch", "--id", plugin_id])
