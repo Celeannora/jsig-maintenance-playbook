@@ -152,6 +152,7 @@ regardless of CVSS score.
 
 import argparse
 import hashlib
+import http.client
 import json
 import lzma
 import os
@@ -185,6 +186,21 @@ COMMUNITY_FEED_LABEL = f"community-bulk ({COMMUNITY_FEED_ATTRIBUTION_URL})"
 # CVE-<year>.json.xz (+ CVE-<year>.meta) release asset per year from here
 # through the current year.
 COMMUNITY_FEED_START_YEAR = 1999
+
+# Community-bulk downloads go over GitHub release-asset URLs from inside a
+# sandboxed/corporate network -- transient connection timeouts/resets and
+# GitHub rate-limit/5xx responses are common and NOT a sign the year is
+# actually unavailable. Retried automatically at two levels: per-HTTP-
+# request (DEFAULT_COMMUNITY_RETRIES, exponential backoff from
+# DEFAULT_COMMUNITY_RETRY_DELAY) and, if a year still fails after that,
+# whole-year retry passes (DEFAULT_COMMUNITY_YEAR_RETRY_PASSES) once the
+# rest of the catalog has been fetched. A permanent error (404 -- the
+# asset genuinely doesn't exist) is never retried, since retrying can't
+# fix a missing/renamed release asset.
+DEFAULT_COMMUNITY_RETRIES = 3
+DEFAULT_COMMUNITY_RETRY_DELAY = 5.0
+DEFAULT_COMMUNITY_YEAR_RETRY_PASSES = 2
+_RETRYABLE_HTTP_CODES = (429, 500, 502, 503, 504)
 
 # Unauthenticated NVD requests are rate-limited to 5 per rolling 30s window;
 # an API key raises that to 50 per 30s. Default delay is conservative for
@@ -444,29 +460,58 @@ def _community_feed_years():
     return list(range(COMMUNITY_FEED_START_YEAR, datetime.now(timezone.utc).year + 1))
 
 
-def _download_bytes(url, timeout=60, label=None):
+def _download_bytes(url, timeout=60, label=None,
+                     max_retries=DEFAULT_COMMUNITY_RETRIES,
+                     retry_delay=DEFAULT_COMMUNITY_RETRY_DELAY):
     """Stream-download url into memory, printing progress if Content-Length
     is known. Mirrors the chunked-read pattern used by
-    stig_reference_builder.py's fetch_compilation(). Raises
-    urllib.error.HTTPError/URLError on failure -- callers decide how to
-    handle a single-year fetch failure without aborting the whole mirror."""
-    req = urllib.request.Request(url, headers={"User-Agent": "jsig-variance-tooling/1.0"})
-    with urllib.request.urlopen(req, timeout=timeout) as resp:
-        total = resp.headers.get("Content-Length")
-        total = int(total) if total else None
-        chunks = []
-        downloaded = 0
-        while True:
-            chunk = resp.read(1024 * 1024)
-            if not chunk:
-                break
-            chunks.append(chunk)
-            downloaded += len(chunk)
-        if label:
-            size_mb = f"{downloaded / (1024 * 1024):.2f} MB"
-            expected = f"/{total / (1024 * 1024):.2f} MB" if total else ""
-            print(f"    {label}: downloaded {size_mb}{expected}")
-        return b"".join(chunks)
+    stig_reference_builder.py's fetch_compilation().
+
+    Automatically retries transient network failures -- connection
+    timeouts/resets/refusals (OSError and subclasses, which covers
+    urllib.error.URLError plus raw socket errors that can surface
+    mid-transfer), incomplete/truncated HTTP responses
+    (http.client.HTTPException), and 429/500/502/503/504 HTTP responses --
+    up to max_retries times with exponential backoff (retry_delay, 2x,
+    4x, ...). A permanent HTTP error (404, 403, etc.) is NOT retried,
+    since retrying can't fix a missing/renamed asset or bad URL. Raises
+    the final error if every attempt is exhausted; callers decide what a
+    final failure means for the surrounding operation (e.g. skip this
+    year and continue)."""
+    attempt = 0
+    while True:
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": "jsig-variance-tooling/1.0"})
+            with urllib.request.urlopen(req, timeout=timeout) as resp:
+                total = resp.headers.get("Content-Length")
+                total = int(total) if total else None
+                chunks = []
+                downloaded = 0
+                while True:
+                    chunk = resp.read(1024 * 1024)
+                    if not chunk:
+                        break
+                    chunks.append(chunk)
+                    downloaded += len(chunk)
+            if label:
+                size_mb = f"{downloaded / (1024 * 1024):.2f} MB"
+                expected = f"/{total / (1024 * 1024):.2f} MB" if total else ""
+                print(f"    {label}: downloaded {size_mb}{expected}")
+            return b"".join(chunks)
+        except urllib.error.HTTPError as e:
+            if e.code not in _RETRYABLE_HTTP_CODES or attempt >= max_retries:
+                raise
+            reason = f"HTTP {e.code}"
+        except (OSError, http.client.HTTPException) as e:
+            if attempt >= max_retries:
+                raise
+            reason = str(e) or type(e).__name__
+
+        wait = retry_delay * (2 ** attempt)
+        attempt += 1
+        print(f"    [RETRY {attempt}/{max_retries}] {url} -- {reason} -- retrying in {wait:.0f}s...",
+              file=sys.stderr)
+        time.sleep(wait)
 
 
 def _parse_meta_text(meta_text):
@@ -482,24 +527,28 @@ def _parse_meta_text(meta_text):
     return meta
 
 
-def _fetch_community_year(year):
+def _fetch_community_year(year, max_retries=DEFAULT_COMMUNITY_RETRIES,
+                           retry_delay=DEFAULT_COMMUNITY_RETRY_DELAY):
     """Download and decompress one CVE-<year>.json.xz + its .meta sidecar
     from the community bulk feed. Verifies the decompressed JSON's sha256
     against the value published in the .meta file (confirmed by direct
     test: the .meta 'sha256' field is over the DECOMPRESSED content, not
-    the .xz archive). Returns (cve_items list, verified bool). Raises
-    urllib.error.HTTPError/URLError/lzma.LZMAError on a hard failure --
-    callers treat that as a skip-this-year-and-continue condition, not a
-    fatal one, since a single stale/unreleased year shouldn't abort the
-    whole run."""
+    the .xz archive). Returns (cve_items list, verified bool). Each
+    download already retries transient network failures internally (see
+    _download_bytes); this function raises
+    urllib.error.HTTPError/URLError/OSError/lzma.LZMAError only once
+    those retries are exhausted or the failure is non-retryable (e.g. a
+    genuine 404) -- callers treat that as a skip-this-year-and-continue
+    condition, not a fatal one."""
     meta_url = f"{COMMUNITY_FEED_BASE_URL}/CVE-{year}.meta"
     xz_url = f"{COMMUNITY_FEED_BASE_URL}/CVE-{year}.json.xz"
 
-    meta_bytes = _download_bytes(meta_url, timeout=30)
+    meta_bytes = _download_bytes(meta_url, timeout=30, max_retries=max_retries, retry_delay=retry_delay)
     meta = _parse_meta_text(meta_bytes.decode("utf-8", errors="replace"))
     expected_sha256 = meta.get("sha256")
 
-    xz_bytes = _download_bytes(xz_url, timeout=120, label=f"CVE-{year}.json.xz")
+    xz_bytes = _download_bytes(xz_url, timeout=120, label=f"CVE-{year}.json.xz",
+                                max_retries=max_retries, retry_delay=retry_delay)
     json_bytes = lzma.decompress(xz_bytes)
 
     verified = True
@@ -515,47 +564,79 @@ def _fetch_community_year(year):
     return payload.get("cve_items", []), verified
 
 
-def cmd_mirror_community_bulk(output_path):
+def _fetch_and_merge_year(year, db, max_retries, retry_delay):
+    """Fetch one community-bulk year and merge it into db['findings'] if it
+    downloads cleanly and passes its checksum. Returns (added_count,
+    ok bool). Never raises -- HTTPError/URLError/OSError (retries already
+    exhausted inside _fetch_community_year) and lzma/JSON decode errors
+    are all treated as a per-year failure the caller can retry later."""
+    try:
+        cve_items, verified = _fetch_community_year(year, max_retries=max_retries, retry_delay=retry_delay)
+    except (urllib.error.HTTPError, urllib.error.URLError, OSError, http.client.HTTPException,
+             lzma.LZMAError, json.JSONDecodeError) as e:
+        print(f"    [FAIL] {year}: {e}", file=sys.stderr)
+        return 0, False
+
+    if not verified:
+        print(f"    [WARN] {year}: sha256 did not match the published .meta checksum -- "
+              f"skipping this year's import rather than trusting unverified data.", file=sys.stderr)
+        return 0, False
+
+    added = 0
+    for vuln in cve_items:
+        finding = parse_nvd_record(vuln)
+        db["findings"][finding["cve_id"]] = finding
+        added += 1
+    print(f"    [OK] {year}: {len(cve_items)} record(s)")
+    return added, True
+
+
+def cmd_mirror_community_bulk(output_path, max_retries=DEFAULT_COMMUNITY_RETRIES,
+                               retry_delay=DEFAULT_COMMUNITY_RETRY_DELAY,
+                               year_retry_passes=DEFAULT_COMMUNITY_YEAR_RETRY_PASSES):
     """Full mirror sourced from the community bulk feed instead of the live
     NVD API. Iterates one release-asset year at a time (never the combined
     CVE-all.json.xz, which decompresses to ~3GB and is unnecessary --
     per-year files cap memory use at a few tens of MB each). Each year's
     records are schema-identical NVD API 2.0 'cve' objects, so
-    parse_nvd_record() is reused unmodified. A year that fails to download
-    or fails its published sha256 check is skipped (fail closed on THAT
-    year only) and reported at the end so it can be retried."""
+    parse_nvd_record() is reused unmodified.
+
+    Reliability has two layers: (1) every individual HTTP request retries
+    transient failures with backoff (see _download_bytes) -- this alone
+    absorbs the connection-timeout/reset errors observed in practice
+    (e.g. a mid-download WinError 10060). (2) if a year still fails after
+    that, it's queued and re-attempted in up to year_retry_passes further
+    passes AFTER the rest of the catalog has been fetched once, on the
+    theory that a transient outage affecting one host/CDN edge often
+    clears within the time it takes to fetch the other ~25 years. Only a
+    year that fails every pass is left for the user to re-run manually."""
     db = load_db(output_path)
     years = _community_feed_years()
     print(f"Starting community bulk mirror -> {output_path}")
     print(f"  Source: {COMMUNITY_FEED_LABEL}")
     print("  This is an unofficial, community-maintained redistribution of NVD data")
     print("  (resynced from NVD roughly every 2 hours) -- NOT an NVD-operated service.")
-    print(f"  Fetching {len(years)} yearly archives ({years[0]}-{years[-1]})...")
+    print(f"  Fetching {len(years)} yearly archives ({years[0]}-{years[-1]}), "
+          f"up to {max_retries} retries per request plus {year_retry_passes} whole-year retry pass(es)...")
 
     added = 0
-    skipped_years = []
-    for year in years:
-        print(f"\n  [{year}] fetching...")
-        try:
-            cve_items, verified = _fetch_community_year(year)
-        except (urllib.error.HTTPError, urllib.error.URLError, lzma.LZMAError, json.JSONDecodeError) as e:
-            print(f"    [FAIL] {year}: {e} -- skipping this year, safe to re-run the same "
-                  f"command later to retry just the missing year(s).", file=sys.stderr)
-            skipped_years.append(year)
-            continue
-
-        if not verified:
-            print(f"    [WARN] {year}: sha256 did not match the published .meta checksum -- "
-                  f"skipping this year's import rather than trusting unverified data. "
-                  f"Re-run later to retry.", file=sys.stderr)
-            skipped_years.append(year)
-            continue
-
-        for vuln in cve_items:
-            finding = parse_nvd_record(vuln)
-            db["findings"][finding["cve_id"]] = finding
-            added += 1
-        print(f"    [OK] {year}: {len(cve_items)} record(s) (running total this run: {added})")
+    pending = list(years)
+    for pass_num in range(1 + year_retry_passes):
+        if not pending:
+            break
+        if pass_num > 0:
+            pause = retry_delay * 2
+            print(f"\n  --- Retry pass {pass_num}/{year_retry_passes}: {len(pending)} "
+                  f"year(s) still outstanding: {pending} (pausing {pause:.0f}s first) ---")
+            time.sleep(pause)
+        still_pending = []
+        for year in pending:
+            print(f"\n  [{year}] fetching...")
+            got, ok = _fetch_and_merge_year(year, db, max_retries, retry_delay)
+            added += got
+            if not ok:
+                still_pending.append(year)
+        pending = still_pending
 
     db["last_full_mirror_at"] = datetime.now(timezone.utc).isoformat()
     db["last_mirror_source"] = COMMUNITY_FEED_LABEL
@@ -563,11 +644,12 @@ def cmd_mirror_community_bulk(output_path):
 
     print(f"\nCommunity bulk mirror complete: {added} record(s) fetched this run, "
           f"{db['finding_count']} total cached -> {output_path}")
-    if skipped_years:
-        print(f"  Skipped {len(skipped_years)} year(s) due to download/verification failures: "
-              f"{skipped_years}")
+    if pending:
+        print(f"  {len(pending)} year(s) failed every retry pass and were skipped: {pending}")
         print("  Re-run 'mirror --source community-bulk' to retry -- already-imported years "
-              "are simply overwritten again, so this is safe to repeat.")
+              "are simply overwritten again, so this is safe to repeat. If failures persist, "
+              "try --retries/--retry-delay/--year-retry-passes with higher values, or a more "
+              "stable network path (this feed is served from GitHub release assets).")
     print("  Note: this data came from a third-party community mirror, not NVD directly.")
     print("  For an NVD-direct mirror instead, run: python3 cve_reference_builder.py mirror --source nvd")
 
@@ -658,7 +740,9 @@ def cmd_lookup(args):
 
 def cmd_mirror(args):
     if args.source == "community-bulk":
-        cmd_mirror_community_bulk(args.output)
+        cmd_mirror_community_bulk(args.output, max_retries=args.retries,
+                                   retry_delay=args.retry_delay,
+                                   year_retry_passes=args.year_retry_passes)
         return
 
     db = load_db(args.output)
@@ -790,7 +874,8 @@ def main():
                                 "unofficial community redistribution resynced from NVD every ~2 hours -- "
                                 "much faster for a full catalog build, but NOT an NVD-operated source. "
                                 "--api-key/--delay/--start-index/--max-pages/--results-per-page below only "
-                                "apply to --source nvd.")
+                                "apply to --source nvd; --retries/--retry-delay/--year-retry-passes below "
+                                "only apply to --source community-bulk.")
     mirror_p.add_argument("--api-key", **common_key)
     mirror_p.add_argument("--delay", **common_mirror_delay)
     mirror_p.add_argument("--start-index", type=int, default=0, dest="start_index",
@@ -799,6 +884,19 @@ def main():
     mirror_p.add_argument("--max-pages", **common_max_pages)
     mirror_p.add_argument("--results-per-page", type=int, default=RESULTS_PER_PAGE, dest="results_per_page",
                            help=f"Records per NVD page, max 2000 (default: {RESULTS_PER_PAGE})")
+    mirror_p.add_argument("--retries", type=int, default=DEFAULT_COMMUNITY_RETRIES, dest="retries",
+                           help="[community-bulk only] Max retries per HTTP request on transient network "
+                                "failures (timeout, connection reset, incomplete read, 429/5xx), with "
+                                f"exponential backoff (default: {DEFAULT_COMMUNITY_RETRIES})")
+    mirror_p.add_argument("--retry-delay", type=float, default=DEFAULT_COMMUNITY_RETRY_DELAY, dest="retry_delay",
+                           help="[community-bulk only] Base delay in seconds before the first retry; "
+                                f"doubles each subsequent attempt (default: {DEFAULT_COMMUNITY_RETRY_DELAY})")
+    mirror_p.add_argument("--year-retry-passes", type=int, default=DEFAULT_COMMUNITY_YEAR_RETRY_PASSES,
+                           dest="year_retry_passes",
+                           help="[community-bulk only] After --retries is exhausted on a given year, how "
+                                "many additional whole-year retry passes to attempt (run after the rest "
+                                "of the catalog) before giving up on that year and reporting it "
+                                f"(default: {DEFAULT_COMMUNITY_YEAR_RETRY_PASSES})")
 
     mirror_update_p = sub.add_parser("mirror-update",
                                       help="Repeatable incremental refresh: everything NVD has "

@@ -133,9 +133,21 @@ Even with an API key, a full `mirror` against the live NVD API takes several min
 python3 cve_reference_builder.py mirror --source community-bulk
 ```
 
-This pulls the same catalog from [fkie-cad/nvd-json-data-feeds](https://github.com/fkie-cad/nvd-json-data-feeds), a community-maintained re-packaging of NVD's data as one release asset per year (`CVE-1999.json.xz` ... `CVE-<current year>.json.xz`), resynced from NVD roughly every 2 hours. Records are schema-identical to the NVD API's own `cve` object, so nothing about how a record is scored, categorized, or stored downstream changes -- only where the raw JSON comes from before parsing. Each yearly archive is downloaded and checked against its published sha256 checksum before being merged in; a year that fails its checksum or fails to download is skipped and reported at the end rather than silently accepted, and is safe to retry by re-running the same command.
+This pulls the same catalog from [fkie-cad/nvd-json-data-feeds](https://github.com/fkie-cad/nvd-json-data-feeds), a community-maintained re-packaging of NVD's data as one release asset per year (`CVE-1999.json.xz` ... `CVE-<current year>.json.xz`), resynced from NVD roughly every 2 hours. Records are schema-identical to the NVD API's own `cve` object, so nothing about how a record is scored, categorized, or stored downstream changes -- only where the raw JSON comes from before parsing. Each yearly archive is downloaded and checked against its published sha256 checksum before being merged in; a year that fails its checksum or exhausts all retries is skipped and reported at the end rather than silently accepted, and is safe to retry by re-running the same command.
 
 **Provenance caveat:** this feed is, in its own maintainers' words, "neither endorsed nor certified by the NVD" -- it is a third-party redistribution, not an NVD-operated service. `--source nvd` (the default, used when `--source` is omitted) stays the authoritative, NVD-direct path; reach for `--source community-bulk` only when mirror speed matters more than sourcing everything straight from NVD's own API for a given deployment. Whichever source was used is recorded in `data/cve_mirror.json`'s `last_mirror_source` field, and printed to the console during the run, so the provenance of any given mirror file stays auditable. `--api-key`, `--delay`, `--start-index`, `--max-pages`, and `--results-per-page` only apply to `--source nvd`; `--source community-bulk` always processes the full 1999-to-present year range in one run (there is no `mirror-update`-equivalent for this source yet -- re-run `mirror --source community-bulk` to refresh).
+
+**Retrying transient network failures:** downloads over this feed go through GitHub release-asset URLs, and connection timeouts/resets (e.g. a Windows `WinError 10060`) or GitHub rate-limit/5xx responses are common on flaky or corporate networks -- they don't mean a year is actually unavailable. `--source community-bulk` retries automatically at two levels:
+
+1. **Per-request retries** -- each individual `.meta`/`.json.xz` download retries transient failures (connection timeouts, resets, incomplete reads, and HTTP 429/500/502/503/504) with exponential backoff, controlled by `--retries` (default: 3 attempts) and `--retry-delay` (default: 5.0s base delay, doubling each attempt: 5s, 10s, 20s...). A genuine permanent error (HTTP 404 -- the asset doesn't exist) is never retried.
+2. **Whole-year retry passes** -- if a year still fails after exhausting its per-request retries, it's queued and re-attempted in additional passes *after* the rest of the catalog has been fetched once, on the theory that a transient outage often clears within the time it takes to process the other ~25 years. Controlled by `--year-retry-passes` (default: 2 additional passes).
+
+```
+# More aggressive retry settings for an unstable connection
+python3 cve_reference_builder.py mirror --source community-bulk --retries 5 --retry-delay 10 --year-retry-passes 3
+```
+
+Only a year that fails every retry pass is left skipped and reported at the end -- re-run the same command to pick up just the missing year(s).
 
 CVSS severity is mapped to CAT level (CRITICAL/HIGH -> CAT I, MEDIUM -> CAT II, LOW -> CAT III, unscored -> CAT I provisional/fail-closed), and any CISA KEV-listed CVE is floored to CAT I regardless of CVSS score -- see `execution-plan/templates/ESCALATION-MATRIX.md` Sections 1a and 6 for the authoritative, cited definitions this logic implements.
 
