@@ -123,6 +123,8 @@ python3 cve_reference_builder.py mirror-update
 
 These write to a **separate** file, `data/cve_mirror.json`, by default -- it is expected to be hundreds of MB at full scale, so treat it as a local cache to `.gitignore`, not something to commit. The small, curated `cve_reference.json` from the targeted workflow above stays the git-friendly, auditable file. `mirror-update` automatically respects NVD's 120-day maximum date-range-per-request limit by splitting any longer gap into multiple chunked requests, and only marks itself complete once every chunk succeeds.
 
+`generate_variance.py` reads the curated `cve_reference.json` first, but if a CVE isn't there it automatically falls back to checking `data/cve_mirror.json` (same schema, so a hit there is a drop-in substitute) before reporting it as not found -- so once you've run a full mirror, every CVE in it is usable immediately, with no need to also `fetch` each one individually into the curated file.
+
 An optional `NVD_API_KEY` environment variable (free, [request one here](https://nvd.nist.gov/developers/request-an-api-key)) raises NVD's rate limit from 5 requests/30s to 50 requests/30s -- worth it for `mirror`/`fetch-list`, unnecessary for one-off `fetch` calls.
 
 #### Faster alternative source for a full mirror: `--source community-bulk`

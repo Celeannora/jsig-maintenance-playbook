@@ -108,6 +108,13 @@ TOOLS_DIR = os.path.dirname(os.path.abspath(__file__))
 
 DEFAULT_STIG_DB = os.path.join(os.path.dirname(__file__), "data", "stig_reference.json")
 DEFAULT_CVE_DB = os.path.join(os.path.dirname(__file__), "data", "cve_reference.json")
+# cve_reference_builder.py's `mirror`/`mirror-update` commands write the full
+# bulk NVD catalog here (hundreds of MB), separately from the small curated
+# cve_reference.json above. A CVE lookup that misses the curated file falls
+# back to checking this one before giving up or offering a network fetch --
+# see _lookup_cve_in_mirror() -- so a CVE already covered by a full mirror
+# doesn't dead-end just because it was never individually `fetch`ed.
+DEFAULT_CVE_MIRROR_DB = os.path.join(os.path.dirname(__file__), "data", "cve_mirror.json")
 DEFAULT_NESSUS_DB = os.path.join(os.path.dirname(__file__), "data", "nessus_reference.json")
 DEFAULT_OUTPUT_DIR = os.path.normpath(
     os.path.join(os.path.dirname(__file__), "..", "variance-records")
@@ -190,6 +197,32 @@ def load_db(db_path, id_type):
         sys.exit(1)
     with open(db_path, encoding="utf-8") as f:
         return json.load(f)
+
+
+def _lookup_cve_in_mirror(lookup_id):
+    """Fall back to the bulk cve_mirror.json corpus (built by
+    `cve_reference_builder.py mirror`/`mirror-update`) when a CVE isn't in
+    the small, curated cve_reference.json that generate_variance.py reads
+    by default. Both files share the exact same {"findings": {...}} schema,
+    so a hit here is a drop-in substitute -- this is what lets a fully
+    mirrored catalog actually get used, instead of every CVE needing to
+    also be individually `fetch`ed into the curated file. Returns the
+    finding dict, or None if the mirror doesn't exist or doesn't have it."""
+    if not os.path.exists(DEFAULT_CVE_MIRROR_DB):
+        return None
+    print(f"  Not in the curated CVE database -- checking the bulk mirror "
+          f"({DEFAULT_CVE_MIRROR_DB})...")
+    try:
+        with open(DEFAULT_CVE_MIRROR_DB, encoding="utf-8") as f:
+            mirror_db = json.load(f)
+    except (OSError, json.JSONDecodeError) as exc:
+        print(f"  Could not read the mirror file: {exc}")
+        return None
+    finding = mirror_db.get("findings", {}).get(lookup_id)
+    if finding:
+        print(f"  Found {lookup_id} in the bulk mirror "
+              f"({mirror_db.get('finding_count', 0)} CVEs cached there).")
+    return finding
 
 
 def blank(value):
@@ -1060,6 +1093,11 @@ def interactive_resolve_id():
         if finding:
             return id_type, finding, lookup_id
 
+        if id_type == "CVE":
+            finding = _lookup_cve_in_mirror(lookup_id)
+            if finding:
+                return id_type, finding, lookup_id
+
         print(f"  '{lookup_id}' not found in the offline {id_type} reference database "
               f"({db.get('finding_count', 0)} entries cached).")
 
@@ -1231,6 +1269,12 @@ def main():
 
     lookup_id = args.id.strip() if id_type in ("STIG", "NESSUS") else args.id.strip().upper()
     finding = db.get("findings", {}).get(lookup_id)
+
+    checked_mirror = False
+    if not finding and id_type == "CVE" and db_path != DEFAULT_CVE_MIRROR_DB:
+        finding = _lookup_cve_in_mirror(lookup_id)
+        checked_mirror = os.path.exists(DEFAULT_CVE_MIRROR_DB)
+
     if not finding:
         if id_type == "STIG":
             print(f"'{args.id}' not found in the offline STIG reference database "
@@ -1239,8 +1283,9 @@ def main():
             print("Import the relevant official STIG .zip/xccdf into execution-plan/tools/stig_intake/ "
                   "and re-run stig_reference_builder.py build.")
         elif id_type == "CVE":
+            mirror_note = " or in the bulk mirror (cve_mirror.json)" if checked_mirror else ""
             print(f"'{args.id}' not found in the offline CVE reference database "
-                  f"({db.get('finding_count', 0)} CVE(s) cached).")
+                  f"({db.get('finding_count', 0)} CVE(s) cached){mirror_note}.")
             print(f"Run: python3 cve_reference_builder.py fetch --id {args.id}")
         else:
             print(f"'{args.id}' not found in the offline Nessus plugin reference database "
