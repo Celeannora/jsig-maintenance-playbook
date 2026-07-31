@@ -278,7 +278,9 @@ def setup_stig():
         print("\nNote: this rebuilds the database from everything currently in the intake folder --")
         print("if you removed files since the last build, their findings will drop out of the rebuild.")
         if yesno("Rebuild the STIG reference database from these files now?", True):
-            run_tool([sys.executable, str(TOOLS_DIR / "stig_reference_builder.py"), "build"])
+            ok = run_tool([sys.executable, str(TOOLS_DIR / "stig_reference_builder.py"), "build"])
+            if ok:
+                _print_generate_variance_tip("STIG", _first_id_in_db("stig_reference.json", "V-253259"))
     else:
         print(f"\nNo files in {STIG_INTAKE_DIR.relative_to(REPO_ROOT)}/ yet.")
         print("This tool can fetch the current quarterly SRG-STIG Library Compilation")
@@ -287,7 +289,9 @@ def setup_stig():
         if yesno(f"Download it now into {STIG_INTAKE_DIR.relative_to(REPO_ROOT)}/? (~350-400 MB)", False):
             ok = run_tool([sys.executable, str(TOOLS_DIR / "stig_reference_builder.py"), "fetch-compilation"])
             if ok and yesno("Build the STIG reference database from it now?", True):
-                run_tool([sys.executable, str(TOOLS_DIR / "stig_reference_builder.py"), "build"])
+                built = run_tool([sys.executable, str(TOOLS_DIR / "stig_reference_builder.py"), "build"])
+                if built:
+                    _print_generate_variance_tip("STIG", _first_id_in_db("stig_reference.json", "V-253259"))
             elif not ok:
                 print("  Download failed -- see the error above. You can retry later with:")
                 print("     python3 execution-plan/tools/stig_reference_builder.py fetch-compilation")
@@ -301,6 +305,40 @@ def setup_stig():
             print("  3. Re-run this wizard (python3 start_here.py), or run:")
             print("     python3 execution-plan/tools/stig_reference_builder.py build")
             print("Skipping for now -- this is expected on a fresh, offline checkout.")
+
+
+def _first_id_in_db(filename, fallback):
+    """Pull one real finding ID out of a just-built/updated reference
+    database so the generate_variance.py example printed to the user is
+    copy-pasteable against their own data, not a made-up placeholder.
+    Falls back to a generic example ID if the file is missing/empty/
+    unreadable, since this is cosmetic -- never worth failing the wizard
+    over."""
+    path = DATA_DIR / filename
+    if not path.exists():
+        return fallback
+    try:
+        findings = json.loads(path.read_text()).get("findings", {})
+        return next(iter(findings), fallback)
+    except Exception:
+        return fallback
+
+
+def _print_generate_variance_tip(kind_label, id_example):
+    """Printed right after a reference database finishes populating, so
+    'the data is downloaded, now what?' is answered on the spot instead of
+    only in the wizard's final summary (which a user who runs the builder
+    scripts directly, or skips later steps, would never see). This cache
+    is an input, not a deliverable -- the actual output preparers file is a
+    Variance/Risk-Acceptance record, produced by generate_variance.py from
+    a REAL finding on a REAL scan/audit, not from this cache by itself."""
+    print(f"\n  This cache is an input, not a deliverable by itself. Once a real scan or audit")
+    print(f"  names a {kind_label} finding, turn it into a Variance/Risk-Acceptance record with:")
+    print(f"    python3 execution-plan/tools/generate_variance.py --id {id_example} \\")
+    print(f"        --asset <hostname> --system-scope \"<enclave/system>\" \\")
+    print(f"        --detection-method \"<how you found it>\" --preparer \"<your name, role>\"")
+    print(f"  That pulls this cache's official text/CVSS/CAT data in automatically -- you only fill in")
+    print(f"  the asset-specific facts. Step 6 of this wizard will run one for you as a live example.")
 
 
 def get_or_prompt_nvd_api_key():
@@ -345,13 +383,18 @@ def setup_cve():
         api_key = None
         if len(cve_ids) > 1:
             api_key = get_or_prompt_nvd_api_key()
+        any_ok = False
         for cve_id in cve_ids:
             cmd = [sys.executable, str(TOOLS_DIR / "cve_reference_builder.py"), "fetch", "--id", cve_id]
             if api_key:
                 cmd += ["--api-key", api_key]
             ok = run_tool(cmd, redact=[api_key] if api_key else ())
-            if not ok:
+            if ok:
+                any_ok = True
+            else:
                 print(f"  Could not fetch {cve_id} -- check the ID and your network connection, or try again later.")
+        if any_ok:
+            _print_generate_variance_tip("CVE", cve_ids[0])
         return
 
     print("Skipped targeted fetch.")
@@ -384,6 +427,7 @@ def setup_cve():
             else:
                 print("Refresh it later by re-running:")
                 print("  python3 execution-plan/tools/cve_reference_builder.py mirror --source community-bulk")
+            _print_generate_variance_tip("CVE", _first_id_in_db("cve_mirror.json", "CVE-2021-44228"))
         else:
             print("  Mirror failed partway through -- see the error above.")
             if source == "nvd":
@@ -468,6 +512,20 @@ def generate_sample():
 
 
 def print_summary(assignments):
+    print_header("The data you just built is an input, not a deliverable")
+    print("  Your STIG/CVE/Nessus reference caches (data/*.json) are official-text lookups that feed")
+    print("  ONE tool: generate_variance.py. They don't do anything by themselves. The loop is:")
+    print("    1. A real STIG audit, Nessus scan, or vulnerability scan flags a finding on an asset.")
+    print("    2. Look up that finding's ID (a STIG Vuln ID, a CVE ID, or a Nessus Plugin ID) --")
+    print("       generate_variance.py auto-detects which kind it is and pulls the official")
+    print("       description/CVSS score/CAT level from the cache you just built:")
+    print("         python3 execution-plan/tools/generate_variance.py --id <ID> --asset <hostname> \\")
+    print("             --system-scope \"<enclave/system>\" --detection-method \"<how you found it>\" \\")
+    print("             --preparer \"<your name, role>\"")
+    print("    3. That writes a Variance/Risk-Acceptance record (Markdown + HTML) to variance-records/ --")
+    print("       route THAT through your program's normal review/approval chain.")
+    print("    4. If accepting the finding also requires an actual system/config change, that's a")
+    print("       separate Configuration Change Request, not something this repo's tools generate.")
     print_header("What to read next")
     print("  - MAINTENANCE-PLAN.md, sections 1 and 1A: the daily-ops checklist")
     print("  - playbooks/roles/INDEX.md: what each of the 17 JSIG roles owns")
