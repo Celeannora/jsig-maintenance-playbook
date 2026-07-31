@@ -31,11 +31,11 @@
 | 15 | Daily | Mail queue / transport health check (stuck-queue check) † | Exchange Messaging | System Administrator | ISSM | ISSO | AO/DAO |
 | 16 | Monthly | Exchange/OWA/SMTP certificate expiration monitoring † | Exchange Messaging | System Administrator | ISSM | ISSO | AO/DAO |
 | 17 | Daily | Exchange transaction log truncation and disk space check † | Exchange Messaging | System Administrator | ISSM | ISSO | AO/DAO |
-| 18 | Daily | Client access (OWA/ActiveSync) availability check | Exchange Messaging | System Administrator | ISSM | ISSO | AO/DAO |
-| 19 | Monthly | Exchange connector and transport rule health review | Exchange Messaging | System Administrator | ISSM | ISSO | AO/DAO |
-| 20 | Weekly | Message tracking log review (mail-flow troubleshooting) | Exchange Messaging | System Administrator | ISSM | ISSO | AO/DAO |
-| 21 | Weekly | Exchange application-aware backup verification | Exchange Messaging | System Administrator | ISSM | ISSO | AO/DAO |
-| 22 | Weekly | Trellix/McAfee ePO agent heartbeat and endpoint coverage check | Security Tooling (Operational Health) | System Administrator | ISSM | ISSO | AO/DAO |
+| 18 | Daily | Client access (OWA/ActiveSync) availability check † | Exchange Messaging | System Administrator | ISSM | ISSO | AO/DAO |
+| 19 | Monthly | Exchange connector and transport rule health review † | Exchange Messaging | System Administrator | ISSM | ISSO | AO/DAO |
+| 20 | Weekly | Message tracking log review (mail-flow troubleshooting) † | Exchange Messaging | System Administrator | ISSM | ISSO | AO/DAO |
+| 21 | Weekly | Exchange application-aware backup verification † | Exchange Messaging | System Administrator | ISSM | ISSO | AO/DAO |
+| 22 | Weekly | Trellix/McAfee ePO agent heartbeat and endpoint coverage check † | Security Tooling (Operational Health) | System Administrator | ISSM | ISSO | AO/DAO |
 | 23 | Weekly | Splunk forwarder health, index health, and license usage check | Security Tooling (Operational Health) | System Administrator | ISSM | ISSO | AO/DAO |
 | 24 | Weekly | Nessus scanner engine and plugin feed health check | Security Tooling (Operational Health) | System Administrator | ISSM | ISSO | AO/DAO |
 | 25 | Monthly | AD CS Certificate Authority health and enterprise certificate-expiration monitoring | Windows Server (General) | System Administrator | ISSM | ISSO | AO/DAO |

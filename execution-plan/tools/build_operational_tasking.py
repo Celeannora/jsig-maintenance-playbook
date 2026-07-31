@@ -129,6 +129,11 @@ GUIDE_CARDS = {
     15,  # MRC-OPS-015 -- Mail queue / transport health check (stuck-queue check)
     16,  # MRC-OPS-016 -- Exchange/OWA/SMTP certificate expiration monitoring
     17,  # MRC-OPS-017 -- Exchange transaction log truncation and disk space check
+    18,  # MRC-OPS-018 -- Client access (OWA/ActiveSync) availability check
+    19,  # MRC-OPS-019 -- Exchange connector and transport rule health review
+    20,  # MRC-OPS-020 -- Message tracking log review (mail-flow troubleshooting)
+    21,  # MRC-OPS-021 -- Exchange application-aware backup verification
+    22,  # MRC-OPS-022 -- Trellix/McAfee ePO agent heartbeat and endpoint coverage check (Guide, no script -- GUI/console-only task)
 }
 
 

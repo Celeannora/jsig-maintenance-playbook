@@ -47,3 +47,7 @@ Every script in this folder must follow this shape so an admin unfamiliar with a
 | MRC-OPS-015 | [`MRC-OPS-015.ps1`](MRC-OPS-015.ps1) | [Mail queue / transport health check (stuck-queue check)](../ops/MRC-OPS-015.md) |
 | MRC-OPS-016 | [`MRC-OPS-016.ps1`](MRC-OPS-016.ps1) | [Exchange/OWA/SMTP certificate expiration monitoring](../ops/MRC-OPS-016.md) |
 | MRC-OPS-017 | [`MRC-OPS-017.ps1`](MRC-OPS-017.ps1) | [Exchange transaction log truncation and disk space check](../ops/MRC-OPS-017.md) |
+| MRC-OPS-018 | [`MRC-OPS-018.ps1`](MRC-OPS-018.ps1) | [Client access (OWA/ActiveSync) availability check](../ops/MRC-OPS-018.md) |
+| MRC-OPS-019 | [`MRC-OPS-019.ps1`](MRC-OPS-019.ps1) | [Exchange connector and transport rule health review](../ops/MRC-OPS-019.md) |
+| MRC-OPS-020 | [`MRC-OPS-020.ps1`](MRC-OPS-020.ps1) | [Message tracking log review (mail-flow troubleshooting)](../ops/MRC-OPS-020.md) |
+| MRC-OPS-021 | [`MRC-OPS-021.ps1`](MRC-OPS-021.ps1) | [Exchange application-aware backup verification](../ops/MRC-OPS-021.md) |
