@@ -41,7 +41,19 @@ directory, sharing the same record ID as the filename stem. Use
 
 USAGE
 -----
-  # STIG finding:
+  # Interactive wizard (recommended for a one-off record, or if you don't
+  # remember every flag name) -- just run it with no arguments, or with
+  # --interactive/-i to force the wizard even if you also pass --id:
+  python3 generate_variance.py
+  python3 generate_variance.py --interactive
+
+  The wizard prompts for the finding ID (retrying on an unrecognized format,
+  and offering to fetch a missing CVE/Nessus Plugin ID on the spot rather
+  than dead-ending), then asset/scope/detection/preparer, shows exactly
+  what it's about to write, and asks for confirmation before writing --
+  then offers to generate another record without restarting the script.
+
+  # Or fully non-interactive/scriptable, e.g. for automation -- STIG finding:
   python3 generate_variance.py \\
       --id V-253259 \\
       --asset WIN11-WKSTN-042 \\
@@ -88,8 +100,11 @@ import html as html_lib
 import json
 import os
 import re
+import subprocess
 import sys
 from datetime import datetime, timedelta, timezone
+
+TOOLS_DIR = os.path.dirname(os.path.abspath(__file__))
 
 DEFAULT_STIG_DB = os.path.join(os.path.dirname(__file__), "data", "stig_reference.json")
 DEFAULT_CVE_DB = os.path.join(os.path.dirname(__file__), "data", "cve_reference.json")
@@ -950,12 +965,231 @@ Structure per <code>execution-plan/templates/VARIANCE-RISK-ACCEPTANCE-TEMPLATE.m
     return doc
 
 
+# ---------------------------------------------------------------------------
+# Interactive mode. These helpers are deliberately self-contained copies of
+# the equivalent prompts in start_here.py (not imported from it) so this
+# script keeps working as a standalone, dependency-free tool -- consistent
+# with the rest of this stdlib-only, no-requirements.txt project.
+# ---------------------------------------------------------------------------
+_stdin_exhausted = False
+
+
+def _ask(prompt, default=""):
+    """Prompt for a line of input. Returns default on Ctrl-D (EOF) so a
+    piped/non-interactive stdin degrades gracefully instead of crashing,
+    and exits cleanly (code 130) on Ctrl-C."""
+    global _stdin_exhausted
+    if _stdin_exhausted:
+        return default
+    suffix = f" [{default}]" if default else ""
+    try:
+        raw = input(f"{prompt}{suffix}: ").strip()
+    except EOFError:
+        _stdin_exhausted = True
+        print("\n(no more input available -- using default for remaining prompts)")
+        return default
+    except KeyboardInterrupt:
+        print("\nStopped.")
+        sys.exit(130)
+    return raw or default
+
+
+def _yesno(prompt, default=True):
+    """Prompt for a yes/no answer. Empty input accepts the default."""
+    hint = "[Y/n]" if default else "[y/N]"
+    while True:
+        raw = _ask(f"{prompt} {hint}", "")
+        if not raw:
+            return default
+        if raw.lower() in ("y", "yes"):
+            return True
+        if raw.lower() in ("n", "no"):
+            return False
+        print("  Please answer y or n.")
+
+
+def _print_header(title):
+    print("=" * 72)
+    print(title)
+    print("=" * 72)
+
+
+def _run_tool(cmd):
+    """Echo and run a sibling tool as a subprocess (e.g. cve_reference_builder.py
+    fetch), mirroring start_here.py's run_tool() pattern. Returns True on a
+    zero exit code."""
+    print(f"  $ {' '.join(cmd)}")
+    try:
+        result = subprocess.run(cmd, cwd=TOOLS_DIR)
+    except OSError as exc:
+        print(f"  Could not run that command: {exc}")
+        return False
+    return result.returncode == 0
+
+
+def interactive_resolve_id():
+    """Prompt in a loop until the user supplies a finding ID that resolves
+    to a real cached record, offering to fetch it inline for CVE/Nessus IDs
+    rather than just pointing at another command to run by hand. Returns
+    (id_type, finding, lookup_id)."""
+    while True:
+        raw_id = _ask(
+            "Finding ID (STIG Vuln ID e.g. V-253259, CVE ID e.g. CVE-2021-44228, "
+            "or Nessus Plugin ID e.g. 156327)"
+        )
+        if not raw_id:
+            print("  A finding ID is required. Press Ctrl-C to quit instead.")
+            continue
+
+        id_type = detect_id_type(raw_id)
+        if id_type is None:
+            print(f"  '{raw_id}' doesn't match a recognized ID format.")
+            print("    STIG Vulnerability ID format: V-NNNNNN (e.g. V-253259)")
+            print("    CVE ID format:                CVE-YYYY-NNNN... (e.g. CVE-2021-44228)")
+            print("    Nessus Plugin ID format:      digits only (e.g. 156327)")
+            continue
+
+        default_db = {"STIG": DEFAULT_STIG_DB, "CVE": DEFAULT_CVE_DB, "NESSUS": DEFAULT_NESSUS_DB}[id_type]
+        lookup_id = raw_id.strip() if id_type in ("STIG", "NESSUS") else raw_id.strip().upper()
+
+        db = {}
+        if os.path.exists(default_db):
+            with open(default_db, encoding="utf-8") as f:
+                db = json.load(f)
+        finding = db.get("findings", {}).get(lookup_id)
+        if finding:
+            return id_type, finding, lookup_id
+
+        print(f"  '{lookup_id}' not found in the offline {id_type} reference database "
+              f"({db.get('finding_count', 0)} entries cached).")
+
+        if id_type == "CVE":
+            if _yesno(f"  Fetch {lookup_id} now from the official NVD API and try again?", True):
+                if _run_tool([sys.executable, os.path.join(TOOLS_DIR, "cve_reference_builder.py"),
+                              "fetch", "--id", lookup_id]) and os.path.exists(default_db):
+                    with open(default_db, encoding="utf-8") as f:
+                        db = json.load(f)
+                    finding = db.get("findings", {}).get(lookup_id)
+                    if finding:
+                        return id_type, finding, lookup_id
+                    print("  Still not found after fetching -- check that this is a real, published CVE.")
+                else:
+                    print("  Fetch did not succeed -- see the error above, or try a different ID.")
+            continue
+
+        if id_type == "NESSUS":
+            if _yesno(f"  Fetch plugin {lookup_id} now from Tenable and try again?", True):
+                if _run_tool([sys.executable, os.path.join(TOOLS_DIR, "nessus_reference_builder.py"),
+                              "fetch", "--id", lookup_id]) and os.path.exists(default_db):
+                    with open(default_db, encoding="utf-8") as f:
+                        db = json.load(f)
+                    finding = db.get("findings", {}).get(lookup_id)
+                    if finding:
+                        return id_type, finding, lookup_id
+                    print("  Still not found after fetching -- check that the plugin ID is correct.")
+                else:
+                    print("  Fetch did not succeed -- see the error above, or try a different ID.")
+            continue
+
+        # STIG: no single-ID fetch exists -- it's a bulk intake+build process.
+        print("  STIG findings come from bulk-imported official STIG packages, not a single-ID fetch.")
+        print("  Import the relevant official STIG .zip/xccdf into execution-plan/tools/stig_intake/")
+        print("  and run: python3 stig_reference_builder.py build")
+        if not _yesno("  Try a different ID now?", True):
+            sys.exit(1)
+
+
+def run_interactive():
+    """Full interactive wizard: resolve a finding, collect the record's
+    context fields, preview and confirm, write it, then offer to loop back
+    for another record without restarting the script."""
+    _print_header("Generate a Variance / Risk-Acceptance Record -- interactive mode")
+    print("Press Enter to accept a default shown in [brackets]. Ctrl-C exits cleanly at any point.\n")
+
+    while True:
+        id_type, finding, lookup_id = interactive_resolve_id()
+
+        title = finding.get("title") or finding.get("cisa_vulnerability_name") or "(no title)"
+        cat = finding.get("cat", "UNKNOWN")
+        print(f"\n  Found: {lookup_id} -- {title}")
+        print(f"  Severity: {cat}\n")
+
+        args = argparse.Namespace(id=lookup_id, reference_db=None)
+        args.asset = _ask("Affected asset/hostname (e.g. WIN11-WKSTN-042)")
+        args.system_scope = _ask("System/enclave scope (e.g. Example Enclave A)")
+        args.detection_method = _ask("Detection method (e.g. Nessus vulnerability scan)")
+        today = datetime.now().strftime("%Y-%m-%d")
+        args.detection_date = _ask("Detection date (YYYY-MM-DD)", today)
+        args.preparer = _ask("Preparer name and role (e.g. J. Smith, ISSO)")
+
+        fmt = _ask("Output format -- md, html, or both", "both").strip().lower()
+        if fmt not in ("md", "html", "both"):
+            print(f"  '{fmt}' not recognized -- using 'both'.")
+            fmt = "both"
+        args.format = fmt
+        args.output_dir = _ask("Output directory", DEFAULT_OUTPUT_DIR)
+
+        ctx = build_context(finding, id_type, args)
+        print("\n  About to generate:")
+        print(f"    Record ID:   {ctx['record_id']}")
+        print(f"    Due date:    {ctx['due_date']} ({ctx['sla_days']}-day SLA for {cat})")
+        print(f"    Accountable: {ctx['raci']['accountable']}")
+        print(f"    Format(s):   {args.format}")
+        print(f"    Output dir:  {args.output_dir}")
+
+        if _yesno("\n  Write this record now?", True):
+            _write_record(finding, id_type, args, ctx)
+        else:
+            print("  Skipped -- nothing written.")
+
+        if not _yesno("\nGenerate another record?", False):
+            break
+
+
+def _write_record(finding, id_type, args, ctx=None):
+    """Render and write the record(s) for one resolved finding, then print
+    the completion summary. Shared by the direct CLI path and the
+    interactive wizard so the two can never drift on what actually gets
+    written to disk."""
+    if ctx is None:
+        ctx = build_context(finding, id_type, args)
+    record_id = ctx["record_id"]
+    cat = ctx["cat"]
+
+    os.makedirs(args.output_dir, exist_ok=True)
+
+    written = []
+    if args.format in ("md", "both"):
+        md_doc = render_variance_record_markdown(finding, id_type, args, ctx)
+        md_path = os.path.join(args.output_dir, f"{record_id}.md")
+        with open(md_path, "w", encoding="utf-8") as f:
+            f.write(md_doc)
+        written.append(md_path)
+
+    if args.format in ("html", "both"):
+        html_doc = render_variance_record_html(finding, id_type, args, ctx)
+        html_path = os.path.join(args.output_dir, f"{record_id}.html")
+        with open(html_path, "w", encoding="utf-8") as f:
+            f.write(html_doc)
+        written.append(html_path)
+
+    print("Generated:")
+    for out_path in written:
+        print(f"  {out_path}")
+    print(f"  ID type:  {id_type}")
+    print(f"  Finding:  {finding.get('title', '')}")
+    print(f"  Severity: {cat}")
+    print(f"  Accountable role for final decision: {RACI_BY_CAT.get(cat, RACI_BY_CAT['CAT III'])['accountable']}")
+    return written
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--id", required=True,
+    parser.add_argument("--id", default=None,
                          help="Finding ID: a STIG Vulnerability ID (e.g. V-253259), a CVE ID "
                               "(e.g. CVE-2021-44228), or a Nessus Plugin ID (e.g. 156327) -- "
-                              "the type is auto-detected from the format")
+                              "the type is auto-detected from the format. Omit this (and every "
+                              "other flag) to launch the interactive wizard instead.")
     parser.add_argument("--asset", default="", help="Affected asset/hostname identifier")
     parser.add_argument("--system-scope", default="", dest="system_scope", help="System/enclave name")
     parser.add_argument("--detection-method", default="", dest="detection_method")
@@ -969,7 +1203,14 @@ def main():
     parser.add_argument("--output-dir", default=DEFAULT_OUTPUT_DIR, dest="output_dir")
     parser.add_argument("--format", default="both", dest="format", choices=["md", "html", "both"],
                          help="Output format(s) to write (default: both)")
+    parser.add_argument("--interactive", "-i", action="store_true",
+                         help="Force the interactive wizard even if --id (and other flags) are "
+                              "also given on the command line")
     args = parser.parse_args()
+
+    if args.interactive or args.id is None:
+        run_interactive()
+        return
 
     id_type = detect_id_type(args.id)
     if id_type is None:
@@ -1007,34 +1248,7 @@ def main():
             print(f"Run: python3 nessus_reference_builder.py fetch --id {args.id}")
         sys.exit(1)
 
-    ctx = build_context(finding, id_type, args)
-    record_id = ctx["record_id"]
-    cat = ctx["cat"]
-
-    os.makedirs(args.output_dir, exist_ok=True)
-
-    written = []
-    if args.format in ("md", "both"):
-        md_doc = render_variance_record_markdown(finding, id_type, args, ctx)
-        md_path = os.path.join(args.output_dir, f"{record_id}.md")
-        with open(md_path, "w", encoding="utf-8") as f:
-            f.write(md_doc)
-        written.append(md_path)
-
-    if args.format in ("html", "both"):
-        html_doc = render_variance_record_html(finding, id_type, args, ctx)
-        html_path = os.path.join(args.output_dir, f"{record_id}.html")
-        with open(html_path, "w", encoding="utf-8") as f:
-            f.write(html_doc)
-        written.append(html_path)
-
-    print("Generated:")
-    for path in written:
-        print(f"  {path}")
-    print(f"  ID type:  {id_type}")
-    print(f"  Finding:  {finding.get('title', '')}")
-    print(f"  Severity: {cat}")
-    print(f"  Accountable role for final decision: {RACI_BY_CAT.get(cat, RACI_BY_CAT['CAT III'])['accountable']}")
+    _write_record(finding, id_type, args)
 
 
 if __name__ == "__main__":

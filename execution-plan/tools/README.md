@@ -174,6 +174,14 @@ The same CVSS-severity-to-CAT mapping and CISA KEV escalation floor described ab
 
 ## Step 2 — Generate a Variance/Risk-Acceptance Record
 
+Run it with no flags (or with `--interactive`/`-i`) for a guided wizard — it prompts for the finding ID (retrying on a bad format, and offering to fetch a missing CVE/Nessus Plugin ID on the spot), then asset/scope/detection/preparer, previews exactly what it's about to write, asks for confirmation, and offers to generate another record without restarting:
+
+```
+python3 generate_variance.py
+```
+
+Or pass every flag up front for a fully scriptable, non-interactive run (identical output either way):
+
 ```
 python3 generate_variance.py \
     --id V-253259 \
@@ -213,7 +221,7 @@ ISSM is a standing reviewer at every tier. Complete Sections 6–7 (actual obser
 |---|---|
 | `start_here.py` | Interactive setup wizard — environment check, optional role assignment, and guided walkthrough of Steps 1–2 below (see [Quickstart wizard](#quickstart-wizard)) |
 | `stig_reference_builder.py` | `fetch-compilation` auto-downloads the current quarterly Library Compilation; `build` bulk-imports official DISA `.zip`/XCCDF documents (single products or the full compilation, nested zips included) into the offline STIG reference database |
-| `generate_variance.py` | Generates one Variance/Risk-Acceptance Record (Markdown + standalone HTML, `--format` to restrict) from a STIG or CVE finding ID + the matching offline reference database |
+| `generate_variance.py` | Generates one Variance/Risk-Acceptance Record (Markdown + standalone HTML, `--format` to restrict) from a STIG or CVE finding ID + the matching offline reference database. Run with no flags, or `--interactive`/`-i`, for a guided wizard instead of passing every flag |
 | `stig_intake/` | Drop zone for official `.zip` packages or extracted `*-xccdf.xml` files |
 | `cve_reference_builder.py` | Fetches/mirrors official NVD CVE metadata into an offline CVE reference database (`fetch`, `fetch-list`, `lookup`, `mirror` [`--source nvd` default, or opt-in `community-bulk`], `mirror-update`) |
 | `cve_intake/` | Drop zone for a text file of CVE IDs, one per line, for `fetch-list` |
