@@ -42,7 +42,7 @@
 | Detection Method | Manual STIG checklist review / Nessus / SCC / OpenSCAP / other *(state tool + version if a scan tool was used)* |
 | Reporting Period | *(the compliance reporting cycle this record belongs to)* |
 | Re-Review Due Date | Per Escalation Matrix severity-based SLA (see `execution-plan/templates/ESCALATION-MATRIX.md`) — CAT I: 30 days; CAT II: 90 days; CAT III: 180 days from Detection Date, unless a longer POA&M milestone is separately approved |
-| Repository Location | `execution-plan/variance-records/<Variance Record ID>.md` |
+| Repository Location | `execution-plan/variance-records/<STIG\|CVE\|Nessus>/<Variance Record ID>.md` (subfolder matches the finding type) |
 
 ## 3. Preconditions
 

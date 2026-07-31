@@ -119,6 +119,11 @@ DEFAULT_NESSUS_DB = os.path.join(os.path.dirname(__file__), "data", "nessus_refe
 DEFAULT_OUTPUT_DIR = os.path.normpath(
     os.path.join(os.path.dirname(__file__), "..", "variance-records")
 )
+# STIG, CVE, and Nessus findings are rendered into separate subfolders under
+# --output-dir rather than one flat directory -- keeps the three finding
+# types easy to browse/route separately once a program has real volume in
+# each. See _write_record(), which joins this onto args.output_dir.
+ID_TYPE_SUBFOLDER = {"STIG": "STIG", "CVE": "CVE", "NESSUS": "Nessus"}
 
 SLA_DAYS_BY_CAT = {"CAT I": 30, "CAT II": 90, "CAT III": 180}
 
@@ -1173,7 +1178,7 @@ def run_interactive():
         print(f"    Due date:    {ctx['due_date']} ({ctx['sla_days']}-day SLA for {cat})")
         print(f"    Accountable: {ctx['raci']['accountable']}")
         print(f"    Format(s):   {args.format}")
-        print(f"    Output dir:  {args.output_dir}")
+        print(f"    Output dir:  {os.path.join(args.output_dir, ID_TYPE_SUBFOLDER[id_type])}")
 
         if _yesno("\n  Write this record now?", True):
             _write_record(finding, id_type, args, ctx)
@@ -1188,25 +1193,31 @@ def _write_record(finding, id_type, args, ctx=None):
     """Render and write the record(s) for one resolved finding, then print
     the completion summary. Shared by the direct CLI path and the
     interactive wizard so the two can never drift on what actually gets
-    written to disk."""
+    written to disk.
+
+    Records land in a per-id_type subfolder under args.output_dir (see
+    ID_TYPE_SUBFOLDER) -- e.g. variance-records/STIG/, .../CVE/,
+    .../Nessus/ -- rather than one shared flat directory, so the three
+    finding types stay easy to browse and route separately."""
     if ctx is None:
         ctx = build_context(finding, id_type, args)
     record_id = ctx["record_id"]
     cat = ctx["cat"]
 
-    os.makedirs(args.output_dir, exist_ok=True)
+    final_dir = os.path.join(args.output_dir, ID_TYPE_SUBFOLDER[id_type])
+    os.makedirs(final_dir, exist_ok=True)
 
     written = []
     if args.format in ("md", "both"):
         md_doc = render_variance_record_markdown(finding, id_type, args, ctx)
-        md_path = os.path.join(args.output_dir, f"{record_id}.md")
+        md_path = os.path.join(final_dir, f"{record_id}.md")
         with open(md_path, "w", encoding="utf-8") as f:
             f.write(md_doc)
         written.append(md_path)
 
     if args.format in ("html", "both"):
         html_doc = render_variance_record_html(finding, id_type, args, ctx)
-        html_path = os.path.join(args.output_dir, f"{record_id}.html")
+        html_path = os.path.join(final_dir, f"{record_id}.html")
         with open(html_path, "w", encoding="utf-8") as f:
             f.write(html_doc)
         written.append(html_path)
@@ -1238,7 +1249,11 @@ def main():
                               "(default: data/stig_reference.json for STIG IDs, "
                               "data/cve_reference.json for CVE IDs, "
                               "data/nessus_reference.json for Nessus Plugin IDs)")
-    parser.add_argument("--output-dir", default=DEFAULT_OUTPUT_DIR, dest="output_dir")
+    parser.add_argument("--output-dir", default=DEFAULT_OUTPUT_DIR, dest="output_dir",
+                         help="Base output directory. The record is written into a subfolder "
+                              "named for its finding type -- <output-dir>/STIG/, .../CVE/, "
+                              ".../Nessus/ -- not directly into this directory "
+                              f"(default: {DEFAULT_OUTPUT_DIR})")
     parser.add_argument("--format", default="both", dest="format", choices=["md", "html", "both"],
                          help="Output format(s) to write (default: both)")
     parser.add_argument("--interactive", "-i", action="store_true",

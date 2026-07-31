@@ -59,7 +59,8 @@ execution-plan/
 │                                       # backup, firmware currency, and HA/failover health — closes the #1 gap
 │                                       # identified in GAP-ANALYSIS.md. No row cites a Control ID.
 ├── GAP-ANALYSIS.md                    # Hand-authored critique of tasking coverage — update by hand, not generated.
-├── variance-records/                  # Output directory: generated Variance/Risk-Acceptance records land here
+├── variance-records/                  # Output directory: generated Variance/Risk-Acceptance records land here,
+│                                       # sorted into STIG/, CVE/, and Nessus/ subfolders by finding type
 │                                       # (.gitkeep only — this directory's contents are typically program-specific
 │                                       #  and should be reviewed before committing any real finding to source control)
 ├── runbooks/                          # Section 6 actionable task runbooks for all 17 JSIG §1.5 roles (complete —

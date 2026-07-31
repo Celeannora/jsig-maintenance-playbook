@@ -32,8 +32,9 @@ An earlier iteration of this tool set planned to parse live scan-tool export fil
    generate_variance.py --id V-253259 --asset ... --preparer ...
             |
             v
-   ../variance-records/VAR-V-253259-<asset>-<date>.md   (source of truth, commit this)
-   ../variance-records/VAR-V-253259-<asset>-<date>.html  (standalone, browser-ready copy)
+   ../variance-records/STIG/VAR-V-253259-<asset>-<date>.md   (source of truth, commit this)
+   ../variance-records/STIG/VAR-V-253259-<asset>-<date>.html  (standalone, browser-ready copy)
+            (CVE and Nessus Plugin ID findings land in ../variance-records/CVE/ and .../Nessus/ instead)
             |
             v
    routed for peer review + severity-tiered sign-off (Section 4/10 of the record)
@@ -194,14 +195,14 @@ python3 generate_variance.py \
     --preparer "J. Smith, ISSO"
 ```
 
-This looks up `V-253259` in the offline database, determines its CAT level, computes the correct SLA due date from `execution-plan/templates/ESCALATION-MATRIX.md`, assigns the correct severity-tiered sign-off chain, and writes filled records to `execution-plan/variance-records/`. By default it writes **both**:
+This looks up `V-253259` in the offline database, determines its CAT level, computes the correct SLA due date from `execution-plan/templates/ESCALATION-MATRIX.md`, assigns the correct severity-tiered sign-off chain, and writes filled records to `execution-plan/variance-records/<STIG|CVE|Nessus>/` — a subfolder named for the finding's identifier type, so STIG, CVE, and Nessus Plugin ID records never share one flat folder. By default it writes **both**:
 
-- `VAR-V-253259-WIN11-WKSTN-042-20260717.md` — Markdown, diff-friendly, the source of truth meant to be committed to the repo.
-- `VAR-V-253259-WIN11-WKSTN-042-20260717.html` — a standalone HTML record with inline CSS and no external assets, so it opens directly in any browser, prints cleanly to PDF, or can be emailed/attached as-is. Official check/fix text, CVE descriptions, and NVD reference links are rendered read-only; a CISA KEV-listed CVE gets a highlighted "Required Action" callout in Section 8.
+- `variance-records/STIG/VAR-V-253259-WIN11-WKSTN-042-20260717.md` — Markdown, diff-friendly, the source of truth meant to be committed to the repo.
+- `variance-records/STIG/VAR-V-253259-WIN11-WKSTN-042-20260717.html` — a standalone HTML record with inline CSS and no external assets, so it opens directly in any browser, prints cleanly to PDF, or can be emailed/attached as-is. Official check/fix text, CVE descriptions, and NVD reference links are rendered read-only; a CISA KEV-listed CVE gets a highlighted "Required Action" callout in Section 8.
 
-Same `--id` flag works for a CVE ID (e.g. `--id CVE-2021-44228`) once it's cached via `cve_reference_builder.py`, or a bare Nessus Plugin ID (e.g. `--id 156327`) once it's cached via `nessus_reference_builder.py` — the identifier format is auto-detected, so no separate flag is needed to switch between a STIG finding, a CVE finding, or a Nessus Plugin ID finding.
+Same `--id` flag works for a CVE ID (e.g. `--id CVE-2021-44228`, written to `variance-records/CVE/`) once it's cached via `cve_reference_builder.py`, or a bare Nessus Plugin ID (e.g. `--id 156327`, written to `variance-records/Nessus/`) once it's cached via `nessus_reference_builder.py` — the identifier format is auto-detected, so no separate flag is needed to switch between a STIG finding, a CVE finding, or a Nessus Plugin ID finding.
 
-Use `--format md` or `--format html` to restrict output to just one format; the default is `both`.
+Use `--format md` or `--format html` to restrict output to just one format; the default is `both`. Use `--output-dir` to change the base directory the `STIG/`/`CVE`/`Nessus/` subfolders are created under (default: `execution-plan/variance-records/`).
 
 Any asset-specific flags you omit are left as explicit `*(fill in)*` prompts in the output — the tool never fabricates asset-specific facts, only official reference content.
 

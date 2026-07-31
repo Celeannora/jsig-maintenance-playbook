@@ -506,7 +506,9 @@ def generate_sample():
     ]
     ok = run_tool(cmd)
     if ok:
-        print(f"\nPractice record written to {VARIANCE_DIR.relative_to(REPO_ROOT)}/ -- open it to see the real,")
+        subfolder = {"STIG": "STIG", "CVE": "CVE", "Nessus Plugin": "Nessus"}[candidate_kind]
+        practice_dir = VARIANCE_DIR.relative_to(REPO_ROOT) / subfolder
+        print(f"\nPractice record written to {practice_dir}/ -- open it to see the real,")
         print("official finding text rendered into the template. Delete it once you're done reviewing:")
         print("variance-records/ is meant for real, reviewed findings, not practice output.")
 

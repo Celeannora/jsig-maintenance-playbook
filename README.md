@@ -81,7 +81,7 @@ flowchart TD
     I --> J{Finding or deviation?}
     J -->|No| K["Record evidence,<br/>mark complete in PROGRESS.md"]
     J -->|"Yes: STIG or CVE ID"| L["Run generate_variance.py --id ID"]
-    L --> M["Variance/Risk-Acceptance record<br/>written to variance-records/"]
+    L --> M["Variance/Risk-Acceptance record<br/>written to variance-records/&lt;STIG|CVE|Nessus&gt;/"]
     M --> N{Severity CAT tier?}
     N -->|CAT I: Critical/High| O[Escalate to AO/DAO]
     N -->|CAT II: Moderate| P[Escalate to ISSM]
