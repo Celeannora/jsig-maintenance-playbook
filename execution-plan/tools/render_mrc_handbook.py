@@ -23,12 +23,17 @@ source-of-truth change upstream.
 Regenerate any time with:
     python3 execution-plan/tools/render_mrc_handbook.py
 
-Produces (gitignored -- see .gitignore -- these are large binary build
-artifacts, not source; share the freshly generated copies, don't commit
-stale binaries):
+Produces:
     execution-plan/mrc-cards/master/MRC-HANDBOOK-MASTER.docx
     execution-plan/mrc-cards/network-infra/MRC-HANDBOOK-NETWORK-INFRA.docx
     execution-plan/mrc-cards/ops/MRC-HANDBOOK-OPS.docx
+
+These .docx files ARE committed to source control as the distributable
+handbook deliverable -- see .gitignore's comment for the rationale. Only the
+.pdf companion (produced separately via `soffice --headless --convert-to
+pdf`) is gitignored, since it is purely a rendered-from-the-.docx artifact.
+After regenerating, re-commit the refreshed .docx -- don't leave a stale
+copy in source control.
 """
 import os
 import re

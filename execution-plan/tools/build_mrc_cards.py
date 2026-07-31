@@ -4,7 +4,12 @@ build_mrc_cards.py
 
 Generates one Maintenance Requirement Card (MRC) -- a self-contained,
 Navy-PMS-style actionable task card -- per Master Calendar task (110 total)
-in execution-plan/mrc-cards/master/MRC-<###>.md, plus an INDEX.md.
+in execution-plan/mrc-cards/master/MRC-<###>.md, plus an INDEX.md. That
+INDEX.md also cross-links the mrc-cards/ops/ (34 cards, from
+build_operational_tasking.py) and mrc-cards/network-infra/ (16 cards, from
+build_network_infra_tasking.py) tables below its own 110-row table, so it
+serves as a single combined 160-card index across all three families --
+each family still keeps its own authoritative INDEX.md as well.
 
 Each card is GENERATED, not hand-authored, from the same sources of truth
 as everything else in execution-plan/:
