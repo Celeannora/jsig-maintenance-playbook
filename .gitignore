@@ -51,3 +51,7 @@ execution-plan/tools/nessus_intake/*
 # deliverable; only the PDF companion stays out of source control. Never hand-edit either --
 # run render_mrc_handbook.py to regenerate the .docx, then soffice to get your own .pdf.
 execution-plan/mrc-cards/*/MRC-HANDBOOK-*.pdf
+
+# Session handoff notes -- local-only status snapshots written between agent sessions to
+# resume work quickly. Never committed; purely a scratch file for continuity.
+status.md
