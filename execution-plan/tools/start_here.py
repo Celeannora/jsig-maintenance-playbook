@@ -48,6 +48,7 @@ nothing here is a one-way door.
 
 import argparse
 import json
+import os
 import shlex
 import subprocess
 import sys
@@ -61,6 +62,7 @@ TOOLS_DIR = Path(__file__).resolve().parent
 REPO_ROOT = TOOLS_DIR.parent.parent
 DATA_DIR = TOOLS_DIR / "data"
 STIG_INTAKE_DIR = TOOLS_DIR / "stig_intake"
+NVD_API_KEY_FILE = DATA_DIR / "nvd_api_key.local.txt"
 VARIANCE_DIR = TOOLS_DIR.parent / "variance-records"
 
 # 17 JSIG Section 1.5 roles, grouped exactly as in playbooks/roles/INDEX.md.
@@ -132,8 +134,14 @@ def print_header(title):
     print("=" * 72)
 
 
-def run_tool(cmd):
-    print(f"\n$ {' '.join(shlex.quote(str(c)) for c in cmd)}")
+def run_tool(cmd, redact=()):
+    """Run a tool subprocess, echoing the command line first. `redact` is an
+    iterable of literal argument values (e.g. an API key) to mask as ***** in
+    the echoed line only -- the real value is still passed to the subprocess.
+    """
+    redact = set(redact)
+    printable = ["*****" if str(c) in redact else str(c) for c in cmd]
+    print(f"\n$ {' '.join(shlex.quote(c) for c in printable)}")
     result = subprocess.run(cmd, cwd=str(REPO_ROOT))
     return result.returncode == 0
 
@@ -295,29 +303,77 @@ def setup_stig():
             print("Skipping for now -- this is expected on a fresh, offline checkout.")
 
 
+def get_or_prompt_nvd_api_key():
+    """Resolve an NVD API key to speed up CVE fetches (5 req/30s -> 50 req/30s,
+    i.e. the full mirror drops from ~20 min to ~2-4 min). Precedence:
+      1. NVD_API_KEY environment variable, if set (never overwritten or persisted here).
+      2. A previously-saved local key at data/nvd_api_key.local.txt (gitignored).
+      3. Interactive prompt, with an offer to save it locally for future runs.
+    Returns the key string, or None if unauthenticated requests should be used.
+    """
+    env_key = os.environ.get("NVD_API_KEY")
+    if env_key:
+        print("Detected NVD_API_KEY in your environment -- using it (50 requests/30s).")
+        return env_key
+
+    if NVD_API_KEY_FILE.exists():
+        saved = NVD_API_KEY_FILE.read_text().strip()
+        if saved:
+            print(f"Using saved NVD API key from {NVD_API_KEY_FILE.relative_to(REPO_ROOT)} (50 requests/30s).")
+            return saved
+
+    print("An NVD API key raises NVD's rate limit from 5 requests/30s to 50 requests/30s --")
+    print("about 6-7x faster for the full mirror (~20 min -> ~3-4 min). Free, instant, no")
+    print("cost: https://nvd.nist.gov/developers/request-an-api-key")
+    key = ask("NVD API key to use now (Enter to skip and stay unauthenticated): ")
+    if not key:
+        return None
+
+    if yesno(f"Save this key locally for future runs ({NVD_API_KEY_FILE.relative_to(REPO_ROOT)}, gitignored)?", True):
+        NVD_API_KEY_FILE.parent.mkdir(parents=True, exist_ok=True)
+        NVD_API_KEY_FILE.write_text(key + "\n")
+        print(f"Saved. Delete {NVD_API_KEY_FILE.relative_to(REPO_ROOT)} anytime to forget it, or set")
+        print("the NVD_API_KEY environment variable instead if you'd rather not store it in a file.")
+    return key
+
+
 def setup_cve():
     print_header("Step 4 of 6 -- CVE reference database (optional)")
     raw = ask("Comma-separated CVE IDs to fetch now, e.g. CVE-2021-44228 (Enter to skip): ")
     if raw:
-        for cve_id in (x.strip() for x in raw.split(",") if x.strip()):
-            ok = run_tool([sys.executable, str(TOOLS_DIR / "cve_reference_builder.py"), "fetch", "--id", cve_id])
+        cve_ids = [x.strip() for x in raw.split(",") if x.strip()]
+        api_key = None
+        if len(cve_ids) > 1:
+            api_key = get_or_prompt_nvd_api_key()
+        for cve_id in cve_ids:
+            cmd = [sys.executable, str(TOOLS_DIR / "cve_reference_builder.py"), "fetch", "--id", cve_id]
+            if api_key:
+                cmd += ["--api-key", api_key]
+            ok = run_tool(cmd, redact=[api_key] if api_key else ())
             if not ok:
                 print(f"  Could not fetch {cve_id} -- check the ID and your network connection, or try again later.")
         return
 
     print("Skipped targeted fetch.")
     print("There's also an opt-in full mirror of the entire NVD catalog (~367,000 records,")
-    print("hundreds of MB, ~20 min unauthenticated) if you'd rather have everything offline")
-    print("instead of looking up CVEs one at a time. It's written to a separate cve_mirror.json")
-    print("so the small, git-friendly cve_reference.json used day to day is untouched.")
+    print("hundreds of MB, ~20 min unauthenticated or ~3-4 min with a free NVD API key) if")
+    print("you'd rather have everything offline instead of looking up CVEs one at a time.")
+    print("It's written to a separate cve_mirror.json so the small, git-friendly")
+    print("cve_reference.json used day to day is untouched.")
     if yesno("Download the full NVD CVE mirror now?", False):
-        ok = run_tool([sys.executable, str(TOOLS_DIR / "cve_reference_builder.py"), "mirror"])
+        api_key = get_or_prompt_nvd_api_key()
+        cmd = [sys.executable, str(TOOLS_DIR / "cve_reference_builder.py"), "mirror"]
+        if api_key:
+            cmd += ["--api-key", api_key]
+        ok = run_tool(cmd, redact=[api_key] if api_key else ())
         if ok:
             print("Mirror saved. Refresh it later any time with:")
-            print("  python3 execution-plan/tools/cve_reference_builder.py mirror-update")
+            print("  python3 execution-plan/tools/cve_reference_builder.py mirror-update" +
+                  (" --api-key <key>" if api_key else ""))
         else:
             print("  Mirror failed partway through -- see the error above for a --start-index to")
-            print("  resume from. Retry with: python3 execution-plan/tools/cve_reference_builder.py mirror")
+            print("  resume from. Retry with: python3 execution-plan/tools/cve_reference_builder.py mirror" +
+                  (" --api-key <key>" if api_key else ""))
     else:
         print("Skipped -- fetch any CVE later with: cve_reference_builder.py fetch --id <ID>")
         print("or build the full mirror any time with: cve_reference_builder.py mirror")

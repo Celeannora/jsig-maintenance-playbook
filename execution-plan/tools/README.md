@@ -53,6 +53,8 @@ python3 start_here.py --skip-roles --skip-cve --skip-nessus  # skip specific ste
 
 It never edits `MAINTENANCE-PLAN.md` and never commits anything to git. Role assignments it collects (Step 2 of 6) are saved only to a local, gitignored file (`data/role_assignments.local.json`) — this repo's scope is unclassified, general-framework reference material, so named/program-specific data never gets committed. Safe to re-run any time; every step is idempotent or additive.
 
+Step 4 (CVE) checks for an `NVD_API_KEY` environment variable first; if none is set, it offers to prompt for one and save it locally (`data/nvd_api_key.local.txt`, gitignored) — an NVD API key is free and raises the rate limit from 5 to 50 requests/30s, which is the difference between a ~20 minute and a ~3-4 minute full mirror. It's only offered when it actually matters (fetching more than one CVE, or the full mirror) — a single targeted `fetch` isn't worth the prompt. The key is masked as `*****` in every echoed command line.
+
 ## Step 1 — Bulk import official STIG documents
 
 You have three official options — pick whichever fits how much you want to import at once:

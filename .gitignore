@@ -17,6 +17,11 @@ execution-plan/tools/data/cve_mirror.json
 # general-framework reference repo (see root README's Scope note). Local-only.
 execution-plan/tools/data/role_assignments.local.json
 
+# NVD API key entered interactively via start_here.py's CVE step -- a personal
+# credential, never committed. Set the NVD_API_KEY environment variable instead
+# if you'd rather not have it touch disk at all.
+execution-plan/tools/data/nvd_api_key.local.txt
+
 # Intake drop-zones are personal, local staging areas -- only the folder
 # structure (.gitkeep) and example files belong in git. Whatever a user
 # drops in locally to build their own STIG/CVE/Nessus reference databases
