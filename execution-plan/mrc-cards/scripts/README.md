@@ -42,3 +42,8 @@ Every script in this folder must follow this shape so an admin unfamiliar with a
 | MRC-OPS-010 | [`MRC-OPS-010.ps1`](MRC-OPS-010.ps1) | [Netlogon/KDC/DNS Server service health check](../ops/MRC-OPS-010.md) |
 | MRC-OPS-011 | [`MRC-OPS-011.ps1`](MRC-OPS-011.ps1) | [Group Policy Object replication and health check](../ops/MRC-OPS-011.md) |
 | MRC-OPS-012 | [`MRC-OPS-012.ps1`](MRC-OPS-012.ps1) | [Active Directory database (ntds.dit) size/health review](../ops/MRC-OPS-012.md) |
+| MRC-OPS-013 | [`MRC-OPS-013.ps1`](MRC-OPS-013.ps1) | [Mailbox database health and whitespace review](../ops/MRC-OPS-013.md) |
+| MRC-OPS-014 | [`MRC-OPS-014.ps1`](MRC-OPS-014.ps1) | [Database Availability Group (DAG) health and failover readiness check](../ops/MRC-OPS-014.md) |
+| MRC-OPS-015 | [`MRC-OPS-015.ps1`](MRC-OPS-015.ps1) | [Mail queue / transport health check (stuck-queue check)](../ops/MRC-OPS-015.md) |
+| MRC-OPS-016 | [`MRC-OPS-016.ps1`](MRC-OPS-016.ps1) | [Exchange/OWA/SMTP certificate expiration monitoring](../ops/MRC-OPS-016.md) |
+| MRC-OPS-017 | [`MRC-OPS-017.ps1`](MRC-OPS-017.ps1) | [Exchange transaction log truncation and disk space check](../ops/MRC-OPS-017.md) |

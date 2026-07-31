@@ -11,7 +11,7 @@ Regenerate this file after upgrading any card's status: edit the `GUIDE_STATUS_O
 | **Stub** | Card follows one of the 8 generic execution patterns (Pattern A-H) from [`runbooks/_EXECUTION-PATTERNS.md`](../runbooks/_EXECUTION-PATTERNS.md) with light task-specific substitution. Procedure steps describe *what* to check and *what* done looks like in tool-agnostic language, but do not name specific screens, commands, or menu paths. **Not yet usable as literal step-by-step instructions for an employee.** |
 | **Guide** | Card has been hand-authored with exact, tool-specific steps an employee can follow literally -- naming the actual product, screen, command, or menu path in the assumed baseline environment (see [`AGENTS.md`](../../AGENTS.md) rule 8: Windows Server/Active Directory, Splunk, Tenable Nessus, Trellix/McAfee ePO). **Usable as-is by an employee performing the task.** |
 
-**Current progress: 12 / 160 cards upgraded to Guide status (148 remaining as Stub).**
+**Current progress: 17 / 160 cards upgraded to Guide status (143 remaining as Stub).**
 
 **Script** column: `Yes` = a runnable PowerShell automation script exists under [`scripts/`](scripts/README.md) for this card; `No` = scriptable in principle but not yet built; `N/A` = inherently manual/judgment task, cannot be scripted (see [`AGENTS.md`](../../AGENTS.md) rule 9).
 
@@ -150,11 +150,11 @@ One card per Operational Tasking Calendar task. Full index: [`ops/INDEX.md`](ops
 | [MRC-OPS-010](ops/MRC-OPS-010.md) | Netlogon/KDC/DNS Server service health check | Active Directory / Domain Controllers | Daily | Pattern A | Guide | Yes |
 | [MRC-OPS-011](ops/MRC-OPS-011.md) | Group Policy Object replication and health check | Active Directory / Domain Controllers | Monthly | Pattern B | Guide | Yes |
 | [MRC-OPS-012](ops/MRC-OPS-012.md) | Active Directory database (ntds.dit) size/health review | Active Directory / Domain Controllers | Quarterly | Pattern B | Guide | Yes |
-| [MRC-OPS-013](ops/MRC-OPS-013.md) | Mailbox database health and whitespace review | Exchange Messaging | Weekly | Pattern B | Stub | No |
-| [MRC-OPS-014](ops/MRC-OPS-014.md) | Database Availability Group (DAG) health and failover readiness check | Exchange Messaging | Daily | Pattern A | Stub | No |
-| [MRC-OPS-015](ops/MRC-OPS-015.md) | Mail queue / transport health check (stuck-queue check) | Exchange Messaging | Daily | Pattern A | Stub | No |
-| [MRC-OPS-016](ops/MRC-OPS-016.md) | Exchange/OWA/SMTP certificate expiration monitoring | Exchange Messaging | Monthly | Pattern B | Stub | No |
-| [MRC-OPS-017](ops/MRC-OPS-017.md) | Exchange transaction log truncation and disk space check | Exchange Messaging | Daily | Pattern A | Stub | No |
+| [MRC-OPS-013](ops/MRC-OPS-013.md) | Mailbox database health and whitespace review | Exchange Messaging | Weekly | Pattern B | Guide | Yes |
+| [MRC-OPS-014](ops/MRC-OPS-014.md) | Database Availability Group (DAG) health and failover readiness check | Exchange Messaging | Daily | Pattern A | Guide | Yes |
+| [MRC-OPS-015](ops/MRC-OPS-015.md) | Mail queue / transport health check (stuck-queue check) | Exchange Messaging | Daily | Pattern A | Guide | Yes |
+| [MRC-OPS-016](ops/MRC-OPS-016.md) | Exchange/OWA/SMTP certificate expiration monitoring | Exchange Messaging | Monthly | Pattern B | Guide | Yes |
+| [MRC-OPS-017](ops/MRC-OPS-017.md) | Exchange transaction log truncation and disk space check | Exchange Messaging | Daily | Pattern A | Guide | Yes |
 | [MRC-OPS-018](ops/MRC-OPS-018.md) | Client access (OWA/ActiveSync) availability check | Exchange Messaging | Daily | Pattern A | Stub | No |
 | [MRC-OPS-019](ops/MRC-OPS-019.md) | Exchange connector and transport rule health review | Exchange Messaging | Monthly | Pattern B | Stub | No |
 | [MRC-OPS-020](ops/MRC-OPS-020.md) | Message tracking log review (mail-flow troubleshooting) | Exchange Messaging | Weekly | Pattern B | Stub | No |

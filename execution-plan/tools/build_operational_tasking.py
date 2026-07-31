@@ -124,6 +124,11 @@ GUIDE_CARDS = {
     10,  # MRC-OPS-010 -- Netlogon/KDC/DNS Server service health check
     11,  # MRC-OPS-011 -- Group Policy Object replication and health check
     12,  # MRC-OPS-012 -- Active Directory database (ntds.dit) size/health review
+    13,  # MRC-OPS-013 -- Mailbox database health and whitespace review
+    14,  # MRC-OPS-014 -- Database Availability Group (DAG) health and failover readiness check
+    15,  # MRC-OPS-015 -- Mail queue / transport health check (stuck-queue check)
+    16,  # MRC-OPS-016 -- Exchange/OWA/SMTP certificate expiration monitoring
+    17,  # MRC-OPS-017 -- Exchange transaction log truncation and disk space check
 }
 
 
