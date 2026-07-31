@@ -116,6 +116,15 @@ DEFAULT_CVE_DB = os.path.join(os.path.dirname(__file__), "data", "cve_reference.
 # doesn't dead-end just because it was never individually `fetch`ed.
 DEFAULT_CVE_MIRROR_DB = os.path.join(os.path.dirname(__file__), "data", "cve_mirror.json")
 DEFAULT_NESSUS_DB = os.path.join(os.path.dirname(__file__), "data", "nessus_reference.json")
+# nessus_reference_builder.py's `import-bulk` command parses a Nessus
+# plugin feed the user obtained themselves (via their own free Nessus
+# Essentials activation code) into this separate local file -- mirrors
+# the CVE mirror pattern above. See _lookup_nessus_in_mirror(). Unlike
+# cve_mirror.json, this is NOT a redistributable public/community mirror
+# -- it only exists locally if the user built it themselves from their
+# own licensed feed download (see execution-plan/tools/README.md for why
+# no open third-party bulk source exists for Nessus, unlike CVE/NVD).
+DEFAULT_NESSUS_MIRROR_DB = os.path.join(os.path.dirname(__file__), "data", "nessus_mirror.json")
 DEFAULT_OUTPUT_DIR = os.path.normpath(
     os.path.join(os.path.dirname(__file__), "..", "variance-records")
 )
@@ -230,6 +239,35 @@ def _lookup_cve_in_mirror(lookup_id):
     return finding
 
 
+def _lookup_nessus_in_mirror(lookup_id):
+    """Fall back to the local nessus_mirror.json corpus (built by
+    `nessus_reference_builder.py import-bulk` from a Nessus plugin feed
+    the user obtained themselves) when a Plugin ID isn't in the small,
+    curated nessus_reference.json that generate_variance.py reads by
+    default. Both files share the exact same {"findings": {...}} schema,
+    so a hit here is a drop-in substitute -- mirrors _lookup_cve_in_mirror()
+    above exactly. Unlike the CVE mirror, this file is never a
+    redistributed public/community mirror -- it only exists if the user
+    ran import-bulk against their own licensed feed download (see
+    execution-plan/tools/README.md for why). Returns the finding dict, or
+    None if the file doesn't exist or doesn't have it."""
+    if not os.path.exists(DEFAULT_NESSUS_MIRROR_DB):
+        return None
+    print(f"  Not in the curated Nessus database -- checking the local bulk import "
+          f"({DEFAULT_NESSUS_MIRROR_DB})...")
+    try:
+        with open(DEFAULT_NESSUS_MIRROR_DB, encoding="utf-8") as f:
+            mirror_db = json.load(f)
+    except (OSError, json.JSONDecodeError) as exc:
+        print(f"  Could not read the local bulk import file: {exc}")
+        return None
+    finding = mirror_db.get("findings", {}).get(lookup_id)
+    if finding:
+        print(f"  Found {lookup_id} in the local bulk import "
+              f"({mirror_db.get('finding_count', 0)} plugins cached there).")
+    return finding
+
+
 def blank(value):
     return value if value else "*(fill in)*"
 
@@ -315,7 +353,10 @@ def build_context(finding, id_type, args):
         official_source_desc = "NVD CVE API 2.0"
     else:
         generated_note_source = "the offline Nessus plugin reference database"
-        official_source_desc = "Tenable Nessus Plugin Detail Page"
+        # Bulk-imported findings (nessus_reference_builder.py import-bulk) set
+        # finding["source"] to BULK_SOURCE_LABEL instead of the live Tenable page --
+        # fall back to the individually-fetched description only when absent.
+        official_source_desc = finding.get("source", "Tenable Nessus Plugin Detail Page")
 
     return {
         "id_value": id_value,
@@ -467,8 +508,15 @@ def _source_citation_md(finding, id_type):
         return (f"Official content sourced from: NVD CVE API 2.0 "
                 f"(https://services.nvd.nist.gov/rest/json/cves/2.0), fetched {finding.get('fetched_at', 'unknown')} "
                 f"into the offline reference database.")
-    return (f"Official content sourced from: Tenable Nessus Plugin Detail Page "
-            f"({finding.get('source_url', 'https://www.tenable.com/plugins/nessus/')}), "
+    source_desc = finding.get("source", "Tenable Nessus Plugin Detail Page")
+    source_url = finding.get("source_url")
+    if source_url:
+        return (f"Official content sourced from: {source_desc} "
+                f"({source_url}), "
+                f"fetched {finding.get('fetched_at', 'unknown')} into the offline reference database.")
+    # Bulk-imported findings (import-bulk) have no live source_url -- omit the
+    # parenthetical rather than rendering a broken "(None)" link.
+    return (f"Official content sourced from: {source_desc}, "
             f"fetched {finding.get('fetched_at', 'unknown')} into the offline reference database.")
 
 
@@ -863,9 +911,15 @@ def _source_citation_html(finding, id_type):
                 f'(<a href="https://services.nvd.nist.gov/rest/json/cves/2.0">'
                 f"https://services.nvd.nist.gov/rest/json/cves/2.0</a>), "
                 f"fetched {esc(finding.get('fetched_at', 'unknown'))} into the offline reference database.")
-    source_url = finding.get('source_url', 'https://www.tenable.com/plugins/nessus/')
-    return (f'Official content sourced from: Tenable Nessus Plugin Detail Page '
-            f'(<a href="{esc(source_url)}">{esc(source_url)}</a>), '
+    source_desc = esc(finding.get("source", "Tenable Nessus Plugin Detail Page"))
+    source_url = finding.get("source_url")
+    if source_url:
+        return (f'Official content sourced from: {source_desc} '
+                f'(<a href="{esc(source_url)}">{esc(source_url)}</a>), '
+                f"fetched {esc(finding.get('fetched_at', 'unknown'))} into the offline reference database.")
+    # Bulk-imported findings (import-bulk) have no live source_url -- omit the
+    # <a href> wrapping rather than linking to "None".
+    return (f'Official content sourced from: {source_desc}, '
             f"fetched {esc(finding.get('fetched_at', 'unknown'))} into the offline reference database.")
 
 
@@ -1103,6 +1157,11 @@ def interactive_resolve_id():
             if finding:
                 return id_type, finding, lookup_id
 
+        if id_type == "NESSUS":
+            finding = _lookup_nessus_in_mirror(lookup_id)
+            if finding:
+                return id_type, finding, lookup_id
+
         print(f"  '{lookup_id}' not found in the offline {id_type} reference database "
               f"({db.get('finding_count', 0)} entries cached).")
 
@@ -1289,6 +1348,9 @@ def main():
     if not finding and id_type == "CVE" and db_path != DEFAULT_CVE_MIRROR_DB:
         finding = _lookup_cve_in_mirror(lookup_id)
         checked_mirror = os.path.exists(DEFAULT_CVE_MIRROR_DB)
+    elif not finding and id_type == "NESSUS" and db_path != DEFAULT_NESSUS_MIRROR_DB:
+        finding = _lookup_nessus_in_mirror(lookup_id)
+        checked_mirror = os.path.exists(DEFAULT_NESSUS_MIRROR_DB)
 
     if not finding:
         if id_type == "STIG":
@@ -1303,9 +1365,13 @@ def main():
                   f"({db.get('finding_count', 0)} CVE(s) cached){mirror_note}.")
             print(f"Run: python3 cve_reference_builder.py fetch --id {args.id}")
         else:
+            mirror_note = " or in the local bulk import (nessus_mirror.json)" if checked_mirror else ""
             print(f"'{args.id}' not found in the offline Nessus plugin reference database "
-                  f"({db.get('finding_count', 0)} plugin(s) cached).")
+                  f"({db.get('finding_count', 0)} plugin(s) cached){mirror_note}.")
             print(f"Run: python3 nessus_reference_builder.py fetch --id {args.id}")
+            if not checked_mirror:
+                print("Or, if you have your own Nessus Essentials plugin feed download, run: "
+                      "python3 nessus_reference_builder.py import-bulk --source all-2.0.tar.gz")
         sys.exit(1)
 
     _write_record(finding, id_type, args)

@@ -12,6 +12,14 @@ __pycache__/
 # execution-plan/tools/data/cve_reference.json (built by fetch/fetch-list) IS committed.
 execution-plan/tools/data/cve_mirror.json
 
+# Local bulk Nessus plugin import (built by nessus_reference_builder.py import-bulk from a
+# plugin feed the user obtained themselves via their own free Nessus Essentials activation
+# code). Unlike cve_mirror.json above, this is NOT a redistributable public mirror -- it is
+# derived from Tenable's licensed plugin content and only exists locally if the user built it
+# themselves from their own feed download. Never committed. The small curated
+# execution-plan/tools/data/nessus_reference.json (built by fetch/fetch-list) IS committed.
+execution-plan/tools/data/nessus_mirror.json
+
 # Role assignments captured by execution-plan/tools/start_here.py -- who holds each
 # JSIG role is program-specific/named data, out of scope for this unclassified,
 # general-framework reference repo (see root README's Scope note). Local-only.

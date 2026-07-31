@@ -35,9 +35,33 @@ page; this tool fails closed (prints an error, fabricates nothing) if the
 expected structure is not found, per this project's standing rule against
 guessing at official content.
 
-There is no public bulk/mirror feed for the full plugin catalog (unlike
-NVD's paginated CVE API), so unlike cve_reference_builder.py, this tool
-has no `mirror`/`mirror-update` mode -- only targeted, per-ID fetches.
+There is no public THIRD-PARTY bulk/mirror feed for the full plugin
+catalog the way there is for CVE/NVD (see execution-plan/tools/README.md's
+"Nessus Plugin ID reference tooling" section for exactly why -- in short,
+NVD is US-government public domain and freely bulk-redistributable, while
+Tenable's plugin text is proprietary vendor content that no legitimate
+third party can legally redistribute in bulk for free). What DOES exist is
+Tenable's own official offline-activation mechanism for its free Nessus
+Essentials tier: sign up for a free activation code, then use that code
+with `nessuscli fetch --challenge` against https://plugins.nessus.org/v2/
+offline.php to download the full plugin feed archive (`all-2.0.tar.gz`)
+yourself, under your own Tenable account/license. This tool's `import-bulk`
+command (see USAGE) parses that already-downloaded archive -- it does NOT
+automate signup, activation, or any part of obtaining the code/feed; you
+must do that yourself, directly with Tenable, first.
+
+IMPORTANT CAVEAT -- the feed is a MIX of file types, and only one kind is
+parseable here: `*.nasl` files ship with readable NASL source text (this
+is what `import-bulk` parses); `*.nbin` files are Tenable-compiled binary
+plugins with no offline-recoverable text (skipped, counted, and reported --
+never decompiled); `*.inc` files are shared include libraries, not
+individual plugins (skipped). Depending on the feed snapshot, a large
+share of modern plugins may ship as `.nbin`, so `import-bulk` coverage is
+partial by nature, not a bug -- use `fetch --id <ID>` for any specific
+plugin `import-bulk` couldn't cover. Also, VPR score and CISA KEV status
+are Tenable-maintained metadata that live on tenable.com, not inside a
+plugin's own `.nasl` text, so bulk-imported entries always leave those two
+fields blank -- `fetch --id` (network) is the only way to get them.
 
 USAGE
 -----
@@ -54,6 +78,17 @@ USAGE
   # Use a non-default cache file or slower/faster request pacing:
   python3 nessus_reference_builder.py fetch --id 156327 \\
       --output /path/to/nessus_reference.json --delay 4
+
+  # Bulk-import a plugin feed YOU already obtained yourself (see the
+  # caveat above) -- accepts either the raw archive or an already-
+  # extracted plugin directory:
+  python3 nessus_reference_builder.py import-bulk --source /path/to/all-2.0.tar.gz
+  python3 nessus_reference_builder.py import-bulk --source /opt/nessus/lib/nessus/plugins
+
+  # Use a non-default output file for the bulk import (kept separate from
+  # nessus_reference.json by default -- see nessus_mirror.json below):
+  python3 nessus_reference_builder.py import-bulk --source all-2.0.tar.gz \\
+      --output /path/to/nessus_mirror.json
 
 OUTPUT FORMAT (nessus_reference.json)
 ------------------------------------
@@ -92,6 +127,19 @@ OUTPUT FORMAT (nessus_reference.json)
   }
 }
 
+OUTPUT FORMAT (nessus_mirror.json, from `import-bulk`)
+-------------------------------------------------------
+Same {"generated_at", "source", "finding_count", "findings": {...}} shape
+as above, so generate_variance.py's Nessus rendering works unchanged on
+either file. Each bulk-imported finding carries the exact same keys as a
+`fetch`-produced one (with "vpr_score", "cisa_kev_listed", and
+"cisa_kev_date_added" always blank/false -- see the caveat above), plus
+two extra informational keys `fetch`-produced entries don't have:
+  "source_file": "<the .nasl filename this entry was parsed from>",
+  "bulk_import_note": "<human-readable reminder of the VPR/KEV gap>"
+generate_variance.py only ever reads known keys via .get(), so these two
+extra keys are informational/for-humans-reading-the-JSON only.
+
 CVSS SEVERITY -> CAT MAPPING, AND KEV ESCALATION FLOOR
 ---------------------------------------------------------
 Uses the SAME mapping cve_reference_builder.py uses -- see
@@ -124,7 +172,10 @@ import argparse
 import json
 import os
 import re
+import shutil
 import sys
+import tarfile
+import tempfile
 import time
 import urllib.error
 import urllib.request
@@ -132,8 +183,20 @@ from datetime import datetime, timezone
 
 PLUGIN_URL_TEMPLATE = "https://www.tenable.com/plugins/nessus/{id}"
 DEFAULT_OUTPUT = os.path.join(os.path.dirname(__file__), "data", "nessus_reference.json")
+# import-bulk's output -- deliberately a DIFFERENT default file than
+# DEFAULT_OUTPUT above (mirrors cve_reference_builder.py's cve_reference.json
+# vs cve_mirror.json split), so a bulk import never silently overwrites
+# individually `fetch`ed, network-sourced entries. generate_variance.py
+# checks this file as a fallback -- see _lookup_nessus_in_mirror() there.
+DEFAULT_MIRROR_OUTPUT = os.path.join(os.path.dirname(__file__), "data", "nessus_mirror.json")
 DEFAULT_INTAKE_LIST = os.path.join(os.path.dirname(__file__), "nessus_intake", "plugin_list.txt")
 SOURCE_LABEL = "Tenable Nessus Plugin Detail Pages (https://www.tenable.com/plugins/nessus/<id>)"
+BULK_SOURCE_LABEL = (
+    "Locally imported Nessus plugin feed (.nasl source files) -- obtained by the user "
+    "themselves via their own free Nessus Essentials activation code and Tenable's official "
+    "offline-update mechanism, then parsed by this tool's import-bulk command. Not fetched "
+    "live from tenable.com and not a redistributed third-party mirror."
+)
 USER_AGENT = "jsig-variance-tooling/1.0 (offline reference cache builder; targeted per-ID lookups only)"
 
 # No official rate limit is published for this page (unlike NVD's 5/30s);
@@ -244,6 +307,316 @@ def parse_tenable_plugin(plugin, plugin_id, source_url):
         "source_url": source_url,
         "fetched_at": datetime.now(timezone.utc).isoformat(),
     }
+
+
+NASL_SCRIPT_ID_RE = re.compile(r"script_id\s*\(\s*(\d+)\s*\)")
+NASL_SCRIPT_NAME_RE = re.compile(r'script_name\s*\(\s*(?:english\s*:\s*)?"((?:[^"\\]|\\.)*)"', re.DOTALL)
+NASL_SCRIPT_FAMILY_RE = re.compile(r'script_family\s*\(\s*(?:english\s*:\s*)?"((?:[^"\\]|\\.)*)"', re.DOTALL)
+NASL_ATTR_RE = re.compile(
+    r'script_set_attribute\s*\(\s*attribute\s*:\s*"([A-Za-z0-9_]+)"\s*,\s*value\s*:\s*"((?:[^"\\]|\\.)*)"',
+    re.DOTALL,
+)
+NASL_CVE_ID_RE = re.compile(r"script_cve_id\s*\(([^)]*)\)", re.DOTALL)
+NASL_XREF_RE = re.compile(
+    r'script_xref\s*\(\s*name\s*:\s*"([^"]+)"\s*,\s*value\s*:\s*"((?:[^"\\]|\\.)*)"',
+    re.DOTALL,
+)
+# Older plugins publish CVSS via a direct function call rather than a
+# script_set_attribute(...) pair -- script_set_cvss_base_vector(...) for
+# CVSS v2, script_set_cvss3_base_vector(...) for CVSS v3. _select_cvss_from_nasl
+# below checks both forms.
+NASL_CVSS_FUNC_RE = re.compile(r'script_set_cvss(\d*)_base_vector\s*\(\s*"([^"]*)"')
+NASL_ESCAPE_RE = re.compile(r"\\(.)")
+
+
+def _nasl_unescape(s):
+    """Undo simple backslash escaping in an extracted .nasl string literal
+    (\\" -> ", \\n -> newline, \\t -> tab, \\\\ -> backslash; any other
+    escaped character is passed through with the backslash dropped)."""
+    if s is None:
+        return s
+    mapping = {"n": "\n", "t": "\t", '"': '"', "\\": "\\"}
+    return NASL_ESCAPE_RE.sub(lambda m: mapping.get(m.group(1), m.group(1)), s)
+
+
+def _parse_nasl_attributes(text):
+    """Collect every script_set_attribute(attribute:"...", value:"...")
+    pair in a plugin's .nasl text into {attribute_name: [value, ...]} --
+    a list per name because some attributes (e.g. see_also) legitimately
+    repeat across multiple calls in the same plugin."""
+    attrs = {}
+    for name, raw_value in NASL_ATTR_RE.findall(text):
+        attrs.setdefault(name, []).append(_nasl_unescape(raw_value))
+    return attrs
+
+
+def _select_cvss_from_nasl(attrs, text):
+    """Best-effort CVSS extraction from a .nasl plugin's text. Modern
+    plugins publish CVSS via script_set_attribute(attribute:"cvss3_vector"
+    |"cvss3_base_score", ...) (or the CVSS2-era "cvss_vector"/
+    "cvss_base_score" attribute names); older plugins instead call
+    script_set_cvss_base_vector("CVSS2#...") / script_set_cvss3_base_vector
+    ("CVSS:3.0/...") directly. This checks both forms and prefers CVSS v3
+    over v2. Unlike parse_tenable_plugin() (which reads Tenable's own
+    precomputed base score straight off the live page), this offline
+    parser does NOT compute a numeric score from a bare vector string --
+    if only a vector is present with no separate score attribute/value,
+    cvss_base_score is left None rather than guessing at one."""
+
+    def _num(v):
+        try:
+            return float(v)
+        except (TypeError, ValueError):
+            return None
+
+    v3_score = _num((attrs.get("cvss3_base_score") or [None])[0])
+    v3_vector = (attrs.get("cvss3_vector") or [None])[0]
+    v2_score = _num((attrs.get("cvss_base_score") or [None])[0])
+    v2_vector = (attrs.get("cvss_vector") or [None])[0]
+
+    for version_digits, raw_vector in NASL_CVSS_FUNC_RE.findall(text):
+        if version_digits == "3" and not v3_vector:
+            v3_vector = raw_vector
+        elif version_digits in ("", "2") and not v2_vector:
+            v2_vector = raw_vector
+
+    if v3_vector or v3_score is not None:
+        severity = _severity_from_score(v3_score, is_v2=False) if v3_score is not None else None
+        return "3.x", v3_vector, v3_score, severity
+    if v2_vector or v2_score is not None:
+        severity = _severity_from_score(v2_score, is_v2=True) if v2_score is not None else None
+        return "2.0", v2_vector, v2_score, severity
+    return None, None, None, None
+
+
+def parse_nasl_text(text, source_filename):
+    """Parse ONE plugin's already-read .nasl source text into this tool's
+    standard finding-metadata dict (same shape parse_tenable_plugin()
+    produces, so generate_variance.py's Nessus rendering works unchanged
+    on either source). Returns (finding_dict, None) on success, or
+    (None, reason_str) if this doesn't look like an individual plugin --
+    fails closed rather than fabricating a record from a file that
+    doesn't match the expected structure (e.g. a mis-suffixed include
+    file with no script_id() at all).
+
+    KNOWN, DOCUMENTED GAP: VPR score and CISA Known Exploited
+    Vulnerabilities (KEV) status are metadata Tenable computes and
+    maintains on tenable.com -- they are NOT stored inside a plugin's own
+    .nasl script text, so every finding this function produces leaves
+    vpr_score/cisa_kev_listed/cisa_kev_date_added blank/false. Run
+    `fetch --id <ID>` (network) against Tenable's live page instead if
+    that status matters for a specific plugin."""
+    id_match = NASL_SCRIPT_ID_RE.search(text)
+    if not id_match:
+        return None, "no script_id(...) found -- not an individual plugin script"
+    plugin_id = id_match.group(1)
+
+    name_match = NASL_SCRIPT_NAME_RE.search(text)
+    title = _nasl_unescape(name_match.group(1)) if name_match else ""
+
+    family_match = NASL_SCRIPT_FAMILY_RE.search(text)
+    family = _nasl_unescape(family_match.group(1)) if family_match else ""
+
+    attrs = _parse_nasl_attributes(text)
+
+    def first(name, default=None):
+        vals = attrs.get(name)
+        return vals[0] if vals else default
+
+    synopsis = first("synopsis", "")
+    description = "\n".join(attrs.get("description", [])) or first("description", "")
+    solution = first("solution", "")
+    see_also = list(dict.fromkeys(attrs.get("see_also", [])))
+
+    cve_refs = []
+    cve_match = NASL_CVE_ID_RE.search(text)
+    if cve_match:
+        for piece in cve_match.group(1).split(","):
+            piece = piece.strip().strip('"').strip("'")
+            if piece:
+                cve_refs.append(piece)
+    cve_refs = list(dict.fromkeys(cve_refs))
+
+    other_refs = [
+        {"id_type": id_type, "id": _nasl_unescape(ref_id)}
+        for id_type, ref_id in NASL_XREF_RE.findall(text)
+    ]
+
+    version, vector, score, severity = _select_cvss_from_nasl(attrs, text)
+
+    risk_factor_raw = first("risk_factor")
+    if severity is None and risk_factor_raw:
+        risk_map = {"critical": "CRITICAL", "high": "HIGH", "medium": "MEDIUM", "low": "LOW"}
+        severity = risk_map.get(risk_factor_raw.strip().lower())
+
+    base_cat = CVSS_SEVERITY_TO_CAT.get(severity, "CAT I")  # fail closed if unscored
+
+    if severity and score is not None:
+        cat_basis = "CVSS Base Severity (see ESCALATION-MATRIX.md Section 1a)"
+    elif severity:
+        cat_basis = (
+            f"Tenable risk_factor attribute ('{risk_factor_raw}') used as fallback severity -- "
+            f"no CVSS score published in this plugin's local .nasl text "
+            f"(see ESCALATION-MATRIX.md Section 1a)"
+        )
+    else:
+        cat_basis = (
+            "No CVSS score or risk_factor published in this plugin's local .nasl text -- "
+            "CAT I provisional, fails closed (see ESCALATION-MATRIX.md Section 1a)"
+        )
+
+    exploit_available_raw = (first("exploit_available") or "").strip().lower()
+
+    return {
+        "plugin_id": plugin_id,
+        "title": title,
+        "family": family,
+        "synopsis": synopsis,
+        "description": description,
+        "solution": solution,
+        "see_also": see_also,
+        "cve_refs": cve_refs,
+        "other_refs": other_refs,
+        "cvss_version": version,
+        "cvss_vector": vector,
+        "cvss_base_score": score,
+        "cvss_base_severity": severity or "UNSCORED",
+        "cat": base_cat,
+        "cat_basis": cat_basis,
+        "vpr_score": None,
+        "risk_factor": risk_factor_raw,
+        "exploit_available": exploit_available_raw == "true",
+        "plugin_publication_date": first("plugin_publication_date"),
+        "plugin_modification_date": first("plugin_modification_date"),
+        "cisa_kev_listed": False,
+        "cisa_kev_date_added": None,
+        "source": BULK_SOURCE_LABEL,
+        "source_url": None,
+        "source_file": source_filename,
+        "bulk_import_note": (
+            "Imported from a locally obtained Nessus plugin feed (.nasl source text), not "
+            "fetched live from tenable.com. VPR score and CISA KEV status are Tenable-maintained "
+            "and are NOT present in the plugin's own script text, so they are always blank here -- "
+            f"run 'nessus_reference_builder.py fetch --id {plugin_id}' (network) or check the "
+            "official CISA KEV catalog directly if that status matters for this finding."
+        ),
+        "fetched_at": datetime.now(timezone.utc).isoformat(),
+    }, None
+
+
+def _safe_extract_tar(tar, dest_dir):
+    """Extract a tar archive while refusing any member whose resolved path
+    would land outside dest_dir (defends against a maliciously crafted
+    archive using '../' path traversal in member names) -- stdlib-only,
+    no dependency on Python-version-specific tarfile extraction filters."""
+    dest_real = os.path.realpath(dest_dir)
+    for member in tar.getmembers():
+        member_path = os.path.realpath(os.path.join(dest_dir, member.name))
+        if not (member_path == dest_real or member_path.startswith(dest_real + os.sep)):
+            raise RuntimeError(f"Refusing to extract unsafe archive member path: {member.name}")
+    tar.extractall(dest_dir)
+
+
+def cmd_import_bulk(args):
+    """Walk an extracted Nessus plugin feed directory (or a .tar.gz/.tgz
+    of one, auto-extracted to a temp dir that's cleaned up afterward) and
+    parse every readable .nasl plugin into a local bulk-import file,
+    skipping compiled .nbin plugins (their text isn't recoverable
+    offline) and .inc include libraries (shared code, not individual
+    plugins) -- see the module docstring for how to legitimately obtain
+    this feed yourself, and why the split exists."""
+    source = args.source
+    tmp_extract_dir = None
+    try:
+        if os.path.isfile(source):
+            if not (source.endswith(".tar.gz") or source.endswith(".tgz")):
+                print(f"'{source}' is a file but not a .tar.gz/.tgz archive -- pass the already-"
+                      f"extracted plugin directory instead, or point --source at the real "
+                      f"all-2.0.tar.gz you downloaded from Tenable.")
+                sys.exit(1)
+            print(f"Extracting {source} ...")
+            tmp_extract_dir = tempfile.mkdtemp(prefix="nessus-feed-")
+            try:
+                with tarfile.open(source, "r:gz") as tf:
+                    _safe_extract_tar(tf, tmp_extract_dir)
+            except (tarfile.TarError, RuntimeError) as exc:
+                print(f"Could not extract {source}: {exc}")
+                sys.exit(1)
+            plugin_dir = tmp_extract_dir
+        elif os.path.isdir(source):
+            plugin_dir = source
+        else:
+            print(f"No such file or directory: {source}")
+            sys.exit(1)
+
+        nasl_files, nbin_count, inc_count = [], 0, 0
+        for root, _dirs, files in os.walk(plugin_dir):
+            for fname in files:
+                lower = fname.lower()
+                if lower.endswith(".nasl"):
+                    nasl_files.append(os.path.join(root, fname))
+                elif lower.endswith(".nbin"):
+                    nbin_count += 1
+                elif lower.endswith(".inc"):
+                    inc_count += 1
+
+        if not nasl_files:
+            print(f"No .nasl files found under {plugin_dir}.")
+            if nbin_count:
+                print(f"Found {nbin_count} compiled .nbin plugin(s) instead -- their text is not "
+                      f"available offline (see this tool's module docstring for why). Use "
+                      f"'fetch --id <ID>' to pull a specific one from Tenable's public page instead.")
+            sys.exit(1)
+
+        db = load_db(args.output)
+        db["source"] = BULK_SOURCE_LABEL
+        parsed, skipped = 0, []
+        for i, path in enumerate(nasl_files):
+            if i == 0 or (i + 1) % 2000 == 0 or i == len(nasl_files) - 1:
+                print(f"  [{i + 1}/{len(nasl_files)}] parsing {os.path.basename(path)} ...")
+            try:
+                with open(path, encoding="utf-8", errors="replace") as f:
+                    text = f.read()
+            except OSError as exc:
+                skipped.append((os.path.basename(path), str(exc)))
+                continue
+            finding, err = parse_nasl_text(text, os.path.basename(path))
+            if finding is None:
+                skipped.append((os.path.basename(path), err))
+                continue
+            db["findings"][finding["plugin_id"]] = finding
+            parsed += 1
+
+        # Write directly rather than via save_db() -- save_db() stamps a
+        # fixed SOURCE_LABEL (the per-ID fetch's source description), but
+        # this file's provenance is BULK_SOURCE_LABEL instead.
+        db["generated_at"] = datetime.now(timezone.utc).isoformat()
+        db["source"] = BULK_SOURCE_LABEL
+        db["finding_count"] = len(db["findings"])
+        os.makedirs(os.path.dirname(args.output), exist_ok=True)
+        with open(args.output, "w", encoding="utf-8") as f:
+            json.dump(db, f, indent=2, ensure_ascii=False)
+
+        print(f"\nParsed {parsed}/{len(nasl_files)} readable .nasl plugin(s) -> {args.output}")
+        print(f"  Skipped {nbin_count} compiled .nbin plugin(s) -- their text is not available "
+              f"offline (see this tool's module docstring for why). Use 'fetch --id <ID>' for any "
+              f"specific one you need.")
+        print(f"  Skipped {inc_count} .inc include file(s) -- shared library code, not individual "
+              f"plugins.")
+        if skipped:
+            print(f"  {len(skipped)} .nasl file(s) did not parse as an individual plugin and were "
+                  f"skipped:")
+            for fname, reason in skipped[:10]:
+                print(f"    - {fname}: {reason}")
+            if len(skipped) > 10:
+                print(f"    ... and {len(skipped) - 10} more.")
+        print(f"\nNOTE: VPR score and CISA KEV status are Tenable-maintained metadata, not stored "
+              f"in a plugin's own .nasl text -- every entry imported this way has those fields "
+              f"blank. Use 'fetch --id <ID>' (network) for a specific plugin if that status "
+              f"matters, or check the official CISA KEV catalog directly.")
+    finally:
+        if tmp_extract_dir:
+            shutil.rmtree(tmp_extract_dir, ignore_errors=True)
 
 
 def _extract_next_data(html_text):
@@ -421,6 +794,24 @@ def main():
     lookup_p.add_argument("--id", required=True, help="Nessus Plugin ID, e.g. 156327")
     lookup_p.add_argument("--output", **common_output)
 
+    import_bulk_p = sub.add_parser(
+        "import-bulk",
+        help="Bulk-import a Nessus plugin feed YOU already obtained yourself (readable .nasl "
+             "plugins only -- see module docstring) into a local mirror file",
+    )
+    import_bulk_p.add_argument(
+        "--source", required=True,
+        help="Path to either the downloaded all-2.0.tar.gz plugin feed archive, or an "
+             "already-extracted Nessus plugins directory (e.g. /opt/nessus/lib/nessus/plugins)",
+    )
+    import_bulk_p.add_argument(
+        "--output", default=DEFAULT_MIRROR_OUTPUT,
+        help=f"Path to the local bulk-import file (default: {DEFAULT_MIRROR_OUTPUT}). Kept "
+             f"separate from nessus_reference.json so a bulk import never overwrites "
+             f"individually fetch()ed, network-sourced entries -- generate_variance.py checks "
+             f"both.",
+    )
+
     args = parser.parse_args()
 
     if args.command == "fetch":
@@ -429,6 +820,8 @@ def main():
         cmd_fetch_list(args)
     elif args.command == "lookup":
         sys.exit(cmd_lookup(args))
+    elif args.command == "import-bulk":
+        cmd_import_bulk(args)
 
 
 if __name__ == "__main__":

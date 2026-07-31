@@ -158,7 +158,7 @@ CVSS severity is mapped to CAT level (CRITICAL/HIGH -> CAT I, MEDIUM -> CAT II, 
 
 A Nessus scan report's *primary* identifier for every finding is a numeric **Plugin ID** (e.g. `156327`) — the CVE(s) a plugin cites, if any, are secondary metadata on that plugin, and many plugins (local version checks, informational checks, misconfigurations) cite no CVE at all. `nessus_reference_builder.py` builds the offline reference database for this identifier type, fetching authoritative plugin metadata (title, family, synopsis, description, solution/fix text, CVSS score/vector, related CVE IDs, VPR score, CISA KEV status) from Tenable's public [plugin detail pages](https://www.tenable.com/plugins) — no login or API key required.
 
-Unlike the CVE side, there is no public bulk/mirror feed for the full plugin catalog, so there is only one workflow (targeted, per-ID):
+Unlike the CVE side, there is no public bulk/mirror feed for the full plugin catalog (see [Why there's no CVE-style community mirror for Nessus](#why-theres-no-cve-style-community-mirror-for-nessus) below for why), so the everyday workflow is targeted, per-ID:
 
 ```
 # One plugin:
@@ -174,6 +174,40 @@ python3 nessus_reference_builder.py lookup --id 156327
 This writes to `data/nessus_reference.json` by default. Re-running `fetch`/`fetch-list` for an ID already cached refreshes it with Tenable's latest plugin text (plugins are periodically revised as Tenable improves detection logic or updates references).
 
 The same CVSS-severity-to-CAT mapping and CISA KEV escalation floor described above apply here too (see `execution-plan/templates/ESCALATION-MATRIX.md` Sections 1a and 6) — a plugin's own CVSS v3 score/vector is preferred over v2 when both are published, and KEV status is read from Tenable's own `cisaKnownExploitedDate`/`on_cisa_kev` fields. Unlike NVD, Tenable's plugin page does not republish CISA's verbatim required-action text, so a KEV-listed plugin's generated record points the preparer to the CVE-keyed record (via `cve_reference_builder.py`, if the plugin cites a CVE) or the official [CISA KEV catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) directly, rather than fabricating that text.
+
+### Why there's no CVE-style community mirror for Nessus
+
+NVD's CVE catalog is U.S. government public-domain data, which is exactly why community projects like [fkie-cad/nvd-json-data-feeds](https://github.com/fkie-cad/nvd-json-data-feeds) (see `--source community-bulk` above) are free to legally redistribute a full bulk re-packaging of it. Tenable's Nessus plugin catalog is different: the plugins themselves (the `.nasl`/`.nbin` detection logic, not just the metadata) are Tenable's proprietary, licensed content, gated behind either a paid subscription or a free **Nessus Essentials** activation code. There is no public-domain or NVD-equivalent "official" bulk source for the plugin catalog, and no known open community project maintains a redistributed mirror of it (unlike CVE/NVD) — doing so would mean redistributing Tenable's licensed content, which this tool deliberately does not attempt.
+
+What a user *can* legitimately do is obtain their own copy of the full plugin feed under their own free Nessus Essentials license, using Tenable's own official offline-activation mechanism:
+
+1. Sign up for a free [Nessus Essentials](https://www.tenable.com/products/nessus/nessus-essentials) activation code (Tenable's own registration flow — not something this tool automates).
+2. On a machine with Nessus installed, run `nessuscli fetch --challenge` to generate a challenge code.
+3. Submit that challenge code plus your Activation Code at Tenable's offline-update page (`https://plugins.nessus.org/v2/offline.php`, sometimes reached via `/offline.php`), which returns a download URL for `all-2.0.tar.gz` (Tenable's full plugin feed archive).
+4. Download that archive (or use an already-`nessuscli fetch`-updated plugins directory, e.g. `/opt/nessus/lib/nessus/plugins` on Linux, `/Library/Nessus/run/lib/nessus/plugins` on macOS, `C:\ProgramData\Tenable\Nessus\nessus\plugins` on Windows).
+
+This tool does **not** perform steps 1–3 for you (that would mean handling Tenable license credentials on the user's behalf, which is out of scope) — it only consumes the resulting feed once you already have it locally.
+
+### Bulk import from your own Nessus Essentials feed (`import-bulk`)
+
+Once you have a plugin feed archive or extracted directory (see above), import it into a local, separate mirror file:
+
+```
+# From the downloaded archive:
+python3 nessus_reference_builder.py import-bulk --source all-2.0.tar.gz
+
+# Or from an already-extracted/updated plugins directory:
+python3 nessus_reference_builder.py import-bulk --source /opt/nessus/lib/nessus/plugins
+```
+
+This writes to a **separate** file, `data/nessus_mirror.json`, by default — mirroring the CVE side's curated-file-vs-mirror-file split, it is `.gitignore`d and never committed, since it's built from the user's own licensed download rather than a redistributable public dataset. `generate_variance.py` reads the curated `nessus_reference.json` first, but if a Plugin ID isn't there it automatically falls back to checking `data/nessus_mirror.json` (same schema, so a hit there is a drop-in substitute) before reporting it as not found — exactly like the CVE mirror fallback described above.
+
+**Known, deliberate limitations of this import path** (all documented in-tool and per-record via each entry's `bulk_import_note` field):
+
+- **Only `.nasl` (plain-text) plugins are parsed.** Tenable also ships compiled `.nbin` plugins in the same feed — their detection logic is not published as readable source, so this tool cannot extract metadata from them and skips them with a reported count (falling back to a live `fetch --id <ID>` is the option for any specific `.nbin`-only plugin you need). `.inc` files (shared include libraries, not individual plugins) are skipped too.
+- **VPR score and CISA KEV status are always left blank** for bulk-imported entries. Both are metadata Tenable computes and maintains on tenable.com's own infrastructure — they are not stored inside a plugin's own `.nasl` script text, so there is no way to derive them offline. If either matters for a specific finding, run `fetch --id <ID>` (network) against that one plugin, or check the official [CISA KEV catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) directly.
+- **CVSS extraction never computes a score from a bare vector.** Some older plugins publish only a CVSS vector string with no separately-stated base score; this parser leaves `cvss_base_score` as `null` in that case rather than calculating one, to avoid presenting a fabricated number as if Tenable had published it. If no CVSS data is published at all, the plugin's own `risk_factor` attribute (Critical/High/Medium/Low) is used as a severity proxy for CAT mapping instead (recorded per-record via a `cat_basis` field so the provenance of the severity call stays auditable); if even that's absent, the finding fails closed to CAT I provisional, matching this tool's existing CVSS-unscored convention.
+- **`source_url` is `null`** for every bulk-imported entry, since there is no individual live Tenable page URL behind a locally parsed `.nasl` file — the generated variance record's source citation omits the link rather than rendering a broken one.
 
 ## Step 2 — Generate a Variance/Risk-Acceptance Record
 
