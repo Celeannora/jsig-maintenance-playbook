@@ -298,18 +298,29 @@ def setup_stig():
 def setup_cve():
     print_header("Step 4 of 6 -- CVE reference database (optional)")
     raw = ask("Comma-separated CVE IDs to fetch now, e.g. CVE-2021-44228 (Enter to skip): ")
-    if not raw:
-        print("Skipped -- fetch any CVE later with: cve_reference_builder.py fetch --id <ID>")
-        print("Want the full NVD catalog instead of targeted lookups? There's an opt-in")
-        print("full-mirror mode (~367,000 records, hundreds of MB, written to a separate")
-        print("cve_mirror.json so the small curated cache stays git-friendly):")
-        print("  python3 execution-plan/tools/cve_reference_builder.py mirror")
-        print("  python3 execution-plan/tools/cve_reference_builder.py mirror-update   # refresh later")
+    if raw:
+        for cve_id in (x.strip() for x in raw.split(",") if x.strip()):
+            ok = run_tool([sys.executable, str(TOOLS_DIR / "cve_reference_builder.py"), "fetch", "--id", cve_id])
+            if not ok:
+                print(f"  Could not fetch {cve_id} -- check the ID and your network connection, or try again later.")
         return
-    for cve_id in (x.strip() for x in raw.split(",") if x.strip()):
-        ok = run_tool([sys.executable, str(TOOLS_DIR / "cve_reference_builder.py"), "fetch", "--id", cve_id])
-        if not ok:
-            print(f"  Could not fetch {cve_id} -- check the ID and your network connection, or try again later.")
+
+    print("Skipped targeted fetch.")
+    print("There's also an opt-in full mirror of the entire NVD catalog (~367,000 records,")
+    print("hundreds of MB, ~20 min unauthenticated) if you'd rather have everything offline")
+    print("instead of looking up CVEs one at a time. It's written to a separate cve_mirror.json")
+    print("so the small, git-friendly cve_reference.json used day to day is untouched.")
+    if yesno("Download the full NVD CVE mirror now?", False):
+        ok = run_tool([sys.executable, str(TOOLS_DIR / "cve_reference_builder.py"), "mirror"])
+        if ok:
+            print("Mirror saved. Refresh it later any time with:")
+            print("  python3 execution-plan/tools/cve_reference_builder.py mirror-update")
+        else:
+            print("  Mirror failed partway through -- see the error above for a --start-index to")
+            print("  resume from. Retry with: python3 execution-plan/tools/cve_reference_builder.py mirror")
+    else:
+        print("Skipped -- fetch any CVE later with: cve_reference_builder.py fetch --id <ID>")
+        print("or build the full mirror any time with: cve_reference_builder.py mirror")
 
 
 def setup_nessus():
