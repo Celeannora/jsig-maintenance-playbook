@@ -253,7 +253,7 @@ def main():
         "tasks name that role as Accountable, Responsible/Executing, Consulted, or Informed. Roles with all "
         "zeros are not tied to a specific recurring operational task in the Master Calendar but still hold "
         "their JSIG \u00a71.5 duties (governance, oversight, authorization) described in "
-        "[references/JSIG-source/section-1.5-roles-and-responsibilities.md](../references/JSIG-source/section-1.5-roles-and-responsibilities.md) "
+        "[reference/JSIG-source/section-1.5-roles-and-responsibilities.md](../reference/JSIG-source/section-1.5-roles-and-responsibilities.md) "
         "and their role playbook.\n"
     )
     lines.append("| JSIG \u00a71.5 Role | Accountable (# tasks) | Responsible/Executing (# tasks) | Consulted (# tasks) | Informed (# tasks) |")

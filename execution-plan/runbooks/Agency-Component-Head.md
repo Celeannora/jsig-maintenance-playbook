@@ -1,6 +1,6 @@
 # Agency/Component Head — Actionable Task Runbook
 
-The Agency/Component Head is the DoD SAP Component Head defined in [JSIG §1.5.1](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md), sitting at the top of the org hierarchy above the Authorizing Official (AO), Risk Executive Function (REF), and CIO per [playbooks/roles/Agency-Component-Head.md](../../playbooks/roles/Agency-Component-Head.md). Executes 0 Master Calendar tasks directly, is Accountable for 0, Consulted on 0, Informed on 0 — see [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md) Part B for the full rollup.
+The Agency/Component Head is the DoD SAP Component Head defined in [JSIG §1.5.1](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md), sitting at the top of the org hierarchy above the Authorizing Official (AO), Risk Executive Function (REF), and CIO per [playbooks/roles/Agency-Component-Head.md](../../playbooks/roles/Agency-Component-Head.md). Executes 0 Master Calendar tasks directly, is Accountable for 0, Consulted on 0, Informed on 0 — see [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md) Part B for the full rollup.
 
 For the real verbatim JSIG title behind any Control ID cited in this runbook, see [CONTROL-LANGUAGE-CROSSWALK.md](../CONTROL-LANGUAGE-CROSSWALK.md), which reconciles every Control ID in the Master Calendar against the full verbatim JSIG family extractions.
 
@@ -10,15 +10,15 @@ The Component Head bears ultimate responsibility for mission accomplishment and 
 
 ## 2. Task Index
 
-This role has **0 executing** and **0 accountable** Master Calendar tasks per [role_task_index.json](../tools/data/role_task_index.json) — it holds no recurring, calendar-driven operational task in the 110-task Master Calendar. Its function is entirely event-driven governance/appointment authority that anchors the control structure without performing hands-on control work itself. The following table lists its JSIG-cited event-driven governance actions, drawn from [playbooks/roles/Agency-Component-Head.md](../../playbooks/roles/Agency-Component-Head.md) and [JSIG §1.5.1](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md), each using Pattern H (Governance/Authorization Decision):
+This role has **0 executing** and **0 accountable** Master Calendar tasks per [role_task_index.json](../tools/data/role_task_index.json) — it holds no recurring, calendar-driven operational task in the 110-task Master Calendar. Its function is entirely event-driven governance/appointment authority that anchors the control structure without performing hands-on control work itself. The following table lists its JSIG-cited event-driven governance actions, drawn from [playbooks/roles/Agency-Component-Head.md](../../playbooks/roles/Agency-Component-Head.md) and [JSIG §1.5.1](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md), each using Pattern H (Governance/Authorization Decision):
 
 | # | Governance Action | JSIG Citation | Trigger | Pattern |
 |---|---|---|---|---|
-| 1 | Appoint an AO for every DoD IS/PIT system under purview | [JSIG §1.5.1](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md) | New system stood up, or existing AO appointment lapses/turns over | H |
-| 2 | Establish in writing the component's SAP senior authorizing official (DoD-level SAP cybersecurity strategy/policy/investment lead) | [JSIG §1.5.1](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md) | New component stand-up, or incumbent senior authorizing official departs/changes | H |
-| 3 | Render non-tailorable-control waiver decisions (through the designated senior authorizing official, the only authorized waiver authority) | [JSIG §1.5.1](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md) | A program submits a waiver request for a non-tailorable control | H |
-| 4 | Confirm DoD SAP systems under purview are authorized per DoDM 5205.07-V1 and the JSIG before operation | [JSIG §1.5.1](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md) | Prior to any new system's operational start, or upon reauthorization | H |
-| 5 | Set component-wide risk-management/resourcing priorities enabling element- and Community-wide mission accomplishment | [JSIG §1.5.1](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md) | Annual planning cycle, or a significant mission/resourcing change | H |
+| 1 | Appoint an AO for every DoD IS/PIT system under purview | [JSIG §1.5.1](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md) | New system stood up, or existing AO appointment lapses/turns over | H |
+| 2 | Establish in writing the component's SAP senior authorizing official (DoD-level SAP cybersecurity strategy/policy/investment lead) | [JSIG §1.5.1](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md) | New component stand-up, or incumbent senior authorizing official departs/changes | H |
+| 3 | Render non-tailorable-control waiver decisions (through the designated senior authorizing official, the only authorized waiver authority) | [JSIG §1.5.1](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md) | A program submits a waiver request for a non-tailorable control | H |
+| 4 | Confirm DoD SAP systems under purview are authorized per DoDM 5205.07-V1 and the JSIG before operation | [JSIG §1.5.1](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md) | Prior to any new system's operational start, or upon reauthorization | H |
+| 5 | Set component-wide risk-management/resourcing priorities enabling element- and Community-wide mission accomplishment | [JSIG §1.5.1](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md) | Annual planning cycle, or a significant mission/resourcing change | H |
 
 ## 3. Preconditions
 
@@ -58,5 +58,5 @@ This role follows the Standard Sections 6–10 (Validation, Evidence Package, Fi
 - [playbooks/roles/Agency-Component-Head.md](../../playbooks/roles/Agency-Component-Head.md)
 - [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md)
 - [execution-plan/ROLE-CROSSWALK.md](../ROLE-CROSSWALK.md)
-- [references/JSIG-source/section-1.5-roles-and-responsibilities.md § 1.5.1](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md)
+- [reference/JSIG-source/section-1.5-roles-and-responsibilities.md § 1.5.1](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md)
 - [MAINTENANCE-PLAN.md §4](../../MAINTENANCE-PLAN.md)

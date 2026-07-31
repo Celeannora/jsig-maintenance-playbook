@@ -1,5 +1,5 @@
 import pplx_sdk, os, json
-RD='/home/user/workspace/jsig-reference-scaffold/research/_intermediate'
+RD='/home/user/workspace/jsig-reference-scaffold/reference/research/_intermediate'
 os.makedirs(RD, exist_ok=True)
 urls = [
 'https://www.dcsa.mil/portals/91/documents/ctp/nao/JSIG_2016April11_Final_(53Rev4).pdf',

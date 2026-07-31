@@ -1,6 +1,6 @@
 # Audit Artifact / Runbook Template — Canonical 10-Section Scaffold
 
-> **What this is:** the single standardized structure every recurring task runbook and every proof-of-completion record in this execution plan must follow. It is derived from published runbook, audit-evidence, and RACI conventions — NIST SP 800-53A (Examine/Interview/Test assessment methods), NIST SP 800-37 (accountability), FedRAMP POA&M/ConMon templates, IRS Pub 1075 audit-trail field requirements, DCSA SAP RMF checklist conventions, and standard SRE/runbook structure (Google SRE, AWS Well-Architected, PagerDuty, ServiceNow) — consolidated in `research/operational-runbook-and-artifact-standards.md`. Full citations are preserved there; do not re-derive this structure differently elsewhere in the repo.
+> **What this is:** the single standardized structure every recurring task runbook and every proof-of-completion record in this execution plan must follow. It is derived from published runbook, audit-evidence, and RACI conventions — NIST SP 800-53A (Examine/Interview/Test assessment methods), NIST SP 800-37 (accountability), FedRAMP POA&M/ConMon templates, IRS Pub 1075 audit-trail field requirements, DCSA SAP RMF checklist conventions, and standard SRE/runbook structure (Google SRE, AWS Well-Architected, PagerDuty, ServiceNow) — consolidated in `reference/research/operational-runbook-and-artifact-standards.md`. Full citations are preserved there; do not re-derive this structure differently elsewhere in the repo.
 >
 > Every task-specific runbook in `execution-plan/runbooks/<Role>.md` fills in these 10 sections for its own task. The `execution-plan/templates/VARIANCE-RISK-ACCEPTANCE-TEMPLATE.md` is a severity-scoped specialization of this same scaffold for STIG-finding risk decisions specifically — same bones, tuned fields.
 >
@@ -121,7 +121,7 @@ Numbered, one action per step. Each step states an expected result, a capture in
 
 ---
 
-**Sources for this scaffold** (see `research/operational-runbook-and-artifact-standards.md` for full context):
+**Sources for this scaffold** (see `reference/research/operational-runbook-and-artifact-standards.md` for full context):
 - NIST SP 800-53A Rev. 5, assessment methods and objects: https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53Ar5.pdf
 - NIST SP 800-37 Rev. 2, Risk Management Framework accountability model: https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-37r2.pdf
 - FedRAMP POA&M Template: https://www.fedramp.gov/resources/templates/FedRAMP-POAM-Template.xlsx

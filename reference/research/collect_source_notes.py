@@ -1,7 +1,7 @@
 import json, os
 import pplx_sdk
 
-outdir='/home/user/workspace/jsig-reference-scaffold/research/source_notes'
+outdir='/home/user/workspace/jsig-reference-scaffold/reference/research/source_notes'
 os.makedirs(outdir, exist_ok=True)
 urls=[
  'https://sre.google/workbook/on-call/',

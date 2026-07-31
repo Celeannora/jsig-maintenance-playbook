@@ -1,6 +1,6 @@
 # JSIG Control Families Index
 
-**Superseded for JSIG-specific text:** the per-family "requires manual ODP verification" status below is resolved. The full verbatim JSIG family text (real ODP values, DoD SAP-specific supplemental guidance) now lives in [`references/JSIG-source/chapter-3-*-family.md`](../../../references/JSIG-source/) -- use it instead of the files linked below wherever JSIG-specific (not NIST-generic) text is needed. See [EXTRACTION-LIMITATIONS.md](../appendices/EXTRACTION-LIMITATIONS.md) for the full status.
+**Superseded for JSIG-specific text:** the per-family "requires manual ODP verification" status below is resolved. The full verbatim JSIG family text (real ODP values, DoD SAP-specific supplemental guidance) now lives in [`reference/JSIG-source/chapter-3-*-family.md`](../../../reference/JSIG-source/) -- use it instead of the files linked below wherever JSIG-specific (not NIST-generic) text is needed. See [EXTRACTION-LIMITATIONS.md](../appendices/EXTRACTION-LIMITATIONS.md) for the full status.
 
 This index lists every family and control count extracted from the JSIG table of contents. [JSIG PDF](https://www.dcsa.mil/portals/91/documents/ctp/nao/JSIG_2016April11_Final_(53Rev4).pdf)
 | Code | Family | Controls | JSIG start page | Extraction status |

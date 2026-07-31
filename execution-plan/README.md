@@ -1,6 +1,6 @@
 # Execution Plan — Master Onboarding Guide
 
-This folder turns the repository's reference material ([`reference/JSIG/`](../reference/JSIG/), [`references/JSIG-source/`](../references/JSIG-source/)) and planning document ([`MAINTENANCE-PLAN.md`](../MAINTENANCE-PLAN.md)) into **actionable, generate-and-use tooling** for running a JSIG-governed SAP program day to day: who is accountable for what, how a finding becomes a documented and signed-off variance record, when something escalates and to whom, and what evidence an auditor should expect to see. Read this file first if you are new to `execution-plan/` — it tells you what each piece is for and which command to run for the task in front of you.
+This folder turns the repository's reference material ([`reference/JSIG/`](../reference/JSIG/), [`reference/JSIG-source/`](../reference/JSIG-source/)) and planning document ([`MAINTENANCE-PLAN.md`](../MAINTENANCE-PLAN.md)) into **actionable, generate-and-use tooling** for running a JSIG-governed SAP program day to day: who is accountable for what, how a finding becomes a documented and signed-off variance record, when something escalates and to whom, and what evidence an auditor should expect to see. Read this file first if you are new to `execution-plan/` — it tells you what each piece is for and which command to run for the task in front of you.
 
 **Everything here is offline, generate-don't-hand-author, and fails closed.** Structured tables (RACI matrix, reference databases) are produced by scripts from source-of-truth files, not typed by hand, so they can be regenerated and never silently drift. The tools never fabricate finding text, never silently downgrade a severity, and exit non-zero rather than produce a record they cannot fully back with real data. See [Design principles](#design-principles) below.
 
@@ -35,7 +35,7 @@ execution-plan/
 │   │                                   # source every runbooks/<Role>.md Task Index is built from), each task
 │   │                                   # enriched with a control_titles field resolved via control_title_index.json
 │   ├── build_control_title_index.py   # Regenerates data/control_title_index.json from the full verbatim JSIG
-│   │                                   # family extractions (../references/JSIG-source/chapter-3-*-family.md)
+│   │                                   # family extractions (../reference/JSIG-source/chapter-3-*-family.md)
 │   ├── build_control_language_crosswalk.py  # Regenerates ../CONTROL-LANGUAGE-CROSSWALK.md
 │   ├── build_mrc_cards.py             # Regenerates mrc-cards/master/ (all 110 Maintenance Requirement Cards + INDEX.md, which also indexes ops/ and network-infra/ -- 160 cards total)
 │   ├── build_operational_tasking.py   # Regenerates ../OPERATIONAL-TASKING.md + mrc-cards/ops/ (34 tasks + INDEX.md)
@@ -139,7 +139,7 @@ The tool fails closed (non-zero exit, no file written) if the ID format isn't re
 
 ### 3a. Regenerate the control-language crosswalk after editing a family extraction file
 
-If `references/JSIG-source/chapter-3-*-family.md` changes (e.g. a correction), re-run in order:
+If `reference/JSIG-source/chapter-3-*-family.md` changes (e.g. a correction), re-run in order:
 
 ```bash
 python3 execution-plan/tools/build_control_title_index.py       # rebuilds data/control_title_index.json

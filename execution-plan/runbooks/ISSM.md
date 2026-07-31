@@ -1,6 +1,6 @@
 # Information System Security Manager (ISSM) — Actionable Task Runbook
 
-The ISSM is the principal advisor on all matters, technical and otherwise, involving the security of information systems under their purview, per [JSIG §1.5.14](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md), sitting between the AO/DAO governance tier and the ISSO's day-to-day execution tier per [playbooks/roles/ISSM.md](../../playbooks/roles/ISSM.md). Executes 30 Master Calendar tasks directly, is Accountable for 77, Consulted on 39, Informed on 20 — see [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md) Part B for the full rollup. This is the heaviest role in the Master Calendar by combined executing + accountable volume.
+The ISSM is the principal advisor on all matters, technical and otherwise, involving the security of information systems under their purview, per [JSIG §1.5.14](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md), sitting between the AO/DAO governance tier and the ISSO's day-to-day execution tier per [playbooks/roles/ISSM.md](../../playbooks/roles/ISSM.md). Executes 30 Master Calendar tasks directly, is Accountable for 77, Consulted on 39, Informed on 20 — see [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md) Part B for the full rollup. This is the heaviest role in the Master Calendar by combined executing + accountable volume.
 
 For the real verbatim JSIG title behind any Control ID cited in this runbook, see [CONTROL-LANGUAGE-CROSSWALK.md](../CONTROL-LANGUAGE-CROSSWALK.md), which reconciles every Control ID in the Master Calendar against the full verbatim JSIG family extractions.
 
@@ -156,13 +156,13 @@ The ISSM's RACI footprint — 30 executing, 77 accountable, 39 consulted, 20 inf
 - Pattern E — the document is the organization's auditable-events list; review against current threat/regulatory changes since the last cycle.
 
 ### Task #87: Review/update System Security Plan (SSP)
-- Pattern E — the document is the SSP; route to the AO for approval per its own sign-off requirement, consistent with [JSIG §1.5.14(k)](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md)'s documentation-repository duty.
+- Pattern E — the document is the SSP; route to the AO for approval per its own sign-off requirement, consistent with [JSIG §1.5.14(k)](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md)'s documentation-repository duty.
 
 ### Task #88: Review Rules of Behavior acknowledgment
 - Pattern B — the list is the current signed Rules of Behavior acknowledgment roster, compared against the active-user population.
 
 ### Task #89: Review external system service provider compliance
-- Pattern B — the list is the set of external/interconnected system agreements; coordinate with the PSO per [JSIG §1.5.14(c)](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md) on any new or lapsed agreement found.
+- Pattern B — the list is the set of external/interconnected system agreements; coordinate with the PSO per [JSIG §1.5.14(c)](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md) on any new or lapsed agreement found.
 
 ### Task #91: Review security categorization
 - Pattern E — the document is the system's security categorization determination; reassess against current mission/data-sensitivity changes.
@@ -191,7 +191,7 @@ This role follows the Standard Sections 6–10 (Validation, Evidence Package, Fi
 - [playbooks/roles/ISSM.md](../../playbooks/roles/ISSM.md)
 - [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md)
 - [execution-plan/ROLE-CROSSWALK.md](../ROLE-CROSSWALK.md)
-- [references/JSIG-source/section-1.5-roles-and-responsibilities.md § 1.5.14](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md)
+- [reference/JSIG-source/section-1.5-roles-and-responsibilities.md § 1.5.14](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md)
 - [execution-plan/templates/ESCALATION-MATRIX.md](../templates/ESCALATION-MATRIX.md)
 - [execution-plan/templates/VARIANCE-RISK-ACCEPTANCE-TEMPLATE.md](../templates/VARIANCE-RISK-ACCEPTANCE-TEMPLATE.md)
 - [MAINTENANCE-PLAN.md §4](../../MAINTENANCE-PLAN.md)

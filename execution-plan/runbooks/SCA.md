@@ -1,6 +1,6 @@
 # Security Control Assessor (SCA) — Actionable Task Runbook
 
-The SCA is the independent-assessment role defined in [JSIG §1.5.7](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md), appointed in writing by the AO and operating under the AO's direction, per [playbooks/roles/SCA.md](../../playbooks/roles/SCA.md). Executes 3 Master Calendar tasks directly, is Accountable for 3, Consulted on 5, Informed on 0 — see [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md) Part B for the full rollup.
+The SCA is the independent-assessment role defined in [JSIG §1.5.7](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md), appointed in writing by the AO and operating under the AO's direction, per [playbooks/roles/SCA.md](../../playbooks/roles/SCA.md). Executes 3 Master Calendar tasks directly, is Accountable for 3, Consulted on 5, Informed on 0 — see [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md) Part B for the full rollup.
 
 For the real verbatim JSIG title behind any Control ID cited in this runbook, see [CONTROL-LANGUAGE-CROSSWALK.md](../CONTROL-LANGUAGE-CROSSWALK.md), which reconciles every Control ID in the Master Calendar against the full verbatim JSIG family extractions.
 
@@ -30,12 +30,12 @@ Per [role_task_index.json](../tools/data/role_task_index.json), all 3 of the SCA
 
 ## 4. RACI Position Summary
 
-The SCA both executes and is Accountable for all 3 of its Master Calendar tasks — the independent control assessment, penetration testing, and the multi-year full-coverage assessment requirement — meaning it is its own sign-off authority for this work rather than routing to a separate approver, consistent with its role as the *independent* assessor. On these 3 tasks the ISSM is Consulted and the AO/DAO is Informed, per [role_task_index.json](../tools/data/role_task_index.json): the ISSM's operational familiarity is sought before the SCA finalizes results, but the SCA's assessment must remain independent of ISSM/operational influence on the underlying finding. The SCA is also Consulted on 5 tasks it does not execute (vulnerability scanning, scanner signature updates, organizational risk-assessment reassessment, security-categorization review, and technical surveillance countermeasures survey) — all RA-family inputs that feed the SCA's own threat/vulnerability evaluation duty under [JSIG §1.5.7(b)](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md) even though the SCA does not perform them directly. Per [execution-plan/ROLE-CROSSWALK.md](../ROLE-CROSSWALK.md), the "SCA / SCAR" operational title maps directly to this role with no delegation ambiguity; where an ISSM or AO designee performs a delegated assessment on the SCA's behalf, results still route back to the SCA for further action rather than closing independently.
+The SCA both executes and is Accountable for all 3 of its Master Calendar tasks — the independent control assessment, penetration testing, and the multi-year full-coverage assessment requirement — meaning it is its own sign-off authority for this work rather than routing to a separate approver, consistent with its role as the *independent* assessor. On these 3 tasks the ISSM is Consulted and the AO/DAO is Informed, per [role_task_index.json](../tools/data/role_task_index.json): the ISSM's operational familiarity is sought before the SCA finalizes results, but the SCA's assessment must remain independent of ISSM/operational influence on the underlying finding. The SCA is also Consulted on 5 tasks it does not execute (vulnerability scanning, scanner signature updates, organizational risk-assessment reassessment, security-categorization review, and technical surveillance countermeasures survey) — all RA-family inputs that feed the SCA's own threat/vulnerability evaluation duty under [JSIG §1.5.7(b)](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md) even though the SCA does not perform them directly. Per [execution-plan/ROLE-CROSSWALK.md](../ROLE-CROSSWALK.md), the "SCA / SCAR" operational title maps directly to this role with no delegation ambiguity; where an ISSM or AO designee performs a delegated assessment on the SCA's behalf, results still route back to the SCA for further action rather than closing independently.
 
 ## 5. Execution Procedures
 
 ### Task #74: Perform independent security control assessment
-- Pattern D (per [_EXECUTION-PATTERNS.md](_EXECUTION-PATTERNS.md)) — test plan is the current approved Security Assessment Plan (SSP + SCTM + assessment procedures per [JSIG §1.5.7(c)](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md)); the after-action deliverable is the Security Assessment Report (SAR) with a recommended authorization decision submitted to the AO.
+- Pattern D (per [_EXECUTION-PATTERNS.md](_EXECUTION-PATTERNS.md)) — test plan is the current approved Security Assessment Plan (SSP + SCTM + assessment procedures per [JSIG §1.5.7(c)](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md)); the after-action deliverable is the Security Assessment Report (SAR) with a recommended authorization decision submitted to the AO.
 
 ### Task #75: Perform penetration testing
 - Pattern D — test plan is the current approved penetration-test rules of engagement; the after-action deliverable feeds the SAR alongside Task #74's control-assessment results.
@@ -45,14 +45,14 @@ The SCA both executes and is Accountable for all 3 of its Master Calendar tasks 
 
 ## 6. Standard Validation, Evidence, Findings, Escalation, and Closure
 
-This role follows the Standard Sections 6–10 (Validation, Evidence Package, Findings and Exceptions, Remediation and Escalation, Closure) defined in [_EXECUTION-PATTERNS.md](_EXECUTION-PATTERNS.md) for every task above. Role-specific delta: the SCA is the author of the Security Assessment Report and the party that ensures the POA&M reflects SAR findings and suspense dates per [JSIG §1.5.7(f)](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md), but the SCA is never itself the terminal Approver on the resulting CAT-rated findings — those still route through [ESCALATION-MATRIX.md](../templates/ESCALATION-MATRIX.md) and [VARIANCE-RISK-ACCEPTANCE-TEMPLATE.md](../templates/VARIANCE-RISK-ACCEPTANCE-TEMPLATE.md) §4 to the AO/DAO (CAT I), ISSM (CAT II), or ISSO (CAT III) for accept/reject sign-off.
+This role follows the Standard Sections 6–10 (Validation, Evidence Package, Findings and Exceptions, Remediation and Escalation, Closure) defined in [_EXECUTION-PATTERNS.md](_EXECUTION-PATTERNS.md) for every task above. Role-specific delta: the SCA is the author of the Security Assessment Report and the party that ensures the POA&M reflects SAR findings and suspense dates per [JSIG §1.5.7(f)](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md), but the SCA is never itself the terminal Approver on the resulting CAT-rated findings — those still route through [ESCALATION-MATRIX.md](../templates/ESCALATION-MATRIX.md) and [VARIANCE-RISK-ACCEPTANCE-TEMPLATE.md](../templates/VARIANCE-RISK-ACCEPTANCE-TEMPLATE.md) §4 to the AO/DAO (CAT I), ISSM (CAT II), or ISSO (CAT III) for accept/reject sign-off.
 
 ## Sources
 
 - [playbooks/roles/SCA.md](../../playbooks/roles/SCA.md)
 - [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md)
 - [execution-plan/ROLE-CROSSWALK.md](../ROLE-CROSSWALK.md)
-- [references/JSIG-source/section-1.5-roles-and-responsibilities.md § 1.5.7](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md)
+- [reference/JSIG-source/section-1.5-roles-and-responsibilities.md § 1.5.7](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md)
 - [execution-plan/templates/ESCALATION-MATRIX.md](../templates/ESCALATION-MATRIX.md)
 - [execution-plan/templates/VARIANCE-RISK-ACCEPTANCE-TEMPLATE.md](../templates/VARIANCE-RISK-ACCEPTANCE-TEMPLATE.md)
 - [MAINTENANCE-PLAN.md §4](../../MAINTENANCE-PLAN.md)

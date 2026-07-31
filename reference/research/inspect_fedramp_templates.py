@@ -6,7 +6,7 @@ urls={
  'sap':'https://www.fedramp.gov/resources/templates/FedRAMP-Security-Assessment-Plan-(SAP)-Template.docx',
  'ssp':'https://www.fedramp.gov/resources/templates/FedRAMP-SSP-Moderate-Baseline-Template.docx'
 }
-out=Path('/home/user/workspace/jsig-reference-scaffold/research/source_notes/downloads')
+out=Path('/home/user/workspace/jsig-reference-scaffold/reference/research/source_notes/downloads')
 out.mkdir(parents=True, exist_ok=True)
 summary={}
 for k,u in urls.items():
@@ -29,5 +29,5 @@ for k,u in urls.items():
                         likely.append((i,row))
                 sheets[ws.title]={'max_row':ws.max_row,'max_col':ws.max_column,'sample_rows':rows,'likely_header_rows':likely[:5]}
             summary[k]['sheets']=sheets
-Path('/home/user/workspace/jsig-reference-scaffold/research/source_notes/fedramp_template_inspection.json').write_text(json.dumps(summary,indent=2))
+Path('/home/user/workspace/jsig-reference-scaffold/reference/research/source_notes/fedramp_template_inspection.json').write_text(json.dumps(summary,indent=2))
 print(json.dumps(summary,indent=2)[:10000])

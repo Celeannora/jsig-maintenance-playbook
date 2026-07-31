@@ -1,5 +1,5 @@
 {
-  "generated_by": "research/_research_scripts/build_sources_ledger.py",
+  "generated_by": "reference/research/_research_scripts/build_sources_ledger.py",
   "total_unique_urls": 294,
   "cited_in_deliverables_count": 61,
   "surfaced_only_count": 233,
@@ -9,13 +9,13 @@
       "url": "https://advisera.com/27001academy/blog/2018/11/05/raci-matrix-for-iso-27001-implementation-project/",
       "domain": "advisera.com",
       "cited_in_deliverables": [
-        "research/operational-runbook-and-artifact-standards.md"
+        "reference/research/operational-runbook-and-artifact-standards.md"
       ],
       "anchor_text": [
         "Advisera ISO 27001 RACI guidance"
       ],
       "surfaced_in_research": [
-        "research/source_notes/raci_notes.json"
+        "reference/research/source_notes/raci_notes.json"
       ],
       "research_titles": [
         "ISO 27001 RACI matrix | How to use it for implementation? - Advisera"
@@ -26,13 +26,13 @@
       "url": "https://www.atlassian.com/incident-management/incident-response/how-to-create-an-incident-response-playbook",
       "domain": "atlassian.com",
       "cited_in_deliverables": [
-        "research/operational-runbook-and-artifact-standards.md"
+        "reference/research/operational-runbook-and-artifact-standards.md"
       ],
       "anchor_text": [
         "Atlassian incident response playbook guidance"
       ],
       "surfaced_in_research": [
-        "research/source_notes/fetched_source_notes.json"
+        "reference/research/source_notes/fetched_source_notes.json"
       ],
       "research_titles": [
         "How to create an incident response playbook"
@@ -130,13 +130,13 @@
       "domain": "dcsa.mil",
       "cited_in_deliverables": [
         "execution-plan/templates/ESCALATION-MATRIX.md",
-        "research/operational-runbook-and-artifact-standards.md"
+        "reference/research/operational-runbook-and-artifact-standards.md"
       ],
       "anchor_text": [
         "DCSA DoD SAP PM Handbook"
       ],
       "surfaced_in_research": [
-        "research/source_notes/fetched_source_notes.json"
+        "reference/research/source_notes/fetched_source_notes.json"
       ],
       "research_titles": [
         "Program Manager's Handbook JSIG-RMF"
@@ -147,13 +147,13 @@
       "url": "https://www.dcsa.mil/Portals/91/Documents/CTP/special/SAP_RMF_Checklist_17Nov2017.docx",
       "domain": "dcsa.mil",
       "cited_in_deliverables": [
-        "research/operational-runbook-and-artifact-standards.md"
+        "reference/research/operational-runbook-and-artifact-standards.md"
       ],
       "anchor_text": [
         "DCSA SAP RMF Checklist"
       ],
       "surfaced_in_research": [
-        "research/source_notes/fetched_source_notes.json"
+        "reference/research/source_notes/fetched_source_notes.json"
       ],
       "research_titles": [
         "SAP RMF Checklist"
@@ -202,8 +202,8 @@
         "reference/JSIG/control-families/SI.md",
         "reference/JSIG/control-families/TR.md",
         "reference/JSIG/control-families/UL.md",
-        "references/JSIG-source/section-1.5-roles-and-responsibilities.md",
-        "research/operational-maintenance-schedules-research.md"
+        "reference/JSIG-source/section-1.5-roles-and-responsibilities.md",
+        "reference/research/operational-maintenance-schedules-research.md"
       ],
       "anchor_text": [
         "DCSA JSIG 2016",
@@ -223,13 +223,13 @@
       "url": "https://dl.dod.cyber.mil/wp-content/uploads/stigs/pdf/U_STIG_Viewer_3-x_User_Guide_V1R5.pdf",
       "domain": "dl.dod.cyber.mil",
       "cited_in_deliverables": [
-        "research/operational-runbook-and-artifact-standards.md"
+        "reference/research/operational-runbook-and-artifact-standards.md"
       ],
       "anchor_text": [
         "DISA STIG Viewer 3.x User Guide"
       ],
       "surfaced_in_research": [
-        "research/source_notes/fetched_source_notes.json"
+        "reference/research/source_notes/fetched_source_notes.json"
       ],
       "research_titles": [
         "[PDF] STIG Viewer 3.x User Guide - DoD Cyber Exchange"
@@ -240,13 +240,13 @@
       "url": "https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/ops_ready_to_support_use_runbooks.html",
       "domain": "docs.aws.amazon.com",
       "cited_in_deliverables": [
-        "research/operational-runbook-and-artifact-standards.md"
+        "reference/research/operational-runbook-and-artifact-standards.md"
       ],
       "anchor_text": [
         "AWS Well-Architected Operational Excellence"
       ],
       "surfaced_in_research": [
-        "research/source_notes/fetched_source_notes.json"
+        "reference/research/source_notes/fetched_source_notes.json"
       ],
       "research_titles": [
         "OPS07-BP03 Use runbooks to perform procedures - Operational Excellence Pillar"
@@ -257,13 +257,13 @@
       "url": "https://dodcio.defense.gov/Portals/0/Documents/Library/DoDCIO-ContinuousAuthorizationImplementationGuide.pdf",
       "domain": "dodcio.defense.gov",
       "cited_in_deliverables": [
-        "research/operational-runbook-and-artifact-standards.md"
+        "reference/research/operational-runbook-and-artifact-standards.md"
       ],
       "anchor_text": [
         "DoD CIO Continuous Authorization Implementation Guide"
       ],
       "surfaced_in_research": [
-        "research/source_notes/fetched_source_notes.json"
+        "reference/research/source_notes/fetched_source_notes.json"
       ],
       "research_titles": [
         "DevSecOps Continuous Authorization Implementation Guide"
@@ -275,7 +275,7 @@
       "domain": "dodcio.defense.gov",
       "cited_in_deliverables": [
         "MAINTENANCE-PLAN.md",
-        "research/operational-maintenance-schedules-research.md"
+        "reference/research/operational-maintenance-schedules-research.md"
       ],
       "anchor_text": [
         "DoD Cybersecurity Discipline Implementation Plan"
@@ -288,13 +288,13 @@
       "url": "https://www.esd.whs.mil/Portals/54/Documents/DD/issuances/dodi/851001p.pdf",
       "domain": "esd.whs.mil",
       "cited_in_deliverables": [
-        "research/operational-runbook-and-artifact-standards.md"
+        "reference/research/operational-runbook-and-artifact-standards.md"
       ],
       "anchor_text": [
         "DoDI 8510.01"
       ],
       "surfaced_in_research": [
-        "research/source_notes/fetched_source_notes.json"
+        "reference/research/source_notes/fetched_source_notes.json"
       ],
       "research_titles": [
         "DoDI 8510.01, \"Risk Management Framework for DoD ..."
@@ -305,13 +305,13 @@
       "url": "https://www.fedramp.gov/resources/documents/CSP_POAM_Template_Completion_Guide.pdf",
       "domain": "fedramp.gov",
       "cited_in_deliverables": [
-        "research/operational-runbook-and-artifact-standards.md"
+        "reference/research/operational-runbook-and-artifact-standards.md"
       ],
       "anchor_text": [
         "FedRAMP POA&M Completion Guide"
       ],
       "surfaced_in_research": [
-        "research/source_notes/fetched_source_notes.json"
+        "reference/research/source_notes/fetched_source_notes.json"
       ],
       "research_titles": [
         "[PDF] FedRAMP Plan of Actions and Milestones (POA&M) Template ..."
@@ -323,18 +323,18 @@
       "domain": "fedramp.gov",
       "cited_in_deliverables": [
         "MAINTENANCE-PLAN.md",
-        "research/operational-maintenance-schedules-research.md",
-        "research/operational-runbook-and-artifact-standards.md"
+        "reference/research/operational-maintenance-schedules-research.md",
+        "reference/research/operational-runbook-and-artifact-standards.md"
       ],
       "anchor_text": [
         "FedRAMP Continuous Monitoring Playbook",
         "research compilation"
       ],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl",
-        "research/_intermediate/02_fetched_cadence_extracts.jsonl",
-        "research/_intermediate/03_targeted_search_results.jsonl",
-        "research/source_notes/fetched_source_notes.json"
+        "reference/research/_intermediate/01_web_search_results.jsonl",
+        "reference/research/_intermediate/02_fetched_cadence_extracts.jsonl",
+        "reference/research/_intermediate/03_targeted_search_results.jsonl",
+        "reference/research/source_notes/fetched_source_notes.json"
       ],
       "research_titles": [
         "FedRAMP\u00ae Continuous Monitoring Playbook"
@@ -345,14 +345,14 @@
       "url": "https://www.fedramp.gov/resources/documents/rev4/REV_4_FedRAMP-SSP-Moderate-Baseline-Template.docx",
       "domain": "fedramp.gov",
       "cited_in_deliverables": [
-        "research/operational-runbook-and-artifact-standards.md"
+        "reference/research/operational-runbook-and-artifact-standards.md"
       ],
       "anchor_text": [
         "FedRAMP SSP Moderate Baseline Template"
       ],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl",
-        "research/source_notes/raci_notes.json"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl",
+        "reference/research/source_notes/raci_notes.json"
       ],
       "research_titles": [
         "REV_4_FedRAMP-SSP-Moderate-Baseline-Template.docx"
@@ -363,16 +363,16 @@
       "url": "https://www.fedramp.gov/resources/templates/FedRAMP-Continuous-Monitoring-Deliverables-Template.xlsx",
       "domain": "fedramp.gov",
       "cited_in_deliverables": [
-        "research/operational-maintenance-schedules-research.md",
-        "research/operational-runbook-and-artifact-standards.md"
+        "reference/research/operational-maintenance-schedules-research.md",
+        "reference/research/operational-runbook-and-artifact-standards.md"
       ],
       "anchor_text": [
         "FedRAMP Continuous Monitoring Deliverables Template"
       ],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl",
-        "research/_intermediate/02_fetched_cadence_extracts.jsonl",
-        "research/source_notes/fedramp_template_inspection.json"
+        "reference/research/_intermediate/01_web_search_results.jsonl",
+        "reference/research/_intermediate/02_fetched_cadence_extracts.jsonl",
+        "reference/research/source_notes/fedramp_template_inspection.json"
       ],
       "research_titles": [
         "Con Mon Deliverables"
@@ -384,13 +384,13 @@
       "domain": "fedramp.gov",
       "cited_in_deliverables": [
         "execution-plan/templates/ESCALATION-MATRIX.md",
-        "research/operational-runbook-and-artifact-standards.md"
+        "reference/research/operational-runbook-and-artifact-standards.md"
       ],
       "anchor_text": [
         "FedRAMP POA&M Template"
       ],
       "surfaced_in_research": [
-        "research/source_notes/fedramp_template_inspection.json"
+        "reference/research/source_notes/fedramp_template_inspection.json"
       ],
       "research_titles": [],
       "status": "cited"
@@ -400,14 +400,14 @@
       "domain": "fedramp.gov",
       "cited_in_deliverables": [
         "MAINTENANCE-PLAN.md",
-        "research/operational-maintenance-schedules-research.md"
+        "reference/research/operational-maintenance-schedules-research.md"
       ],
       "anchor_text": [
         "FedRAMP High",
         "FedRAMP High SSP Appendix A"
       ],
       "surfaced_in_research": [
-        "research/_intermediate/04_targeted_cadence_extracts.jsonl"
+        "reference/research/_intermediate/04_targeted_cadence_extracts.jsonl"
       ],
       "research_titles": [
         "[DOC] SSP-Appendix-A-High-FedRAMP-Security-Controls.docx"
@@ -418,14 +418,14 @@
       "url": "https://www.fedramp.gov/resources/templates/SSP-Appendix-A-Low-FedRAMP-Security-Controls.docx",
       "domain": "fedramp.gov",
       "cited_in_deliverables": [
-        "research/operational-maintenance-schedules-research.md"
+        "reference/research/operational-maintenance-schedules-research.md"
       ],
       "anchor_text": [
         "FedRAMP Low SSP Appendix A"
       ],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl",
-        "research/_intermediate/04_targeted_cadence_extracts.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl",
+        "reference/research/_intermediate/04_targeted_cadence_extracts.jsonl"
       ],
       "research_titles": [
         "SSP-Appendix-A-Low-FedRAMP-Security-Controls. ..."
@@ -437,7 +437,7 @@
       "domain": "fedramp.gov",
       "cited_in_deliverables": [
         "MAINTENANCE-PLAN.md",
-        "research/operational-maintenance-schedules-research.md"
+        "reference/research/operational-maintenance-schedules-research.md"
       ],
       "anchor_text": [
         "FedRAMP Low/Moderate SSP Appendix A",
@@ -446,8 +446,8 @@
         "Moderate"
       ],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl",
-        "research/_intermediate/04_targeted_cadence_extracts.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl",
+        "reference/research/_intermediate/04_targeted_cadence_extracts.jsonl"
       ],
       "research_titles": [
         "SSP-Appendix-A-Moderate-FedRAMP-Security-Controls. ...",
@@ -460,15 +460,15 @@
       "domain": "fedramp.gov",
       "cited_in_deliverables": [
         "MAINTENANCE-PLAN.md",
-        "research/operational-maintenance-schedules-research.md"
+        "reference/research/operational-maintenance-schedules-research.md"
       ],
       "anchor_text": [
         "FedRAMP RFC-0012"
       ],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl",
-        "research/_intermediate/02_fetched_cadence_extracts.jsonl",
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl",
+        "reference/research/_intermediate/02_fetched_cadence_extracts.jsonl",
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "RFC-0012 FedRAMP Continuous Vulnerability ...",
@@ -480,14 +480,14 @@
       "url": "https://github.com/GSA/fedramp-tailored/blob/master/_guidance/controls/SI-3.md",
       "domain": "github.com",
       "cited_in_deliverables": [
-        "research/operational-maintenance-schedules-research.md"
+        "reference/research/operational-maintenance-schedules-research.md"
       ],
       "anchor_text": [
         "GSA FedRAMP Tailored SI-3 guidance"
       ],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl",
-        "research/_intermediate/04_targeted_cadence_extracts.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl",
+        "reference/research/_intermediate/04_targeted_cadence_extracts.jsonl"
       ],
       "research_titles": [
         "fedramp-tailored/_guidance/controls/SI-3.md at master \u00b7 GSA/fedramp-tailored"
@@ -498,13 +498,13 @@
       "url": "https://github.com/PagerDuty/incident-response-docs/blob/master/docs/during/security_incident_response.md",
       "domain": "github.com",
       "cited_in_deliverables": [
-        "research/operational-runbook-and-artifact-standards.md"
+        "reference/research/operational-runbook-and-artifact-standards.md"
       ],
       "anchor_text": [
         "PagerDuty security incident response checklist"
       ],
       "surfaced_in_research": [
-        "research/source_notes/fetched_source_notes.json"
+        "reference/research/source_notes/fetched_source_notes.json"
       ],
       "research_titles": [
         "incident-response-docs/docs/during/security_incident_response.md at master \u00b7 PagerDuty/incident-response-docs"
@@ -516,7 +516,7 @@
       "domain": "gsa.gov",
       "cited_in_deliverables": [
         "MAINTENANCE-PLAN.md",
-        "research/operational-maintenance-schedules-research.md"
+        "reference/research/operational-maintenance-schedules-research.md"
       ],
       "anchor_text": [
         "GSA Contingency Planning Guide"
@@ -529,15 +529,15 @@
       "url": "https://www.hhs.gov/guidance/sites/default/files/hhs-guidance-documents/CMS/117_Systems_security-MAC-ARS.pdf",
       "domain": "hhs.gov",
       "cited_in_deliverables": [
-        "research/operational-maintenance-schedules-research.md"
+        "reference/research/operational-maintenance-schedules-research.md"
       ],
       "anchor_text": [
         "HHS CMS MAC ARS"
       ],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl",
-        "research/_intermediate/03_targeted_search_results.jsonl",
-        "research/_intermediate/04_targeted_cadence_extracts.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl",
+        "reference/research/_intermediate/03_targeted_search_results.jsonl",
+        "reference/research/_intermediate/04_targeted_cadence_extracts.jsonl"
       ],
       "research_titles": [
         "Medicare Administrative contractor Acceptable risk ..."
@@ -549,18 +549,18 @@
       "domain": "irs.gov",
       "cited_in_deliverables": [
         "MAINTENANCE-PLAN.md",
-        "research/operational-maintenance-schedules-research.md",
-        "research/operational-runbook-and-artifact-standards.md"
+        "reference/research/operational-maintenance-schedules-research.md",
+        "reference/research/operational-runbook-and-artifact-standards.md"
       ],
       "anchor_text": [
         "IRS Safeguards audit requirements"
       ],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl",
-        "research/_intermediate/02_fetched_cadence_extracts.jsonl",
-        "research/_intermediate/03_targeted_search_results.jsonl",
-        "research/_intermediate/04_targeted_cadence_extracts.jsonl",
-        "research/source_notes/fetched_source_notes.json"
+        "reference/research/_intermediate/01_web_search_results.jsonl",
+        "reference/research/_intermediate/02_fetched_cadence_extracts.jsonl",
+        "reference/research/_intermediate/03_targeted_search_results.jsonl",
+        "reference/research/_intermediate/04_targeted_cadence_extracts.jsonl",
+        "reference/research/source_notes/fetched_source_notes.json"
       ],
       "research_titles": [
         "Meeting IRS Safeguards audit requirements"
@@ -571,14 +571,14 @@
       "url": "https://www.irs.gov/privacy-disclosure/safeguards-technical-assistance-memorandum-stax-audit-logs",
       "domain": "irs.gov",
       "cited_in_deliverables": [
-        "research/operational-runbook-and-artifact-standards.md"
+        "reference/research/operational-runbook-and-artifact-standards.md"
       ],
       "anchor_text": [
         "IRS STAX audit logs memo"
       ],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl",
-        "research/source_notes/fetched_source_notes.json"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl",
+        "reference/research/source_notes/fetched_source_notes.json"
       ],
       "research_titles": [
         "Safeguards technical assistance memorandum STAX audit ..."
@@ -590,19 +590,19 @@
       "domain": "irs.gov",
       "cited_in_deliverables": [
         "MAINTENANCE-PLAN.md",
-        "research/operational-maintenance-schedules-research.md",
-        "research/operational-runbook-and-artifact-standards.md"
+        "reference/research/operational-maintenance-schedules-research.md",
+        "reference/research/operational-runbook-and-artifact-standards.md"
       ],
       "anchor_text": [
         "IRS Pub 1075",
         "IRS Publication 1075"
       ],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl",
-        "research/_intermediate/02_fetched_cadence_extracts.jsonl",
-        "research/_intermediate/03_targeted_search_results.jsonl",
-        "research/_intermediate/04_targeted_cadence_extracts.jsonl",
-        "research/source_notes/fetched_source_notes.json"
+        "reference/research/_intermediate/01_web_search_results.jsonl",
+        "reference/research/_intermediate/02_fetched_cadence_extracts.jsonl",
+        "reference/research/_intermediate/03_targeted_search_results.jsonl",
+        "reference/research/_intermediate/04_targeted_cadence_extracts.jsonl",
+        "reference/research/source_notes/fetched_source_notes.json"
       ],
       "research_titles": [
         "Publication 1075 Tax Information Security Guidelines"
@@ -613,13 +613,13 @@
       "url": "https://www.irs.gov/pub/safeguard/iir-template.pdf",
       "domain": "irs.gov",
       "cited_in_deliverables": [
-        "research/operational-runbook-and-artifact-standards.md"
+        "reference/research/operational-runbook-and-artifact-standards.md"
       ],
       "anchor_text": [
         "IRS Internal Inspection Report template"
       ],
       "surfaced_in_research": [
-        "research/source_notes/fetched_source_notes.json"
+        "reference/research/source_notes/fetched_source_notes.json"
       ],
       "research_titles": [
         "[PDF] Internal Inspections Report - IRS"
@@ -630,13 +630,13 @@
       "url": "https://learn.microsoft.com/en-us/security/operations/incident-response-planning",
       "domain": "learn.microsoft.com",
       "cited_in_deliverables": [
-        "research/operational-runbook-and-artifact-standards.md"
+        "reference/research/operational-runbook-and-artifact-standards.md"
       ],
       "anchor_text": [
         "Microsoft incident response planning"
       ],
       "surfaced_in_research": [
-        "research/source_notes/fetched_source_notes.json"
+        "reference/research/source_notes/fetched_source_notes.json"
       ],
       "research_titles": [
         "Incident response planning | Microsoft Learn"
@@ -647,13 +647,13 @@
       "url": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbooks",
       "domain": "learn.microsoft.com",
       "cited_in_deliverables": [
-        "research/operational-runbook-and-artifact-standards.md"
+        "reference/research/operational-runbook-and-artifact-standards.md"
       ],
       "anchor_text": [
         "Microsoft Incident Response Playbooks"
       ],
       "surfaced_in_research": [
-        "research/source_notes/fetched_source_notes.json"
+        "reference/research/source_notes/fetched_source_notes.json"
       ],
       "research_titles": [
         "Incident response playbooks"
@@ -665,15 +665,15 @@
       "domain": "marines.mil",
       "cited_in_deliverables": [
         "MAINTENANCE-PLAN.md",
-        "research/operational-maintenance-schedules-research.md"
+        "reference/research/operational-maintenance-schedules-research.md"
       ],
       "anchor_text": [
         "USMC IAVM Program bulletin"
       ],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl",
-        "research/_intermediate/02_fetched_cadence_extracts.jsonl",
-        "research/_intermediate/05_dod_cadence_extracts.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl",
+        "reference/research/_intermediate/02_fetched_cadence_extracts.jsonl",
+        "reference/research/_intermediate/05_dod_cadence_extracts.jsonl"
       ],
       "research_titles": [
         "MCBUL 5239. USMC INFORMATION ASSURANCE VULNERABILITY MANAGEMENT (IAVM) PROGRAM"
@@ -723,13 +723,13 @@
       "url": "https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-34r1.pdf",
       "domain": "nvlpubs.nist.gov",
       "cited_in_deliverables": [
-        "research/operational-runbook-and-artifact-standards.md"
+        "reference/research/operational-runbook-and-artifact-standards.md"
       ],
       "anchor_text": [
         "NIST SP 800-34 Rev. 1"
       ],
       "surfaced_in_research": [
-        "research/source_notes/fetched_source_notes.json"
+        "reference/research/source_notes/fetched_source_notes.json"
       ],
       "research_titles": [
         "NIST 800-34, Rev 1 Contingency Planning Guide for Federal ..."
@@ -740,13 +740,13 @@
       "url": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-128.pdf",
       "domain": "nvlpubs.nist.gov",
       "cited_in_deliverables": [
-        "research/operational-runbook-and-artifact-standards.md"
+        "reference/research/operational-runbook-and-artifact-standards.md"
       ],
       "anchor_text": [
         "NIST SP 800-128"
       ],
       "surfaced_in_research": [
-        "research/source_notes/fetched_source_notes.json"
+        "reference/research/source_notes/fetched_source_notes.json"
       ],
       "research_titles": [
         "Guide for Security-Focused Configuration Management of ..."
@@ -757,14 +757,14 @@
       "url": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-137A.pdf",
       "domain": "nvlpubs.nist.gov",
       "cited_in_deliverables": [
-        "research/operational-maintenance-schedules-research.md"
+        "reference/research/operational-maintenance-schedules-research.md"
       ],
       "anchor_text": [
         "NIST SP 800-137A"
       ],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl",
-        "research/_intermediate/02_fetched_cadence_extracts.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl",
+        "reference/research/_intermediate/02_fetched_cadence_extracts.jsonl"
       ],
       "research_titles": [
         "[PDF] NIST.SP.800-137A.pdf"
@@ -775,13 +775,13 @@
       "url": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-37r2.pdf",
       "domain": "nvlpubs.nist.gov",
       "cited_in_deliverables": [
-        "research/operational-runbook-and-artifact-standards.md"
+        "reference/research/operational-runbook-and-artifact-standards.md"
       ],
       "anchor_text": [
         "NIST SP 800-37 Rev. 2"
       ],
       "surfaced_in_research": [
-        "research/source_notes/raci_notes.json"
+        "reference/research/source_notes/raci_notes.json"
       ],
       "research_titles": [
         "Risk Management Framework for Information Systems and ..."
@@ -793,16 +793,16 @@
       "domain": "nvlpubs.nist.gov",
       "cited_in_deliverables": [
         "MAINTENANCE-PLAN.md",
-        "research/operational-maintenance-schedules-research.md",
-        "research/operational-runbook-and-artifact-standards.md"
+        "reference/research/operational-maintenance-schedules-research.md",
+        "reference/research/operational-runbook-and-artifact-standards.md"
       ],
       "anchor_text": [
         "NIST SP 800-40 Rev. 4"
       ],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl",
-        "research/_intermediate/02_fetched_cadence_extracts.jsonl",
-        "research/source_notes/fetched_source_notes.json"
+        "reference/research/_intermediate/01_web_search_results.jsonl",
+        "reference/research/_intermediate/02_fetched_cadence_extracts.jsonl",
+        "reference/research/source_notes/fetched_source_notes.json"
       ],
       "research_titles": [
         "Guide to Enterprise Patch Management Planning",
@@ -814,13 +814,13 @@
       "url": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53Ar5.pdf",
       "domain": "nvlpubs.nist.gov",
       "cited_in_deliverables": [
-        "research/operational-runbook-and-artifact-standards.md"
+        "reference/research/operational-runbook-and-artifact-standards.md"
       ],
       "anchor_text": [
         "NIST SP 800-53A Rev. 5"
       ],
       "surfaced_in_research": [
-        "research/source_notes/fetched_source_notes.json"
+        "reference/research/source_notes/fetched_source_notes.json"
       ],
       "research_titles": [
         "Assessing Security and Privacy Controls in Information ..."
@@ -832,14 +832,14 @@
       "domain": "nvlpubs.nist.gov",
       "cited_in_deliverables": [
         "MAINTENANCE-PLAN.md",
-        "research/operational-maintenance-schedules-research.md"
+        "reference/research/operational-maintenance-schedules-research.md"
       ],
       "anchor_text": [
         "NIST SP 800-61 Rev. 2"
       ],
       "surfaced_in_research": [
-        "research/_intermediate/02_fetched_cadence_extracts.jsonl",
-        "research/source_notes/fetched_source_notes.json"
+        "reference/research/_intermediate/02_fetched_cadence_extracts.jsonl",
+        "reference/research/source_notes/fetched_source_notes.json"
       ],
       "research_titles": [
         "Computer Security Incident Handling Guide"
@@ -851,16 +851,16 @@
       "domain": "nvlpubs.nist.gov",
       "cited_in_deliverables": [
         "MAINTENANCE-PLAN.md",
-        "research/operational-maintenance-schedules-research.md",
-        "research/operational-runbook-and-artifact-standards.md"
+        "reference/research/operational-maintenance-schedules-research.md",
+        "reference/research/operational-runbook-and-artifact-standards.md"
       ],
       "anchor_text": [
         "NIST SP 800-137"
       ],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl",
-        "research/_intermediate/02_fetched_cadence_extracts.jsonl",
-        "research/source_notes/fetched_source_notes.json"
+        "reference/research/_intermediate/01_web_search_results.jsonl",
+        "reference/research/_intermediate/02_fetched_cadence_extracts.jsonl",
+        "reference/research/source_notes/fetched_source_notes.json"
       ],
       "research_titles": [
         "NIST SP 800-137, Information Security Continuous Monitoring ..."
@@ -872,14 +872,14 @@
       "domain": "nvlpubs.nist.gov",
       "cited_in_deliverables": [
         "MAINTENANCE-PLAN.md",
-        "research/operational-maintenance-schedules-research.md"
+        "reference/research/operational-maintenance-schedules-research.md"
       ],
       "anchor_text": [
         "NIST SP 800-34 Rev. 1"
       ],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl",
-        "research/_intermediate/02_fetched_cadence_extracts.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl",
+        "reference/research/_intermediate/02_fetched_cadence_extracts.jsonl"
       ],
       "research_titles": [
         "Contingency Planning Guide for Federal Information Systems",
@@ -892,14 +892,14 @@
       "domain": "nvlpubs.nist.gov",
       "cited_in_deliverables": [
         "MAINTENANCE-PLAN.md",
-        "research/operational-maintenance-schedules-research.md"
+        "reference/research/operational-maintenance-schedules-research.md"
       ],
       "anchor_text": [
         "NIST SP 800-53 Rev. 4"
       ],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl",
-        "research/_intermediate/02_fetched_cadence_extracts.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl",
+        "reference/research/_intermediate/02_fetched_cadence_extracts.jsonl"
       ],
       "research_titles": [
         "Security and Privacy Controls for Federal Information Systems ...",
@@ -914,16 +914,16 @@
         "MAINTENANCE-PLAN.md",
         "execution-plan/STATUS-2026-07-17.md",
         "execution-plan/tools/README.md",
-        "research/operational-maintenance-schedules-research.md"
+        "reference/research/operational-maintenance-schedules-research.md"
       ],
       "anchor_text": [
         "DoD Cyber Exchange SRG/STIG Library Compilations",
         "public.cyber.mil/stigs/compilations"
       ],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl",
-        "research/_intermediate/02_fetched_cadence_extracts.jsonl",
-        "research/_intermediate/05_dod_cadence_extracts.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl",
+        "reference/research/_intermediate/02_fetched_cadence_extracts.jsonl",
+        "reference/research/_intermediate/05_dod_cadence_extracts.jsonl"
       ],
       "research_titles": [
         "SRG / STIG Library Compilations",
@@ -948,13 +948,13 @@
       "url": "https://response.pagerduty.com/",
       "domain": "response.pagerduty.com",
       "cited_in_deliverables": [
-        "research/operational-runbook-and-artifact-standards.md"
+        "reference/research/operational-runbook-and-artifact-standards.md"
       ],
       "anchor_text": [
         "PagerDuty Incident Response Documentation"
       ],
       "surfaced_in_research": [
-        "research/source_notes/fetched_source_notes.json"
+        "reference/research/source_notes/fetched_source_notes.json"
       ],
       "research_titles": [
         "PagerDuty Incident Response Documentation"
@@ -966,15 +966,15 @@
       "domain": "security.cms.gov",
       "cited_in_deliverables": [
         "MAINTENANCE-PLAN.md",
-        "research/operational-maintenance-schedules-research.md"
+        "reference/research/operational-maintenance-schedules-research.md"
       ],
       "anchor_text": [
         "CMS POA&M Handbook",
         "CMS Plan of Action and Milestones Handbook"
       ],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl",
-        "research/_intermediate/02_fetched_cadence_extracts.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl",
+        "reference/research/_intermediate/02_fetched_cadence_extracts.jsonl"
       ],
       "research_titles": [
         "CMS Plan of Action and Milestones (POA&M) Handbook"
@@ -985,13 +985,13 @@
       "url": "https://www.servicenow.com/docs/r/security-management/security-incident-response/use-the-playbook.html",
       "domain": "servicenow.com",
       "cited_in_deliverables": [
-        "research/operational-runbook-and-artifact-standards.md"
+        "reference/research/operational-runbook-and-artifact-standards.md"
       ],
       "anchor_text": [
         "ServiceNow Security Incident Response Playbook"
       ],
       "surfaced_in_research": [
-        "research/source_notes/fetched_source_notes.json"
+        "reference/research/source_notes/fetched_source_notes.json"
       ],
       "research_titles": [
         "Resolve security threats with the playbook - ServiceNow"
@@ -1002,13 +1002,13 @@
       "url": "https://www.servicenow.com/docs/r/security-management/vulnerability-response/t_CreateVulnSLA.html",
       "domain": "servicenow.com",
       "cited_in_deliverables": [
-        "research/operational-runbook-and-artifact-standards.md"
+        "reference/research/operational-runbook-and-artifact-standards.md"
       ],
       "anchor_text": [
         "ServiceNow Vulnerability Response SLAs"
       ],
       "surfaced_in_research": [
-        "research/source_notes/raci_notes.json"
+        "reference/research/source_notes/raci_notes.json"
       ],
       "research_titles": [
         "View Vulnerability Response SLAs for remediation tasks"
@@ -1019,13 +1019,13 @@
       "url": "https://www.servicenow.com/docs/r/security-management/vulnerability-response/vulnerability-groups.html",
       "domain": "servicenow.com",
       "cited_in_deliverables": [
-        "research/operational-runbook-and-artifact-standards.md"
+        "reference/research/operational-runbook-and-artifact-standards.md"
       ],
       "anchor_text": [
         "ServiceNow Vulnerability Response remediation tasks"
       ],
       "surfaced_in_research": [
-        "research/source_notes/raci_notes.json"
+        "reference/research/source_notes/raci_notes.json"
       ],
       "research_titles": [
         "Vulnerability Response remediation tasks and ..."
@@ -1036,13 +1036,13 @@
       "url": "https://sre.google/sre-book/introduction/",
       "domain": "sre.google",
       "cited_in_deliverables": [
-        "research/operational-runbook-and-artifact-standards.md"
+        "reference/research/operational-runbook-and-artifact-standards.md"
       ],
       "anchor_text": [
         "Google SRE Book introduction"
       ],
       "surfaced_in_research": [
-        "research/source_notes/fetched_source_notes.json"
+        "reference/research/source_notes/fetched_source_notes.json"
       ],
       "research_titles": [
         "Google SRE - IT Service Management: Automate Operations"
@@ -1053,13 +1053,13 @@
       "url": "https://sre.google/workbook/on-call/",
       "domain": "sre.google",
       "cited_in_deliverables": [
-        "research/operational-runbook-and-artifact-standards.md"
+        "reference/research/operational-runbook-and-artifact-standards.md"
       ],
       "anchor_text": [
         "Google SRE Workbook: On-Call"
       ],
       "surfaced_in_research": [
-        "research/source_notes/fetched_source_notes.json"
+        "reference/research/source_notes/fetched_source_notes.json"
       ],
       "research_titles": [
         "What it Means Being On-Call? - Google SRE"
@@ -1070,7 +1070,7 @@
       "url": "https://stig-manager.readthedocs.io/en/1.3.7/reference/",
       "domain": "stig-manager.readthedocs.io",
       "cited_in_deliverables": [
-        "research/operational-runbook-and-artifact-standards.md"
+        "reference/research/operational-runbook-and-artifact-standards.md"
       ],
       "anchor_text": [
         "STIG Manager terminology and concepts"
@@ -1084,16 +1084,16 @@
       "domain": "stigviewer.com",
       "cited_in_deliverables": [
         "MAINTENANCE-PLAN.md",
-        "research/operational-maintenance-schedules-research.md"
+        "reference/research/operational-maintenance-schedules-research.md"
       ],
       "anchor_text": [
         "STIG Viewer z/OS TSS V-3331",
         "STIG Viewer z/OS TSS finding V-3331"
       ],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl",
-        "research/_intermediate/03_targeted_search_results.jsonl",
-        "research/_intermediate/04_targeted_cadence_extracts.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl",
+        "reference/research/_intermediate/03_targeted_search_results.jsonl",
+        "reference/research/_intermediate/04_targeted_cadence_extracts.jsonl"
       ],
       "research_titles": [
         "The ACP audit logs must be reviewed on a regular basis ."
@@ -1104,13 +1104,13 @@
       "url": "https://support.atlassian.com/jira-service-management-cloud/docs/playbook-templates-for-jira-service-management/",
       "domain": "support.atlassian.com",
       "cited_in_deliverables": [
-        "research/operational-runbook-and-artifact-standards.md"
+        "reference/research/operational-runbook-and-artifact-standards.md"
       ],
       "anchor_text": [
         "Atlassian Jira Service Management playbook templates"
       ],
       "surfaced_in_research": [
-        "research/source_notes/fetched_source_notes.json"
+        "reference/research/source_notes/fetched_source_notes.json"
       ],
       "research_titles": [
         "Playbook templates for Jira Service Management"
@@ -1121,13 +1121,13 @@
       "url": "https://support.atlassian.com/jira-service-management-cloud/docs/set-up-an-approval-stage-for-a-request/",
       "domain": "support.atlassian.com",
       "cited_in_deliverables": [
-        "research/operational-runbook-and-artifact-standards.md"
+        "reference/research/operational-runbook-and-artifact-standards.md"
       ],
       "anchor_text": [
         "Atlassian Jira Service Management approvals"
       ],
       "surfaced_in_research": [
-        "research/source_notes/raci_notes.json"
+        "reference/research/source_notes/raci_notes.json"
       ],
       "research_titles": [
         "Set up an approval stage | Jira Service Management Cloud"
@@ -1138,13 +1138,13 @@
       "url": "https://www.tcsa.in/frameworks/iso-27001/controls/5-2-information-security-roles-and-responsibilities",
       "domain": "tcsa.in",
       "cited_in_deliverables": [
-        "research/operational-runbook-and-artifact-standards.md"
+        "reference/research/operational-runbook-and-artifact-standards.md"
       ],
       "anchor_text": [
         "TCSA ISO 27001 A.5.2 guidance"
       ],
       "surfaced_in_research": [
-        "research/source_notes/raci_notes.json"
+        "reference/research/source_notes/raci_notes.json"
       ],
       "research_titles": [
         "ISO 27001 A.5.2: Security Roles & Responsibilities | TCSA"
@@ -1157,7 +1157,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "Identifying STIGs for FedRAMP's Rev 5 CM-6 Requirement"
@@ -1170,7 +1170,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "How Often to Audit for HIPAA, CMS, and Joint Commission ..."
@@ -1183,7 +1183,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "Security and Privacy Controls for Information Systems and Organizations"
@@ -1196,7 +1196,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "FedRAMP Annual Assessments & Monitoring for Data Platforms"
@@ -1209,7 +1209,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "How DISA Publishes New STIGs and What Happens Next"
@@ -1222,7 +1222,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "How Often Should Federal Agencies & DoD Systems Test ..."
@@ -1235,7 +1235,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "Release Schedule"
@@ -1248,7 +1248,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "Continuous monitoring plan documented"
@@ -1261,7 +1261,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "Log retention policy is defined - AuditBuffet"
@@ -1274,7 +1274,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "Immutable Audit Logs: Architecture Patterns for Federal Compliance ..."
@@ -1287,7 +1287,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "Which Compliance Frameworks Require Tabletop Exercises?"
@@ -1300,7 +1300,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "IR.L2-3.6.3 \u2014 Incident Response Testing | CMMC 2.0"
@@ -1313,7 +1313,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "System Security Plan Template"
@@ -1326,7 +1326,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "FedRAMP System Security Plan (SSP) HIgh/Moderate/Low Baseline ..."
@@ -1339,7 +1339,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "AU-11 - Audit Record Retention - IBM Cloud Docs"
@@ -1352,7 +1352,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "Centers for Medicare & Medicaid Services (CMS)"
@@ -1365,7 +1365,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "[PDF] CMS Manual System"
@@ -1378,7 +1378,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "[DOC] CMS System Security Plan Template"
@@ -1391,9 +1391,9 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl",
-        "research/_intermediate/02_fetched_cadence_extracts.jsonl",
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl",
+        "reference/research/_intermediate/02_fetched_cadence_extracts.jsonl",
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "ARS 5.1",
@@ -1407,7 +1407,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "Requirements & Guidance for Security & Privacy Controls"
@@ -1420,7 +1420,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "[PDF] Risk Management Handbook (RMH) Chapter 04: Security ... - CMS"
@@ -1433,9 +1433,9 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl",
-        "research/_intermediate/02_fetched_cadence_extracts.jsonl",
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl",
+        "reference/research/_intermediate/02_fetched_cadence_extracts.jsonl",
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "Business Partners Systems Security Manual"
@@ -1448,9 +1448,9 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl",
-        "research/_intermediate/02_fetched_cadence_extracts.jsonl",
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl",
+        "reference/research/_intermediate/02_fetched_cadence_extracts.jsonl",
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "ARS 5.0",
@@ -1464,7 +1464,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "[PDF] Medicare Financial Management Manual - Chapter 8 - CMS"
@@ -1477,7 +1477,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "Public certificate for qualified person"
@@ -1490,7 +1490,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "MES Certification Repository: Security & Privacy"
@@ -1503,7 +1503,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "New ARC-AMPE v1.04 Requirements: How to Shore Up ..."
@@ -1516,7 +1516,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "[PDF] Certifications and Access Reviews - SailPoint Community"
@@ -1529,7 +1529,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "FedRAMP Moderate Baseline Rev 4"
@@ -1542,7 +1542,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "Bake Resilience In with NIST 800-53 Maintenance - DTS"
@@ -1555,7 +1555,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "IRS 1075 & 4812 Compliance 2026 \u2013 FedRAMP ..."
@@ -1568,7 +1568,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "What is IRS Publication 1075 & Requirements?"
@@ -1581,7 +1581,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "8.10: Retain Audit Logs - CSF Tools"
@@ -1594,7 +1594,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "CA-7: Continuous Monitoring"
@@ -1607,7 +1607,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "MA-2(2): Automated Maintenance Activities"
@@ -1620,7 +1620,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "MA-6: Timely Maintenance"
@@ -1633,7 +1633,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "PE-3: Physical Access Control - CSF Tools"
@@ -1646,7 +1646,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "AU-6: Audit Record Review, Analysis, and Reporting"
@@ -1659,7 +1659,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "CM-6: Configuration Settings"
@@ -1672,7 +1672,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "MA: Maintenance"
@@ -1685,7 +1685,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "MA-2: Controlled Maintenance"
@@ -1698,7 +1698,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "PE-2: Physical Access Authorizations"
@@ -1711,7 +1711,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "PE-6: Monitoring Physical Access"
@@ -1724,7 +1724,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "[PDF] Continuous Monitoring in a Risk Management Framework"
@@ -1737,8 +1737,8 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl",
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl",
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "Security and Privacy Controls for Information Systems and ..."
@@ -1751,7 +1751,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "Security Control Overlay of SP 800-53, Revision 5"
@@ -1764,7 +1764,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/source_notes/raci_notes.json"
+        "reference/research/source_notes/raci_notes.json"
       ],
       "research_titles": [
         "rmf roles and responsibilities crosswalk"
@@ -1777,7 +1777,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "NIST SP 800-34, Revision 1 - Contingency Planning Guide for ..."
@@ -1790,7 +1790,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "U_CCI_List"
@@ -1803,7 +1803,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "sp800-137a-element-catalog.xlsx"
@@ -1816,8 +1816,8 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl",
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl",
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "CUI SSP Template"
@@ -1830,7 +1830,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "[XLS] SP 800-53 Revision 5 - NIST Computer Security Resource Center"
@@ -1843,7 +1843,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "About the RMF - NIST Risk Management Framework | CSRC"
@@ -1856,7 +1856,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "NIST Risk Management Framework RMF"
@@ -1869,7 +1869,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "SP 800-53 Controls - NIST Risk Management Framework"
@@ -1882,7 +1882,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "SP 800-137, Information Security Continuous Monitoring ..."
@@ -1895,7 +1895,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "SP 800-40 Rev. 4, Guide to Enterprise Patch Management Planning"
@@ -1908,7 +1908,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/source_notes/fetched_source_notes.json"
+        "reference/research/source_notes/fetched_source_notes.json"
       ],
       "research_titles": [
         "SP 800-53A Rev. 5, Assessing Security and Privacy Controls in ..."
@@ -1921,7 +1921,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "SP 800-53 Rev. 4, Security and Privacy Controls for Federal ..."
@@ -1934,7 +1934,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "NIST SP 800-53 Rev. 5 \u2014 Security and Privacy Controls"
@@ -1947,7 +1947,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "NIST Special Publication (SP) 800-53 Rev. 5 (Withdrawn), PRE-DRAFT Call for Comments: Security and Privacy Controls for Federal Information Systems and Organizations"
@@ -1960,7 +1960,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "SP 800-53 Rev. 5, Security and Privacy Controls for ..."
@@ -1973,7 +1973,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "NIST Risk Management Framework RMF"
@@ -1986,7 +1986,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "NIST Special Publication 800-53 Rev. 4 and Continuous Monitoring"
@@ -1999,7 +1999,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "Creating a Patch and Vulnerability Management Program"
@@ -2012,7 +2012,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "Guide to Enterprise Patch Management Technologies - CSRC"
@@ -2025,7 +2025,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "Publication Moved: NIST SP 800-137, ..."
@@ -2038,7 +2038,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "[PDF] Recommended Security Controls for Federal Information Systems"
@@ -2051,7 +2051,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "Physical and Environmental Protection Plan - Cyber Trackr!"
@@ -2064,9 +2064,9 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl",
-        "research/_intermediate/02_fetched_cadence_extracts.jsonl",
-        "research/_intermediate/05_dod_cadence_extracts.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl",
+        "reference/research/_intermediate/02_fetched_cadence_extracts.jsonl",
+        "reference/research/_intermediate/05_dod_cadence_extracts.jsonl"
       ],
       "research_titles": [
         "department of defense (dod)",
@@ -2080,7 +2080,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "SSP-Appendix-A-LI-SaaS-FedRAMP-Security-Controls.docx"
@@ -2093,7 +2093,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "VistA Audit Solution (VAS) - U.S. Department of Veterans Affairs"
@@ -2106,7 +2106,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "[PDF] REAL TIME SERVICES INFORMATION ASSURANCE TEST PLAN"
@@ -2119,7 +2119,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "[PDF] STIGs, SCAP and Data Metrics"
@@ -2132,7 +2132,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "Top Level Admin Guidance - FedRamp Compliance Guide"
@@ -2145,7 +2145,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "AU-11 Audit Record Retention | IT Security & Risk ..."
@@ -2158,7 +2158,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "Information Technology (IT) Incident Response (IR) Standard"
@@ -2171,7 +2171,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "[PDF] Information Technology (IT) Configuration Management (CM ..."
@@ -2184,7 +2184,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "Information Technology (IT) System Audit and Accountability (AU) Standard"
@@ -2197,7 +2197,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "[PDF] CP - Contingency Planning Standard - Department of Education"
@@ -2210,7 +2210,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "Information Technology (IT) Incident Response (IR) Standard"
@@ -2223,7 +2223,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "Information Technology (IT) Maintenance (MA) Standard"
@@ -2236,7 +2236,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "NIST Guidelines Relevant to Endpoint Security (SP 800-40, 800-128, and Others) | Endpoint Security Authority"
@@ -2249,7 +2249,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "Information Security Maintenance Procedure, Directive # ..."
@@ -2262,7 +2262,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "TITLE"
@@ -2275,7 +2275,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "FedRAMP System Security Plan (SSP) Moderate Baseline ..."
@@ -2288,7 +2288,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "Contingency Planning (CP) - FedRAMP Consolidated Rules for 2026"
@@ -2301,7 +2301,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "Incident Response (IR) - FedRAMP Consolidated Rules for 2026"
@@ -2314,7 +2314,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "Physical and Environmental Protection (PE) - FedRAMP"
@@ -2327,7 +2327,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "Rev5 Control Guidance"
@@ -2340,7 +2340,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/source_notes/raci_notes.json"
+        "reference/research/source_notes/raci_notes.json"
       ],
       "research_titles": [
         "Roles and Responsibilities - FedRAMP Legacy Documentation"
@@ -2353,8 +2353,8 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl",
-        "research/_intermediate/02_fetched_cadence_extracts.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl",
+        "reference/research/_intermediate/02_fetched_cadence_extracts.jsonl"
       ],
       "research_titles": [
         "Annual Assessments - FedRAMP Legacy Documentation"
@@ -2367,7 +2367,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "HHH High Baseline Controls"
@@ -2380,7 +2380,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "HHH Moderate Baseline Controls"
@@ -2393,7 +2393,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "REV_4_APPENDIX-D-FedRAMP-Tailored-LI-SaaS- ..."
@@ -2406,8 +2406,8 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl",
-        "research/source_notes/fetched_source_notes.json"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl",
+        "reference/research/source_notes/fetched_source_notes.json"
       ],
       "research_titles": [
         "FedRAMP ANNUAL ASSESSMENT GUIDANCE"
@@ -2420,7 +2420,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "REV_4_SSP-A06-FedRAMP-ISCP-Template.docx"
@@ -2433,7 +2433,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/source_notes/fedramp_template_inspection.json"
+        "reference/research/source_notes/fedramp_template_inspection.json"
       ],
       "research_titles": [],
       "status": "surfaced_only"
@@ -2444,7 +2444,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/source_notes/fedramp_template_inspection.json"
+        "reference/research/source_notes/fedramp_template_inspection.json"
       ],
       "research_titles": [],
       "status": "surfaced_only"
@@ -2455,7 +2455,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "SSP-Appendix-G-Information-System-Contingency-Plan-( ..."
@@ -2468,7 +2468,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "RFC-0017 Persistent Validation and Assessment Standard"
@@ -2481,8 +2481,8 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl",
-        "research/_intermediate/02_fetched_cadence_extracts.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl",
+        "reference/research/_intermediate/02_fetched_cadence_extracts.jsonl"
       ],
       "research_titles": [
         "RFC-0026 Clarifying CA-7 Continuous Monitoring ...",
@@ -2496,7 +2496,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "Cm-06: Configuration..."
@@ -2509,7 +2509,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "RFC-0030 FedRAMP Rev5 Security Controls Baseline ..."
@@ -2522,7 +2522,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "CP-4"
@@ -2535,7 +2535,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "IR-3"
@@ -2548,7 +2548,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "CP-4 Contingency Plan Testing"
@@ -2561,7 +2561,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "System Backup - FedRAMP Explorer - ScaleSec"
@@ -2574,7 +2574,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "CP-9.1 Testing for Reliability and Integrity"
@@ -2587,7 +2587,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "IR-3 Incident Response Testing"
@@ -2600,7 +2600,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "[PDF] Internal Revenue Service \u2013 Publication 1075 | FileCloud"
@@ -2613,7 +2613,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "Physical Security Assessment Report Template - FORTRESS ..."
@@ -2626,7 +2626,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "NIST 800-53 Revision 4 to Revision 5: A Deep Dive into CM-6 ..."
@@ -2639,7 +2639,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "GitHub - CMSgov/cms-ars-3.1-manual-controls-baseline: InSpec profile baseline to automate manual controls of CMS ARS 3.1, validating any/all of its 489 security controls."
@@ -2652,7 +2652,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/04_targeted_cadence_extracts.jsonl"
+        "reference/research/_intermediate/04_targeted_cadence_extracts.jsonl"
       ],
       "research_titles": [
         "fedramp-tailored/_guidance/controls/AC-2.md at master \u00b7 GSA/fedramp-tailored"
@@ -2665,8 +2665,8 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl",
-        "research/_intermediate/04_targeted_cadence_extracts.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl",
+        "reference/research/_intermediate/04_targeted_cadence_extracts.jsonl"
       ],
       "research_titles": [
         "fedramp-tailored/_guidance/controls/AU-6.md at master \u00b7 GSA/fedramp-tailored"
@@ -2679,7 +2679,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/04_targeted_cadence_extracts.jsonl"
+        "reference/research/_intermediate/04_targeted_cadence_extracts.jsonl"
       ],
       "research_titles": [],
       "status": "surfaced_only"
@@ -2690,7 +2690,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/04_targeted_cadence_extracts.jsonl"
+        "reference/research/_intermediate/04_targeted_cadence_extracts.jsonl"
       ],
       "research_titles": [
         "fedramp-tailored/_guidance/controls/CP-9.md at master \u00b7 GSA/fedramp-tailored"
@@ -2703,7 +2703,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/04_targeted_cadence_extracts.jsonl"
+        "reference/research/_intermediate/04_targeted_cadence_extracts.jsonl"
       ],
       "research_titles": [],
       "status": "surfaced_only"
@@ -2714,7 +2714,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/04_targeted_cadence_extracts.jsonl"
+        "reference/research/_intermediate/04_targeted_cadence_extracts.jsonl"
       ],
       "research_titles": [],
       "status": "surfaced_only"
@@ -2725,7 +2725,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/source_notes/fetched_source_notes.json"
+        "reference/research/source_notes/fetched_source_notes.json"
       ],
       "research_titles": [
         "incident-response-docs/docs/about.md at master \u00b7 PagerDuty/incident-response-docs"
@@ -2738,7 +2738,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "GitHub - steveandreassend/linux_auditd: Best practice configuration for Linux auditd for CIS and STIG standards, enhanced with LOTL detection rules."
@@ -2751,9 +2751,9 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl",
-        "research/_intermediate/03_targeted_search_results.jsonl",
-        "research/_intermediate/04_targeted_cadence_extracts.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl",
+        "reference/research/_intermediate/03_targeted_search_results.jsonl",
+        "reference/research/_intermediate/04_targeted_cadence_extracts.jsonl"
       ],
       "research_titles": [
         "Contingency Planning (CP) CIO-IT Security-06-29"
@@ -2766,7 +2766,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "[PDF] IPS Requirements Document 1C - GSA"
@@ -2779,7 +2779,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "Vulnerability Management Process CIO-IT Security-17-80"
@@ -2792,8 +2792,8 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl",
-        "research/_intermediate/02_fetched_cadence_extracts.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl",
+        "reference/research/_intermediate/02_fetched_cadence_extracts.jsonl"
       ],
       "research_titles": [
         "Vulnerability Scanning"
@@ -2806,7 +2806,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "What Is the FedRAMP Incident Response Control Family?"
@@ -2819,8 +2819,8 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl",
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl",
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "[PDF] Security Control Overlay of NIST Special Publication 800-53 ..."
@@ -2833,7 +2833,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "What Are The IRS 1075 Safeguards Audit Requirements?"
@@ -2846,7 +2846,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "[PDF] Part 10, Chapter 3: Manual Exhibit 10-3-A - Indian Health Service"
@@ -2859,7 +2859,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "11.3.36 Safeguard Review Program | Internal Revenue Service"
@@ -2872,7 +2872,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "Operational security policies and procedures"
@@ -2885,7 +2885,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "Protecting Federal Tax Information (FTI) by proactive auditing"
@@ -2898,7 +2898,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "Safeguards Technical Assistance Memorandum"
@@ -2911,8 +2911,8 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl",
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl",
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "Hybrid Review"
@@ -2925,7 +2925,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "Safeguards-SCSEM Storage Area Network (SAN/NAS) XLSX"
@@ -2938,7 +2938,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "Controls Catalog"
@@ -2951,7 +2951,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "Implementing 3.14.2, 3.14.4, and 3.14.5 from NIST SP 800- ..."
@@ -2964,7 +2964,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "A Guide to FedRAMP Continuous Compliance"
@@ -2977,7 +2977,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "DISA ACAS Explained: What the Vulnerability Scanning Tool Means ..."
@@ -2990,7 +2990,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "POA&M in FedRAMP: Deadlines, ConMon, and Common Pitfalls"
@@ -3003,8 +3003,8 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl",
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl",
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "IRS 1075 Audit Services"
@@ -3017,7 +3017,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "Manage audit log retention policies"
@@ -3030,7 +3030,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "Azure SQL vulnerability assessments should run weekly (configured ..."
@@ -3043,7 +3043,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "Configure identity access controls to meet FedRAMP High ..."
@@ -3056,7 +3056,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "Configure additional controls to meet FedRAMP High ..."
@@ -3069,7 +3069,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "Ajay Chandhok's Post - LinkedIn"
@@ -3082,7 +3082,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "Microsoft Word - www.ditco.disa.mil-public-discms-IASSURE-00232_00.doc"
@@ -3095,7 +3095,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "Report on Penetration Testing at the Defense Information Systems Agency, Center for Computing Services (Redacted)"
@@ -3108,7 +3108,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "[PDF] Reducing Vulnerabilities at the Defense Information Systems ... - DoD"
@@ -3121,9 +3121,9 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl",
-        "research/_intermediate/02_fetched_cadence_extracts.jsonl",
-        "research/_intermediate/05_dod_cadence_extracts.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl",
+        "reference/research/_intermediate/02_fetched_cadence_extracts.jsonl",
+        "reference/research/_intermediate/05_dod_cadence_extracts.jsonl"
       ],
       "research_titles": [
         "[PDF] Continuous Monitoring Requirements Annex v1.0 Requirements ..."
@@ -3136,7 +3136,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "Continuous Monitoring Requirements Annex v1.0 Requirements ..."
@@ -3149,8 +3149,8 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl",
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl",
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "The STIG and Database Security"
@@ -3163,7 +3163,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "AU-6 AUDIT RECORD REVIEW, ANALYSIS, AND ..."
@@ -3176,7 +3176,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "MA-6 TIMELY MAINTENANCE"
@@ -3189,7 +3189,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "[PDF] CSO-TEMP-2007, Revision 2.0 - System Security Plan Template."
@@ -3202,8 +3202,8 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl",
-        "research/source_notes/fetched_source_notes.json"
+        "reference/research/_intermediate/01_web_search_results.jsonl",
+        "reference/research/source_notes/fetched_source_notes.json"
       ],
       "research_titles": [
         "Security and Privacy Controls for Information Systems ... - NIST",
@@ -3217,7 +3217,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "[PDF] Guide for Developing Security Plans for Federal Information Systems"
@@ -3230,7 +3230,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "[PDF] Recommended Security Controls for Federal Information Systems"
@@ -3243,7 +3243,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "[PDF] Archived NIST Technical Series Publication"
@@ -3256,7 +3256,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "Security and Privacy Controls for Information Systems and ..."
@@ -3269,7 +3269,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "[PDF] Internal Audit Records Retention Schedules - Ohio Attorney General"
@@ -3282,7 +3282,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "[PDF] The Bureau Can Improve the Effectiveness of Its Life Cycle ... - OIG"
@@ -3295,7 +3295,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "Privileged User Management | Open Security Architecture"
@@ -3308,7 +3308,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "[PDF] Publication 1075 - Office of Temporary and Disability Assistance"
@@ -3321,7 +3321,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "Department of Veterans Affairs Review of FVA\u2019s Federal Information Security Modernization Act Audit for Fiscal Year 2015; Rpt #15-01957-100"
@@ -3334,7 +3334,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "L&I, Office of Information Technology Policy SEC-012 Name"
@@ -3347,7 +3347,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "CP-2 Contingency Plan"
@@ -3360,7 +3360,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "CMMC 3.6.3: Test Incident Response Capability"
@@ -3373,7 +3373,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "Risk Management Framework Process Map"
@@ -3386,7 +3386,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "Data Center Patch Management and Vulnerability Remediation ..."
@@ -3399,10 +3399,10 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl",
-        "research/_intermediate/02_fetched_cadence_extracts.jsonl",
-        "research/_intermediate/03_targeted_search_results.jsonl",
-        "research/_intermediate/05_dod_cadence_extracts.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl",
+        "reference/research/_intermediate/02_fetched_cadence_extracts.jsonl",
+        "reference/research/_intermediate/03_targeted_search_results.jsonl",
+        "reference/research/_intermediate/05_dod_cadence_extracts.jsonl"
       ],
       "research_titles": [
         "STIGs",
@@ -3416,7 +3416,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "CMMC / NIST Patching Time Limits"
@@ -3429,8 +3429,8 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl",
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl",
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "[PDF] publication 1075 - RegInfo.gov"
@@ -3443,7 +3443,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "The Mandate of Timeliness: Patch Management Across Major ..."
@@ -3456,7 +3456,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "Continuous Monitoring in FedRAMP: Secure Cloud Solutions"
@@ -3469,7 +3469,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "Security Technical Implementation Guides (STIGs)"
@@ -3482,8 +3482,8 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl",
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl",
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "FedRAMP Continuous Monitoring Strategy Guide"
@@ -3496,7 +3496,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "AWS Backup for Government NIST Compliance | Rutagon"
@@ -3509,7 +3509,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "Disaster Recovery for Government Cloud Systems | Rutagon"
@@ -3522,7 +3522,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "End of Month Site Safety Audit Template and Checklist"
@@ -3535,7 +3535,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "NIST 800-53 Audit: Complete Guide [2026]"
@@ -3548,7 +3548,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "NIST Information System Contingency Plan Template (Low)"
@@ -3561,7 +3561,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "FedRAMP-Continuous-Monitoring-Template"
@@ -3574,7 +3574,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "[PDF] Sectigo Certification Practice Statement"
@@ -3587,7 +3587,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "FedRAMP requirements"
@@ -3600,7 +3600,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "CMS Key Management Handbook"
@@ -3613,7 +3613,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "Access Control (AC) | CMS Information Security and ..."
@@ -3626,9 +3626,9 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl",
-        "research/_intermediate/02_fetched_cadence_extracts.jsonl",
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl",
+        "reference/research/_intermediate/02_fetched_cadence_extracts.jsonl",
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "Audit and Accountability (AU)"
@@ -3641,8 +3641,8 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl",
-        "research/_intermediate/02_fetched_cadence_extracts.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl",
+        "reference/research/_intermediate/02_fetched_cadence_extracts.jsonl"
       ],
       "research_titles": [
         "CMS Acceptable Risk Safeguards (ARS)"
@@ -3655,7 +3655,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "Identification and Authentication (IA)"
@@ -3668,7 +3668,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "RMH Chapter 4: Security Assessment & Authorization"
@@ -3681,8 +3681,8 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl",
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl",
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "CISO Memo: Changes to the Access Control (AC) Account ...",
@@ -3696,7 +3696,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "NIST SP 800-34 Step 6: Testing, Training & Exercises for ..."
@@ -3709,7 +3709,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "Maintenance (MA) - NIST Control Family"
@@ -3722,7 +3722,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "FedRAMP Continuous Monitoring Requirements: A Monthly and ..."
@@ -3735,7 +3735,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "NIST SP 800-137 Information security continuous monitoring (ISCM)"
@@ -3748,7 +3748,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "DISA STIG Compliance - Security Log Management Tools"
@@ -3761,7 +3761,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/source_notes/fetched_source_notes.json"
+        "reference/research/source_notes/fetched_source_notes.json"
       ],
       "research_titles": [
         "Part II - Practices"
@@ -3774,7 +3774,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "NIST 800-53"
@@ -3787,7 +3787,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "Checking for server certificate revocation must be enforced."
@@ -3800,7 +3800,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/04_targeted_cadence_extracts.jsonl"
+        "reference/research/_intermediate/04_targeted_cadence_extracts.jsonl"
       ],
       "research_titles": [
         "Account Management - STIG Viewer"
@@ -3813,7 +3813,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/04_targeted_cadence_extracts.jsonl"
+        "reference/research/_intermediate/04_targeted_cadence_extracts.jsonl"
       ],
       "research_titles": [
         "STIG Viewer"
@@ -3826,7 +3826,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "STIG Viewer"
@@ -3839,7 +3839,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "NIST 800-53"
@@ -3852,7 +3852,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "The ISSO must review audit trails periodically based on system documentation recommendations or immediately upon system security events."
@@ -3865,7 +3865,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "Audit logs will be archived to prevent loss."
@@ -3878,7 +3878,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "Central Log Server Security Requirements Guide"
@@ -3891,7 +3891,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "V-237780"
@@ -3904,7 +3904,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "Syslog messages must be retained for a minimum of 30 days online and then stored offline for one year."
@@ -3917,7 +3917,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "(AU) Auditing and Accountability - FedRAMP Moderate"
@@ -3930,7 +3930,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "Incident Response Across CMMC, FedRAMP Rev5 ... - Stratus Cyber"
@@ -3943,7 +3943,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "Continuous Monitoring: What It Is, Why It Is Needed, and - Studylib"
@@ -3956,7 +3956,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/source_notes/raci_notes.json"
+        "reference/research/source_notes/raci_notes.json"
       ],
       "research_titles": [
         "Get started with playbooks | Jira Service Management Cloud"
@@ -3969,7 +3969,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "TAMU-CC Cybersecurity Control Standards Catalog"
@@ -3982,7 +3982,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "AU-6: Audit Record Review, Analysis, and Reporting"
@@ -3995,7 +3995,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/source_notes/raci_notes.json"
+        "reference/research/source_notes/raci_notes.json"
       ],
       "research_titles": [
         "ISO 27001 Clause 5.3: Roles & Responsibilities | TCSA"
@@ -4008,7 +4008,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "Summary of Audit-Specific STIG ID's"
@@ -4021,7 +4021,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "CNTR-K8-003310 - The Kubernetes API Server audit log retention..."
@@ -4034,7 +4034,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "Information Assurance Vulnerability Management Report"
@@ -4047,7 +4047,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "STIG - Trackr.Live"
@@ -4060,7 +4060,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "[PDF] Publication 1075 - Uncle Fed's Tax*Board"
@@ -4073,8 +4073,8 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl",
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl",
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "AU-6: Audit Record Review, Analysis, and Reporting | UpGuard"
@@ -4087,7 +4087,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "IR-3: Incident Response Testing | NIST 800-53 | UpGuard"
@@ -4100,7 +4100,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "MA-2: Controlled Maintenance | UpGuard"
@@ -4113,7 +4113,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "PE-6: Monitoring Physical Access | NIST 800-53 - UpGuard"
@@ -4126,7 +4126,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "VA Directive 6500"
@@ -4139,7 +4139,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "Department of Veterans Affairs VA HANDBOOK 6500.2 ..."
@@ -4152,8 +4152,8 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl",
-        "research/_intermediate/04_targeted_cadence_extracts.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl",
+        "reference/research/_intermediate/04_targeted_cadence_extracts.jsonl"
       ],
       "research_titles": [
         "VA Handbook 6500.6",
@@ -4167,7 +4167,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "DEPARTMENT OF VETERANS AFFAIRS VA HANDBOOK ..."
@@ -4180,7 +4180,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "Follow-up Information Security Inspection at the ..."
@@ -4193,7 +4193,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/01_web_search_results.jsonl"
+        "reference/research/_intermediate/01_web_search_results.jsonl"
       ],
       "research_titles": [
         "NIST 800-53R5 IR: Incident Response. INCIDENT RESPONSE ASSISTANCE"
@@ -4206,7 +4206,7 @@
       "cited_in_deliverables": [],
       "anchor_text": [],
       "surfaced_in_research": [
-        "research/_intermediate/03_targeted_search_results.jsonl"
+        "reference/research/_intermediate/03_targeted_search_results.jsonl"
       ],
       "research_titles": [
         "FedRAMP in 5 - AC-2 Types"

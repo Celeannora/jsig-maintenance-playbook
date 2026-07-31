@@ -1,6 +1,6 @@
 # JSIG Section 1.5 Role Playbooks — Master Index
 
-Network-agnostic operational playbooks for all 17 roles defined in [JSIG §1.5 Roles and Responsibilities](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md). Each playbook translates the role's verbatim JSIG duties into a role summary, JSIG-cited responsibility list, a synthesized "Daily/Recurring Operational Duties" table mapped to specific control IDs (drawn from [MAINTENANCE-PLAN.md](../../MAINTENANCE-PLAN.md) and the [control-families INDEX](../../reference/JSIG/control-families/INDEX.md)), a coordination-interfaces section, and a list of key artifacts owned/produced. Guidance is intentionally independent of any specific network architecture, classification enclave, or technology stack.
+Network-agnostic operational playbooks for all 17 roles defined in [JSIG §1.5 Roles and Responsibilities](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md). Each playbook translates the role's verbatim JSIG duties into a role summary, JSIG-cited responsibility list, a synthesized "Daily/Recurring Operational Duties" table mapped to specific control IDs (drawn from [MAINTENANCE-PLAN.md](../../MAINTENANCE-PLAN.md) and the [control-families INDEX](../../reference/JSIG/control-families/INDEX.md)), a coordination-interfaces section, and a list of key artifacts owned/produced. Guidance is intentionally independent of any specific network architecture, classification enclave, or technology stack.
 
 Roles are grouped below roughly by hierarchy: agency/executive → authorization → common-control/program-security → data/mission ownership → technical/operational security → end users.
 
@@ -53,7 +53,7 @@ Roles are grouped below roughly by hierarchy: agency/executive → authorization
 
 ## Source Documents
 
-- [JSIG Section 1.5 — Roles and Responsibilities (verbatim extract)](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md)
+- [JSIG Section 1.5 — Roles and Responsibilities (verbatim extract)](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md)
 - [JSIG Control Families Index](../../reference/JSIG/control-families/INDEX.md)
 - [JSIG System Administration Maintenance Plan](../../MAINTENANCE-PLAN.md)
 

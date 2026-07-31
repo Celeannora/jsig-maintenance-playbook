@@ -1,10 +1,10 @@
 # Risk Executive (Function) — Operational Playbook
 
-> Network-agnostic role playbook. Applies regardless of network architecture, classification enclave, or technology stack. Source: [JSIG §1.5.2](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md), cross-referenced to [MAINTENANCE-PLAN.md](../../MAINTENANCE-PLAN.md) and the [JSIG control-families INDEX](../../reference/JSIG/control-families/INDEX.md).
+> Network-agnostic role playbook. Applies regardless of network architecture, classification enclave, or technology stack. Source: [JSIG §1.5.2](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md), cross-referenced to [MAINTENANCE-PLAN.md](../../MAINTENANCE-PLAN.md) and the [JSIG control-families INDEX](../../reference/JSIG/control-families/INDEX.md).
 
 ## 1. Role Summary
 
-The Risk Executive (Function) (REF) is an individual or group within an organization that ensures information-system risk, including authorization decisions, is viewed from an organization-wide perspective consistent with the organization's strategic goals, and that security risk management is consistent across the organization and considered alongside other risk types. The REF serves as an adjunct advisor to the Authorizing Official (AO)/Delegated Authorizing Official (DAO); it has no authorization authority and must be comprised of U.S. citizens who are government employees ([JSIG §1.5.2](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md)).
+The Risk Executive (Function) (REF) is an individual or group within an organization that ensures information-system risk, including authorization decisions, is viewed from an organization-wide perspective consistent with the organization's strategic goals, and that security risk management is consistent across the organization and considered alongside other risk types. The REF serves as an adjunct advisor to the Authorizing Official (AO)/Delegated Authorizing Official (DAO); it has no authorization authority and must be comprised of U.S. citizens who are government employees ([JSIG §1.5.2](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md)).
 
 ## 2. JSIG-Defined Responsibilities (verbatim, JSIG §1.5.2)
 
@@ -31,7 +31,7 @@ Derived/synthesized from [MAINTENANCE-PLAN.md](../../MAINTENANCE-PLAN.md); not v
 
 | Recurring Duty | Cadence | Related Control Family/ID(s) | Basis |
 |---|---|---|---|
-| Serve as (or convene) the Risk Executive Board, including as a voting-adjacent forum the ISSM may sit on | Recurring per CCB/Risk Executive Board meeting cycle (monthly when changes are proposed) | CM-3 | [MAINTENANCE-PLAN §3.5 CM](../../MAINTENANCE-PLAN.md) — ISSM "serve[s] as a voting member of the Configuration Control Board (CCB) and/or the Risk Executive Board" ([JSIG §1.5.14(q)](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md)) |
+| Serve as (or convene) the Risk Executive Board, including as a voting-adjacent forum the ISSM may sit on | Recurring per CCB/Risk Executive Board meeting cycle (monthly when changes are proposed) | CM-3 | [MAINTENANCE-PLAN §3.5 CM](../../MAINTENANCE-PLAN.md) — ISSM "serve[s] as a voting member of the Configuration Control Board (CCB) and/or the Risk Executive Board" ([JSIG §1.5.14(q)](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md)) |
 | Review/reassess organizational risk assessment for aggregated, organization-wide risk posture | At least annually, or upon significant change | RA-3 | [MAINTENANCE-PLAN §3.14 RA](../../MAINTENANCE-PLAN.md) |
 | Review organization-wide risk management strategy | Annual, aligned with RA-3 | PM-9 | [MAINTENANCE-PLAN §3.18 PM](../../MAINTENANCE-PLAN.md) |
 | Provide oversight input into security categorization decisions across systems | Annual, or upon significant system change | RA-2 | [MAINTENANCE-PLAN §3.14 RA](../../MAINTENANCE-PLAN.md) |
@@ -40,11 +40,11 @@ Derived/synthesized from [MAINTENANCE-PLAN.md](../../MAINTENANCE-PLAN.md); not v
 
 ## 4. Coordination Interfaces
 
-- **Authorizing Official (AO) / Delegated Authorizing Official (DAO):** the REF's primary customer — serves as adjunct advisor providing risk context for authorization decisions; has no authorization authority itself ([JSIG §1.5.2](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md)).
-- **Agency/Component Head:** receives organization-wide risk posture visibility that informs component priorities ([JSIG §1.5.1](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md)).
-- **CIO:** works with the REF (and CISO) to help ensure an effectively implemented organization-wide information security program ([JSIG §1.5.3](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md)).
-- **Multiple AOs / senior leaders:** REF promotes cooperation and collaboration among AOs, especially for reciprocity and shared-responsibility authorization actions ([JSIG §1.5.2](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md)).
-- **ISSM:** the ISSM may serve on, or route CCB veto appeals through, the Risk Executive Board where the REF operates ([JSIG §1.5.14(q)](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md)).
+- **Authorizing Official (AO) / Delegated Authorizing Official (DAO):** the REF's primary customer — serves as adjunct advisor providing risk context for authorization decisions; has no authorization authority itself ([JSIG §1.5.2](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md)).
+- **Agency/Component Head:** receives organization-wide risk posture visibility that informs component priorities ([JSIG §1.5.1](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md)).
+- **CIO:** works with the REF (and CISO) to help ensure an effectively implemented organization-wide information security program ([JSIG §1.5.3](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md)).
+- **Multiple AOs / senior leaders:** REF promotes cooperation and collaboration among AOs, especially for reciprocity and shared-responsibility authorization actions ([JSIG §1.5.2](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md)).
+- **ISSM:** the ISSM may serve on, or route CCB veto appeals through, the Risk Executive Board where the REF operates ([JSIG §1.5.14(q)](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md)).
 
 ## 5. Key Artifacts Owned/Produced
 

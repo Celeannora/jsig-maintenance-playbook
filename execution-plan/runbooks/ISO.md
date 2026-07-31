@@ -1,6 +1,6 @@
 # Information System Owner (ISO) — Actionable Task Runbook
 
-The ISO is the system-lifecycle-owning official defined in [JSIG §1.5.12](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md), coordinating with the AO, SCA, Information Owner/Steward, and ISSM/ISSO per [playbooks/roles/ISO.md](../../playbooks/roles/ISO.md). Executes 0 Master Calendar tasks directly, is Accountable for 0, Consulted on 0, Informed on 0 — see [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md) Part B for the full rollup.
+The ISO is the system-lifecycle-owning official defined in [JSIG §1.5.12](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md), coordinating with the AO, SCA, Information Owner/Steward, and ISSM/ISSO per [playbooks/roles/ISO.md](../../playbooks/roles/ISO.md). Executes 0 Master Calendar tasks directly, is Accountable for 0, Consulted on 0, Informed on 0 — see [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md) Part B for the full rollup.
 
 For the real verbatim JSIG title behind any Control ID cited in this runbook, see [CONTROL-LANGUAGE-CROSSWALK.md](../CONTROL-LANGUAGE-CROSSWALK.md), which reconciles every Control ID in the Master Calendar against the full verbatim JSIG family extractions.
 
@@ -10,16 +10,16 @@ The ISO is an organizational official (government PM, or contractor PM for contr
 
 ## 2. Task Index
 
-This role has **0 executing** and **0 accountable** Master Calendar tasks per [role_task_index.json](../tools/data/role_task_index.json) — it does not appear as Responsible, Accountable, Consulted, or Informed on any of the 110 Master Calendar tasks. Its function is entirely lifecycle/acquisition governance rather than calendar-cadence operational work; the recurring compliance-monitoring tasks it depends on (SSP maintenance, POA&M updates, risk assessment currency) are executed and tracked by the ISSM/SCA per [execution-plan/ROLE-CROSSWALK.md](../ROLE-CROSSWALK.md) rather than by the ISO directly on the calendar. The following table lists its JSIG-cited event-driven governance actions, drawn from [playbooks/roles/ISO.md](../../playbooks/roles/ISO.md) and [JSIG §1.5.12](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md), each using Pattern H (Governance/Authorization Decision):
+This role has **0 executing** and **0 accountable** Master Calendar tasks per [role_task_index.json](../tools/data/role_task_index.json) — it does not appear as Responsible, Accountable, Consulted, or Informed on any of the 110 Master Calendar tasks. Its function is entirely lifecycle/acquisition governance rather than calendar-cadence operational work; the recurring compliance-monitoring tasks it depends on (SSP maintenance, POA&M updates, risk assessment currency) are executed and tracked by the ISSM/SCA per [execution-plan/ROLE-CROSSWALK.md](../ROLE-CROSSWALK.md) rather than by the ISO directly on the calendar. The following table lists its JSIG-cited event-driven governance actions, drawn from [playbooks/roles/ISO.md](../../playbooks/roles/ISO.md) and [JSIG §1.5.12](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md), each using Pattern H (Governance/Authorization Decision):
 
 | # | Governance Action | JSIG Citation | Trigger | Pattern |
 |---|---|---|---|---|
-| 1 | Produce/develop security documentation (SSP, POA&M, Security Assessment Plan) and submit the authorization package to the AO via the SCA | [JSIG §1.5.12(l)](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md) | Initial authorization, reauthorization, or significant system change | H |
-| 2 | Determine, with the Information Owner/Steward, individuals eligible for access and required privilege/access-rights types | [JSIG §1.5.12(d)](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md) | New user population identified, or a role/mission change alters access needs | H |
-| 3 | Resource and appoint an ISSE in writing when required by DoDI 5000.02/CA SAPCO direction | [JSIG §1.5.12(e)](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md) | System development effort meets the DoDI 5000.02 ISSE-appointment threshold | H |
-| 4 | Coordinate with the AO to identify the appropriate SCA (or AO designee), particularly at Preliminary/Critical Design Review | [JSIG §1.5.12(f)](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md) | System enters design phase (PDR/CDR), or an assessment cycle begins | H |
-| 5 | Advise the AO/DAO of Configuration Management decisions during system development or delivery | [JSIG §1.5.12(g)](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md) | A CM decision is made on a system under development or delivery | H |
-| 6 | Determine whether a significant change to the system or its environment requires reauthorization | [JSIG §1.5.12(c)](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md), [(n)](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md) | A proposed or completed change to the system or its environment of operation | H |
+| 1 | Produce/develop security documentation (SSP, POA&M, Security Assessment Plan) and submit the authorization package to the AO via the SCA | [JSIG §1.5.12(l)](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md) | Initial authorization, reauthorization, or significant system change | H |
+| 2 | Determine, with the Information Owner/Steward, individuals eligible for access and required privilege/access-rights types | [JSIG §1.5.12(d)](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md) | New user population identified, or a role/mission change alters access needs | H |
+| 3 | Resource and appoint an ISSE in writing when required by DoDI 5000.02/CA SAPCO direction | [JSIG §1.5.12(e)](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md) | System development effort meets the DoDI 5000.02 ISSE-appointment threshold | H |
+| 4 | Coordinate with the AO to identify the appropriate SCA (or AO designee), particularly at Preliminary/Critical Design Review | [JSIG §1.5.12(f)](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md) | System enters design phase (PDR/CDR), or an assessment cycle begins | H |
+| 5 | Advise the AO/DAO of Configuration Management decisions during system development or delivery | [JSIG §1.5.12(g)](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md) | A CM decision is made on a system under development or delivery | H |
+| 6 | Determine whether a significant change to the system or its environment requires reauthorization | [JSIG §1.5.12(c)](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md), [(n)](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md) | A proposed or completed change to the system or its environment of operation | H |
 
 ## 3. Preconditions
 
@@ -62,5 +62,5 @@ This role follows the Standard Sections 6–10 (Validation, Evidence Package, Fi
 - [playbooks/roles/ISO.md](../../playbooks/roles/ISO.md)
 - [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md)
 - [execution-plan/ROLE-CROSSWALK.md](../ROLE-CROSSWALK.md)
-- [references/JSIG-source/section-1.5-roles-and-responsibilities.md § 1.5.12](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md)
+- [reference/JSIG-source/section-1.5-roles-and-responsibilities.md § 1.5.12](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md)
 - [MAINTENANCE-PLAN.md §4](../../MAINTENANCE-PLAN.md)

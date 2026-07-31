@@ -41,8 +41,8 @@ These windows apply whether the eventual decision is remediation, a compensating
 | Minimum share of controls tested annually | At least one-third of all controls | [DCSA DoD SAP PM Handbook](https://www.dcsa.mil/Portals/91/Documents/CTP/special/DoD_SAP_PM_Handbook_JSIG_RMF_2015Aug11.pdf) |
 | Every control tested at least once | Within each 3-year authorization cycle | [DCSA DoD SAP PM Handbook](https://www.dcsa.mil/Portals/91/Documents/CTP/special/DoD_SAP_PM_Handbook_JSIG_RMF_2015Aug11.pdf) |
 | Critical/volatile controls | Quarterly to semiannually | [DCSA DoD SAP PM Handbook](https://www.dcsa.mil/Portals/91/Documents/CTP/special/DoD_SAP_PM_Handbook_JSIG_RMF_2015Aug11.pdf) |
-| Incident response plan testing | Annual (Moderate systems); every 6 months functional (High systems) | FedRAMP IR testing conventions, `research/operational-runbook-and-artifact-standards.md` §5 |
-| Contingency plan testing | Annual functional (Moderate/High); every 3 years tabletop (Low) | FedRAMP contingency testing conventions, `research/operational-runbook-and-artifact-standards.md` §5 |
+| Incident response plan testing | Annual (Moderate systems); every 6 months functional (High systems) | FedRAMP IR testing conventions, `reference/research/operational-runbook-and-artifact-standards.md` §5 |
+| Contingency plan testing | Annual functional (Moderate/High); every 3 years tabletop (Low) | FedRAMP contingency testing conventions, `reference/research/operational-runbook-and-artifact-standards.md` §5 |
 
 ## 4. Escalation Chain
 
@@ -79,4 +79,4 @@ A CVE's CVSS score measures *potential impact*, not whether it is actually being
 - [CISA KEV Catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog)
 - [CISA BOD 22-01](https://www.cisa.gov/news-events/directives/bod-22-01-reducing-significant-risk-known-exploited-vulnerabilities) (historical — established the KEV catalog; revoked June 10, 2026)
 - [Cybersecurity Dive: CISA gives agencies new vulnerability remediation priorities](https://www.cybersecuritydive.com/news/cisa-vulnerability-remediation-prioritization-directive/822504/) (BOD 26-04, current as of June 10, 2026)
-- `research/operational-runbook-and-artifact-standards.md` §5 (Escalation/exception patterns, full citation list)
+- `reference/research/operational-runbook-and-artifact-standards.md` §5 (Escalation/exception patterns, full citation list)

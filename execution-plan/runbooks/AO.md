@@ -1,6 +1,6 @@
 # Authorizing Official (AO) — Actionable Task Runbook
 
-The AO is the senior authorization official defined in [JSIG §1.5.5](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md), sitting above the ISSM/ISSO operational tier and coordinating with the REF, CIO, CISO, CCP, ISO, and SCA during the security authorization process, per [playbooks/roles/AO.md](../../playbooks/roles/AO.md). Executes 0 Master Calendar tasks directly, is Accountable for 0, Consulted on 3, Informed on 83 — see [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md) Part B for the full rollup.
+The AO is the senior authorization official defined in [JSIG §1.5.5](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md), sitting above the ISSM/ISSO operational tier and coordinating with the REF, CIO, CISO, CCP, ISO, and SCA during the security authorization process, per [playbooks/roles/AO.md](../../playbooks/roles/AO.md). Executes 0 Master Calendar tasks directly, is Accountable for 0, Consulted on 3, Informed on 83 — see [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md) Part B for the full rollup.
 
 For the real verbatim JSIG title behind any Control ID cited in this runbook, see [CONTROL-LANGUAGE-CROSSWALK.md](../CONTROL-LANGUAGE-CROSSWALK.md), which reconciles every Control ID in the Master Calendar against the full verbatim JSIG family extractions.
 
@@ -24,16 +24,16 @@ These three are consulted, not executed: the ISSM executes and is Accountable fo
 
 **Informed tasks (83):** span nearly every control family on the calendar (CM, SI, SC, PE, CP, IR, PS, CA, RA, AC, AU, IA, MA, SA, PL, MP, and the omnibus "All 26" policy-review task). Rather than list all 83 rows here — they are simply the full Master Calendar minus the handful of PM/AR/AT-family tasks routed to the ISSM or Information Owner/Steward as Informed party instead — see [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md) Part A for the authoritative per-task listing; every row where the Informed column reads "AO/DAO" is one of these 83.
 
-Because the AO holds no calendar-cadence executing or accountable task, its actual decision authority is event-driven rather than calendar-driven. The following table lists the AO's JSIG-cited authorization/risk-acceptance governance actions, drawn from [playbooks/roles/AO.md](../../playbooks/roles/AO.md) and [JSIG §1.5.5](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md), each using Pattern H (Governance/Authorization Decision):
+Because the AO holds no calendar-cadence executing or accountable task, its actual decision authority is event-driven rather than calendar-driven. The following table lists the AO's JSIG-cited authorization/risk-acceptance governance actions, drawn from [playbooks/roles/AO.md](../../playbooks/roles/AO.md) and [JSIG §1.5.5](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md), each using Pattern H (Governance/Authorization Decision):
 
 | # | Governance Action | JSIG Citation | Trigger | Pattern |
 |---|---|---|---|---|
-| 1 | Approve/deny security authorization (ATO) and reauthorization decisions | [JSIG §1.5.5(a)](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md) | Initial authorization, scheduled reauthorization, or a significant system/environment change | H |
-| 2 | Receive and act on the SCA's Security Assessment Report (SAR) and recommended authorization decision | [JSIG §1.5.5(a)](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md) | Conclusion of each independent security control assessment | H |
-| 3 | Approve SSP, POA&M, and MOA/MOUs; determine whether a change requires reauthorization | [JSIG §1.5.5(j)](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md) | Annual SSP review, or an ISO/ISSM change-impact submission | H |
-| 4 | Receive ISSM escalation of unresolved/serious security violations and vulnerabilities, and CAT I findings under the Escalation Matrix | [JSIG §1.5.14(t)](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md); [ESCALATION-MATRIX.md §4](../templates/ESCALATION-MATRIX.md) | A CAT I finding is identified, or a CAT I SLA is at risk of being missed | H |
-| 5 | Deny authorization, or halt operations of an already-operational system, upon unacceptable risk | [JSIG §1.5.5(k)](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md) | An assessment, incident, or escalated finding reveals unacceptable risk | H |
-| 6 | Adjudicate ISSM/ISSO configuration-change veto appeals | [JSIG §1.5.14(q)](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md) | An ISSM/ISSO vetoes a proposed change and the requester appeals | H |
+| 1 | Approve/deny security authorization (ATO) and reauthorization decisions | [JSIG §1.5.5(a)](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md) | Initial authorization, scheduled reauthorization, or a significant system/environment change | H |
+| 2 | Receive and act on the SCA's Security Assessment Report (SAR) and recommended authorization decision | [JSIG §1.5.5(a)](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md) | Conclusion of each independent security control assessment | H |
+| 3 | Approve SSP, POA&M, and MOA/MOUs; determine whether a change requires reauthorization | [JSIG §1.5.5(j)](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md) | Annual SSP review, or an ISO/ISSM change-impact submission | H |
+| 4 | Receive ISSM escalation of unresolved/serious security violations and vulnerabilities, and CAT I findings under the Escalation Matrix | [JSIG §1.5.14(t)](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md); [ESCALATION-MATRIX.md §4](../templates/ESCALATION-MATRIX.md) | A CAT I finding is identified, or a CAT I SLA is at risk of being missed | H |
+| 5 | Deny authorization, or halt operations of an already-operational system, upon unacceptable risk | [JSIG §1.5.5(k)](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md) | An assessment, incident, or escalated finding reveals unacceptable risk | H |
+| 6 | Adjudicate ISSM/ISSO configuration-change veto appeals | [JSIG §1.5.14(q)](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md) | An ISSM/ISSO vetoes a proposed change and the requester appeals | H |
 
 ## 3. Preconditions
 
@@ -78,7 +78,7 @@ This role follows the Standard Sections 6–10 (Validation, Evidence Package, Fi
 - [playbooks/roles/AO.md](../../playbooks/roles/AO.md)
 - [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md)
 - [execution-plan/ROLE-CROSSWALK.md](../ROLE-CROSSWALK.md)
-- [references/JSIG-source/section-1.5-roles-and-responsibilities.md § 1.5.5](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md)
+- [reference/JSIG-source/section-1.5-roles-and-responsibilities.md § 1.5.5](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md)
 - [execution-plan/templates/ESCALATION-MATRIX.md](../templates/ESCALATION-MATRIX.md)
 - [execution-plan/templates/VARIANCE-RISK-ACCEPTANCE-TEMPLATE.md](../templates/VARIANCE-RISK-ACCEPTANCE-TEMPLATE.md)
 - [MAINTENANCE-PLAN.md §4](../../MAINTENANCE-PLAN.md)

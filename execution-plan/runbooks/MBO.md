@@ -1,6 +1,6 @@
 # Mission/Business Owner (MBO) — Actionable Task Runbook
 
-The MBO is the organizational official with operational responsibility for the mission or business process a system supports, and the key stakeholder for system lifecycle decisions, per [JSIG §1.5.11](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md), sitting alongside the AO and Information System Owner as a governance-tier stakeholder rather than an operational-control executor per [playbooks/roles/MBO.md](../../playbooks/roles/MBO.md). Executes 0 Master Calendar tasks directly, is Accountable for 0, Consulted on 0, Informed on 0 — see [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md) Part B for the full rollup.
+The MBO is the organizational official with operational responsibility for the mission or business process a system supports, and the key stakeholder for system lifecycle decisions, per [JSIG §1.5.11](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md), sitting alongside the AO and Information System Owner as a governance-tier stakeholder rather than an operational-control executor per [playbooks/roles/MBO.md](../../playbooks/roles/MBO.md). Executes 0 Master Calendar tasks directly, is Accountable for 0, Consulted on 0, Informed on 0 — see [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md) Part B for the full rollup.
 
 For the real verbatim JSIG title behind any Control ID cited in this runbook, see [CONTROL-LANGUAGE-CROSSWALK.md](../CONTROL-LANGUAGE-CROSSWALK.md), which reconciles every Control ID in the Master Calendar against the full verbatim JSIG family extractions.
 
@@ -10,15 +10,15 @@ The MBO ensures information security requirements are integrated into the system
 
 ## 2. Task Index
 
-This role has **0 executing** and **0 accountable** Master Calendar tasks per [role_task_index.json](../tools/data/role_task_index.json) — it does not appear as Responsible, Accountable, Consulted, or Informed on any of the 110 Master Calendar tasks. Its function is entirely event-driven mission/business stakeholder governance rather than calendar-cadence operational work. The following table lists its JSIG-cited event-driven governance actions, drawn from [playbooks/roles/MBO.md](../../playbooks/roles/MBO.md) and [JSIG §1.5.11](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md), each using Pattern H (Governance/Authorization Decision):
+This role has **0 executing** and **0 accountable** Master Calendar tasks per [role_task_index.json](../tools/data/role_task_index.json) — it does not appear as Responsible, Accountable, Consulted, or Informed on any of the 110 Master Calendar tasks. Its function is entirely event-driven mission/business stakeholder governance rather than calendar-cadence operational work. The following table lists its JSIG-cited event-driven governance actions, drawn from [playbooks/roles/MBO.md](../../playbooks/roles/MBO.md) and [JSIG §1.5.11](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md), each using Pattern H (Governance/Authorization Decision):
 
 | # | Governance Action | JSIG Citation | Trigger | Pattern |
 |---|---|---|---|---|
-| 1 | Confirm information security requirements remain integrated into SDLC/acquisition activities for the mission/business system | [JSIG §1.5.11](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md) | Annual review, or a major lifecycle milestone (e.g., PDR/CDR) | H |
-| 2 | Participate in system lifecycle decisions affecting the mission/business process | [JSIG §1.5.11](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md) | Major system change, modernization, or decommissioning trigger | H |
-| 3 | Review resourcing/budget adequacy for mission-supporting IS security | [JSIG §1.5.11](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md) | Annual budget cycle | H |
-| 4 | Confirm business-continuity/contingency priorities for the mission process are reflected in the contingency plan | [JSIG §1.5.11](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md) | Annual, aligned with contingency plan review cycle | H |
-| 5 | Review risk-acceptance implications for the mission/business process ahead of AO reauthorization decisions | [JSIG §1.5.11](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md) | Annual at minimum, or ahead of a reauthorization decision | H |
+| 1 | Confirm information security requirements remain integrated into SDLC/acquisition activities for the mission/business system | [JSIG §1.5.11](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md) | Annual review, or a major lifecycle milestone (e.g., PDR/CDR) | H |
+| 2 | Participate in system lifecycle decisions affecting the mission/business process | [JSIG §1.5.11](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md) | Major system change, modernization, or decommissioning trigger | H |
+| 3 | Review resourcing/budget adequacy for mission-supporting IS security | [JSIG §1.5.11](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md) | Annual budget cycle | H |
+| 4 | Confirm business-continuity/contingency priorities for the mission process are reflected in the contingency plan | [JSIG §1.5.11](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md) | Annual, aligned with contingency plan review cycle | H |
+| 5 | Review risk-acceptance implications for the mission/business process ahead of AO reauthorization decisions | [JSIG §1.5.11](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md) | Annual at minimum, or ahead of a reauthorization decision | H |
 
 ## 3. Preconditions
 
@@ -47,7 +47,7 @@ The MBO does not appear as Responsible, Accountable, Consulted, or Informed on a
 - Pattern H — decision package is the current contingency plan's stated recovery priorities; MBO's decision is whether they still match actual mission/business continuity requirements.
 
 ### Governance Action #5: Review risk-acceptance implications ahead of AO reauthorization
-- Pattern H — decision package is the mission/business risk-tolerance summary prepared ahead of the AO's reauthorization decision; MBO input is consulted by the AO/Risk Executive Function before the authorization decision is rendered, per [JSIG §1.5.2(e)](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md).
+- Pattern H — decision package is the mission/business risk-tolerance summary prepared ahead of the AO's reauthorization decision; MBO input is consulted by the AO/Risk Executive Function before the authorization decision is rendered, per [JSIG §1.5.2(e)](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md).
 
 ## 6. Standard Validation, Evidence, Findings, Escalation, and Closure
 
@@ -58,5 +58,5 @@ This role follows the Standard Sections 6–10 (Validation, Evidence Package, Fi
 - [playbooks/roles/MBO.md](../../playbooks/roles/MBO.md)
 - [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md)
 - [execution-plan/ROLE-CROSSWALK.md](../ROLE-CROSSWALK.md)
-- [references/JSIG-source/section-1.5-roles-and-responsibilities.md § 1.5.11](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md)
+- [reference/JSIG-source/section-1.5-roles-and-responsibilities.md § 1.5.11](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md)
 - [MAINTENANCE-PLAN.md §4](../../MAINTENANCE-PLAN.md)

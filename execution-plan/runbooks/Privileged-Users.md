@@ -1,6 +1,6 @@
 # Privileged Users — Actionable Task Runbook
 
-Privileged Users are defined in [JSIG §1.5.16](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md) by reference only — to Account Management [AC-2], Separation of Duties [AC-5], and Rules of Behavior [PL-4] — rather than by an enumerated duty list; per [playbooks/roles/Privileged-Users.md](../../playbooks/roles/Privileged-Users.md), day-to-day technical responsibilities are synthesized from those controls plus the System Administrator monitoring duties JSIG assigns under the ISSM. Executes 49 Master Calendar tasks directly (deduplicated), is Accountable for 0, Consulted on 0, Informed on 0 — see [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md) Part B for the full rollup.
+Privileged Users are defined in [JSIG §1.5.16](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md) by reference only — to Account Management [AC-2], Separation of Duties [AC-5], and Rules of Behavior [PL-4] — rather than by an enumerated duty list; per [playbooks/roles/Privileged-Users.md](../../playbooks/roles/Privileged-Users.md), day-to-day technical responsibilities are synthesized from those controls plus the System Administrator monitoring duties JSIG assigns under the ISSM. Executes 49 Master Calendar tasks directly (deduplicated), is Accountable for 0, Consulted on 0, Informed on 0 — see [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md) Part B for the full rollup.
 
 For the real verbatim JSIG title behind any Control ID cited in this runbook, see [CONTROL-LANGUAGE-CROSSWALK.md](../CONTROL-LANGUAGE-CROSSWALK.md), which reconciles every Control ID in the Master Calendar against the full verbatim JSIG family extractions.
 
@@ -242,7 +242,7 @@ This role follows the Standard Sections 6–10 (Validation, Evidence Package, Fi
 - [playbooks/roles/Privileged-Users.md](../../playbooks/roles/Privileged-Users.md)
 - [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md)
 - [execution-plan/ROLE-CROSSWALK.md](../ROLE-CROSSWALK.md)
-- [references/JSIG-source/section-1.5-roles-and-responsibilities.md § 1.5.16](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md)
+- [reference/JSIG-source/section-1.5-roles-and-responsibilities.md § 1.5.16](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md)
 - [execution-plan/templates/ESCALATION-MATRIX.md](../templates/ESCALATION-MATRIX.md)
 - [execution-plan/templates/VARIANCE-RISK-ACCEPTANCE-TEMPLATE.md](../templates/VARIANCE-RISK-ACCEPTANCE-TEMPLATE.md)
 - [MAINTENANCE-PLAN.md §4](../../MAINTENANCE-PLAN.md)

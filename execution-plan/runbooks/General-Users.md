@@ -1,6 +1,6 @@
 # General Users — Actionable Task Runbook
 
-General Users are individuals granted standard (non-privileged) access to an information system to perform mission, business, or operational tasks, per [JSIG §1.5.17](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md), which defines this role entirely by reference to Account Management [AC-2] and Rules of Behavior [PL-4] rather than an enumerated duty list, per [playbooks/roles/General-Users.md](../../playbooks/roles/General-Users.md). Executes 0 Master Calendar tasks directly, is Accountable for 0, Consulted on 0, Informed on 0 — see [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md) Part B for the full rollup.
+General Users are individuals granted standard (non-privileged) access to an information system to perform mission, business, or operational tasks, per [JSIG §1.5.17](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md), which defines this role entirely by reference to Account Management [AC-2] and Rules of Behavior [PL-4] rather than an enumerated duty list, per [playbooks/roles/General-Users.md](../../playbooks/roles/General-Users.md). Executes 0 Master Calendar tasks directly, is Accountable for 0, Consulted on 0, Informed on 0 — see [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md) Part B for the full rollup.
 
 For the real verbatim JSIG title behind any Control ID cited in this runbook, see [CONTROL-LANGUAGE-CROSSWALK.md](../CONTROL-LANGUAGE-CROSSWALK.md), which reconciles every Control ID in the Master Calendar against the full verbatim JSIG family extractions.
 
@@ -10,15 +10,15 @@ General Users are the subjects of, not the operators of, the recurring control t
 
 ## 2. Task Index
 
-This role has **0 executing** and **0 accountable** Master Calendar tasks per [role_task_index.json](../tools/data/role_task_index.json) — it does not appear as Responsible, Accountable, Consulted, or Informed on any of the 110 Master Calendar tasks. Its function is entirely individual compliance/duty actions rather than calendar-cadence control operation. The following table lists its JSIG-cited event-driven duty actions, drawn from [playbooks/roles/General-Users.md](../../playbooks/roles/General-Users.md) and [JSIG §1.5.17](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md) (by reference to AC-2 and PL-4), each using Pattern H (Governance/Authorization Decision) at the individual-compliance scale:
+This role has **0 executing** and **0 accountable** Master Calendar tasks per [role_task_index.json](../tools/data/role_task_index.json) — it does not appear as Responsible, Accountable, Consulted, or Informed on any of the 110 Master Calendar tasks. Its function is entirely individual compliance/duty actions rather than calendar-cadence control operation. The following table lists its JSIG-cited event-driven duty actions, drawn from [playbooks/roles/General-Users.md](../../playbooks/roles/General-Users.md) and [JSIG §1.5.17](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md) (by reference to AC-2 and PL-4), each using Pattern H (Governance/Authorization Decision) at the individual-compliance scale:
 
 | # | Duty Action | JSIG Citation | Trigger | Pattern |
 |---|---|---|---|---|
-| 1 | Acknowledge Rules of Behavior before and during system access | [JSIG §1.5.17](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md) (PL-4) | Account creation; annual re-acknowledgment thereafter | H |
-| 2 | Complete initial and annual security awareness training | [JSIG §1.5.17](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md) (by reference; delivered under AT-2) | Onboarding; annual refresher cycle | H |
-| 3 | Report change in need-to-know or employment status promptly | [JSIG §1.5.17](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md) (AC-2) | Any change affecting account eligibility (role change, transfer, separation) | H |
-| 4 | Report suspected security incidents encountered during normal use | [JSIG §1.5.15(e)](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md) (ISSO intake duty this role's reports feed) | Any suspected incident observed | H |
-| 5 | Rotate/refresh personal authenticators as required | [JSIG §1.5.17](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md) (by reference; IA-5) | Per organization-defined credential-refresh cadence | H |
+| 1 | Acknowledge Rules of Behavior before and during system access | [JSIG §1.5.17](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md) (PL-4) | Account creation; annual re-acknowledgment thereafter | H |
+| 2 | Complete initial and annual security awareness training | [JSIG §1.5.17](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md) (by reference; delivered under AT-2) | Onboarding; annual refresher cycle | H |
+| 3 | Report change in need-to-know or employment status promptly | [JSIG §1.5.17](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md) (AC-2) | Any change affecting account eligibility (role change, transfer, separation) | H |
+| 4 | Report suspected security incidents encountered during normal use | [JSIG §1.5.15(e)](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md) (ISSO intake duty this role's reports feed) | Any suspected incident observed | H |
+| 5 | Rotate/refresh personal authenticators as required | [JSIG §1.5.17](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md) (by reference; IA-5) | Per organization-defined credential-refresh cadence | H |
 
 ## 3. Preconditions
 
@@ -30,7 +30,7 @@ This role has **0 executing** and **0 accountable** Master Calendar tasks per [r
 
 ## 4. RACI Position Summary
 
-General Users do not appear as Responsible, Accountable, Consulted, or Informed on any of the 110 Master Calendar tasks ([execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md) Part B) — the ISSO verifies eligibility and confirms security-responsibility awareness before granting access ([JSIG §1.5.15(e)](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md)), and the ISSM/Training Manager and Information Owner/Steward own the corresponding calendar-driven training-delivery and rules-of-behavior tasks that General Users are merely the subject of. Per [execution-plan/ROLE-CROSSWALK.md](../ROLE-CROSSWALK.md), no operational title is absorbed into this role and none of its individual-compliance actions are delegated elsewhere.
+General Users do not appear as Responsible, Accountable, Consulted, or Informed on any of the 110 Master Calendar tasks ([execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md) Part B) — the ISSO verifies eligibility and confirms security-responsibility awareness before granting access ([JSIG §1.5.15(e)](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md)), and the ISSM/Training Manager and Information Owner/Steward own the corresponding calendar-driven training-delivery and rules-of-behavior tasks that General Users are merely the subject of. Per [execution-plan/ROLE-CROSSWALK.md](../ROLE-CROSSWALK.md), no operational title is absorbed into this role and none of its individual-compliance actions are delegated elsewhere.
 
 ## 5. Execution Procedures
 
@@ -58,5 +58,5 @@ This role follows the Standard Sections 6–10 (Validation, Evidence Package, Fi
 - [playbooks/roles/General-Users.md](../../playbooks/roles/General-Users.md)
 - [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md)
 - [execution-plan/ROLE-CROSSWALK.md](../ROLE-CROSSWALK.md)
-- [references/JSIG-source/section-1.5-roles-and-responsibilities.md § 1.5.17](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md)
+- [reference/JSIG-source/section-1.5-roles-and-responsibilities.md § 1.5.17](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md)
 - [MAINTENANCE-PLAN.md §4](../../MAINTENANCE-PLAN.md)

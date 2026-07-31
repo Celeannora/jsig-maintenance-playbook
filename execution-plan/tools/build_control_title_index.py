@@ -3,7 +3,7 @@
 build_control_title_index.py
 
 Parses the verbatim-extracted JSIG Chapter 3 family files (18 control
-families + 8 Privacy sub-families) in references/JSIG-source/ and builds
+families + 8 Privacy sub-families) in reference/JSIG-source/ and builds
 execution-plan/tools/data/control_title_index.json: a lookup of every real
 JSIG control ID -> its real verbatim title, family, and source file.
 
@@ -37,7 +37,7 @@ import json
 import os
 import re
 
-SOURCE_DIR = os.path.join(os.path.dirname(__file__), "..", "..", "references", "JSIG-source")
+SOURCE_DIR = os.path.join(os.path.dirname(__file__), "..", "..", "reference", "JSIG-source")
 OUT_FILE = os.path.join(os.path.dirname(__file__), "data", "control_title_index.json")
 
 BASE_RE = re.compile(r"^([A-Z]{2}-\d+)\s{2,}([A-Z][A-Z0-9 ,/\-\.&']+?)\s*$")

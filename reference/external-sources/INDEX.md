@@ -1,7 +1,7 @@
 # External Sources Index — JSIG Maintenance-Planning Reference Scaffold
 
 This directory contains offline, locally-saved copies (excerpts, unless otherwise noted) of every external source cited in:
-- `/home/user/workspace/jsig-reference-scaffold/research/operational-maintenance-schedules-research.md`
+- `/home/user/workspace/jsig-reference-scaffold/reference/research/operational-maintenance-schedules-research.md`
 - `/home/user/workspace/jsig-reference-scaffold/reference/JSIG/README.md` (NIST SP 800-53 Rev.4 XML citation)
 
 **Retrieval date for all sources below: 2026-07-17.**

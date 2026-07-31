@@ -18,6 +18,6 @@ records=[]
 for row in res:
     d=dict(row.result) if getattr(row,'result',None) else {'url':str(row.spec),'error':str(row.error),'content':''}
     records.append(d)
-out='/home/user/workspace/jsig-reference-scaffold/research/source_notes/raci_notes.json'
+out='/home/user/workspace/jsig-reference-scaffold/reference/research/source_notes/raci_notes.json'
 open(out,'w').write(json.dumps(records,indent=2))
 print(json.dumps({'count':len(records),'out':out},indent=2))

@@ -3,7 +3,7 @@
     "url": "https://www.fedramp.gov/resources/templates/FedRAMP-POAM-Template.xlsx",
     "status": 200,
     "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-    "path": "/home/user/workspace/jsig-reference-scaffold/research/source_notes/downloads/poam_FedRAMP-POAM-Template.xlsx",
+    "path": "/home/user/workspace/jsig-reference-scaffold/reference/research/source_notes/downloads/poam_FedRAMP-POAM-Template.xlsx",
     "size": 636865,
     "sheets": {
       "Instructions": {
@@ -287,7 +287,7 @@
     "url": "https://www.fedramp.gov/resources/templates/FedRAMP-Continuous-Monitoring-Deliverables-Template.xlsx",
     "status": 200,
     "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-    "path": "/home/user/workspace/jsig-reference-scaffold/research/source_notes/downloads/conmon_FedRAMP-Continuous-Monitoring-Deliverables-Template.xlsx",
+    "path": "/home/user/workspace/jsig-reference-scaffold/reference/research/source_notes/downloads/conmon_FedRAMP-Continuous-Monitoring-Deliverables-Template.xlsx",
     "size": 124813,
     "sheets": {
       "Instructions": {
@@ -1067,14 +1067,14 @@
     "url": "https://www.fedramp.gov/resources/templates/FedRAMP-Security-Assessment-Plan-(SAP)-Template.docx",
     "status": 200,
     "content_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-    "path": "/home/user/workspace/jsig-reference-scaffold/research/source_notes/downloads/sap_FedRAMP-Security-Assessment-Plan-(SAP)-Template.docx",
+    "path": "/home/user/workspace/jsig-reference-scaffold/reference/research/source_notes/downloads/sap_FedRAMP-Security-Assessment-Plan-(SAP)-Template.docx",
     "size": 143440
   },
   "ssp": {
     "url": "https://www.fedramp.gov/resources/templates/FedRAMP-SSP-Moderate-Baseline-Template.docx",
     "status": 404,
     "content_type": "text/html; charset=utf-8",
-    "path": "/home/user/workspace/jsig-reference-scaffold/research/source_notes/downloads/ssp_FedRAMP-SSP-Moderate-Baseline-Template.docx",
+    "path": "/home/user/workspace/jsig-reference-scaffold/reference/research/source_notes/downloads/ssp_FedRAMP-SSP-Moderate-Baseline-Template.docx",
     "size": 3735
   }
 }

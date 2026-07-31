@@ -159,4 +159,4 @@ The strongest documented “core maintenance calendar” pattern for JSIG-style 
 
 ## Artifact path
 
-Created at `/home/user/workspace/jsig-reference-scaffold/research/operational-maintenance-schedules-research.md`.
+Created at `/home/user/workspace/jsig-reference-scaffold/reference/research/operational-maintenance-schedules-research.md`.

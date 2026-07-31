@@ -1,6 +1,6 @@
 # Authoring Brief: Role Runbook Generation
 
-> Working notes for producing `execution-plan/runbooks/<Role>.md` files. Not itself a runbook — delete or ignore for end-user onboarding; kept here only as the build record for how these files were produced, consistent with this repo's practice of documenting its own generation process (see `execution-plan/tools/build_raci_matrix.py`'s and `research/_research_scripts/build_sources_ledger.py`'s header comments).
+> Working notes for producing `execution-plan/runbooks/<Role>.md` files. Not itself a runbook — delete or ignore for end-user onboarding; kept here only as the build record for how these files were produced, consistent with this repo's practice of documenting its own generation process (see `execution-plan/tools/build_raci_matrix.py`'s and `reference/research/_research_scripts/build_sources_ledger.py`'s header comments).
 
 ## Required inputs (read all of these before writing any role's file)
 
@@ -8,7 +8,7 @@
 2. `execution-plan/runbooks/_EXECUTION-PATTERNS.md` — the 8 shared execution patterns (A–H) and the standardized Sections 6–10. Read in full.
 3. `playbooks/roles/<Role-filename>.md` — existing narrative role playbook (mission, JSIG-cited duties, coordination interfaces, key artifacts owned). Source for the Role Overview section and for governance-only roles' event-driven actions.
 4. `execution-plan/ROLE-CROSSWALK.md` and `execution-plan/RACI-MATRIX.md` — cross-reference for RACI framing language.
-5. `references/JSIG-source/section-1.5-roles-and-responsibilities.md` — verbatim JSIG role definitions, for citing the role's formal JSIG basis.
+5. `reference/JSIG-source/section-1.5-roles-and-responsibilities.md` — verbatim JSIG role definitions, for citing the role's formal JSIG basis.
 6. `execution-plan/templates/ESCALATION-MATRIX.md` and `execution-plan/templates/VARIANCE-RISK-ACCEPTANCE-TEMPLATE.md` — referenced, not repeated, in every runbook's escalation section.
 
 ## Required output structure for every `execution-plan/runbooks/<Role>.md`
@@ -16,7 +16,7 @@
 ```markdown
 # <Role Full Name> — Actionable Task Runbook
 
-One-paragraph intro: this role's JSIG position (cite references/JSIG-source/section-1.5-roles-and-responsibilities.md),
+One-paragraph intro: this role's JSIG position (cite reference/JSIG-source/section-1.5-roles-and-responsibilities.md),
 its position in the org hierarchy per playbooks/roles/<file>.md, and a one-line count summary
 ("Executes N Master Calendar tasks directly, is Accountable for N, Consulted on N, Informed on N —
 see execution-plan/RACI-MATRIX.md Part B for the full rollup.").

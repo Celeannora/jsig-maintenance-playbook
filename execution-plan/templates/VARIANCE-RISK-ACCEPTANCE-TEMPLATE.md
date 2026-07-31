@@ -29,7 +29,7 @@
 | Finding Title | *(official title, from reference DB)* |
 | Severity / CAT Level | `CAT I` / `CAT II` / `CAT III` *(from reference DB — STIG `severity`, or CVE CVSS base severity / CISA KEV floor, mapped to CAT per `execution-plan/templates/ESCALATION-MATRIX.md`)* |
 | System / Enclave Scope | *(name of the accredited system or enclave this finding applies to)* |
-| Source Requirement | JSIG §1.5 / control family per `references/JSIG-source/` control mapping for this CCI (STIG) or CWE (CVE) |
+| Source Requirement | JSIG §1.5 / control family per `reference/JSIG-source/` control mapping for this CCI (STIG) or CWE (CVE) |
 | Document Version | v1.0 |
 | Last Reviewed | *(date)* |
 

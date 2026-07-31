@@ -1,6 +1,6 @@
 # Risk Executive Function — Actionable Task Runbook
 
-The Risk Executive (Function) (REF) is the organization-wide risk-visibility role defined in [JSIG §1.5.2](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md), serving as an adjunct advisor to the AO/DAO with no authorization authority of its own, per [playbooks/roles/Risk-Executive-Function.md](../../playbooks/roles/Risk-Executive-Function.md). Executes 0 Master Calendar tasks directly, is Accountable for 0, Consulted on 0, Informed on 3 — see [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md) Part B for the full rollup.
+The Risk Executive (Function) (REF) is the organization-wide risk-visibility role defined in [JSIG §1.5.2](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md), serving as an adjunct advisor to the AO/DAO with no authorization authority of its own, per [playbooks/roles/Risk-Executive-Function.md](../../playbooks/roles/Risk-Executive-Function.md). Executes 0 Master Calendar tasks directly, is Accountable for 0, Consulted on 0, Informed on 3 — see [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md) Part B for the full rollup.
 
 For the real verbatim JSIG title behind any Control ID cited in this runbook, see [CONTROL-LANGUAGE-CROSSWALK.md](../CONTROL-LANGUAGE-CROSSWALK.md), which reconciles every Control ID in the Master Calendar against the full verbatim JSIG family extractions.
 
@@ -10,16 +10,16 @@ The REF ensures information-system risk — including authorization decisions �
 
 ## 2. Task Index
 
-This role has **0 executing** and **0 accountable** Master Calendar tasks per [role_task_index.json](../tools/data/role_task_index.json) — it is Informed on 3 tasks (POA&M rollup, system inventory, and performance-measure reporting, all ISSM-executed/accountable) but performs no hands-on execution or sign-off itself. Its function is event-driven organization-wide governance rather than calendar-cadence operational work. The following table lists its JSIG-cited event-driven governance actions, drawn from [playbooks/roles/Risk-Executive-Function.md](../../playbooks/roles/Risk-Executive-Function.md) and [JSIG §1.5.2](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md), each using Pattern H (Governance/Authorization Decision):
+This role has **0 executing** and **0 accountable** Master Calendar tasks per [role_task_index.json](../tools/data/role_task_index.json) — it is Informed on 3 tasks (POA&M rollup, system inventory, and performance-measure reporting, all ISSM-executed/accountable) but performs no hands-on execution or sign-off itself. Its function is event-driven organization-wide governance rather than calendar-cadence operational work. The following table lists its JSIG-cited event-driven governance actions, drawn from [playbooks/roles/Risk-Executive-Function.md](../../playbooks/roles/Risk-Executive-Function.md) and [JSIG §1.5.2](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md), each using Pattern H (Governance/Authorization Decision):
 
 | # | Governance Action | JSIG Citation | Trigger | Pattern |
 |---|---|---|---|---|
-| 1 | Develop/refresh the organization-wide risk management strategy | [JSIG §1.5.2](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md)(b) | Annual strategy review, or a significant organizational/mission change | H |
-| 2 | Provide oversight input into security categorization decisions to ensure consistent, effective risk-acceptance decisions | [JSIG §1.5.2](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md)(d) | A system undergoes initial or revised security categorization | H |
-| 3 | Facilitate sharing of risk-related information among AOs and senior leaders, including for reciprocity/shared-responsibility actions | [JSIG §1.5.2](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md)(c), (g) | A reciprocity request or shared-responsibility authorization action arises between AOs | H |
-| 4 | Advise the AO/DAO on an individual authorization decision, ensuring all mission/business factors are considered | [JSIG §1.5.2](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md)(e) | An AO/DAO authorization package is submitted for decision | H |
-| 5 | Elevate external/third-party service-provider risk to appropriate decision-making authorities | [JSIG §1.5.2](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md)(h) | A new or changed external information/service provider relationship is identified | H |
-| 6 | Identify the organizational risk posture based on aggregated risk across all systems the organization is responsible for | [JSIG §1.5.2](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md)(i) | Periodic risk posture briefing to the Agency/Component Head, or a material change in aggregated risk | H |
+| 1 | Develop/refresh the organization-wide risk management strategy | [JSIG §1.5.2](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md)(b) | Annual strategy review, or a significant organizational/mission change | H |
+| 2 | Provide oversight input into security categorization decisions to ensure consistent, effective risk-acceptance decisions | [JSIG §1.5.2](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md)(d) | A system undergoes initial or revised security categorization | H |
+| 3 | Facilitate sharing of risk-related information among AOs and senior leaders, including for reciprocity/shared-responsibility actions | [JSIG §1.5.2](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md)(c), (g) | A reciprocity request or shared-responsibility authorization action arises between AOs | H |
+| 4 | Advise the AO/DAO on an individual authorization decision, ensuring all mission/business factors are considered | [JSIG §1.5.2](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md)(e) | An AO/DAO authorization package is submitted for decision | H |
+| 5 | Elevate external/third-party service-provider risk to appropriate decision-making authorities | [JSIG §1.5.2](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md)(h) | A new or changed external information/service provider relationship is identified | H |
+| 6 | Identify the organizational risk posture based on aggregated risk across all systems the organization is responsible for | [JSIG §1.5.2](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md)(i) | Periodic risk posture briefing to the Agency/Component Head, or a material change in aggregated risk | H |
 
 ## 3. Preconditions
 
@@ -62,5 +62,5 @@ This role follows the Standard Sections 6–10 (Validation, Evidence Package, Fi
 - [playbooks/roles/Risk-Executive-Function.md](../../playbooks/roles/Risk-Executive-Function.md)
 - [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md)
 - [execution-plan/ROLE-CROSSWALK.md](../ROLE-CROSSWALK.md)
-- [references/JSIG-source/section-1.5-roles-and-responsibilities.md § 1.5.2](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md)
+- [reference/JSIG-source/section-1.5-roles-and-responsibilities.md § 1.5.2](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md)
 - [MAINTENANCE-PLAN.md §4](../../MAINTENANCE-PLAN.md)

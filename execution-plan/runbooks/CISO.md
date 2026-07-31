@@ -1,6 +1,6 @@
 # Chief Information Security Officer (CISO) — Actionable Task Runbook
 
-The CISO carries out the CIO's FISMA security responsibilities per [JSIG §1.5.4](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md), serving as the primary liaison between the CIO and the organization's AOs, ISOs, CCPs, and ISSM/ISSOs, per [playbooks/roles/CISO.md](../../playbooks/roles/CISO.md). Executes 0 Master Calendar tasks directly, is Accountable for 0, Consulted on 0, Informed on 6 — see [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md) Part B for the full rollup.
+The CISO carries out the CIO's FISMA security responsibilities per [JSIG §1.5.4](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md), serving as the primary liaison between the CIO and the organization's AOs, ISOs, CCPs, and ISSM/ISSOs, per [playbooks/roles/CISO.md](../../playbooks/roles/CISO.md). Executes 0 Master Calendar tasks directly, is Accountable for 0, Consulted on 0, Informed on 6 — see [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md) Part B for the full rollup.
 
 For the real verbatim JSIG title behind any Control ID cited in this runbook, see [CONTROL-LANGUAGE-CROSSWALK.md](../CONTROL-LANGUAGE-CROSSWALK.md), which reconciles every Control ID in the Master Calendar against the full verbatim JSIG family extractions.
 
@@ -10,14 +10,14 @@ The CISO, also known as a Senior Information Security Officer, must possess prof
 
 ## 2. Task Index
 
-This role has **0 executing** and **0 accountable** Master Calendar tasks per [role_task_index.json](../tools/data/role_task_index.json) — it is Informed on 6 Incident Response family tasks (all ISSM-accountable, ISSO-consulted) but performs no hands-on execution or sign-off itself. Its function is liaison/governance oversight rather than calendar-cadence operational work. The following table lists its JSIG-cited event-driven governance actions, drawn from [playbooks/roles/CISO.md](../../playbooks/roles/CISO.md) and [JSIG §1.5.4](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md), each using Pattern H (Governance/Authorization Decision):
+This role has **0 executing** and **0 accountable** Master Calendar tasks per [role_task_index.json](../tools/data/role_task_index.json) — it is Informed on 6 Incident Response family tasks (all ISSM-accountable, ISSO-consulted) but performs no hands-on execution or sign-off itself. Its function is liaison/governance oversight rather than calendar-cadence operational work. The following table lists its JSIG-cited event-driven governance actions, drawn from [playbooks/roles/CISO.md](../../playbooks/roles/CISO.md) and [JSIG §1.5.4](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md), each using Pattern H (Governance/Authorization Decision):
 
 | # | Governance Action | JSIG Citation | Trigger | Pattern |
 |---|---|---|---|---|
-| 1 | Coordinate, develop, implement, and maintain the organization-wide information security program (if appointed under PM-2) | [JSIG §1.5.4](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md) | Program stand-up, or annual program plan review | H |
-| 2 | Report FISMA activities within channels to the cognizant authority's SAPCO | [JSIG §1.5.4](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md) | Recurring, aligned with the CIO's annual reporting cycle | H |
-| 3 | Relay consolidated AO/ISO/CCP/ISSM/ISSO security posture information to the CIO | [JSIG §1.5.4](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md) | Continuous liaison function, aggregated for the CIO's annual report | H |
-| 4 | Maintain and demonstrate the professional qualifications required to administer information security program functions | [JSIG §1.5.4](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md) | Annual qualification/training currency review, or upon appointment | H |
+| 1 | Coordinate, develop, implement, and maintain the organization-wide information security program (if appointed under PM-2) | [JSIG §1.5.4](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md) | Program stand-up, or annual program plan review | H |
+| 2 | Report FISMA activities within channels to the cognizant authority's SAPCO | [JSIG §1.5.4](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md) | Recurring, aligned with the CIO's annual reporting cycle | H |
+| 3 | Relay consolidated AO/ISO/CCP/ISSM/ISSO security posture information to the CIO | [JSIG §1.5.4](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md) | Continuous liaison function, aggregated for the CIO's annual report | H |
+| 4 | Maintain and demonstrate the professional qualifications required to administer information security program functions | [JSIG §1.5.4](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md) | Annual qualification/training currency review, or upon appointment | H |
 
 ## 3. Preconditions
 
@@ -54,5 +54,5 @@ This role follows the Standard Sections 6–10 (Validation, Evidence Package, Fi
 - [playbooks/roles/CISO.md](../../playbooks/roles/CISO.md)
 - [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md)
 - [execution-plan/ROLE-CROSSWALK.md](../ROLE-CROSSWALK.md)
-- [references/JSIG-source/section-1.5-roles-and-responsibilities.md § 1.5.4](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md)
+- [reference/JSIG-source/section-1.5-roles-and-responsibilities.md § 1.5.4](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md)
 - [MAINTENANCE-PLAN.md §4](../../MAINTENANCE-PLAN.md)

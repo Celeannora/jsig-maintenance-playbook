@@ -1,5 +1,5 @@
 import pplx_sdk, os
-RD='/home/user/workspace/jsig-reference-scaffold/research/_intermediate'
+RD='/home/user/workspace/jsig-reference-scaffold/reference/research/_intermediate'
 urls=[
 'https://public.cyber.mil/stigs/',
 'https://public.cyber.mil/stigs/compilations/',

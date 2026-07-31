@@ -1,6 +1,6 @@
 # Delegated Authorizing Official (DAO) — Actionable Task Runbook
 
-The DAO is the delegated authorization official defined in [JSIG §1.5.6](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md), acting on behalf of the AO within the scope of a written delegation letter and coordinating with the SCA and ISO for delegated systems, per [playbooks/roles/DAO.md](../../playbooks/roles/DAO.md). Executes 0 Master Calendar tasks directly, is Accountable for 0, Consulted on 3, Informed on 83 — see [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md) Part B for the full rollup.
+The DAO is the delegated authorization official defined in [JSIG §1.5.6](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md), acting on behalf of the AO within the scope of a written delegation letter and coordinating with the SCA and ISO for delegated systems, per [playbooks/roles/DAO.md](../../playbooks/roles/DAO.md). Executes 0 Master Calendar tasks directly, is Accountable for 0, Consulted on 3, Informed on 83 — see [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md) Part B for the full rollup.
 
 For the real verbatim JSIG title behind any Control ID cited in this runbook, see [CONTROL-LANGUAGE-CROSSWALK.md](../CONTROL-LANGUAGE-CROSSWALK.md), which reconciles every Control ID in the Master Calendar against the full verbatim JSIG family extractions.
 
@@ -24,16 +24,16 @@ These three are consulted, not executed: the ISSM executes and is Accountable fo
 
 **Informed tasks (83):** span nearly every control family on the calendar (CM, SI, SC, PE, CP, IR, PS, CA, RA, AC, AU, IA, MA, SA, PL, MP, and the omnibus "All 26" policy-review task) — see [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md) Part A for the authoritative per-task listing; every row where the Informed column reads "AO/DAO" is one of these 83.
 
-Because the DAO holds no calendar-cadence executing or accountable task, its actual decision authority is event-driven and scoped by its delegation letter. The following table lists the DAO's JSIG-cited authorization/risk-acceptance governance actions, drawn from [playbooks/roles/DAO.md](../../playbooks/roles/DAO.md) and [JSIG §1.5.6](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md), each using Pattern H (Governance/Authorization Decision):
+Because the DAO holds no calendar-cadence executing or accountable task, its actual decision authority is event-driven and scoped by its delegation letter. The following table lists the DAO's JSIG-cited authorization/risk-acceptance governance actions, drawn from [playbooks/roles/DAO.md](../../playbooks/roles/DAO.md) and [JSIG §1.5.6](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md), each using Pattern H (Governance/Authorization Decision):
 
 | # | Governance Action | JSIG Citation | Trigger | Pattern |
 |---|---|---|---|---|
-| 1 | Authorize a system to operate, if explicitly delegated that authority | [JSIG §1.5.6](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md) | Initial authorization or reauthorization for a system within delegated scope | H |
-| 2 | Approve the SSP, if delegated | [JSIG §1.5.6](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md) | Annual SSP review, or a significant change, for a delegated system | H |
-| 3 | Approve and monitor implementation of the POA&M, if delegated | [JSIG §1.5.6](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md) | POA&M submission or monthly monitoring cycle for a delegated system | H |
-| 4 | Determine the level of risk deemed acceptable when authorizing systems within delegated scope | [JSIG §1.5.6](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md) | Any authorization decision within the delegation letter's stated impact levels (confidentiality/integrity/availability) | H |
-| 5 | Receive ISSM/ISSO notification of changes or incidents that might affect the authorization of a delegated system | [JSIG §1.5.15(j)](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md) | A change or incident occurs on a system within delegated scope | H |
-| 6 | Escalate to the AO any matter outside the scope of the delegation letter | [JSIG §1.5.6](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md) | A decision required exceeds the delegated impact levels or authority stated in the delegation letter | H |
+| 1 | Authorize a system to operate, if explicitly delegated that authority | [JSIG §1.5.6](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md) | Initial authorization or reauthorization for a system within delegated scope | H |
+| 2 | Approve the SSP, if delegated | [JSIG §1.5.6](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md) | Annual SSP review, or a significant change, for a delegated system | H |
+| 3 | Approve and monitor implementation of the POA&M, if delegated | [JSIG §1.5.6](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md) | POA&M submission or monthly monitoring cycle for a delegated system | H |
+| 4 | Determine the level of risk deemed acceptable when authorizing systems within delegated scope | [JSIG §1.5.6](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md) | Any authorization decision within the delegation letter's stated impact levels (confidentiality/integrity/availability) | H |
+| 5 | Receive ISSM/ISSO notification of changes or incidents that might affect the authorization of a delegated system | [JSIG §1.5.15(j)](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md) | A change or incident occurs on a system within delegated scope | H |
+| 6 | Escalate to the AO any matter outside the scope of the delegation letter | [JSIG §1.5.6](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md) | A decision required exceeds the delegated impact levels or authority stated in the delegation letter | H |
 
 ## 3. Preconditions
 
@@ -78,7 +78,7 @@ This role follows the Standard Sections 6–10 (Validation, Evidence Package, Fi
 - [playbooks/roles/DAO.md](../../playbooks/roles/DAO.md)
 - [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md)
 - [execution-plan/ROLE-CROSSWALK.md](../ROLE-CROSSWALK.md)
-- [references/JSIG-source/section-1.5-roles-and-responsibilities.md § 1.5.6](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md)
+- [reference/JSIG-source/section-1.5-roles-and-responsibilities.md § 1.5.6](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md)
 - [execution-plan/templates/ESCALATION-MATRIX.md](../templates/ESCALATION-MATRIX.md)
 - [execution-plan/templates/VARIANCE-RISK-ACCEPTANCE-TEMPLATE.md](../templates/VARIANCE-RISK-ACCEPTANCE-TEMPLATE.md)
 - [MAINTENANCE-PLAN.md §4](../../MAINTENANCE-PLAN.md)

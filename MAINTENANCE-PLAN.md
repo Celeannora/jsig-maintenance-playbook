@@ -5,7 +5,7 @@
 
 **Source documents used to build this plan:**
 - Control-family reference scaffold: `reference/JSIG/control-families/INDEX.md` and the 26 family files (`AC.md` … `UL.md`)
-- Cadence research compilation: `research/operational-maintenance-schedules-research.md`
+- Cadence research compilation: `reference/research/operational-maintenance-schedules-research.md`
 - Known extraction gaps: `reference/JSIG/appendices/EXTRACTION-LIMITATIONS.md`
 
 ---
@@ -125,7 +125,7 @@ Because JSIG does not publish a numeric cadence catalog, this plan builds its ma
 ---
 ## 3. Family-by-Family Maintenance Requirements
 
-Each family below lists: (a) controls with an ongoing/recurring maintenance component (one-time-setup-only controls are noted briefly and excluded from the cadence table), (b) a maintenance cadence table, and (c) artifacts to retain for ATO/accreditation continuity. Unless otherwise cited, "research file" refers to `research/operational-maintenance-schedules-research.md`. All family control inventories are drawn from `reference/JSIG/control-families/<CODE>.md`.
+Each family below lists: (a) controls with an ongoing/recurring maintenance component (one-time-setup-only controls are noted briefly and excluded from the cadence table), (b) a maintenance cadence table, and (c) artifacts to retain for ATO/accreditation continuity. Unless otherwise cited, "research file" refers to `reference/research/operational-maintenance-schedules-research.md`. All family control inventories are drawn from `reference/JSIG/control-families/<CODE>.md`.
 
 ---
 
@@ -737,7 +737,7 @@ PM exists at the organizational level above any single system's ATO — it aggre
 ---
 ### 3.19–3.26 Appendix J Privacy Control Families (AP, AR, DI, DM, IP, SE, TR, UL)
 
-**Important caveat:** These eight families have **no matching NIST SP 800-53 Rev. 4 XML baseline record** — the reference scaffold's family files (`AP.md`, `AR.md`, `DI.md`, `DM.md`, `IP.md`, `SE.md`, `TR.md`, `UL.md`) note this explicitly and flag every control for manual verification against JSIG Chapter 3 / Appendix J text. No cadence evidence for these controls appears in `research/operational-maintenance-schedules-research.md`, which is scoped to NIST Rev. 4/RMF families. All cadences below are reasoned defaults built by analogy to the closest operational parallel in the NIST-mapped families (e.g., DM retention/disposition mapped to AU-11 retention patterns, TR notice updates mapped to annual policy-review patterns) and **must be verified against the primary JSIG PDF** before use in an actual ATO package.
+**Important caveat:** These eight families have **no matching NIST SP 800-53 Rev. 4 XML baseline record** — the reference scaffold's family files (`AP.md`, `AR.md`, `DI.md`, `DM.md`, `IP.md`, `SE.md`, `TR.md`, `UL.md`) note this explicitly and flag every control for manual verification against JSIG Chapter 3 / Appendix J text. No cadence evidence for these controls appears in `reference/research/operational-maintenance-schedules-research.md`, which is scoped to NIST Rev. 4/RMF families. All cadences below are reasoned defaults built by analogy to the closest operational parallel in the NIST-mapped families (e.g., DM retention/disposition mapped to AU-11 retention patterns, TR notice updates mapped to annual policy-review patterns) and **must be verified against the primary JSIG PDF** before use in an actual ATO package.
 
 #### 3.19 AP — Authority And Purpose
 
@@ -1147,7 +1147,7 @@ This scaffold and plan were built primarily from the JSIG table of contents and 
 |---|---|
 | Plan title | JSIG System Administration Maintenance Plan |
 | Source scaffold | `reference/JSIG/control-families/` (26 family files + INDEX.md) |
-| Source research | `research/operational-maintenance-schedules-research.md` |
+| Source research | `reference/research/operational-maintenance-schedules-research.md` |
 | Known limitations | `reference/JSIG/appendices/EXTRACTION-LIMITATIONS.md` |
 | Status | Draft — pending JSIG ODP verification per Section 6 |
 | Next review | Upon completion of Section 6 remediation, or annually thereafter (see row 71 of Section 4) |

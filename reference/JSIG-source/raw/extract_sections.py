@@ -19,7 +19,7 @@ This script slices each family/appendix body out of the layout text using verifi
 line boundaries (found via `grep -n "FAMILY:"` / `grep -n "APPENDIX"` against real body
 occurrences, not the Table of Contents), strips repeated running headers/footers that
 pdftotext leaves behind at every page break, and writes one clean verbatim .md file per
-family/appendix into references/JSIG-source/, following the existing file-header
+family/appendix into reference/JSIG-source/, following the existing file-header
 convention. No content is inferred, summarized, or altered beyond structural cleanup
 (dedup of running headers/footers, collapsing excess blank lines, trimming trailing
 whitespace introduced by column padding).
@@ -33,7 +33,7 @@ import re
 from pathlib import Path
 
 RAW_DIR = Path(__file__).parent
-OUT_DIR = RAW_DIR.parent  # references/JSIG-source/
+OUT_DIR = RAW_DIR.parent  # reference/JSIG-source/
 LAYOUT_TXT = RAW_DIR / "JSIG_2016April11_Final_53Rev4_layout.txt"
 
 WAYBACK_URL = "http://web.archive.org/web/20260405054539/https://www.dcsa.mil/portals/91/documents/ctp/nao/JSIG_2016April11_Final_(53Rev4).pdf"

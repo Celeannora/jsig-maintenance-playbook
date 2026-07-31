@@ -1,6 +1,6 @@
 # Common Control Provider (CCP) — Actionable Task Runbook
 
-The CCP is the common-security-control steward defined in [JSIG §1.5.8](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md), coordinating with the AO and inheriting ISOs per [playbooks/roles/CCP.md](../../playbooks/roles/CCP.md). Executes 0 Master Calendar tasks directly, is Accountable for 0, Consulted on 0, Informed on 0 — see [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md) Part B for the full rollup.
+The CCP is the common-security-control steward defined in [JSIG §1.5.8](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md), coordinating with the AO and inheriting ISOs per [playbooks/roles/CCP.md](../../playbooks/roles/CCP.md). Executes 0 Master Calendar tasks directly, is Accountable for 0, Consulted on 0, Informed on 0 — see [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md) Part B for the full rollup.
 
 For the real verbatim JSIG title behind any Control ID cited in this runbook, see [CONTROL-LANGUAGE-CROSSWALK.md](../CONTROL-LANGUAGE-CROSSWALK.md), which reconciles every Control ID in the Master Calendar against the full verbatim JSIG family extractions.
 
@@ -10,15 +10,15 @@ The CCP is an individual, group, or organization responsible for the development
 
 ## 2. Task Index
 
-This role has **0 executing** and **0 accountable** Master Calendar tasks per [role_task_index.json](../tools/data/role_task_index.json) — it does not appear as Responsible, Accountable, Consulted, or Informed on any of the 110 Master Calendar tasks. Its function is entirely event-driven common-control stewardship rather than calendar-cadence operational work. The following table lists its JSIG-cited event-driven governance actions, drawn from [playbooks/roles/CCP.md](../../playbooks/roles/CCP.md) and [JSIG §1.5.8](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md), each using Pattern H (Governance/Authorization Decision):
+This role has **0 executing** and **0 accountable** Master Calendar tasks per [role_task_index.json](../tools/data/role_task_index.json) — it does not appear as Responsible, Accountable, Consulted, or Informed on any of the 110 Master Calendar tasks. Its function is entirely event-driven common-control stewardship rather than calendar-cadence operational work. The following table lists its JSIG-cited event-driven governance actions, drawn from [playbooks/roles/CCP.md](../../playbooks/roles/CCP.md) and [JSIG §1.5.8](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md), each using Pattern H (Governance/Authorization Decision):
 
 | # | Governance Action | JSIG Citation | Trigger | Pattern |
 |---|---|---|---|---|
-| 1 | Document organization-identified common controls in a common-control SSP | [JSIG §1.5.8(a)](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md) | New common control identified, or annual SSP review | H |
-| 2 | Ensure required assessments of common controls are carried out by qualified assessors | [JSIG §1.5.8(b)](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md) | Assessment cycle due, or a common control changes | H |
-| 3 | Document assessment findings in a common-control SAR | [JSIG §1.5.8(c)](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md) | Conclusion of each common-control assessment | H |
-| 4 | Produce/maintain a POA&M for common controls with weaknesses or deficiencies | [JSIG §1.5.8(d)](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md) | Assessment or review identifies a weakness/deficiency | H |
-| 5 | Make current SSP, SAR, and POA&M for common controls available to inheriting ISOs | [JSIG §1.5.8(e)](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md) | Any of the three documents is updated, or a new system begins inheriting the control | H |
+| 1 | Document organization-identified common controls in a common-control SSP | [JSIG §1.5.8(a)](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md) | New common control identified, or annual SSP review | H |
+| 2 | Ensure required assessments of common controls are carried out by qualified assessors | [JSIG §1.5.8(b)](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md) | Assessment cycle due, or a common control changes | H |
+| 3 | Document assessment findings in a common-control SAR | [JSIG §1.5.8(c)](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md) | Conclusion of each common-control assessment | H |
+| 4 | Produce/maintain a POA&M for common controls with weaknesses or deficiencies | [JSIG §1.5.8(d)](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md) | Assessment or review identifies a weakness/deficiency | H |
+| 5 | Make current SSP, SAR, and POA&M for common controls available to inheriting ISOs | [JSIG §1.5.8(e)](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md) | Any of the three documents is updated, or a new system begins inheriting the control | H |
 
 ## 3. Preconditions
 
@@ -58,5 +58,5 @@ This role follows the Standard Sections 6–10 (Validation, Evidence Package, Fi
 - [playbooks/roles/CCP.md](../../playbooks/roles/CCP.md)
 - [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md)
 - [execution-plan/ROLE-CROSSWALK.md](../ROLE-CROSSWALK.md)
-- [references/JSIG-source/section-1.5-roles-and-responsibilities.md § 1.5.8](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md)
+- [reference/JSIG-source/section-1.5-roles-and-responsibilities.md § 1.5.8](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md)
 - [MAINTENANCE-PLAN.md §4](../../MAINTENANCE-PLAN.md)

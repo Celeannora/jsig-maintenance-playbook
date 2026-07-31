@@ -1,6 +1,6 @@
 # Information System Security Engineer (ISSE) — Actionable Task Runbook
 
-The ISSE is the security-engineering role defined in [JSIG §1.5.13](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md), sitting alongside the ISO's development team and coordinating with the SCA at design-review milestones, per [playbooks/roles/ISSE.md](../../playbooks/roles/ISSE.md). Executes 0 Master Calendar tasks directly, is Accountable for 0, Consulted on 0, Informed on 0 — see [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md) Part B for the full rollup.
+The ISSE is the security-engineering role defined in [JSIG §1.5.13](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md), sitting alongside the ISO's development team and coordinating with the SCA at design-review milestones, per [playbooks/roles/ISSE.md](../../playbooks/roles/ISSE.md). Executes 0 Master Calendar tasks directly, is Accountable for 0, Consulted on 0, Informed on 0 — see [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md) Part B for the full rollup.
 
 For the real verbatim JSIG title behind any Control ID cited in this runbook, see [CONTROL-LANGUAGE-CROSSWALK.md](../CONTROL-LANGUAGE-CROSSWALK.md), which reconciles every Control ID in the Master Calendar against the full verbatim JSIG family extractions.
 
@@ -10,14 +10,14 @@ The ISSE conducts information system security engineering: capturing and refinin
 
 ## 2. Task Index
 
-This role has **0 executing** and **0 accountable** Master Calendar tasks per [role_task_index.json](../tools/data/role_task_index.json) — it does not appear as Responsible, Accountable, Consulted, or Informed on any of the 110 Master Calendar tasks. This is consistent with its nature: the ISSE's work is tied to development milestones and system-modification events, not a recurring operational calendar. Its recurring-adjacent duties (security architecture currency, risk-assessment support) are executed and tracked by the ISSM/SCA per [execution-plan/ROLE-CROSSWALK.md](../ROLE-CROSSWALK.md), with the ISSE's own contribution occurring upstream, at design and development time, rather than on the calendar itself. The following table lists its JSIG-cited event-driven governance/design-consult actions, drawn from [playbooks/roles/ISSE.md](../../playbooks/roles/ISSE.md) and [JSIG §1.5.13](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md), each using Pattern H (Governance/Authorization Decision):
+This role has **0 executing** and **0 accountable** Master Calendar tasks per [role_task_index.json](../tools/data/role_task_index.json) — it does not appear as Responsible, Accountable, Consulted, or Informed on any of the 110 Master Calendar tasks. This is consistent with its nature: the ISSE's work is tied to development milestones and system-modification events, not a recurring operational calendar. Its recurring-adjacent duties (security architecture currency, risk-assessment support) are executed and tracked by the ISSM/SCA per [execution-plan/ROLE-CROSSWALK.md](../ROLE-CROSSWALK.md), with the ISSE's own contribution occurring upstream, at design and development time, rather than on the calendar itself. The following table lists its JSIG-cited event-driven governance/design-consult actions, drawn from [playbooks/roles/ISSE.md](../../playbooks/roles/ISSE.md) and [JSIG §1.5.13](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md), each using Pattern H (Governance/Authorization Decision):
 
 | # | Governance/Design-Consult Action | JSIG Citation | Trigger | Pattern |
 |---|---|---|---|---|
-| 1 | Ensure the information system is designed, developed, and implemented with required security features and safeguards | [JSIG §1.5.13](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md) | New system development or major upgrade effort begins | H |
-| 2 | Verify enhancements to existing/legacy systems provide equal or improved security features and safeguards | [JSIG §1.5.13](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md) | A proposed enhancement or legacy-system upgrade is submitted | H |
-| 3 | Participate in security control assessment coordination with the SCA, most importantly at Preliminary Design Review (PDR) and Critical Design Review (CDR) | [JSIG §1.5.12(f)](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md) (ISO/SCA coordination point the ISSE supports) | System reaches PDR or CDR milestone | H |
-| 4 | Maintain a written ISSE appointment letter (including combined ISSM/ISSO+ISSE scope, if applicable) | [JSIG §1.5.13](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md) | Initial appointment, or a role/scope change | H |
+| 1 | Ensure the information system is designed, developed, and implemented with required security features and safeguards | [JSIG §1.5.13](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md) | New system development or major upgrade effort begins | H |
+| 2 | Verify enhancements to existing/legacy systems provide equal or improved security features and safeguards | [JSIG §1.5.13](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md) | A proposed enhancement or legacy-system upgrade is submitted | H |
+| 3 | Participate in security control assessment coordination with the SCA, most importantly at Preliminary Design Review (PDR) and Critical Design Review (CDR) | [JSIG §1.5.12(f)](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md) (ISO/SCA coordination point the ISSE supports) | System reaches PDR or CDR milestone | H |
+| 4 | Maintain a written ISSE appointment letter (including combined ISSM/ISSO+ISSE scope, if applicable) | [JSIG §1.5.13](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md) | Initial appointment, or a role/scope change | H |
 
 ## 3. Preconditions
 
@@ -54,5 +54,5 @@ This role follows the Standard Sections 6–10 (Validation, Evidence Package, Fi
 - [playbooks/roles/ISSE.md](../../playbooks/roles/ISSE.md)
 - [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md)
 - [execution-plan/ROLE-CROSSWALK.md](../ROLE-CROSSWALK.md)
-- [references/JSIG-source/section-1.5-roles-and-responsibilities.md § 1.5.13](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md)
+- [reference/JSIG-source/section-1.5-roles-and-responsibilities.md § 1.5.13](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md)
 - [MAINTENANCE-PLAN.md §4](../../MAINTENANCE-PLAN.md)

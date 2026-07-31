@@ -1,6 +1,6 @@
 # Chief Information Officer (CIO) — Actionable Task Runbook
 
-The CIO is the FISMA-responsible organizational official defined in [JSIG §1.5.3](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md), sitting between the Agency/Component Head and the CISO — whom the CIO designates — per [playbooks/roles/CIO.md](../../playbooks/roles/CIO.md). Executes 0 Master Calendar tasks directly, is Accountable for 0, Consulted on 0, Informed on 0 — see [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md) Part B for the full rollup.
+The CIO is the FISMA-responsible organizational official defined in [JSIG §1.5.3](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md), sitting between the Agency/Component Head and the CISO — whom the CIO designates — per [playbooks/roles/CIO.md](../../playbooks/roles/CIO.md). Executes 0 Master Calendar tasks directly, is Accountable for 0, Consulted on 0, Informed on 0 — see [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md) Part B for the full rollup.
 
 For the real verbatim JSIG title behind any Control ID cited in this runbook, see [CONTROL-LANGUAGE-CROSSWALK.md](../CONTROL-LANGUAGE-CROSSWALK.md), which reconciles every Control ID in the Master Calendar against the full verbatim JSIG family extractions.
 
@@ -10,15 +10,15 @@ The CIO designates a CISO, develops and maintains organization-wide information 
 
 ## 2. Task Index
 
-This role has **0 executing** and **0 accountable** Master Calendar tasks per [role_task_index.json](../tools/data/role_task_index.json) — it does not appear as Responsible, Accountable, Consulted, or Informed on any of the 110 Master Calendar tasks. Its function is entirely event-driven program governance rather than calendar-cadence operational work. The following table lists its JSIG-cited event-driven governance actions, drawn from [playbooks/roles/CIO.md](../../playbooks/roles/CIO.md) and [JSIG §1.5.3](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md), each using Pattern H (Governance/Authorization Decision):
+This role has **0 executing** and **0 accountable** Master Calendar tasks per [role_task_index.json](../tools/data/role_task_index.json) — it does not appear as Responsible, Accountable, Consulted, or Informed on any of the 110 Master Calendar tasks. Its function is entirely event-driven program governance rather than calendar-cadence operational work. The following table lists its JSIG-cited event-driven governance actions, drawn from [playbooks/roles/CIO.md](../../playbooks/roles/CIO.md) and [JSIG §1.5.3](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md), each using Pattern H (Governance/Authorization Decision):
 
 | # | Governance Action | JSIG Citation | Trigger | Pattern |
 |---|---|---|---|---|
-| 1 | Designate a CISO | [JSIG §1.5.3](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md) | New organization stand-up, or incumbent CISO departs/changes | H |
-| 2 | Develop/maintain organization-wide information security policies, procedures, and control techniques | [JSIG §1.5.3](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md) | Annual policy review, or a control/regulatory requirement change | H |
-| 3 | Report annually to the Agency/Component Head on information security program effectiveness, including remedial-action progress | [JSIG §1.5.3](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md) | Annual reporting cycle | H |
-| 4 | Confirm information systems are covered by approved security plans and hold current authorization before operation | [JSIG §1.5.3](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md)(c) | A system requests or renews authorization | H |
-| 5 | Integrate information security considerations into programming/planning/budgeting cycles and acquisition/SDLC processes | [JSIG §1.5.3](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md)(b) | Annual budget cycle, or a new acquisition/development effort begins | H |
+| 1 | Designate a CISO | [JSIG §1.5.3](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md) | New organization stand-up, or incumbent CISO departs/changes | H |
+| 2 | Develop/maintain organization-wide information security policies, procedures, and control techniques | [JSIG §1.5.3](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md) | Annual policy review, or a control/regulatory requirement change | H |
+| 3 | Report annually to the Agency/Component Head on information security program effectiveness, including remedial-action progress | [JSIG §1.5.3](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md) | Annual reporting cycle | H |
+| 4 | Confirm information systems are covered by approved security plans and hold current authorization before operation | [JSIG §1.5.3](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md)(c) | A system requests or renews authorization | H |
+| 5 | Integrate information security considerations into programming/planning/budgeting cycles and acquisition/SDLC processes | [JSIG §1.5.3](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md)(b) | Annual budget cycle, or a new acquisition/development effort begins | H |
 
 ## 3. Preconditions
 
@@ -58,5 +58,5 @@ This role follows the Standard Sections 6–10 (Validation, Evidence Package, Fi
 - [playbooks/roles/CIO.md](../../playbooks/roles/CIO.md)
 - [execution-plan/RACI-MATRIX.md](../RACI-MATRIX.md)
 - [execution-plan/ROLE-CROSSWALK.md](../ROLE-CROSSWALK.md)
-- [references/JSIG-source/section-1.5-roles-and-responsibilities.md § 1.5.3](../../references/JSIG-source/section-1.5-roles-and-responsibilities.md)
+- [reference/JSIG-source/section-1.5-roles-and-responsibilities.md § 1.5.3](../../reference/JSIG-source/section-1.5-roles-and-responsibilities.md)
 - [MAINTENANCE-PLAN.md §4](../../MAINTENANCE-PLAN.md)

@@ -3,22 +3,22 @@
 Rebuildable master source ledger for the JSIG maintenance-playbook repo.
 
 Scans:
-  1. Every .jsonl / .json file under research/_intermediate/ and research/source_notes/
+  1. Every .jsonl / .json file under reference/research/_intermediate/ and reference/research/source_notes/
      for URL-bearing records (search results, fetch records) -> "surfaced during research"
   2. Every .md file in the repo for inline markdown citations [text](https://...) -> "cited in deliverables"
 
 Produces:
-  - references/SOURCES-LEDGER.md   (human-readable, grouped)
-  - references/sources-ledger.json (machine-readable, for future automated re-runs)
+  - reference/SOURCES-LEDGER.md   (human-readable, grouped)
+  - reference/sources-ledger.json (machine-readable, for future automated re-runs)
 
 Re-run this script any time new research is added:
-    python3 research/_research_scripts/build_sources_ledger.py
+    python3 reference/research/_research_scripts/build_sources_ledger.py
 """
 import re, os, json, glob
 from collections import defaultdict
 from urllib.parse import urlparse
 
-REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
 
 LINK_RE = re.compile(r'\[([^\]]+)\]\((https?://[^\s\)]+)\)')
 
@@ -76,8 +76,8 @@ def main():
 
     # 1. Research artifacts (surfaced sources)
     scan_dirs = [
-        os.path.join(REPO_ROOT, "research", "_intermediate"),
-        os.path.join(REPO_ROOT, "research", "source_notes"),
+        os.path.join(REPO_ROOT, "reference", "research", "_intermediate"),
+        os.path.join(REPO_ROOT, "reference", "research", "source_notes"),
     ]
     for d in scan_dirs:
         if not os.path.isdir(d):
@@ -95,9 +95,9 @@ def main():
     # prior links back in as "cited in a deliverable", self-inflating the count
     # on every subsequent run. Confirmed via audit on 2026-07-17: 231 of 292
     # "cited" entries in one run traced back to citing SOURCES-LEDGER.md only.
-    LEDGER_SELF_PATH = os.path.join(REPO_ROOT, "references", "SOURCES-LEDGER.md")
+    LEDGER_SELF_PATH = os.path.join(REPO_ROOT, "reference", "SOURCES-LEDGER.md")
     for path in glob.glob(os.path.join(REPO_ROOT, "**", "*.md"), recursive=True):
-        if "/research/_intermediate/" in path or "/research/source_notes/" in path:
+        if "/reference/research/_intermediate/" in path or "/reference/research/source_notes/" in path:
             continue
         if os.path.abspath(path) == os.path.abspath(LEDGER_SELF_PATH):
             continue
@@ -116,7 +116,7 @@ def main():
     # for reconciliation against informal running totals tracked during research.
     raw_citation_occurrences = 0
     for path in glob.glob(os.path.join(REPO_ROOT, "**", "*.md"), recursive=True):
-        if "/research/_intermediate/" in path or "/research/source_notes/" in path:
+        if "/reference/research/_intermediate/" in path or "/reference/research/source_notes/" in path:
             continue
         if os.path.abspath(path) == os.path.abspath(LEDGER_SELF_PATH):
             continue
@@ -146,10 +146,10 @@ def main():
     ledger.sort(key=lambda e: (e["status"] != "cited", e["domain"], e["url"]))
 
     # Write JSON
-    out_json = os.path.join(REPO_ROOT, "references", "sources-ledger.json")
+    out_json = os.path.join(REPO_ROOT, "reference", "sources-ledger.json")
     with open(out_json, "w") as f:
         json.dump({
-            "generated_by": "research/_research_scripts/build_sources_ledger.py",
+            "generated_by": "reference/research/_research_scripts/build_sources_ledger.py",
             "total_unique_urls": len(ledger),
             "cited_in_deliverables_count": sum(1 for e in ledger if e["status"] == "cited"),
             "surfaced_only_count": sum(1 for e in ledger if e["status"] == "surfaced_only"),
@@ -164,7 +164,7 @@ def main():
     lines = []
     lines.append("# Master Source Ledger\n")
     lines.append("Auto-generated running index of every external web source touched anywhere in this repository's research and deliverables. Regenerate any time with:\n")
-    lines.append("```\npython3 research/_research_scripts/build_sources_ledger.py\n```\n")
+    lines.append("```\npython3 reference/research/_research_scripts/build_sources_ledger.py\n```\n")
     lines.append(f"**Total unique external URLs tracked: {len(ledger)}**")
     lines.append(f"- Cited inline in a final deliverable (README, MAINTENANCE-PLAN, control families, playbooks, execution-plan, references): **{len(cited_entries)}**")
     lines.append(f"- Surfaced during research (search results / fetched for evaluation) but not directly cited in a final deliverable: **{len(surfaced_entries)}**\n")
@@ -201,7 +201,7 @@ def main():
         found_in = "; ".join(e["surfaced_in_research"][:2]) + (f" (+{len(e['surfaced_in_research'])-2} more)" if len(e["surfaced_in_research"]) > 2 else "")
         lines.append(f"| {e['domain']} | [{e['url']}]({e['url']}) | {title} | {found_in} |")
 
-    with open(os.path.join(REPO_ROOT, "references", "SOURCES-LEDGER.md"), "w") as f:
+    with open(os.path.join(REPO_ROOT, "reference", "SOURCES-LEDGER.md"), "w") as f:
         f.write("\n".join(lines) + "\n")
 
     print(f"Total unique URLs: {len(ledger)}")
