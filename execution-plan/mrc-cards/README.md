@@ -11,7 +11,7 @@ Regenerate this file after upgrading any card's status: edit the `GUIDE_STATUS_O
 | **Stub** | Card follows one of the 8 generic execution patterns (Pattern A-H) from [`runbooks/_EXECUTION-PATTERNS.md`](../runbooks/_EXECUTION-PATTERNS.md) with light task-specific substitution. Procedure steps describe *what* to check and *what* done looks like in tool-agnostic language, but do not name specific screens, commands, or menu paths. **Not yet usable as literal step-by-step instructions for an employee.** |
 | **Guide** | Card has been hand-authored with exact, tool-specific steps an employee can follow literally -- naming the actual product, screen, command, or menu path in the assumed baseline environment (see [`AGENTS.md`](../../AGENTS.md) rule 8: Windows Server/Active Directory, Splunk, Tenable Nessus, Trellix/McAfee ePO). **Usable as-is by an employee performing the task.** |
 
-**Current progress: 1 / 160 cards upgraded to Guide status (159 remaining as Stub).**
+**Current progress: 2 / 160 cards upgraded to Guide status (158 remaining as Stub).**
 
 **Script** column: `Yes` = a runnable PowerShell automation script exists under [`scripts/`](scripts/README.md) for this card; `No` = scriptable in principle but not yet built; `N/A` = inherently manual/judgment task, cannot be scripted (see [`AGENTS.md`](../../AGENTS.md) rule 9).
 
@@ -138,7 +138,7 @@ One card per Operational Tasking Calendar task. Full index: [`ops/INDEX.md`](ops
 
 | MRC | Task | System | Frequency | Pattern | Status | Script |
 |---|---|---|---|---|---|---|
-| [MRC-OPS-001](ops/MRC-OPS-001.md) | AD replication health check (repadmin /replsummary, /showrepl) | Active Directory / Domain Controllers | Daily | Pattern A | Stub | No |
+| [MRC-OPS-001](ops/MRC-OPS-001.md) | AD replication health check (repadmin /replsummary, /showrepl) | Active Directory / Domain Controllers | Daily | Pattern A | Guide | Yes |
 | [MRC-OPS-002](ops/MRC-OPS-002.md) | DCDIAG full domain controller health check | Active Directory / Domain Controllers | Weekly | Pattern B | Guide | Yes |
 | [MRC-OPS-003](ops/MRC-OPS-003.md) | DNS zone health and scavenging review | Active Directory / Domain Controllers | Weekly | Pattern B | Stub | No |
 | [MRC-OPS-004](ops/MRC-OPS-004.md) | SYSVOL/DFSR replication health check | Active Directory / Domain Controllers | Weekly | Pattern A | Stub | No |

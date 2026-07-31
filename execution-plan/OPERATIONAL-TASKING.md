@@ -14,7 +14,7 @@
 
 | # | Frequency | Task | System | Responsible Role | Accountable | Consulted | Informed |
 |---|---|---|---|---|---|---|---|
-| 1 | Daily | AD replication health check (repadmin /replsummary, /showrepl) | Active Directory / Domain Controllers | System Administrator | ISSM | ISSO | AO/DAO |
+| 1 | Daily | AD replication health check (repadmin /replsummary, /showrepl) † | Active Directory / Domain Controllers | System Administrator | ISSM | ISSO | AO/DAO |
 | 2 | Weekly | DCDIAG full domain controller health check † | Active Directory / Domain Controllers | System Administrator | ISSM | ISSO | AO/DAO |
 | 3 | Weekly | DNS zone health and scavenging review | Active Directory / Domain Controllers | System Administrator | ISSM | ISSO | AO/DAO |
 | 4 | Weekly | SYSVOL/DFSR replication health check | Active Directory / Domain Controllers | System Administrator | ISSM | ISSO | AO/DAO |

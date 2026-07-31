@@ -30,4 +30,5 @@ Every script in this folder must follow this shape so an admin unfamiliar with a
 
 | MRC | Script | Card |
 |---|---|---|
+| MRC-OPS-001 | [`MRC-OPS-001.ps1`](MRC-OPS-001.ps1) | [AD replication health check](../ops/MRC-OPS-001.md) |
 | MRC-OPS-002 | [`MRC-OPS-002.ps1`](MRC-OPS-002.ps1) | [DCDIAG full domain controller health check](../ops/MRC-OPS-002.md) |

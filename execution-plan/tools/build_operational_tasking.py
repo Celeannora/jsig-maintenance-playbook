@@ -111,7 +111,10 @@ RACI = {"accountable": "ISSM", "consulted": "ISSO", "informed": "AO/DAO"}
 # for the combined 160-card matrix is build_mrc_status_readme.py's
 # GUIDE_STATUS_OVERRIDES in /home/user/workspace, not this set -- update
 # both when a card is upgraded).
-GUIDE_CARDS = {2}  # MRC-OPS-002 -- DCDIAG full domain controller health check
+GUIDE_CARDS = {
+    1,  # MRC-OPS-001 -- AD replication health check (repadmin /replsummary, /showrepl)
+    2,  # MRC-OPS-002 -- DCDIAG full domain controller health check
+}
 
 
 def render_calendar():
