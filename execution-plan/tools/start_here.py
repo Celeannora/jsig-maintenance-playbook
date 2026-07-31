@@ -361,22 +361,41 @@ def setup_cve():
     print("It's written to a separate cve_mirror.json so the small, git-friendly")
     print("cve_reference.json used day to day is untouched.")
     if yesno("Download the full NVD CVE mirror now?", False):
-        api_key = get_or_prompt_nvd_api_key()
-        cmd = [sys.executable, str(TOOLS_DIR / "cve_reference_builder.py"), "mirror"]
-        if api_key:
-            cmd += ["--api-key", api_key]
+        source = "nvd"
+        print("  Two ways to build it: directly from NVD (official, default) or from a")
+        print("  community-maintained bulk snapshot (much faster, but a third-party")
+        print("  redistribution -- not an NVD-operated source; see execution-plan/tools/")
+        print("  README.md for the provenance caveat).")
+        if yesno("  Use the faster community-maintained snapshot instead of the official NVD API?", False):
+            source = "community-bulk"
+        api_key = None
+        cmd = [sys.executable, str(TOOLS_DIR / "cve_reference_builder.py"), "mirror", "--source", source]
+        if source == "nvd":
+            api_key = get_or_prompt_nvd_api_key()
+            if api_key:
+                cmd += ["--api-key", api_key]
         ok = run_tool(cmd, redact=[api_key] if api_key else ())
         if ok:
-            print("Mirror saved. Refresh it later any time with:")
-            print("  python3 execution-plan/tools/cve_reference_builder.py mirror-update" +
-                  (" --api-key <key>" if api_key else ""))
+            print("Mirror saved.")
+            if source == "nvd":
+                print("Refresh it later any time with:")
+                print("  python3 execution-plan/tools/cve_reference_builder.py mirror-update" +
+                      (" --api-key <key>" if api_key else ""))
+            else:
+                print("Refresh it later by re-running:")
+                print("  python3 execution-plan/tools/cve_reference_builder.py mirror --source community-bulk")
         else:
-            print("  Mirror failed partway through -- see the error above for a --start-index to")
-            print("  resume from. Retry with: python3 execution-plan/tools/cve_reference_builder.py mirror" +
-                  (" --api-key <key>" if api_key else ""))
+            print("  Mirror failed partway through -- see the error above.")
+            if source == "nvd":
+                print("  Retry with: python3 execution-plan/tools/cve_reference_builder.py mirror" +
+                      (" --api-key <key>" if api_key else "") + " (a --start-index is printed to resume from)")
+            else:
+                print("  Retry with: python3 execution-plan/tools/cve_reference_builder.py mirror --source community-bulk")
+                print("  (already-imported years are safely re-fetched; only failed years matter)")
     else:
         print("Skipped -- fetch any CVE later with: cve_reference_builder.py fetch --id <ID>")
         print("or build the full mirror any time with: cve_reference_builder.py mirror")
+        print("(add --source community-bulk for a faster, third-party alternative to the NVD API)")
 
 
 def setup_nessus():

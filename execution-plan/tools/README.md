@@ -125,6 +125,18 @@ These write to a **separate** file, `data/cve_mirror.json`, by default -- it is 
 
 An optional `NVD_API_KEY` environment variable (free, [request one here](https://nvd.nist.gov/developers/request-an-api-key)) raises NVD's rate limit from 5 requests/30s to 50 requests/30s -- worth it for `mirror`/`fetch-list`, unnecessary for one-off `fetch` calls.
 
+#### Faster alternative source for a full mirror: `--source community-bulk`
+
+Even with an API key, a full `mirror` against the live NVD API takes several minutes because each paginated request itself takes seconds to transfer (the bottleneck is NVD's response time per page, not the artificial rate-limit delay). If you want the full catalog faster and can accept a provenance tradeoff, `mirror` also accepts `--source community-bulk`:
+
+```
+python3 cve_reference_builder.py mirror --source community-bulk
+```
+
+This pulls the same catalog from [fkie-cad/nvd-json-data-feeds](https://github.com/fkie-cad/nvd-json-data-feeds), a community-maintained re-packaging of NVD's data as one release asset per year (`CVE-1999.json.xz` ... `CVE-<current year>.json.xz`), resynced from NVD roughly every 2 hours. Records are schema-identical to the NVD API's own `cve` object, so nothing about how a record is scored, categorized, or stored downstream changes -- only where the raw JSON comes from before parsing. Each yearly archive is downloaded and checked against its published sha256 checksum before being merged in; a year that fails its checksum or fails to download is skipped and reported at the end rather than silently accepted, and is safe to retry by re-running the same command.
+
+**Provenance caveat:** this feed is, in its own maintainers' words, "neither endorsed nor certified by the NVD" -- it is a third-party redistribution, not an NVD-operated service. `--source nvd` (the default, used when `--source` is omitted) stays the authoritative, NVD-direct path; reach for `--source community-bulk` only when mirror speed matters more than sourcing everything straight from NVD's own API for a given deployment. Whichever source was used is recorded in `data/cve_mirror.json`'s `last_mirror_source` field, and printed to the console during the run, so the provenance of any given mirror file stays auditable. `--api-key`, `--delay`, `--start-index`, `--max-pages`, and `--results-per-page` only apply to `--source nvd`; `--source community-bulk` always processes the full 1999-to-present year range in one run (there is no `mirror-update`-equivalent for this source yet -- re-run `mirror --source community-bulk` to refresh).
+
 CVSS severity is mapped to CAT level (CRITICAL/HIGH -> CAT I, MEDIUM -> CAT II, LOW -> CAT III, unscored -> CAT I provisional/fail-closed), and any CISA KEV-listed CVE is floored to CAT I regardless of CVSS score -- see `execution-plan/templates/ESCALATION-MATRIX.md` Sections 1a and 6 for the authoritative, cited definitions this logic implements.
 
 ## Nessus Plugin ID reference tooling
@@ -191,7 +203,7 @@ ISSM is a standing reviewer at every tier. Complete Sections 6–7 (actual obser
 | `stig_reference_builder.py` | `fetch-compilation` auto-downloads the current quarterly Library Compilation; `build` bulk-imports official DISA `.zip`/XCCDF documents (single products or the full compilation, nested zips included) into the offline STIG reference database |
 | `generate_variance.py` | Generates one Variance/Risk-Acceptance Record (Markdown + standalone HTML, `--format` to restrict) from a STIG or CVE finding ID + the matching offline reference database |
 | `stig_intake/` | Drop zone for official `.zip` packages or extracted `*-xccdf.xml` files |
-| `cve_reference_builder.py` | Fetches/mirrors official NVD CVE metadata into an offline CVE reference database (`fetch`, `fetch-list`, `lookup`, `mirror`, `mirror-update`) |
+| `cve_reference_builder.py` | Fetches/mirrors official NVD CVE metadata into an offline CVE reference database (`fetch`, `fetch-list`, `lookup`, `mirror` [`--source nvd` default, or opt-in `community-bulk`], `mirror-update`) |
 | `cve_intake/` | Drop zone for a text file of CVE IDs, one per line, for `fetch-list` |
 | `data/cve_reference.json` | Small, curated CVE database (built by `fetch`/`fetch-list`) — git-friendly, meant to be committed |
 | `data/cve_mirror.json` | Full-catalog CVE mirror (built by `mirror`/`mirror-update`) — large, local-only, .gitignore this |

@@ -151,7 +151,9 @@ regardless of CVSS score.
 """
 
 import argparse
+import hashlib
 import json
+import lzma
 import os
 import sys
 import time
@@ -165,6 +167,24 @@ DEFAULT_OUTPUT = os.path.join(os.path.dirname(__file__), "data", "cve_reference.
 DEFAULT_MIRROR_OUTPUT = os.path.join(os.path.dirname(__file__), "data", "cve_mirror.json")
 DEFAULT_INTAKE_LIST = os.path.join(os.path.dirname(__file__), "cve_intake", "cve_list.txt")
 SOURCE_LABEL = "NVD CVE API 2.0 (https://services.nvd.nist.gov/rest/json/cves/2.0)"
+
+# Opt-in alternative to the live NVD API for 'mirror' only: a community-
+# maintained, per-year re-packaging of the same NVD CVE data, updated from
+# NVD every ~2 hours. NOT an NVD-operated service -- "neither endorsed nor
+# certified by the NVD" per the source repo's own README. Records are
+# schema-identical to the NVD API 2.0 'cve' object, so parse_nvd_record()
+# works unmodified on either source. Use this only when the live-NVD path
+# (rate-limited to ~372k records over many paginated requests) is too slow
+# and the provenance tradeoff (third-party redistribution vs. NVD-direct)
+# is acceptable for this deployment.
+COMMUNITY_FEED_REPO = "fkie-cad/nvd-json-data-feeds"
+COMMUNITY_FEED_ATTRIBUTION_URL = "https://github.com/fkie-cad/nvd-json-data-feeds"
+COMMUNITY_FEED_BASE_URL = "https://github.com/fkie-cad/nvd-json-data-feeds/releases/latest/download"
+COMMUNITY_FEED_LABEL = f"community-bulk ({COMMUNITY_FEED_ATTRIBUTION_URL})"
+# NVD's earliest published CVE year; the community feed publishes one
+# CVE-<year>.json.xz (+ CVE-<year>.meta) release asset per year from here
+# through the current year.
+COMMUNITY_FEED_START_YEAR = 1999
 
 # Unauthenticated NVD requests are rate-limited to 5 per rolling 30s window;
 # an API key raises that to 50 per 30s. Default delay is conservative for
@@ -417,6 +437,141 @@ def _mirror_paginate(extra_params, api_key, delay, results_per_page, max_pages, 
         time.sleep(delay)
 
 
+def _community_feed_years():
+    """Years the community bulk feed publishes as separate release assets:
+    COMMUNITY_FEED_START_YEAR (1999, NVD's earliest) through the current
+    UTC year, inclusive."""
+    return list(range(COMMUNITY_FEED_START_YEAR, datetime.now(timezone.utc).year + 1))
+
+
+def _download_bytes(url, timeout=60, label=None):
+    """Stream-download url into memory, printing progress if Content-Length
+    is known. Mirrors the chunked-read pattern used by
+    stig_reference_builder.py's fetch_compilation(). Raises
+    urllib.error.HTTPError/URLError on failure -- callers decide how to
+    handle a single-year fetch failure without aborting the whole mirror."""
+    req = urllib.request.Request(url, headers={"User-Agent": "jsig-variance-tooling/1.0"})
+    with urllib.request.urlopen(req, timeout=timeout) as resp:
+        total = resp.headers.get("Content-Length")
+        total = int(total) if total else None
+        chunks = []
+        downloaded = 0
+        while True:
+            chunk = resp.read(1024 * 1024)
+            if not chunk:
+                break
+            chunks.append(chunk)
+            downloaded += len(chunk)
+        if label:
+            size_mb = f"{downloaded / (1024 * 1024):.2f} MB"
+            expected = f"/{total / (1024 * 1024):.2f} MB" if total else ""
+            print(f"    {label}: downloaded {size_mb}{expected}")
+        return b"".join(chunks)
+
+
+def _parse_meta_text(meta_text):
+    """Parse a CVE-<year>.meta file's simple 'key:value' lines (one per
+    line -- lastModifiedDate, size, xzSize, sha256) into a dict."""
+    meta = {}
+    for line in meta_text.splitlines():
+        line = line.strip()
+        if not line or ":" not in line:
+            continue
+        key, _, value = line.partition(":")
+        meta[key.strip()] = value.strip()
+    return meta
+
+
+def _fetch_community_year(year):
+    """Download and decompress one CVE-<year>.json.xz + its .meta sidecar
+    from the community bulk feed. Verifies the decompressed JSON's sha256
+    against the value published in the .meta file (confirmed by direct
+    test: the .meta 'sha256' field is over the DECOMPRESSED content, not
+    the .xz archive). Returns (cve_items list, verified bool). Raises
+    urllib.error.HTTPError/URLError/lzma.LZMAError on a hard failure --
+    callers treat that as a skip-this-year-and-continue condition, not a
+    fatal one, since a single stale/unreleased year shouldn't abort the
+    whole run."""
+    meta_url = f"{COMMUNITY_FEED_BASE_URL}/CVE-{year}.meta"
+    xz_url = f"{COMMUNITY_FEED_BASE_URL}/CVE-{year}.json.xz"
+
+    meta_bytes = _download_bytes(meta_url, timeout=30)
+    meta = _parse_meta_text(meta_bytes.decode("utf-8", errors="replace"))
+    expected_sha256 = meta.get("sha256")
+
+    xz_bytes = _download_bytes(xz_url, timeout=120, label=f"CVE-{year}.json.xz")
+    json_bytes = lzma.decompress(xz_bytes)
+
+    verified = True
+    if expected_sha256:
+        actual_sha256 = hashlib.sha256(json_bytes).hexdigest()
+        verified = actual_sha256.lower() == expected_sha256.lower()
+    else:
+        # No .meta sha256 to check against -- fail closed (treat as
+        # unverified) rather than silently trusting unverified data.
+        verified = False
+
+    payload = json.loads(json_bytes)
+    return payload.get("cve_items", []), verified
+
+
+def cmd_mirror_community_bulk(output_path):
+    """Full mirror sourced from the community bulk feed instead of the live
+    NVD API. Iterates one release-asset year at a time (never the combined
+    CVE-all.json.xz, which decompresses to ~3GB and is unnecessary --
+    per-year files cap memory use at a few tens of MB each). Each year's
+    records are schema-identical NVD API 2.0 'cve' objects, so
+    parse_nvd_record() is reused unmodified. A year that fails to download
+    or fails its published sha256 check is skipped (fail closed on THAT
+    year only) and reported at the end so it can be retried."""
+    db = load_db(output_path)
+    years = _community_feed_years()
+    print(f"Starting community bulk mirror -> {output_path}")
+    print(f"  Source: {COMMUNITY_FEED_LABEL}")
+    print("  This is an unofficial, community-maintained redistribution of NVD data")
+    print("  (resynced from NVD roughly every 2 hours) -- NOT an NVD-operated service.")
+    print(f"  Fetching {len(years)} yearly archives ({years[0]}-{years[-1]})...")
+
+    added = 0
+    skipped_years = []
+    for year in years:
+        print(f"\n  [{year}] fetching...")
+        try:
+            cve_items, verified = _fetch_community_year(year)
+        except (urllib.error.HTTPError, urllib.error.URLError, lzma.LZMAError, json.JSONDecodeError) as e:
+            print(f"    [FAIL] {year}: {e} -- skipping this year, safe to re-run the same "
+                  f"command later to retry just the missing year(s).", file=sys.stderr)
+            skipped_years.append(year)
+            continue
+
+        if not verified:
+            print(f"    [WARN] {year}: sha256 did not match the published .meta checksum -- "
+                  f"skipping this year's import rather than trusting unverified data. "
+                  f"Re-run later to retry.", file=sys.stderr)
+            skipped_years.append(year)
+            continue
+
+        for vuln in cve_items:
+            finding = parse_nvd_record(vuln)
+            db["findings"][finding["cve_id"]] = finding
+            added += 1
+        print(f"    [OK] {year}: {len(cve_items)} record(s) (running total this run: {added})")
+
+    db["last_full_mirror_at"] = datetime.now(timezone.utc).isoformat()
+    db["last_mirror_source"] = COMMUNITY_FEED_LABEL
+    save_db(db, output_path)
+
+    print(f"\nCommunity bulk mirror complete: {added} record(s) fetched this run, "
+          f"{db['finding_count']} total cached -> {output_path}")
+    if skipped_years:
+        print(f"  Skipped {len(skipped_years)} year(s) due to download/verification failures: "
+              f"{skipped_years}")
+        print("  Re-run 'mirror --source community-bulk' to retry -- already-imported years "
+              "are simply overwritten again, so this is safe to repeat.")
+    print("  Note: this data came from a third-party community mirror, not NVD directly.")
+    print("  For an NVD-direct mirror instead, run: python3 cve_reference_builder.py mirror --source nvd")
+
+
 def load_db(output_path):
     if os.path.exists(output_path):
         with open(output_path, encoding="utf-8") as f:
@@ -502,6 +657,10 @@ def cmd_lookup(args):
 
 
 def cmd_mirror(args):
+    if args.source == "community-bulk":
+        cmd_mirror_community_bulk(args.output)
+        return
+
     db = load_db(args.output)
     delay = args.delay if args.delay is not None else (
         DEFAULT_MIRROR_DELAY_WITH_KEY if args.api_key else DEFAULT_DELAY_SECONDS
@@ -523,6 +682,7 @@ def cmd_mirror(args):
         added += 1
 
     db["last_full_mirror_at"] = datetime.now(timezone.utc).isoformat()
+    db["last_mirror_source"] = SOURCE_LABEL
     save_db(db, args.output)
     print(f"\nMirror complete: {added} record(s) fetched this run, "
           f"{db['finding_count']} total cached -> {args.output}")
@@ -623,6 +783,14 @@ def main():
 
     mirror_p = sub.add_parser("mirror", help="One-shot full bulk download of the ENTIRE NVD CVE catalog")
     mirror_p.add_argument("--output", **common_mirror_output)
+    mirror_p.add_argument("--source", choices=["nvd", "community-bulk"], default="nvd",
+                           help="Where to pull the full catalog from (default: nvd, the live paginated "
+                                "NVD API 2.0 -- authoritative but rate-limited). 'community-bulk' instead "
+                                f"downloads per-year archives from {COMMUNITY_FEED_ATTRIBUTION_URL}, an "
+                                "unofficial community redistribution resynced from NVD every ~2 hours -- "
+                                "much faster for a full catalog build, but NOT an NVD-operated source. "
+                                "--api-key/--delay/--start-index/--max-pages/--results-per-page below only "
+                                "apply to --source nvd.")
     mirror_p.add_argument("--api-key", **common_key)
     mirror_p.add_argument("--delay", **common_mirror_delay)
     mirror_p.add_argument("--start-index", type=int, default=0, dest="start_index",

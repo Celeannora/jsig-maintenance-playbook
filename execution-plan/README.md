@@ -111,8 +111,11 @@ python3 execution-plan/tools/cve_reference_builder.py fetch-list --file executio
 
 # Full local mirror (large, gitignored, local-only cache — optional):
 python3 execution-plan/tools/cve_reference_builder.py mirror
+python3 execution-plan/tools/cve_reference_builder.py mirror --source community-bulk  # faster, third-party source, NVD stays default
 python3 execution-plan/tools/cve_reference_builder.py mirror-update   # repeatable incremental refresh
 ```
+
+See `execution-plan/tools/README.md` for the `--source community-bulk` provenance caveat and tradeoffs.
 
 ### 3. Generate a Variance/Risk-Acceptance record for a finding
 
