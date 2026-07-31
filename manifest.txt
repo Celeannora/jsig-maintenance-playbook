@@ -176,7 +176,7 @@ research/_intermediate/02_fetched_cadence_extracts_texts/01_department-of-defens
 research/_intermediate/02_fetched_cadence_extracts_texts/02_security-and-privacy-controls-for-federal-information-systems-....txt
 research/_intermediate/02_fetched_cadence_extracts_texts/03_nist-sp-800-137,-information-security-continuous-monitoring-....txt
 research/_intermediate/02_fetched_cadence_extracts_texts/04_[pdf]-nist.sp.800-137a.pdf.txt
-research/_intermediate/02_fetched_cadence_extracts_texts/05_guide-to-enterprise-patch-management-planning:---nist.txt
+research/_intermediate/02_fetched_cadence_extracts_texts/05_guide-to-enterprise-patch-management-planning---nist.txt
 research/_intermediate/02_fetched_cadence_extracts_texts/06_fedramp®-continuous-monitoring-playbook.txt
 research/_intermediate/02_fetched_cadence_extracts_texts/07_con-mon-deliverables.txt
 research/_intermediate/02_fetched_cadence_extracts_texts/08_rfc-0012-fedramp-continuous-vulnerability-....txt
