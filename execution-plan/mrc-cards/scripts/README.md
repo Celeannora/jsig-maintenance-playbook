@@ -32,3 +32,8 @@ Every script in this folder must follow this shape so an admin unfamiliar with a
 |---|---|---|
 | MRC-OPS-001 | [`MRC-OPS-001.ps1`](MRC-OPS-001.ps1) | [AD replication health check](../ops/MRC-OPS-001.md) |
 | MRC-OPS-002 | [`MRC-OPS-002.ps1`](MRC-OPS-002.ps1) | [DCDIAG full domain controller health check](../ops/MRC-OPS-002.md) |
+| MRC-OPS-003 | [`MRC-OPS-003.ps1`](MRC-OPS-003.ps1) | [DNS zone health and scavenging review](../ops/MRC-OPS-003.md) |
+| MRC-OPS-004 | [`MRC-OPS-004.ps1`](MRC-OPS-004.ps1) | [SYSVOL/DFSR replication health check](../ops/MRC-OPS-004.md) |
+| MRC-OPS-005 | [`MRC-OPS-005.ps1`](MRC-OPS-005.ps1) | [FSMO role holder verification](../ops/MRC-OPS-005.md) |
+| MRC-OPS-006 | [`MRC-OPS-006.ps1`](MRC-OPS-006.ps1) | [Domain/forest trust health check](../ops/MRC-OPS-006.md) |
+| MRC-OPS-007 | [`MRC-OPS-007.ps1`](MRC-OPS-007.ps1) | [Domain controller System State backup verification](../ops/MRC-OPS-007.md) |

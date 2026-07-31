@@ -114,6 +114,11 @@ RACI = {"accountable": "ISSM", "consulted": "ISSO", "informed": "AO/DAO"}
 GUIDE_CARDS = {
     1,  # MRC-OPS-001 -- AD replication health check (repadmin /replsummary, /showrepl)
     2,  # MRC-OPS-002 -- DCDIAG full domain controller health check
+    3,  # MRC-OPS-003 -- DNS zone health and scavenging review
+    4,  # MRC-OPS-004 -- SYSVOL/DFSR replication health check
+    5,  # MRC-OPS-005 -- FSMO role holder verification
+    6,  # MRC-OPS-006 -- Domain/forest trust health check
+    7,  # MRC-OPS-007 -- Domain controller System State backup verification
 }
 
 

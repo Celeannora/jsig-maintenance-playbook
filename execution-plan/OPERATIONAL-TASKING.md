@@ -16,11 +16,11 @@
 |---|---|---|---|---|---|---|---|
 | 1 | Daily | AD replication health check (repadmin /replsummary, /showrepl) † | Active Directory / Domain Controllers | System Administrator | ISSM | ISSO | AO/DAO |
 | 2 | Weekly | DCDIAG full domain controller health check † | Active Directory / Domain Controllers | System Administrator | ISSM | ISSO | AO/DAO |
-| 3 | Weekly | DNS zone health and scavenging review | Active Directory / Domain Controllers | System Administrator | ISSM | ISSO | AO/DAO |
-| 4 | Weekly | SYSVOL/DFSR replication health check | Active Directory / Domain Controllers | System Administrator | ISSM | ISSO | AO/DAO |
-| 5 | Monthly | FSMO role holder verification | Active Directory / Domain Controllers | System Administrator | ISSM | ISSO | AO/DAO |
-| 6 | Monthly | Domain/forest trust health check | Active Directory / Domain Controllers | System Administrator | ISSM | ISSO | AO/DAO |
-| 7 | Weekly | Domain controller System State backup verification | Active Directory / Domain Controllers | System Administrator | ISSM | ISSO | AO/DAO |
+| 3 | Weekly | DNS zone health and scavenging review † | Active Directory / Domain Controllers | System Administrator | ISSM | ISSO | AO/DAO |
+| 4 | Weekly | SYSVOL/DFSR replication health check † | Active Directory / Domain Controllers | System Administrator | ISSM | ISSO | AO/DAO |
+| 5 | Monthly | FSMO role holder verification † | Active Directory / Domain Controllers | System Administrator | ISSM | ISSO | AO/DAO |
+| 6 | Monthly | Domain/forest trust health check † | Active Directory / Domain Controllers | System Administrator | ISSM | ISSO | AO/DAO |
+| 7 | Weekly | Domain controller System State backup verification † | Active Directory / Domain Controllers | System Administrator | ISSM | ISSO | AO/DAO |
 | 8 | Monthly | Stale computer/user Active Directory object cleanup | Active Directory / Domain Controllers | System Administrator | ISSM | ISSO | AO/DAO |
 | 9 | Daily | Domain controller disk space and event log health check | Active Directory / Domain Controllers | System Administrator | ISSM | ISSO | AO/DAO |
 | 10 | Daily | Netlogon/KDC/DNS Server service health check | Active Directory / Domain Controllers | System Administrator | ISSM | ISSO | AO/DAO |
