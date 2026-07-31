@@ -4,7 +4,7 @@ build_mrc_cards.py
 
 Generates one Maintenance Requirement Card (MRC) -- a self-contained,
 Navy-PMS-style actionable task card -- per Master Calendar task (110 total)
-in execution-plan/mrc-cards/MRC-<###>.md, plus an INDEX.md.
+in execution-plan/mrc-cards/master/MRC-<###>.md, plus an INDEX.md.
 
 Each card is GENERATED, not hand-authored, from the same sources of truth
 as everything else in execution-plan/:
@@ -50,7 +50,7 @@ REPO_ROOT = os.path.dirname(EXEC_PLAN_DIR)
 TITLE_INDEX_FILE = os.path.join(TOOLS_DIR, "data", "control_title_index.json")
 PATTERNS_FILE = os.path.join(EXEC_PLAN_DIR, "runbooks", "_EXECUTION-PATTERNS.md")
 RUNBOOKS_DIR = os.path.join(EXEC_PLAN_DIR, "runbooks")
-OUT_DIR = os.path.join(EXEC_PLAN_DIR, "mrc-cards")
+OUT_DIR = os.path.join(EXEC_PLAN_DIR, "mrc-cards", "master")
 
 ID_TOKEN_RE = re.compile(r"[A-Z]{2}-\d+(?:\(\d+\))?")
 
@@ -210,7 +210,7 @@ def render_card(row, mapped, pattern_letter, pattern_note, is_custom, pattern_so
         if c["title"]:
             control_lines.append(f"- **{c['id']}** — {c['title']} ([source]({os.path.relpath(os.path.join(REPO_ROOT, c['source']), OUT_DIR)}))")
         else:
-            control_lines.append(f"- **{c['id']}** — title not resolved (see [CONTROL-LANGUAGE-CROSSWALK.md](../CONTROL-LANGUAGE-CROSSWALK.md))")
+            control_lines.append(f"- **{c['id']}** — title not resolved (see [CONTROL-LANGUAGE-CROSSWALK.md](../../CONTROL-LANGUAGE-CROSSWALK.md))")
     if not control_lines:
         control_lines = [f"- Raw calendar citation: {controls_raw or '(none)'}"]
 
@@ -230,7 +230,7 @@ def render_card(row, mapped, pattern_letter, pattern_note, is_custom, pattern_so
     lines.append("| Field | Value |")
     lines.append("|---|---|")
     lines.append(f"| MRC Number | MRC-{num_int:03d} |")
-    lines.append(f"| Master Calendar Task # | [{num}](../RACI-MATRIX.md#part-a--task-level-raci-all-110-master-calendar-tasks) |")
+    lines.append(f"| Master Calendar Task # | [{num}](../../RACI-MATRIX.md#part-a--task-level-raci-all-110-master-calendar-tasks) |")
     lines.append(f"| Family | {family} |")
     lines.append(f"| Periodicity / Frequency | **{freq}** |")
     lines.append(f"| Primary Tool(s) | {tools} |")
@@ -241,9 +241,9 @@ def render_card(row, mapped, pattern_letter, pattern_note, is_custom, pattern_so
     lines.append("")
     lines.extend(control_lines)
     lines.append("")
-    lines.append("**Other references:** [MAINTENANCE-PLAN.md Sec 4](../../MAINTENANCE-PLAN.md#4-master-consolidated-calendar) "
-                 "(source row) · [RACI-MATRIX.md](../RACI-MATRIX.md) (full RACI) · "
-                 "[ESCALATION-MATRIX.md](../templates/ESCALATION-MATRIX.md) (CAT-tier SLA/routing)")
+    lines.append("**Other references:** [MAINTENANCE-PLAN.md Sec 4](../../../MAINTENANCE-PLAN.md#4-master-consolidated-calendar) "
+                 "(source row) · [RACI-MATRIX.md](../../RACI-MATRIX.md) (full RACI) · "
+                 "[ESCALATION-MATRIX.md](../../templates/ESCALATION-MATRIX.md) (CAT-tier SLA/routing)")
     lines.append("")
     lines.append("## 3. Personnel / RACI")
     lines.append("")
@@ -279,7 +279,7 @@ def render_card(row, mapped, pattern_letter, pattern_note, is_custom, pattern_so
     lines.append("## 6. Validation, Evidence, Findings, Escalation, Closure")
     lines.append("")
     lines.append("Full canonical language for these five sections is defined once in "
-                 "[`runbooks/_EXECUTION-PATTERNS.md`](../runbooks/_EXECUTION-PATTERNS.md#standard-sections-610-shared-across-every-task-in-every-role-runbook-unless-a-task-explicitly-overrides-one) "
+                 "[`runbooks/_EXECUTION-PATTERNS.md`](../../runbooks/_EXECUTION-PATTERNS.md#standard-sections-610-shared-across-every-task-in-every-role-runbook-unless-a-task-explicitly-overrides-one) "
                  "and applies to every card. Task-specific values for this card:")
     lines.append("")
     lines.append("| Field | Value |")

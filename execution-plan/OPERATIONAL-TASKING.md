@@ -4,7 +4,7 @@
 
 ## Purpose and scope
 
-[`MAINTENANCE-PLAN.md`](../MAINTENANCE-PLAN.md) §4's 110-task Master Calendar is entirely JSIG-control-driven — every row exists because a specific Control ID/ODP requires it, and that file is not touched by this document or its generator. JSIG governs security **posture**; it says nothing about whether the domain, mail system, or the security tool stack itself is actually running. This is a second, additive calendar for that gap: pure IT-operations/functional-health sysadmin tasking for a Windows Server Active Directory domain, Exchange, and the same tool stack named in `mrc-cards/` (Trellix/McAfee HBSS, Splunk, Nessus).
+[`MAINTENANCE-PLAN.md`](../MAINTENANCE-PLAN.md) §4's 110-task Master Calendar is entirely JSIG-control-driven — every row exists because a specific Control ID/ODP requires it, and that file is not touched by this document or its generator. JSIG governs security **posture**; it says nothing about whether the domain, mail system, or the security tool stack itself is actually running. This is a second, additive calendar for that gap: pure IT-operations/functional-health sysadmin tasking for a Windows Server Active Directory domain, Exchange, and the same tool stack named in `mrc-cards/master/` (Trellix/McAfee HBSS, Splunk, Nessus).
 
 **No row below cites a JSIG Control ID as its driver** — none of these 34 tasks are formally required by a specific JSIG ODP the way every Master Calendar row is. A handful operationally *support* the intent of a nearby control family without being required by it: backup-verification tasks (#7, #21) support CP-9's intent; AD object cleanup (#8) supports AC-2's intent; tool-health checks (#22–24) support SI-3/AU-6/RA-5's intent; service-account password tracking (#27) supports IA-5's intent. Those are informational context, not formal citations, and are not repeated per-row in the table to avoid being mistaken for an extracted control requirement.
 
@@ -49,4 +49,4 @@
 | 33 | Weekly | Server uptime and patch-reboot compliance tracking | Windows Server (General) | System Administrator | ISSM | ISSO | AO/DAO |
 | 34 | Daily | Core Windows service health check across servers | Windows Server (General) | System Administrator | ISSM | ISSO | AO/DAO |
 
-Total tasks: **34**. Actionable per-task cards: [`mrc-cards-ops/INDEX.md`](mrc-cards-ops/INDEX.md).
+Total tasks: **34**. Actionable per-task cards: [`mrc-cards/ops/INDEX.md`](mrc-cards/ops/INDEX.md).

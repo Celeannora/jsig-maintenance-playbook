@@ -43,3 +43,9 @@ execution-plan/tools/cve_intake/*
 execution-plan/tools/nessus_intake/*
 !execution-plan/tools/nessus_intake/.gitkeep
 !execution-plan/tools/nessus_intake/plugin_list.example.txt
+
+# Rendered MRC handbooks (execution-plan/tools/render_mrc_handbook.py output) -- large
+# regenerable binary artifacts derived purely from the committed .md cards. Never hand-edit
+# or commit; run render_mrc_handbook.py locally to produce your own copy on demand.
+execution-plan/mrc-cards/*/MRC-HANDBOOK-*.docx
+execution-plan/mrc-cards/*/MRC-HANDBOOK-*.pdf

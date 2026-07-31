@@ -8,7 +8,7 @@
 
 **No row below cites a JSIG Control ID as its driver** — none of these 16 tasks are formally required by a specific JSIG ODP. A handful operationally *support* the intent of a nearby control family without being required by it: configuration-backup tasks (#2–4) support CP-9's intent; firmware-currency review (#5–7) supports SI-2/RA-5's intent; AAA and SSH-key/certificate currency checks (#11, #14) support IA-5/SC-12's intent; HA/failover readiness checks (#8–9) support CP-9/CP-10's intent. Those are informational context, not formal citations, and are not repeated per-row in the table.
 
-**Tool naming:** no specific network device vendor has been established anywhere in this repository, so tool names below stay generic/vendor-agnostic ("network device CLI", "firewall management console") rather than inventing a vendor — unlike [`mrc-cards/`](mrc-cards/) and [`mrc-cards-ops/`](mrc-cards-ops/), which name real tools per an explicit documented exception for that specific tool stack.
+**Tool naming:** no specific network device vendor has been established anywhere in this repository, so tool names below stay generic/vendor-agnostic ("network device CLI", "firewall management console") rather than inventing a vendor — unlike [`mrc-cards/master/`](mrc-cards/master/) and [`mrc-cards/ops/`](mrc-cards/ops/), which name real tools per an explicit documented exception for that specific tool stack.
 
 **RACI:** every task below uses Responsible = Network Administrator, Accountable = ISSM, Consulted = ISSO, Informed = AO/DAO — the same [`ROLE-CROSSWALK.md`](ROLE-CROSSWALK.md) mapping reused for every operational-tasking role rather than invented fresh.
 
@@ -33,4 +33,4 @@
 | 15 | Weekly | Core network hardware health check (fans, power supplies, temperature) | Network Infrastructure (General) | Network Administrator | ISSM | ISSO | AO/DAO |
 | 16 | Quarterly | VLAN/trunk configuration consistency audit | Network Infrastructure (Switches/Routers) | Network Administrator | ISSM | ISSO | AO/DAO |
 
-Total tasks: **16**. Actionable per-task cards: [`mrc-cards-netinfra/INDEX.md`](mrc-cards-netinfra/INDEX.md).
+Total tasks: **16**. Actionable per-task cards: [`mrc-cards/network-infra/INDEX.md`](mrc-cards/network-infra/INDEX.md).

@@ -13,7 +13,7 @@ separate layer for "is the domain/mail system actually running," not
 "is it compliant."
 
 Also generates one MRC-OPS-<###>.md card per task (Navy-PMS-style, same
-shape as the JSIG mrc-cards/ but simpler RACI) in mrc-cards-ops/, plus
+shape as the JSIG mrc-cards/master/ but simpler RACI) in mrc-cards/ops/, plus
 INDEX.md, reusing the Pattern A-H library and rendering conventions from
 build_mrc_cards.py so there is exactly one execution-pattern vocabulary
 in this repo.
@@ -56,7 +56,7 @@ TOOLS_DIR = os.path.dirname(__file__)
 EXEC_PLAN_DIR = os.path.dirname(TOOLS_DIR)
 
 CALENDAR_OUT = os.path.join(EXEC_PLAN_DIR, "OPERATIONAL-TASKING.md")
-CARDS_OUT_DIR = os.path.join(EXEC_PLAN_DIR, "mrc-cards-ops")
+CARDS_OUT_DIR = os.path.join(EXEC_PLAN_DIR, "mrc-cards", "ops")
 
 # (num, freq, task, system, role, pattern, tool)
 OPS_TASKS = [
@@ -116,7 +116,7 @@ def render_calendar():
         "document or its generator. JSIG governs security **posture**; it says nothing about whether the domain, "
         "mail system, or the security tool stack itself is actually running. This is a second, additive calendar for "
         "that gap: pure IT-operations/functional-health sysadmin tasking for a Windows Server Active Directory "
-        "domain, Exchange, and the same tool stack named in `mrc-cards/` (Trellix/McAfee HBSS, Splunk, Nessus).",
+        "domain, Exchange, and the same tool stack named in `mrc-cards/master/` (Trellix/McAfee HBSS, Splunk, Nessus).",
         "",
         "**No row below cites a JSIG Control ID as its driver** — none of these 34 tasks are formally required by a "
         "specific JSIG ODP the way every Master Calendar row is. A handful operationally *support* the intent of a "
@@ -139,7 +139,7 @@ def render_calendar():
     for num, freq, task, system, role, pattern, tool in OPS_TASKS:
         lines.append(f"| {num} | {freq} | {task} | {system} | {role} | {RACI['accountable']} | {RACI['consulted']} | {RACI['informed']} |")
     lines.append("")
-    lines.append(f"Total tasks: **{len(OPS_TASKS)}**. Actionable per-task cards: [`mrc-cards-ops/INDEX.md`](mrc-cards-ops/INDEX.md).")
+    lines.append(f"Total tasks: **{len(OPS_TASKS)}**. Actionable per-task cards: [`mrc-cards/ops/INDEX.md`](mrc-cards/ops/INDEX.md).")
     lines.append("")
     return "\n".join(lines)
 
@@ -157,7 +157,7 @@ def render_card(num, freq, task, system, role, pattern, tool, patterns):
     lines.append("| Field | Value |")
     lines.append("|---|---|")
     lines.append(f"| MRC Number | MRC-OPS-{num:03d} |")
-    lines.append(f"| Operational Calendar Task # | [{num}](../OPERATIONAL-TASKING.md#calendar) |")
+    lines.append(f"| Operational Calendar Task # | [{num}](../../OPERATIONAL-TASKING.md#calendar) |")
     lines.append(f"| System | {system} |")
     lines.append(f"| Periodicity / Frequency | **{freq}** |")
     lines.append(f"| Primary Tool(s) | {tool} |")
@@ -165,12 +165,12 @@ def render_card(num, freq, task, system, role, pattern, tool, patterns):
     lines.append("## 2. References")
     lines.append("")
     lines.append("**JSIG relationship:** none — this is a pure operational/functional-health task, not a JSIG "
-                 "control requirement. See [`OPERATIONAL-TASKING.md`](../OPERATIONAL-TASKING.md#purpose-and-scope) "
+                 "control requirement. See [`OPERATIONAL-TASKING.md`](../../OPERATIONAL-TASKING.md#purpose-and-scope) "
                  "for which tasks operationally support (without being required by) a nearby control family.")
     lines.append("")
-    lines.append("**Other references:** [OPERATIONAL-TASKING.md](../OPERATIONAL-TASKING.md#calendar) (source row) · "
-                 "[ROLE-CROSSWALK.md](../ROLE-CROSSWALK.md) (Responsible/Accountable mapping) · "
-                 "[ESCALATION-MATRIX.md](../templates/ESCALATION-MATRIX.md) (CAT-tier SLA/routing, if a finding "
+    lines.append("**Other references:** [OPERATIONAL-TASKING.md](../../OPERATIONAL-TASKING.md#calendar) (source row) · "
+                 "[ROLE-CROSSWALK.md](../../ROLE-CROSSWALK.md) (Responsible/Accountable mapping) · "
+                 "[ESCALATION-MATRIX.md](../../templates/ESCALATION-MATRIX.md) (CAT-tier SLA/routing, if a finding "
                  "results in a security-relevant exception)")
     lines.append("")
     lines.append("## 3. Personnel / RACI")
@@ -199,7 +199,7 @@ def render_card(num, freq, task, system, role, pattern, tool, patterns):
     lines.append("## 6. Validation, Evidence, Findings, Escalation, Closure")
     lines.append("")
     lines.append("Full canonical language for these five sections is defined once in "
-                 "[`runbooks/_EXECUTION-PATTERNS.md`](../runbooks/_EXECUTION-PATTERNS.md#standard-sections-610-shared-across-every-task-in-every-role-runbook-unless-a-task-explicitly-overrides-one) "
+                 "[`runbooks/_EXECUTION-PATTERNS.md`](../../runbooks/_EXECUTION-PATTERNS.md#standard-sections-610-shared-across-every-task-in-every-role-runbook-unless-a-task-explicitly-overrides-one) "
                  "and applies here too. Task-specific values for this card:")
     lines.append("")
     lines.append("| Field | Value |")
@@ -207,7 +207,7 @@ def render_card(num, freq, task, system, role, pattern, tool, patterns):
     lines.append(f"| Reviewed By (Validation) | {RACI['accountable']} |")
     lines.append("| Repository Path (Evidence Package) | _fill in: local ticketing/GRC or file-share path used for this cycle_ |")
     lines.append("| Escalation Routing | If a check surfaces a security-relevant finding (not just an operational "
-                 "outage), route it through [`ESCALATION-MATRIX.md`](../templates/ESCALATION-MATRIX.md)'s CAT tiers; "
+                 "outage), route it through [`ESCALATION-MATRIX.md`](../../templates/ESCALATION-MATRIX.md)'s CAT tiers; "
                  "a purely operational/availability issue (e.g., a full disk, a stuck mail queue) follows the "
                  "organization's standard IT incident process instead |")
     lines.append(f"| Next Due Date (Closure) | This task's frequency (**{freq}**) advanced one cycle from the Actual Completion Date below |")

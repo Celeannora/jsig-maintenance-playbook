@@ -37,9 +37,13 @@ execution-plan/
 │   ├── build_control_title_index.py   # Regenerates data/control_title_index.json from the full verbatim JSIG
 │   │                                   # family extractions (../references/JSIG-source/chapter-3-*-family.md)
 │   ├── build_control_language_crosswalk.py  # Regenerates ../CONTROL-LANGUAGE-CROSSWALK.md
-│   ├── build_mrc_cards.py             # Regenerates mrc-cards/ (all 110 Maintenance Requirement Cards + INDEX.md)
-│   ├── build_operational_tasking.py   # Regenerates ../OPERATIONAL-TASKING.md + mrc-cards-ops/ (34 tasks + INDEX.md)
-│   ├── build_network_infra_tasking.py # Regenerates ../NETWORK-INFRASTRUCTURE-TASKING.md + mrc-cards-netinfra/ (16 tasks + INDEX.md)
+│   ├── build_mrc_cards.py             # Regenerates mrc-cards/master/ (all 110 Maintenance Requirement Cards + INDEX.md)
+│   ├── build_operational_tasking.py   # Regenerates ../OPERATIONAL-TASKING.md + mrc-cards/ops/ (34 tasks + INDEX.md)
+│   ├── build_network_infra_tasking.py # Regenerates ../NETWORK-INFRASTRUCTURE-TASKING.md + mrc-cards/network-infra/ (16 tasks + INDEX.md)
+│   ├── render_mrc_handbook.py         # Renders the 160 regenerated .md cards into 3 human-readable DOCX/PDF
+│   │                                   # handbooks (cover page, clickable TOC, real Word tables, one card per
+│   │                                   # page) -- one per family, saved next to each family's cards. Gitignored,
+│   │                                   # pure renderer: never hand-edit the output, re-run after any card regen.
 │   ├── data/stig_reference.json       # Committed: curated STIG reference DB (built from stig_intake/)
 │   ├── data/cve_reference.json        # Committed when built: curated CVE reference DB (built from cve_intake/)
 │   ├── data/cve_mirror.json           # Gitignored: optional full NVD mirror, local-only, can be hundreds of MB
@@ -66,16 +70,17 @@ execution-plan/
 ├── runbooks/                          # Section 6 actionable task runbooks for all 17 JSIG §1.5 roles (complete —
 │                                       # see Completed deliverables below): _EXECUTION-PATTERNS.md,
 │                                       # _AUTHORING-BRIEF.md, and one <Role>.md per role
-├── mrc-cards/                         # Generated: one Maintenance Requirement Card (MRC-<###>.md) per Master
-│                                       # Calendar task (110 total) + INDEX.md — a Navy-PMS-style actionable card
-│                                       # (identification, control text, RACI, tools, numbered procedure,
-│                                       # validation/escalation, sign-off) per task. Names real environment
-│                                       # tools (Windows Server/AD, Trellix/McAfee HBSS, Splunk, Nessus) —
-│                                       # the one place in execution-plan/ that isn't vendor-agnostic, by design.
-├── mrc-cards-ops/                     # Generated: one MRC-OPS-<###>.md per OPERATIONAL-TASKING.md task (34 total)
-│                                       # + INDEX.md, same card shape as mrc-cards/ but for non-JSIG operational
-│                                       # tasking (see build_operational_tasking.py).
-└── mrc-cards-netinfra/                # Generated: one MRC-NET-<###>.md per NETWORK-INFRASTRUCTURE-TASKING.md
+└── mrc-cards/                          # Consolidated umbrella for all three generated MRC card families
+    ├── master/                         # Generated: one Maintenance Requirement Card (MRC-<###>.md) per Master
+    │                                   # Calendar task (110 total) + INDEX.md — a Navy-PMS-style actionable card
+    │                                   # (identification, control text, RACI, tools, numbered procedure,
+    │                                   # validation/escalation, sign-off) per task. Names real environment
+    │                                   # tools (Windows Server/AD, Trellix/McAfee HBSS, Splunk, Nessus) —
+    │                                   # the one place in execution-plan/ that isn't vendor-agnostic, by design.
+    ├── ops/                            # Generated: one MRC-OPS-<###>.md per OPERATIONAL-TASKING.md task (34 total)
+    │                                   # + INDEX.md, same card shape as mrc-cards/master/ but for non-JSIG operational
+    │                                   # tasking (see build_operational_tasking.py).
+    └── network-infra/                  # Generated: one MRC-NET-<###>.md per NETWORK-INFRASTRUCTURE-TASKING.md
                                         # task (16 total) + INDEX.md, same card shape, for switch/router/firewall
                                         # health (see build_network_infra_tasking.py).
 ```
@@ -156,7 +161,7 @@ This re-parses all 110 tasks and rewrites `RACI-MATRIX.md` in place — Part A (
 
 ### 6. Regenerate the Maintenance Requirement Cards after editing the calendar, RACI, or a runbook's execution pattern
 
-`mrc-cards/MRC-<###>.md` (one per Master Calendar task, 110 total) and `mrc-cards/INDEX.md` are generated, not hand-authored. If you edit `MAINTENANCE-PLAN.md` §4, `ROLE-CROSSWALK.md`, `data/control_title_index.json`, or a role runbook's Pattern/Custom assignment in its "## 5. Execution Procedures" section, re-run:
+`mrc-cards/master/MRC-<###>.md` (one per Master Calendar task, 110 total) and `mrc-cards/master/INDEX.md` are generated, not hand-authored. If you edit `MAINTENANCE-PLAN.md` §4, `ROLE-CROSSWALK.md`, `data/control_title_index.json`, or a role runbook's Pattern/Custom assignment in its "## 5. Execution Procedures" section, re-run:
 
 ```bash
 python3 execution-plan/tools/build_mrc_cards.py
@@ -166,7 +171,7 @@ Each card resolves its Pattern (A–H) or Custom procedure from the matching rol
 
 ### 7. Regenerate the Operational Tasking calendar and MRC-OPS cards
 
-`OPERATIONAL-TASKING.md` and `mrc-cards-ops/MRC-OPS-<###>.md` (34 total) + `INDEX.md` are a second, separate, generated deliverable for non-JSIG IT-operations/functional-health sysadmin tasking (Active Directory/domain controllers, Exchange, the security-tool stack's own operational health, general Windows Server) — `MAINTENANCE-PLAN.md` is never touched by this generator. If you edit `OPS_TASKS` in the script (add/remove/re-scope a task), re-run:
+`OPERATIONAL-TASKING.md` and `mrc-cards/ops/MRC-OPS-<###>.md` (34 total) + `INDEX.md` are a second, separate, generated deliverable for non-JSIG IT-operations/functional-health sysadmin tasking (Active Directory/domain controllers, Exchange, the security-tool stack's own operational health, general Windows Server) — `MAINTENANCE-PLAN.md` is never touched by this generator. If you edit `OPS_TASKS` in the script (add/remove/re-scope a task), re-run:
 
 ```bash
 python3 execution-plan/tools/build_operational_tasking.py
@@ -176,27 +181,42 @@ No row in this calendar cites a JSIG Control ID as its driver — see `OPERATION
 
 ### 8. Regenerate the Network Infrastructure Tasking calendar and MRC-NET cards
 
-`NETWORK-INFRASTRUCTURE-TASKING.md` and `mrc-cards-netinfra/MRC-NET-<###>.md` (16 total) + `INDEX.md` close the #1 gap identified in `GAP-ANALYSIS.md`: switch/router/firewall configuration backup, firmware currency, and HA/failover readiness — a layer neither the JSIG calendar nor the operational calendar covers. If you edit `NET_TASKS` in the script, re-run:
+`NETWORK-INFRASTRUCTURE-TASKING.md` and `mrc-cards/network-infra/MRC-NET-<###>.md` (16 total) + `INDEX.md` close the #1 gap identified in `GAP-ANALYSIS.md`: switch/router/firewall configuration backup, firmware currency, and HA/failover readiness — a layer neither the JSIG calendar nor the operational calendar covers. If you edit `NET_TASKS` in the script, re-run:
 
 ```bash
 python3 execution-plan/tools/build_network_infra_tasking.py
 ```
 
-No row cites a JSIG Control ID. Tool names stay generic/vendor-agnostic since no network device vendor has been established in this repository, unlike `mrc-cards/` and `mrc-cards-ops/`. Do not hand-edit `NETWORK-INFRASTRUCTURE-TASKING.md` or an individual `MRC-NET-*.md` file — edit `NET_TASKS` and regenerate.
+No row cites a JSIG Control ID. Tool names stay generic/vendor-agnostic since no network device vendor has been established in this repository, unlike `mrc-cards/master/` and `mrc-cards/ops/`. Do not hand-edit `NETWORK-INFRASTRUCTURE-TASKING.md` or an individual `MRC-NET-*.md` file — edit `NET_TASKS` and regenerate.
+
+### 9. Render the MRC cards into human-readable DOCX/PDF handbooks
+
+The 160 `.md` cards across `mrc-cards/{master,ops,network-infra}/` are convenient to link and diff, but not what you hand someone to read cover-to-cover or print. `render_mrc_handbook.py` renders each family into a single bound handbook — cover page, clickable Table of Contents, real bordered/shaded Word tables, one card per page break, Nexus-palette styling — and exports both `.docx` and a companion `.pdf`. Re-run any time after regenerating cards (steps 6–8):
+
+```bash
+python3 execution-plan/tools/render_mrc_handbook.py
+# then, to also refresh the PDF companions:
+soffice --headless --convert-to pdf --outdir execution-plan/mrc-cards/master execution-plan/mrc-cards/master/MRC-HANDBOOK-MASTER.docx
+soffice --headless --convert-to pdf --outdir execution-plan/mrc-cards/ops execution-plan/mrc-cards/ops/MRC-HANDBOOK-OPS.docx
+soffice --headless --convert-to pdf --outdir execution-plan/mrc-cards/network-infra execution-plan/mrc-cards/network-infra/MRC-HANDBOOK-NETWORK-INFRA.docx
+```
+
+Outputs land inside each family's own folder (e.g. `mrc-cards/master/MRC-HANDBOOK-MASTER.docx`/`.pdf`) and are gitignored — regenerable binary artifacts, not source of truth. Do not hand-edit a handbook; edit the source `.md` cards (or their upstream calendar/runbook) and regenerate both the cards and the handbook.
 
 ## Design principles
 
 - **Generate, don't hand-author, for anything structured.** `RACI-MATRIX.md`, the STIG/CVE reference databases, and every Variance/Risk-Acceptance record are produced by a script from a documented source of truth, so they stay internally consistent and can be regenerated on demand instead of drifting via manual edits.
 - **Fail closed.** Every tool in `tools/` exits non-zero and writes nothing rather than guess at missing data, silently downgrade a severity, or mark an operation complete when it partially failed.
-- **Offline-only, vendor-agnostic.** No cloud or SaaS product is referenced by name anywhere in this folder's templates or generated output — every example uses generic terms ("local ticketing/GRC system," "local vulnerability scanner") so the material stays usable on an air-gapped network. **Documented exceptions:** `mrc-cards/` and `mrc-cards-ops/`/`OPERATIONAL-TASKING.md` name real tools (Windows Server/Active Directory, Trellix/McAfee HBSS-style endpoint suite, Splunk, Nessus) per an explicit request to ground those specific deliverables in one organization's actual environment — see `build_mrc_cards.py`'s `TOOL_KEYWORD_RULES`/`FAMILY_TOOL_DEFAULTS` and `build_operational_tasking.py`'s `OPS_TASKS` to retarget for a different tool stack.
+- **Offline-only, vendor-agnostic.** No cloud or SaaS product is referenced by name anywhere in this folder's templates or generated output — every example uses generic terms ("local ticketing/GRC system," "local vulnerability scanner") so the material stays usable on an air-gapped network. **Documented exceptions:** `mrc-cards/master/` and `mrc-cards/ops/`/`OPERATIONAL-TASKING.md` name real tools (Windows Server/Active Directory, Trellix/McAfee HBSS-style endpoint suite, Splunk, Nessus) per an explicit request to ground those specific deliverables in one organization's actual environment — see `build_mrc_cards.py`'s `TOOL_KEYWORD_RULES`/`FAMILY_TOOL_DEFAULTS` and `build_operational_tasking.py`'s `OPS_TASKS` to retarget for a different tool stack.
 - **One severity model, reused everywhere.** The CAT I/II/III sign-off chain (`RACI_BY_CAT` in `generate_variance.py`) is the same one documented in `ESCALATION-MATRIX.md` and reflected in `RACI-MATRIX.md`'s task-level Accountable/Consulted/Informed assignments — there is only one escalation model in this repo, not three slightly different ones.
 
 ## Completed deliverables
 
 - **`runbooks/`** — Section 6 actionable task runbooks for all 17 JSIG §1.5 roles: Agency/Component Head, Risk Executive Function, CIO, CISO, AO, DAO, CCP, ISO, ISSE, MBO, General Users, ISSM, ISSO, Privileged Users, PSO, Information Owner/Steward, SCA. Each `<Role>.md` follows the 10-section scaffold in `templates/AUDIT-ARTIFACT-TEMPLATE.md` (via the shared Sections 6–10 defined once in `runbooks/_EXECUTION-PATTERNS.md`) and is grounded in `tools/data/role_task_index.json`, never hand-typed against the Master Calendar. `runbooks/_AUTHORING-BRIEF.md` documents the authoring rules (never fabricate a task/control ID, never name a vendor, verify every internal link, keep procedure text proportionate to task volume) that every role file was built and reviewed against. Zero-task governance roles (Agency/Component Head, Risk Executive Function, CIO, CCP, ISO, ISSE, General Users, MBO) still get a full runbook documenting their governance/oversight actions even though they hold no Master Calendar Responsible/Accountable task.
-- **`mrc-cards/`** — one Maintenance Requirement Card (`MRC-<###>.md`) per Master Calendar task, all 110, plus `INDEX.md`. Each card is a self-contained, sign-off-ready document: identification, real verbatim control text, RACI, primary tool(s) for this environment, a full numbered procedure (Pattern A–H or the task's own Custom steps, resolved from the authoring role's runbook — all 110 resolved from runbook-authored assignments, zero from the keyword-heuristic fallback), the standard Validation/Evidence/Findings/Escalation/Closure fields, and a blank Preparer/Reviewer sign-off block. Generated by `tools/build_mrc_cards.py`.
-- **`OPERATIONAL-TASKING.md` + `mrc-cards-ops/`** — a second, separate 34-task calendar (plus one `MRC-OPS-<###>.md` card per task + `INDEX.md`) for non-JSIG IT-operations/functional-health sysadmin tasking: Active Directory/domain-controller health (replication, DCDIAG, DNS, SYSVOL, FSMO, trusts, backups, object cleanup), Exchange health (DAG, mailbox databases, transport queues, certificates, client access), the security-tool stack's own operational health (Trellix/McAfee ePO agent coverage, Splunk forwarder health, Nessus scanner/plugin health), and general Windows Server care-and-feeding (AD CS, scheduled tasks, service-account passwords, hardware/RAID, functional patching, licensing, file/print, DHCP). No row cites a JSIG Control ID; a few tasks operationally support (without being required by) a nearby control family, documented in prose only. Generated by `tools/build_operational_tasking.py`.
-- **`NETWORK-INFRASTRUCTURE-TASKING.md` + `mrc-cards-netinfra/`** — a third, separate 16-task calendar (plus one `MRC-NET-<###>.md` card per task + `INDEX.md`) closing the #1 gap identified in `GAP-ANALYSIS.md`: switch/router configuration backup and firmware currency, firewall configuration backup and firmware currency, core switch/router and firewall HA/failover readiness testing, out-of-band management health, AAA (TACACS+/RADIUS) health, SNMP/syslog health, spanning-tree health, SSH host-key/management-certificate currency, network hardware environmental health, and VLAN/trunk configuration consistency. No row cites a JSIG Control ID. Tool names stay generic/vendor-agnostic (no network vendor established in this repo). Generated by `tools/build_network_infra_tasking.py`.
+- **`mrc-cards/master/`** — one Maintenance Requirement Card (`MRC-<###>.md`) per Master Calendar task, all 110, plus `INDEX.md`. Each card is a self-contained, sign-off-ready document: identification, real verbatim control text, RACI, primary tool(s) for this environment, a full numbered procedure (Pattern A–H or the task's own Custom steps, resolved from the authoring role's runbook — all 110 resolved from runbook-authored assignments, zero from the keyword-heuristic fallback), the standard Validation/Evidence/Findings/Escalation/Closure fields, and a blank Preparer/Reviewer sign-off block. Generated by `tools/build_mrc_cards.py`.
+- **`OPERATIONAL-TASKING.md` + `mrc-cards/ops/`** — a second, separate 34-task calendar (plus one `MRC-OPS-<###>.md` card per task + `INDEX.md`) for non-JSIG IT-operations/functional-health sysadmin tasking: Active Directory/domain-controller health (replication, DCDIAG, DNS, SYSVOL, FSMO, trusts, backups, object cleanup), Exchange health (DAG, mailbox databases, transport queues, certificates, client access), the security-tool stack's own operational health (Trellix/McAfee ePO agent coverage, Splunk forwarder health, Nessus scanner/plugin health), and general Windows Server care-and-feeding (AD CS, scheduled tasks, service-account passwords, hardware/RAID, functional patching, licensing, file/print, DHCP). No row cites a JSIG Control ID; a few tasks operationally support (without being required by) a nearby control family, documented in prose only. Generated by `tools/build_operational_tasking.py`.
+- **`NETWORK-INFRASTRUCTURE-TASKING.md` + `mrc-cards/network-infra/`** — a third, separate 16-task calendar (plus one `MRC-NET-<###>.md` card per task + `INDEX.md`) closing the #1 gap identified in `GAP-ANALYSIS.md`: switch/router configuration backup and firmware currency, firewall configuration backup and firmware currency, core switch/router and firewall HA/failover readiness testing, out-of-band management health, AAA (TACACS+/RADIUS) health, SNMP/syslog health, spanning-tree health, SSH host-key/management-certificate currency, network hardware environmental health, and VLAN/trunk configuration consistency. No row cites a JSIG Control ID. Tool names stay generic/vendor-agnostic (no network vendor established in this repo). Generated by `tools/build_network_infra_tasking.py`.
+- **`mrc-cards/{master,ops,network-infra}/MRC-HANDBOOK-*.docx`/`.pdf`** — one bound, human-readable handbook per family (cover page, clickable Table of Contents, real Word tables, page-per-card layout) rendered straight from the same 160 `.md` cards above — nothing hand-typed. Gitignored (regenerate on demand). Generated by `tools/render_mrc_handbook.py`.
 
 ## Backlog (not yet built)
 

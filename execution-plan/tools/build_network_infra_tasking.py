@@ -11,7 +11,7 @@ currency, and HA/failover state. This script closes that specific gap only;
 it does not touch MAINTENANCE-PLAN.md or OPERATIONAL-TASKING.md.
 
 Also generates one MRC-NET-<###>.md card per task (same Navy-PMS-style shape
-as mrc-cards/ and mrc-cards-ops/) in mrc-cards-netinfra/, plus INDEX.md,
+as mrc-cards/master/ and mrc-cards/ops/) in mrc-cards/network-infra/, plus INDEX.md,
 reusing the Pattern A-H library from build_mrc_cards.py -- same execution-
 pattern vocabulary as everywhere else in this repo, no new pattern
 invented.
@@ -23,7 +23,7 @@ build_operational_tasking.py -- edit NET_TASKS and regenerate rather than
 hand-editing NETWORK-INFRASTRUCTURE-TASKING.md or an individual
 MRC-NET-*.md file.
 
-Tool naming: unlike mrc-cards/ and mrc-cards-ops/, no specific network
+Tool naming: unlike mrc-cards/master/ and mrc-cards/ops/, no specific network
 device vendor has been established anywhere in this repository, so tool
 names here stay generic/vendor-agnostic ("network device CLI", "firewall
 management console") per this repo's default design principle, rather
@@ -54,7 +54,7 @@ TOOLS_DIR = os.path.dirname(__file__)
 EXEC_PLAN_DIR = os.path.dirname(TOOLS_DIR)
 
 CALENDAR_OUT = os.path.join(EXEC_PLAN_DIR, "NETWORK-INFRASTRUCTURE-TASKING.md")
-CARDS_OUT_DIR = os.path.join(EXEC_PLAN_DIR, "mrc-cards-netinfra")
+CARDS_OUT_DIR = os.path.join(EXEC_PLAN_DIR, "mrc-cards", "network-infra")
 
 # (num, freq, task, system, role, pattern, tool)
 NET_TASKS = [
@@ -104,7 +104,7 @@ def render_calendar():
         "",
         "**Tool naming:** no specific network device vendor has been established anywhere in this repository, so "
         "tool names below stay generic/vendor-agnostic (\"network device CLI\", \"firewall management console\") "
-        "rather than inventing a vendor — unlike [`mrc-cards/`](mrc-cards/) and [`mrc-cards-ops/`](mrc-cards-ops/), "
+        "rather than inventing a vendor — unlike [`mrc-cards/master/`](mrc-cards/master/) and [`mrc-cards/ops/`](mrc-cards/ops/), "
         "which name real tools per an explicit documented exception for that specific tool stack.",
         "",
         "**RACI:** every task below uses Responsible = Network Administrator, Accountable = ISSM, Consulted = ISSO, "
@@ -119,7 +119,7 @@ def render_calendar():
     for num, freq, task, system, role, pattern, tool in NET_TASKS:
         lines.append(f"| {num} | {freq} | {task} | {system} | {role} | {RACI['accountable']} | {RACI['consulted']} | {RACI['informed']} |")
     lines.append("")
-    lines.append(f"Total tasks: **{len(NET_TASKS)}**. Actionable per-task cards: [`mrc-cards-netinfra/INDEX.md`](mrc-cards-netinfra/INDEX.md).")
+    lines.append(f"Total tasks: **{len(NET_TASKS)}**. Actionable per-task cards: [`mrc-cards/network-infra/INDEX.md`](mrc-cards/network-infra/INDEX.md).")
     lines.append("")
     return "\n".join(lines)
 
@@ -138,7 +138,7 @@ def render_card(num, freq, task, system, role, pattern, tool, patterns):
     lines.append("| Field | Value |")
     lines.append("|---|---|")
     lines.append(f"| MRC Number | MRC-NET-{num:03d} |")
-    lines.append(f"| Network Infrastructure Calendar Task # | [{num}](../NETWORK-INFRASTRUCTURE-TASKING.md#calendar) |")
+    lines.append(f"| Network Infrastructure Calendar Task # | [{num}](../../NETWORK-INFRASTRUCTURE-TASKING.md#calendar) |")
     lines.append(f"| System | {system} |")
     lines.append(f"| Periodicity / Frequency | **{freq}** |")
     lines.append(f"| Primary Tool(s) | {tool} |")
@@ -147,13 +147,13 @@ def render_card(num, freq, task, system, role, pattern, tool, patterns):
     lines.append("")
     lines.append("**JSIG relationship:** none — this is a pure network-infrastructure operational/functional-"
                  "health task, not a JSIG control requirement. See "
-                 "[`NETWORK-INFRASTRUCTURE-TASKING.md`](../NETWORK-INFRASTRUCTURE-TASKING.md#purpose-and-scope) "
+                 "[`NETWORK-INFRASTRUCTURE-TASKING.md`](../../NETWORK-INFRASTRUCTURE-TASKING.md#purpose-and-scope) "
                  "for which tasks operationally support (without being required by) a nearby control family.")
     lines.append("")
-    lines.append("**Other references:** [NETWORK-INFRASTRUCTURE-TASKING.md](../NETWORK-INFRASTRUCTURE-TASKING.md#calendar) (source row) · "
-                 "[ROLE-CROSSWALK.md](../ROLE-CROSSWALK.md) (Responsible/Accountable mapping) · "
-                 "[ESCALATION-MATRIX.md](../templates/ESCALATION-MATRIX.md) (CAT-tier SLA/routing, if a finding "
-                 "results in a security-relevant exception) · [GAP-ANALYSIS.md](../GAP-ANALYSIS.md) (why this "
+    lines.append("**Other references:** [NETWORK-INFRASTRUCTURE-TASKING.md](../../NETWORK-INFRASTRUCTURE-TASKING.md#calendar) (source row) · "
+                 "[ROLE-CROSSWALK.md](../../ROLE-CROSSWALK.md) (Responsible/Accountable mapping) · "
+                 "[ESCALATION-MATRIX.md](../../templates/ESCALATION-MATRIX.md) (CAT-tier SLA/routing, if a finding "
+                 "results in a security-relevant exception) · [GAP-ANALYSIS.md](../../GAP-ANALYSIS.md) (why this "
                  "calendar exists)")
     lines.append("")
     lines.append("## 3. Personnel / RACI")
@@ -182,7 +182,7 @@ def render_card(num, freq, task, system, role, pattern, tool, patterns):
     lines.append("## 6. Validation, Evidence, Findings, Escalation, Closure")
     lines.append("")
     lines.append("Full canonical language for these five sections is defined once in "
-                 "[`runbooks/_EXECUTION-PATTERNS.md`](../runbooks/_EXECUTION-PATTERNS.md#standard-sections-610-shared-across-every-task-in-every-role-runbook-unless-a-task-explicitly-overrides-one) "
+                 "[`runbooks/_EXECUTION-PATTERNS.md`](../../runbooks/_EXECUTION-PATTERNS.md#standard-sections-610-shared-across-every-task-in-every-role-runbook-unless-a-task-explicitly-overrides-one) "
                  "and applies here too. Task-specific values for this card:")
     lines.append("")
     lines.append("| Field | Value |")
@@ -190,7 +190,7 @@ def render_card(num, freq, task, system, role, pattern, tool, patterns):
     lines.append(f"| Reviewed By (Validation) | {RACI['accountable']} |")
     lines.append("| Repository Path (Evidence Package) | _fill in: local ticketing/GRC or file-share path used for this cycle_ |")
     lines.append("| Escalation Routing | If a check surfaces a security-relevant finding (not just an operational "
-                 "outage), route it through [`ESCALATION-MATRIX.md`](../templates/ESCALATION-MATRIX.md)'s CAT tiers; "
+                 "outage), route it through [`ESCALATION-MATRIX.md`](../../templates/ESCALATION-MATRIX.md)'s CAT tiers; "
                  "a purely operational/availability issue (e.g., a failed HA failover test, a full config-backup "
                  "job) follows the organization's standard IT incident process instead |")
     lines.append(f"| Next Due Date (Closure) | This task's frequency (**{freq}**) advanced one cycle from the Actual Completion Date below |")
