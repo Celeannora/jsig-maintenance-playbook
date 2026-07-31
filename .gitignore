@@ -16,3 +16,17 @@ execution-plan/tools/data/cve_mirror.json
 # JSIG role is program-specific/named data, out of scope for this unclassified,
 # general-framework reference repo (see root README's Scope note). Local-only.
 execution-plan/tools/data/role_assignments.local.json
+
+# Intake drop-zones are personal, local staging areas -- only the folder
+# structure (.gitkeep) and example files belong in git. Whatever a user
+# drops in locally to build their own STIG/CVE/Nessus reference databases
+# should never get committed (see: the Windows 11 STIG XCCDF that got
+# accidentally committed to stig_intake/ on 2026-07-18, since removed).
+execution-plan/tools/stig_intake/*
+!execution-plan/tools/stig_intake/.gitkeep
+execution-plan/tools/cve_intake/*
+!execution-plan/tools/cve_intake/.gitkeep
+!execution-plan/tools/cve_intake/cve_list.example.txt
+execution-plan/tools/nessus_intake/*
+!execution-plan/tools/nessus_intake/.gitkeep
+!execution-plan/tools/nessus_intake/plugin_list.example.txt
