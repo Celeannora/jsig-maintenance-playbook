@@ -15,7 +15,7 @@
 | # | Frequency | Task | System | Responsible Role | Accountable | Consulted | Informed |
 |---|---|---|---|---|---|---|---|
 | 1 | Daily | AD replication health check (repadmin /replsummary, /showrepl) | Active Directory / Domain Controllers | System Administrator | ISSM | ISSO | AO/DAO |
-| 2 | Weekly | DCDIAG full domain controller health check | Active Directory / Domain Controllers | System Administrator | ISSM | ISSO | AO/DAO |
+| 2 | Weekly | DCDIAG full domain controller health check † | Active Directory / Domain Controllers | System Administrator | ISSM | ISSO | AO/DAO |
 | 3 | Weekly | DNS zone health and scavenging review | Active Directory / Domain Controllers | System Administrator | ISSM | ISSO | AO/DAO |
 | 4 | Weekly | SYSVOL/DFSR replication health check | Active Directory / Domain Controllers | System Administrator | ISSM | ISSO | AO/DAO |
 | 5 | Monthly | FSMO role holder verification | Active Directory / Domain Controllers | System Administrator | ISSM | ISSO | AO/DAO |
@@ -48,5 +48,7 @@
 | 32 | Weekly | DHCP scope utilization and lease health check | Windows Server (General) | Network Administrator | ISSM | ISSO | AO/DAO |
 | 33 | Weekly | Server uptime and patch-reboot compliance tracking | Windows Server (General) | System Administrator | ISSM | ISSO | AO/DAO |
 | 34 | Daily | Core Windows service health check across servers | Windows Server (General) | System Administrator | ISSM | ISSO | AO/DAO |
+
+† Upgraded to Guide status (exact, tool-specific steps) per [`AGENTS.md`](../AGENTS.md) rule 8 -- see [`mrc-cards/README.md`](mrc-cards/README.md) for the full Stub/Guide tracking matrix.
 
 Total tasks: **34**. Actionable per-task cards: [`mrc-cards/ops/INDEX.md`](mrc-cards/ops/INDEX.md).
