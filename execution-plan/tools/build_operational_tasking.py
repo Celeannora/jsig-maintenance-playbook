@@ -134,6 +134,11 @@ GUIDE_CARDS = {
     20,  # MRC-OPS-020 -- Message tracking log review (mail-flow troubleshooting)
     21,  # MRC-OPS-021 -- Exchange application-aware backup verification
     22,  # MRC-OPS-022 -- Trellix/McAfee ePO agent heartbeat and endpoint coverage check (Guide, no script -- GUI/console-only task)
+    23,  # MRC-OPS-023 -- Splunk forwarder health, index health, and license usage check
+    24,  # MRC-OPS-024 -- Nessus scanner engine and plugin feed health check
+    25,  # MRC-OPS-025 -- AD CS Certificate Authority health and enterprise certificate-expiration monitoring
+    26,  # MRC-OPS-026 -- Scheduled task/job success monitoring
+    27,  # MRC-OPS-027 -- Service account password expiration tracking
 }
 
 

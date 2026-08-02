@@ -51,3 +51,8 @@ Every script in this folder must follow this shape so an admin unfamiliar with a
 | MRC-OPS-019 | [`MRC-OPS-019.ps1`](MRC-OPS-019.ps1) | [Exchange connector and transport rule health review](../ops/MRC-OPS-019.md) |
 | MRC-OPS-020 | [`MRC-OPS-020.ps1`](MRC-OPS-020.ps1) | [Message tracking log review (mail-flow troubleshooting)](../ops/MRC-OPS-020.md) |
 | MRC-OPS-021 | [`MRC-OPS-021.ps1`](MRC-OPS-021.ps1) | [Exchange application-aware backup verification](../ops/MRC-OPS-021.md) |
+| MRC-OPS-023 | [`MRC-OPS-023.ps1`](MRC-OPS-023.ps1) | [Splunk forwarder health, index health, and license usage check](../ops/MRC-OPS-023.md) |
+| MRC-OPS-024 | [`MRC-OPS-024.ps1`](MRC-OPS-024.ps1) | [Nessus scanner engine and plugin feed health check](../ops/MRC-OPS-024.md) |
+| MRC-OPS-025 | [`MRC-OPS-025.ps1`](MRC-OPS-025.ps1) | [AD CS Certificate Authority health and enterprise certificate-expiration monitoring](../ops/MRC-OPS-025.md) |
+| MRC-OPS-026 | [`MRC-OPS-026.ps1`](MRC-OPS-026.ps1) | [Scheduled task/job success monitoring](../ops/MRC-OPS-026.md) |
+| MRC-OPS-027 | [`MRC-OPS-027.ps1`](MRC-OPS-027.ps1) | [Service account password expiration tracking](../ops/MRC-OPS-027.md) |
