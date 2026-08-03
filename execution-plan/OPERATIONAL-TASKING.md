@@ -41,11 +41,11 @@
 | 25 | Monthly | AD CS Certificate Authority health and enterprise certificate-expiration monitoring † | Windows Server (General) | System Administrator | ISSM | ISSO | AO/DAO |
 | 26 | Weekly | Scheduled task/job success monitoring † | Windows Server (General) | System Administrator | ISSM | ISSO | AO/DAO |
 | 27 | Monthly | Service account password expiration tracking † | Windows Server (General) | System Administrator | ISSM | ISSO | AO/DAO |
-| 28 | Weekly | Hardware/RAID/disk health and out-of-band management check | Windows Server (General) | System Administrator | ISSM | ISSO | AO/DAO |
-| 29 | Monthly | Functional patching beyond security patches (feature/driver updates) | Windows Server (General) | System Administrator | ISSM | ISSO | AO/DAO |
-| 30 | Quarterly | Windows Server / Exchange licensing and CAL compliance review | Windows Server (General) | System Administrator | ISSM | ISSO | AO/DAO |
-| 31 | Weekly | File/print server share health and disk capacity check | Windows Server (General) | System Administrator | ISSM | ISSO | AO/DAO |
-| 32 | Weekly | DHCP scope utilization and lease health check | Windows Server (General) | Network Administrator | ISSM | ISSO | AO/DAO |
+| 28 | Weekly | Hardware/RAID/disk health and out-of-band management check † | Windows Server (General) | System Administrator | ISSM | ISSO | AO/DAO |
+| 29 | Monthly | Functional patching beyond security patches (feature/driver updates) † | Windows Server (General) | System Administrator | ISSM | ISSO | AO/DAO |
+| 30 | Quarterly | Windows Server / Exchange licensing and CAL compliance review † | Windows Server (General) | System Administrator | ISSM | ISSO | AO/DAO |
+| 31 | Weekly | File/print server share health and disk capacity check † | Windows Server (General) | System Administrator | ISSM | ISSO | AO/DAO |
+| 32 | Weekly | DHCP scope utilization and lease health check † | Windows Server (General) | Network Administrator | ISSM | ISSO | AO/DAO |
 | 33 | Weekly | Server uptime and patch-reboot compliance tracking | Windows Server (General) | System Administrator | ISSM | ISSO | AO/DAO |
 | 34 | Daily | Core Windows service health check across servers | Windows Server (General) | System Administrator | ISSM | ISSO | AO/DAO |
 

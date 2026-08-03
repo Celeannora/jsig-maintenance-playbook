@@ -11,7 +11,7 @@ Regenerate this file after upgrading any card's status: edit the `GUIDE_STATUS_O
 | **Stub** | Card follows one of the 8 generic execution patterns (Pattern A-H) from [`runbooks/_EXECUTION-PATTERNS.md`](../runbooks/_EXECUTION-PATTERNS.md) with light task-specific substitution. Procedure steps describe *what* to check and *what* done looks like in tool-agnostic language, but do not name specific screens, commands, or menu paths. **Not yet usable as literal step-by-step instructions for an employee.** |
 | **Guide** | Card has been hand-authored with exact, tool-specific steps an employee can follow literally -- naming the actual product, screen, command, or menu path in the assumed baseline environment (see [`AGENTS.md`](../../AGENTS.md) rule 8: Windows Server/Active Directory, Splunk, Tenable Nessus, Trellix/McAfee ePO). **Usable as-is by an employee performing the task.** |
 
-**Current progress: 27 / 160 cards upgraded to Guide status (133 remaining as Stub).**
+**Current progress: 32 / 160 cards upgraded to Guide status (128 remaining as Stub).**
 
 **Script** column: `Yes` = a runnable PowerShell automation script exists under [`scripts/`](scripts/README.md) for this card; `No` = scriptable in principle but not yet built; `N/A` = inherently manual/judgment task, cannot be scripted (see [`AGENTS.md`](../../AGENTS.md) rule 9).
 
@@ -165,11 +165,11 @@ One card per Operational Tasking Calendar task. Full index: [`ops/INDEX.md`](ops
 | [MRC-OPS-025](ops/MRC-OPS-025.md) | AD CS Certificate Authority health and enterprise certificate-expiration monitoring | Windows Server (General) | Monthly | Pattern B | Guide | Yes |
 | [MRC-OPS-026](ops/MRC-OPS-026.md) | Scheduled task/job success monitoring | Windows Server (General) | Weekly | Pattern B | Guide | Yes |
 | [MRC-OPS-027](ops/MRC-OPS-027.md) | Service account password expiration tracking | Windows Server (General) | Monthly | Pattern B | Guide | Yes |
-| [MRC-OPS-028](ops/MRC-OPS-028.md) | Hardware/RAID/disk health and out-of-band management check | Windows Server (General) | Weekly | Pattern A | Stub | No |
-| [MRC-OPS-029](ops/MRC-OPS-029.md) | Functional patching beyond security patches (feature/driver updates) | Windows Server (General) | Monthly | Pattern C | Stub | No |
-| [MRC-OPS-030](ops/MRC-OPS-030.md) | Windows Server / Exchange licensing and CAL compliance review | Windows Server (General) | Quarterly | Pattern B | Stub | No |
-| [MRC-OPS-031](ops/MRC-OPS-031.md) | File/print server share health and disk capacity check | Windows Server (General) | Weekly | Pattern A | Stub | No |
-| [MRC-OPS-032](ops/MRC-OPS-032.md) | DHCP scope utilization and lease health check | Windows Server (General) | Weekly | Pattern B | Stub | No |
+| [MRC-OPS-028](ops/MRC-OPS-028.md) | Hardware/RAID/disk health and out-of-band management check | Windows Server (General) | Weekly | Pattern A | Guide | N/A |
+| [MRC-OPS-029](ops/MRC-OPS-029.md) | Functional patching beyond security patches (feature/driver updates) | Windows Server (General) | Monthly | Pattern C | Guide | Yes |
+| [MRC-OPS-030](ops/MRC-OPS-030.md) | Windows Server / Exchange licensing and CAL compliance review | Windows Server (General) | Quarterly | Pattern B | Guide | N/A |
+| [MRC-OPS-031](ops/MRC-OPS-031.md) | File/print server share health and disk capacity check | Windows Server (General) | Weekly | Pattern A | Guide | Yes |
+| [MRC-OPS-032](ops/MRC-OPS-032.md) | DHCP scope utilization and lease health check | Windows Server (General) | Weekly | Pattern B | Guide | Yes |
 | [MRC-OPS-033](ops/MRC-OPS-033.md) | Server uptime and patch-reboot compliance tracking | Windows Server (General) | Weekly | Pattern A | Stub | No |
 | [MRC-OPS-034](ops/MRC-OPS-034.md) | Core Windows service health check across servers | Windows Server (General) | Daily | Pattern A | Stub | No |
 

@@ -139,6 +139,11 @@ GUIDE_CARDS = {
     25,  # MRC-OPS-025 -- AD CS Certificate Authority health and enterprise certificate-expiration monitoring
     26,  # MRC-OPS-026 -- Scheduled task/job success monitoring
     27,  # MRC-OPS-027 -- Service account password expiration tracking
+    28,  # MRC-OPS-028 -- Hardware/RAID/disk health and out-of-band management check (Guide, no script -- vendor-specific GUI/console-only task)
+    29,  # MRC-OPS-029 -- Functional patching beyond security patches (feature/driver updates)
+    30,  # MRC-OPS-030 -- Windows Server / Exchange licensing and CAL compliance review (Guide, no script -- compliance/administrative review, not a technical health check)
+    31,  # MRC-OPS-031 -- File/print server share health and disk capacity check
+    32,  # MRC-OPS-032 -- DHCP scope utilization and lease health check
 }
 
 

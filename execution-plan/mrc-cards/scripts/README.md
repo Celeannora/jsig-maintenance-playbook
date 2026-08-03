@@ -56,3 +56,6 @@ Every script in this folder must follow this shape so an admin unfamiliar with a
 | MRC-OPS-025 | [`MRC-OPS-025.ps1`](MRC-OPS-025.ps1) | [AD CS Certificate Authority health and enterprise certificate-expiration monitoring](../ops/MRC-OPS-025.md) |
 | MRC-OPS-026 | [`MRC-OPS-026.ps1`](MRC-OPS-026.ps1) | [Scheduled task/job success monitoring](../ops/MRC-OPS-026.md) |
 | MRC-OPS-027 | [`MRC-OPS-027.ps1`](MRC-OPS-027.ps1) | [Service account password expiration tracking](../ops/MRC-OPS-027.md) |
+| MRC-OPS-029 | [`MRC-OPS-029.ps1`](MRC-OPS-029.ps1) | [Functional patching beyond security patches (feature/driver updates)](../ops/MRC-OPS-029.md) |
+| MRC-OPS-031 | [`MRC-OPS-031.ps1`](MRC-OPS-031.ps1) | [File/print server share health and disk capacity check](../ops/MRC-OPS-031.md) |
+| MRC-OPS-032 | [`MRC-OPS-032.ps1`](MRC-OPS-032.ps1) | [DHCP scope utilization and lease health check](../ops/MRC-OPS-032.md) |
