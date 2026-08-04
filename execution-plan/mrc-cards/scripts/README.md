@@ -59,3 +59,5 @@ Every script in this folder must follow this shape so an admin unfamiliar with a
 | MRC-OPS-029 | [`MRC-OPS-029.ps1`](MRC-OPS-029.ps1) | [Functional patching beyond security patches (feature/driver updates)](../ops/MRC-OPS-029.md) |
 | MRC-OPS-031 | [`MRC-OPS-031.ps1`](MRC-OPS-031.ps1) | [File/print server share health and disk capacity check](../ops/MRC-OPS-031.md) |
 | MRC-OPS-032 | [`MRC-OPS-032.ps1`](MRC-OPS-032.ps1) | [DHCP scope utilization and lease health check](../ops/MRC-OPS-032.md) |
+| MRC-OPS-033 | [`MRC-OPS-033.ps1`](MRC-OPS-033.ps1) | [Server uptime and patch-reboot compliance tracking](../ops/MRC-OPS-033.md) |
+| MRC-OPS-034 | [`MRC-OPS-034.ps1`](MRC-OPS-034.ps1) | [Core Windows service health check across servers](../ops/MRC-OPS-034.md) |

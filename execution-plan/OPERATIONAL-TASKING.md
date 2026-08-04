@@ -46,8 +46,8 @@
 | 30 | Quarterly | Windows Server / Exchange licensing and CAL compliance review † | Windows Server (General) | System Administrator | ISSM | ISSO | AO/DAO |
 | 31 | Weekly | File/print server share health and disk capacity check † | Windows Server (General) | System Administrator | ISSM | ISSO | AO/DAO |
 | 32 | Weekly | DHCP scope utilization and lease health check † | Windows Server (General) | Network Administrator | ISSM | ISSO | AO/DAO |
-| 33 | Weekly | Server uptime and patch-reboot compliance tracking | Windows Server (General) | System Administrator | ISSM | ISSO | AO/DAO |
-| 34 | Daily | Core Windows service health check across servers | Windows Server (General) | System Administrator | ISSM | ISSO | AO/DAO |
+| 33 | Weekly | Server uptime and patch-reboot compliance tracking † | Windows Server (General) | System Administrator | ISSM | ISSO | AO/DAO |
+| 34 | Daily | Core Windows service health check across servers † | Windows Server (General) | System Administrator | ISSM | ISSO | AO/DAO |
 
 † Upgraded to Guide status (exact, tool-specific steps) per [`AGENTS.md`](../AGENTS.md) rule 8 -- see [`mrc-cards/README.md`](mrc-cards/README.md) for the full Stub/Guide tracking matrix.
 

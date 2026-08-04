@@ -144,6 +144,8 @@ GUIDE_CARDS = {
     30,  # MRC-OPS-030 -- Windows Server / Exchange licensing and CAL compliance review (Guide, no script -- compliance/administrative review, not a technical health check)
     31,  # MRC-OPS-031 -- File/print server share health and disk capacity check
     32,  # MRC-OPS-032 -- DHCP scope utilization and lease health check
+    33,  # MRC-OPS-033 -- Server uptime and patch-reboot compliance tracking
+    34,  # MRC-OPS-034 -- Core Windows service health check across servers
 }
 
 
