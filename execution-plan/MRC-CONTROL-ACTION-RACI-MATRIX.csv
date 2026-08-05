@@ -1,0 +1,1043 @@
+MRC Number,Card Title,Control 1,Control 2,Control 3,Control 4,Actions to Accomplish the Check,RACI — Responsibility Reference
+MRC-001,MRC-001 — Maintain asset/software inventory (automated),CM-8 — INFORMATION SYSTEM COMPONENT INVENTORY,CM-11 — USER-INSTALLED SOFTWARE,,,"Pattern A — Automated Monitoring / Scan Confirmation
+1. Confirm the automated tool/sensor executed on its scheduled cadence (per this task's Frequency in the Task Index).
+2. Review the tool's output/alert queue for the current cycle.
+3. Triage each new alert/finding: confirm true positive vs. false positive using the finding's supporting log/scan data.
+4. For each true-positive finding, determine CAT (I/II/III) per the finding's own severity source (STIG CAT rating, CVSS-derived CAT per `execution-plan/templates/VARIANCE-RISK-ACCEPTANCE-TEMPLATE.md`, or organizational policy for non-STIG/CVE findings).
+5. File or update the corresponding POA&M/tracking entry for any open finding.
+6. Log cycle completion (date, reviewer, finding count, tracking IDs) in the repository location specified in the Task Index.","Responsible: System Administrator
+Accountable: ISSM
+Consulted: CCB
+Informed: AO/DAO"
+MRC-002,MRC-002 — Monitor system communications/security dashboards,SI-4 — INFORMATION SYSTEM MONITORING,,,,"Pattern A — Automated Monitoring / Scan Confirmation
+1. Confirm the automated tool/sensor executed on its scheduled cadence (per this task's Frequency in the Task Index).
+2. Review the tool's output/alert queue for the current cycle.
+3. Triage each new alert/finding: confirm true positive vs. false positive using the finding's supporting log/scan data.
+4. For each true-positive finding, determine CAT (I/II/III) per the finding's own severity source (STIG CAT rating, CVSS-derived CAT per `execution-plan/templates/VARIANCE-RISK-ACCEPTANCE-TEMPLATE.md`, or organizational policy for non-STIG/CVE findings).
+5. File or update the corresponding POA&M/tracking entry for any open finding.
+6. Log cycle completion (date, reviewer, finding count, tracking IDs) in the repository location specified in the Task Index.","Responsible: ISSO / SOC analyst
+Accountable: ISSO
+Consulted: ISSM
+Informed: ISSM"
+MRC-003,MRC-003 — Real-time malware scanning of externally sourced files,SI-3 — MALICIOUS CODE PROTECTION,,,,"Pattern A — Automated Monitoring / Scan Confirmation
+1. Confirm the automated tool/sensor executed on its scheduled cadence (per this task's Frequency in the Task Index).
+2. Review the tool's output/alert queue for the current cycle.
+3. Triage each new alert/finding: confirm true positive vs. false positive using the finding's supporting log/scan data.
+4. For each true-positive finding, determine CAT (I/II/III) per the finding's own severity source (STIG CAT rating, CVSS-derived CAT per `execution-plan/templates/VARIANCE-RISK-ACCEPTANCE-TEMPLATE.md`, or organizational policy for non-STIG/CVE findings).
+5. File or update the corresponding POA&M/tracking entry for any open finding.
+6. Log cycle completion (date, reviewer, finding count, tracking IDs) in the repository location specified in the Task Index.","Responsible: System Administrator
+Accountable: ISSM
+Consulted: ISSO
+Informed: AO/DAO"
+MRC-004,MRC-004 — Maintain IAVM directive compliance,SI-2 — FLAW REMEDIATION,RA-5 — VULNERABILITY SCANNING,CA-5 — PLAN OF ACTION AND MILESTONES,,"Pattern C — Update / Patch / Signature Refresh
+1. Query the authoritative source (vendor/DISA/NVD advisory feed mirrored locally, or the local update-management tool) for the current required version/signature/key state.
+2. Compare the authoritative current state against the deployed state.
+3. Apply the update through the organization's change-control process (per `execution-plan/ROLE-CROSSWALK.md`'s CCB routing where the update is configuration-relevant).
+4. Verify the update took effect (re-query deployed state).
+5. Log cycle completion (date, prior version, new version, verifier) in the repository location specified in the Task Index.","Responsible: System Administrator, ISSO
+Accountable: ISSM
+Consulted: ISSO
+Informed: AO/DAO"
+MRC-005,MRC-005 — Enforce access control/session/least-privilege mechanisms,AC-3 — ACCESS ENFORCEMENT,AC-6 — LEAST PRIVILEGE,AC-11 — SESSION LOCK,AC-12 — SESSION TERMINATION,"Pattern A — Automated Monitoring / Scan Confirmation
+1. Confirm the automated tool/sensor executed on its scheduled cadence (per this task's Frequency in the Task Index).
+2. Review the tool's output/alert queue for the current cycle.
+3. Triage each new alert/finding: confirm true positive vs. false positive using the finding's supporting log/scan data.
+4. For each true-positive finding, determine CAT (I/II/III) per the finding's own severity source (STIG CAT rating, CVSS-derived CAT per `execution-plan/templates/VARIANCE-RISK-ACCEPTANCE-TEMPLATE.md`, or organizational policy for non-STIG/CVE findings).
+5. File or update the corresponding POA&M/tracking entry for any open finding.
+6. Log cycle completion (date, reviewer, finding count, tracking IDs) in the repository location specified in the Task Index.","Responsible: System Administrator
+Accountable: ISSM
+Consulted: ISSO
+Informed: AO/DAO"
+MRC-006,MRC-006 — Monitor audit storage capacity and processing-failure alerts,AU-4 — AUDIT STORAGE CAPACITY,AU-5 — RESPONSE TO AUDIT PROCESSING FAILURES,,,"Pattern A — Automated Monitoring / Scan Confirmation
+1. Confirm the automated tool/sensor executed on its scheduled cadence (per this task's Frequency in the Task Index).
+2. Review the tool's output/alert queue for the current cycle.
+3. Triage each new alert/finding: confirm true positive vs. false positive using the finding's supporting log/scan data.
+4. For each true-positive finding, determine CAT (I/II/III) per the finding's own severity source (STIG CAT rating, CVSS-derived CAT per `execution-plan/templates/VARIANCE-RISK-ACCEPTANCE-TEMPLATE.md`, or organizational policy for non-STIG/CVE findings).
+5. File or update the corresponding POA&M/tracking entry for any open finding.
+6. Log cycle completion (date, reviewer, finding count, tracking IDs) in the repository location specified in the Task Index.","Responsible: System Administrator
+Accountable: ISSM
+Consulted: ISSO
+Informed: AO/DAO"
+MRC-007,MRC-007 — Enforce boundary protection (firewalls/guards),SC-7 — BOUNDARY PROTECTION,,,,"Pattern A — Automated Monitoring / Scan Confirmation
+1. Confirm the automated tool/sensor executed on its scheduled cadence (per this task's Frequency in the Task Index).
+2. Review the tool's output/alert queue for the current cycle.
+3. Triage each new alert/finding: confirm true positive vs. false positive using the finding's supporting log/scan data.
+4. For each true-positive finding, determine CAT (I/II/III) per the finding's own severity source (STIG CAT rating, CVSS-derived CAT per `execution-plan/templates/VARIANCE-RISK-ACCEPTANCE-TEMPLATE.md`, or organizational policy for non-STIG/CVE findings).
+5. File or update the corresponding POA&M/tracking entry for any open finding.
+6. Log cycle completion (date, reviewer, finding count, tracking IDs) in the repository location specified in the Task Index.","Responsible: Network Administrator
+Accountable: ISSM
+Consulted: ISSO
+Informed: AO/DAO"
+MRC-008,MRC-008 — Enforce encryption at rest (non-tailorable),SC-28 — PROTECTION OF INFORMATION AT REST,,,,"Pattern A — Automated Monitoring / Scan Confirmation
+1. Confirm the automated tool/sensor executed on its scheduled cadence (per this task's Frequency in the Task Index).
+2. Review the tool's output/alert queue for the current cycle.
+3. Triage each new alert/finding: confirm true positive vs. false positive using the finding's supporting log/scan data.
+4. For each true-positive finding, determine CAT (I/II/III) per the finding's own severity source (STIG CAT rating, CVSS-derived CAT per `execution-plan/templates/VARIANCE-RISK-ACCEPTANCE-TEMPLATE.md`, or organizational policy for non-STIG/CVE findings).
+5. File or update the corresponding POA&M/tracking entry for any open finding.
+6. Log cycle completion (date, reviewer, finding count, tracking IDs) in the repository location specified in the Task Index.","Responsible: System Administrator
+Accountable: ISSM
+Consulted: ISSO
+Informed: AO/DAO"
+MRC-009,MRC-009 — Enforce transmission confidentiality/integrity,SC-8 — TRANSMISSION CONFIDENTIALITY AND INTEGRITY,,,,"Pattern A — Automated Monitoring / Scan Confirmation
+1. Confirm the automated tool/sensor executed on its scheduled cadence (per this task's Frequency in the Task Index).
+2. Review the tool's output/alert queue for the current cycle.
+3. Triage each new alert/finding: confirm true positive vs. false positive using the finding's supporting log/scan data.
+4. For each true-positive finding, determine CAT (I/II/III) per the finding's own severity source (STIG CAT rating, CVSS-derived CAT per `execution-plan/templates/VARIANCE-RISK-ACCEPTANCE-TEMPLATE.md`, or organizational policy for non-STIG/CVE findings).
+5. File or update the corresponding POA&M/tracking entry for any open finding.
+6. Log cycle completion (date, reviewer, finding count, tracking IDs) in the repository location specified in the Task Index.","Responsible: Network Administrator
+Accountable: ISSM
+Consulted: ISSO
+Informed: AO/DAO"
+MRC-010,MRC-010 — Enforce reauthentication/session timeout,IA-11 — RE-AUTHENTICATION,,,,"Pattern A — Automated Monitoring / Scan Confirmation
+1. Confirm the automated tool/sensor executed on its scheduled cadence (per this task's Frequency in the Task Index).
+2. Review the tool's output/alert queue for the current cycle.
+3. Triage each new alert/finding: confirm true positive vs. false positive using the finding's supporting log/scan data.
+4. For each true-positive finding, determine CAT (I/II/III) per the finding's own severity source (STIG CAT rating, CVSS-derived CAT per `execution-plan/templates/VARIANCE-RISK-ACCEPTANCE-TEMPLATE.md`, or organizational policy for non-STIG/CVE findings).
+5. File or update the corresponding POA&M/tracking entry for any open finding.
+6. Log cycle completion (date, reviewer, finding count, tracking IDs) in the repository location specified in the Task Index.","Responsible: System Administrator
+Accountable: ISSM
+Consulted: ISSO
+Informed: AO/DAO"
+MRC-011,MRC-011 — Monitor denial-of-service protections/session authenticity,SC-5 — DENIAL OF SERVICE PROTECTION,SC-23 — SESSION AUTHENTICITY,,,"Pattern A — Automated Monitoring / Scan Confirmation
+1. Confirm the automated tool/sensor executed on its scheduled cadence (per this task's Frequency in the Task Index).
+2. Review the tool's output/alert queue for the current cycle.
+3. Triage each new alert/finding: confirm true positive vs. false positive using the finding's supporting log/scan data.
+4. For each true-positive finding, determine CAT (I/II/III) per the finding's own severity source (STIG CAT rating, CVSS-derived CAT per `execution-plan/templates/VARIANCE-RISK-ACCEPTANCE-TEMPLATE.md`, or organizational policy for non-STIG/CVE findings).
+5. File or update the corresponding POA&M/tracking entry for any open finding.
+6. Log cycle completion (date, reviewer, finding count, tracking IDs) in the repository location specified in the Task Index.","Responsible: Network Administrator
+Accountable: ISSM
+Consulted: ISSO
+Informed: AO/DAO"
+MRC-012,MRC-012 — Monitor temperature/humidity environmental controls,PE-14 — TEMPERATURE AND HUMIDITY CONTROLS,,,,"Pattern A — Automated Monitoring / Scan Confirmation
+1. Confirm the automated tool/sensor executed on its scheduled cadence (per this task's Frequency in the Task Index).
+2. Review the tool's output/alert queue for the current cycle.
+3. Triage each new alert/finding: confirm true positive vs. false positive using the finding's supporting log/scan data.
+4. For each true-positive finding, determine CAT (I/II/III) per the finding's own severity source (STIG CAT rating, CVSS-derived CAT per `execution-plan/templates/VARIANCE-RISK-ACCEPTANCE-TEMPLATE.md`, or organizational policy for non-STIG/CVE findings).
+5. File or update the corresponding POA&M/tracking entry for any open finding.
+6. Log cycle completion (date, reviewer, finding count, tracking IDs) in the repository location specified in the Task Index.","Responsible: Facility Security Officer
+Accountable: PSO
+Consulted: ISSM
+Informed: AO/DAO"
+MRC-013,MRC-013 — Operate privacy incident response capability,SE-2 — PRIVACY INCIDENT RESPONSE,,,,,"Responsible: Privacy Officer, IR Team Lead
+Accountable: Information Owner/Steward
+Consulted: ISSM
+Informed: ISSM"
+MRC-014,MRC-014 — Handle and monitor for security incidents (24/7),IR-4 — INCIDENT HANDLING,IR-5 — INCIDENT MONITORING,,,,"Responsible: IR Team Lead / CND Team
+Accountable: ISSM
+Consulted: ISSO
+Informed: AO/DAO, CISO"
+MRC-015,MRC-015 — Maintain accounting-of-disclosures log,AR-8 — ACCOUNTING OF DISCLOSURES,,,,"Pattern B — Manual Review of a List or Log
+1. Pull the current list/log/record set for the review period.
+2. Pull the baseline or policy the list is being reviewed against (e.g., prior-cycle approved list, personnel roster, access policy).
+3. Compare the current list against the baseline line by line; flag every addition, removal, and unexplained entry.
+4. For each discrepancy, determine whether it is expected (documented change) or unexplained (potential finding).
+5. Update the baseline to reflect the newly reviewed-and-approved state.
+6. Log cycle completion in the repository location specified in the Task Index.","Responsible: Privacy Officer
+Accountable: Information Owner/Steward
+Consulted: ISSM
+Informed: ISSM"
+MRC-016,MRC-016 — Check/update malware-tool signatures,SI-3 — MALICIOUS CODE PROTECTION,,,,"Pattern C — Update / Patch / Signature Refresh
+1. Query the authoritative source (vendor/DISA/NVD advisory feed mirrored locally, or the local update-management tool) for the current required version/signature/key state.
+2. Compare the authoritative current state against the deployed state.
+3. Apply the update through the organization's change-control process (per `execution-plan/ROLE-CROSSWALK.md`'s CCB routing where the update is configuration-relevant).
+4. Verify the update took effect (re-query deployed state).
+5. Log cycle completion (date, prior version, new version, verifier) in the repository location specified in the Task Index.","Responsible: System Administrator
+Accountable: ISSM
+Consulted: ISSO
+Informed: AO/DAO"
+MRC-017,MRC-017 — Provide incident status updates during active incident,IR-6 — INCIDENT REPORTING,,,,,"Responsible: IR Team Lead
+Accountable: ISSM
+Consulted: ISSO
+Informed: AO/DAO, CISO"
+MRC-018,MRC-018 — Notify account manager on termination/transfer/need-to-know change (8–24 hr window),AC-2 — ACCOUNT MANAGEMENT,,,,"Pattern C — Update / Patch / Signature Refresh
+1. Query the authoritative source (vendor/DISA/NVD advisory feed mirrored locally, or the local update-management tool) for the current required version/signature/key state.
+2. Compare the authoritative current state against the deployed state.
+3. Apply the update through the organization's change-control process (per `execution-plan/ROLE-CROSSWALK.md`'s CCB routing where the update is configuration-relevant).
+4. Verify the update took effect (re-query deployed state).
+5. Log cycle completion (date, prior version, new version, verifier) in the repository location specified in the Task Index.","Responsible: System Administrator, Personnel Security
+Accountable: ISSM
+Consulted: ISSO
+Informed: AO/DAO"
+MRC-019,MRC-019 — Process termination access-revocation actions (≤24 hr),PS-4 — PERSONNEL TERMINATION,,,,"Pattern C — Update / Patch / Signature Refresh
+1. Query the authoritative source (vendor/DISA/NVD advisory feed mirrored locally, or the local update-management tool) for the current required version/signature/key state.
+2. Compare the authoritative current state against the deployed state.
+3. Apply the update through the organization's change-control process (per `execution-plan/ROLE-CROSSWALK.md`'s CCB routing where the update is configuration-relevant).
+4. Verify the update took effect (re-query deployed state).
+5. Log cycle completion (date, prior version, new version, verifier) in the repository location specified in the Task Index.","Responsible: Personnel Security Officer
+Accountable: PSO
+Consulted: ISSM
+Informed: AO/DAO"
+MRC-020,MRC-020 — Process transfer access-reassessment actions (≤24 hr),PS-5 — PERSONNEL TRANSFER,,,,"Pattern C — Update / Patch / Signature Refresh
+1. Query the authoritative source (vendor/DISA/NVD advisory feed mirrored locally, or the local update-management tool) for the current required version/signature/key state.
+2. Compare the authoritative current state against the deployed state.
+3. Apply the update through the organization's change-control process (per `execution-plan/ROLE-CROSSWALK.md`'s CCB routing where the update is configuration-relevant).
+4. Verify the update took effect (re-query deployed state).
+5. Log cycle completion (date, prior version, new version, verifier) in the repository location specified in the Task Index.","Responsible: Personnel Security Officer
+Accountable: PSO
+Consulted: ISSM
+Informed: AO/DAO"
+MRC-021,MRC-021 — Verify system clock/time-stamp synchronization,AU-8 — TIME STAMPS,,,,"Pattern A — Automated Monitoring / Scan Confirmation
+1. Confirm the automated tool/sensor executed on its scheduled cadence (per this task's Frequency in the Task Index).
+2. Review the tool's output/alert queue for the current cycle.
+3. Triage each new alert/finding: confirm true positive vs. false positive using the finding's supporting log/scan data.
+4. For each true-positive finding, determine CAT (I/II/III) per the finding's own severity source (STIG CAT rating, CVSS-derived CAT per `execution-plan/templates/VARIANCE-RISK-ACCEPTANCE-TEMPLATE.md`, or organizational policy for non-STIG/CVE findings).
+5. File or update the corresponding POA&M/tracking entry for any open finding.
+6. Log cycle completion (date, reviewer, finding count, tracking IDs) in the repository location specified in the Task Index.","Responsible: System Administrator
+Accountable: ISSM
+Consulted: ISSO
+Informed: AO/DAO"
+MRC-022,MRC-022 — Review and analyze system audit records,"AU-6 — AUDIT REVIEW, ANALYSIS, AND REPORTING",,,,"Pattern B — Manual Review of a List or Log
+1. Pull the current list/log/record set for the review period.
+2. Pull the baseline or policy the list is being reviewed against (e.g., prior-cycle approved list, personnel roster, access policy).
+3. Compare the current list against the baseline line by line; flag every addition, removal, and unexplained entry.
+4. For each discrepancy, determine whether it is expected (documented change) or unexplained (potential finding).
+5. Update the baseline to reflect the newly reviewed-and-approved state.
+6. Log cycle completion in the repository location specified in the Task Index.","Responsible: ISSO / SOC analyst
+Accountable: ISSO
+Consulted: ISSM
+Informed: ISSM"
+MRC-023,MRC-023 — Run periodic malicious-code (antivirus) scans,SI-3 — MALICIOUS CODE PROTECTION,,,,"Pattern A — Automated Monitoring / Scan Confirmation
+1. Confirm the automated tool/sensor executed on its scheduled cadence (per this task's Frequency in the Task Index).
+2. Review the tool's output/alert queue for the current cycle.
+3. Triage each new alert/finding: confirm true positive vs. false positive using the finding's supporting log/scan data.
+4. For each true-positive finding, determine CAT (I/II/III) per the finding's own severity source (STIG CAT rating, CVSS-derived CAT per `execution-plan/templates/VARIANCE-RISK-ACCEPTANCE-TEMPLATE.md`, or organizational policy for non-STIG/CVE findings).
+5. File or update the corresponding POA&M/tracking entry for any open finding.
+6. Log cycle completion (date, reviewer, finding count, tracking IDs) in the repository location specified in the Task Index.","Responsible: System Administrator
+Accountable: ISSM
+Consulted: ISSO
+Informed: AO/DAO"
+MRC-024,MRC-024 — Perform incremental backups (daily-incremental/weekly-full pattern),CP-9 — INFORMATION SYSTEM BACKUP,,,,"Pattern A — Automated Monitoring / Scan Confirmation
+1. Confirm the automated tool/sensor executed on its scheduled cadence (per this task's Frequency in the Task Index).
+2. Review the tool's output/alert queue for the current cycle.
+3. Triage each new alert/finding: confirm true positive vs. false positive using the finding's supporting log/scan data.
+4. For each true-positive finding, determine CAT (I/II/III) per the finding's own severity source (STIG CAT rating, CVSS-derived CAT per `execution-plan/templates/VARIANCE-RISK-ACCEPTANCE-TEMPLATE.md`, or organizational policy for non-STIG/CVE findings).
+5. File or update the corresponding POA&M/tracking entry for any open finding.
+6. Log cycle completion (date, reviewer, finding count, tracking IDs) in the repository location specified in the Task Index.","Responsible: System Administrator
+Accountable: ISSM
+Consulted: ISSO
+Informed: AO/DAO"
+MRC-025,MRC-025 — Update Plan of Action and Milestones (POA&M),CA-5 — PLAN OF ACTION AND MILESTONES,,,,"Pattern B — Manual Review of a List or Log
+1. Pull the current list/log/record set for the review period.
+2. Pull the baseline or policy the list is being reviewed against (e.g., prior-cycle approved list, personnel roster, access policy).
+3. Compare the current list against the baseline line by line; flag every addition, removal, and unexplained entry.
+4. For each discrepancy, determine whether it is expected (documented change) or unexplained (potential finding).
+5. Update the baseline to reflect the newly reviewed-and-approved state.
+6. Log cycle completion in the repository location specified in the Task Index.","Responsible: ISSO
+Accountable: ISSO
+Consulted: ISSM
+Informed: AO/DAO"
+MRC-026,MRC-026 — Assemble ConMon deliverable package,CA-7 — CONTINUOUS MONITORING,CA-5 — PLAN OF ACTION AND MILESTONES,CM-8 — INFORMATION SYSTEM COMPONENT INVENTORY,RA-5 — VULNERABILITY SCANNING,"Pattern B — Manual Review of a List or Log
+1. Pull the current list/log/record set for the review period.
+2. Pull the baseline or policy the list is being reviewed against (e.g., prior-cycle approved list, personnel roster, access policy).
+3. Compare the current list against the baseline line by line; flag every addition, removal, and unexplained entry.
+4. For each discrepancy, determine whether it is expected (documented change) or unexplained (potential finding).
+5. Update the baseline to reflect the newly reviewed-and-approved state.
+6. Log cycle completion in the repository location specified in the Task Index.","Responsible: ISSO
+Accountable: ISSO
+Consulted: ISSM
+Informed: AO/DAO"
+MRC-027,MRC-027 — Perform vulnerability scanning,RA-5 — VULNERABILITY SCANNING,,,,"Pattern A — Automated Monitoring / Scan Confirmation
+1. Confirm the automated tool/sensor executed on its scheduled cadence (per this task's Frequency in the Task Index).
+2. Review the tool's output/alert queue for the current cycle.
+3. Triage each new alert/finding: confirm true positive vs. false positive using the finding's supporting log/scan data.
+4. For each true-positive finding, determine CAT (I/II/III) per the finding's own severity source (STIG CAT rating, CVSS-derived CAT per `execution-plan/templates/VARIANCE-RISK-ACCEPTANCE-TEMPLATE.md`, or organizational policy for non-STIG/CVE findings).
+5. File or update the corresponding POA&M/tracking entry for any open finding.
+6. Log cycle completion (date, reviewer, finding count, tracking IDs) in the repository location specified in the Task Index.","Responsible: System Administrator, ISSO
+Accountable: ISSM
+Consulted: SCA
+Informed: AO/DAO"
+MRC-028,MRC-028 — Update scanner vulnerability signatures,RA-5(2) — UPDATE BY FREQUENCY / PRIOR TO NEW SCAN / WHEN IDENTIFIED,,,,"Pattern C — Update / Patch / Signature Refresh
+1. Query the authoritative source (vendor/DISA/NVD advisory feed mirrored locally, or the local update-management tool) for the current required version/signature/key state.
+2. Compare the authoritative current state against the deployed state.
+3. Apply the update through the organization's change-control process (per `execution-plan/ROLE-CROSSWALK.md`'s CCB routing where the update is configuration-relevant).
+4. Verify the update took effect (re-query deployed state).
+5. Log cycle completion (date, prior version, new version, verifier) in the repository location specified in the Task Index.","Responsible: System Administrator
+Accountable: ISSM
+Consulted: SCA
+Informed: AO/DAO"
+MRC-029,MRC-029 — Check/report flaw-remediation (patch) status,SI-2(2) — AUTOMATED FLAW REMEDIATION STATUS,,,,"Pattern C — Update / Patch / Signature Refresh
+1. Query the authoritative source (vendor/DISA/NVD advisory feed mirrored locally, or the local update-management tool) for the current required version/signature/key state.
+2. Compare the authoritative current state against the deployed state.
+3. Apply the update through the organization's change-control process (per `execution-plan/ROLE-CROSSWALK.md`'s CCB routing where the update is configuration-relevant).
+4. Verify the update took effect (re-query deployed state).
+5. Log cycle completion (date, prior version, new version, verifier) in the repository location specified in the Task Index.","Responsible: System Administrator
+Accountable: ISSM
+Consulted: ISSO
+Informed: AO/DAO"
+MRC-030,MRC-030 — Test backup integrity/restoration,CP-9(1) — TESTING FOR RELIABILITY / INTEGRITY,,,,"Pattern D — Test / Exercise
+1. Pull the current, approved test plan/procedure for this exercise.
+2. Execute the test plan step by step exactly as written, recording actual results against each expected result in the plan.
+3. Compare aggregate actual results against the plan's overall success criteria.
+4. Draft an after-action report: what worked, what didn't, root cause of any gap.
+5. For any gap identified, open a POA&M entry and assign a remediation owner and date.
+6. File the test plan, execution log, and AAR in the repository location specified in the Task Index; update the plan itself if the test surfaced a procedural error in it.","Responsible: System Administrator
+Accountable: ISSM
+Consulted: ISSO
+Informed: AO/DAO"
+MRC-031,MRC-031 — Review physical access logs,PE-6 — MONITORING PHYSICAL ACCESS,,,,"Pattern B — Manual Review of a List or Log
+1. Pull the current list/log/record set for the review period.
+2. Pull the baseline or policy the list is being reviewed against (e.g., prior-cycle approved list, personnel roster, access policy).
+3. Compare the current list against the baseline line by line; flag every addition, removal, and unexplained entry.
+4. For each discrepancy, determine whether it is expected (documented change) or unexplained (potential finding).
+5. Update the baseline to reflect the newly reviewed-and-approved state.
+6. Log cycle completion in the repository location specified in the Task Index.","Responsible: Facility Security Officer
+Accountable: PSO
+Consulted: ISSM
+Informed: AO/DAO"
+MRC-032,MRC-032 — Review visitor access records,PE-8 — VISITOR ACCESS RECORDS,,,,"Pattern B — Manual Review of a List or Log
+1. Pull the current list/log/record set for the review period.
+2. Pull the baseline or policy the list is being reviewed against (e.g., prior-cycle approved list, personnel roster, access policy).
+3. Compare the current list against the baseline line by line; flag every addition, removal, and unexplained entry.
+4. For each discrepancy, determine whether it is expected (documented change) or unexplained (potential finding).
+5. Update the baseline to reflect the newly reviewed-and-approved state.
+6. Log cycle completion in the repository location specified in the Task Index.","Responsible: Facility Security Officer
+Accountable: PSO
+Consulted: ISSM
+Informed: AO/DAO"
+MRC-033,MRC-033 — Review Authorized Access List for restricted/SAPF areas,PE-2 — PHYSICAL ACCESS AUTHORIZATIONS,PE-3 — PHYSICAL ACCESS CONTROL,,,"Pattern B — Manual Review of a List or Log
+1. Pull the current list/log/record set for the review period.
+2. Pull the baseline or policy the list is being reviewed against (e.g., prior-cycle approved list, personnel roster, access policy).
+3. Compare the current list against the baseline line by line; flag every addition, removal, and unexplained entry.
+4. For each discrepancy, determine whether it is expected (documented change) or unexplained (potential finding).
+5. Update the baseline to reflect the newly reviewed-and-approved state.
+6. Log cycle completion in the repository location specified in the Task Index.","Responsible: Facility Security Officer
+Accountable: PSO
+Consulted: ISSM
+Informed: AO/DAO"
+MRC-034,MRC-034 — Convene Configuration Control Board (when changes proposed),CM-3 — CONFIGURATION CHANGE CONTROL,,,,"Pattern H — Governance / Authorization Decision
+1. Receive and log the complete decision package (assessment results, POA&M, supporting artifacts) from the submitting role.
+2. Review the package against the decision's governing criteria (risk tolerance, control effectiveness, residual risk per NIST SP 800-37's accountability model).
+3. Consult required parties per this role's RACI position (see `execution-plan/ROLE-CROSSWALK.md` and `RACI-MATRIX.md`) before finalizing.
+4. Render and document the decision (approve / approve with conditions / deny), with written rationale.
+5. Distribute the decision to all Informed parties per the RACI position and file the decision record in the repository location specified in the role's runbook.","Responsible: CCB Chair
+Accountable: ISSM
+Consulted: CCB
+Informed: AO/DAO"
+MRC-035,MRC-035 — Update system component inventory (manual/verification pass),CM-8 — INFORMATION SYSTEM COMPONENT INVENTORY,,,,"Pattern B — Manual Review of a List or Log
+1. Pull the current list/log/record set for the review period.
+2. Pull the baseline or policy the list is being reviewed against (e.g., prior-cycle approved list, personnel roster, access policy).
+3. Compare the current list against the baseline line by line; flag every addition, removal, and unexplained entry.
+4. For each discrepancy, determine whether it is expected (documented change) or unexplained (potential finding).
+5. Update the baseline to reflect the newly reviewed-and-approved state.
+6. Log cycle completion in the repository location specified in the Task Index.","Responsible: System Administrator
+Accountable: ISSM
+Consulted: CCB
+Informed: AO/DAO"
+MRC-036,MRC-036 — Maintain organization-level POA&M rollup,PM-4 — PLAN OF ACTION AND MILESTONES PROCESS,,,,"Pattern B — Manual Review of a List or Log
+1. Pull the current list/log/record set for the review period.
+2. Pull the baseline or policy the list is being reviewed against (e.g., prior-cycle approved list, personnel roster, access policy).
+3. Compare the current list against the baseline line by line; flag every addition, removal, and unexplained entry.
+4. For each discrepancy, determine whether it is expected (documented change) or unexplained (potential finding).
+5. Update the baseline to reflect the newly reviewed-and-approved state.
+6. Log cycle completion in the repository location specified in the Task Index.","Responsible: ISSM
+Accountable: ISSM
+Consulted: AO/DAO
+Informed: Risk Executive Function"
+MRC-037,MRC-037 — Maintain organization-wide information system inventory,PM-5 — INFORMATION SYSTEM INVENTORY,,,,"Pattern B — Manual Review of a List or Log
+1. Pull the current list/log/record set for the review period.
+2. Pull the baseline or policy the list is being reviewed against (e.g., prior-cycle approved list, personnel roster, access policy).
+3. Compare the current list against the baseline line by line; flag every addition, removal, and unexplained entry.
+4. For each discrepancy, determine whether it is expected (documented change) or unexplained (potential finding).
+5. Update the baseline to reflect the newly reviewed-and-approved state.
+6. Log cycle completion in the repository location specified in the Task Index.","Responsible: ISSM
+Accountable: ISSM
+Consulted: AO/DAO
+Informed: Risk Executive Function"
+MRC-038,MRC-038 — Monitor nonlocal maintenance session records,MA-4 — NONLOCAL MAINTENANCE,CA-7 — CONTINUOUS MONITORING,,,"Pattern B — Manual Review of a List or Log
+1. Pull the current list/log/record set for the review period.
+2. Pull the baseline or policy the list is being reviewed against (e.g., prior-cycle approved list, personnel roster, access policy).
+3. Compare the current list against the baseline line by line; flag every addition, removal, and unexplained entry.
+4. For each discrepancy, determine whether it is expected (documented change) or unexplained (potential finding).
+5. Update the baseline to reflect the newly reviewed-and-approved state.
+6. Log cycle completion in the repository location specified in the Task Index.","Responsible: System Administrator
+Accountable: ISSM
+Consulted: ISSO
+Informed: AO/DAO"
+MRC-039,MRC-039 — Verify media storage physical/environmental controls,MP-4 — MEDIA STORAGE,,,,"Pattern A — Automated Monitoring / Scan Confirmation
+1. Confirm the automated tool/sensor executed on its scheduled cadence (per this task's Frequency in the Task Index).
+2. Review the tool's output/alert queue for the current cycle.
+3. Triage each new alert/finding: confirm true positive vs. false positive using the finding's supporting log/scan data.
+4. For each true-positive finding, determine CAT (I/II/III) per the finding's own severity source (STIG CAT rating, CVSS-derived CAT per `execution-plan/templates/VARIANCE-RISK-ACCEPTANCE-TEMPLATE.md`, or organizational policy for non-STIG/CVE findings).
+5. File or update the corresponding POA&M/tracking entry for any open finding.
+6. Log cycle completion (date, reviewer, finding count, tracking IDs) in the repository location specified in the Task Index.","Responsible: Facility Security Officer
+Accountable: PSO
+Consulted: ISSO
+Informed: ISSM"
+MRC-040,MRC-040 — Monitor/audit privacy control compliance,AR-4 — PRIVACY MONITORING AND AUDITING,,,,"Pattern B — Manual Review of a List or Log
+1. Pull the current list/log/record set for the review period.
+2. Pull the baseline or policy the list is being reviewed against (e.g., prior-cycle approved list, personnel roster, access policy).
+3. Compare the current list against the baseline line by line; flag every addition, removal, and unexplained entry.
+4. For each discrepancy, determine whether it is expected (documented change) or unexplained (potential finding).
+5. Update the baseline to reflect the newly reviewed-and-approved state.
+6. Log cycle completion in the repository location specified in the Task Index.","Responsible: Privacy Officer, ISSO
+Accountable: Information Owner/Steward
+Consulted: ISSM
+Informed: ISSM"
+MRC-041,MRC-041 — Update PII/system-holdings inventory,SE-1 — INVENTORY OF PERSONALLY IDENTIFIABLE INFORMATION,,,,"Pattern B — Manual Review of a List or Log
+1. Pull the current list/log/record set for the review period.
+2. Pull the baseline or policy the list is being reviewed against (e.g., prior-cycle approved list, personnel roster, access policy).
+3. Compare the current list against the baseline line by line; flag every addition, removal, and unexplained entry.
+4. For each discrepancy, determine whether it is expected (documented change) or unexplained (potential finding).
+5. Update the baseline to reflect the newly reviewed-and-approved state.
+6. Log cycle completion in the repository location specified in the Task Index.","Responsible: Privacy Officer, System Administrator
+Accountable: Information Owner/Steward
+Consulted: ISSM
+Informed: ISSM"
+MRC-042,MRC-042 — Verify security function operation (self-tests),SI-6 — SECURITY FUNCTION VERIFICATION,,,,"Pattern A — Automated Monitoring / Scan Confirmation
+1. Confirm the automated tool/sensor executed on its scheduled cadence (per this task's Frequency in the Task Index).
+2. Review the tool's output/alert queue for the current cycle.
+3. Triage each new alert/finding: confirm true positive vs. false positive using the finding's supporting log/scan data.
+4. For each true-positive finding, determine CAT (I/II/III) per the finding's own severity source (STIG CAT rating, CVSS-derived CAT per `execution-plan/templates/VARIANCE-RISK-ACCEPTANCE-TEMPLATE.md`, or organizational policy for non-STIG/CVE findings).
+5. File or update the corresponding POA&M/tracking entry for any open finding.
+6. Log cycle completion (date, reviewer, finding count, tracking IDs) in the repository location specified in the Task Index.","Responsible: System Administrator
+Accountable: ISSM
+Consulted: ISSO
+Informed: AO/DAO"
+MRC-043,MRC-043 — Verify software/firmware/information integrity,"SI-7 — SOFTWARE, FIRMWARE, AND INFORMATION INTEGRITY",,,,"Pattern A — Automated Monitoring / Scan Confirmation
+1. Confirm the automated tool/sensor executed on its scheduled cadence (per this task's Frequency in the Task Index).
+2. Review the tool's output/alert queue for the current cycle.
+3. Triage each new alert/finding: confirm true positive vs. false positive using the finding's supporting log/scan data.
+4. For each true-positive finding, determine CAT (I/II/III) per the finding's own severity source (STIG CAT rating, CVSS-derived CAT per `execution-plan/templates/VARIANCE-RISK-ACCEPTANCE-TEMPLATE.md`, or organizational policy for non-STIG/CVE findings).
+5. File or update the corresponding POA&M/tracking entry for any open finding.
+6. Log cycle completion (date, reviewer, finding count, tracking IDs) in the repository location specified in the Task Index.","Responsible: System Administrator
+Accountable: ISSM
+Consulted: ISSO
+Informed: AO/DAO"
+MRC-044,MRC-044 — Install security-relevant software/firmware updates,SI-2 — FLAW REMEDIATION,,,,"Pattern C — Update / Patch / Signature Refresh
+1. Query the authoritative source (vendor/DISA/NVD advisory feed mirrored locally, or the local update-management tool) for the current required version/signature/key state.
+2. Compare the authoritative current state against the deployed state.
+3. Apply the update through the organization's change-control process (per `execution-plan/ROLE-CROSSWALK.md`'s CCB routing where the update is configuration-relevant).
+4. Verify the update took effect (re-query deployed state).
+5. Log cycle completion (date, prior version, new version, verifier) in the repository location specified in the Task Index.","Responsible: System Administrator
+Accountable: ISSM
+Consulted: ISSO
+Informed: AO/DAO"
+MRC-045,MRC-045 — Report information security performance measures,PM-6 — INFORMATION SECURITY MEASURES OF PERFORMANCE,,,,"Pattern B — Manual Review of a List or Log
+1. Pull the current list/log/record set for the review period.
+2. Pull the baseline or policy the list is being reviewed against (e.g., prior-cycle approved list, personnel roster, access policy).
+3. Compare the current list against the baseline line by line; flag every addition, removal, and unexplained entry.
+4. For each discrepancy, determine whether it is expected (documented change) or unexplained (potential finding).
+5. Update the baseline to reflect the newly reviewed-and-approved state.
+6. Log cycle completion in the repository location specified in the Task Index.","Responsible: ISSM
+Accountable: ISSM
+Consulted: AO/DAO
+Informed: Risk Executive Function"
+MRC-046,MRC-046 — Review privileged account list and entitlements,AC-2 — ACCOUNT MANAGEMENT,,,,"Pattern B — Manual Review of a List or Log
+1. Pull the current list/log/record set for the review period.
+2. Pull the baseline or policy the list is being reviewed against (e.g., prior-cycle approved list, personnel roster, access policy).
+3. Compare the current list against the baseline line by line; flag every addition, removal, and unexplained entry.
+4. For each discrepancy, determine whether it is expected (documented change) or unexplained (potential finding).
+5. Update the baseline to reflect the newly reviewed-and-approved state.
+6. Log cycle completion in the repository location specified in the Task Index.","Responsible: ISSO
+Accountable: ISSO
+Consulted: ISSM
+Informed: ISSM"
+MRC-047,MRC-047 — Reassess least-privilege/privileged-function assignments,AC-6 — LEAST PRIVILEGE,AC-6(1) — AUTHORIZE ACCESS TO SECURITY FUNCTIONS,,,"Pattern B — Manual Review of a List or Log
+1. Pull the current list/log/record set for the review period.
+2. Pull the baseline or policy the list is being reviewed against (e.g., prior-cycle approved list, personnel roster, access policy).
+3. Compare the current list against the baseline line by line; flag every addition, removal, and unexplained entry.
+4. For each discrepancy, determine whether it is expected (documented change) or unexplained (potential finding).
+5. Update the baseline to reflect the newly reviewed-and-approved state.
+6. Log cycle completion in the repository location specified in the Task Index.","Responsible: ISSO, CCB
+Accountable: ISSO
+Consulted: ISSM
+Informed: ISSM"
+MRC-048,MRC-048 — Review authorized software list,CM-7(5) — AUTHORIZED SOFTWARE / WHITELISTING,,,,"Pattern B — Manual Review of a List or Log
+1. Pull the current list/log/record set for the review period.
+2. Pull the baseline or policy the list is being reviewed against (e.g., prior-cycle approved list, personnel roster, access policy).
+3. Compare the current list against the baseline line by line; flag every addition, removal, and unexplained entry.
+4. For each discrepancy, determine whether it is expected (documented change) or unexplained (potential finding).
+5. Update the baseline to reflect the newly reviewed-and-approved state.
+6. Log cycle completion in the repository location specified in the Task Index.","Responsible: CCB, System Administrator
+Accountable: ISSM
+Consulted: CCB
+Informed: AO/DAO"
+MRC-049,MRC-049 — Reassess/reevaluate privileged access tied to change,CM-5(5) — LIMIT PRODUCTION / OPERATIONAL PRIVILEGES,,,,"Pattern B — Manual Review of a List or Log
+1. Pull the current list/log/record set for the review period.
+2. Pull the baseline or policy the list is being reviewed against (e.g., prior-cycle approved list, personnel roster, access policy).
+3. Compare the current list against the baseline line by line; flag every addition, removal, and unexplained entry.
+4. For each discrepancy, determine whether it is expected (documented change) or unexplained (potential finding).
+5. Update the baseline to reflect the newly reviewed-and-approved state.
+6. Log cycle completion in the repository location specified in the Task Index.","Responsible: CCB, ISSO
+Accountable: ISSM
+Consulted: CCB
+Informed: AO/DAO"
+MRC-050,MRC-050 — Review unsupported system components (EOL/EOS),SA-22 — UNSUPPORTED SYSTEM COMPONENTS,,,,"Pattern B — Manual Review of a List or Log
+1. Pull the current list/log/record set for the review period.
+2. Pull the baseline or policy the list is being reviewed against (e.g., prior-cycle approved list, personnel roster, access policy).
+3. Compare the current list against the baseline line by line; flag every addition, removal, and unexplained entry.
+4. For each discrepancy, determine whether it is expected (documented change) or unexplained (potential finding).
+5. Update the baseline to reflect the newly reviewed-and-approved state.
+6. Log cycle completion in the repository location specified in the Task Index.","Responsible: System Administrator
+Accountable: ISSM
+Consulted: ISSO
+Informed: AO/DAO"
+MRC-051,MRC-051 — Verify encryption-at-rest compliance,SC-28 — PROTECTION OF INFORMATION AT REST,,,,"Pattern B — Manual Review of a List or Log
+1. Pull the current list/log/record set for the review period.
+2. Pull the baseline or policy the list is being reviewed against (e.g., prior-cycle approved list, personnel roster, access policy).
+3. Compare the current list against the baseline line by line; flag every addition, removal, and unexplained entry.
+4. For each discrepancy, determine whether it is expected (documented change) or unexplained (potential finding).
+5. Update the baseline to reflect the newly reviewed-and-approved state.
+6. Log cycle completion in the repository location specified in the Task Index.","Responsible: System Administrator
+Accountable: ISSM
+Consulted: ISSO
+Informed: AO/DAO"
+MRC-052,MRC-052 — Verify transmission encryption compliance,SC-8 — TRANSMISSION CONFIDENTIALITY AND INTEGRITY,,,,"Pattern B — Manual Review of a List or Log
+1. Pull the current list/log/record set for the review period.
+2. Pull the baseline or policy the list is being reviewed against (e.g., prior-cycle approved list, personnel roster, access policy).
+3. Compare the current list against the baseline line by line; flag every addition, removal, and unexplained entry.
+4. For each discrepancy, determine whether it is expected (documented change) or unexplained (potential finding).
+5. Update the baseline to reflect the newly reviewed-and-approved state.
+6. Log cycle completion in the repository location specified in the Task Index.","Responsible: Network Administrator
+Accountable: ISSM
+Consulted: ISSO
+Informed: AO/DAO"
+MRC-053,MRC-053 — Distribute quarterly security/privacy awareness reminders,AT-2 — SECURITY AWARENESS TRAINING,,,,,"Responsible: Training Manager
+Accountable: ISSM
+Consulted: ISSO
+Informed: ISSO"
+MRC-054,MRC-054 — Review remote access and wireless access authorization lists,AC-17 — REMOTE ACCESS,AC-18 — WIRELESS ACCESS,,,"Pattern B — Manual Review of a List or Log
+1. Pull the current list/log/record set for the review period.
+2. Pull the baseline or policy the list is being reviewed against (e.g., prior-cycle approved list, personnel roster, access policy).
+3. Compare the current list against the baseline line by line; flag every addition, removal, and unexplained entry.
+4. For each discrepancy, determine whether it is expected (documented change) or unexplained (potential finding).
+5. Update the baseline to reflect the newly reviewed-and-approved state.
+6. Log cycle completion in the repository location specified in the Task Index.","Responsible: Network Administrator
+Accountable: ISSM
+Consulted: ISSO
+Informed: AO/DAO"
+MRC-055,MRC-055 — Review publicly accessible content,AC-22 — PUBLICLY ACCESSIBLE CONTENT,,,,"Pattern B — Manual Review of a List or Log
+1. Pull the current list/log/record set for the review period.
+2. Pull the baseline or policy the list is being reviewed against (e.g., prior-cycle approved list, personnel roster, access policy).
+3. Compare the current list against the baseline line by line; flag every addition, removal, and unexplained entry.
+4. For each discrepancy, determine whether it is expected (documented change) or unexplained (potential finding).
+5. Update the baseline to reflect the newly reviewed-and-approved state.
+6. Log cycle completion in the repository location specified in the Task Index.","Responsible: ISSO
+Accountable: ISSO
+Consulted: ISSM
+Informed: ISSM"
+MRC-056,MRC-056 — Review access-enforcement/flow-enforcement rule sets,AC-3 — ACCESS ENFORCEMENT,AC-4 — INFORMATION FLOW ENFORCEMENT,,,"Pattern B — Manual Review of a List or Log
+1. Pull the current list/log/record set for the review period.
+2. Pull the baseline or policy the list is being reviewed against (e.g., prior-cycle approved list, personnel roster, access policy).
+3. Compare the current list against the baseline line by line; flag every addition, removal, and unexplained entry.
+4. For each discrepancy, determine whether it is expected (documented change) or unexplained (potential finding).
+5. Update the baseline to reflect the newly reviewed-and-approved state.
+6. Log cycle completion in the repository location specified in the Task Index.","Responsible: Network Administrator, ISSO
+Accountable: ISSM
+Consulted: ISSO
+Informed: AO/DAO"
+MRC-057,MRC-057 — Verify device identification/authentication configuration,IA-3 — DEVICE IDENTIFICATION AND AUTHENTICATION,,,,"Pattern B — Manual Review of a List or Log
+1. Pull the current list/log/record set for the review period.
+2. Pull the baseline or policy the list is being reviewed against (e.g., prior-cycle approved list, personnel roster, access policy).
+3. Compare the current list against the baseline line by line; flag every addition, removal, and unexplained entry.
+4. For each discrepancy, determine whether it is expected (documented change) or unexplained (potential finding).
+5. Update the baseline to reflect the newly reviewed-and-approved state.
+6. Log cycle completion in the repository location specified in the Task Index.","Responsible: Network Administrator
+Accountable: ISSM
+Consulted: ISSO
+Informed: AO/DAO"
+MRC-058,MRC-058 — Verify configuration settings against baseline/STIG,CM-6 — CONFIGURATION SETTINGS,,,,"Pattern B — Manual Review of a List or Log
+1. Pull the current list/log/record set for the review period.
+2. Pull the baseline or policy the list is being reviewed against (e.g., prior-cycle approved list, personnel roster, access policy).
+3. Compare the current list against the baseline line by line; flag every addition, removal, and unexplained entry.
+4. For each discrepancy, determine whether it is expected (documented change) or unexplained (potential finding).
+5. Update the baseline to reflect the newly reviewed-and-approved state.
+6. Log cycle completion in the repository location specified in the Task Index.","Responsible: System Administrator, Network Administrator
+Accountable: ISSM
+Consulted: CCB
+Informed: AO/DAO"
+MRC-059,MRC-059 — Review protection of audit tools/information,AU-9 — PROTECTION OF AUDIT INFORMATION,,,,"Pattern B — Manual Review of a List or Log
+1. Pull the current list/log/record set for the review period.
+2. Pull the baseline or policy the list is being reviewed against (e.g., prior-cycle approved list, personnel roster, access policy).
+3. Compare the current list against the baseline line by line; flag every addition, removal, and unexplained entry.
+4. For each discrepancy, determine whether it is expected (documented change) or unexplained (potential finding).
+5. Update the baseline to reflect the newly reviewed-and-approved state.
+6. Log cycle completion in the repository location specified in the Task Index.","Responsible: ISSO
+Accountable: ISSO
+Consulted: ISSM
+Informed: ISSM"
+MRC-060,MRC-060 — Review media access authorization list,MP-2 — MEDIA ACCESS,,,,"Pattern B — Manual Review of a List or Log
+1. Pull the current list/log/record set for the review period.
+2. Pull the baseline or policy the list is being reviewed against (e.g., prior-cycle approved list, personnel roster, access policy).
+3. Compare the current list against the baseline line by line; flag every addition, removal, and unexplained entry.
+4. For each discrepancy, determine whether it is expected (documented change) or unexplained (potential finding).
+5. Update the baseline to reflect the newly reviewed-and-approved state.
+6. Log cycle completion in the repository location specified in the Task Index.","Responsible: ISSO
+Accountable: ISSO
+Consulted: ISSM
+Informed: ISSM"
+MRC-061,MRC-061 — Verify media marking compliance,MP-3 — MEDIA MARKING,,,,"Pattern B — Manual Review of a List or Log
+1. Pull the current list/log/record set for the review period.
+2. Pull the baseline or policy the list is being reviewed against (e.g., prior-cycle approved list, personnel roster, access policy).
+3. Compare the current list against the baseline line by line; flag every addition, removal, and unexplained entry.
+4. For each discrepancy, determine whether it is expected (documented change) or unexplained (potential finding).
+5. Update the baseline to reflect the newly reviewed-and-approved state.
+6. Log cycle completion in the repository location specified in the Task Index.","Responsible: System Administrator
+Accountable: ISSM
+Consulted: ISSO
+Informed: AO/DAO"
+MRC-062,MRC-062 — Review transmission medium/output device access controls,PE-4 — ACCESS CONTROL FOR TRANSMISSION MEDIUM,PE-5 — ACCESS CONTROL FOR OUTPUT DEVICES,,,"Pattern B — Manual Review of a List or Log
+1. Pull the current list/log/record set for the review period.
+2. Pull the baseline or policy the list is being reviewed against (e.g., prior-cycle approved list, personnel roster, access policy).
+3. Compare the current list against the baseline line by line; flag every addition, removal, and unexplained entry.
+4. For each discrepancy, determine whether it is expected (documented change) or unexplained (potential finding).
+5. Update the baseline to reflect the newly reviewed-and-approved state.
+6. Log cycle completion in the repository location specified in the Task Index.","Responsible: System Administrator
+Accountable: ISSM
+Consulted: ISSO
+Informed: PSO"
+MRC-063,MRC-063 — Review data quality of PII holdings,DI-1 — DATA QUALITY,,,,"Pattern B — Manual Review of a List or Log
+1. Pull the current list/log/record set for the review period.
+2. Pull the baseline or policy the list is being reviewed against (e.g., prior-cycle approved list, personnel roster, access policy).
+3. Compare the current list against the baseline line by line; flag every addition, removal, and unexplained entry.
+4. For each discrepancy, determine whether it is expected (documented change) or unexplained (potential finding).
+5. Update the baseline to reflect the newly reviewed-and-approved state.
+6. Log cycle completion in the repository location specified in the Task Index.","Responsible: Data Owner, Privacy Officer
+Accountable: Information Owner/Steward
+Consulted: ISSM
+Informed: ISSM"
+MRC-064,MRC-064 — Track and report privacy complaint trends,IP-4 — COMPLAINT MANAGEMENT,,,,"Pattern B — Manual Review of a List or Log
+1. Pull the current list/log/record set for the review period.
+2. Pull the baseline or policy the list is being reviewed against (e.g., prior-cycle approved list, personnel roster, access policy).
+3. Compare the current list against the baseline line by line; flag every addition, removal, and unexplained entry.
+4. For each discrepancy, determine whether it is expected (documented change) or unexplained (potential finding).
+5. Update the baseline to reflect the newly reviewed-and-approved state.
+6. Log cycle completion in the repository location specified in the Task Index.","Responsible: Privacy Officer
+Accountable: Information Owner/Steward
+Consulted: ISSM
+Informed: ISSM"
+MRC-065,MRC-065 — Review boundary-protection rule set,SC-7 — BOUNDARY PROTECTION,,,,"Pattern B — Manual Review of a List or Log
+1. Pull the current list/log/record set for the review period.
+2. Pull the baseline or policy the list is being reviewed against (e.g., prior-cycle approved list, personnel roster, access policy).
+3. Compare the current list against the baseline line by line; flag every addition, removal, and unexplained entry.
+4. For each discrepancy, determine whether it is expected (documented change) or unexplained (potential finding).
+5. Update the baseline to reflect the newly reviewed-and-approved state.
+6. Log cycle completion in the repository location specified in the Task Index.","Responsible: Network Administrator
+Accountable: ISSM
+Consulted: ISSO
+Informed: AO/DAO"
+MRC-066,MRC-066 — Review spam protection mechanism effectiveness,SI-8 — SPAM PROTECTION,,,,"Pattern B — Manual Review of a List or Log
+1. Pull the current list/log/record set for the review period.
+2. Pull the baseline or policy the list is being reviewed against (e.g., prior-cycle approved list, personnel roster, access policy).
+3. Compare the current list against the baseline line by line; flag every addition, removal, and unexplained entry.
+4. For each discrepancy, determine whether it is expected (documented change) or unexplained (potential finding).
+5. Update the baseline to reflect the newly reviewed-and-approved state.
+6. Log cycle completion in the repository location specified in the Task Index.","Responsible: System Administrator
+Accountable: ISSM
+Consulted: ISSO
+Informed: AO/DAO"
+MRC-067,MRC-067 — Review non-privileged/user account list,AC-2 — ACCOUNT MANAGEMENT,,,,"Pattern B — Manual Review of a List or Log
+1. Pull the current list/log/record set for the review period.
+2. Pull the baseline or policy the list is being reviewed against (e.g., prior-cycle approved list, personnel roster, access policy).
+3. Compare the current list against the baseline line by line; flag every addition, removal, and unexplained entry.
+4. For each discrepancy, determine whether it is expected (documented change) or unexplained (potential finding).
+5. Update the baseline to reflect the newly reviewed-and-approved state.
+6. Log cycle completion in the repository location specified in the Task Index.","Responsible: ISSO
+Accountable: ISSO
+Consulted: ISSM
+Informed: ISSM"
+MRC-068,MRC-068 — Test/exercise incident response capability (SAP default),IR-3 — INCIDENT RESPONSE TESTING,,,,"Pattern D — Test / Exercise
+1. Pull the current, approved test plan/procedure for this exercise.
+2. Execute the test plan step by step exactly as written, recording actual results against each expected result in the plan.
+3. Compare aggregate actual results against the plan's overall success criteria.
+4. Draft an after-action report: what worked, what didn't, root cause of any gap.
+5. For any gap identified, open a POA&M entry and assign a remediation owner and date.
+6. File the test plan, execution log, and AAR in the repository location specified in the Task Index; update the plan itself if the test surfaced a procedural error in it.","Responsible: IR Team Lead
+Accountable: ISSM
+Consulted: ISSO
+Informed: AO/DAO, CISO"
+MRC-069,MRC-069 — Review inventory records for computers/removable media (IRS-analog practice),CM-8 — INFORMATION SYSTEM COMPONENT INVENTORY,,,,"Pattern B — Manual Review of a List or Log
+1. Pull the current list/log/record set for the review period.
+2. Pull the baseline or policy the list is being reviewed against (e.g., prior-cycle approved list, personnel roster, access policy).
+3. Compare the current list against the baseline line by line; flag every addition, removal, and unexplained entry.
+4. For each discrepancy, determine whether it is expected (documented change) or unexplained (potential finding).
+5. Update the baseline to reflect the newly reviewed-and-approved state.
+6. Log cycle completion in the repository location specified in the Task Index.","Responsible: System Administrator
+Accountable: ISSM
+Consulted: CCB
+Informed: AO/DAO"
+MRC-070,MRC-070 — Review/update baseline configuration,CM-2 — BASELINE CONFIGURATION,,,,"Pattern E — Documentation / Policy Review and Update
+1. Pull the current approved version of the document and its associated control citations/ODPs.
+2. Review the document against current control requirements, current system state, and any changes since the last review (organizational, technical, regulatory).
+3. Draft revisions (or a no-change re-approval memo if none are needed).
+4. Route the draft for required approval per its governing role (CCB for configuration-relevant plans; ISSM/AO/DAO per the document's own sign-off requirement).
+5. Publish the new version and archive the superseded version per its retention requirement.","Responsible: System Administrator, Network Administrator
+Accountable: ISSM
+Consulted: CCB
+Informed: AO/DAO"
+MRC-071,MRC-071 — Review/update all family policies and procedures (-1 controls),"17 controls (one per JSIG family, each that family's POLICY AND PROCEDURES control): AC-1, AT-1, AU-1, CA-1, CM-1, CP-1, IA-1, IR-1, MA-1, MP-1, PE-1, PL-1, PS-1, RA-1, SA-1, SC-1, SI-1",,,,"Pattern E — Documentation / Policy Review and Update
+1. Pull the current approved version of the document and its associated control citations/ODPs.
+2. Review the document against current control requirements, current system state, and any changes since the last review (organizational, technical, regulatory).
+3. Draft revisions (or a no-change re-approval memo if none are needed).
+4. Route the draft for required approval per its governing role (CCB for configuration-relevant plans; ISSM/AO/DAO per the document's own sign-off requirement).
+5. Publish the new version and archive the superseded version per its retention requirement.","Responsible: ISSM
+Accountable: ISSM
+Consulted: ISSO
+Informed: AO/DAO"
+MRC-072,MRC-072 — Review/update contingency plan,CP-2 — CONTINGENCY PLAN,,,,"Pattern E — Documentation / Policy Review and Update
+1. Pull the current approved version of the document and its associated control citations/ODPs.
+2. Review the document against current control requirements, current system state, and any changes since the last review (organizational, technical, regulatory).
+3. Draft revisions (or a no-change re-approval memo if none are needed).
+4. Route the draft for required approval per its governing role (CCB for configuration-relevant plans; ISSM/AO/DAO per the document's own sign-off requirement).
+5. Publish the new version and archive the superseded version per its retention requirement.","Responsible: ISSM
+Accountable: ISSM
+Consulted: ISSO
+Informed: AO/DAO"
+MRC-073,MRC-073 — Test/exercise contingency plan,CP-4 — CONTINGENCY PLAN TESTING,,,,"Pattern D — Test / Exercise
+1. Pull the current, approved test plan/procedure for this exercise.
+2. Execute the test plan step by step exactly as written, recording actual results against each expected result in the plan.
+3. Compare aggregate actual results against the plan's overall success criteria.
+4. Draft an after-action report: what worked, what didn't, root cause of any gap.
+5. For any gap identified, open a POA&M entry and assign a remediation owner and date.
+6. File the test plan, execution log, and AAR in the repository location specified in the Task Index; update the plan itself if the test surfaced a procedural error in it.","Responsible: ISSM, System Administrator
+Accountable: ISSM
+Consulted: ISSO
+Informed: AO/DAO"
+MRC-074,MRC-074 — Perform independent security control assessment,CA-2 — SECURITY ASSESSMENTS,,,,"Pattern D — Test / Exercise
+1. Pull the current, approved test plan/procedure for this exercise.
+2. Execute the test plan step by step exactly as written, recording actual results against each expected result in the plan.
+3. Compare aggregate actual results against the plan's overall success criteria.
+4. Draft an after-action report: what worked, what didn't, root cause of any gap.
+5. For any gap identified, open a POA&M entry and assign a remediation owner and date.
+6. File the test plan, execution log, and AAR in the repository location specified in the Task Index; update the plan itself if the test surfaced a procedural error in it.","Responsible: SCA/SCAR
+Accountable: SCA
+Consulted: ISSM
+Informed: AO/DAO"
+MRC-075,MRC-075 — Perform penetration testing,CA-8 — PENETRATION TESTING,,,,"Pattern D — Test / Exercise
+1. Pull the current, approved test plan/procedure for this exercise.
+2. Execute the test plan step by step exactly as written, recording actual results against each expected result in the plan.
+3. Compare aggregate actual results against the plan's overall success criteria.
+4. Draft an after-action report: what worked, what didn't, root cause of any gap.
+5. For any gap identified, open a POA&M entry and assign a remediation owner and date.
+6. File the test plan, execution log, and AAR in the repository location specified in the Task Index; update the plan itself if the test surfaced a procedural error in it.","Responsible: SCA/SCAR, ISSM
+Accountable: SCA
+Consulted: ISSM
+Informed: AO/DAO"
+MRC-076,MRC-076 — Review approved maintenance tools,MA-3 — MAINTENANCE TOOLS,,,,"Pattern B — Manual Review of a List or Log
+1. Pull the current list/log/record set for the review period.
+2. Pull the baseline or policy the list is being reviewed against (e.g., prior-cycle approved list, personnel roster, access policy).
+3. Compare the current list against the baseline line by line; flag every addition, removal, and unexplained entry.
+4. For each discrepancy, determine whether it is expected (documented change) or unexplained (potential finding).
+5. Update the baseline to reflect the newly reviewed-and-approved state.
+6. Log cycle completion in the repository location specified in the Task Index.","Responsible: System Administrator, ISSM
+Accountable: ISSM
+Consulted: ISSO
+Informed: AO/DAO"
+MRC-077,MRC-077 — Update/reassess organizational risk assessment,RA-3 — RISK ASSESSMENT,,,,"Pattern E — Documentation / Policy Review and Update
+1. Pull the current approved version of the document and its associated control citations/ODPs.
+2. Review the document against current control requirements, current system state, and any changes since the last review (organizational, technical, regulatory).
+3. Draft revisions (or a no-change re-approval memo if none are needed).
+4. Route the draft for required approval per its governing role (CCB for configuration-relevant plans; ISSM/AO/DAO per the document's own sign-off requirement).
+5. Publish the new version and archive the superseded version per its retention requirement.","Responsible: ISSM
+Accountable: ISSM
+Consulted: SCA
+Informed: AO/DAO"
+MRC-078,MRC-078 — Review/re-sign personnel access agreements,PS-6 — ACCESS AGREEMENTS,,,,"Pattern B — Manual Review of a List or Log
+1. Pull the current list/log/record set for the review period.
+2. Pull the baseline or policy the list is being reviewed against (e.g., prior-cycle approved list, personnel roster, access policy).
+3. Compare the current list against the baseline line by line; flag every addition, removal, and unexplained entry.
+4. For each discrepancy, determine whether it is expected (documented change) or unexplained (potential finding).
+5. Update the baseline to reflect the newly reviewed-and-approved state.
+6. Log cycle completion in the repository location specified in the Task Index.","Responsible: Personnel Security Officer
+Accountable: PSO
+Consulted: ISSM
+Informed: AO/DAO"
+MRC-079,MRC-079 — Deliver annual security awareness refresher training,AT-2 — SECURITY AWARENESS TRAINING,,,,"Pattern F — Training Delivery
+1. Confirm the current-cycle training content is up to date against policy/threat landscape changes since the last delivery.
+2. Identify the full population required to complete this training cycle.
+3. Schedule and deliver the training to the identified population.
+4. Record completion status for every individual on the roster.
+5. Follow up on every incomplete/non-completion with the individual's supervisor or the Personnel Security function; document the follow-up.
+6. File the completion roster in the repository location specified in the Task Index.","Responsible: Training Manager
+Accountable: ISSM
+Consulted: ISSO
+Informed: ISSO"
+MRC-080,MRC-080 — Deliver role-based training refresher,AT-3 — ROLE-BASED SECURITY TRAINING,,,,"Pattern F — Training Delivery
+1. Confirm the current-cycle training content is up to date against policy/threat landscape changes since the last delivery.
+2. Identify the full population required to complete this training cycle.
+3. Schedule and deliver the training to the identified population.
+4. Record completion status for every individual on the roster.
+5. Follow up on every incomplete/non-completion with the individual's supervisor or the Personnel Security function; document the follow-up.
+6. File the completion roster in the repository location specified in the Task Index.","Responsible: Training Manager
+Accountable: ISSM
+Consulted: ISSO
+Informed: ISSO"
+MRC-081,MRC-081 — Deliver incident response training refresher,IR-2 — INCIDENT RESPONSE TRAINING,,,,"Pattern F — Training Delivery
+1. Confirm the current-cycle training content is up to date against policy/threat landscape changes since the last delivery.
+2. Identify the full population required to complete this training cycle.
+3. Schedule and deliver the training to the identified population.
+4. Record completion status for every individual on the roster.
+5. Follow up on every incomplete/non-completion with the individual's supervisor or the Personnel Security function; document the follow-up.
+6. File the completion roster in the repository location specified in the Task Index.","Responsible: Training Manager
+Accountable: ISSM
+Consulted: ISSO
+Informed: AO/DAO, CISO"
+MRC-082,MRC-082 — Deliver contingency training refresher,CP-3 — CONTINGENCY TRAINING,,,,"Pattern F — Training Delivery
+1. Confirm the current-cycle training content is up to date against policy/threat landscape changes since the last delivery.
+2. Identify the full population required to complete this training cycle.
+3. Schedule and deliver the training to the identified population.
+4. Record completion status for every individual on the roster.
+5. Follow up on every incomplete/non-completion with the individual's supervisor or the Personnel Security function; document the follow-up.
+6. File the completion roster in the repository location specified in the Task Index.","Responsible: Training Manager
+Accountable: ISSM
+Consulted: ISSO
+Informed: AO/DAO"
+MRC-083,MRC-083 — Review/update incident response plan,IR-8 — INCIDENT RESPONSE PLAN,,,,"Pattern E — Documentation / Policy Review and Update
+1. Pull the current approved version of the document and its associated control citations/ODPs.
+2. Review the document against current control requirements, current system state, and any changes since the last review (organizational, technical, regulatory).
+3. Draft revisions (or a no-change re-approval memo if none are needed).
+4. Route the draft for required approval per its governing role (CCB for configuration-relevant plans; ISSM/AO/DAO per the document's own sign-off requirement).
+5. Publish the new version and archive the superseded version per its retention requirement.","Responsible: ISSM
+Accountable: ISSM
+Consulted: ISSO
+Informed: AO/DAO, CISO"
+MRC-084,MRC-084 — Review/update auditable events list,AU-2 — AUDIT EVENTS,,,,"Pattern E — Documentation / Policy Review and Update
+1. Pull the current approved version of the document and its associated control citations/ODPs.
+2. Review the document against current control requirements, current system state, and any changes since the last review (organizational, technical, regulatory).
+3. Draft revisions (or a no-change re-approval memo if none are needed).
+4. Route the draft for required approval per its governing role (CCB for configuration-relevant plans; ISSM/AO/DAO per the document's own sign-off requirement).
+5. Publish the new version and archive the superseded version per its retention requirement.","Responsible: ISSM, ISSO
+Accountable: ISSM
+Consulted: ISSO
+Informed: AO/DAO"
+MRC-085,MRC-085 — Review unnecessary functions/ports/protocols/services,CM-7(1) — PERIODIC REVIEW,,,,"Pattern B — Manual Review of a List or Log
+1. Pull the current list/log/record set for the review period.
+2. Pull the baseline or policy the list is being reviewed against (e.g., prior-cycle approved list, personnel roster, access policy).
+3. Compare the current list against the baseline line by line; flag every addition, removal, and unexplained entry.
+4. For each discrepancy, determine whether it is expected (documented change) or unexplained (potential finding).
+5. Update the baseline to reflect the newly reviewed-and-approved state.
+6. Log cycle completion in the repository location specified in the Task Index.","Responsible: System Administrator, Network Administrator
+Accountable: ISSM
+Consulted: CCB
+Informed: AO/DAO"
+MRC-086,MRC-086 — Inventory physical access devices; change combinations/keys,PE-3 — PHYSICAL ACCESS CONTROL,,,,"Pattern C — Update / Patch / Signature Refresh
+1. Query the authoritative source (vendor/DISA/NVD advisory feed mirrored locally, or the local update-management tool) for the current required version/signature/key state.
+2. Compare the authoritative current state against the deployed state.
+3. Apply the update through the organization's change-control process (per `execution-plan/ROLE-CROSSWALK.md`'s CCB routing where the update is configuration-relevant).
+4. Verify the update took effect (re-query deployed state).
+5. Log cycle completion (date, prior version, new version, verifier) in the repository location specified in the Task Index.","Responsible: Facility Security Officer
+Accountable: PSO
+Consulted: ISSM
+Informed: AO/DAO"
+MRC-087,MRC-087 — Review/update System Security Plan (SSP),PL-2 — SYSTEM SECURITY PLAN,,,,"Pattern E — Documentation / Policy Review and Update
+1. Pull the current approved version of the document and its associated control citations/ODPs.
+2. Review the document against current control requirements, current system state, and any changes since the last review (organizational, technical, regulatory).
+3. Draft revisions (or a no-change re-approval memo if none are needed).
+4. Route the draft for required approval per its governing role (CCB for configuration-relevant plans; ISSM/AO/DAO per the document's own sign-off requirement).
+5. Publish the new version and archive the superseded version per its retention requirement.","Responsible: ISSM
+Accountable: ISSM
+Consulted: ISSO
+Informed: AO/DAO"
+MRC-088,MRC-088 — Review Rules of Behavior acknowledgment,PL-4 — RULES OF BEHAVIOR,,,,"Pattern B — Manual Review of a List or Log
+1. Pull the current list/log/record set for the review period.
+2. Pull the baseline or policy the list is being reviewed against (e.g., prior-cycle approved list, personnel roster, access policy).
+3. Compare the current list against the baseline line by line; flag every addition, removal, and unexplained entry.
+4. For each discrepancy, determine whether it is expected (documented change) or unexplained (potential finding).
+5. Update the baseline to reflect the newly reviewed-and-approved state.
+6. Log cycle completion in the repository location specified in the Task Index.","Responsible: ISSO, Training Manager
+Accountable: ISSO
+Consulted: ISSM
+Informed: AO/DAO"
+MRC-089,MRC-089 — Review external system service provider compliance,SA-9 — EXTERNAL INFORMATION SYSTEM SERVICES,,,,"Pattern B — Manual Review of a List or Log
+1. Pull the current list/log/record set for the review period.
+2. Pull the baseline or policy the list is being reviewed against (e.g., prior-cycle approved list, personnel roster, access policy).
+3. Compare the current list against the baseline line by line; flag every addition, removal, and unexplained entry.
+4. For each discrepancy, determine whether it is expected (documented change) or unexplained (potential finding).
+5. Update the baseline to reflect the newly reviewed-and-approved state.
+6. Log cycle completion in the repository location specified in the Task Index.","Responsible: ISSM
+Accountable: ISSM
+Consulted: ISSO
+Informed: AO/DAO"
+MRC-090,MRC-090 — Rotate/manage cryptographic keys,SC-12 — CRYPTOGRAPHIC KEY ESTABLISHMENT AND MANAGEMENT,SC-13 — CRYPTOGRAPHIC PROTECTION,,,"Pattern C — Update / Patch / Signature Refresh
+1. Query the authoritative source (vendor/DISA/NVD advisory feed mirrored locally, or the local update-management tool) for the current required version/signature/key state.
+2. Compare the authoritative current state against the deployed state.
+3. Apply the update through the organization's change-control process (per `execution-plan/ROLE-CROSSWALK.md`'s CCB routing where the update is configuration-relevant).
+4. Verify the update took effect (re-query deployed state).
+5. Log cycle completion (date, prior version, new version, verifier) in the repository location specified in the Task Index.","Responsible: System Administrator
+Accountable: ISSM
+Consulted: ISSO
+Informed: AO/DAO"
+MRC-091,MRC-091 — Review security categorization,RA-2 — SECURITY CATEGORIZATION,,,,"Pattern E — Documentation / Policy Review and Update
+1. Pull the current approved version of the document and its associated control citations/ODPs.
+2. Review the document against current control requirements, current system state, and any changes since the last review (organizational, technical, regulatory).
+3. Draft revisions (or a no-change re-approval memo if none are needed).
+4. Route the draft for required approval per its governing role (CCB for configuration-relevant plans; ISSM/AO/DAO per the document's own sign-off requirement).
+5. Publish the new version and archive the superseded version per its retention requirement.","Responsible: ISSM
+Accountable: ISSM
+Consulted: SCA
+Informed: AO/DAO"
+MRC-092,MRC-092 — Review position risk designations,PS-2 — POSITION RISK DESIGNATION,,,,"Pattern B — Manual Review of a List or Log
+1. Pull the current list/log/record set for the review period.
+2. Pull the baseline or policy the list is being reviewed against (e.g., prior-cycle approved list, personnel roster, access policy).
+3. Compare the current list against the baseline line by line; flag every addition, removal, and unexplained entry.
+4. For each discrepancy, determine whether it is expected (documented change) or unexplained (potential finding).
+5. Update the baseline to reflect the newly reviewed-and-approved state.
+6. Log cycle completion in the repository location specified in the Task Index.","Responsible: Personnel Security Officer
+Accountable: PSO
+Consulted: ISSM
+Informed: AO/DAO"
+MRC-093,MRC-093 — Update Privacy Impact Assessment,AR-2 — PRIVACY IMPACT AND RISK ASSESSMENT,,,,"Pattern E — Documentation / Policy Review and Update
+1. Pull the current approved version of the document and its associated control citations/ODPs.
+2. Review the document against current control requirements, current system state, and any changes since the last review (organizational, technical, regulatory).
+3. Draft revisions (or a no-change re-approval memo if none are needed).
+4. Route the draft for required approval per its governing role (CCB for configuration-relevant plans; ISSM/AO/DAO per the document's own sign-off requirement).
+5. Publish the new version and archive the superseded version per its retention requirement.","Responsible: Privacy Officer
+Accountable: Information Owner/Steward
+Consulted: ISSM
+Informed: ISSM"
+MRC-094,MRC-094 — Review PII minimization opportunities in holdings,DM-1 — MINIMIZATION OF PERSONALLY IDENTIFIABLE INFORMATION,,,,"Pattern B — Manual Review of a List or Log
+1. Pull the current list/log/record set for the review period.
+2. Pull the baseline or policy the list is being reviewed against (e.g., prior-cycle approved list, personnel roster, access policy).
+3. Compare the current list against the baseline line by line; flag every addition, removal, and unexplained entry.
+4. For each discrepancy, determine whether it is expected (documented change) or unexplained (potential finding).
+5. Update the baseline to reflect the newly reviewed-and-approved state.
+6. Log cycle completion in the repository location specified in the Task Index.","Responsible: Privacy Officer, Data Owner
+Accountable: Information Owner/Steward
+Consulted: ISSM
+Informed: ISSM"
+MRC-095,"MRC-095 — Review/update privacy notices, SORNs, and Privacy Act statements",TR-1 — PRIVACY NOTICE,TR-2 — SYSTEM OF RECORDS NOTICES AND PRIVACY ACT STATEMENTS,,,"Pattern E — Documentation / Policy Review and Update
+1. Pull the current approved version of the document and its associated control citations/ODPs.
+2. Review the document against current control requirements, current system state, and any changes since the last review (organizational, technical, regulatory).
+3. Draft revisions (or a no-change re-approval memo if none are needed).
+4. Route the draft for required approval per its governing role (CCB for configuration-relevant plans; ISSM/AO/DAO per the document's own sign-off requirement).
+5. Publish the new version and archive the superseded version per its retention requirement.","Responsible: Privacy Officer
+Accountable: Information Owner/Steward
+Consulted: ISSM
+Informed: ISSM"
+MRC-096,MRC-096 — Review internal-use and third-party info-sharing compliance,UL-1 — INTERNAL USE,UL-2 — INFORMATION SHARING WITH THIRD PARTIES,,,"Pattern B — Manual Review of a List or Log
+1. Pull the current list/log/record set for the review period.
+2. Pull the baseline or policy the list is being reviewed against (e.g., prior-cycle approved list, personnel roster, access policy).
+3. Compare the current list against the baseline line by line; flag every addition, removal, and unexplained entry.
+4. For each discrepancy, determine whether it is expected (documented change) or unexplained (potential finding).
+5. Update the baseline to reflect the newly reviewed-and-approved state.
+6. Log cycle completion in the repository location specified in the Task Index.","Responsible: Privacy Officer
+Accountable: Information Owner/Steward
+Consulted: ISSM
+Informed: ISSM"
+MRC-097,MRC-097 — Review Configuration Management Plan,CM-9 — CONFIGURATION MANAGEMENT PLAN,,,,"Pattern E — Documentation / Policy Review and Update
+1. Pull the current approved version of the document and its associated control citations/ODPs.
+2. Review the document against current control requirements, current system state, and any changes since the last review (organizational, technical, regulatory).
+3. Draft revisions (or a no-change re-approval memo if none are needed).
+4. Route the draft for required approval per its governing role (CCB for configuration-relevant plans; ISSM/AO/DAO per the document's own sign-off requirement).
+5. Publish the new version and archive the superseded version per its retention requirement.","Responsible: ISSM
+Accountable: ISSM
+Consulted: CCB
+Informed: AO/DAO"
+MRC-098,MRC-098 — Test information system recovery/reconstitution procedures,CP-10 — INFORMATION SYSTEM RECOVERY AND RECONSTITUTION,,,,"Pattern D — Test / Exercise
+1. Pull the current, approved test plan/procedure for this exercise.
+2. Execute the test plan step by step exactly as written, recording actual results against each expected result in the plan.
+3. Compare aggregate actual results against the plan's overall success criteria.
+4. Draft an after-action report: what worked, what didn't, root cause of any gap.
+5. For any gap identified, open a POA&M entry and assign a remediation owner and date.
+6. File the test plan, execution log, and AAR in the repository location specified in the Task Index; update the plan itself if the test surfaced a procedural error in it.","Responsible: System Administrator
+Accountable: ISSM
+Consulted: ISSO
+Informed: AO/DAO"
+MRC-099,MRC-099 — Verify alternate storage/processing site and telecom readiness,CP-6 — ALTERNATE STORAGE SITE,CP-7 — ALTERNATE PROCESSING SITE,CP-8 — TELECOMMUNICATIONS SERVICES,,"Pattern A — Automated Monitoring / Scan Confirmation
+1. Confirm the automated tool/sensor executed on its scheduled cadence (per this task's Frequency in the Task Index).
+2. Review the tool's output/alert queue for the current cycle.
+3. Triage each new alert/finding: confirm true positive vs. false positive using the finding's supporting log/scan data.
+4. For each true-positive finding, determine CAT (I/II/III) per the finding's own severity source (STIG CAT rating, CVSS-derived CAT per `execution-plan/templates/VARIANCE-RISK-ACCEPTANCE-TEMPLATE.md`, or organizational policy for non-STIG/CVE findings).
+5. File or update the corresponding POA&M/tracking entry for any open finding.
+6. Log cycle completion (date, reviewer, finding count, tracking IDs) in the repository location specified in the Task Index.","Responsible: ISSM, System Administrator, Network Administrator
+Accountable: ISSM
+Consulted: ISSO
+Informed: AO/DAO"
+MRC-100,MRC-100 — Verify TEMPEST/information-leakage countermeasures (SAP-specific),PE-19 — INFORMATION LEAKAGE,,,,"Pattern B — Manual Review of a List or Log
+1. Pull the current list/log/record set for the review period.
+2. Pull the baseline or policy the list is being reviewed against (e.g., prior-cycle approved list, personnel roster, access policy).
+3. Compare the current list against the baseline line by line; flag every addition, removal, and unexplained entry.
+4. For each discrepancy, determine whether it is expected (documented change) or unexplained (potential finding).
+5. Update the baseline to reflect the newly reviewed-and-approved state.
+6. Log cycle completion in the repository location specified in the Task Index.","Responsible: Facility Security Officer, ISSM
+Accountable: PSO
+Consulted: ISSM
+Informed: AO/DAO"
+MRC-101,MRC-101 — Test fire detection/suppression and inspect water-damage risk,PE-13 — FIRE PROTECTION,PE-15 — WATER DAMAGE PROTECTION,,,"Pattern D — Test / Exercise
+1. Pull the current, approved test plan/procedure for this exercise.
+2. Execute the test plan step by step exactly as written, recording actual results against each expected result in the plan.
+3. Compare aggregate actual results against the plan's overall success criteria.
+4. Draft an after-action report: what worked, what didn't, root cause of any gap.
+5. For any gap identified, open a POA&M entry and assign a remediation owner and date.
+6. File the test plan, execution log, and AAR in the repository location specified in the Task Index; update the plan itself if the test surfaced a procedural error in it.","Responsible: Facility Security Officer
+Accountable: PSO
+Consulted: ISSM
+Informed: AO/DAO"
+MRC-102,MRC-102 — Review third-party/contractor personnel security compliance,PS-7 — THIRD-PARTY PERSONNEL SECURITY,,,,"Pattern B — Manual Review of a List or Log
+1. Pull the current list/log/record set for the review period.
+2. Pull the baseline or policy the list is being reviewed against (e.g., prior-cycle approved list, personnel roster, access policy).
+3. Compare the current list against the baseline line by line; flag every addition, removal, and unexplained entry.
+4. For each discrepancy, determine whether it is expected (documented change) or unexplained (potential finding).
+5. Update the baseline to reflect the newly reviewed-and-approved state.
+6. Log cycle completion in the repository location specified in the Task Index.","Responsible: Personnel Security Officer
+Accountable: PSO
+Consulted: ISSM
+Informed: AO/DAO"
+MRC-103,MRC-103 — Retain audit records offline per NARA schedule or 6–7 years (IRS analog),AU-11 — AUDIT RECORD RETENTION,,,,"Pattern G — Retention / Disposal
+1. Identify all records that have passed their retention window per the applicable schedule (NARA, organizational records schedule, or the specific window cited in this task's Control ID(s)).
+2. Verify no candidate record is under legal hold, active investigation, or open POA&M/incident reference.
+3. Execute disposal (secure deletion or destruction per the record's classification/handling requirement) for all cleared candidates.
+4. Log the disposal action (what, when, method, authorizer) in the repository location specified in the Task Index.","Responsible: System Administrator, ISSM
+Accountable: ISSM
+Consulted: ISSO
+Informed: AO/DAO"
+MRC-104,MRC-104 — Prevent identifier reuse for ≥2 years,IA-4 — IDENTIFIER MANAGEMENT,,,,"Pattern G — Retention / Disposal
+1. Identify all records that have passed their retention window per the applicable schedule (NARA, organizational records schedule, or the specific window cited in this task's Control ID(s)).
+2. Verify no candidate record is under legal hold, active investigation, or open POA&M/incident reference.
+3. Execute disposal (secure deletion or destruction per the record's classification/handling requirement) for all cleared candidates.
+4. Log the disposal action (what, when, method, authorizer) in the repository location specified in the Task Index.","Responsible: System Administrator
+Accountable: ISSM
+Consulted: ISSO
+Informed: AO/DAO"
+MRC-105,MRC-105 — Ensure every control assessed at least once per 3-year cycle,CA-2 — SECURITY ASSESSMENTS,,,,"Pattern G — Retention / Disposal
+1. Identify all records that have passed their retention window per the applicable schedule (NARA, organizational records schedule, or the specific window cited in this task's Control ID(s)).
+2. Verify no candidate record is under legal hold, active investigation, or open POA&M/incident reference.
+3. Execute disposal (secure deletion or destruction per the record's classification/handling requirement) for all cleared candidates.
+4. Log the disposal action (what, when, method, authorizer) in the repository location specified in the Task Index.","Responsible: SCA/SCAR
+Accountable: SCA
+Consulted: ISSM
+Informed: AO/DAO"
+MRC-106,MRC-106 — Retain incident records 3 years after follow-up actions complete,N/A — IR/AU retention (raw calendar citation — no specific control ID resolved),,,,"Pattern G — Retention / Disposal
+1. Identify all records that have passed their retention window per the applicable schedule (NARA, organizational records schedule, or the specific window cited in this task's Control ID(s)).
+2. Verify no candidate record is under legal hold, active investigation, or open POA&M/incident reference.
+3. Execute disposal (secure deletion or destruction per the record's classification/handling requirement) for all cleared candidates.
+4. Log the disposal action (what, when, method, authorizer) in the repository location specified in the Task Index.","Responsible: ISSM, System Administrator
+Accountable: ISSM
+Consulted: ISSO
+Informed: AO/DAO, CISO"
+MRC-107,MRC-107 — Retain visitor access records (1–5 years per source),PE-8 — VISITOR ACCESS RECORDS,,,,"Pattern G — Retention / Disposal
+1. Identify all records that have passed their retention window per the applicable schedule (NARA, organizational records schedule, or the specific window cited in this task's Control ID(s)).
+2. Verify no candidate record is under legal hold, active investigation, or open POA&M/incident reference.
+3. Execute disposal (secure deletion or destruction per the record's classification/handling requirement) for all cleared candidates.
+4. Log the disposal action (what, when, method, authorizer) in the repository location specified in the Task Index.","Responsible: Facility Security Officer
+Accountable: PSO
+Consulted: ISSM
+Informed: AO/DAO"
+MRC-108,MRC-108 — Execute PII retention/disposal per records schedule,DM-2 — DATA RETENTION AND DISPOSAL,,,,"Pattern G — Retention / Disposal
+1. Identify all records that have passed their retention window per the applicable schedule (NARA, organizational records schedule, or the specific window cited in this task's Control ID(s)).
+2. Verify no candidate record is under legal hold, active investigation, or open POA&M/incident reference.
+3. Execute disposal (secure deletion or destruction per the record's classification/handling requirement) for all cleared candidates.
+4. Log the disposal action (what, when, method, authorizer) in the repository location specified in the Task Index.","Responsible: Data Owner, System Administrator
+Accountable: Information Owner/Steward
+Consulted: ISSM
+Informed: ISSM"
+MRC-109,MRC-109 — Track and initiate personnel reinvestigations,PS-3 — PERSONNEL SCREENING,,,,"Pattern B — Manual Review of a List or Log
+1. Pull the current list/log/record set for the review period.
+2. Pull the baseline or policy the list is being reviewed against (e.g., prior-cycle approved list, personnel roster, access policy).
+3. Compare the current list against the baseline line by line; flag every addition, removal, and unexplained entry.
+4. For each discrepancy, determine whether it is expected (documented change) or unexplained (potential finding).
+5. Update the baseline to reflect the newly reviewed-and-approved state.
+6. Log cycle completion in the repository location specified in the Task Index.","Responsible: Personnel Security Officer
+Accountable: PSO
+Consulted: ISSM
+Informed: AO/DAO"
+MRC-110,MRC-110 — Conduct Technical Surveillance Countermeasures Survey,RA-6 — TECHNICAL SURVEILLANCE COUNTERMEASURES SURVEY,,,,"Pattern A — Automated Monitoring / Scan Confirmation
+1. Confirm the automated tool/sensor executed on its scheduled cadence (per this task's Frequency in the Task Index).
+2. Review the tool's output/alert queue for the current cycle.
+3. Triage each new alert/finding: confirm true positive vs. false positive using the finding's supporting log/scan data.
+4. For each true-positive finding, determine CAT (I/II/III) per the finding's own severity source (STIG CAT rating, CVSS-derived CAT per `execution-plan/templates/VARIANCE-RISK-ACCEPTANCE-TEMPLATE.md`, or organizational policy for non-STIG/CVE findings).
+5. File or update the corresponding POA&M/tracking entry for any open finding.
+6. Log cycle completion (date, reviewer, finding count, tracking IDs) in the repository location specified in the Task Index.","Responsible: Facility Security Officer, ISSM
+Accountable: PSO
+Consulted: SCA
+Informed: AO/DAO"

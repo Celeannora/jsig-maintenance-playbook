@@ -15,6 +15,14 @@ execution-plan/
 │                                       # Master Calendar tasks, plus a per-role task-count rollup
 ├── CONTROL-LANGUAGE-CROSSWALK.md      # Generated: every Control ID cited in the Master Calendar (127 distinct
 │                                       # IDs across 110 tasks) resolved against real verbatim JSIG family text
+├── MRC-CONTROL-ACTION-RACI-MATRIX.xlsx # Generated: one row per Master (MRC-###) card (110 total) -- exact card
+│                                       # title, up to 4 "Control N" columns (its applicable JSIG control(s),
+│                                       # from Section 2 of that card), the actions to accomplish the check
+│                                       # (from that card's own Section 5 Procedure), and a RACI responsibility
+│                                       # reference (from Section 3). MRC-OPS-### and MRC-NET-### are out of
+│                                       # scope -- they carry no JSIG control mapping.
+├── MRC-CONTROL-ACTION-RACI-MATRIX.csv  # Generated: same 110 rows/8 columns as the .xlsx above, plain-text CSV
+│                                       # (e.g. for tools that can't open .xlsx directly)
 ├── templates/
 │   ├── AUDIT-ARTIFACT-TEMPLATE.md     # Canonical 10-section scaffold every runbook/evidence record follows
 │   ├── VARIANCE-RISK-ACCEPTANCE-TEMPLATE.md   # Severity-scoped specialization of the scaffold for
@@ -30,6 +38,9 @@ execution-plan/
 │   ├── cve_reference_builder.py       # Builds/updates the offline CVE reference DB from NVD (targeted or full mirror)
 │   ├── nessus_reference_builder.py    # Builds/updates the offline Nessus Plugin ID reference DB from Tenable (targeted only)
 │   ├── build_raci_matrix.py           # Regenerates RACI-MATRIX.md from MAINTENANCE-PLAN.md + ROLE-CROSSWALK.md
+│   ├── build_mrc_control_action_matrix.py  # Regenerates ../MRC-CONTROL-ACTION-RACI-MATRIX.xlsx + .csv from
+│   │                                   # mrc-cards/master/ (card title, up to 4 controls, actions to accomplish
+│   │                                   # the check, RACI reference) -- Master cards only, 110 rows
 │   ├── build_role_task_index.py       # Regenerates data/role_task_index.json: per-role, deduplicated
 │   │                                   # executing/accountable/consulted/informed task lists (the grounding
 │   │                                   # source every runbooks/<Role>.md Task Index is built from), each task
