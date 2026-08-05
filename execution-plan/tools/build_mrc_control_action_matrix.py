@@ -12,9 +12,22 @@ mrc-cards/master/ and pulling, per card:
     the annual "-1 policies" review spanning all 17 JSIG families) get a
     single combined descriptive string in Control 1 instead of forcing a
     5th+ column for one outlier row.
-  - The actions to accomplish the check (Section 5. Procedure -- the
-    pattern name plus each numbered step's action clause, with the
-    "Expected result / Capture / Stop-continue" verbosity stripped out)
+  - The actions to accomplish the check -- NOT extracted from the Master
+    card's own Section 5 Procedure (which remains generic Stub-status
+    template language -- Pattern A-H -- since the Master cards themselves
+    are intentionally NOT being hand-upgraded to Guide status). Instead
+    this column is populated from a curated, hand-authored sidecar file,
+    mrc_master_actions.json (same directory as this script), which maps
+    each MRC number to real, control-specific, auditable action steps
+    (named tools/commands/consoles/reports, e.g. Active Directory/GPMC/
+    PowerShell cmdlets, Trellix/McAfee ePO, Tenable Nessus, Splunk, or a
+    realistic organizational-process equivalent for physical/personnel/
+    policy-only controls). This is a deliberate, documented divergence:
+    the spreadsheet's Actions column is more specific than the Master
+    card's own Stub-status Section 5 Procedure. If a Master card is later
+    upgraded to Guide status (mirroring the MRC-OPS-### precedent), update
+    mrc_master_actions.json to match (or remove its override) so the two
+    stay in sync -- there is no automatic reconciliation between them.
   - A RACI responsibility reference (Section 3. Personnel / RACI table)
 
 Scope is intentionally Master-only: the MRC-OPS-### (34 cards) and
@@ -24,11 +37,12 @@ for a control/action/RACI matrix by definition.
 
 Read-only against the card markdown files -- never edits mrc-cards/master/
 or MAINTENANCE-PLAN.md. Regenerate any time after a master-card content
-change with:
+change (or after editing mrc_master_actions.json) with:
 
     python3 execution-plan/tools/build_mrc_control_action_matrix.py
 """
 import csv
+import json
 import os
 import re
 import sys
@@ -37,6 +51,7 @@ REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 MASTER_DIR = os.path.join(REPO_ROOT, "execution-plan", "mrc-cards", "master")
 XLSX_OUT = os.path.join(REPO_ROOT, "execution-plan", "MRC-CONTROL-ACTION-RACI-MATRIX.xlsx")
 CSV_OUT = os.path.join(REPO_ROOT, "execution-plan", "MRC-CONTROL-ACTION-RACI-MATRIX.csv")
+CURATED_ACTIONS_PATH = os.path.join(os.path.dirname(__file__), "mrc_master_actions.json")
 
 try:
     from openpyxl import Workbook
@@ -183,12 +198,31 @@ def build_row(card):
     return [card["mrc_num"], card["card_title"]] + slot_texts + [card["actions_text"], raci_text]
 
 
+def load_curated_actions():
+    with open(CURATED_ACTIONS_PATH, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
 def load_cards():
     files = sorted(
         (p for p in os.listdir(MASTER_DIR) if p.startswith("MRC-") and p.endswith(".md")),
         key=mrc_sort_key,
     )
     cards = [parse_card(os.path.join(MASTER_DIR, p)) for p in files]
+
+    curated_actions = load_curated_actions()
+    missing_curated = []
+    for c in cards:
+        curated = curated_actions.get(c["mrc_num"])
+        if curated:
+            c["actions_text"] = curated
+        else:
+            missing_curated.append(c["mrc_num"])
+    if missing_curated:
+        print(
+            "WARNING - no curated action text found, falling back to Stub "
+            "template language for:", missing_curated,
+        )
 
     no_control = [c["mrc_num"] for c in cards if not c["controls"]]
     if no_control:

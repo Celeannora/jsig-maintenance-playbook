@@ -18,9 +18,11 @@ execution-plan/
 ├── MRC-CONTROL-ACTION-RACI-MATRIX.xlsx # Generated: one row per Master (MRC-###) card (110 total) -- exact card
 │                                       # title, up to 4 "Control N" columns (its applicable JSIG control(s),
 │                                       # from Section 2 of that card), the actions to accomplish the check
-│                                       # (from that card's own Section 5 Procedure), and a RACI responsibility
-│                                       # reference (from Section 3). MRC-OPS-### and MRC-NET-### are out of
-│                                       # scope -- they carry no JSIG control mapping.
+│                                       # (curated per-card, see tools/mrc_master_actions.json below -- NOT
+│                                       # pulled from the card's own Section 5, which stays generic Stub-status
+│                                       # template language until/unless that card is hand-upgraded), and a
+│                                       # RACI responsibility reference (from Section 3). MRC-OPS-### and
+│                                       # MRC-NET-### are out of scope -- they carry no JSIG control mapping.
 ├── MRC-CONTROL-ACTION-RACI-MATRIX.csv  # Generated: same 110 rows/8 columns as the .xlsx above, plain-text CSV
 │                                       # (e.g. for tools that can't open .xlsx directly)
 ├── templates/
@@ -39,8 +41,17 @@ execution-plan/
 │   ├── nessus_reference_builder.py    # Builds/updates the offline Nessus Plugin ID reference DB from Tenable (targeted only)
 │   ├── build_raci_matrix.py           # Regenerates RACI-MATRIX.md from MAINTENANCE-PLAN.md + ROLE-CROSSWALK.md
 │   ├── build_mrc_control_action_matrix.py  # Regenerates ../MRC-CONTROL-ACTION-RACI-MATRIX.xlsx + .csv from
-│   │                                   # mrc-cards/master/ (card title, up to 4 controls, actions to accomplish
-│   │                                   # the check, RACI reference) -- Master cards only, 110 rows
+│   │                                   # mrc-cards/master/ (card title, up to 4 controls, RACI reference) plus
+│   │                                   # mrc_master_actions.json (actions to accomplish the check) -- Master
+│   │                                   # cards only, 110 rows
+│   ├── mrc_master_actions.json        # Curated, hand-authored data file: MRC number -> real, control-specific,
+│   │                                   # auditable action steps (named tools/commands/consoles/reports -- AD/
+│   │                                   # GPMC/PowerShell, Trellix/McAfee ePO, Tenable Nessus, Splunk, or a
+│   │                                   # realistic organizational-process equivalent for physical/personnel/
+│   │                                   # policy-only controls). Deliberately more specific than the Master
+│   │                                   # cards' own Stub-status Section 5 -- see build_mrc_control_action_matrix.py
+│   │                                   # module docstring for why, and keep this file in sync manually if a
+│   │                                   # Master card is later upgraded to Guide status.
 │   ├── build_role_task_index.py       # Regenerates data/role_task_index.json: per-role, deduplicated
 │   │                                   # executing/accountable/consulted/informed task lists (the grounding
 │   │                                   # source every runbooks/<Role>.md Task Index is built from), each task
