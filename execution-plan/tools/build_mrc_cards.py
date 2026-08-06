@@ -352,7 +352,11 @@ def _family_index_section(title, calendar_name, tasks, prefix, family_dir, gener
 # regeneration never clobbers hand-authored Section 5 content. Keep in sync
 # with DRAFT_STATUS_OVERRIDES / GUIDE_STATUS_OVERRIDES in
 # /home/user/workspace/build_mrc_status_readme.py.
-DRAFT_CARDS = set()
+DRAFT_CARDS = {
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+    11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+    21, 22, 23, 24, 25, 26, 27, 28, 29, 30,
+}
 
 
 def main():

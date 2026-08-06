@@ -8,36 +8,36 @@ This file also indexes the Operational Tasking (34 cards) and Network Infrastruc
 
 | MRC | Task | Family | Frequency | Pattern | Assignment Source |
 |---|---|---|---|---|---|
-| [MRC-001](MRC-001.md) | Maintain asset/software inventory (automated) | CM | Continuous | Pattern A | runbook |
-| [MRC-002](MRC-002.md) | Monitor system communications/security dashboards | SI | Continuous | Pattern A | runbook |
-| [MRC-003](MRC-003.md) | Real-time malware scanning of externally sourced files | SI | Continuous | Pattern A | runbook |
-| [MRC-004](MRC-004.md) | Maintain IAVM directive compliance | SI | Continuous | Pattern C | runbook |
-| [MRC-005](MRC-005.md) | Enforce access control/session/least-privilege mechanisms | AC | Continuous | Pattern A | runbook |
-| [MRC-006](MRC-006.md) | Monitor audit storage capacity and processing-failure alerts | AU | Continuous | Pattern A | runbook |
-| [MRC-007](MRC-007.md) | Enforce boundary protection (firewalls/guards) | SC | Continuous | Pattern A | runbook |
-| [MRC-008](MRC-008.md) | Enforce encryption at rest (non-tailorable) | SC | Continuous | Pattern A | runbook |
-| [MRC-009](MRC-009.md) | Enforce transmission confidentiality/integrity | SC | Continuous | Pattern A | runbook |
-| [MRC-010](MRC-010.md) | Enforce reauthentication/session timeout | IA | Continuous | Pattern A | runbook |
-| [MRC-011](MRC-011.md) | Monitor denial-of-service protections/session authenticity | SC | Continuous | Pattern A | runbook |
-| [MRC-012](MRC-012.md) | Monitor temperature/humidity environmental controls | PE | Continuous | Pattern A | runbook |
-| [MRC-013](MRC-013.md) | Operate privacy incident response capability | SE | Continuous | Custom | runbook |
-| [MRC-014](MRC-014.md) | Handle and monitor for security incidents (24/7) | IR | Continuous | Custom | runbook |
-| [MRC-015](MRC-015.md) | Maintain accounting-of-disclosures log | AR | Continuous | Pattern B | runbook |
-| [MRC-016](MRC-016.md) | Check/update malware-tool signatures | SI | Daily | Pattern C | runbook |
-| [MRC-017](MRC-017.md) | Provide incident status updates during active incident | IR | Daily (per-event) | Custom | runbook |
-| [MRC-018](MRC-018.md) | Notify account manager on termination/transfer/need-to-know change (8–24 hr window) | AC | Daily (per-event) | Pattern C | runbook |
-| [MRC-019](MRC-019.md) | Process termination access-revocation actions (≤24 hr) | PS | Daily (per-event) | Pattern C | runbook |
-| [MRC-020](MRC-020.md) | Process transfer access-reassessment actions (≤24 hr) | PS | Daily (per-event) | Pattern C | runbook |
-| [MRC-021](MRC-021.md) | Verify system clock/time-stamp synchronization | AU | Daily (automated check) | Pattern A | runbook |
-| [MRC-022](MRC-022.md) | Review and analyze system audit records | AU | Weekly | Pattern B | runbook |
-| [MRC-023](MRC-023.md) | Run periodic malicious-code (antivirus) scans | SI | Weekly | Pattern A | runbook |
-| [MRC-024](MRC-024.md) | Perform incremental backups (daily-incremental/weekly-full pattern) | CP | Weekly | Pattern A | runbook |
-| [MRC-025](MRC-025.md) | Update Plan of Action and Milestones (POA&M) | CA | Monthly | Pattern B | runbook |
-| [MRC-026](MRC-026.md) | Assemble ConMon deliverable package | CA | Monthly | Pattern B | runbook |
-| [MRC-027](MRC-027.md) | Perform vulnerability scanning | RA | Monthly | Pattern A | runbook |
-| [MRC-028](MRC-028.md) | Update scanner vulnerability signatures | RA | Monthly | Pattern C | runbook |
-| [MRC-029](MRC-029.md) | Check/report flaw-remediation (patch) status | SI | Monthly | Pattern C | runbook |
-| [MRC-030](MRC-030.md) | Test backup integrity/restoration | CP | Monthly | Pattern D | runbook |
+| [MRC-001](MRC-001.md) | Maintain asset/software inventory (automated) | CM | Continuous | Draft (hand-authored) | runbook |
+| [MRC-002](MRC-002.md) | Monitor system communications/security dashboards | SI | Continuous | Draft (hand-authored) | runbook |
+| [MRC-003](MRC-003.md) | Real-time malware scanning of externally sourced files | SI | Continuous | Draft (hand-authored) | runbook |
+| [MRC-004](MRC-004.md) | Maintain IAVM directive compliance | SI | Continuous | Draft (hand-authored) | runbook |
+| [MRC-005](MRC-005.md) | Enforce access control/session/least-privilege mechanisms | AC | Continuous | Draft (hand-authored) | runbook |
+| [MRC-006](MRC-006.md) | Monitor audit storage capacity and processing-failure alerts | AU | Continuous | Draft (hand-authored) | runbook |
+| [MRC-007](MRC-007.md) | Enforce boundary protection (firewalls/guards) | SC | Continuous | Draft (hand-authored) | runbook |
+| [MRC-008](MRC-008.md) | Enforce encryption at rest (non-tailorable) | SC | Continuous | Draft (hand-authored) | runbook |
+| [MRC-009](MRC-009.md) | Enforce transmission confidentiality/integrity | SC | Continuous | Draft (hand-authored) | runbook |
+| [MRC-010](MRC-010.md) | Enforce reauthentication/session timeout | IA | Continuous | Draft (hand-authored) | runbook |
+| [MRC-011](MRC-011.md) | Monitor denial-of-service protections/session authenticity | SC | Continuous | Draft (hand-authored) | runbook |
+| [MRC-012](MRC-012.md) | Monitor temperature/humidity environmental controls | PE | Continuous | Draft (hand-authored) | runbook |
+| [MRC-013](MRC-013.md) | Operate privacy incident response capability | SE | Continuous | Draft (hand-authored) | runbook |
+| [MRC-014](MRC-014.md) | Handle and monitor for security incidents (24/7) | IR | Continuous | Draft (hand-authored) | runbook |
+| [MRC-015](MRC-015.md) | Maintain accounting-of-disclosures log | AR | Continuous | Draft (hand-authored) | runbook |
+| [MRC-016](MRC-016.md) | Check/update malware-tool signatures | SI | Daily | Draft (hand-authored) | runbook |
+| [MRC-017](MRC-017.md) | Provide incident status updates during active incident | IR | Daily (per-event) | Draft (hand-authored) | runbook |
+| [MRC-018](MRC-018.md) | Notify account manager on termination/transfer/need-to-know change (8–24 hr window) | AC | Daily (per-event) | Draft (hand-authored) | runbook |
+| [MRC-019](MRC-019.md) | Process termination access-revocation actions (≤24 hr) | PS | Daily (per-event) | Draft (hand-authored) | runbook |
+| [MRC-020](MRC-020.md) | Process transfer access-reassessment actions (≤24 hr) | PS | Daily (per-event) | Draft (hand-authored) | runbook |
+| [MRC-021](MRC-021.md) | Verify system clock/time-stamp synchronization | AU | Daily (automated check) | Draft (hand-authored) | runbook |
+| [MRC-022](MRC-022.md) | Review and analyze system audit records | AU | Weekly | Draft (hand-authored) | runbook |
+| [MRC-023](MRC-023.md) | Run periodic malicious-code (antivirus) scans | SI | Weekly | Draft (hand-authored) | runbook |
+| [MRC-024](MRC-024.md) | Perform incremental backups (daily-incremental/weekly-full pattern) | CP | Weekly | Draft (hand-authored) | runbook |
+| [MRC-025](MRC-025.md) | Update Plan of Action and Milestones (POA&M) | CA | Monthly | Draft (hand-authored) | runbook |
+| [MRC-026](MRC-026.md) | Assemble ConMon deliverable package | CA | Monthly | Draft (hand-authored) | runbook |
+| [MRC-027](MRC-027.md) | Perform vulnerability scanning | RA | Monthly | Draft (hand-authored) | runbook |
+| [MRC-028](MRC-028.md) | Update scanner vulnerability signatures | RA | Monthly | Draft (hand-authored) | runbook |
+| [MRC-029](MRC-029.md) | Check/report flaw-remediation (patch) status | SI | Monthly | Draft (hand-authored) | runbook |
+| [MRC-030](MRC-030.md) | Test backup integrity/restoration | CP | Monthly | Draft (hand-authored) | runbook |
 | [MRC-031](MRC-031.md) | Review physical access logs | PE | Monthly | Pattern B | runbook |
 | [MRC-032](MRC-032.md) | Review visitor access records | PE | Monthly | Pattern B | runbook |
 | [MRC-033](MRC-033.md) | Review Authorized Access List for restricted/SAPF areas | PE | Monthly | Pattern B | runbook |

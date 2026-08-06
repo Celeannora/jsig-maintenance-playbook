@@ -12,7 +12,7 @@ Regenerate this file after upgrading any card's status: edit the `GUIDE_STATUS_O
 | **Draft** | Card has been hand-authored as a first-pass, sourced rough draft -- real, control-specific action steps grounded in cited reference documentation (see [`reference/external-sources/INDEX.md`](../../reference/external-sources/INDEX.md)), including named tools/commands where applicable. Not yet certified to full Guide quality (no companion automation script or exhaustive failure-triage table, and not yet verified against a live environment). **Substantially more specific than Stub, but review before treating as a final, ready-to-sign-off procedure.** |
 | **Guide** | Card has been hand-authored with exact, tool-specific steps an employee can follow literally -- naming the actual product, screen, command, or menu path in the assumed baseline environment (see [`AGENTS.md`](../../AGENTS.md) rule 8: Windows Server/Active Directory, Splunk, Tenable Nessus, Trellix/McAfee ePO). **Usable as-is by an employee performing the task.** |
 
-**Current progress: 34 / 160 cards upgraded to Guide status, 0 / 160 at Draft status (126 remaining as Stub).**
+**Current progress: 34 / 160 cards upgraded to Guide status, 30 / 160 at Draft status (96 remaining as Stub).**
 
 **Script** column: `Yes` = a runnable PowerShell automation script exists under [`scripts/`](scripts/README.md) for this card; `No` = scriptable in principle but not yet built; `N/A` = inherently manual/judgment task, cannot be scripted (see [`AGENTS.md`](../../AGENTS.md) rule 9).
 
@@ -22,36 +22,36 @@ One card per [`MAINTENANCE-PLAN.md`](../../MAINTENANCE-PLAN.md) Sec 4 Master Cal
 
 | MRC | Task | Family | Frequency | Pattern | Status | Script |
 |---|---|---|---|---|---|---|
-| [MRC-001](master/MRC-001.md) | Maintain asset/software inventory (automated) | CM | Continuous | Pattern A | Stub | No |
-| [MRC-002](master/MRC-002.md) | Monitor system communications/security dashboards | SI | Continuous | Pattern A | Stub | No |
-| [MRC-003](master/MRC-003.md) | Real-time malware scanning of externally sourced files | SI | Continuous | Pattern A | Stub | No |
-| [MRC-004](master/MRC-004.md) | Maintain IAVM directive compliance | SI | Continuous | Pattern C | Stub | No |
-| [MRC-005](master/MRC-005.md) | Enforce access control/session/least-privilege mechanisms | AC | Continuous | Pattern A | Stub | No |
-| [MRC-006](master/MRC-006.md) | Monitor audit storage capacity and processing-failure alerts | AU | Continuous | Pattern A | Stub | No |
-| [MRC-007](master/MRC-007.md) | Enforce boundary protection (firewalls/guards) | SC | Continuous | Pattern A | Stub | No |
-| [MRC-008](master/MRC-008.md) | Enforce encryption at rest (non-tailorable) | SC | Continuous | Pattern A | Stub | No |
-| [MRC-009](master/MRC-009.md) | Enforce transmission confidentiality/integrity | SC | Continuous | Pattern A | Stub | No |
-| [MRC-010](master/MRC-010.md) | Enforce reauthentication/session timeout | IA | Continuous | Pattern A | Stub | No |
-| [MRC-011](master/MRC-011.md) | Monitor denial-of-service protections/session authenticity | SC | Continuous | Pattern A | Stub | No |
-| [MRC-012](master/MRC-012.md) | Monitor temperature/humidity environmental controls | PE | Continuous | Pattern A | Stub | No |
-| [MRC-013](master/MRC-013.md) | Operate privacy incident response capability | SE | Continuous | Custom | Stub | No |
-| [MRC-014](master/MRC-014.md) | Handle and monitor for security incidents (24/7) | IR | Continuous | Custom | Stub | No |
-| [MRC-015](master/MRC-015.md) | Maintain accounting-of-disclosures log | AR | Continuous | Pattern B | Stub | No |
-| [MRC-016](master/MRC-016.md) | Check/update malware-tool signatures | SI | Daily | Pattern C | Stub | No |
-| [MRC-017](master/MRC-017.md) | Provide incident status updates during active incident | IR | Daily (per-event) | Custom | Stub | No |
-| [MRC-018](master/MRC-018.md) | Notify account manager on termination/transfer/need-to-know change (8–24 hr window) | AC | Daily (per-event) | Pattern C | Stub | No |
-| [MRC-019](master/MRC-019.md) | Process termination access-revocation actions (≤24 hr) | PS | Daily (per-event) | Pattern C | Stub | No |
-| [MRC-020](master/MRC-020.md) | Process transfer access-reassessment actions (≤24 hr) | PS | Daily (per-event) | Pattern C | Stub | No |
-| [MRC-021](master/MRC-021.md) | Verify system clock/time-stamp synchronization | AU | Daily (automated check) | Pattern A | Stub | No |
-| [MRC-022](master/MRC-022.md) | Review and analyze system audit records | AU | Weekly | Pattern B | Stub | No |
-| [MRC-023](master/MRC-023.md) | Run periodic malicious-code (antivirus) scans | SI | Weekly | Pattern A | Stub | No |
-| [MRC-024](master/MRC-024.md) | Perform incremental backups (daily-incremental/weekly-full pattern) | CP | Weekly | Pattern A | Stub | No |
-| [MRC-025](master/MRC-025.md) | Update Plan of Action and Milestones (POA&M) | CA | Monthly | Pattern B | Stub | No |
-| [MRC-026](master/MRC-026.md) | Assemble ConMon deliverable package | CA | Monthly | Pattern B | Stub | No |
-| [MRC-027](master/MRC-027.md) | Perform vulnerability scanning | RA | Monthly | Pattern A | Stub | No |
-| [MRC-028](master/MRC-028.md) | Update scanner vulnerability signatures | RA | Monthly | Pattern C | Stub | No |
-| [MRC-029](master/MRC-029.md) | Check/report flaw-remediation (patch) status | SI | Monthly | Pattern C | Stub | No |
-| [MRC-030](master/MRC-030.md) | Test backup integrity/restoration | CP | Monthly | Pattern D | Stub | No |
+| [MRC-001](master/MRC-001.md) | Maintain asset/software inventory (automated) | CM | Continuous | Draft (hand-authored) | Draft | No |
+| [MRC-002](master/MRC-002.md) | Monitor system communications/security dashboards | SI | Continuous | Draft (hand-authored) | Draft | No |
+| [MRC-003](master/MRC-003.md) | Real-time malware scanning of externally sourced files | SI | Continuous | Draft (hand-authored) | Draft | No |
+| [MRC-004](master/MRC-004.md) | Maintain IAVM directive compliance | SI | Continuous | Draft (hand-authored) | Draft | No |
+| [MRC-005](master/MRC-005.md) | Enforce access control/session/least-privilege mechanisms | AC | Continuous | Draft (hand-authored) | Draft | No |
+| [MRC-006](master/MRC-006.md) | Monitor audit storage capacity and processing-failure alerts | AU | Continuous | Draft (hand-authored) | Draft | No |
+| [MRC-007](master/MRC-007.md) | Enforce boundary protection (firewalls/guards) | SC | Continuous | Draft (hand-authored) | Draft | No |
+| [MRC-008](master/MRC-008.md) | Enforce encryption at rest (non-tailorable) | SC | Continuous | Draft (hand-authored) | Draft | No |
+| [MRC-009](master/MRC-009.md) | Enforce transmission confidentiality/integrity | SC | Continuous | Draft (hand-authored) | Draft | No |
+| [MRC-010](master/MRC-010.md) | Enforce reauthentication/session timeout | IA | Continuous | Draft (hand-authored) | Draft | No |
+| [MRC-011](master/MRC-011.md) | Monitor denial-of-service protections/session authenticity | SC | Continuous | Draft (hand-authored) | Draft | No |
+| [MRC-012](master/MRC-012.md) | Monitor temperature/humidity environmental controls | PE | Continuous | Draft (hand-authored) | Draft | No |
+| [MRC-013](master/MRC-013.md) | Operate privacy incident response capability | SE | Continuous | Draft (hand-authored) | Draft | No |
+| [MRC-014](master/MRC-014.md) | Handle and monitor for security incidents (24/7) | IR | Continuous | Draft (hand-authored) | Draft | No |
+| [MRC-015](master/MRC-015.md) | Maintain accounting-of-disclosures log | AR | Continuous | Draft (hand-authored) | Draft | No |
+| [MRC-016](master/MRC-016.md) | Check/update malware-tool signatures | SI | Daily | Draft (hand-authored) | Draft | No |
+| [MRC-017](master/MRC-017.md) | Provide incident status updates during active incident | IR | Daily (per-event) | Draft (hand-authored) | Draft | No |
+| [MRC-018](master/MRC-018.md) | Notify account manager on termination/transfer/need-to-know change (8–24 hr window) | AC | Daily (per-event) | Draft (hand-authored) | Draft | No |
+| [MRC-019](master/MRC-019.md) | Process termination access-revocation actions (≤24 hr) | PS | Daily (per-event) | Draft (hand-authored) | Draft | No |
+| [MRC-020](master/MRC-020.md) | Process transfer access-reassessment actions (≤24 hr) | PS | Daily (per-event) | Draft (hand-authored) | Draft | No |
+| [MRC-021](master/MRC-021.md) | Verify system clock/time-stamp synchronization | AU | Daily (automated check) | Draft (hand-authored) | Draft | No |
+| [MRC-022](master/MRC-022.md) | Review and analyze system audit records | AU | Weekly | Draft (hand-authored) | Draft | No |
+| [MRC-023](master/MRC-023.md) | Run periodic malicious-code (antivirus) scans | SI | Weekly | Draft (hand-authored) | Draft | No |
+| [MRC-024](master/MRC-024.md) | Perform incremental backups (daily-incremental/weekly-full pattern) | CP | Weekly | Draft (hand-authored) | Draft | No |
+| [MRC-025](master/MRC-025.md) | Update Plan of Action and Milestones (POA&M) | CA | Monthly | Draft (hand-authored) | Draft | No |
+| [MRC-026](master/MRC-026.md) | Assemble ConMon deliverable package | CA | Monthly | Draft (hand-authored) | Draft | No |
+| [MRC-027](master/MRC-027.md) | Perform vulnerability scanning | RA | Monthly | Draft (hand-authored) | Draft | No |
+| [MRC-028](master/MRC-028.md) | Update scanner vulnerability signatures | RA | Monthly | Draft (hand-authored) | Draft | No |
+| [MRC-029](master/MRC-029.md) | Check/report flaw-remediation (patch) status | SI | Monthly | Draft (hand-authored) | Draft | No |
+| [MRC-030](master/MRC-030.md) | Test backup integrity/restoration | CP | Monthly | Draft (hand-authored) | Draft | No |
 | [MRC-031](master/MRC-031.md) | Review physical access logs | PE | Monthly | Pattern B | Stub | No |
 | [MRC-032](master/MRC-032.md) | Review visitor access records | PE | Monthly | Pattern B | Stub | No |
 | [MRC-033](master/MRC-033.md) | Review Authorized Access List for restricted/SAPF areas | PE | Monthly | Pattern B | Stub | No |
