@@ -12,7 +12,7 @@ Regenerate this file after upgrading any card's status: edit the `GUIDE_STATUS_O
 | **Draft** | Card has been hand-authored as a first-pass, sourced rough draft -- real, control-specific action steps grounded in cited reference documentation (see [`reference/external-sources/INDEX.md`](../../reference/external-sources/INDEX.md)), including named tools/commands where applicable. Not yet certified to full Guide quality (no companion automation script or exhaustive failure-triage table, and not yet verified against a live environment). **Substantially more specific than Stub, but review before treating as a final, ready-to-sign-off procedure.** |
 | **Guide** | Card has been hand-authored with exact, tool-specific steps an employee can follow literally -- naming the actual product, screen, command, or menu path in the assumed baseline environment (see [`AGENTS.md`](../../AGENTS.md) rule 8: Windows Server/Active Directory, Splunk, Tenable Nessus, Trellix/McAfee ePO). **Usable as-is by an employee performing the task.** |
 
-**Current progress: 34 / 160 cards upgraded to Guide status, 30 / 160 at Draft status (96 remaining as Stub).**
+**Current progress: 34 / 160 cards upgraded to Guide status, 70 / 160 at Draft status (56 remaining as Stub).**
 
 **Script** column: `Yes` = a runnable PowerShell automation script exists under [`scripts/`](scripts/README.md) for this card; `No` = scriptable in principle but not yet built; `N/A` = inherently manual/judgment task, cannot be scripted (see [`AGENTS.md`](../../AGENTS.md) rule 9).
 
@@ -52,46 +52,46 @@ One card per [`MAINTENANCE-PLAN.md`](../../MAINTENANCE-PLAN.md) Sec 4 Master Cal
 | [MRC-028](master/MRC-028.md) | Update scanner vulnerability signatures | RA | Monthly | Draft (hand-authored) | Draft | No |
 | [MRC-029](master/MRC-029.md) | Check/report flaw-remediation (patch) status | SI | Monthly | Draft (hand-authored) | Draft | No |
 | [MRC-030](master/MRC-030.md) | Test backup integrity/restoration | CP | Monthly | Draft (hand-authored) | Draft | No |
-| [MRC-031](master/MRC-031.md) | Review physical access logs | PE | Monthly | Pattern B | Stub | No |
-| [MRC-032](master/MRC-032.md) | Review visitor access records | PE | Monthly | Pattern B | Stub | No |
-| [MRC-033](master/MRC-033.md) | Review Authorized Access List for restricted/SAPF areas | PE | Monthly | Pattern B | Stub | No |
-| [MRC-034](master/MRC-034.md) | Convene Configuration Control Board (when changes proposed) | CM | Monthly | Pattern H | Stub | No |
-| [MRC-035](master/MRC-035.md) | Update system component inventory (manual/verification pass) | CM | Monthly | Pattern B | Stub | No |
-| [MRC-036](master/MRC-036.md) | Maintain organization-level POA&M rollup | PM | Monthly | Pattern B | Stub | No |
-| [MRC-037](master/MRC-037.md) | Maintain organization-wide information system inventory | PM | Monthly | Pattern B | Stub | No |
-| [MRC-038](master/MRC-038.md) | Monitor nonlocal maintenance session records | MA | Monthly | Pattern B | Stub | No |
-| [MRC-039](master/MRC-039.md) | Verify media storage physical/environmental controls | MP | Monthly | Pattern A | Stub | No |
-| [MRC-040](master/MRC-040.md) | Monitor/audit privacy control compliance | AR | Monthly | Pattern B | Stub | No |
-| [MRC-041](master/MRC-041.md) | Update PII/system-holdings inventory | SE | Monthly | Pattern B | Stub | No |
-| [MRC-042](master/MRC-042.md) | Verify security function operation (self-tests) | SI | Monthly | Pattern A | Stub | No |
-| [MRC-043](master/MRC-043.md) | Verify software/firmware/information integrity | SI | Monthly | Pattern A | Stub | No |
-| [MRC-044](master/MRC-044.md) | Install security-relevant software/firmware updates | SI | Monthly/30 days | Pattern C | Stub | No |
-| [MRC-045](master/MRC-045.md) | Report information security performance measures | PM | Monthly/quarterly | Pattern B | Stub | No |
-| [MRC-046](master/MRC-046.md) | Review privileged account list and entitlements | AC | Quarterly | Pattern B | Stub | No |
-| [MRC-047](master/MRC-047.md) | Reassess least-privilege/privileged-function assignments | AC | Quarterly | Pattern B | Stub | No |
-| [MRC-048](master/MRC-048.md) | Review authorized software list | CM | Quarterly | Pattern B | Stub | No |
-| [MRC-049](master/MRC-049.md) | Reassess/reevaluate privileged access tied to change | CM | Quarterly | Pattern B | Stub | No |
-| [MRC-050](master/MRC-050.md) | Review unsupported system components (EOL/EOS) | SA | Quarterly | Pattern B | Stub | No |
-| [MRC-051](master/MRC-051.md) | Verify encryption-at-rest compliance | SC | Quarterly | Pattern B | Stub | No |
-| [MRC-052](master/MRC-052.md) | Verify transmission encryption compliance | SC | Quarterly | Pattern B | Stub | No |
-| [MRC-053](master/MRC-053.md) | Distribute quarterly security/privacy awareness reminders | AT | Quarterly | Custom | Stub | No |
-| [MRC-054](master/MRC-054.md) | Review remote access and wireless access authorization lists | AC | Quarterly | Pattern B | Stub | No |
-| [MRC-055](master/MRC-055.md) | Review publicly accessible content | AC | Quarterly | Pattern B | Stub | No |
-| [MRC-056](master/MRC-056.md) | Review access-enforcement/flow-enforcement rule sets | AC | Quarterly | Pattern B | Stub | No |
-| [MRC-057](master/MRC-057.md) | Verify device identification/authentication configuration | IA | Quarterly | Pattern B | Stub | No |
-| [MRC-058](master/MRC-058.md) | Verify configuration settings against baseline/STIG | CM | Quarterly | Pattern B | Stub | No |
-| [MRC-059](master/MRC-059.md) | Review protection of audit tools/information | AU | Quarterly | Pattern B | Stub | No |
-| [MRC-060](master/MRC-060.md) | Review media access authorization list | MP | Quarterly | Pattern B | Stub | No |
-| [MRC-061](master/MRC-061.md) | Verify media marking compliance | MP | Quarterly | Pattern B | Stub | No |
-| [MRC-062](master/MRC-062.md) | Review transmission medium/output device access controls | PE | Quarterly | Pattern B | Stub | No |
-| [MRC-063](master/MRC-063.md) | Review data quality of PII holdings | DI | Quarterly | Pattern B | Stub | No |
-| [MRC-064](master/MRC-064.md) | Track and report privacy complaint trends | IP | Quarterly | Pattern B | Stub | No |
-| [MRC-065](master/MRC-065.md) | Review boundary-protection rule set | SC | Quarterly | Pattern B | Stub | No |
-| [MRC-066](master/MRC-066.md) | Review spam protection mechanism effectiveness | SI | Quarterly | Pattern B | Stub | No |
-| [MRC-067](master/MRC-067.md) | Review non-privileged/user account list | AC | Semi-annual | Pattern B | Stub | No |
-| [MRC-068](master/MRC-068.md) | Test/exercise incident response capability (SAP default) | IR | Semi-annual | Pattern D | Stub | No |
-| [MRC-069](master/MRC-069.md) | Review inventory records for computers/removable media (IRS-analog practice) | CM | Semi-annual | Pattern B | Stub | No |
-| [MRC-070](master/MRC-070.md) | Review/update baseline configuration | CM | Annual | Pattern E | Stub | No |
+| [MRC-031](master/MRC-031.md) | Review physical access logs | PE | Monthly | Draft (hand-authored) | Draft | No |
+| [MRC-032](master/MRC-032.md) | Review visitor access records | PE | Monthly | Draft (hand-authored) | Draft | No |
+| [MRC-033](master/MRC-033.md) | Review Authorized Access List for restricted/SAPF areas | PE | Monthly | Draft (hand-authored) | Draft | No |
+| [MRC-034](master/MRC-034.md) | Convene Configuration Control Board (when changes proposed) | CM | Monthly | Draft (hand-authored) | Draft | No |
+| [MRC-035](master/MRC-035.md) | Update system component inventory (manual/verification pass) | CM | Monthly | Draft (hand-authored) | Draft | No |
+| [MRC-036](master/MRC-036.md) | Maintain organization-level POA&M rollup | PM | Monthly | Draft (hand-authored) | Draft | No |
+| [MRC-037](master/MRC-037.md) | Maintain organization-wide information system inventory | PM | Monthly | Draft (hand-authored) | Draft | No |
+| [MRC-038](master/MRC-038.md) | Monitor nonlocal maintenance session records | MA | Monthly | Draft (hand-authored) | Draft | No |
+| [MRC-039](master/MRC-039.md) | Verify media storage physical/environmental controls | MP | Monthly | Draft (hand-authored) | Draft | No |
+| [MRC-040](master/MRC-040.md) | Monitor/audit privacy control compliance | AR | Monthly | Draft (hand-authored) | Draft | No |
+| [MRC-041](master/MRC-041.md) | Update PII/system-holdings inventory | SE | Monthly | Draft (hand-authored) | Draft | No |
+| [MRC-042](master/MRC-042.md) | Verify security function operation (self-tests) | SI | Monthly | Draft (hand-authored) | Draft | No |
+| [MRC-043](master/MRC-043.md) | Verify software/firmware/information integrity | SI | Monthly | Draft (hand-authored) | Draft | No |
+| [MRC-044](master/MRC-044.md) | Install security-relevant software/firmware updates | SI | Monthly/30 days | Draft (hand-authored) | Draft | No |
+| [MRC-045](master/MRC-045.md) | Report information security performance measures | PM | Monthly/quarterly | Draft (hand-authored) | Draft | No |
+| [MRC-046](master/MRC-046.md) | Review privileged account list and entitlements | AC | Quarterly | Draft (hand-authored) | Draft | No |
+| [MRC-047](master/MRC-047.md) | Reassess least-privilege/privileged-function assignments | AC | Quarterly | Draft (hand-authored) | Draft | No |
+| [MRC-048](master/MRC-048.md) | Review authorized software list | CM | Quarterly | Draft (hand-authored) | Draft | No |
+| [MRC-049](master/MRC-049.md) | Reassess/reevaluate privileged access tied to change | CM | Quarterly | Draft (hand-authored) | Draft | No |
+| [MRC-050](master/MRC-050.md) | Review unsupported system components (EOL/EOS) | SA | Quarterly | Draft (hand-authored) | Draft | No |
+| [MRC-051](master/MRC-051.md) | Verify encryption-at-rest compliance | SC | Quarterly | Draft (hand-authored) | Draft | No |
+| [MRC-052](master/MRC-052.md) | Verify transmission encryption compliance | SC | Quarterly | Draft (hand-authored) | Draft | No |
+| [MRC-053](master/MRC-053.md) | Distribute quarterly security/privacy awareness reminders | AT | Quarterly | Draft (hand-authored) | Draft | No |
+| [MRC-054](master/MRC-054.md) | Review remote access and wireless access authorization lists | AC | Quarterly | Draft (hand-authored) | Draft | No |
+| [MRC-055](master/MRC-055.md) | Review publicly accessible content | AC | Quarterly | Draft (hand-authored) | Draft | No |
+| [MRC-056](master/MRC-056.md) | Review access-enforcement/flow-enforcement rule sets | AC | Quarterly | Draft (hand-authored) | Draft | No |
+| [MRC-057](master/MRC-057.md) | Verify device identification/authentication configuration | IA | Quarterly | Draft (hand-authored) | Draft | No |
+| [MRC-058](master/MRC-058.md) | Verify configuration settings against baseline/STIG | CM | Quarterly | Draft (hand-authored) | Draft | No |
+| [MRC-059](master/MRC-059.md) | Review protection of audit tools/information | AU | Quarterly | Draft (hand-authored) | Draft | No |
+| [MRC-060](master/MRC-060.md) | Review media access authorization list | MP | Quarterly | Draft (hand-authored) | Draft | No |
+| [MRC-061](master/MRC-061.md) | Verify media marking compliance | MP | Quarterly | Draft (hand-authored) | Draft | No |
+| [MRC-062](master/MRC-062.md) | Review transmission medium/output device access controls | PE | Quarterly | Draft (hand-authored) | Draft | No |
+| [MRC-063](master/MRC-063.md) | Review data quality of PII holdings | DI | Quarterly | Draft (hand-authored) | Draft | No |
+| [MRC-064](master/MRC-064.md) | Track and report privacy complaint trends | IP | Quarterly | Draft (hand-authored) | Draft | No |
+| [MRC-065](master/MRC-065.md) | Review boundary-protection rule set | SC | Quarterly | Draft (hand-authored) | Draft | No |
+| [MRC-066](master/MRC-066.md) | Review spam protection mechanism effectiveness | SI | Quarterly | Draft (hand-authored) | Draft | No |
+| [MRC-067](master/MRC-067.md) | Review non-privileged/user account list | AC | Semi-annual | Draft (hand-authored) | Draft | No |
+| [MRC-068](master/MRC-068.md) | Test/exercise incident response capability (SAP default) | IR | Semi-annual | Draft (hand-authored) | Draft | No |
+| [MRC-069](master/MRC-069.md) | Review inventory records for computers/removable media (IRS-analog practice) | CM | Semi-annual | Draft (hand-authored) | Draft | No |
+| [MRC-070](master/MRC-070.md) | Review/update baseline configuration | CM | Annual | Draft (hand-authored) | Draft | No |
 | [MRC-071](master/MRC-071.md) | Review/update all family policies and procedures (-1 controls) | All 26 | Annual | Pattern E | Stub | No |
 | [MRC-072](master/MRC-072.md) | Review/update contingency plan | CP | Annual | Pattern E | Stub | No |
 | [MRC-073](master/MRC-073.md) | Test/exercise contingency plan | CP | Annual | Pattern D | Stub | No |

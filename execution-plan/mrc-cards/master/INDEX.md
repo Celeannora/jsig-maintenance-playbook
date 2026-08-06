@@ -38,46 +38,46 @@ This file also indexes the Operational Tasking (34 cards) and Network Infrastruc
 | [MRC-028](MRC-028.md) | Update scanner vulnerability signatures | RA | Monthly | Draft (hand-authored) | runbook |
 | [MRC-029](MRC-029.md) | Check/report flaw-remediation (patch) status | SI | Monthly | Draft (hand-authored) | runbook |
 | [MRC-030](MRC-030.md) | Test backup integrity/restoration | CP | Monthly | Draft (hand-authored) | runbook |
-| [MRC-031](MRC-031.md) | Review physical access logs | PE | Monthly | Pattern B | runbook |
-| [MRC-032](MRC-032.md) | Review visitor access records | PE | Monthly | Pattern B | runbook |
-| [MRC-033](MRC-033.md) | Review Authorized Access List for restricted/SAPF areas | PE | Monthly | Pattern B | runbook |
-| [MRC-034](MRC-034.md) | Convene Configuration Control Board (when changes proposed) | CM | Monthly | Pattern H | runbook |
-| [MRC-035](MRC-035.md) | Update system component inventory (manual/verification pass) | CM | Monthly | Pattern B | runbook |
-| [MRC-036](MRC-036.md) | Maintain organization-level POA&M rollup | PM | Monthly | Pattern B | runbook |
-| [MRC-037](MRC-037.md) | Maintain organization-wide information system inventory | PM | Monthly | Pattern B | runbook |
-| [MRC-038](MRC-038.md) | Monitor nonlocal maintenance session records | MA | Monthly | Pattern B | runbook |
-| [MRC-039](MRC-039.md) | Verify media storage physical/environmental controls | MP | Monthly | Pattern A | runbook |
-| [MRC-040](MRC-040.md) | Monitor/audit privacy control compliance | AR | Monthly | Pattern B | runbook |
-| [MRC-041](MRC-041.md) | Update PII/system-holdings inventory | SE | Monthly | Pattern B | runbook |
-| [MRC-042](MRC-042.md) | Verify security function operation (self-tests) | SI | Monthly | Pattern A | runbook |
-| [MRC-043](MRC-043.md) | Verify software/firmware/information integrity | SI | Monthly | Pattern A | runbook |
-| [MRC-044](MRC-044.md) | Install security-relevant software/firmware updates | SI | Monthly/30 days | Pattern C | runbook |
-| [MRC-045](MRC-045.md) | Report information security performance measures | PM | Monthly/quarterly | Pattern B | runbook |
-| [MRC-046](MRC-046.md) | Review privileged account list and entitlements | AC | Quarterly | Pattern B | runbook |
-| [MRC-047](MRC-047.md) | Reassess least-privilege/privileged-function assignments | AC | Quarterly | Pattern B | runbook |
-| [MRC-048](MRC-048.md) | Review authorized software list | CM | Quarterly | Pattern B | runbook |
-| [MRC-049](MRC-049.md) | Reassess/reevaluate privileged access tied to change | CM | Quarterly | Pattern B | runbook |
-| [MRC-050](MRC-050.md) | Review unsupported system components (EOL/EOS) | SA | Quarterly | Pattern B | runbook |
-| [MRC-051](MRC-051.md) | Verify encryption-at-rest compliance | SC | Quarterly | Pattern B | runbook |
-| [MRC-052](MRC-052.md) | Verify transmission encryption compliance | SC | Quarterly | Pattern B | runbook |
-| [MRC-053](MRC-053.md) | Distribute quarterly security/privacy awareness reminders | AT | Quarterly | Custom | runbook |
-| [MRC-054](MRC-054.md) | Review remote access and wireless access authorization lists | AC | Quarterly | Pattern B | runbook |
-| [MRC-055](MRC-055.md) | Review publicly accessible content | AC | Quarterly | Pattern B | runbook |
-| [MRC-056](MRC-056.md) | Review access-enforcement/flow-enforcement rule sets | AC | Quarterly | Pattern B | runbook |
-| [MRC-057](MRC-057.md) | Verify device identification/authentication configuration | IA | Quarterly | Pattern B | runbook |
-| [MRC-058](MRC-058.md) | Verify configuration settings against baseline/STIG | CM | Quarterly | Pattern B | runbook |
-| [MRC-059](MRC-059.md) | Review protection of audit tools/information | AU | Quarterly | Pattern B | runbook |
-| [MRC-060](MRC-060.md) | Review media access authorization list | MP | Quarterly | Pattern B | runbook |
-| [MRC-061](MRC-061.md) | Verify media marking compliance | MP | Quarterly | Pattern B | runbook |
-| [MRC-062](MRC-062.md) | Review transmission medium/output device access controls | PE | Quarterly | Pattern B | runbook |
-| [MRC-063](MRC-063.md) | Review data quality of PII holdings | DI | Quarterly | Pattern B | runbook |
-| [MRC-064](MRC-064.md) | Track and report privacy complaint trends | IP | Quarterly | Pattern B | runbook |
-| [MRC-065](MRC-065.md) | Review boundary-protection rule set | SC | Quarterly | Pattern B | runbook |
-| [MRC-066](MRC-066.md) | Review spam protection mechanism effectiveness | SI | Quarterly | Pattern B | runbook |
-| [MRC-067](MRC-067.md) | Review non-privileged/user account list | AC | Semi-annual | Pattern B | runbook |
-| [MRC-068](MRC-068.md) | Test/exercise incident response capability (SAP default) | IR | Semi-annual | Pattern D | runbook |
-| [MRC-069](MRC-069.md) | Review inventory records for computers/removable media (IRS-analog practice) | CM | Semi-annual | Pattern B | runbook |
-| [MRC-070](MRC-070.md) | Review/update baseline configuration | CM | Annual | Pattern E | runbook |
+| [MRC-031](MRC-031.md) | Review physical access logs | PE | Monthly | Draft (hand-authored) | runbook |
+| [MRC-032](MRC-032.md) | Review visitor access records | PE | Monthly | Draft (hand-authored) | runbook |
+| [MRC-033](MRC-033.md) | Review Authorized Access List for restricted/SAPF areas | PE | Monthly | Draft (hand-authored) | runbook |
+| [MRC-034](MRC-034.md) | Convene Configuration Control Board (when changes proposed) | CM | Monthly | Draft (hand-authored) | runbook |
+| [MRC-035](MRC-035.md) | Update system component inventory (manual/verification pass) | CM | Monthly | Draft (hand-authored) | runbook |
+| [MRC-036](MRC-036.md) | Maintain organization-level POA&M rollup | PM | Monthly | Draft (hand-authored) | runbook |
+| [MRC-037](MRC-037.md) | Maintain organization-wide information system inventory | PM | Monthly | Draft (hand-authored) | runbook |
+| [MRC-038](MRC-038.md) | Monitor nonlocal maintenance session records | MA | Monthly | Draft (hand-authored) | runbook |
+| [MRC-039](MRC-039.md) | Verify media storage physical/environmental controls | MP | Monthly | Draft (hand-authored) | runbook |
+| [MRC-040](MRC-040.md) | Monitor/audit privacy control compliance | AR | Monthly | Draft (hand-authored) | runbook |
+| [MRC-041](MRC-041.md) | Update PII/system-holdings inventory | SE | Monthly | Draft (hand-authored) | runbook |
+| [MRC-042](MRC-042.md) | Verify security function operation (self-tests) | SI | Monthly | Draft (hand-authored) | runbook |
+| [MRC-043](MRC-043.md) | Verify software/firmware/information integrity | SI | Monthly | Draft (hand-authored) | runbook |
+| [MRC-044](MRC-044.md) | Install security-relevant software/firmware updates | SI | Monthly/30 days | Draft (hand-authored) | runbook |
+| [MRC-045](MRC-045.md) | Report information security performance measures | PM | Monthly/quarterly | Draft (hand-authored) | runbook |
+| [MRC-046](MRC-046.md) | Review privileged account list and entitlements | AC | Quarterly | Draft (hand-authored) | runbook |
+| [MRC-047](MRC-047.md) | Reassess least-privilege/privileged-function assignments | AC | Quarterly | Draft (hand-authored) | runbook |
+| [MRC-048](MRC-048.md) | Review authorized software list | CM | Quarterly | Draft (hand-authored) | runbook |
+| [MRC-049](MRC-049.md) | Reassess/reevaluate privileged access tied to change | CM | Quarterly | Draft (hand-authored) | runbook |
+| [MRC-050](MRC-050.md) | Review unsupported system components (EOL/EOS) | SA | Quarterly | Draft (hand-authored) | runbook |
+| [MRC-051](MRC-051.md) | Verify encryption-at-rest compliance | SC | Quarterly | Draft (hand-authored) | runbook |
+| [MRC-052](MRC-052.md) | Verify transmission encryption compliance | SC | Quarterly | Draft (hand-authored) | runbook |
+| [MRC-053](MRC-053.md) | Distribute quarterly security/privacy awareness reminders | AT | Quarterly | Draft (hand-authored) | runbook |
+| [MRC-054](MRC-054.md) | Review remote access and wireless access authorization lists | AC | Quarterly | Draft (hand-authored) | runbook |
+| [MRC-055](MRC-055.md) | Review publicly accessible content | AC | Quarterly | Draft (hand-authored) | runbook |
+| [MRC-056](MRC-056.md) | Review access-enforcement/flow-enforcement rule sets | AC | Quarterly | Draft (hand-authored) | runbook |
+| [MRC-057](MRC-057.md) | Verify device identification/authentication configuration | IA | Quarterly | Draft (hand-authored) | runbook |
+| [MRC-058](MRC-058.md) | Verify configuration settings against baseline/STIG | CM | Quarterly | Draft (hand-authored) | runbook |
+| [MRC-059](MRC-059.md) | Review protection of audit tools/information | AU | Quarterly | Draft (hand-authored) | runbook |
+| [MRC-060](MRC-060.md) | Review media access authorization list | MP | Quarterly | Draft (hand-authored) | runbook |
+| [MRC-061](MRC-061.md) | Verify media marking compliance | MP | Quarterly | Draft (hand-authored) | runbook |
+| [MRC-062](MRC-062.md) | Review transmission medium/output device access controls | PE | Quarterly | Draft (hand-authored) | runbook |
+| [MRC-063](MRC-063.md) | Review data quality of PII holdings | DI | Quarterly | Draft (hand-authored) | runbook |
+| [MRC-064](MRC-064.md) | Track and report privacy complaint trends | IP | Quarterly | Draft (hand-authored) | runbook |
+| [MRC-065](MRC-065.md) | Review boundary-protection rule set | SC | Quarterly | Draft (hand-authored) | runbook |
+| [MRC-066](MRC-066.md) | Review spam protection mechanism effectiveness | SI | Quarterly | Draft (hand-authored) | runbook |
+| [MRC-067](MRC-067.md) | Review non-privileged/user account list | AC | Semi-annual | Draft (hand-authored) | runbook |
+| [MRC-068](MRC-068.md) | Test/exercise incident response capability (SAP default) | IR | Semi-annual | Draft (hand-authored) | runbook |
+| [MRC-069](MRC-069.md) | Review inventory records for computers/removable media (IRS-analog practice) | CM | Semi-annual | Draft (hand-authored) | runbook |
+| [MRC-070](MRC-070.md) | Review/update baseline configuration | CM | Annual | Draft (hand-authored) | runbook |
 | [MRC-071](MRC-071.md) | Review/update all family policies and procedures (-1 controls) | All 26 | Annual | Pattern E | runbook |
 | [MRC-072](MRC-072.md) | Review/update contingency plan | CP | Annual | Pattern E | runbook |
 | [MRC-073](MRC-073.md) | Test/exercise contingency plan | CP | Annual | Pattern D | runbook |
