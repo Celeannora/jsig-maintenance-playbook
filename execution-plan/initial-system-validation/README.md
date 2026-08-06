@@ -17,7 +17,7 @@ separate, human-approved step (see "Design constraints" below).
 | File | Purpose |
 |---|---|
 | `IsvDefinitions.ps1` | Shared data source of truth, dot-sourced by both scripts below — report title/tool metadata, the 15-field System Identification block, 9 sections / 41 checklist items (`Id`, `Req`, `Method`, `Command`, optional `Evaluate` scriptblock), the Active Directory group-resolution appendix content, and the Dell/HP BIOS reference tables (`$BiosDellReference` / `$BiosHpReference`, plus their background/context HTML). Edit this file to change what the report asks for or says. |
-| `Invoke-ISVCollection.ps1` | **The collector.** Executes each of the 41 checklist items' PowerShell command against the local system, captures the real output as evidence, applies each item's `Evaluate` logic (or defaults to `MANUAL` when a check requires human judgment), and writes a canonical, SHA-256-digested `evidence.json`. Never throws on a failed check — a failing command is caught and recorded as `N/A` with the error text as evidence, so one broken check can't crash the run. Supports `-SampleMode` (no live checks, placeholder evidence only) for demonstration/dry-run use. |
+| `Invoke-ISVCollection.ps1` | **The collector.** Executes each of the 41 checklist items' PowerShell command against the local system, captures the real output as evidence, applies each item's `Evaluate` logic (or defaults to `MANUAL` when a check requires human judgment), and writes a canonical, SHA-256-digested `evidence.json`. Never throws on a failed check — a failing command is caught and recorded as `N/A` with the error text as evidence, so one broken check can't crash the run. The 7 site-specific identification fields (Inspector, Area/Location, Program, Asset Tag, SCAP Score, DCN, Prior Win10 Upgrade) are prompted for interactively (`Read-Host`) whenever not supplied as a parameter — no switches are required for a normal run. Supports `-SampleMode` (no live checks, placeholder evidence only, no prompts) for demonstration/dry-run use. |
 | `New-ISVReport.ps1` | **The renderer.** Loads an `evidence.json` bundle, recomputes the SHA-256 digest over its items and compares it to the stored value (tamper detection — mismatches surface as a loud warning in both the console and the rendered report), then writes the three HTML deliverables: the main report, and the two vendor BIOS reference guides. |
 | `Initial-System-Validation-Report-SAMPLE.html` | Generated deliverable — the main audit report. Every item shows the command executed, captured evidence, result, and timestamp. |
 | `Dell-BIOS-Reference-Guide.html` / `HP-BIOS-Reference-Guide.html` | Generated deliverables — companion vendor guides holding the automated command variant, physical-console manual fallback, discovery caveats, and citations for BIOS Controls items 1.A-1.E, split by vendor. |
@@ -27,17 +27,47 @@ separate, human-approved step (see "Design constraints" below).
 
 ## Running the collector
 
+**On the target Windows 11 endpoint**, from an elevated PowerShell prompt (needed for some of the
+read-only checks — e.g. `Get-LocalGroupMember` on built-in groups):
+
 ```powershell
-cd execution-plan/initial-system-validation
+cd execution-plan\initial-system-validation
+.\Invoke-ISVCollection.ps1
+```
 
-# Sample/demo mode -- no live checks executed, all items report a placeholder
-# result so the report's shape and formatting can be reviewed offline.
-./Invoke-ISVCollection.ps1 -SampleMode -OutputPath ./evidence.json
+That's the whole live-mode command. Since the 7 identification fields (Inspector, Area/Location,
+Program, Asset Tag, SCAP score, DCN, prior-upgrade flag) are site-specific and cannot be read from
+the OS, the script prompts for each one interactively:
 
-# Live mode -- must be run ON the audited Windows 11 endpoint, by an operator
-# with rights to run the checklist's read-only commands. Manual-only fields
-# (Area/Location, Program, Inspector, Asset Tag, SCAP score, DCN, prior-upgrade
-# flag) are supplied as parameters since they cannot be auto-collected.
+```
+System Identification -- enter the following site-specific details.
+(Press Enter to leave a field as "N/A -- not provided by operator".)
+CSU Inspector name: J. Smith
+Area / Location: Building 4, Room 210
+Program name: JSIG Maintenance Playbook
+Asset Tag Number (TAG#): TAG-0001
+SCAP score (from separate SCAP scan tool, or N/A): 98.2
+DCN: DCN-0001
+Prior Windows 10-to-11 upgrade? (Y/N): N
+```
+
+It then runs all 41 checks and writes `evidence.json` next to itself:
+
+```
+Initial System Validation collection starting (...)...
+Collection complete. 41 items recorded.
+Evidence bundle written to: .\evidence.json
+SHA-256 digest: <hex>
+```
+
+**This only writes the evidence file — it does not produce the HTML report.** Rendering the report
+is a separate, deliberate second step; see "Regenerating the report" below.
+
+For unattended/scripted runs, any field can still be supplied as a parameter, which skips the
+prompt for that field only (mix and match freely — e.g. pre-fill `-Inspector` and get prompted for
+the rest):
+
+```powershell
 ./Invoke-ISVCollection.ps1 `
   -Inspector "J. Smith" -AreaLocation "Building 4, Room 210" `
   -Program "JSIG Maintenance Playbook" -AssetTag "TAG-0001" `
@@ -45,10 +75,24 @@ cd execution-plan/initial-system-validation
   -OutputPath ./evidence.json
 ```
 
-Live mode executes each item's real command (`Get-CimInstance`, `icacls`, `auditpol`, `secedit`,
-etc.) and records the actual output as evidence with a live `PASS`/`FAIL`/`N/A`/`MANUAL` result and
-timestamp. Every check is wrapped in its own try/catch, so a single unsupported or access-denied
-command degrades to `N/A` with the error captured as evidence rather than halting the run.
+```powershell
+# Sample/demo mode -- no prompts, no live checks executed; all items report a
+# placeholder result so the report's shape and formatting can be reviewed offline.
+./Invoke-ISVCollection.ps1 -SampleMode -OutputPath ./evidence.json
+```
+
+Live mode executes each item's real command (`Get-CimInstance`, `icacls`, `reg query`, `auditpol`,
+`secedit`, etc.) and records the actual output as evidence with a live `PASS`/`FAIL`/`N/A`/`MANUAL`
+result and timestamp. Every check is wrapped in its own try/catch, so a single unsupported or
+access-denied command degrades to `N/A` with the error captured as evidence rather than halting the
+run. Native command output (e.g. `reg query` or `icacls` against a key/path that doesn't exist on
+this particular host) is redirected into the captured evidence rather than printed to the console —
+an earlier version of this script let lines like `ERROR: The system was unable to find the
+specified registry key or value.` print directly to the console while collection was still running,
+which looked alarming but was harmless (the item was already correctly recorded as `N/A`/`FAIL`
+with no evidence captured). That text now lands cleanly in the item's evidence field instead, and
+the console stays quiet. A summary line (`Collection complete. N items recorded.`) always confirms
+whether the run finished.
 
 ## Regenerating the report
 

@@ -65,29 +65,88 @@
     this script.
 
 .EXAMPLE
+    .\Invoke-ISVCollection.ps1
+    Interactive live run: prompts for Inspector, Area/Location, Program,
+    Asset Tag, SCAP Score, DCN, and Prior Win10 Upgrade one at a time, then
+    executes all 41 checks against this machine.
+
+.EXAMPLE
     .\Invoke-ISVCollection.ps1 -Inspector "J. Smith" -AreaLocation "Bldg 4" `
         -Program "JSIG-DEMO" -AssetTag "TAG-00042" -Dcn "N/A" `
         -PriorWin10Upgrade "N"
+    Non-interactive live run: any field supplied as a parameter is used as-is
+    and skipped in the prompt sequence; any field NOT supplied is still
+    prompted for interactively (mix and match freely).
 
 .EXAMPLE
     .\Invoke-ISVCollection.ps1 -SampleMode -OutputPath .\evidence.json
+    Demo/mockup run: no prompts, no live checks -- re-emits placeholder rows.
 #>
 
 [CmdletBinding()]
 param(
-    [string]$Inspector          = 'SAMPLE DATA -- not a real examiner',
-    [string]$AreaLocation       = 'SAMPLE placeholder -- site-specific, not OS-derivable',
-    [string]$Program            = 'SAMPLE placeholder -- site-specific, not OS-derivable',
-    [string]$AssetTag           = 'SAMPLE placeholder -- site-specific, not OS-derivable',
-    [string]$ScapScore          = 'SAMPLE placeholder -- populate from SCAP scan tool output',
-    [string]$Dcn                = 'SAMPLE placeholder -- undefined site-specific abbreviation',
-    [string]$PriorWin10Upgrade  = 'SAMPLE placeholder -- site-specific history',
+    [string]$Inspector,
+    [string]$AreaLocation,
+    [string]$Program,
+    [string]$AssetTag,
+    [string]$ScapScore,
+    [string]$Dcn,
+    [string]$PriorWin10Upgrade,
     [switch]$SampleMode,
     [string]$OutputPath = (Join-Path $PSScriptRoot 'evidence.json')
 )
 
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
+
+# ---------------------------------------------------------------------------
+# Interactive prompting for the 7 site-specific identification fields.
+#
+# Design: these fields cannot be derived from the OS, so the script always
+# needs a value for each of them. Rather than force the operator to memorize
+# and type 7 command-line switches, any field left unsupplied on the command
+# line is now prompted for interactively via Read-Host. Passing a switch
+# still works exactly as before (useful for unattended/scripted runs) and
+# skips the prompt for that specific field only -- interactive and
+# switch-based input can be freely mixed.
+#
+# -SampleMode never prompts: it re-emits the historical SAMPLE placeholder
+# text for any field not explicitly overridden, matching the previous
+# demo/mockup behavior exactly.
+# ---------------------------------------------------------------------------
+function Read-IsvField {
+    param(
+        [string]$CurrentValue,
+        [string]$PromptText,
+        [string]$SampleDefault
+    )
+    if (-not [string]::IsNullOrWhiteSpace($CurrentValue)) { return $CurrentValue }
+    if ($SampleMode) { return $SampleDefault }
+    try {
+        $entered = Read-Host $PromptText
+    } catch {
+        # No interactive console available (e.g. run from a non-interactive
+        # scheduler) -- degrade gracefully instead of crashing the run.
+        Write-Warning "Could not prompt for '$PromptText' (no interactive console available); recording as not provided."
+        $entered = ''
+    }
+    if ([string]::IsNullOrWhiteSpace($entered)) { return 'N/A -- not provided by operator' }
+    return $entered
+}
+
+if (-not $SampleMode) {
+    Write-Host ''
+    Write-Host 'System Identification -- enter the following site-specific details.' -ForegroundColor Cyan
+    Write-Host '(Press Enter to leave a field as "N/A -- not provided by operator".)' -ForegroundColor DarkGray
+}
+$Inspector         = Read-IsvField -CurrentValue $Inspector         -PromptText 'CSU Inspector name'                                   -SampleDefault 'SAMPLE DATA -- not a real examiner'
+$AreaLocation      = Read-IsvField -CurrentValue $AreaLocation      -PromptText 'Area / Location'                                       -SampleDefault 'SAMPLE placeholder -- site-specific, not OS-derivable'
+$Program           = Read-IsvField -CurrentValue $Program           -PromptText 'Program name'                                          -SampleDefault 'SAMPLE placeholder -- site-specific, not OS-derivable'
+$AssetTag          = Read-IsvField -CurrentValue $AssetTag          -PromptText 'Asset Tag Number (TAG#)'                              -SampleDefault 'SAMPLE placeholder -- site-specific, not OS-derivable'
+$ScapScore         = Read-IsvField -CurrentValue $ScapScore         -PromptText 'SCAP score (from separate SCAP scan tool, or N/A)'    -SampleDefault 'SAMPLE placeholder -- populate from SCAP scan tool output'
+$Dcn               = Read-IsvField -CurrentValue $Dcn               -PromptText 'DCN'                                                   -SampleDefault 'SAMPLE placeholder -- undefined site-specific abbreviation'
+$PriorWin10Upgrade = Read-IsvField -CurrentValue $PriorWin10Upgrade -PromptText 'Prior Windows 10-to-11 upgrade? (Y/N)'                -SampleDefault 'SAMPLE placeholder -- site-specific history'
+if (-not $SampleMode) { Write-Host '' }
 
 . (Join-Path $PSScriptRoot 'IsvDefinitions.ps1')
 
@@ -244,7 +303,19 @@ function Invoke-IsvItem {
     $evidenceText  = ''
     try {
         $scriptBlock  = [scriptblock]::Create($Item.Command)
-        $rawObjects   = & $scriptBlock
+        # '2>&1' merges the error stream into the output stream for this
+        # invocation. This matters for native executables (reg.exe,
+        # icacls.exe): on a non-existent key/path they write their message
+        # to STDERR and exit non-zero WITHOUT throwing a catchable
+        # PowerShell exception, so without this redirect that text prints
+        # directly to the console (bypassing the try/catch entirely) and
+        # is lost from the evidence record. With the redirect it becomes
+        # part of $rawObjects/$evidenceText instead -- captured as evidence
+        # exactly like any other command output, and nothing leaks to the
+        # console. PowerShell cmdlets under $ErrorActionPreference = 'Stop'
+        # are unaffected: their errors still throw and are still caught
+        # below.
+        $rawObjects   = & $scriptBlock 2>&1
         $evidenceText = ($rawObjects | Out-String).TrimEnd()
         if ([string]::IsNullOrWhiteSpace($evidenceText)) {
             $evidenceText = '(no output returned)'
