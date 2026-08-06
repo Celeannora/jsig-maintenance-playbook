@@ -2,16 +2,17 @@
 
 Tracks the build-out status of every Maintenance Requirement Card (MRC) across all three families in this repository -- **master** (110, JSIG Master Calendar), **ops** (34, Operational Tasking), and **network-infra** (16, Network Infrastructure Tasking), for a combined **160** cards.
 
-Regenerate this file after upgrading any card's status: edit the `GUIDE_STATUS_OVERRIDES` dict in `/home/user/workspace/build_mrc_status_readme.py` and re-run `python3 build_mrc_status_readme.py`.
+Regenerate this file after upgrading any card's status: edit the `GUIDE_STATUS_OVERRIDES` or `DRAFT_STATUS_OVERRIDES` dict in `/home/user/workspace/build_mrc_status_readme.py` and re-run `python3 build_mrc_status_readme.py`.
 
 ## Status definitions
 
 | Status | Meaning |
 |---|---|
 | **Stub** | Card follows one of the 8 generic execution patterns (Pattern A-H) from [`runbooks/_EXECUTION-PATTERNS.md`](../runbooks/_EXECUTION-PATTERNS.md) with light task-specific substitution. Procedure steps describe *what* to check and *what* done looks like in tool-agnostic language, but do not name specific screens, commands, or menu paths. **Not yet usable as literal step-by-step instructions for an employee.** |
+| **Draft** | Card has been hand-authored as a first-pass, sourced rough draft -- real, control-specific action steps grounded in cited reference documentation (see [`reference/external-sources/INDEX.md`](../../reference/external-sources/INDEX.md)), including named tools/commands where applicable. Not yet certified to full Guide quality (no companion automation script or exhaustive failure-triage table, and not yet verified against a live environment). **Substantially more specific than Stub, but review before treating as a final, ready-to-sign-off procedure.** |
 | **Guide** | Card has been hand-authored with exact, tool-specific steps an employee can follow literally -- naming the actual product, screen, command, or menu path in the assumed baseline environment (see [`AGENTS.md`](../../AGENTS.md) rule 8: Windows Server/Active Directory, Splunk, Tenable Nessus, Trellix/McAfee ePO). **Usable as-is by an employee performing the task.** |
 
-**Current progress: 34 / 160 cards upgraded to Guide status (126 remaining as Stub).**
+**Current progress: 34 / 160 cards upgraded to Guide status, 0 / 160 at Draft status (126 remaining as Stub).**
 
 **Script** column: `Yes` = a runnable PowerShell automation script exists under [`scripts/`](scripts/README.md) for this card; `No` = scriptable in principle but not yet built; `N/A` = inherently manual/judgment task, cannot be scripted (see [`AGENTS.md`](../../AGENTS.md) rule 9).
 
