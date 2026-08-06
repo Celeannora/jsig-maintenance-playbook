@@ -1,9 +1,9 @@
 {
   "generated_by": "reference/research/_research_scripts/build_sources_ledger.py",
-  "total_unique_urls": 294,
-  "cited_in_deliverables_count": 61,
+  "total_unique_urls": 328,
+  "cited_in_deliverables_count": 95,
   "surfaced_only_count": 233,
-  "raw_citation_occurrences_nondeduped": 2367,
+  "raw_citation_occurrences_nondeduped": 2404,
   "sources": [
     {
       "url": "https://advisera.com/27001academy/blog/2018/11/05/raci-matrix-for-iso-27001-implementation-project/",
@@ -43,10 +43,12 @@
       "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "domain": "cisa.gov",
       "cited_in_deliverables": [
-        "execution-plan/templates/ESCALATION-MATRIX.md"
+        "execution-plan/templates/ESCALATION-MATRIX.md",
+        "execution-plan/tools/README.md"
       ],
       "anchor_text": [
         "CISA KEV Catalog",
+        "CISA KEV catalog",
         "CISA's Known Exploited Vulnerabilities (KEV) catalog"
       ],
       "surfaced_in_research": [],
@@ -68,13 +70,39 @@
       "status": "cited"
     },
     {
+      "url": "https://community.splunk.com/t5/Deployment-Architecture/List-Universal-fowarders-disconnected-from-the-Deployment-Server/m-p/759746",
+      "domain": "community.splunk.com",
+      "cited_in_deliverables": [
+        "execution-plan/mrc-cards/ops/MRC-OPS-023.md"
+      ],
+      "anchor_text": [
+        "Forwarders not connected to Deployment Server (community discussion of `deployment/server/clients` and `lastPhoneHomeTime`)",
+        "Splunk's own documentation"
+      ],
+      "surfaced_in_research": [],
+      "research_titles": [],
+      "status": "cited"
+    },
+    {
+      "url": "https://community.splunk.com/t5/Getting-Data-In/REST-services-data-indexes-How-can-I-see-all-my-indexes-using/m-p/104384/highlight/true",
+      "domain": "community.splunk.com",
+      "cited_in_deliverables": [
+        "execution-plan/mrc-cards/ops/MRC-OPS-023.md"
+      ],
+      "anchor_text": [
+        "REST `/services/data/indexes` usage discussion"
+      ],
+      "surfaced_in_research": [],
+      "research_titles": [],
+      "status": "cited"
+    },
+    {
       "url": "https://csrc.nist.gov/CSRC/media/Projects/risk-management/800-53%20Downloads/800-53r4/800-53-rev4-controls.xml",
       "domain": "csrc.nist.gov",
       "cited_in_deliverables": [
         "MAINTENANCE-PLAN.md",
         "README.md",
         "reference/JSIG/README.md",
-        "reference/JSIG/appendices/EXTRACTION-LIMITATIONS.md",
         "reference/JSIG/control-families/AC.md",
         "reference/JSIG/control-families/AP.md",
         "reference/JSIG/control-families/AR.md",
@@ -167,6 +195,7 @@
         "AGENTS.md",
         "MAINTENANCE-PLAN.md",
         "README.md",
+        "reference/JSIG-source/section-1.5-roles-and-responsibilities.md",
         "reference/JSIG/README.md",
         "reference/JSIG/appendices/APPENDIX-A-REFERENCES.md",
         "reference/JSIG/appendices/APPENDIX-B-ACRONYMS.md",
@@ -202,7 +231,6 @@
         "reference/JSIG/control-families/SI.md",
         "reference/JSIG/control-families/TR.md",
         "reference/JSIG/control-families/UL.md",
-        "reference/JSIG-source/section-1.5-roles-and-responsibilities.md",
         "reference/research/operational-maintenance-schedules-research.md"
       ],
       "anchor_text": [
@@ -214,6 +242,34 @@
         "JSIG PDF, DCSA",
         "reference scaffold extraction note",
         "research file"
+      ],
+      "surfaced_in_research": [],
+      "research_titles": [],
+      "status": "cited"
+    },
+    {
+      "url": "https://www.dell.com/support/kbdoc/en-in/000391164/poweredge-how-to-monitor-server-health-from-the-idrac9",
+      "domain": "dell.com",
+      "cited_in_deliverables": [
+        "execution-plan/mrc-cards/ops/MRC-OPS-028.md"
+      ],
+      "anchor_text": [
+        "Dell: How to Monitor Server Health from iDRAC9"
+      ],
+      "surfaced_in_research": [],
+      "research_titles": [],
+      "status": "cited"
+    },
+    {
+      "url": "https://developer.tenable.com/docs/authorization",
+      "domain": "developer.tenable.com",
+      "cited_in_deliverables": [
+        "execution-plan/mrc-cards/ops/MRC-OPS-024.md"
+      ],
+      "anchor_text": [
+        "Authorization \u2014 Tenable Developer Portal",
+        "Tenable's authorization documentation",
+        "Tenable's documentation"
       ],
       "surfaced_in_research": [],
       "research_titles": [],
@@ -237,6 +293,33 @@
       "status": "cited"
     },
     {
+      "url": "https://www.dmtf.org/standards/redfish",
+      "domain": "dmtf.org",
+      "cited_in_deliverables": [
+        "execution-plan/mrc-cards/ops/MRC-OPS-028.md"
+      ],
+      "anchor_text": [
+        "DMTF Redfish standard",
+        "DMTF Redfish standard (vendor-neutral out-of-band management API both iDRAC and iLO implement)"
+      ],
+      "surfaced_in_research": [],
+      "research_titles": [],
+      "status": "cited"
+    },
+    {
+      "url": "https://docs-be.ni.com/bundle/hpe-ilo-4-feature/raw/resource/enus/377263a.pdf",
+      "domain": "docs-be.ni.com",
+      "cited_in_deliverables": [
+        "execution-plan/mrc-cards/ops/MRC-OPS-028.md"
+      ],
+      "anchor_text": [
+        "HPE iLO 4 User Guide \u2014 viewing health summary and storage information"
+      ],
+      "surfaced_in_research": [],
+      "research_titles": [],
+      "status": "cited"
+    },
+    {
       "url": "https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/ops_ready_to_support_use_runbooks.html",
       "domain": "docs.aws.amazon.com",
       "cited_in_deliverables": [
@@ -251,6 +334,19 @@
       "research_titles": [
         "OPS07-BP03 Use runbooks to perform procedures - Operational Excellence Pillar"
       ],
+      "status": "cited"
+    },
+    {
+      "url": "https://docs.splunk.com/Documentation/Splunk/9.4.2/RESTUM/RESTusing",
+      "domain": "docs.splunk.com",
+      "cited_in_deliverables": [
+        "execution-plan/mrc-cards/ops/MRC-OPS-023.md"
+      ],
+      "anchor_text": [
+        "Basic concepts about the Splunk platform REST API"
+      ],
+      "surfaced_in_research": [],
+      "research_titles": [],
       "status": "cited"
     },
     {
@@ -495,6 +591,19 @@
       "status": "cited"
     },
     {
+      "url": "https://github.com/LimberDuck/nessus-cheat-sheet/blob/main/nessus-cheat-sheet.adoc",
+      "domain": "github.com",
+      "cited_in_deliverables": [
+        "execution-plan/mrc-cards/ops/MRC-OPS-024.md"
+      ],
+      "anchor_text": [
+        "nessus-cheat-sheet (server/status, server/properties, plugin feed date format)"
+      ],
+      "surfaced_in_research": [],
+      "research_titles": [],
+      "status": "cited"
+    },
+    {
       "url": "https://github.com/PagerDuty/incident-response-docs/blob/master/docs/during/security_incident_response.md",
       "domain": "github.com",
       "cited_in_deliverables": [
@@ -512,6 +621,19 @@
       "status": "cited"
     },
     {
+      "url": "https://github.com/fkie-cad/nvd-json-data-feeds",
+      "domain": "github.com",
+      "cited_in_deliverables": [
+        "execution-plan/tools/README.md"
+      ],
+      "anchor_text": [
+        "fkie-cad/nvd-json-data-feeds"
+      ],
+      "surfaced_in_research": [],
+      "research_titles": [],
+      "status": "cited"
+    },
+    {
       "url": "https://www.gsa.gov/system/files/Contingency-Planning-(CP",
       "domain": "gsa.gov",
       "cited_in_deliverables": [
@@ -520,6 +642,45 @@
       ],
       "anchor_text": [
         "GSA Contingency Planning Guide"
+      ],
+      "surfaced_in_research": [],
+      "research_titles": [],
+      "status": "cited"
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise/administer/monitor/9.4/proactive-splunk-component-monitoring-with-the-splunkd-health-report/investigate-feature-health-status-changes",
+      "domain": "help.splunk.com",
+      "cited_in_deliverables": [
+        "execution-plan/mrc-cards/ops/MRC-OPS-023.md"
+      ],
+      "anchor_text": [
+        "Investigate feature health status changes (splunkd health report)"
+      ],
+      "surfaced_in_research": [],
+      "research_titles": [],
+      "status": "cited"
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise/leverage-rest-apis/rest-api-reference/10.4/introspection-endpoints/introspection-endpoint-descriptions",
+      "domain": "help.splunk.com",
+      "cited_in_deliverables": [
+        "execution-plan/mrc-cards/ops/MRC-OPS-023.md"
+      ],
+      "anchor_text": [
+        "Introspection endpoint descriptions"
+      ],
+      "surfaced_in_research": [],
+      "research_titles": [],
+      "status": "cited"
+    },
+    {
+      "url": "https://help.splunk.com/en/splunk-enterprise/rest-api-reference/9.4/license-endpoints/license-endpoint-descriptions",
+      "domain": "help.splunk.com",
+      "cited_in_deliverables": [
+        "execution-plan/mrc-cards/ops/MRC-OPS-023.md"
+      ],
+      "anchor_text": [
+        "License endpoint descriptions (licenser/usage)"
       ],
       "surfaced_in_research": [],
       "research_titles": [],
@@ -627,6 +788,175 @@
       "status": "cited"
     },
     {
+      "url": "https://www.it-connect.fr/supervision-comment-checker-letat-de-la-synchronisation-wsus/",
+      "domain": "it-connect.fr",
+      "cited_in_deliverables": [
+        "execution-plan/mrc-cards/ops/MRC-OPS-029.md"
+      ],
+      "anchor_text": [
+        "WSUS synchronization status via GetSubscription().GetLastSynchronizationInfo() (community pattern)"
+      ],
+      "surfaced_in_research": [],
+      "research_titles": [],
+      "status": "cited"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-adts/f9e9b7e2-c7ac-4db6-ba38-71d9696981e9",
+      "domain": "learn.microsoft.com",
+      "cited_in_deliverables": [
+        "execution-plan/mrc-cards/ops/MRC-OPS-027.md"
+      ],
+      "anchor_text": [
+        "MS-ADTS: msDS-UserPasswordExpiryTimeComputed"
+      ],
+      "surfaced_in_research": [],
+      "research_titles": [],
+      "status": "cited"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/powershell/module/activedirectory/get-aduser?view=windowsserver2025-ps",
+      "domain": "learn.microsoft.com",
+      "cited_in_deliverables": [
+        "execution-plan/mrc-cards/ops/MRC-OPS-027.md"
+      ],
+      "anchor_text": [
+        "Get-ADUser (ActiveDirectory)"
+      ],
+      "surfaced_in_research": [],
+      "research_titles": [],
+      "status": "cited"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/powershell/module/activedirectory/set-aduser?view=windowsserver2025-ps",
+      "domain": "learn.microsoft.com",
+      "cited_in_deliverables": [
+        "execution-plan/mrc-cards/ops/MRC-OPS-027.md"
+      ],
+      "anchor_text": [
+        "Set-ADUser (ActiveDirectory)"
+      ],
+      "surfaced_in_research": [],
+      "research_titles": [],
+      "status": "cited"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/powershell/module/dhcpserver/get-dhcpserverv4scope?view=windowsserver2025-ps",
+      "domain": "learn.microsoft.com",
+      "cited_in_deliverables": [
+        "execution-plan/mrc-cards/ops/MRC-OPS-032.md"
+      ],
+      "anchor_text": [
+        "Get-DhcpServerv4Scope reference"
+      ],
+      "surfaced_in_research": [],
+      "research_titles": [],
+      "status": "cited"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/powershell/module/dhcpserver/get-dhcpserverv4scopestatistics?view=windowsserver2025-ps",
+      "domain": "learn.microsoft.com",
+      "cited_in_deliverables": [
+        "execution-plan/mrc-cards/ops/MRC-OPS-032.md"
+      ],
+      "anchor_text": [
+        "Get-DhcpServerv4ScopeStatistics reference (PercentageInUse)"
+      ],
+      "surfaced_in_research": [],
+      "research_titles": [],
+      "status": "cited"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-service?view=powershell-7.4",
+      "domain": "learn.microsoft.com",
+      "cited_in_deliverables": [
+        "execution-plan/mrc-cards/ops/MRC-OPS-034.md"
+      ],
+      "anchor_text": [
+        "Get-Service reference"
+      ],
+      "surfaced_in_research": [],
+      "research_titles": [],
+      "status": "cited"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/powershell/module/scheduledtasks/?view=windowsserver2025-ps",
+      "domain": "learn.microsoft.com",
+      "cited_in_deliverables": [
+        "execution-plan/mrc-cards/ops/MRC-OPS-026.md"
+      ],
+      "anchor_text": [
+        "ScheduledTasks module overview"
+      ],
+      "surfaced_in_research": [],
+      "research_titles": [],
+      "status": "cited"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/powershell/module/scheduledtasks/get-scheduledtask?view=windowsserver2025-ps",
+      "domain": "learn.microsoft.com",
+      "cited_in_deliverables": [
+        "execution-plan/mrc-cards/ops/MRC-OPS-026.md"
+      ],
+      "anchor_text": [
+        "Get-ScheduledTask (ScheduledTasks)"
+      ],
+      "surfaced_in_research": [],
+      "research_titles": [],
+      "status": "cited"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/powershell/module/scheduledtasks/get-scheduledtaskinfo?view=windowsserver2025-ps",
+      "domain": "learn.microsoft.com",
+      "cited_in_deliverables": [
+        "execution-plan/mrc-cards/ops/MRC-OPS-026.md"
+      ],
+      "anchor_text": [
+        "Get-ScheduledTaskInfo (ScheduledTasks)"
+      ],
+      "surfaced_in_research": [],
+      "research_titles": [],
+      "status": "cited"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/powershell/module/smbshare/get-smbshare?view=windowsserver2025-ps",
+      "domain": "learn.microsoft.com",
+      "cited_in_deliverables": [
+        "execution-plan/mrc-cards/ops/MRC-OPS-031.md"
+      ],
+      "anchor_text": [
+        "Get-SmbShare reference"
+      ],
+      "surfaced_in_research": [],
+      "research_titles": [],
+      "status": "cited"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/powershell/module/storage/get-volume?view=windowsserver2025-ps",
+      "domain": "learn.microsoft.com",
+      "cited_in_deliverables": [
+        "execution-plan/mrc-cards/ops/MRC-OPS-031.md"
+      ],
+      "anchor_text": [
+        "Get-Volume reference (SizeRemaining/Size/HealthStatus)"
+      ],
+      "surfaced_in_research": [],
+      "research_titles": [],
+      "status": "cited"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/powershell/module/updateservices/get-wsusupdate?view=windowsserver2025-ps",
+      "domain": "learn.microsoft.com",
+      "cited_in_deliverables": [
+        "execution-plan/mrc-cards/ops/MRC-OPS-029.md"
+      ],
+      "anchor_text": [
+        "Get-WsusUpdate reference (Classification/Status/Approval enum values)"
+      ],
+      "surfaced_in_research": [],
+      "research_titles": [],
+      "status": "cited"
+    },
+    {
       "url": "https://learn.microsoft.com/en-us/security/operations/incident-response-planning",
       "domain": "learn.microsoft.com",
       "cited_in_deliverables": [
@@ -661,6 +991,32 @@
       "status": "cited"
     },
     {
+      "url": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/certutil",
+      "domain": "learn.microsoft.com",
+      "cited_in_deliverables": [
+        "execution-plan/mrc-cards/ops/MRC-OPS-025.md"
+      ],
+      "anchor_text": [
+        "Certutil command reference (Windows Commands)"
+      ],
+      "surfaced_in_research": [],
+      "research_titles": [],
+      "status": "cited"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/windows/win32/cimwin32prov/win32-operatingsystem",
+      "domain": "learn.microsoft.com",
+      "cited_in_deliverables": [
+        "execution-plan/mrc-cards/ops/MRC-OPS-033.md"
+      ],
+      "anchor_text": [
+        "Win32_OperatingSystem class reference (LastBootUpTime)"
+      ],
+      "surfaced_in_research": [],
+      "research_titles": [],
+      "status": "cited"
+    },
+    {
       "url": "https://www.marines.mil/News/Messages/Messages-Display/Article/889863/mcbul-5239-usmc-information-assurance-vulnerability-management-iavm-program/",
       "domain": "marines.mil",
       "cited_in_deliverables": [
@@ -678,6 +1034,33 @@
       "research_titles": [
         "MCBUL 5239. USMC INFORMATION ASSURANCE VULNERABILITY MANAGEMENT (IAVM) PROGRAM"
       ],
+      "status": "cited"
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/licensing/product-licensing/client-access-license",
+      "domain": "microsoft.com",
+      "cited_in_deliverables": [
+        "execution-plan/mrc-cards/ops/MRC-OPS-030.md"
+      ],
+      "anchor_text": [
+        "Microsoft: Client Access Licenses (CAL) & Management Licenses overview"
+      ],
+      "surfaced_in_research": [],
+      "research_titles": [],
+      "status": "cited"
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/microsoft-365/exchange/microsoft-exchange-server-licensing-licensing-overview",
+      "domain": "microsoft.com",
+      "cited_in_deliverables": [
+        "execution-plan/mrc-cards/ops/MRC-OPS-030.md"
+      ],
+      "anchor_text": [
+        "Exchange Server licensing overview",
+        "Microsoft: Exchange Server Subscription Edition licensing overview"
+      ],
+      "surfaced_in_research": [],
+      "research_titles": [],
       "status": "cited"
     },
     {
@@ -908,6 +1291,19 @@
       "status": "cited"
     },
     {
+      "url": "https://www.powershellgallery.com/packages/PSSystemInfo/1.0/Content/Public%5CGet-PendingReboot.ps1",
+      "domain": "powershellgallery.com",
+      "cited_in_deliverables": [
+        "execution-plan/mrc-cards/ops/MRC-OPS-033.md"
+      ],
+      "anchor_text": [
+        "community reference pattern for the standard pending-reboot registry indicators (Component Based Servicing, Windows Update Auto Update, PendingFileRenameOperations)"
+      ],
+      "surfaced_in_research": [],
+      "research_titles": [],
+      "status": "cited"
+    },
+    {
       "url": "https://public.cyber.mil/stigs/compilations/",
       "domain": "public.cyber.mil",
       "cited_in_deliverables": [
@@ -1067,6 +1463,19 @@
       "status": "cited"
     },
     {
+      "url": "https://stackoverflow.com/questions/42357157/netnessusrest-using-api-keys-vs-session-token",
+      "domain": "stackoverflow.com",
+      "cited_in_deliverables": [
+        "execution-plan/mrc-cards/ops/MRC-OPS-024.md"
+      ],
+      "anchor_text": [
+        "Net::Nessus::REST using API Keys vs. session token"
+      ],
+      "surfaced_in_research": [],
+      "research_titles": [],
+      "status": "cited"
+    },
+    {
       "url": "https://stig-manager.readthedocs.io/en/1.3.7/reference/",
       "domain": "stig-manager.readthedocs.io",
       "cited_in_deliverables": [
@@ -1135,6 +1544,19 @@
       "status": "cited"
     },
     {
+      "url": "https://support.hpe.com/hpesc/public/docDisplay?docId=a00017522en_us&page=GUID-839B1C8A-4663-4F27-AB35-0F7FDBB304D2.html&docLocale=en_US",
+      "domain": "support.hpe.com",
+      "cited_in_deliverables": [
+        "execution-plan/mrc-cards/ops/MRC-OPS-028.md"
+      ],
+      "anchor_text": [
+        "HPE: Using the Server Health Summary"
+      ],
+      "surfaced_in_research": [],
+      "research_titles": [],
+      "status": "cited"
+    },
+    {
       "url": "https://www.tcsa.in/frameworks/iso-27001/controls/5-2-information-security-roles-and-responsibilities",
       "domain": "tcsa.in",
       "cited_in_deliverables": [
@@ -1149,6 +1571,32 @@
       "research_titles": [
         "ISO 27001 A.5.2: Security Roles & Responsibilities | TCSA"
       ],
+      "status": "cited"
+    },
+    {
+      "url": "https://www.tenable.com/plugins",
+      "domain": "tenable.com",
+      "cited_in_deliverables": [
+        "execution-plan/tools/README.md"
+      ],
+      "anchor_text": [
+        "plugin detail pages"
+      ],
+      "surfaced_in_research": [],
+      "research_titles": [],
+      "status": "cited"
+    },
+    {
+      "url": "https://www.tenable.com/products/nessus/nessus-essentials",
+      "domain": "tenable.com",
+      "cited_in_deliverables": [
+        "execution-plan/tools/README.md"
+      ],
+      "anchor_text": [
+        "Nessus Essentials"
+      ],
+      "surfaced_in_research": [],
+      "research_titles": [],
       "status": "cited"
     },
     {
