@@ -1,8 +1,8 @@
 {
   "meta": {
     "report_title": "Initial System Validation Report",
-    "report_id": "ISV-UNKNOWN-HOST-20260806160823",
-    "generated_at_utc": "2026-08-06 16:08 UTC",
+    "report_id": "ISV-UNKNOWN-HOST-20260806161512",
+    "generated_at_utc": "2026-08-06 16:15 UTC",
     "tool_name": "initial-system-validation (PowerShell collector/renderer)",
     "tool_version": "v1.0-powershell",
     "examiner": "SAMPLE DATA -- not a real examiner",

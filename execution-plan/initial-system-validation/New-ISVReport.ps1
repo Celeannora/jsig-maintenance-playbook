@@ -286,9 +286,8 @@ $ReportStyle = @"
     .item-ts { font-size: 10.5px; color: $ColorTextMuted; margin-top: 3px; }
     .item-initials { display: flex; align-items: center; gap: 6px; margin-top: 4px; padding-top: 4px; border-top: 1px dashed $ColorBorder; }
     .item-initials .item-field-label { white-space: nowrap; }
-    .initials-input { width: 76px; border: none; border-bottom: 1px solid $ColorTextMuted; background: transparent; font-size: 12px; font-family: inherit; color: $ColorText; padding: 1px 2px; text-transform: uppercase; }
+    .initials-input { width: 90px; border: none; border-bottom: 1px solid $ColorTextMuted; background: transparent; font-size: 12px; font-family: inherit; color: $ColorText; padding: 1px 2px; text-transform: uppercase; }
     .initials-input:focus { outline: none; border-bottom: 1px solid $ColorPrimary; }
-    .initials-input::placeholder { color: $ColorTextFaint; text-transform: none; font-style: italic; }
     @media print { .initials-input { border-bottom: 1px solid $ColorText; } }
     .fill-in { color: $ColorTextFaint; font-style: italic; }
     .summary-grid { display: flex; gap: 8px; margin: 4px 0 8px; flex-wrap: wrap; }
@@ -371,7 +370,7 @@ $badge
 <div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">$(EscPre $Item.command)</pre></div>
 <div class="item-field"><span class="item-field-label">Captured Evidence</span><pre class="evd">$(EscPre $Item.evidence)</pre></div>
 <div class="item-ts"><strong>Timestamp (UTC):</strong> $tsHtml</div>
-<div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" placeholder="---" aria-label="Examiner initials for $(Esc $Item.item_id)"></div>
+<div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" aria-label="Examiner initials for $(Esc $Item.item_id)"></div>
 </div>
 "@
 }
