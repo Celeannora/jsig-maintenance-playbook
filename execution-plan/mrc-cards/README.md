@@ -12,7 +12,7 @@ Regenerate this file after upgrading any card's status: edit the `GUIDE_STATUS_O
 | **Draft** | Card has been hand-authored as a first-pass, sourced rough draft -- real, control-specific action steps grounded in cited reference documentation (see [`reference/external-sources/INDEX.md`](../../reference/external-sources/INDEX.md)), including named tools/commands where applicable. Not yet certified to full Guide quality (no companion automation script or exhaustive failure-triage table, and not yet verified against a live environment). **Substantially more specific than Stub, but review before treating as a final, ready-to-sign-off procedure.** |
 | **Guide** | Card has been hand-authored with exact, tool-specific steps an employee can follow literally -- naming the actual product, screen, command, or menu path in the assumed baseline environment (see [`AGENTS.md`](../../AGENTS.md) rule 8: Windows Server/Active Directory, Splunk, Tenable Nessus, Trellix/McAfee ePO). **Usable as-is by an employee performing the task.** |
 
-**Current progress: 34 / 160 cards upgraded to Guide status, 70 / 160 at Draft status (56 remaining as Stub).**
+**Current progress: 34 / 160 cards upgraded to Guide status, 110 / 160 at Draft status (16 remaining as Stub).**
 
 **Script** column: `Yes` = a runnable PowerShell automation script exists under [`scripts/`](scripts/README.md) for this card; `No` = scriptable in principle but not yet built; `N/A` = inherently manual/judgment task, cannot be scripted (see [`AGENTS.md`](../../AGENTS.md) rule 9).
 
@@ -92,46 +92,46 @@ One card per [`MAINTENANCE-PLAN.md`](../../MAINTENANCE-PLAN.md) Sec 4 Master Cal
 | [MRC-068](master/MRC-068.md) | Test/exercise incident response capability (SAP default) | IR | Semi-annual | Draft (hand-authored) | Draft | No |
 | [MRC-069](master/MRC-069.md) | Review inventory records for computers/removable media (IRS-analog practice) | CM | Semi-annual | Draft (hand-authored) | Draft | No |
 | [MRC-070](master/MRC-070.md) | Review/update baseline configuration | CM | Annual | Draft (hand-authored) | Draft | No |
-| [MRC-071](master/MRC-071.md) | Review/update all family policies and procedures (-1 controls) | All 26 | Annual | Pattern E | Stub | No |
-| [MRC-072](master/MRC-072.md) | Review/update contingency plan | CP | Annual | Pattern E | Stub | No |
-| [MRC-073](master/MRC-073.md) | Test/exercise contingency plan | CP | Annual | Pattern D | Stub | No |
-| [MRC-074](master/MRC-074.md) | Perform independent security control assessment | CA | Annual | Pattern D | Stub | No |
-| [MRC-075](master/MRC-075.md) | Perform penetration testing | CA | Annual | Pattern D | Stub | No |
-| [MRC-076](master/MRC-076.md) | Review approved maintenance tools | MA | Annual | Pattern B | Stub | No |
-| [MRC-077](master/MRC-077.md) | Update/reassess organizational risk assessment | RA | Annual | Pattern E | Stub | No |
-| [MRC-078](master/MRC-078.md) | Review/re-sign personnel access agreements | PS | Annual | Pattern B | Stub | No |
-| [MRC-079](master/MRC-079.md) | Deliver annual security awareness refresher training | AT | Annual | Pattern F | Stub | No |
-| [MRC-080](master/MRC-080.md) | Deliver role-based training refresher | AT | Annual | Pattern F | Stub | No |
-| [MRC-081](master/MRC-081.md) | Deliver incident response training refresher | IR | Annual | Pattern F | Stub | No |
-| [MRC-082](master/MRC-082.md) | Deliver contingency training refresher | CP | Annual | Pattern F | Stub | No |
-| [MRC-083](master/MRC-083.md) | Review/update incident response plan | IR | Annual | Pattern E | Stub | No |
-| [MRC-084](master/MRC-084.md) | Review/update auditable events list | AU | Annual | Pattern E | Stub | No |
-| [MRC-085](master/MRC-085.md) | Review unnecessary functions/ports/protocols/services | CM | Annual | Pattern B | Stub | No |
-| [MRC-086](master/MRC-086.md) | Inventory physical access devices; change combinations/keys | PE | Annual | Pattern C | Stub | No |
-| [MRC-087](master/MRC-087.md) | Review/update System Security Plan (SSP) | PL | Annual | Pattern E | Stub | No |
-| [MRC-088](master/MRC-088.md) | Review Rules of Behavior acknowledgment | PL | Annual | Pattern B | Stub | No |
-| [MRC-089](master/MRC-089.md) | Review external system service provider compliance | SA | Annual | Pattern B | Stub | No |
-| [MRC-090](master/MRC-090.md) | Rotate/manage cryptographic keys | SC | Annual | Pattern C | Stub | No |
-| [MRC-091](master/MRC-091.md) | Review security categorization | RA | Annual | Pattern E | Stub | No |
-| [MRC-092](master/MRC-092.md) | Review position risk designations | PS | Annual | Pattern B | Stub | No |
-| [MRC-093](master/MRC-093.md) | Update Privacy Impact Assessment | AR | Annual | Pattern E | Stub | No |
-| [MRC-094](master/MRC-094.md) | Review PII minimization opportunities in holdings | DM | Annual | Pattern B | Stub | No |
-| [MRC-095](master/MRC-095.md) | Review/update privacy notices, SORNs, and Privacy Act statements | TR | Annual | Pattern E | Stub | No |
-| [MRC-096](master/MRC-096.md) | Review internal-use and third-party info-sharing compliance | UL | Annual | Pattern B | Stub | No |
-| [MRC-097](master/MRC-097.md) | Review Configuration Management Plan | CM | Annual | Pattern E | Stub | No |
-| [MRC-098](master/MRC-098.md) | Test information system recovery/reconstitution procedures | CP | Annual | Pattern D | Stub | No |
-| [MRC-099](master/MRC-099.md) | Verify alternate storage/processing site and telecom readiness | CP | Annual | Pattern A | Stub | No |
-| [MRC-100](master/MRC-100.md) | Verify TEMPEST/information-leakage countermeasures (SAP-specific) | PE | Annual | Pattern B | Stub | No |
-| [MRC-101](master/MRC-101.md) | Test fire detection/suppression and inspect water-damage risk | PE | Annual | Pattern D | Stub | No |
-| [MRC-102](master/MRC-102.md) | Review third-party/contractor personnel security compliance | PS | Annual | Pattern B | Stub | No |
-| [MRC-103](master/MRC-103.md) | Retain audit records offline per NARA schedule or 6–7 years (IRS analog) | AU | Multi-year / retention | Pattern G | Stub | No |
-| [MRC-104](master/MRC-104.md) | Prevent identifier reuse for ≥2 years | IA | Multi-year / retention | Pattern G | Stub | No |
-| [MRC-105](master/MRC-105.md) | Ensure every control assessed at least once per 3-year cycle | CA | Multi-year / retention | Pattern G | Stub | No |
-| [MRC-106](master/MRC-106.md) | Retain incident records 3 years after follow-up actions complete | IR | Multi-year / retention | Pattern G | Stub | No |
-| [MRC-107](master/MRC-107.md) | Retain visitor access records (1–5 years per source) | PE | Multi-year / retention | Pattern G | Stub | No |
-| [MRC-108](master/MRC-108.md) | Execute PII retention/disposal per records schedule | DM | Multi-year / retention | Pattern G | Stub | No |
-| [MRC-109](master/MRC-109.md) | Track and initiate personnel reinvestigations | PS | Periodic (DoD/IC cycle) | Pattern B | Stub | No |
-| [MRC-110](master/MRC-110.md) | Conduct Technical Surveillance Countermeasures Survey | RA | Periodic (facility policy) | Pattern A | Stub | No |
+| [MRC-071](master/MRC-071.md) | Review/update all family policies and procedures (-1 controls) | All 26 | Annual | Draft (hand-authored) | Draft | No |
+| [MRC-072](master/MRC-072.md) | Review/update contingency plan | CP | Annual | Draft (hand-authored) | Draft | No |
+| [MRC-073](master/MRC-073.md) | Test/exercise contingency plan | CP | Annual | Draft (hand-authored) | Draft | No |
+| [MRC-074](master/MRC-074.md) | Perform independent security control assessment | CA | Annual | Draft (hand-authored) | Draft | No |
+| [MRC-075](master/MRC-075.md) | Perform penetration testing | CA | Annual | Draft (hand-authored) | Draft | No |
+| [MRC-076](master/MRC-076.md) | Review approved maintenance tools | MA | Annual | Draft (hand-authored) | Draft | No |
+| [MRC-077](master/MRC-077.md) | Update/reassess organizational risk assessment | RA | Annual | Draft (hand-authored) | Draft | No |
+| [MRC-078](master/MRC-078.md) | Review/re-sign personnel access agreements | PS | Annual | Draft (hand-authored) | Draft | No |
+| [MRC-079](master/MRC-079.md) | Deliver annual security awareness refresher training | AT | Annual | Draft (hand-authored) | Draft | No |
+| [MRC-080](master/MRC-080.md) | Deliver role-based training refresher | AT | Annual | Draft (hand-authored) | Draft | No |
+| [MRC-081](master/MRC-081.md) | Deliver incident response training refresher | IR | Annual | Draft (hand-authored) | Draft | No |
+| [MRC-082](master/MRC-082.md) | Deliver contingency training refresher | CP | Annual | Draft (hand-authored) | Draft | No |
+| [MRC-083](master/MRC-083.md) | Review/update incident response plan | IR | Annual | Draft (hand-authored) | Draft | No |
+| [MRC-084](master/MRC-084.md) | Review/update auditable events list | AU | Annual | Draft (hand-authored) | Draft | No |
+| [MRC-085](master/MRC-085.md) | Review unnecessary functions/ports/protocols/services | CM | Annual | Draft (hand-authored) | Draft | No |
+| [MRC-086](master/MRC-086.md) | Inventory physical access devices; change combinations/keys | PE | Annual | Draft (hand-authored) | Draft | No |
+| [MRC-087](master/MRC-087.md) | Review/update System Security Plan (SSP) | PL | Annual | Draft (hand-authored) | Draft | No |
+| [MRC-088](master/MRC-088.md) | Review Rules of Behavior acknowledgment | PL | Annual | Draft (hand-authored) | Draft | No |
+| [MRC-089](master/MRC-089.md) | Review external system service provider compliance | SA | Annual | Draft (hand-authored) | Draft | No |
+| [MRC-090](master/MRC-090.md) | Rotate/manage cryptographic keys | SC | Annual | Draft (hand-authored) | Draft | No |
+| [MRC-091](master/MRC-091.md) | Review security categorization | RA | Annual | Draft (hand-authored) | Draft | No |
+| [MRC-092](master/MRC-092.md) | Review position risk designations | PS | Annual | Draft (hand-authored) | Draft | No |
+| [MRC-093](master/MRC-093.md) | Update Privacy Impact Assessment | AR | Annual | Draft (hand-authored) | Draft | No |
+| [MRC-094](master/MRC-094.md) | Review PII minimization opportunities in holdings | DM | Annual | Draft (hand-authored) | Draft | No |
+| [MRC-095](master/MRC-095.md) | Review/update privacy notices, SORNs, and Privacy Act statements | TR | Annual | Draft (hand-authored) | Draft | No |
+| [MRC-096](master/MRC-096.md) | Review internal-use and third-party info-sharing compliance | UL | Annual | Draft (hand-authored) | Draft | No |
+| [MRC-097](master/MRC-097.md) | Review Configuration Management Plan | CM | Annual | Draft (hand-authored) | Draft | No |
+| [MRC-098](master/MRC-098.md) | Test information system recovery/reconstitution procedures | CP | Annual | Draft (hand-authored) | Draft | No |
+| [MRC-099](master/MRC-099.md) | Verify alternate storage/processing site and telecom readiness | CP | Annual | Draft (hand-authored) | Draft | No |
+| [MRC-100](master/MRC-100.md) | Verify TEMPEST/information-leakage countermeasures (SAP-specific) | PE | Annual | Draft (hand-authored) | Draft | No |
+| [MRC-101](master/MRC-101.md) | Test fire detection/suppression and inspect water-damage risk | PE | Annual | Draft (hand-authored) | Draft | No |
+| [MRC-102](master/MRC-102.md) | Review third-party/contractor personnel security compliance | PS | Annual | Draft (hand-authored) | Draft | No |
+| [MRC-103](master/MRC-103.md) | Retain audit records offline per NARA schedule or 6–7 years (IRS analog) | AU | Multi-year / retention | Draft (hand-authored) | Draft | No |
+| [MRC-104](master/MRC-104.md) | Prevent identifier reuse for ≥2 years | IA | Multi-year / retention | Draft (hand-authored) | Draft | No |
+| [MRC-105](master/MRC-105.md) | Ensure every control assessed at least once per 3-year cycle | CA | Multi-year / retention | Draft (hand-authored) | Draft | No |
+| [MRC-106](master/MRC-106.md) | Retain incident records 3 years after follow-up actions complete | IR | Multi-year / retention | Draft (hand-authored) | Draft | No |
+| [MRC-107](master/MRC-107.md) | Retain visitor access records (1–5 years per source) | PE | Multi-year / retention | Draft (hand-authored) | Draft | No |
+| [MRC-108](master/MRC-108.md) | Execute PII retention/disposal per records schedule | DM | Multi-year / retention | Draft (hand-authored) | Draft | No |
+| [MRC-109](master/MRC-109.md) | Track and initiate personnel reinvestigations | PS | Periodic (DoD/IC cycle) | Draft (hand-authored) | Draft | No |
+| [MRC-110](master/MRC-110.md) | Conduct Technical Surveillance Countermeasures Survey | RA | Periodic (facility policy) | Draft (hand-authored) | Draft | No |
 
 ## Operational Tasking (34 cards)
 

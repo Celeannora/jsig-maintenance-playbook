@@ -78,46 +78,46 @@ This file also indexes the Operational Tasking (34 cards) and Network Infrastruc
 | [MRC-068](MRC-068.md) | Test/exercise incident response capability (SAP default) | IR | Semi-annual | Draft (hand-authored) | runbook |
 | [MRC-069](MRC-069.md) | Review inventory records for computers/removable media (IRS-analog practice) | CM | Semi-annual | Draft (hand-authored) | runbook |
 | [MRC-070](MRC-070.md) | Review/update baseline configuration | CM | Annual | Draft (hand-authored) | runbook |
-| [MRC-071](MRC-071.md) | Review/update all family policies and procedures (-1 controls) | All 26 | Annual | Pattern E | runbook |
-| [MRC-072](MRC-072.md) | Review/update contingency plan | CP | Annual | Pattern E | runbook |
-| [MRC-073](MRC-073.md) | Test/exercise contingency plan | CP | Annual | Pattern D | runbook |
-| [MRC-074](MRC-074.md) | Perform independent security control assessment | CA | Annual | Pattern D | runbook |
-| [MRC-075](MRC-075.md) | Perform penetration testing | CA | Annual | Pattern D | runbook |
-| [MRC-076](MRC-076.md) | Review approved maintenance tools | MA | Annual | Pattern B | runbook |
-| [MRC-077](MRC-077.md) | Update/reassess organizational risk assessment | RA | Annual | Pattern E | runbook |
-| [MRC-078](MRC-078.md) | Review/re-sign personnel access agreements | PS | Annual | Pattern B | runbook |
-| [MRC-079](MRC-079.md) | Deliver annual security awareness refresher training | AT | Annual | Pattern F | runbook |
-| [MRC-080](MRC-080.md) | Deliver role-based training refresher | AT | Annual | Pattern F | runbook |
-| [MRC-081](MRC-081.md) | Deliver incident response training refresher | IR | Annual | Pattern F | runbook |
-| [MRC-082](MRC-082.md) | Deliver contingency training refresher | CP | Annual | Pattern F | runbook |
-| [MRC-083](MRC-083.md) | Review/update incident response plan | IR | Annual | Pattern E | runbook |
-| [MRC-084](MRC-084.md) | Review/update auditable events list | AU | Annual | Pattern E | runbook |
-| [MRC-085](MRC-085.md) | Review unnecessary functions/ports/protocols/services | CM | Annual | Pattern B | runbook |
-| [MRC-086](MRC-086.md) | Inventory physical access devices; change combinations/keys | PE | Annual | Pattern C | runbook |
-| [MRC-087](MRC-087.md) | Review/update System Security Plan (SSP) | PL | Annual | Pattern E | runbook |
-| [MRC-088](MRC-088.md) | Review Rules of Behavior acknowledgment | PL | Annual | Pattern B | runbook |
-| [MRC-089](MRC-089.md) | Review external system service provider compliance | SA | Annual | Pattern B | runbook |
-| [MRC-090](MRC-090.md) | Rotate/manage cryptographic keys | SC | Annual | Pattern C | runbook |
-| [MRC-091](MRC-091.md) | Review security categorization | RA | Annual | Pattern E | runbook |
-| [MRC-092](MRC-092.md) | Review position risk designations | PS | Annual | Pattern B | runbook |
-| [MRC-093](MRC-093.md) | Update Privacy Impact Assessment | AR | Annual | Pattern E | runbook |
-| [MRC-094](MRC-094.md) | Review PII minimization opportunities in holdings | DM | Annual | Pattern B | runbook |
-| [MRC-095](MRC-095.md) | Review/update privacy notices, SORNs, and Privacy Act statements | TR | Annual | Pattern E | runbook |
-| [MRC-096](MRC-096.md) | Review internal-use and third-party info-sharing compliance | UL | Annual | Pattern B | runbook |
-| [MRC-097](MRC-097.md) | Review Configuration Management Plan | CM | Annual | Pattern E | runbook |
-| [MRC-098](MRC-098.md) | Test information system recovery/reconstitution procedures | CP | Annual | Pattern D | runbook |
-| [MRC-099](MRC-099.md) | Verify alternate storage/processing site and telecom readiness | CP | Annual | Pattern A | runbook |
-| [MRC-100](MRC-100.md) | Verify TEMPEST/information-leakage countermeasures (SAP-specific) | PE | Annual | Pattern B | runbook |
-| [MRC-101](MRC-101.md) | Test fire detection/suppression and inspect water-damage risk | PE | Annual | Pattern D | runbook |
-| [MRC-102](MRC-102.md) | Review third-party/contractor personnel security compliance | PS | Annual | Pattern B | runbook |
-| [MRC-103](MRC-103.md) | Retain audit records offline per NARA schedule or 6–7 years (IRS analog) | AU | Multi-year / retention | Pattern G | runbook |
-| [MRC-104](MRC-104.md) | Prevent identifier reuse for ≥2 years | IA | Multi-year / retention | Pattern G | runbook |
-| [MRC-105](MRC-105.md) | Ensure every control assessed at least once per 3-year cycle | CA | Multi-year / retention | Pattern G | runbook |
-| [MRC-106](MRC-106.md) | Retain incident records 3 years after follow-up actions complete | IR | Multi-year / retention | Pattern G | runbook |
-| [MRC-107](MRC-107.md) | Retain visitor access records (1–5 years per source) | PE | Multi-year / retention | Pattern G | runbook |
-| [MRC-108](MRC-108.md) | Execute PII retention/disposal per records schedule | DM | Multi-year / retention | Pattern G | runbook |
-| [MRC-109](MRC-109.md) | Track and initiate personnel reinvestigations | PS | Periodic (DoD/IC cycle) | Pattern B | runbook |
-| [MRC-110](MRC-110.md) | Conduct Technical Surveillance Countermeasures Survey | RA | Periodic (facility policy) | Pattern A | runbook |
+| [MRC-071](MRC-071.md) | Review/update all family policies and procedures (-1 controls) | All 26 | Annual | Draft (hand-authored) | runbook |
+| [MRC-072](MRC-072.md) | Review/update contingency plan | CP | Annual | Draft (hand-authored) | runbook |
+| [MRC-073](MRC-073.md) | Test/exercise contingency plan | CP | Annual | Draft (hand-authored) | runbook |
+| [MRC-074](MRC-074.md) | Perform independent security control assessment | CA | Annual | Draft (hand-authored) | runbook |
+| [MRC-075](MRC-075.md) | Perform penetration testing | CA | Annual | Draft (hand-authored) | runbook |
+| [MRC-076](MRC-076.md) | Review approved maintenance tools | MA | Annual | Draft (hand-authored) | runbook |
+| [MRC-077](MRC-077.md) | Update/reassess organizational risk assessment | RA | Annual | Draft (hand-authored) | runbook |
+| [MRC-078](MRC-078.md) | Review/re-sign personnel access agreements | PS | Annual | Draft (hand-authored) | runbook |
+| [MRC-079](MRC-079.md) | Deliver annual security awareness refresher training | AT | Annual | Draft (hand-authored) | runbook |
+| [MRC-080](MRC-080.md) | Deliver role-based training refresher | AT | Annual | Draft (hand-authored) | runbook |
+| [MRC-081](MRC-081.md) | Deliver incident response training refresher | IR | Annual | Draft (hand-authored) | runbook |
+| [MRC-082](MRC-082.md) | Deliver contingency training refresher | CP | Annual | Draft (hand-authored) | runbook |
+| [MRC-083](MRC-083.md) | Review/update incident response plan | IR | Annual | Draft (hand-authored) | runbook |
+| [MRC-084](MRC-084.md) | Review/update auditable events list | AU | Annual | Draft (hand-authored) | runbook |
+| [MRC-085](MRC-085.md) | Review unnecessary functions/ports/protocols/services | CM | Annual | Draft (hand-authored) | runbook |
+| [MRC-086](MRC-086.md) | Inventory physical access devices; change combinations/keys | PE | Annual | Draft (hand-authored) | runbook |
+| [MRC-087](MRC-087.md) | Review/update System Security Plan (SSP) | PL | Annual | Draft (hand-authored) | runbook |
+| [MRC-088](MRC-088.md) | Review Rules of Behavior acknowledgment | PL | Annual | Draft (hand-authored) | runbook |
+| [MRC-089](MRC-089.md) | Review external system service provider compliance | SA | Annual | Draft (hand-authored) | runbook |
+| [MRC-090](MRC-090.md) | Rotate/manage cryptographic keys | SC | Annual | Draft (hand-authored) | runbook |
+| [MRC-091](MRC-091.md) | Review security categorization | RA | Annual | Draft (hand-authored) | runbook |
+| [MRC-092](MRC-092.md) | Review position risk designations | PS | Annual | Draft (hand-authored) | runbook |
+| [MRC-093](MRC-093.md) | Update Privacy Impact Assessment | AR | Annual | Draft (hand-authored) | runbook |
+| [MRC-094](MRC-094.md) | Review PII minimization opportunities in holdings | DM | Annual | Draft (hand-authored) | runbook |
+| [MRC-095](MRC-095.md) | Review/update privacy notices, SORNs, and Privacy Act statements | TR | Annual | Draft (hand-authored) | runbook |
+| [MRC-096](MRC-096.md) | Review internal-use and third-party info-sharing compliance | UL | Annual | Draft (hand-authored) | runbook |
+| [MRC-097](MRC-097.md) | Review Configuration Management Plan | CM | Annual | Draft (hand-authored) | runbook |
+| [MRC-098](MRC-098.md) | Test information system recovery/reconstitution procedures | CP | Annual | Draft (hand-authored) | runbook |
+| [MRC-099](MRC-099.md) | Verify alternate storage/processing site and telecom readiness | CP | Annual | Draft (hand-authored) | runbook |
+| [MRC-100](MRC-100.md) | Verify TEMPEST/information-leakage countermeasures (SAP-specific) | PE | Annual | Draft (hand-authored) | runbook |
+| [MRC-101](MRC-101.md) | Test fire detection/suppression and inspect water-damage risk | PE | Annual | Draft (hand-authored) | runbook |
+| [MRC-102](MRC-102.md) | Review third-party/contractor personnel security compliance | PS | Annual | Draft (hand-authored) | runbook |
+| [MRC-103](MRC-103.md) | Retain audit records offline per NARA schedule or 6–7 years (IRS analog) | AU | Multi-year / retention | Draft (hand-authored) | runbook |
+| [MRC-104](MRC-104.md) | Prevent identifier reuse for ≥2 years | IA | Multi-year / retention | Draft (hand-authored) | runbook |
+| [MRC-105](MRC-105.md) | Ensure every control assessed at least once per 3-year cycle | CA | Multi-year / retention | Draft (hand-authored) | runbook |
+| [MRC-106](MRC-106.md) | Retain incident records 3 years after follow-up actions complete | IR | Multi-year / retention | Draft (hand-authored) | runbook |
+| [MRC-107](MRC-107.md) | Retain visitor access records (1–5 years per source) | PE | Multi-year / retention | Draft (hand-authored) | runbook |
+| [MRC-108](MRC-108.md) | Execute PII retention/disposal per records schedule | DM | Multi-year / retention | Draft (hand-authored) | runbook |
+| [MRC-109](MRC-109.md) | Track and initiate personnel reinvestigations | PS | Periodic (DoD/IC cycle) | Draft (hand-authored) | runbook |
+| [MRC-110](MRC-110.md) | Conduct Technical Surveillance Countermeasures Survey | RA | Periodic (facility policy) | Draft (hand-authored) | runbook |
 
 ## Operational Tasking Cards (Active Directory / Exchange / Windows Server stack)
 
