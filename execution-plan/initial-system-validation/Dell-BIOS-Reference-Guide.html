@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Dell BIOS Reference Guide</title>
+<style>    @page { size: Letter; margin: 9mm 8mm; }
+    :root { color-scheme: light; }
+    * { box-sizing: border-box; }
+    body { font-family: Calibri, "Segoe UI", Arial, sans-serif; background: #F7F6F2; color: #28251D; margin: 0; padding: 12px 10px; line-height: 1.32; }
+    .doc { max-width: 980px; margin: 0 auto; background: #FFFFFF; border: 1px solid #D4D1CA; padding: 16px 26px 14px; }
+    h1 { font-size: 22px; color: #01696F; border-bottom: 2px solid #01696F; padding-bottom: 7px; margin: 0 0 12px; }
+    h2 { font-size: 15px; color: #01696F; margin: 14px 0 5px; border-bottom: 1px solid #D4D1CA; padding-bottom: 3px; }
+    h3 { font-size: 12.5px; margin: 8px 0 3px; }
+    .sample-banner { background: #FBF1EA; border: 2px solid #964219; color: #964219; font-weight: 700; text-align: center; padding: 7px; margin-bottom: 12px; font-size: 12.5px; letter-spacing: 0.02em; }
+    .intro { font-size: 12.5px; background: #F9F8F5; border-left: 3px solid #01696F; padding: 8px 12px; margin-bottom: 10px; }
+    .intro p { margin: 4px 0; }
+    .companion-note { font-size: 11.5px; color: #7A7974; font-style: italic; margin: 0 0 10px; }
+    p { font-size: 12.5px; line-height: 1.4; }
+    .item-card { border: 1px solid #D4D1CA; background: #F9F8F5; padding: 8px 12px; margin-bottom: 8px; }
+    .item-card-head { display: flex; align-items: baseline; gap: 8px; margin-bottom: 4px; flex-wrap: wrap; }
+    .item-id { font-weight: 700; color: #01696F; font-size: 12.5px; white-space: nowrap; }
+    .item-req { font-size: 12.5px; flex: 1; min-width: 200px; }
+    .item-path { border-top: 1px solid #D4D1CA; margin-top: 6px; padding-top: 6px; }
+    .item-path:first-of-type { border-top: 0; margin-top: 4px; padding-top: 0; }
+    .item-path-head { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; margin-bottom: 2px; }
+    .item-path-label { color: #28251D; font-size: 11.5px; font-weight: 700; }
+    .path-method { border: 1px solid #01696F; color: #01696F; font-size: 9.5px; font-weight: 700; letter-spacing: 0.04em; padding: 1px 6px; }
+    .path-steps { font-size: 11.5px; margin: 3px 0 0; line-height: 1.35; }
+    .path-note { font-size: 11px; font-style: italic; color: #7A7974; margin: 2px 0 0; }
+    pre.cmd { background: #F2F1EC; border: 1px solid #D4D1CA; padding: 5px 8px; margin: 3px 0 0; font-size: 11px; overflow-wrap: anywhere; white-space: pre-wrap; font-family: Consolas, "Courier New", monospace; }
+    .path-meta { font-size: 10.5px; color: #7A7974; margin-top: 3px; }
+    .citation { color: #01696F; font-size: 10.5px; overflow-wrap: anywhere; }
+    .path-caution { background: #FBF1EA; border-left: 3px solid #964219; color: #964219; font-size: 11px; margin-top: 4px; padding: 4px 7px; }
+    .sources-list { font-size: 11px; margin: 5px 0 0; padding-left: 18px; }
+    .sources-list li { margin-bottom: 2px; overflow-wrap: anywhere; }
+    code { font-family: Consolas, "Courier New", monospace; }
+    footer { margin-top: 16px; font-size: 10.5px; color: #7A7974; border-top: 1px solid #D4D1CA; padding-top: 8px; font-style: italic; }</style>
+</head>
+<body>
+<div class="doc">
+<div class="sample-banner">DELL BIOS REFERENCE GUIDE -- CITED VENDOR RESEARCH, VERIFY AGAINST THE CURRENT VENDOR DOCUMENTATION BEFORE USE.</div>
+<h1>Dell BIOS Reference Guide</h1>
+<p class="companion-note">Companion reference to the Initial System Validation Report. The main report records only
+the automated command executed against the audited system for BIOS Controls items 1.A&ndash;1.E; this guide holds the
+full Dell instructional detail -- automated command variants, the physical-console fallback for air-gapped or
+no-tooling systems, discovery caveats, and citations -- for whichever items apply to a Dell asset.</p>
+<div class="intro">
+<p><strong>What it is:</strong> Dell Command | PowerShell Provider (DCPP) is a Windows PowerShell
+module ("DellBIOSProvider") that exposes Dell BIOS/UEFI configuration as a PowerShell provider drive
+(<code>DellSmbios:</code>), scoped to Dell business/enterprise client systems (OptiPlex, Latitude, Precision).
+DCPP is <strong>not</strong> a native Windows component -- it must be explicitly installed and imported before use
+(<a class="citation" href="https://www.dell.com/support/kbdoc/en-us/000177240/dell-command-powershell-provider">Dell Command | PowerShell Provider -- Dell US</a>).</p>
+<p><strong>Air-gapped / offline install path:</strong> download the module .zip from Dell's Drivers &amp; Downloads
+page (Systems Management category), extract it, create a WindowsPowerShell\Modules folder under the
+system's Program Files directory if it does not already exist, and copy the architecture-specific subfolder
+contents into that module folder; verify with <code>Get-Module -ListAvailable</code>
+(<a class="citation" href="https://www.dell.com/support/home/en-us/drivers/driversdetails?driverid=twkmg">Dell Command | PowerShell Provider Driver Details</a>).
+Where PowerShell Gallery access is available instead, use <code>Install-Module -Name DellBIOSProvider</code>
+(<a class="citation" href="https://www.powershellgallery.com/packages/DellBIOSProvider/2.3.0">DellBIOSProvider, PowerShell Gallery</a>).
+Either way, the module must be imported into the session with <code>Import-Module DellBIOSProvider</code> before the
+commands below will work.</p>
+<p><strong>Two BIOS UI generations:</strong> Dell has explicitly confirmed a UI/behavior change between the classic
+tab-based Setup menu and the newer tile/toggle "New Dell Branded BIOS" ("BIOS 4.0") introduced on systems released
+May 2021 and later
+(<a class="citation" href="https://www.dell.com/support/kbdoc/en-us/000190038/my-computer-keeps-asking-for-the-bios-password-when-booting-after-removing-a-previous-bios-password">Dell KB 000190038</a>).
+An inspector auditing a fleet spanning several purchase years should expect to see either interface and should not
+assume identical keystrokes or click paths across the fleet. Both use <strong>F2</strong> at the Dell logo to enter
+Setup and <strong>F12</strong> for the one-time boot menu.</p>
+</div>
+<h2>BIOS Controls 1.A&ndash;1.E -- Dell Path</h2>
+<div class="item-card">
+<div class="item-card-head">
+<span class="item-id">1.A</span>
+<span class="item-req">Check system timezone, date, and time. Automated checks are operating-system or vendor-setting cross-checks; the inspector must also verify the firmware setup display.</span>
+</div>
+<div class="item-path">
+<div class="item-path-head">
+<span class="item-path-label">Dell Command | PowerShell Provider (DCPP)</span>
+<span class="path-method">AUTOMATED</span>
+</div>
+<pre class="cmd">Import-Module DellBIOSProvider; Get-ChildItem DellSmbios:\ -Recurse | Where-Object Name -match &#39;Date|Time|Zone&#39;</pre>
+<div class="path-meta">SAMPLE placeholder -- record the returned setting name and CurrentValue. &middot; <a class="citation" href="https://www.powershellgallery.com/packages/DellBIOSProvider/2.8.0/Content/en-US%5Cabout_DellBIOSProvider.help.txt">https://www.powershellgallery.com/packages/DellBIOSProvider/2.8.0/Content/en-US%5Cabout_DellBIOSProvider.help.txt</a></div>
+
+</div>
+<div class="item-path">
+<div class="item-path-head">
+<span class="item-path-label">Dell manual firmware setup</span>
+<span class="path-method">MANUAL</span>
+</div>
+<p class="path-steps">Press F2 at boot to enter Setup and verify date/time/timezone on the setup screen.</p>
+<div class="path-meta">SAMPLE placeholder -- record the observed date/time and sign the attestation. &middot; <a class="citation" href="https://www.dell.com/support/kbdoc/en-us/000124211/dell-bios-updates">https://www.dell.com/support/kbdoc/en-us/000124211/dell-bios-updates</a></div>
+
+</div>
+</div><div class="item-card">
+<div class="item-card-head">
+<span class="item-id">1.B</span>
+<span class="item-req">Boot order: internal Hard Drive (HD) only. Network, USB, and removable-media boot must be disabled if present.</span>
+</div>
+<div class="item-path">
+<div class="item-path-head">
+<span class="item-path-label">Dell Command | PowerShell Provider (DCPP)</span>
+<span class="path-method">AUTOMATED</span>
+</div>
+<pre class="cmd">Import-Module DellBIOSProvider; Get-Item DellSmbios:\BootSequence\BootList; Get-Item DellSmbios:\BootSequence\BootSequence</pre>
+<div class="path-meta">SAMPLE placeholder -- record BootList/BootSequence CurrentValue and PossibleValues. &middot; <a class="citation" href="https://www.powershellgallery.com/packages/DellBIOSProvider/2.8.0/Content/en-US%5Cabout_DellBIOSProvider.help.txt">https://www.powershellgallery.com/packages/DellBIOSProvider/2.8.0/Content/en-US%5Cabout_DellBIOSProvider.help.txt</a></div>
+
+</div>
+<div class="item-path">
+<div class="item-path-head">
+<span class="item-path-label">Dell manual firmware setup</span>
+<span class="path-method">MANUAL</span>
+</div>
+<p class="path-steps">Press F2 at boot, open Boot Sequence, confirm HD-only order, and disable USB Boot Support under Integrated Devices.</p>
+<div class="path-meta">SAMPLE placeholder -- record the approved boot sequence and USB boot state. &middot; <a class="citation" href="https://www.dell.com/support/kbdoc/en-us/000216658/how-to-enable-or-disable-usb-boot-support-for-a-dell-optiplex-3000">https://www.dell.com/support/kbdoc/en-us/000216658/how-to-enable-or-disable-usb-boot-support-for-a-dell-optiplex-3000</a></div>
+
+</div>
+</div><div class="item-card">
+<div class="item-card-head">
+<span class="item-id">1.C</span>
+<span class="item-req">Disable any unneeded device or ports. Verify virtualization and removable-device controls where the approved baseline requires them.</span>
+</div>
+<div class="item-path">
+<div class="item-path-head">
+<span class="item-path-label">Dell Command | PowerShell Provider (DCPP)</span>
+<span class="path-method">AUTOMATED</span>
+</div>
+<pre class="cmd">Import-Module DellBIOSProvider; Get-ChildItem DellSmbios:\ -Recurse | Select-Object Name, CurrentValue</pre>
+<div class="path-meta">SAMPLE placeholder -- record discovered device/port/virtualization settings vs. baseline. &middot; <a class="citation" href="https://www.dell.com/support/manuals/en-lt/command-powershell-provider/dcpp_2_8_ug/frequently-asked-questions-for-dell-command-powershell-provider-280?guid=guid-d1dc47b8-e30c-41b4-9cc9-268c89a40ed1&amp;lang=en-us">https://www.dell.com/support/manuals/en-lt/command-powershell-provider/dcpp_2_8_ug/frequently-asked-questions-for-dell-command-powershell-provider-280?guid=guid-d1dc47b8-e30c-41b4-9cc9-268c89a40ed1&amp;lang=en-us</a></div>
+
+</div>
+<div class="item-path">
+<div class="item-path-head">
+<span class="item-path-label">Dell manual firmware setup</span>
+<span class="path-method">MANUAL</span>
+</div>
+<p class="path-steps">Press F2 at boot; review Integrated Devices for port/device controls and Virtualization Support for virtualization.</p>
+<div class="path-meta">SAMPLE placeholder -- record each disabled or approved device/port control. &middot; <a class="citation" href="https://www.dell.com/support/manuals/en-us/optiplex-7460-aio/optiplex_7460_setup_specs/entering-bios-setup-program?guid=guid-1432a924-49e9-4080-961d-2afbdaf42039&amp;lang=en-us&amp;lang=en-us">https://www.dell.com/support/manuals/en-us/optiplex-7460-aio/optiplex_7460_setup_specs/entering-bios-setup-program?guid=guid-1432a924-49e9-4080-961d-2afbdaf42039&amp;lang=en-us&amp;lang=en-us</a></div>
+
+</div>
+</div><div class="item-card">
+<div class="item-card-head">
+<span class="item-id">1.D</span>
+<span class="item-req">Password-protect the BIOS administrator/setup account with the current approved password; test access without exposing the secret in the report.</span>
+</div>
+<div class="item-path">
+<div class="item-path-head">
+<span class="item-path-label">Dell Command | PowerShell Provider (DCPP)</span>
+<span class="path-method">AUTOMATED</span>
+</div>
+<pre class="cmd">Import-Module DellBIOSProvider; Get-Item DellSmbios:\Security\IsAdminPasswordSet</pre>
+<div class="path-meta">SAMPLE placeholder -- record only the password-set state and access-test attestation, never a password. &middot; <a class="citation" href="https://www.dell.com/support/kbdoc/en-us/000146358/dell-command-powershell-provider-bios-passwords-feature">https://www.dell.com/support/kbdoc/en-us/000146358/dell-command-powershell-provider-bios-passwords-feature</a></div>
+<div class="path-caution"><strong>Caution:</strong> Never hardcode or paste BIOS passwords in plaintext; use SecureString/PSCredential input if setting one.</div>
+</div>
+<div class="item-path">
+<div class="item-path-head">
+<span class="item-path-label">Dell manual firmware setup</span>
+<span class="path-method">MANUAL</span>
+</div>
+<p class="path-steps">Press F2 at boot; in Security &gt; Admin Password, confirm a password is set and test that Setup is protected.</p>
+<div class="path-meta">SAMPLE placeholder -- record password-set state and access-test result only. &middot; <a class="citation" href="https://www.dell.com/support/kbdoc/en-us/000219905/how-to-set-a-bios-admin-password-on-a-dell-computer">https://www.dell.com/support/kbdoc/en-us/000219905/how-to-set-a-bios-admin-password-on-a-dell-computer</a></div>
+<div class="path-caution"><strong>Caution:</strong> Never hardcode or paste BIOS passwords in plaintext; use SecureString/PSCredential input if setting one.</div>
+</div>
+</div><div class="item-card">
+<div class="item-card-head">
+<span class="item-id">1.E</span>
+<span class="item-req">Verify the BIOS user/power-on password, if present, cannot modify BIOS settings; apply the approved read-only or no-access control without exposing the secret in the report.</span>
+</div>
+<div class="item-path">
+<div class="item-path-head">
+<span class="item-path-label">Dell Command | PowerShell Provider (DCPP)</span>
+<span class="path-method">AUTOMATED</span>
+</div>
+<pre class="cmd">Import-Module DellBIOSProvider; Get-Item DellSmbios:\Security\IsSystemPasswordSet; Get-Item DellSmbios:\Security\AdminSetupLockout</pre>
+<div class="path-meta">SAMPLE placeholder -- record state values and the user-access test attestation, never a password. &middot; <a class="citation" href="https://www.dell.com/support/kbdoc/en-us/000146358/dell-command-powershell-provider-bios-passwords-feature">https://www.dell.com/support/kbdoc/en-us/000146358/dell-command-powershell-provider-bios-passwords-feature</a></div>
+<div class="path-caution"><strong>Caution:</strong> Never hardcode or paste BIOS passwords in plaintext; use SecureString/PSCredential input if setting one.</div>
+</div>
+<div class="item-path">
+<div class="item-path-head">
+<span class="item-path-label">Dell manual firmware setup</span>
+<span class="path-method">MANUAL</span>
+</div>
+<p class="path-steps">Press F2 at boot; in Security, confirm the power-on/user password cannot modify BIOS settings, and test.</p>
+<div class="path-meta">SAMPLE placeholder -- record state and no-modification test result only, never a password. &middot; <a class="citation" href="https://www.dell.com/support/kbdoc/en-us/000219905/how-to-set-a-bios-admin-password-on-a-dell-computer">https://www.dell.com/support/kbdoc/en-us/000219905/how-to-set-a-bios-admin-password-on-a-dell-computer</a></div>
+<div class="path-caution"><strong>Caution:</strong> Never hardcode or paste BIOS passwords in plaintext; use SecureString/PSCredential input if setting one.</div>
+</div>
+</div>
+<h2>Sources</h2>
+<ul class="sources-list"><li><a class="citation" href="https://www.powershellgallery.com/packages/DellBIOSProvider/2.8.0/Content/en-US%5Cabout_DellBIOSProvider.help.txt">https://www.powershellgallery.com/packages/DellBIOSProvider/2.8.0/Content/en-US%5Cabout_DellBIOSProvider.help.txt</a></li><li><a class="citation" href="https://www.dell.com/support/kbdoc/en-us/000124211/dell-bios-updates">https://www.dell.com/support/kbdoc/en-us/000124211/dell-bios-updates</a></li><li><a class="citation" href="https://www.dell.com/support/kbdoc/en-us/000216658/how-to-enable-or-disable-usb-boot-support-for-a-dell-optiplex-3000">https://www.dell.com/support/kbdoc/en-us/000216658/how-to-enable-or-disable-usb-boot-support-for-a-dell-optiplex-3000</a></li><li><a class="citation" href="https://www.dell.com/support/manuals/en-lt/command-powershell-provider/dcpp_2_8_ug/frequently-asked-questions-for-dell-command-powershell-provider-280?guid=guid-d1dc47b8-e30c-41b4-9cc9-268c89a40ed1&amp;lang=en-us">https://www.dell.com/support/manuals/en-lt/command-powershell-provider/dcpp_2_8_ug/frequently-asked-questions-for-dell-command-powershell-provider-280?guid=guid-d1dc47b8-e30c-41b4-9cc9-268c89a40ed1&amp;lang=en-us</a></li><li><a class="citation" href="https://www.dell.com/support/manuals/en-us/optiplex-7460-aio/optiplex_7460_setup_specs/entering-bios-setup-program?guid=guid-1432a924-49e9-4080-961d-2afbdaf42039&amp;lang=en-us&amp;lang=en-us">https://www.dell.com/support/manuals/en-us/optiplex-7460-aio/optiplex_7460_setup_specs/entering-bios-setup-program?guid=guid-1432a924-49e9-4080-961d-2afbdaf42039&amp;lang=en-us&amp;lang=en-us</a></li><li><a class="citation" href="https://www.dell.com/support/kbdoc/en-us/000146358/dell-command-powershell-provider-bios-passwords-feature">https://www.dell.com/support/kbdoc/en-us/000146358/dell-command-powershell-provider-bios-passwords-feature</a></li><li><a class="citation" href="https://www.dell.com/support/kbdoc/en-us/000219905/how-to-set-a-bios-admin-password-on-a-dell-computer">https://www.dell.com/support/kbdoc/en-us/000219905/how-to-set-a-bios-admin-password-on-a-dell-computer</a></li></ul>
+<footer>
+This guide cites only Dell's own product documentation, official knowledge-base articles, or the
+Microsoft-hosted PowerShell Gallery listing of the vendor's own module, plus clearly labeled community sources used
+only as corroborating color. See the Sources list above for every URL referenced.
+</footer>
+</div>
+</body>
+</html>

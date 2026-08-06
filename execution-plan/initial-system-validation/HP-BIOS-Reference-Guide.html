@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>HP BIOS Reference Guide</title>
+<style>    @page { size: Letter; margin: 9mm 8mm; }
+    :root { color-scheme: light; }
+    * { box-sizing: border-box; }
+    body { font-family: Calibri, "Segoe UI", Arial, sans-serif; background: #F7F6F2; color: #28251D; margin: 0; padding: 12px 10px; line-height: 1.32; }
+    .doc { max-width: 980px; margin: 0 auto; background: #FFFFFF; border: 1px solid #D4D1CA; padding: 16px 26px 14px; }
+    h1 { font-size: 22px; color: #01696F; border-bottom: 2px solid #01696F; padding-bottom: 7px; margin: 0 0 12px; }
+    h2 { font-size: 15px; color: #01696F; margin: 14px 0 5px; border-bottom: 1px solid #D4D1CA; padding-bottom: 3px; }
+    h3 { font-size: 12.5px; margin: 8px 0 3px; }
+    .sample-banner { background: #FBF1EA; border: 2px solid #964219; color: #964219; font-weight: 700; text-align: center; padding: 7px; margin-bottom: 12px; font-size: 12.5px; letter-spacing: 0.02em; }
+    .intro { font-size: 12.5px; background: #F9F8F5; border-left: 3px solid #01696F; padding: 8px 12px; margin-bottom: 10px; }
+    .intro p { margin: 4px 0; }
+    .companion-note { font-size: 11.5px; color: #7A7974; font-style: italic; margin: 0 0 10px; }
+    p { font-size: 12.5px; line-height: 1.4; }
+    .item-card { border: 1px solid #D4D1CA; background: #F9F8F5; padding: 8px 12px; margin-bottom: 8px; }
+    .item-card-head { display: flex; align-items: baseline; gap: 8px; margin-bottom: 4px; flex-wrap: wrap; }
+    .item-id { font-weight: 700; color: #01696F; font-size: 12.5px; white-space: nowrap; }
+    .item-req { font-size: 12.5px; flex: 1; min-width: 200px; }
+    .item-path { border-top: 1px solid #D4D1CA; margin-top: 6px; padding-top: 6px; }
+    .item-path:first-of-type { border-top: 0; margin-top: 4px; padding-top: 0; }
+    .item-path-head { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; margin-bottom: 2px; }
+    .item-path-label { color: #28251D; font-size: 11.5px; font-weight: 700; }
+    .path-method { border: 1px solid #01696F; color: #01696F; font-size: 9.5px; font-weight: 700; letter-spacing: 0.04em; padding: 1px 6px; }
+    .path-steps { font-size: 11.5px; margin: 3px 0 0; line-height: 1.35; }
+    .path-note { font-size: 11px; font-style: italic; color: #7A7974; margin: 2px 0 0; }
+    pre.cmd { background: #F2F1EC; border: 1px solid #D4D1CA; padding: 5px 8px; margin: 3px 0 0; font-size: 11px; overflow-wrap: anywhere; white-space: pre-wrap; font-family: Consolas, "Courier New", monospace; }
+    .path-meta { font-size: 10.5px; color: #7A7974; margin-top: 3px; }
+    .citation { color: #01696F; font-size: 10.5px; overflow-wrap: anywhere; }
+    .path-caution { background: #FBF1EA; border-left: 3px solid #964219; color: #964219; font-size: 11px; margin-top: 4px; padding: 4px 7px; }
+    .sources-list { font-size: 11px; margin: 5px 0 0; padding-left: 18px; }
+    .sources-list li { margin-bottom: 2px; overflow-wrap: anywhere; }
+    code { font-family: Consolas, "Courier New", monospace; }
+    footer { margin-top: 16px; font-size: 10.5px; color: #7A7974; border-top: 1px solid #D4D1CA; padding-top: 8px; font-style: italic; }</style>
+</head>
+<body>
+<div class="doc">
+<div class="sample-banner">HP BIOS REFERENCE GUIDE -- CITED VENDOR RESEARCH, VERIFY AGAINST THE CURRENT VENDOR DOCUMENTATION BEFORE USE.</div>
+<h1>HP BIOS Reference Guide</h1>
+<p class="companion-note">Companion reference to the Initial System Validation Report. The main report records only
+the automated command executed against the audited system for BIOS Controls items 1.A&ndash;1.E; this guide holds the
+full HP instructional detail -- automated command variants, the physical-console fallback for air-gapped or
+no-tooling systems, discovery caveats, and citations -- for whichever items apply to an HP asset.</p>
+<div class="intro">
+<p><strong>What it is:</strong> HP Client Management Script Library (CMSL) is a collection of
+PowerShell modules published by HP for querying and changing BIOS settings on HP commercial/business client systems
+(EliteDesk, ProDesk, EliteBook, ProBook). The BIOS-reading cmdlets used below live in the <code>HP.ClientManagement</code>
+sub-module. CMSL is <strong>not built into Windows</strong> -- it must be explicitly installed
+(<a class="citation" href="https://developers.hp.com/hp-client-management/doc/client-management-script-library">HP Developer Portal -- Client Management Script Library</a>).</p>
+<p><strong>Air-gapped / offline install path:</strong> HP distributes a standalone "Library Installer" (an EXE) for
+environments without PowerShell Gallery access. HP's own FAQ documents a fully offline extraction workflow:</p>
+<pre class="cmd">mkdir localdir
+hp-cmsl.exe /VERYSILENT /SP- /UnpackOnly="True" /DestDir="C:\localdir\hp-cmsl"
+Import-Module -Force C:\localdir\hp-cmsl\modules\HP.ClientManagement\HP.ClientManagement.psd1
+Get-Module -ListAvailable -Name 'HP.*'</pre>
+<div class="path-meta">Source: <a class="citation" href="https://developers.hp.com/hp-client-management/doc/faq">HP Developer Portal -- CMSL FAQ</a></div>
+<p style="margin-top:6px;">Where PowerShell Gallery access is available instead, use
+<code>Install-Module -Name HPCMSL -Force</code>
+(<a class="citation" href="https://h30434.www3.hp.com/t5/Business-Notebooks/URGENT-4-Month-Struggle-to-Enable-TPM-2-0-on-HP-ProBook-450/td-p/9502817">HP Support Community</a>).
+No individual HP CMSL cmdlet returns a universal setting-name string for date/time, boot order, or device/port
+controls -- run <code>(Get-HPBIOSSettingsList).Name</code> on the target device first to discover the exact setting
+name before querying or setting it.</p>
+<p><strong>Manual setup-menu generations:</strong> current (2015-onward) HP commercial systems use Main/Security/
+Advanced/UEFI Drivers tabs reached via <strong>ESC</strong> then <strong>F10</strong> at startup; pre-2015 systems use
+a different File/Security/Diagnostics/System Configuration structure, and 2015-onward layouts have had incremental
+menu changes through 2024-2026. Confirm the exact tab/menu wording on the specific model before relying on the labels
+below.</p>
+</div>
+<h2>BIOS Controls 1.A&ndash;1.E -- HP Path</h2>
+<div class="item-card">
+<div class="item-card-head">
+<span class="item-id">1.A</span>
+<span class="item-req">Check system timezone, date, and time. Automated checks are operating-system or vendor-setting cross-checks; the inspector must also verify the firmware setup display.</span>
+</div>
+<div class="item-path">
+<div class="item-path-head">
+<span class="item-path-label">HP Client Management Script Library (CMSL) setting discovery</span>
+<span class="path-method">AUTOMATED</span>
+</div>
+<pre class="cmd">Import-Module HP.ClientManagement; (Get-HPBIOSSettingsList).Name; Get-HPBIOSSettingValue -Name &#39;&lt;exact date/time setting name discovered on this device&gt;&#39;</pre><div class="path-note">HP publishes generic setting accessors, not a universal date/time setting-name string; discover the exact name first.</div>
+<div class="path-meta">SAMPLE placeholder -- retain the discovered setting name, returned value, and setup-screen attestation. &middot; <a class="citation" href="https://developers.hp.com/hp-client-management/doc/get-hpbiossettingslist">https://developers.hp.com/hp-client-management/doc/get-hpbiossettingslist</a></div>
+
+</div>
+<div class="item-path">
+<div class="item-path-head">
+<span class="item-path-label">HP manual firmware setup</span>
+<span class="path-method">MANUAL</span>
+</div>
+<p class="path-steps">At startup, press ESC and then F10 to enter BIOS Setup. Verify date/time fields on the specific model. Current 2015-onward systems use Main/Security/Advanced/UEFI Drivers tabs; pre-2015 systems use a different File/Security/Diagnostics/System Configuration structure, with incremental menu changes continuing through 2024-2026.</p>
+<div class="path-meta">SAMPLE placeholder -- inspector records the firmware date/time observed and signs the attestation. &middot; <a class="citation" href="https://h10032.www1.hp.com/ctg/Manual/c06696065.pdf">https://h10032.www1.hp.com/ctg/Manual/c06696065.pdf</a></div>
+
+</div>
+</div><div class="item-card">
+<div class="item-card-head">
+<span class="item-id">1.B</span>
+<span class="item-req">Boot order: internal Hard Drive (HD) only. Network, USB, and removable-media boot must be disabled if present.</span>
+</div>
+<div class="item-path">
+<div class="item-path-head">
+<span class="item-path-label">HP Client Management Script Library (CMSL) boot-setting read</span>
+<span class="path-method">AUTOMATED</span>
+</div>
+<pre class="cmd">Import-Module HP.ClientManagement; (Get-HPBIOSSettingsList).Name; Get-HPBIOSSettingValue -Name &#39;&lt;exact discovered Boot Order or UEFI Boot Order setting name&gt;&#39;</pre><div class="path-note">HP provides no dedicated boot-order or USB-boot cmdlet; discover the per-device setting name before querying it.</div>
+<div class="path-meta">SAMPLE placeholder -- retain the discovered boot-setting name and returned value. &middot; <a class="citation" href="https://developers.hp.com/hp-client-management/doc/bios-and-device">https://developers.hp.com/hp-client-management/doc/bios-and-device</a></div>
+
+</div>
+<div class="item-path">
+<div class="item-path-head">
+<span class="item-path-label">HP manual firmware setup</span>
+<span class="path-method">MANUAL</span>
+</div>
+<p class="path-steps">At startup, press ESC and then F10. On typical 2015-onward commercial systems, review Advanced &gt; Boot Options &gt; UEFI Boot Order and uncheck Advanced &gt; Boot Options &gt; USB Storage Boot. Pre-2015 systems use a different menu structure; 2015-onward layouts have incremental changes through 2024-2026.</p>
+<div class="path-meta">SAMPLE placeholder -- inspector records the approved boot order and USB Storage Boot state. &middot; <a class="citation" href="https://h10032.www1.hp.com/ctg/Manual/c06696065.pdf">https://h10032.www1.hp.com/ctg/Manual/c06696065.pdf</a></div>
+
+</div>
+</div><div class="item-card">
+<div class="item-card-head">
+<span class="item-id">1.C</span>
+<span class="item-req">Disable any unneeded device or ports. Verify virtualization and removable-device controls where the approved baseline requires them.</span>
+</div>
+<div class="item-path">
+<div class="item-path-head">
+<span class="item-path-label">HP Client Management Script Library (CMSL) setting discovery</span>
+<span class="path-method">AUTOMATED</span>
+</div>
+<pre class="cmd">Import-Module HP.ClientManagement; (Get-HPBIOSSettingsList).Name; Get-HPBIOSSettingValue -Name &#39;&lt;exact discovered device, port, or virtualization setting name&gt;&#39;</pre><div class="path-note">HP provides no dedicated TPM, Secure Boot, USB-boot, or virtualization cmdlet; use the generic setting pattern only after discovering the exact name on this device.</div>
+<div class="path-meta">SAMPLE placeholder -- retain discovered names and values for each baseline-relevant control. &middot; <a class="citation" href="https://developers.hp.com/hp-client-management/doc/get-hpbiossettingvalue">https://developers.hp.com/hp-client-management/doc/get-hpbiossettingvalue</a></div>
+
+</div>
+<div class="item-path">
+<div class="item-path-head">
+<span class="item-path-label">HP manual firmware setup</span>
+<span class="path-method">MANUAL</span>
+</div>
+<p class="path-steps">At startup, press ESC and then F10. Review model-appropriate device/port settings in Main, Security, Advanced, or UEFI Drivers. Virtualization is commonly under Advanced &gt; System Options, but HP documents that labels can vary among Security, Advanced, Configuration, or CPU Configuration. Pre-2015 layouts differ; 2015-onward layouts have incremental changes through 2024-2026.</p>
+<div class="path-meta">SAMPLE placeholder -- inspector records each disabled or approved device/port and virtualization control. &middot; <a class="citation" href="https://h10032.www1.hp.com/ctg/Manual/c06696065.pdf">https://h10032.www1.hp.com/ctg/Manual/c06696065.pdf</a></div>
+
+</div>
+</div><div class="item-card">
+<div class="item-card-head">
+<span class="item-id">1.D</span>
+<span class="item-req">Password-protect the BIOS administrator/setup account with the current approved password; test access without exposing the secret in the report.</span>
+</div>
+<div class="item-path">
+<div class="item-path-head">
+<span class="item-path-label">HP Client Management Script Library (CMSL) administrator-password state</span>
+<span class="path-method">AUTOMATED</span>
+</div>
+<pre class="cmd">Import-Module HP.ClientManagement; Get-HPBIOSSetupPasswordIsSet</pre><div class="path-note">This read-only state check takes no password argument. For an approved HP password-setting operation, obtain the secret with $SecurePwd = Read-Host -Prompt &#39;Enter BIOS Admin Password&#39; -AsSecureString and pass only protected credential material according to the exact HP CMSL cmdlet documentation for the target platform; do not use a literal password string.</div>
+<div class="path-meta">SAMPLE placeholder -- retain only the setup-password state and access-test attestation; never retain a password. &middot; <a class="citation" href="https://developers.hp.com/hp-client-management/doc/bios-and-device">https://developers.hp.com/hp-client-management/doc/bios-and-device</a></div>
+<div class="path-caution"><strong>Caution:</strong> Do not hardcode or paste BIOS passwords in plaintext in scripts, terminal history, or evidence captures; use SecureString/PSCredential-based input.</div>
+</div>
+<div class="item-path">
+<div class="item-path-head">
+<span class="item-path-label">HP manual firmware setup</span>
+<span class="path-method">MANUAL</span>
+</div>
+<p class="path-steps">At startup, press ESC and then F10. On typical 2015-onward commercial systems use Security &gt; Administrator Tools &gt; Create/Change BIOS Administration Password, save, reboot, and test protected F10 Setup access. Pre-2015 layouts differ; 2015-onward layouts have incremental changes through 2024-2026.</p>
+<div class="path-meta">SAMPLE placeholder -- inspector records only password-set state and access-test result, never the password. &middot; <a class="citation" href="https://h10032.www1.hp.com/ctg/Manual/c06696065.pdf">https://h10032.www1.hp.com/ctg/Manual/c06696065.pdf</a></div>
+<div class="path-caution"><strong>Caution:</strong> Do not hardcode or paste BIOS passwords in plaintext in scripts, terminal history, or evidence captures; use SecureString/PSCredential-based input.</div>
+</div>
+</div><div class="item-card">
+<div class="item-card-head">
+<span class="item-id">1.E</span>
+<span class="item-req">Verify the BIOS user/power-on password, if present, cannot modify BIOS settings; apply the approved read-only or no-access control without exposing the secret in the report.</span>
+</div>
+<div class="item-path">
+<div class="item-path-head">
+<span class="item-path-label">HP Client Management Script Library (CMSL) power-on-password state</span>
+<span class="path-method">AUTOMATED</span>
+</div>
+<pre class="cmd">Import-Module HP.ClientManagement; Get-HPBIOSPowerOnPasswordIsSet; (Get-HPBIOSSettingsList).Name</pre><div class="path-note">This state check takes no password argument. HP provides no dedicated cmdlet for the required no-access/read-only behavior; discover model-specific controls and use protected SecureString/PSCredential input for any approved password-setting operation, never a literal password string.</div>
+<div class="path-meta">SAMPLE placeholder -- retain only power-on-password state, discovered control names, and user-access test attestation. &middot; <a class="citation" href="https://developers.hp.com/hp-client-management/doc/bios-and-device">https://developers.hp.com/hp-client-management/doc/bios-and-device</a></div>
+<div class="path-caution"><strong>Caution:</strong> Do not hardcode or paste BIOS passwords in plaintext in scripts, terminal history, or evidence captures; use SecureString/PSCredential-based input.</div>
+</div>
+<div class="item-path">
+<div class="item-path-head">
+<span class="item-path-label">HP manual firmware setup</span>
+<span class="path-method">MANUAL</span>
+</div>
+<p class="path-steps">At startup, press ESC and then F10. Review Security controls and the model&#39;s power-on/password policy, then test that a user/power-on password cannot modify protected BIOS settings. Current systems use Main/Security/Advanced/UEFI Drivers tabs; pre-2015 layouts differ, and 2015-onward layouts have incremental changes through 2024-2026.</p>
+<div class="path-meta">SAMPLE placeholder -- inspector records state and no-modification test result only; never record a password. &middot; <a class="citation" href="https://h10032.www1.hp.com/ctg/Manual/c06696065.pdf">https://h10032.www1.hp.com/ctg/Manual/c06696065.pdf</a></div>
+<div class="path-caution"><strong>Caution:</strong> Do not hardcode or paste BIOS passwords in plaintext in scripts, terminal history, or evidence captures; use SecureString/PSCredential-based input.</div>
+</div>
+</div>
+<h2>Sources</h2>
+<ul class="sources-list"><li><a class="citation" href="https://developers.hp.com/hp-client-management/doc/get-hpbiossettingslist">https://developers.hp.com/hp-client-management/doc/get-hpbiossettingslist</a></li><li><a class="citation" href="https://h10032.www1.hp.com/ctg/Manual/c06696065.pdf">https://h10032.www1.hp.com/ctg/Manual/c06696065.pdf</a></li><li><a class="citation" href="https://developers.hp.com/hp-client-management/doc/bios-and-device">https://developers.hp.com/hp-client-management/doc/bios-and-device</a></li><li><a class="citation" href="https://developers.hp.com/hp-client-management/doc/get-hpbiossettingvalue">https://developers.hp.com/hp-client-management/doc/get-hpbiossettingvalue</a></li></ul>
+<footer>
+This guide cites only HP's own product documentation, official knowledge-base articles, or the
+Microsoft-hosted PowerShell Gallery listing of the vendor's own module, plus clearly labeled community sources used
+only as corroborating color. See the Sources list above for every URL referenced.
+</footer>
+</div>
+</body>
+</html>

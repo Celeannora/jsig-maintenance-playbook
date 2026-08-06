@@ -1,0 +1,442 @@
+{
+  "meta": {
+    "report_title": "Initial System Validation Report",
+    "report_id": "ISV-UNKNOWN-HOST-20260806150726",
+    "generated_at_utc": "2026-08-06 15:07 UTC",
+    "tool_name": "initial-system-validation (PowerShell collector/renderer)",
+    "tool_version": "v1.0-powershell",
+    "examiner": "J. Smith",
+    "hostname": "UNKNOWN-HOST",
+    "notes": "DCN and CSU are undefined, site-specific abbreviations. They remain unexpanded because no source definition was found; the customer may supply the preferred expansion if desired.",
+    "system_identification": {
+      "Area / Location": "Building 4, Room 210",
+      "Program": "JSIG Maintenance Playbook",
+      "CSU Inspector": "J. Smith",
+      "Asset Tag Number (TAG#)": "SAMPLE-0001",
+      "Make / Model": "N/A -- not collected on this host",
+      "Security Content Automation Protocol (SCAP) Score": "N/A (sample)",
+      "Processor (CPU) Serial Number (SN)": "N/A -- not collected on this host",
+      "Gigabytes (GB) Memory (RAM)": "N/A -- not collected on this host",
+      "Multiple Hard Drives (HD) (Y/N)": "N/A -- not collected on this host",
+      "Hard Drive (HD) #0 Make": "N/A -- not collected on this host",
+      "Hard Drive (HD) #0 Model": "N/A -- not collected on this host",
+      "Hard Drive (HD) #0 Gigabytes (GB) Capacity": "N/A -- not collected on this host",
+      "Hard Drive (HD) #0 Serial Number (SN)": "N/A -- not collected on this host",
+      "DCN": "SAMPLE-DCN-0001",
+      "Previously hardened Windows 10-to-Windows 11 upgrade (Y/N)": "N/A (sample)"
+    }
+  },
+  "sha256_digest": "c37efa0af75bde7330703b556febc6e0b472548c313cbf8e0df8faf72cd58237",
+  "items": [
+    {
+      "section": "0. Extended Asset Inventory",
+      "item_id": "0.A",
+      "requirement": "Memory (RAM): record each installed module's device locator, Serial Number (SN), capacity, and manufacturer.",
+      "result": "MANUAL",
+      "timestamp_utc": null,
+      "method": "Native -- PowerShell CIM",
+      "command": "Get-CimInstance -ClassName Win32_PhysicalMemory | Select-Object DeviceLocator,SerialNumber,Capacity,Manufacturer | Format-Table -AutoSize | Out-String -Width 200",
+      "evidence": "SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence."
+    },
+    {
+      "section": "0. Extended Asset Inventory",
+      "item_id": "0.B",
+      "requirement": "Motherboard: record manufacturer, product, and Serial Number (SN).",
+      "result": "MANUAL",
+      "timestamp_utc": null,
+      "method": "Native -- PowerShell CIM",
+      "command": "Get-CimInstance -ClassName Win32_BaseBoard | Select-Object Manufacturer,Product,SerialNumber | Format-Table -AutoSize | Out-String -Width 200",
+      "evidence": "SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence."
+    },
+    {
+      "section": "0. Extended Asset Inventory",
+      "item_id": "0.C",
+      "requirement": "BIOS/firmware: record the exposed Serial Number (SN), SMBIOS BIOS version, and release date.",
+      "result": "MANUAL",
+      "timestamp_utc": null,
+      "method": "Native -- PowerShell CIM",
+      "command": "Get-CimInstance -ClassName Win32_BIOS | Select-Object SerialNumber,SMBIOSBIOSVersion,ReleaseDate | Format-Table -AutoSize | Out-String -Width 200",
+      "evidence": "SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence."
+    },
+    {
+      "section": "0. Extended Asset Inventory",
+      "item_id": "0.D",
+      "requirement": "Hard drives (HD): record the index, model, Serial Number (SN), and size for every disk individually.",
+      "result": "MANUAL",
+      "timestamp_utc": null,
+      "method": "Native -- PowerShell CIM",
+      "command": "Get-CimInstance -ClassName Win32_DiskDrive | Select-Object Index,Model,SerialNumber,Size | Format-Table -AutoSize | Out-String -Width 200",
+      "evidence": "SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence."
+    },
+    {
+      "section": "0. Extended Asset Inventory",
+      "item_id": "0.E",
+      "requirement": "Chassis: record the service tag/Serial Number (SN), SMBIOS asset tag, and chassis type.",
+      "result": "MANUAL",
+      "timestamp_utc": null,
+      "method": "Native -- PowerShell CIM",
+      "command": "Get-CimInstance -ClassName Win32_SystemEnclosure | Select-Object SerialNumber,SMBIOSAssetTag,ChassisTypes | Format-Table -AutoSize | Out-String -Width 200",
+      "evidence": "SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence."
+    },
+    {
+      "section": "0. Extended Asset Inventory",
+      "item_id": "0.F",
+      "requirement": "Operating system: record full edition/caption, version, build number, and architecture.",
+      "result": "MANUAL",
+      "timestamp_utc": null,
+      "method": "Native -- PowerShell CIM",
+      "command": "Get-CimInstance -ClassName Win32_OperatingSystem | Select-Object Caption,Version,BuildNumber,OSArchitecture | Format-Table -AutoSize | Out-String -Width 200",
+      "evidence": "SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence."
+    },
+    {
+      "section": "0. Extended Asset Inventory",
+      "item_id": "0.G",
+      "requirement": "Processor (CPU): record model name, core count, and logical-processor count.",
+      "result": "MANUAL",
+      "timestamp_utc": null,
+      "method": "Native -- PowerShell CIM",
+      "command": "Get-CimInstance -ClassName Win32_Processor | Select-Object Name,NumberOfCores,NumberOfLogicalProcessors | Format-Table -AutoSize | Out-String -Width 200",
+      "evidence": "SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence."
+    },
+    {
+      "section": "0. Extended Asset Inventory",
+      "item_id": "0.H",
+      "requirement": "Trusted Platform Module (TPM): record presence, readiness, enablement, and version where exposed.",
+      "result": "MANUAL",
+      "timestamp_utc": null,
+      "method": "Native -- PowerShell TPM cmdlet / CIM fallback",
+      "command": "Get-Tpm | Out-String; Get-CimInstance -Namespace root\\cimv2\\security\\microsofttpm -ClassName Win32_Tpm -ErrorAction SilentlyContinue | Out-String",
+      "evidence": "SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence."
+    },
+    {
+      "section": "0. Extended Asset Inventory",
+      "item_id": "0.I",
+      "requirement": "Secure Boot: record the firmware Secure Boot state.",
+      "result": "MANUAL",
+      "timestamp_utc": null,
+      "method": "Native -- PowerShell Secure Boot cmdlet",
+      "command": "Confirm-SecureBootUEFI | Out-String",
+      "evidence": "SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence."
+    },
+    {
+      "section": "0. Extended Asset Inventory",
+      "item_id": "0.J",
+      "requirement": "System membership and physical network adapters: record domain/workgroup status plus adapter name, manufacturer, and type only.",
+      "result": "MANUAL",
+      "timestamp_utc": null,
+      "method": "Native -- PowerShell CIM",
+      "command": "Get-CimInstance -ClassName Win32_ComputerSystem | Select-Object Domain,PartOfDomain,Workgroup | Format-Table -AutoSize | Out-String -Width 200; Get-CimInstance -ClassName Win32_NetworkAdapter | Where-Object { $_.PhysicalAdapter } | Select-Object Name,Manufacturer,AdapterType | Format-Table -AutoSize | Out-String -Width 200",
+      "evidence": "SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence."
+    },
+    {
+      "section": "1. BIOS Controls",
+      "item_id": "1.A",
+      "requirement": "Check system timezone, date, and time. Automated checks are operating-system or vendor-setting cross-checks; the inspector must also verify the firmware setup display.",
+      "result": "MANUAL",
+      "timestamp_utc": null,
+      "method": "Vendor BIOS provider (Dell DCPP / HP CMSL, auto-detected)",
+      "command": "if (Get-Module -ListAvailable -Name DellBIOSProvider) { Import-Module DellBIOSProvider; Get-ChildItem DellSmbios:\\ -Recurse | Where-Object Name -match \"Date|Time|Zone\" | Out-String } elseif (Get-Module -ListAvailable -Name HP.ClientManagement) { Import-Module HP.ClientManagement; (Get-HPBIOSSettingsList).Name | Out-String } else { throw \"Neither DellBIOSProvider nor HP.ClientManagement module is installed on this system.\" }",
+      "evidence": "SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence."
+    },
+    {
+      "section": "1. BIOS Controls",
+      "item_id": "1.B",
+      "requirement": "Boot order: internal Hard Drive (HD) only. Network, USB, and removable-media boot must be disabled if present.",
+      "result": "MANUAL",
+      "timestamp_utc": null,
+      "method": "Vendor BIOS provider (Dell DCPP / HP CMSL, auto-detected)",
+      "command": "if (Get-Module -ListAvailable -Name DellBIOSProvider) { Import-Module DellBIOSProvider; Get-Item DellSmbios:\\BootSequence\\BootList | Out-String; Get-Item DellSmbios:\\BootSequence\\BootSequence | Out-String } elseif (Get-Module -ListAvailable -Name HP.ClientManagement) { Import-Module HP.ClientManagement; (Get-HPBIOSSettingsList).Name | Out-String } else { throw \"Neither DellBIOSProvider nor HP.ClientManagement module is installed on this system.\" }",
+      "evidence": "SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence."
+    },
+    {
+      "section": "1. BIOS Controls",
+      "item_id": "1.C",
+      "requirement": "Disable any unneeded device or ports. Verify virtualization and removable-device controls where the approved baseline requires them.",
+      "result": "MANUAL",
+      "timestamp_utc": null,
+      "method": "Vendor BIOS provider (Dell DCPP / HP CMSL, auto-detected)",
+      "command": "if (Get-Module -ListAvailable -Name DellBIOSProvider) { Import-Module DellBIOSProvider; Get-ChildItem DellSmbios:\\ -Recurse | Select-Object Name, CurrentValue | Format-Table -AutoSize | Out-String -Width 200 } elseif (Get-Module -ListAvailable -Name HP.ClientManagement) { Import-Module HP.ClientManagement; (Get-HPBIOSSettingsList).Name | Out-String } else { throw \"Neither DellBIOSProvider nor HP.ClientManagement module is installed on this system.\" }",
+      "evidence": "SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence."
+    },
+    {
+      "section": "1. BIOS Controls",
+      "item_id": "1.D",
+      "requirement": "Password-protect the BIOS administrator/setup account with the current approved password; test access without exposing the secret in the report.",
+      "result": "MANUAL",
+      "timestamp_utc": null,
+      "method": "Vendor BIOS provider (Dell DCPP / HP CMSL, auto-detected)",
+      "command": "if (Get-Module -ListAvailable -Name DellBIOSProvider) { Import-Module DellBIOSProvider; Get-Item DellSmbios:\\Security\\IsAdminPasswordSet | Out-String } elseif (Get-Module -ListAvailable -Name HP.ClientManagement) { Import-Module HP.ClientManagement; Get-HPBIOSSetupPasswordIsSet | Out-String } else { throw \"Neither DellBIOSProvider nor HP.ClientManagement module is installed on this system.\" }",
+      "evidence": "SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence."
+    },
+    {
+      "section": "1. BIOS Controls",
+      "item_id": "1.E",
+      "requirement": "Verify the BIOS user/power-on password, if present, cannot modify BIOS settings; apply the approved read-only or no-access control without exposing the secret in the report.",
+      "result": "MANUAL",
+      "timestamp_utc": null,
+      "method": "Vendor BIOS provider (Dell DCPP / HP CMSL, auto-detected)",
+      "command": "if (Get-Module -ListAvailable -Name DellBIOSProvider) { Import-Module DellBIOSProvider; Get-Item DellSmbios:\\Security\\IsSystemPasswordSet | Out-String; Get-Item DellSmbios:\\Security\\AdminSetupLockout | Out-String } elseif (Get-Module -ListAvailable -Name HP.ClientManagement) { Import-Module HP.ClientManagement; Get-HPBIOSPowerOnPasswordIsSet | Out-String } else { throw \"Neither DellBIOSProvider nor HP.ClientManagement module is installed on this system.\" }",
+      "evidence": "SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence."
+    },
+    {
+      "section": "2. Services",
+      "item_id": "2.A",
+      "requirement": "Un-needed services: verify each of the 45 listed services (AllJoyn Router Service, Auto Time Zone Updater, Bluetooth Handsfree Service, Bluetooth Support Service, dmwappushsvc, Downloaded Maps Manager, Fax, Geolocation Service, HomeGroup Listener, HomeGroup Provider, HV Host Service, Infrared Monitor Service, Internet Connection Sharing (ICS), Microsoft Software Shadow Copy Provider, Peer Name Resolution Protocol, Peer Networking Grouping, Peer Networking Identity Manager, Phone Service, PNRP Machine Name Publication Service, Radio Management Service, Remote Access Management Service, Remote Access Auto Connection Manager, Remote Access Connection Manager, Retail Demo Service, SNMP Trap, SSDP Discovery, Wallet Service, Wi-Fi Direct Services Connection Manager Service, Windows Backup, Windows Camera Frame Server, Windows Connect Now - Config Registrar, Windows Insider Service, Windows Media Player Network Sharing Service, Windows Mobile Hotspot Service, Windows Perception Service, Windows PushToInstall Service, Windows Store Install Service, WLAN AutoConfig, Work Folders, WWAN AutoConfig, Xbox Accessory Management Service, Xbox Game Monitoring, Xbox Live Auth Manager, Xbox Live Game Save, Xbox Live Networking Service) is set to Startup Type Disabled and Status Stopped; mark N/A for any service not present on this Windows edition. Xbox Game Monitoring may be set to Manual if it cannot be Disabled.",
+      "result": "MANUAL",
+      "timestamp_utc": null,
+      "method": "Native -- PowerShell Get-Service",
+      "command": "$targets = @('AllJoyn Router Service','Auto Time Zone Updater','Bluetooth Handsfree Service','Bluetooth Support Service','dmwappushsvc','Downloaded Maps Manager','Fax','Geolocation Service','HomeGroup Listener','HomeGroup Provider','HV Host Service','Infrared Monitor Service','Internet Connection Sharing (ICS)','Microsoft Software Shadow Copy Provider','Peer Name Resolution Protocol','Peer Networking Grouping','Peer Networking Identity Manager','Phone Service','PNRP Machine Name Publication Service','Radio Management Service','Remote Access Management Service','Remote Access Auto Connection Manager','Remote Access Connection Manager','Retail Demo Service','SNMP Trap','SSDP Discovery','Wallet Service','Wi-Fi Direct Services Connection Manager Service','Windows Backup','Windows Camera Frame Server','Windows Connect Now - Config Registrar','Windows Insider Service','Windows Media Player Network Sharing Service','Windows Mobile Hotspot Service','Windows Perception Service','Windows PushToInstall Service','Windows Store Install Service','WLAN AutoConfig','Work Folders','WWAN AutoConfig','Xbox Accessory Management Service','Xbox Game Monitoring','Xbox Live Auth Manager','Xbox Live Game Save','Xbox Live Networking Service')\nGet-Service | Where-Object { $targets -contains $_.DisplayName } | Select-Object DisplayName,Name,Status,StartType",
+      "evidence": "SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence."
+    },
+    {
+      "section": "3. Screen Saver",
+      "item_id": "3.A",
+      "requirement": "Enable screen saver: ENABLED",
+      "result": "MANUAL",
+      "timestamp_utc": null,
+      "method": "Native -- reg query (Group Policy hive)",
+      "command": "reg query \"HKCU\\Software\\Policies\\Microsoft\\Windows\\Control Panel\\Desktop\" /v ScreenSaveActive",
+      "evidence": "SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence."
+    },
+    {
+      "section": "3. Screen Saver",
+      "item_id": "3.B",
+      "requirement": "Prevent changing screen saver: ENABLED",
+      "result": "MANUAL",
+      "timestamp_utc": null,
+      "method": "Native -- reg query (Group Policy hive)",
+      "command": "reg query \"HKCU\\Software\\Policies\\Microsoft\\Windows\\Control Panel\\Desktop\" /v NoDispScrSavPage",
+      "evidence": "SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence."
+    },
+    {
+      "section": "3. Screen Saver",
+      "item_id": "3.C",
+      "requirement": "Password-protect the screen saver: ENABLED",
+      "result": "MANUAL",
+      "timestamp_utc": null,
+      "method": "Native -- reg query (Group Policy hive)",
+      "command": "reg query \"HKCU\\Software\\Policies\\Microsoft\\Windows\\Control Panel\\Desktop\" /v ScreenSaverIsSecure",
+      "evidence": "SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence."
+    },
+    {
+      "section": "3. Screen Saver",
+      "item_id": "3.D",
+      "requirement": "Screen saver timeout: ENABLED -- 15 minutes (900 seconds)",
+      "result": "MANUAL",
+      "timestamp_utc": null,
+      "method": "Native -- reg query (Group Policy hive)",
+      "command": "reg query \"HKCU\\Software\\Policies\\Microsoft\\Windows\\Control Panel\\Desktop\" /v ScreenSaveTimeOut",
+      "evidence": "SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence."
+    },
+    {
+      "section": "3. Screen Saver",
+      "item_id": "3.E",
+      "requirement": "Force specific screen saver: approved screen saver path exists.",
+      "result": "MANUAL",
+      "timestamp_utc": null,
+      "method": "Native -- reg query + Test-Path",
+      "command": "reg query \"HKCU\\Software\\Policies\\Microsoft\\Windows\\Control Panel\\Desktop\" /v SCRNSAVE.EXE; Test-Path 'C:\\Windows\\system32\\Mystify.scr'",
+      "evidence": "SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence."
+    },
+    {
+      "section": "4. General Policy",
+      "item_id": "4.A",
+      "requirement": "Application event log max size >= 81920 KB",
+      "result": "MANUAL",
+      "timestamp_utc": null,
+      "method": "Native -- PowerShell Get-WinEvent -ListLog",
+      "command": "(Get-WinEvent -ListLog Application).MaximumSizeInBytes / 1KB",
+      "evidence": "SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence."
+    },
+    {
+      "section": "4. General Policy",
+      "item_id": "4.B",
+      "requirement": "Security event log max size >= 5120000 KB",
+      "result": "MANUAL",
+      "timestamp_utc": null,
+      "method": "Native -- PowerShell Get-WinEvent -ListLog",
+      "command": "(Get-WinEvent -ListLog Security).MaximumSizeInBytes / 1KB",
+      "evidence": "SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence."
+    },
+    {
+      "section": "4. General Policy",
+      "item_id": "4.C",
+      "requirement": "System event log max size >= 81920 KB",
+      "result": "MANUAL",
+      "timestamp_utc": null,
+      "method": "Native -- PowerShell Get-WinEvent -ListLog",
+      "command": "(Get-WinEvent -ListLog System).MaximumSizeInBytes / 1KB",
+      "evidence": "SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence."
+    },
+    {
+      "section": "4. General Policy",
+      "item_id": "4.D",
+      "requirement": "Audit retention setting matches SPLUNK-enabled / non-SPLUNK-enabled branch (both connected and disconnected forwarding paths apply per the air-gapped dual-path standard -- see MRC-006/011/014/017/022 for the Splunk forwarding connected/offline caveats already documented in the JSIG playbook).",
+      "result": "MANUAL",
+      "timestamp_utc": null,
+      "method": "Native -- PowerShell Get-WinEvent -ListLog (LogMode property)",
+      "command": "(Get-WinEvent -ListLog Application,Security,System) | Select-Object LogName,LogMode | Format-Table -AutoSize | Out-String",
+      "evidence": "SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence."
+    },
+    {
+      "section": "4. General Policy",
+      "item_id": "4.E",
+      "requirement": "Windows games removed/uninstalled",
+      "result": "MANUAL",
+      "timestamp_utc": null,
+      "method": "Manual -- Control Panel > Turn Windows features on/off, cross-checked with Get-AppxPackage",
+      "command": "Get-AppxPackage -AllUsers | Where-Object Name -like '*Microsoft.*Game*' | Select-Object Name | Out-String",
+      "evidence": "SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence."
+    },
+    {
+      "section": "5. Accounts",
+      "item_id": "5.B",
+      "requirement": "ADMINISTRATOR (local) -- Password Never Expires unchecked",
+      "result": "MANUAL",
+      "timestamp_utc": null,
+      "method": "Native -- PowerShell Get-LocalUser",
+      "command": "Get-LocalUser -Name 'Administrator' | Select-Object Name, PasswordExpires, Enabled",
+      "evidence": "SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence."
+    },
+    {
+      "section": "5. Accounts",
+      "item_id": "5.C",
+      "requirement": "SDC_Admin (built-in vendor admin account) Disabled",
+      "result": "MANUAL",
+      "timestamp_utc": null,
+      "method": "Native -- PowerShell Get-LocalUser",
+      "command": "Get-LocalUser -Name 'SDC_Admin' | Select-Object Name, Enabled",
+      "evidence": "SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence."
+    },
+    {
+      "section": "5. Accounts",
+      "item_id": "5.D",
+      "requirement": "Default Account (Win10/11 built-in) Disabled",
+      "result": "MANUAL",
+      "timestamp_utc": null,
+      "method": "Native -- PowerShell Get-LocalUser",
+      "command": "Get-LocalUser -Name 'DefaultAccount' | Select-Object Name, Enabled",
+      "evidence": "SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence."
+    },
+    {
+      "section": "5. Accounts",
+      "item_id": "5.E",
+      "requirement": "Guest account Disabled",
+      "result": "MANUAL",
+      "timestamp_utc": null,
+      "method": "Native -- PowerShell Get-LocalUser",
+      "command": "Get-LocalUser -Name 'Guest' | Select-Object Name, Enabled",
+      "evidence": "SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence."
+    },
+    {
+      "section": "5. Accounts",
+      "item_id": "5.F",
+      "requirement": "WDAGUtilityAccount (Windows Defender) Disabled",
+      "result": "MANUAL",
+      "timestamp_utc": null,
+      "method": "Native -- PowerShell Get-LocalUser",
+      "command": "Get-LocalUser -Name 'WDAGUtilityAccount' | Select-Object Name, Enabled",
+      "evidence": "SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence."
+    },
+    {
+      "section": "5. Accounts",
+      "item_id": "5.H_L",
+      "requirement": "Local Administrators group -- membership limited to approved accounts",
+      "result": "MANUAL",
+      "timestamp_utc": null,
+      "method": "Native -- PowerShell Get-LocalGroupMember",
+      "command": "Get-LocalGroupMember -Group 'Administrators' | Select-Object Name, ObjectClass | Format-Table -AutoSize | Out-String",
+      "evidence": "SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence."
+    },
+    {
+      "section": "5. Accounts",
+      "item_id": "5.M_X",
+      "requirement": "Sensitive built-in local groups (Backup Operators, Cryptographic Operators, Power Users, etc.) verified empty",
+      "result": "MANUAL",
+      "timestamp_utc": null,
+      "method": "Native -- PowerShell Get-LocalGroupMember",
+      "command": "'Backup Operators','Cryptographic Operators','Power Users','Remote Management Users' | ForEach-Object { $g = $_; Get-LocalGroupMember -Group $g -ErrorAction SilentlyContinue | Select-Object @{n='Group';e={$g}}, Name, ObjectClass }",
+      "evidence": "SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence."
+    },
+    {
+      "section": "5. Accounts",
+      "item_id": "5.Y_AB",
+      "requirement": "Users group contains only the approved entries (Authenticated Users, Interactive, Domain Users, Network Engineers)",
+      "result": "MANUAL",
+      "timestamp_utc": null,
+      "method": "Native -- PowerShell Get-LocalGroupMember, cross-referenced with Active Directory (see appendix query below for environments where the group's real name differs)",
+      "command": "Get-LocalGroupMember -Group 'Users' | Select-Object Name, ObjectClass | Format-Table -AutoSize | Out-String",
+      "evidence": "SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence."
+    },
+    {
+      "section": "6. Anti-Virus Definitions",
+      "item_id": "6",
+      "requirement": "Anti-virus signature file current within 30 days",
+      "result": "MANUAL",
+      "timestamp_utc": null,
+      "method": "Native -- PowerShell reg query against the local AV engine's registry state (Trellix/McAfee: HKLM\\SOFTWARE\\WOW6432Node\\McAfee\\AVEngine; Defender-coexistence check: Get-MpComputerStatus)",
+      "command": "$dat = Get-ItemProperty -Path 'HKLM:\\SOFTWARE\\WOW6432Node\\McAfee\\AVEngine' -Name AVDatDate -ErrorAction Stop\n$dat.AVDatDate",
+      "evidence": "SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence."
+    },
+    {
+      "section": "7. Permissions and Security-Relevant Object (SRO) Policy",
+      "item_id": "7.B",
+      "requirement": "C:\\Audit_logs -- Auditors: Full Control (or SPLUNK-branch handling)",
+      "result": "MANUAL",
+      "timestamp_utc": null,
+      "method": "Native -- icacls",
+      "command": "icacls C:\\Audit_logs",
+      "evidence": "SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence."
+    },
+    {
+      "section": "7. Permissions and Security-Relevant Object (SRO) Policy",
+      "item_id": "7.D",
+      "requirement": "C:\\Windows\\INF\\USBSTOR.INF -- Administrators: Read/Execute only",
+      "result": "MANUAL",
+      "timestamp_utc": null,
+      "method": "Native -- icacls",
+      "command": "icacls C:\\Windows\\INF\\USBSTOR.INF",
+      "evidence": "SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence."
+    },
+    {
+      "section": "7. Permissions and Security-Relevant Object (SRO) Policy",
+      "item_id": "7.F",
+      "requirement": "C:\\Windows\\regedit.exe -- ACL matches specified vendor baseline",
+      "result": "MANUAL",
+      "timestamp_utc": null,
+      "method": "Native -- icacls",
+      "command": "icacls C:\\Windows\\regedit.exe",
+      "evidence": "SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence."
+    },
+    {
+      "section": "7. Permissions and Security-Relevant Object (SRO) Policy",
+      "item_id": "7.H",
+      "requirement": "C:\\Windows\\System32\\Eventvwr.exe -- Auditors: Full Control added",
+      "result": "MANUAL",
+      "timestamp_utc": null,
+      "method": "Native -- icacls",
+      "command": "icacls C:\\Windows\\System32\\Eventvwr.exe",
+      "evidence": "SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence."
+    },
+    {
+      "section": "7. Permissions and Security-Relevant Object (SRO) Policy",
+      "item_id": "7.L",
+      "requirement": "C:\\Program Files\\Common Files\\McAfee -- ACL matches specified vendor baseline",
+      "result": "MANUAL",
+      "timestamp_utc": null,
+      "method": "Native -- icacls",
+      "command": "icacls \"C:\\Program Files\\Common Files\\McAfee\"",
+      "evidence": "SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence."
+    },
+    {
+      "section": "General Security",
+      "item_id": "Final",
+      "requirement": "Remove/disable all writable media devices unless documented DTA exception exists",
+      "result": "MANUAL",
+      "timestamp_utc": null,
+      "method": "Manual -- physical inspection, cross-checked with Device Manager",
+      "command": "Get-PnpDevice -Class DiskDrive,USB | Select-Object FriendlyName, Status | Format-Table -AutoSize | Out-String -Width 200",
+      "evidence": "SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence."
+    }
+  ]
+}
