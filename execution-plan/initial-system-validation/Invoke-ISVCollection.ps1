@@ -73,12 +73,14 @@
     this script.
 
 .PARAMETER SkipReport
-    By default this script automatically renders the HTML report (and the
-    two BIOS reference guides) immediately after writing evidence.json, by
-    calling New-ISVReport.ps1 in the same run -- one command, one full set
-    of output files, nothing extra to remember. Pass -SkipReport to opt out
-    and only write evidence.json (e.g. if you plan to hand-edit it before
-    rendering, or render it separately/offline later).
+    By default this script automatically renders the host-specific HTML
+    report immediately after writing evidence.json, by calling
+    New-ISVReport.ps1 in the same run -- one command, nothing extra to
+    remember. (The Dell/HP BIOS reference guides are a separate standalone
+    deliverable -- run New-BiosReferenceGuides.ps1 on its own whenever
+    needed; they are not part of this auto-chain.) Pass -SkipReport to opt
+    out of the report and only write evidence.json (e.g. if you plan to
+    hand-edit it before rendering, or render it separately/offline later).
 
 .EXAMPLE
     .\Invoke-ISVCollection.ps1
@@ -468,6 +470,12 @@ $meta = [ordered]@{
     tool_version     = $ToolVersion
     examiner         = $Inspector
     hostname         = $hostname
+    # Recorded explicitly so New-ISVReport.ps1 never has to guess whether this
+    # bundle is real or placeholder data -- this is what lets the renderer
+    # name the output file correctly (a live-host report must never be named
+    # "...-SAMPLE.html", which previously happened unconditionally regardless
+    # of the data's actual source and was mistaken for a tool malfunction).
+    is_sample_mode   = [bool]$SampleMode
     notes            = $ReportNotes
     system_identification = $sysId
     drives           = $disks
@@ -498,8 +506,11 @@ Write-Host "SHA-256 digest: $digest" -ForegroundColor Green
 
 # ---------------------------------------------------------------------------
 # Auto-chain the renderer -- by default this script produces the finished
-# HTML report (and the two BIOS reference guides) in the SAME run, so there
-# is no second command to forget. Pass -SkipReport to opt out.
+# host-specific HTML report in the SAME run, so there is no second command
+# to forget. (The Dell/HP BIOS reference guides are a separate, standalone
+# deliverable -- see New-BiosReferenceGuides.ps1 -- since they are generic
+# vendor documentation that does not depend on this host's evidence.)
+# Pass -SkipReport to opt out.
 # ---------------------------------------------------------------------------
 if (-not $SkipReport) {
     $reportScript = Join-Path $PSScriptRoot 'New-ISVReport.ps1'

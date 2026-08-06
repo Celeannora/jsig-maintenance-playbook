@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Initial System Validation Report -- ISV-UNKNOWN-HOST-20260806155001</title>
+<title>Initial System Validation Report -- ISV-UNKNOWN-HOST-20260806160823</title>
 <style>    @page { size: Letter; margin: 9mm 8mm; }
     :root { color-scheme: light; }
     * { box-sizing: border-box; }
@@ -104,6 +104,12 @@
     .method-value { font-size: 12px; font-weight: 600; }
     .item-field-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.04em; color: #7A7974; font-weight: 600; }
     .item-ts { font-size: 10.5px; color: #7A7974; margin-top: 3px; }
+    .item-initials { display: flex; align-items: center; gap: 6px; margin-top: 4px; padding-top: 4px; border-top: 1px dashed #D4D1CA; }
+    .item-initials .item-field-label { white-space: nowrap; }
+    .initials-input { width: 76px; border: none; border-bottom: 1px solid #7A7974; background: transparent; font-size: 12px; font-family: inherit; color: #28251D; padding: 1px 2px; text-transform: uppercase; }
+    .initials-input:focus { outline: none; border-bottom: 1px solid #01696F; }
+    .initials-input::placeholder { color: #BAB9B4; text-transform: none; font-style: italic; }
+    @media print { .initials-input { border-bottom: 1px solid #28251D; } }
     .fill-in { color: #BAB9B4; font-style: italic; }
     .summary-grid { display: flex; gap: 8px; margin: 4px 0 8px; flex-wrap: wrap; }
     .summary-card { flex: 1; min-width: 110px; border: 1px solid #D4D1CA; background: #F9F8F5; padding: 6px; text-align: center; }
@@ -119,8 +125,8 @@
 <h1>Initial System Validation Report</h1>
 
 <div class="meta-note">
-<strong>Report ID:</strong> ISV-UNKNOWN-HOST-20260806155001<br>
-<strong>Generated:</strong> 2026-08-06 15:50 UTC<br>
+<strong>Report ID:</strong> ISV-UNKNOWN-HOST-20260806160823<br>
+<strong>Generated:</strong> 2026-08-06 16:08 UTC<br>
 <strong>Generating tool:</strong> initial-system-validation (PowerShell collector/renderer) (v1.0-powershell)<br>
 <strong>Examiner:</strong> SAMPLE DATA -- not a real examiner<br>
 <strong>Hostname:</strong> UNKNOWN-HOST<br>
@@ -153,6 +159,7 @@ and confirm it matches this digest -- any post-generation edit to the raw eviden
 <div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">Get-CimInstance -ClassName Win32_PhysicalMemory | Select-Object DeviceLocator,SerialNumber,Capacity,Manufacturer | Format-Table -AutoSize | Out-String -Width 200</pre></div>
 <div class="item-field"><span class="item-field-label">Captured Evidence</span><pre class="evd">SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence.</pre></div>
 <div class="item-ts"><strong>Timestamp (UTC):</strong> <span class="fill-in">(not applicable -- manual item)</span></div>
+<div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" placeholder="---" aria-label="Examiner initials for 0.A"></div>
 </div><div class="item-card">
 <div class="item-card-head">
 <span class="item-id">0.B</span>
@@ -163,6 +170,7 @@ and confirm it matches this digest -- any post-generation edit to the raw eviden
 <div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">Get-CimInstance -ClassName Win32_BaseBoard | Select-Object Manufacturer,Product,SerialNumber | Format-Table -AutoSize | Out-String -Width 200</pre></div>
 <div class="item-field"><span class="item-field-label">Captured Evidence</span><pre class="evd">SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence.</pre></div>
 <div class="item-ts"><strong>Timestamp (UTC):</strong> <span class="fill-in">(not applicable -- manual item)</span></div>
+<div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" placeholder="---" aria-label="Examiner initials for 0.B"></div>
 </div><div class="item-card">
 <div class="item-card-head">
 <span class="item-id">0.C</span>
@@ -173,6 +181,7 @@ and confirm it matches this digest -- any post-generation edit to the raw eviden
 <div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">Get-CimInstance -ClassName Win32_BIOS | Select-Object SerialNumber,SMBIOSBIOSVersion,ReleaseDate | Format-Table -AutoSize | Out-String -Width 200</pre></div>
 <div class="item-field"><span class="item-field-label">Captured Evidence</span><pre class="evd">SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence.</pre></div>
 <div class="item-ts"><strong>Timestamp (UTC):</strong> <span class="fill-in">(not applicable -- manual item)</span></div>
+<div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" placeholder="---" aria-label="Examiner initials for 0.C"></div>
 </div><div class="item-card">
 <div class="item-card-head">
 <span class="item-id">0.D</span>
@@ -183,6 +192,7 @@ and confirm it matches this digest -- any post-generation edit to the raw eviden
 <div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">Get-CimInstance -ClassName Win32_DiskDrive | Select-Object Index,Model,SerialNumber,Size | Format-Table -AutoSize | Out-String -Width 200</pre></div>
 <div class="item-field"><span class="item-field-label">Captured Evidence</span><pre class="evd">SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence.</pre></div>
 <div class="item-ts"><strong>Timestamp (UTC):</strong> <span class="fill-in">(not applicable -- manual item)</span></div>
+<div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" placeholder="---" aria-label="Examiner initials for 0.D"></div>
 </div><div class="item-card">
 <div class="item-card-head">
 <span class="item-id">0.E</span>
@@ -193,6 +203,7 @@ and confirm it matches this digest -- any post-generation edit to the raw eviden
 <div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">Get-CimInstance -ClassName Win32_SystemEnclosure | Select-Object SerialNumber,SMBIOSAssetTag,ChassisTypes | Format-Table -AutoSize | Out-String -Width 200</pre></div>
 <div class="item-field"><span class="item-field-label">Captured Evidence</span><pre class="evd">SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence.</pre></div>
 <div class="item-ts"><strong>Timestamp (UTC):</strong> <span class="fill-in">(not applicable -- manual item)</span></div>
+<div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" placeholder="---" aria-label="Examiner initials for 0.E"></div>
 </div><div class="item-card">
 <div class="item-card-head">
 <span class="item-id">0.F</span>
@@ -203,6 +214,7 @@ and confirm it matches this digest -- any post-generation edit to the raw eviden
 <div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">Get-CimInstance -ClassName Win32_OperatingSystem | Select-Object Caption,Version,BuildNumber,OSArchitecture | Format-Table -AutoSize | Out-String -Width 200</pre></div>
 <div class="item-field"><span class="item-field-label">Captured Evidence</span><pre class="evd">SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence.</pre></div>
 <div class="item-ts"><strong>Timestamp (UTC):</strong> <span class="fill-in">(not applicable -- manual item)</span></div>
+<div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" placeholder="---" aria-label="Examiner initials for 0.F"></div>
 </div><div class="item-card">
 <div class="item-card-head">
 <span class="item-id">0.G</span>
@@ -213,6 +225,7 @@ and confirm it matches this digest -- any post-generation edit to the raw eviden
 <div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">Get-CimInstance -ClassName Win32_Processor | Select-Object Name,NumberOfCores,NumberOfLogicalProcessors | Format-Table -AutoSize | Out-String -Width 200</pre></div>
 <div class="item-field"><span class="item-field-label">Captured Evidence</span><pre class="evd">SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence.</pre></div>
 <div class="item-ts"><strong>Timestamp (UTC):</strong> <span class="fill-in">(not applicable -- manual item)</span></div>
+<div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" placeholder="---" aria-label="Examiner initials for 0.G"></div>
 </div><div class="item-card">
 <div class="item-card-head">
 <span class="item-id">0.H</span>
@@ -223,6 +236,7 @@ and confirm it matches this digest -- any post-generation edit to the raw eviden
 <div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">Get-Tpm | Out-String; Get-CimInstance -Namespace root\cimv2\security\microsofttpm -ClassName Win32_Tpm -ErrorAction SilentlyContinue | Out-String</pre></div>
 <div class="item-field"><span class="item-field-label">Captured Evidence</span><pre class="evd">SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence.</pre></div>
 <div class="item-ts"><strong>Timestamp (UTC):</strong> <span class="fill-in">(not applicable -- manual item)</span></div>
+<div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" placeholder="---" aria-label="Examiner initials for 0.H"></div>
 </div><div class="item-card">
 <div class="item-card-head">
 <span class="item-id">0.I</span>
@@ -233,6 +247,7 @@ and confirm it matches this digest -- any post-generation edit to the raw eviden
 <div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">Confirm-SecureBootUEFI | Out-String</pre></div>
 <div class="item-field"><span class="item-field-label">Captured Evidence</span><pre class="evd">SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence.</pre></div>
 <div class="item-ts"><strong>Timestamp (UTC):</strong> <span class="fill-in">(not applicable -- manual item)</span></div>
+<div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" placeholder="---" aria-label="Examiner initials for 0.I"></div>
 </div><div class="item-card">
 <div class="item-card-head">
 <span class="item-id">0.J</span>
@@ -243,6 +258,7 @@ and confirm it matches this digest -- any post-generation edit to the raw eviden
 <div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">Get-CimInstance -ClassName Win32_ComputerSystem | Select-Object Domain,PartOfDomain,Workgroup | Format-Table -AutoSize | Out-String -Width 200; Get-CimInstance -ClassName Win32_NetworkAdapter | Where-Object { $_.PhysicalAdapter } | Select-Object Name,Manufacturer,AdapterType | Format-Table -AutoSize | Out-String -Width 200</pre></div>
 <div class="item-field"><span class="item-field-label">Captured Evidence</span><pre class="evd">SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence.</pre></div>
 <div class="item-ts"><strong>Timestamp (UTC):</strong> <span class="fill-in">(not applicable -- manual item)</span></div>
+<div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" placeholder="---" aria-label="Examiner initials for 0.J"></div>
 </div><h2>1. BIOS Controls</h2>
 <p class="section-note">The automated path shown per item depends on the detected BIOS vendor: Dell Command | PowerShell Provider (DCPP) on Dell systems, HP Client Management Script Library (CMSL) on HP systems. If neither vendor module is present, the item resolves to N/A here with a pointer to the physical-console fallback documented in the companion Dell BIOS Reference Guide and HP BIOS Reference Guide.</p>
 <div class="item-card">
@@ -255,6 +271,7 @@ and confirm it matches this digest -- any post-generation edit to the raw eviden
 <div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">if (Get-Module -ListAvailable -Name DellBIOSProvider) { Import-Module DellBIOSProvider; Get-ChildItem DellSmbios:\ -Recurse | Where-Object Name -match &quot;Date|Time|Zone&quot; | Out-String } elseif (Get-Module -ListAvailable -Name HP.ClientManagement) { Import-Module HP.ClientManagement; (Get-HPBIOSSettingsList).Name | Out-String } else { throw &quot;Neither DellBIOSProvider nor HP.ClientManagement module is installed on this system.&quot; }</pre></div>
 <div class="item-field"><span class="item-field-label">Captured Evidence</span><pre class="evd">SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence.</pre></div>
 <div class="item-ts"><strong>Timestamp (UTC):</strong> <span class="fill-in">(not applicable -- manual item)</span></div>
+<div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" placeholder="---" aria-label="Examiner initials for 1.A"></div>
 </div><div class="item-card">
 <div class="item-card-head">
 <span class="item-id">1.B</span>
@@ -265,6 +282,7 @@ and confirm it matches this digest -- any post-generation edit to the raw eviden
 <div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">if (Get-Module -ListAvailable -Name DellBIOSProvider) { Import-Module DellBIOSProvider; Get-Item DellSmbios:\BootSequence\BootList | Out-String; Get-Item DellSmbios:\BootSequence\BootSequence | Out-String } elseif (Get-Module -ListAvailable -Name HP.ClientManagement) { Import-Module HP.ClientManagement; (Get-HPBIOSSettingsList).Name | Out-String } else { throw &quot;Neither DellBIOSProvider nor HP.ClientManagement module is installed on this system.&quot; }</pre></div>
 <div class="item-field"><span class="item-field-label">Captured Evidence</span><pre class="evd">SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence.</pre></div>
 <div class="item-ts"><strong>Timestamp (UTC):</strong> <span class="fill-in">(not applicable -- manual item)</span></div>
+<div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" placeholder="---" aria-label="Examiner initials for 1.B"></div>
 </div><div class="item-card">
 <div class="item-card-head">
 <span class="item-id">1.C</span>
@@ -275,6 +293,7 @@ and confirm it matches this digest -- any post-generation edit to the raw eviden
 <div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">if (Get-Module -ListAvailable -Name DellBIOSProvider) { Import-Module DellBIOSProvider; Get-ChildItem DellSmbios:\ -Recurse | Select-Object Name, CurrentValue | Format-Table -AutoSize | Out-String -Width 200 } elseif (Get-Module -ListAvailable -Name HP.ClientManagement) { Import-Module HP.ClientManagement; (Get-HPBIOSSettingsList).Name | Out-String } else { throw &quot;Neither DellBIOSProvider nor HP.ClientManagement module is installed on this system.&quot; }</pre></div>
 <div class="item-field"><span class="item-field-label">Captured Evidence</span><pre class="evd">SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence.</pre></div>
 <div class="item-ts"><strong>Timestamp (UTC):</strong> <span class="fill-in">(not applicable -- manual item)</span></div>
+<div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" placeholder="---" aria-label="Examiner initials for 1.C"></div>
 </div><div class="item-card">
 <div class="item-card-head">
 <span class="item-id">1.D</span>
@@ -285,6 +304,7 @@ and confirm it matches this digest -- any post-generation edit to the raw eviden
 <div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">if (Get-Module -ListAvailable -Name DellBIOSProvider) { Import-Module DellBIOSProvider; Get-Item DellSmbios:\Security\IsAdminPasswordSet | Out-String } elseif (Get-Module -ListAvailable -Name HP.ClientManagement) { Import-Module HP.ClientManagement; Get-HPBIOSSetupPasswordIsSet | Out-String } else { throw &quot;Neither DellBIOSProvider nor HP.ClientManagement module is installed on this system.&quot; }</pre></div>
 <div class="item-field"><span class="item-field-label">Captured Evidence</span><pre class="evd">SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence.</pre></div>
 <div class="item-ts"><strong>Timestamp (UTC):</strong> <span class="fill-in">(not applicable -- manual item)</span></div>
+<div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" placeholder="---" aria-label="Examiner initials for 1.D"></div>
 </div><div class="item-card">
 <div class="item-card-head">
 <span class="item-id">1.E</span>
@@ -295,6 +315,7 @@ and confirm it matches this digest -- any post-generation edit to the raw eviden
 <div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">if (Get-Module -ListAvailable -Name DellBIOSProvider) { Import-Module DellBIOSProvider; Get-Item DellSmbios:\Security\IsSystemPasswordSet | Out-String; Get-Item DellSmbios:\Security\AdminSetupLockout | Out-String } elseif (Get-Module -ListAvailable -Name HP.ClientManagement) { Import-Module HP.ClientManagement; Get-HPBIOSPowerOnPasswordIsSet | Out-String } else { throw &quot;Neither DellBIOSProvider nor HP.ClientManagement module is installed on this system.&quot; }</pre></div>
 <div class="item-field"><span class="item-field-label">Captured Evidence</span><pre class="evd">SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence.</pre></div>
 <div class="item-ts"><strong>Timestamp (UTC):</strong> <span class="fill-in">(not applicable -- manual item)</span></div>
+<div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" placeholder="---" aria-label="Examiner initials for 1.E"></div>
 </div><h2>2. Services</h2>
 <p class="section-note">Verified natively via PowerShell Get-Service -- no vendor tooling or network access required. The source checklist frames this as one consolidated instruction covering 45 named services (services.msc equivalent), each of which should be Disabled/Stopped if present, or N/A if the service does not exist on this Windows edition.</p>
 <div class="item-card">
@@ -308,6 +329,7 @@ and confirm it matches this digest -- any post-generation edit to the raw eviden
 Get-Service | Where-Object { $targets -contains $_.DisplayName } | Select-Object DisplayName,Name,Status,StartType</pre></div>
 <div class="item-field"><span class="item-field-label">Captured Evidence</span><pre class="evd">SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence.</pre></div>
 <div class="item-ts"><strong>Timestamp (UTC):</strong> <span class="fill-in">(not applicable -- manual item)</span></div>
+<div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" placeholder="---" aria-label="Examiner initials for 2.A"></div>
 </div><h2>3. Screen Saver</h2>
 <p class="section-note">Verified natively via registry policy keys -- reflects the effective Group Policy state (HKCU Policies hive), matching what gpedit.msc/Local Computer Policy would show.</p>
 <div class="item-card">
@@ -320,6 +342,7 @@ Get-Service | Where-Object { $targets -contains $_.DisplayName } | Select-Object
 <div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">reg query &quot;HKCU\Software\Policies\Microsoft\Windows\Control Panel\Desktop&quot; /v ScreenSaveActive</pre></div>
 <div class="item-field"><span class="item-field-label">Captured Evidence</span><pre class="evd">SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence.</pre></div>
 <div class="item-ts"><strong>Timestamp (UTC):</strong> <span class="fill-in">(not applicable -- manual item)</span></div>
+<div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" placeholder="---" aria-label="Examiner initials for 3.A"></div>
 </div><div class="item-card">
 <div class="item-card-head">
 <span class="item-id">3.B</span>
@@ -330,6 +353,7 @@ Get-Service | Where-Object { $targets -contains $_.DisplayName } | Select-Object
 <div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">reg query &quot;HKCU\Software\Policies\Microsoft\Windows\Control Panel\Desktop&quot; /v NoDispScrSavPage</pre></div>
 <div class="item-field"><span class="item-field-label">Captured Evidence</span><pre class="evd">SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence.</pre></div>
 <div class="item-ts"><strong>Timestamp (UTC):</strong> <span class="fill-in">(not applicable -- manual item)</span></div>
+<div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" placeholder="---" aria-label="Examiner initials for 3.B"></div>
 </div><div class="item-card">
 <div class="item-card-head">
 <span class="item-id">3.C</span>
@@ -340,6 +364,7 @@ Get-Service | Where-Object { $targets -contains $_.DisplayName } | Select-Object
 <div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">reg query &quot;HKCU\Software\Policies\Microsoft\Windows\Control Panel\Desktop&quot; /v ScreenSaverIsSecure</pre></div>
 <div class="item-field"><span class="item-field-label">Captured Evidence</span><pre class="evd">SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence.</pre></div>
 <div class="item-ts"><strong>Timestamp (UTC):</strong> <span class="fill-in">(not applicable -- manual item)</span></div>
+<div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" placeholder="---" aria-label="Examiner initials for 3.C"></div>
 </div><div class="item-card">
 <div class="item-card-head">
 <span class="item-id">3.D</span>
@@ -350,6 +375,7 @@ Get-Service | Where-Object { $targets -contains $_.DisplayName } | Select-Object
 <div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">reg query &quot;HKCU\Software\Policies\Microsoft\Windows\Control Panel\Desktop&quot; /v ScreenSaveTimeOut</pre></div>
 <div class="item-field"><span class="item-field-label">Captured Evidence</span><pre class="evd">SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence.</pre></div>
 <div class="item-ts"><strong>Timestamp (UTC):</strong> <span class="fill-in">(not applicable -- manual item)</span></div>
+<div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" placeholder="---" aria-label="Examiner initials for 3.D"></div>
 </div><div class="item-card">
 <div class="item-card-head">
 <span class="item-id">3.E</span>
@@ -360,6 +386,7 @@ Get-Service | Where-Object { $targets -contains $_.DisplayName } | Select-Object
 <div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">reg query &quot;HKCU\Software\Policies\Microsoft\Windows\Control Panel\Desktop&quot; /v SCRNSAVE.EXE; Test-Path &#39;C:\Windows\system32\Mystify.scr&#39;</pre></div>
 <div class="item-field"><span class="item-field-label">Captured Evidence</span><pre class="evd">SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence.</pre></div>
 <div class="item-ts"><strong>Timestamp (UTC):</strong> <span class="fill-in">(not applicable -- manual item)</span></div>
+<div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" placeholder="---" aria-label="Examiner initials for 3.E"></div>
 </div><h2>4. General Policy</h2>
 <p class="section-note">Log size/retention verified natively via Get-WinEvent -ListLog (no third-party tool needed). The Games check requires a per-title determination the inspector confirms manually. The audit-retention item (4.D) resolves to MANUAL because the correct expected LogMode depends on which air-gapped dual-path branch (SPLUNK-enabled vs. non-SPLUNK-enabled forwarding -- see MRC-006/011/014/017/022) applies to this environment; that is an environment fact, not something derivable from the log configuration alone.</p>
 <div class="item-card">
@@ -372,6 +399,7 @@ Get-Service | Where-Object { $targets -contains $_.DisplayName } | Select-Object
 <div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">(Get-WinEvent -ListLog Application).MaximumSizeInBytes / 1KB</pre></div>
 <div class="item-field"><span class="item-field-label">Captured Evidence</span><pre class="evd">SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence.</pre></div>
 <div class="item-ts"><strong>Timestamp (UTC):</strong> <span class="fill-in">(not applicable -- manual item)</span></div>
+<div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" placeholder="---" aria-label="Examiner initials for 4.A"></div>
 </div><div class="item-card">
 <div class="item-card-head">
 <span class="item-id">4.B</span>
@@ -382,6 +410,7 @@ Get-Service | Where-Object { $targets -contains $_.DisplayName } | Select-Object
 <div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">(Get-WinEvent -ListLog Security).MaximumSizeInBytes / 1KB</pre></div>
 <div class="item-field"><span class="item-field-label">Captured Evidence</span><pre class="evd">SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence.</pre></div>
 <div class="item-ts"><strong>Timestamp (UTC):</strong> <span class="fill-in">(not applicable -- manual item)</span></div>
+<div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" placeholder="---" aria-label="Examiner initials for 4.B"></div>
 </div><div class="item-card">
 <div class="item-card-head">
 <span class="item-id">4.C</span>
@@ -392,6 +421,7 @@ Get-Service | Where-Object { $targets -contains $_.DisplayName } | Select-Object
 <div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">(Get-WinEvent -ListLog System).MaximumSizeInBytes / 1KB</pre></div>
 <div class="item-field"><span class="item-field-label">Captured Evidence</span><pre class="evd">SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence.</pre></div>
 <div class="item-ts"><strong>Timestamp (UTC):</strong> <span class="fill-in">(not applicable -- manual item)</span></div>
+<div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" placeholder="---" aria-label="Examiner initials for 4.C"></div>
 </div><div class="item-card">
 <div class="item-card-head">
 <span class="item-id">4.D</span>
@@ -402,6 +432,7 @@ Get-Service | Where-Object { $targets -contains $_.DisplayName } | Select-Object
 <div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">(Get-WinEvent -ListLog Application,Security,System) | Select-Object LogName,LogMode | Format-Table -AutoSize | Out-String</pre></div>
 <div class="item-field"><span class="item-field-label">Captured Evidence</span><pre class="evd">SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence.</pre></div>
 <div class="item-ts"><strong>Timestamp (UTC):</strong> <span class="fill-in">(not applicable -- manual item)</span></div>
+<div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" placeholder="---" aria-label="Examiner initials for 4.D"></div>
 </div><div class="item-card">
 <div class="item-card-head">
 <span class="item-id">4.E</span>
@@ -412,6 +443,7 @@ Get-Service | Where-Object { $targets -contains $_.DisplayName } | Select-Object
 <div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">Get-AppxPackage -AllUsers | Where-Object Name -like &#39;*Microsoft.*Game*&#39; | Select-Object Name | Out-String</pre></div>
 <div class="item-field"><span class="item-field-label">Captured Evidence</span><pre class="evd">SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence.</pre></div>
 <div class="item-ts"><strong>Timestamp (UTC):</strong> <span class="fill-in">(not applicable -- manual item)</span></div>
+<div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" placeholder="---" aria-label="Examiner initials for 4.E"></div>
 </div><h2>5. Accounts</h2>
 <p class="section-note">Verified natively via Get-LocalUser / Get-LocalGroupMember (Microsoft.PowerShell.LocalAccounts module, built into Windows) -- no third-party tool required. For domain-joined systems, see the companion Active Directory query path in the report appendix, which allows the operator to resolve group names that differ from this checklist&#39;s examples (e.g. &quot;Server Admins&quot; vs. an environment&#39;s actual &quot;Tier-1-Admins&quot; group). Membership-against-approved-list items (5.H_L, 5.Y_AB) resolve to MANUAL because the approved-account list is environment-specific configuration, not something this script can validate without it.</p>
 <div class="item-card">
@@ -424,6 +456,7 @@ Get-Service | Where-Object { $targets -contains $_.DisplayName } | Select-Object
 <div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">Get-LocalUser -Name &#39;Administrator&#39; | Select-Object Name, PasswordExpires, Enabled</pre></div>
 <div class="item-field"><span class="item-field-label">Captured Evidence</span><pre class="evd">SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence.</pre></div>
 <div class="item-ts"><strong>Timestamp (UTC):</strong> <span class="fill-in">(not applicable -- manual item)</span></div>
+<div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" placeholder="---" aria-label="Examiner initials for 5.B"></div>
 </div><div class="item-card">
 <div class="item-card-head">
 <span class="item-id">5.C</span>
@@ -434,6 +467,7 @@ Get-Service | Where-Object { $targets -contains $_.DisplayName } | Select-Object
 <div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">Get-LocalUser -Name &#39;SDC_Admin&#39; | Select-Object Name, Enabled</pre></div>
 <div class="item-field"><span class="item-field-label">Captured Evidence</span><pre class="evd">SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence.</pre></div>
 <div class="item-ts"><strong>Timestamp (UTC):</strong> <span class="fill-in">(not applicable -- manual item)</span></div>
+<div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" placeholder="---" aria-label="Examiner initials for 5.C"></div>
 </div><div class="item-card">
 <div class="item-card-head">
 <span class="item-id">5.D</span>
@@ -444,6 +478,7 @@ Get-Service | Where-Object { $targets -contains $_.DisplayName } | Select-Object
 <div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">Get-LocalUser -Name &#39;DefaultAccount&#39; | Select-Object Name, Enabled</pre></div>
 <div class="item-field"><span class="item-field-label">Captured Evidence</span><pre class="evd">SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence.</pre></div>
 <div class="item-ts"><strong>Timestamp (UTC):</strong> <span class="fill-in">(not applicable -- manual item)</span></div>
+<div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" placeholder="---" aria-label="Examiner initials for 5.D"></div>
 </div><div class="item-card">
 <div class="item-card-head">
 <span class="item-id">5.E</span>
@@ -454,6 +489,7 @@ Get-Service | Where-Object { $targets -contains $_.DisplayName } | Select-Object
 <div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">Get-LocalUser -Name &#39;Guest&#39; | Select-Object Name, Enabled</pre></div>
 <div class="item-field"><span class="item-field-label">Captured Evidence</span><pre class="evd">SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence.</pre></div>
 <div class="item-ts"><strong>Timestamp (UTC):</strong> <span class="fill-in">(not applicable -- manual item)</span></div>
+<div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" placeholder="---" aria-label="Examiner initials for 5.E"></div>
 </div><div class="item-card">
 <div class="item-card-head">
 <span class="item-id">5.F</span>
@@ -464,6 +500,7 @@ Get-Service | Where-Object { $targets -contains $_.DisplayName } | Select-Object
 <div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">Get-LocalUser -Name &#39;WDAGUtilityAccount&#39; | Select-Object Name, Enabled</pre></div>
 <div class="item-field"><span class="item-field-label">Captured Evidence</span><pre class="evd">SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence.</pre></div>
 <div class="item-ts"><strong>Timestamp (UTC):</strong> <span class="fill-in">(not applicable -- manual item)</span></div>
+<div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" placeholder="---" aria-label="Examiner initials for 5.F"></div>
 </div><div class="item-card">
 <div class="item-card-head">
 <span class="item-id">5.H_L</span>
@@ -474,6 +511,7 @@ Get-Service | Where-Object { $targets -contains $_.DisplayName } | Select-Object
 <div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">Get-LocalGroupMember -Group &#39;Administrators&#39; | Select-Object Name, ObjectClass | Format-Table -AutoSize | Out-String</pre></div>
 <div class="item-field"><span class="item-field-label">Captured Evidence</span><pre class="evd">SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence.</pre></div>
 <div class="item-ts"><strong>Timestamp (UTC):</strong> <span class="fill-in">(not applicable -- manual item)</span></div>
+<div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" placeholder="---" aria-label="Examiner initials for 5.H_L"></div>
 </div><div class="item-card">
 <div class="item-card-head">
 <span class="item-id">5.M_X</span>
@@ -484,6 +522,7 @@ Get-Service | Where-Object { $targets -contains $_.DisplayName } | Select-Object
 <div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">&#39;Backup Operators&#39;,&#39;Cryptographic Operators&#39;,&#39;Power Users&#39;,&#39;Remote Management Users&#39; | ForEach-Object { $g = $_; Get-LocalGroupMember -Group $g -ErrorAction SilentlyContinue | Select-Object @{n=&#39;Group&#39;;e={$g}}, Name, ObjectClass }</pre></div>
 <div class="item-field"><span class="item-field-label">Captured Evidence</span><pre class="evd">SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence.</pre></div>
 <div class="item-ts"><strong>Timestamp (UTC):</strong> <span class="fill-in">(not applicable -- manual item)</span></div>
+<div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" placeholder="---" aria-label="Examiner initials for 5.M_X"></div>
 </div><div class="item-card">
 <div class="item-card-head">
 <span class="item-id">5.Y_AB</span>
@@ -494,6 +533,7 @@ Get-Service | Where-Object { $targets -contains $_.DisplayName } | Select-Object
 <div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">Get-LocalGroupMember -Group &#39;Users&#39; | Select-Object Name, ObjectClass | Format-Table -AutoSize | Out-String</pre></div>
 <div class="item-field"><span class="item-field-label">Captured Evidence</span><pre class="evd">SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence.</pre></div>
 <div class="item-ts"><strong>Timestamp (UTC):</strong> <span class="fill-in">(not applicable -- manual item)</span></div>
+<div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" placeholder="---" aria-label="Examiner initials for 5.Y_AB"></div>
 </div><h2>6. Anti-Virus Definitions</h2>
 <p class="section-note">For a Trellix/McAfee-managed endpoint (the vendor named on the source checklist), DAT currency is read from the local agent&#39;s registry state -- vendor-agnostic per this repo&#39;s existing backup/AV documentation standard, this same pattern applies to any managed endpoint agent. If the registry path is absent (e.g. a different AV vendor, or Defender-only), this resolves to N/A rather than a false PASS/FAIL -- adjust the registry path for your deployed agent.</p>
 <div class="item-card">
@@ -507,6 +547,7 @@ Get-Service | Where-Object { $targets -contains $_.DisplayName } | Select-Object
 $dat.AVDatDate</pre></div>
 <div class="item-field"><span class="item-field-label">Captured Evidence</span><pre class="evd">SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence.</pre></div>
 <div class="item-ts"><strong>Timestamp (UTC):</strong> <span class="fill-in">(not applicable -- manual item)</span></div>
+<div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" placeholder="---" aria-label="Examiner initials for 6"></div>
 </div><h2>7. Permissions and Security-Relevant Object (SRO) Policy</h2>
 <p class="section-note">Verified natively via icacls (built into Windows) -- no third-party tool required. Showing 5 of the 16 lettered checklist items to demonstrate the evidence pattern; the full script enumerates all of them identically. These resolve to MANUAL because comparing an arbitrary ACL string against a site&#39;s approved baseline is a judgment call this script does not attempt to automate blindly -- the inspector reviews the captured icacls output against the approved baseline for this asset.</p>
 <div class="item-card">
@@ -519,6 +560,7 @@ $dat.AVDatDate</pre></div>
 <div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">icacls C:\Audit_logs</pre></div>
 <div class="item-field"><span class="item-field-label">Captured Evidence</span><pre class="evd">SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence.</pre></div>
 <div class="item-ts"><strong>Timestamp (UTC):</strong> <span class="fill-in">(not applicable -- manual item)</span></div>
+<div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" placeholder="---" aria-label="Examiner initials for 7.B"></div>
 </div><div class="item-card">
 <div class="item-card-head">
 <span class="item-id">7.D</span>
@@ -529,6 +571,7 @@ $dat.AVDatDate</pre></div>
 <div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">icacls C:\Windows\INF\USBSTOR.INF</pre></div>
 <div class="item-field"><span class="item-field-label">Captured Evidence</span><pre class="evd">SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence.</pre></div>
 <div class="item-ts"><strong>Timestamp (UTC):</strong> <span class="fill-in">(not applicable -- manual item)</span></div>
+<div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" placeholder="---" aria-label="Examiner initials for 7.D"></div>
 </div><div class="item-card">
 <div class="item-card-head">
 <span class="item-id">7.F</span>
@@ -539,6 +582,7 @@ $dat.AVDatDate</pre></div>
 <div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">icacls C:\Windows\regedit.exe</pre></div>
 <div class="item-field"><span class="item-field-label">Captured Evidence</span><pre class="evd">SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence.</pre></div>
 <div class="item-ts"><strong>Timestamp (UTC):</strong> <span class="fill-in">(not applicable -- manual item)</span></div>
+<div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" placeholder="---" aria-label="Examiner initials for 7.F"></div>
 </div><div class="item-card">
 <div class="item-card-head">
 <span class="item-id">7.H</span>
@@ -549,6 +593,7 @@ $dat.AVDatDate</pre></div>
 <div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">icacls C:\Windows\System32\Eventvwr.exe</pre></div>
 <div class="item-field"><span class="item-field-label">Captured Evidence</span><pre class="evd">SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence.</pre></div>
 <div class="item-ts"><strong>Timestamp (UTC):</strong> <span class="fill-in">(not applicable -- manual item)</span></div>
+<div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" placeholder="---" aria-label="Examiner initials for 7.H"></div>
 </div><div class="item-card">
 <div class="item-card-head">
 <span class="item-id">7.L</span>
@@ -559,6 +604,7 @@ $dat.AVDatDate</pre></div>
 <div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">icacls &quot;C:\Program Files\Common Files\McAfee&quot;</pre></div>
 <div class="item-field"><span class="item-field-label">Captured Evidence</span><pre class="evd">SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence.</pre></div>
 <div class="item-ts"><strong>Timestamp (UTC):</strong> <span class="fill-in">(not applicable -- manual item)</span></div>
+<div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" placeholder="---" aria-label="Examiner initials for 7.L"></div>
 </div><h2>General Security</h2>
 <p class="section-note">Physical port removal cannot be confirmed by any OS-level tool.</p>
 <div class="item-card">
@@ -571,6 +617,7 @@ $dat.AVDatDate</pre></div>
 <div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">Get-PnpDevice -Class DiskDrive,USB | Select-Object FriendlyName, Status | Format-Table -AutoSize | Out-String -Width 200</pre></div>
 <div class="item-field"><span class="item-field-label">Captured Evidence</span><pre class="evd">SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence.</pre></div>
 <div class="item-ts"><strong>Timestamp (UTC):</strong> <span class="fill-in">(not applicable -- manual item)</span></div>
+<div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" placeholder="---" aria-label="Examiner initials for Final"></div>
 </div>
 
 <h2>Appendix A -- Active Directory Group Name Resolution (Interactive Query)</h2>

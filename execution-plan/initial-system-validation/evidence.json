@@ -1,12 +1,13 @@
 {
   "meta": {
     "report_title": "Initial System Validation Report",
-    "report_id": "ISV-UNKNOWN-HOST-20260806155001",
-    "generated_at_utc": "2026-08-06 15:50 UTC",
+    "report_id": "ISV-UNKNOWN-HOST-20260806160823",
+    "generated_at_utc": "2026-08-06 16:08 UTC",
     "tool_name": "initial-system-validation (PowerShell collector/renderer)",
     "tool_version": "v1.0-powershell",
     "examiner": "SAMPLE DATA -- not a real examiner",
     "hostname": "UNKNOWN-HOST",
+    "is_sample_mode": true,
     "notes": "CSU is an undefined, site-specific abbreviation -- it remains unexpanded because no source definition was found; the customer may supply the preferred expansion if desired. DCN is a site-assigned control number tracked per physical hard drive: systems with multiple drives have multiple DCNs, one per drive, recorded in the Hard Drives table below.",
     "system_identification": {
       "Area / Location": "SAMPLE placeholder -- site-specific, not OS-derivable",

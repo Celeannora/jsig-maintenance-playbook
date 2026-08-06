@@ -1,8 +1,7 @@
 #Requires -Version 5.1
 <#
 .SYNOPSIS
-    Renders the Initial System Validation (ISV) HTML report and the two
-    Dell/HP BIOS Reference Guide companion documents from a live
+    Renders the Initial System Validation (ISV) HTML report from an
     evidence.json bundle produced by Invoke-ISVCollection.ps1.
 
 .DESCRIPTION
@@ -15,31 +14,51 @@
          surfaced as a loud warning in both the console and the report
          itself (tamper-evidence, not tamper-prevention).
       3. Renders the same Nexus design-system HTML structure as the original
-         mockup renderer (render_report.py) plus the two BIOS reference
-         guides (render_bios_guides.py), reading section/BIOS reference
-         content from IsvDefinitions.ps1 so the two scripts never drift.
+         mockup renderer (render_report.py), reading section content from
+         IsvDefinitions.ps1 so the two scripts never drift.
+      4. Names the output file based on the evidence itself: a real/live
+         bundle (`meta.is_sample_mode -eq $false`, or the field absent from
+         an older evidence.json) gets `Initial-System-Validation-Report-
+         <hostname>.html`; a `-SampleMode` bundle keeps the historical
+         `Initial-System-Validation-Report-SAMPLE.html` name. A live report
+         is NEVER named "...-SAMPLE.html" -- an earlier version of this
+         script hardcoded that filename unconditionally regardless of
+         whether the evidence was real or placeholder data, which made a
+         genuine live-host report look like unrendered demo output.
 
-    Outputs (default -OutputDir is this script's folder):
-      - Initial-System-Validation-Report-SAMPLE.html
-      - Dell-BIOS-Reference-Guide.html
-      - HP-BIOS-Reference-Guide.html
+    The Dell/HP BIOS reference guides are NOT produced by this script --
+    see New-BiosReferenceGuides.ps1. Those two documents are generic vendor
+    reference material that doesn't depend on any host's evidence and
+    doesn't change between collection runs, so they are a separate,
+    standalone deliverable rather than something rewritten into every
+    per-host output folder on every run.
+
+    Output (default -OutputDir is this script's folder):
+      - Initial-System-Validation-Report-<hostname-or-SAMPLE>.html
 
 .PARAMETER EvidencePath
     Path to the evidence.json bundle to render. Defaults to evidence.json
     alongside this script.
 
 .PARAMETER OutputDir
-    Directory to write the three HTML files to. Defaults to this script's
-    folder.
+    Directory to write the HTML report to. Defaults to this script's folder.
+
+.PARAMETER ReportFileName
+    Optional explicit output filename, overriding the automatic
+    hostname/-SampleMode-based naming described above.
 
 .EXAMPLE
     .\New-ISVReport.ps1 -EvidencePath .\evidence.json -OutputDir .
+
+.EXAMPLE
+    .\New-ISVReport.ps1 -EvidencePath .\evidence.json -ReportFileName Custom-Name.html
 #>
 
 [CmdletBinding()]
 param(
-    [string]$EvidencePath = (Join-Path $PSScriptRoot 'evidence.json'),
-    [string]$OutputDir    = $PSScriptRoot
+    [string]$EvidencePath   = (Join-Path $PSScriptRoot 'evidence.json'),
+    [string]$OutputDir      = $PSScriptRoot,
+    [string]$ReportFileName = $null
 )
 
 Set-StrictMode -Version Latest
@@ -265,6 +284,12 @@ $ReportStyle = @"
     .method-value { font-size: 12px; font-weight: 600; }
     .item-field-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.04em; color: $ColorTextMuted; font-weight: 600; }
     .item-ts { font-size: 10.5px; color: $ColorTextMuted; margin-top: 3px; }
+    .item-initials { display: flex; align-items: center; gap: 6px; margin-top: 4px; padding-top: 4px; border-top: 1px dashed $ColorBorder; }
+    .item-initials .item-field-label { white-space: nowrap; }
+    .initials-input { width: 76px; border: none; border-bottom: 1px solid $ColorTextMuted; background: transparent; font-size: 12px; font-family: inherit; color: $ColorText; padding: 1px 2px; text-transform: uppercase; }
+    .initials-input:focus { outline: none; border-bottom: 1px solid $ColorPrimary; }
+    .initials-input::placeholder { color: $ColorTextFaint; text-transform: none; font-style: italic; }
+    @media print { .initials-input { border-bottom: 1px solid $ColorText; } }
     .fill-in { color: $ColorTextFaint; font-style: italic; }
     .summary-grid { display: flex; gap: 8px; margin: 4px 0 8px; flex-wrap: wrap; }
     .summary-card { flex: 1; min-width: 110px; border: 1px solid $ColorBorder; background: $ColorSurfaceAlt; padding: 6px; text-align: center; }
@@ -272,41 +297,6 @@ $ReportStyle = @"
     .summary-card .l { font-size: 10.5px; color: $ColorTextMuted; text-transform: uppercase; letter-spacing: 0.04em; }
     footer { margin-top: 18px; font-size: 10.5px; color: $ColorTextMuted; border-top: 1px solid $ColorBorder; padding-top: 8px; font-style: italic; }
     code { font-family: Consolas, "Courier New", monospace; }
-"@
-
-$GuideStyle = @"
-    @page { size: Letter; margin: 9mm 8mm; }
-    :root { color-scheme: light; }
-    * { box-sizing: border-box; }
-    body { font-family: Calibri, "Segoe UI", Arial, sans-serif; background: $ColorBg; color: $ColorText; margin: 0; padding: 12px 10px; line-height: 1.32; }
-    .doc { max-width: 980px; margin: 0 auto; background: $ColorSurface; border: 1px solid $ColorBorder; padding: 16px 26px 14px; }
-    h1 { font-size: 22px; color: $ColorPrimary; border-bottom: 2px solid $ColorPrimary; padding-bottom: 7px; margin: 0 0 12px; }
-    h2 { font-size: 15px; color: $ColorPrimary; margin: 14px 0 5px; border-bottom: 1px solid $ColorBorder; padding-bottom: 3px; }
-    h3 { font-size: 12.5px; margin: 8px 0 3px; }
-    .sample-banner { background: $ColorWarningFill; border: 2px solid $ColorWarning; color: $ColorWarning; font-weight: 700; text-align: center; padding: 7px; margin-bottom: 12px; font-size: 12.5px; letter-spacing: 0.02em; }
-    .intro { font-size: 12.5px; background: $ColorSurfaceAlt; border-left: 3px solid $ColorPrimary; padding: 8px 12px; margin-bottom: 10px; }
-    .intro p { margin: 4px 0; }
-    .companion-note { font-size: 11.5px; color: $ColorTextMuted; font-style: italic; margin: 0 0 10px; }
-    p { font-size: 12.5px; line-height: 1.4; }
-    .item-card { border: 1px solid $ColorBorder; background: $ColorSurfaceAlt; padding: 8px 12px; margin-bottom: 8px; }
-    .item-card-head { display: flex; align-items: baseline; gap: 8px; margin-bottom: 4px; flex-wrap: wrap; }
-    .item-id { font-weight: 700; color: $ColorPrimary; font-size: 12.5px; white-space: nowrap; }
-    .item-req { font-size: 12.5px; flex: 1; min-width: 200px; }
-    .item-path { border-top: 1px solid $ColorBorder; margin-top: 6px; padding-top: 6px; }
-    .item-path:first-of-type { border-top: 0; margin-top: 4px; padding-top: 0; }
-    .item-path-head { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; margin-bottom: 2px; }
-    .item-path-label { color: $ColorText; font-size: 11.5px; font-weight: 700; }
-    .path-method { border: 1px solid $ColorPrimary; color: $ColorPrimary; font-size: 9.5px; font-weight: 700; letter-spacing: 0.04em; padding: 1px 6px; }
-    .path-steps { font-size: 11.5px; margin: 3px 0 0; line-height: 1.35; }
-    .path-note { font-size: 11px; font-style: italic; color: $ColorTextMuted; margin: 2px 0 0; }
-    pre.cmd { background: $ColorHeaderFill; border: 1px solid $ColorBorder; padding: 5px 8px; margin: 3px 0 0; font-size: 11px; overflow-wrap: anywhere; white-space: pre-wrap; font-family: Consolas, "Courier New", monospace; }
-    .path-meta { font-size: 10.5px; color: $ColorTextMuted; margin-top: 3px; }
-    .citation { color: $ColorPrimary; font-size: 10.5px; overflow-wrap: anywhere; }
-    .path-caution { background: $ColorWarningFill; border-left: 3px solid $ColorWarning; color: $ColorWarning; font-size: 11px; margin-top: 4px; padding: 4px 7px; }
-    .sources-list { font-size: 11px; margin: 5px 0 0; padding-left: 18px; }
-    .sources-list li { margin-bottom: 2px; overflow-wrap: anywhere; }
-    code { font-family: Consolas, "Courier New", monospace; }
-    footer { margin-top: 16px; font-size: 10.5px; color: $ColorTextMuted; border-top: 1px solid $ColorBorder; padding-top: 8px; font-style: italic; }
 "@
 
 # ---------------------------------------------------------------------------
@@ -381,6 +371,7 @@ $badge
 <div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">$(EscPre $Item.command)</pre></div>
 <div class="item-field"><span class="item-field-label">Captured Evidence</span><pre class="evd">$(EscPre $Item.evidence)</pre></div>
 <div class="item-ts"><strong>Timestamp (UTC):</strong> $tsHtml</div>
+<div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" placeholder="---" aria-label="Examiner initials for $(Esc $Item.item_id)"></div>
 </div>
 "@
 }
@@ -511,132 +502,6 @@ established report-generation convention (<code>execution-plan/tools/generate_va
 }
 
 # ---------------------------------------------------------------------------
-# BIOS reference guide rendering
-# ---------------------------------------------------------------------------
-function Split-CommandNote {
-    param([string]$CommandOrSteps)
-    if ($CommandOrSteps -match "`n") {
-        $parts = $CommandOrSteps -split "`n", 2
-        return @($parts[0].Trim(), $parts[1].Trim())
-    }
-    return @($CommandOrSteps.Trim(), $null)
-}
-
-function Get-HashValue {
-    # Safe optional-key lookup for hashtables under Set-StrictMode -Version Latest,
-    # where dot-notation access to a missing hashtable key throws instead of
-    # returning $null (unlike bracket-notation access, which is always safe).
-    param($Table, [string]$Key)
-    if ($Table -is [System.Collections.IDictionary] -and $Table.Contains($Key)) {
-        return $Table[$Key]
-    }
-    return $null
-}
-
-function Format-PathBlock {
-    param($Path)
-    $cautionValue = Get-HashValue -Table $Path -Key 'Caution'
-    $caution = if ($cautionValue) { "<div class=`"path-caution`"><strong>Caution:</strong> $(Esc $cautionValue)</div>" } else { '' }
-    if ($Path.Method -eq 'AUTOMATED') {
-        $cmd, $note = Split-CommandNote -CommandOrSteps $Path.CommandOrSteps
-        $bodyHtml = "<pre class=`"cmd`">$(EscPre $cmd)</pre>"
-        if ($note) { $bodyHtml += "<div class=`"path-note`">$(Esc $note)</div>" }
-    } else {
-        $bodyHtml = "<p class=`"path-steps`">$(Esc $Path.CommandOrSteps)</p>"
-    }
-    return @"
-<div class="item-path">
-<div class="item-path-head">
-<span class="item-path-label">$(Esc $Path.Label)</span>
-<span class="path-method">$(Esc $Path.Method)</span>
-</div>
-$bodyHtml
-<div class="path-meta">$(Esc $Path.Evidence) &middot; <a class="citation" href="$(Esc $Path.SourceCitation)">$(Esc $Path.SourceCitation)</a></div>
-$caution
-</div>
-"@
-}
-
-function Format-BiosItemCard {
-    param($Entry)
-    return @"
-<div class="item-card">
-<div class="item-card-head">
-<span class="item-id">$(Esc $Entry.Id)</span>
-<span class="item-req">$(Esc $Entry.Req)</span>
-</div>
-$(Format-PathBlock -Path $Entry.Automated)
-$(Format-PathBlock -Path $Entry.Manual)
-</div>
-"@
-}
-
-function Get-BiosSources {
-    param($ReferenceList)
-    $sources = New-Object System.Collections.Generic.List[string]
-    foreach ($entry in $ReferenceList) {
-        foreach ($path in @($entry.Automated, $entry.Manual)) {
-            if ($path.SourceCitation -and -not $sources.Contains($path.SourceCitation)) {
-                [void]$sources.Add($path.SourceCitation)
-            }
-        }
-    }
-    return $sources
-}
-
-function Format-BiosSources {
-    param($ReferenceList)
-    $sources = Get-BiosSources -ReferenceList $ReferenceList
-    $entriesSb = New-Object System.Text.StringBuilder
-    foreach ($url in $sources) {
-        [void]$entriesSb.Append("<li><a class=`"citation`" href=`"$(Esc $url)`">$(Esc $url)</a></li>")
-    }
-    return "<h2>Sources</h2>`n<ul class=`"sources-list`">$($entriesSb.ToString())</ul>"
-}
-
-function New-BiosGuideHtml {
-    param([string]$Vendor, [string]$Title, $ReferenceList, [string]$BackgroundHtml)
-
-    $cardsSb = New-Object System.Text.StringBuilder
-    foreach ($entry in $ReferenceList) {
-        [void]$cardsSb.Append((Format-BiosItemCard -Entry $entry))
-    }
-    $article = if ($Vendor -eq 'HP') { 'an' } else { 'a' }
-
-    return @"
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<title>$(Esc $Title)</title>
-<style>$GuideStyle</style>
-</head>
-<body>
-<div class="doc">
-<div class="sample-banner">$(Esc $Vendor.ToUpper()) BIOS REFERENCE GUIDE -- CITED VENDOR RESEARCH, VERIFY AGAINST THE CURRENT VENDOR DOCUMENTATION BEFORE USE.</div>
-<h1>$(Esc $Title)</h1>
-<p class="companion-note">Companion reference to the Initial System Validation Report. The main report records only
-the automated command executed against the audited system for BIOS Controls items 1.A&ndash;1.E; this guide holds the
-full $(Esc $Vendor) instructional detail -- automated command variants, the physical-console fallback for air-gapped or
-no-tooling systems, discovery caveats, and citations -- for whichever items apply to $article $(Esc $Vendor) asset.</p>
-<div class="intro">
-$BackgroundHtml
-</div>
-<h2>BIOS Controls 1.A&ndash;1.E -- $(Esc $Vendor) Path</h2>
-$($cardsSb.ToString())
-$(Format-BiosSources -ReferenceList $ReferenceList)
-<footer>
-This guide cites only $(Esc $Vendor)'s own product documentation, official knowledge-base articles, or the
-Microsoft-hosted PowerShell Gallery listing of the vendor's own module, plus clearly labeled community sources used
-only as corroborating color. See the Sources list above for every URL referenced.
-</footer>
-</div>
-</body>
-</html>
-"@
-}
-
-# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 if (-not (Test-Path $EvidencePath)) {
@@ -663,16 +528,36 @@ if ($digestMatches) {
 }
 
 $reportHtml = New-MainReportHtml -Meta $bundle.meta -Items $items -Digest $storedDigest -DigestMatches $digestMatches
-$reportPath = Join-Path $OutputDir 'Initial-System-Validation-Report-SAMPLE.html'
+
+if ($ReportFileName) {
+    # Explicit override always wins.
+    $resolvedFileName = $ReportFileName
+} else {
+    # `meta.is_sample_mode` is read defensively (PSCustomObject property
+    # access throws under Set-StrictMode if the key is absent) so that an
+    # evidence.json written by an OLDER version of Invoke-ISVCollection.ps1
+    # -- from before this field existed -- still renders instead of crashing.
+    # Absent the field, we fall back to treating the bundle as real/live data,
+    # since that's the far more common and higher-stakes case to get right:
+    # a real audit report must never accidentally be named "...-SAMPLE.html".
+    $metaProps = $bundle.meta.PSObject.Properties.Name
+    $isSample  = ($metaProps -contains 'is_sample_mode') -and [bool]$bundle.meta.is_sample_mode
+    if ($isSample) {
+        $resolvedFileName = 'Initial-System-Validation-Report-SAMPLE.html'
+    } else {
+        $hostForName = if ($metaProps -contains 'hostname' -and $bundle.meta.hostname) { [string]$bundle.meta.hostname } else { 'UNKNOWN-HOST' }
+        # Defensive filename sanitization: strip characters that are invalid
+        # in Windows/NTFS filenames. Real COMPUTERNAME values are already
+        # restricted to a safe character set, but this guarantees the
+        # renderer never throws or silently mangles the path on an edge case.
+        $safeHost = ($hostForName -replace '[<>:"/\\|?*]', '_')
+        $resolvedFileName = "Initial-System-Validation-Report-$safeHost.html"
+    }
+}
+$reportPath = Join-Path $OutputDir $resolvedFileName
 Set-Content -Path $reportPath -Value $reportHtml -Encoding UTF8
 Write-Host "Wrote $reportPath" -ForegroundColor Green
-
-$dellHtml = New-BiosGuideHtml -Vendor 'Dell' -Title 'Dell BIOS Reference Guide' -ReferenceList $BiosDellReference -BackgroundHtml $BiosDellBackground
-$dellPath = Join-Path $OutputDir 'Dell-BIOS-Reference-Guide.html'
-Set-Content -Path $dellPath -Value $dellHtml -Encoding UTF8
-Write-Host "Wrote $dellPath" -ForegroundColor Green
-
-$hpHtml = New-BiosGuideHtml -Vendor 'HP' -Title 'HP BIOS Reference Guide' -ReferenceList $BiosHpReference -BackgroundHtml $BiosHpBackground
-$hpPath = Join-Path $OutputDir 'HP-BIOS-Reference-Guide.html'
-Set-Content -Path $hpPath -Value $hpHtml -Encoding UTF8
-Write-Host "Wrote $hpPath" -ForegroundColor Green
+Write-Host ''
+Write-Host 'Note: the Dell/HP BIOS reference guides are generic, host-independent' -ForegroundColor DarkGray
+Write-Host 'documents and are no longer regenerated here on every run. Generate/refresh' -ForegroundColor DarkGray
+Write-Host 'them standalone with: .\New-BiosReferenceGuides.ps1' -ForegroundColor DarkGray
