@@ -33,7 +33,9 @@
     standalone deliverable rather than something rewritten into every
     per-host output folder on every run.
 
-    Output (default -OutputDir is this script's folder):
+    Output (default -OutputDir is the SAME folder the evidence.json came
+    from, so a standalone re-render lands back in that host's own output
+    folder rather than at this script's own location):
       - Initial-System-Validation-Report-<hostname-or-SAMPLE>.html
 
 .PARAMETER EvidencePath
@@ -41,7 +43,9 @@
     alongside this script.
 
 .PARAMETER OutputDir
-    Directory to write the HTML report to. Defaults to this script's folder.
+    Directory to write the HTML report to. Defaults to whatever folder
+    -EvidencePath is in (e.g. re-rendering .\WIN-PROD-0451\evidence.json
+    writes the report into .\WIN-PROD-0451\ alongside it).
 
 .PARAMETER ReportFileName
     Optional explicit output filename, overriding the automatic
@@ -57,12 +61,19 @@
 [CmdletBinding()]
 param(
     [string]$EvidencePath   = (Join-Path $PSScriptRoot 'evidence.json'),
-    [string]$OutputDir      = $PSScriptRoot,
+    # No literal default here -- defaults to $EvidencePath's own folder,
+    # resolved below once $EvidencePath is known, unless explicitly supplied.
+    [string]$OutputDir,
     [string]$ReportFileName = $null
 )
 
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
+
+if (-not $PSBoundParameters.ContainsKey('OutputDir')) {
+    $OutputDir = Split-Path -Path $EvidencePath -Parent
+    if ([string]::IsNullOrWhiteSpace($OutputDir)) { $OutputDir = $PSScriptRoot }
+}
 
 . (Join-Path $PSScriptRoot 'IsvDefinitions.ps1')
 
@@ -355,10 +366,15 @@ function Format-DrivesTable {
 }
 
 function Format-ItemCard {
-    param($Item)
+    param($Item, [string]$ExaminerInitials)
     $style = if ($ResultStyle.ContainsKey($Item.result)) { $ResultStyle[$Item.result] } else { $ResultStyle['N/A'] }
     $badge = "<span class=`"result-badge`" style=`"color:$($style.Color);background:$($style.Fill);border:1px solid $($style.Color);`">$(Esc $Item.result)</span>"
     $tsHtml = if ($Item.timestamp_utc) { Esc $Item.timestamp_utc } else { '<span class="fill-in">(not applicable -- manual item)</span>' }
+    # Pre-filled from the single launch-time -ExaminerInitials prompt when the
+    # operator supplied one; left truly blank (for wet signature/initials)
+    # when they did not. Either way the field on EVERY item stays individually
+    # editable -- this only sets the starting value, never locks it.
+    $initialsValue = if ($ExaminerInitials) { " value=`"$(Esc $ExaminerInitials)`"" } else { '' }
     return @"
 <div class="item-card">
 <div class="item-card-head">
@@ -370,18 +386,18 @@ $badge
 <div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">$(EscPre $Item.command)</pre></div>
 <div class="item-field"><span class="item-field-label">Captured Evidence</span><pre class="evd">$(EscPre $Item.evidence)</pre></div>
 <div class="item-ts"><strong>Timestamp (UTC):</strong> $tsHtml</div>
-<div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" aria-label="Examiner initials for $(Esc $Item.item_id)"></div>
+<div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" aria-label="Examiner initials for $(Esc $Item.item_id)"$initialsValue></div>
 </div>
 "@
 }
 
 function Format-Section {
-    param($Section, $ItemsByIdMap)
+    param($Section, $ItemsByIdMap, [string]$ExaminerInitials)
     $cardsSb = New-Object System.Text.StringBuilder
     foreach ($def in $Section.Items) {
         $liveItem = $ItemsByIdMap[$def.Id]
         if ($liveItem) {
-            [void]$cardsSb.Append((Format-ItemCard -Item $liveItem))
+            [void]$cardsSb.Append((Format-ItemCard -Item $liveItem -ExaminerInitials $ExaminerInitials))
         }
     }
     $note = if ($Section.Note) { "<p class=`"section-note`">$(Esc $Section.Note)</p>" } else { '' }
@@ -419,20 +435,19 @@ function Format-Appendix {
 }
 
 function New-MainReportHtml {
-    param($Meta, $Items, $Digest, $DigestMatches)
+    param($Meta, $Items, $Digest, $DigestMatches, [string]$EvidenceFileName)
 
     $itemsByIdMap = @{}
     foreach ($it in $Items) { $itemsByIdMap[$it.item_id] = $it }
 
+    $examinerInitialsValue = if ($Meta.PSObject.Properties.Name -contains 'examiner_initials') { $Meta.examiner_initials } else { $null }
+
     $summaryHtml, $counts = Format-Summary -Items $Items
     $sectionsSb = New-Object System.Text.StringBuilder
     foreach ($section in $Sections) {
-        [void]$sectionsSb.Append((Format-Section -Section $section -ItemsByIdMap $itemsByIdMap))
+        [void]$sectionsSb.Append((Format-Section -Section $section -ItemsByIdMap $itemsByIdMap -ExaminerInitials $examinerInitialsValue))
     }
     $total = ($counts.Values | Measure-Object -Sum).Sum
-
-    $notesValue = if ($Meta.PSObject.Properties.Name -contains 'notes') { $Meta.notes } else { $null }
-    $notesHtml = if ($notesValue) { "<strong>Notes:</strong> $(Esc $notesValue)<br>" } else { '' }
 
     $digestWarningHtml = ''
     if (-not $DigestMatches) {
@@ -466,11 +481,8 @@ $digestWarningHtml
 <strong>Generating tool:</strong> $(Esc $Meta.tool_name) ($(Esc $Meta.tool_version))<br>
 <strong>Examiner:</strong> $(Esc $Meta.examiner)<br>
 <strong>Hostname:</strong> $(Esc $Meta.hostname)<br>
-<strong>Evidence bundle:</strong> <code>evidence.json</code> ($total items)<br>
+<strong>Evidence bundle:</strong> <code>$(Esc $EvidenceFileName)</code> ($total items)<br>
 <strong>Evidence SHA-256 digest:</strong><br><span class="digest">$(Esc $Digest)</span><br>
-$notesHtml
-<em>An auditor can independently re-hash the accompanying evidence.json (SHA-256, canonical/sorted-key JSON)
-and confirm it matches this digest -- any post-generation edit to the raw evidence changes the hash.</em>
 </div>
 
 <h2>System Identification</h2>
@@ -526,7 +538,7 @@ if ($digestMatches) {
     Write-Warning "Digest verification FAILED. Stored: $storedDigest / Recomputed: $recomputedDigest"
 }
 
-$reportHtml = New-MainReportHtml -Meta $bundle.meta -Items $items -Digest $storedDigest -DigestMatches $digestMatches
+$reportHtml = New-MainReportHtml -Meta $bundle.meta -Items $items -Digest $storedDigest -DigestMatches $digestMatches -EvidenceFileName (Split-Path -Path $EvidencePath -Leaf)
 
 if ($ReportFileName) {
     # Explicit override always wins.

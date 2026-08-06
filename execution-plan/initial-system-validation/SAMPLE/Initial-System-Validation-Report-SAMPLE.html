@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Initial System Validation Report -- ISV-UNKNOWN-HOST-20260806161512</title>
+<title>Initial System Validation Report -- ISV-UNKNOWN-HOST-20260806164524</title>
 <style>    @page { size: Letter; margin: 9mm 8mm; }
     :root { color-scheme: light; }
     * { box-sizing: border-box; }
@@ -124,20 +124,17 @@
 <h1>Initial System Validation Report</h1>
 
 <div class="meta-note">
-<strong>Report ID:</strong> ISV-UNKNOWN-HOST-20260806161512<br>
-<strong>Generated:</strong> 2026-08-06 16:15 UTC<br>
+<strong>Report ID:</strong> ISV-UNKNOWN-HOST-20260806164524<br>
+<strong>Generated:</strong> 2026-08-06 16:45 UTC<br>
 <strong>Generating tool:</strong> initial-system-validation (PowerShell collector/renderer) (v1.0-powershell)<br>
 <strong>Examiner:</strong> SAMPLE DATA -- not a real examiner<br>
 <strong>Hostname:</strong> UNKNOWN-HOST<br>
-<strong>Evidence bundle:</strong> <code>evidence.json</code> (41 items)<br>
-<strong>Evidence SHA-256 digest:</strong><br><span class="digest">c37efa0af75bde7330703b556febc6e0b472548c313cbf8e0df8faf72cd58237</span><br>
-<strong>Notes:</strong> CSU is an undefined, site-specific abbreviation -- it remains unexpanded because no source definition was found; the customer may supply the preferred expansion if desired. DCN is a site-assigned control number tracked per physical hard drive: systems with multiple drives have multiple DCNs, one per drive, recorded in the Hard Drives table below.<br>
-<em>An auditor can independently re-hash the accompanying evidence.json (SHA-256, canonical/sorted-key JSON)
-and confirm it matches this digest -- any post-generation edit to the raw evidence changes the hash.</em>
+<strong>Evidence bundle:</strong> <code>evidence-SAMPLE.json</code> (41 items)<br>
+<strong>Evidence SHA-256 digest:</strong><br><span class="digest">2ff19b1ff26f30de0688bdd576c5422d0f2c569e290b536555c8279f7c87fa77</span><br>
 </div>
 
 <h2>System Identification</h2>
-<table class="id-table"><tr><th>Area / Location</th><td>SAMPLE placeholder -- site-specific, not OS-derivable</td></tr><tr><th>Program</th><td>SAMPLE placeholder -- site-specific, not OS-derivable</td></tr><tr><th>CSU Inspector</th><td>SAMPLE DATA -- not a real examiner</td></tr><tr><th>Asset Tag Number (TAG#)</th><td>SAMPLE placeholder -- site-specific, not OS-derivable</td></tr><tr><th>Make / Model</th><td>N/A -- not collected on this host</td></tr><tr><th>Security Content Automation Protocol (SCAP) Score</th><td>SAMPLE placeholder -- populate from SCAP scan tool output</td></tr><tr><th>Processor (CPU) Serial Number (SN)</th><td>N/A -- not collected on this host</td></tr><tr><th>Gigabytes (GB) Memory (RAM)</th><td>N/A -- not collected on this host</td></tr><tr><th>Multiple Hard Drives (HD) (Y/N)</th><td>Y</td></tr><tr><th>Previously hardened Windows 10-to-Windows 11 upgrade (Y/N)</th><td>SAMPLE placeholder -- site-specific history</td></tr></table>
+<table class="id-table"><tr><th>Area / Location</th><td>SAMPLE placeholder -- site-specific, not OS-derivable</td></tr><tr><th>Program</th><td>SAMPLE placeholder -- site-specific, not OS-derivable</td></tr><tr><th>CSU Inspector</th><td>SAMPLE DATA -- not a real examiner</td></tr><tr><th>Asset Tag Number (TAG#)</th><td>SAMPLE placeholder -- site-specific, not OS-derivable</td></tr><tr><th>Make / Model</th><td>N/A -- not collected on this host</td></tr><tr><th>Security Content Automation Protocol (SCAP) Score</th><td>SAMPLE placeholder -- populate from SCAP scan tool output</td></tr><tr><th>Processor (CPU) Serial Number (SN)</th><td>N/A -- not collected on this host</td></tr><tr><th>Gigabytes (GB) Memory (RAM)</th><td>N/A -- not collected on this host</td></tr><tr><th>Multiple Hard Drives (HD) (Y/N)</th><td>Y</td></tr></table>
 
 <h2>Hard Drives (Drive Control Numbers -- DCN)</h2>
 <p class="section-note">DCN is a site-assigned control number tracked per physical hard drive. Systems with more than one drive have more than one DCN, one per row below.</p>
@@ -250,11 +247,11 @@ and confirm it matches this digest -- any post-generation edit to the raw eviden
 </div><div class="item-card">
 <div class="item-card-head">
 <span class="item-id">0.J</span>
-<span class="item-req">System membership and physical network adapters: record domain/workgroup status plus adapter name, manufacturer, and type only.</span>
+<span class="item-req">System membership and physical network adapters: record joined-status (Domain vs Workgroup) only -- the actual domain/workgroup name is withheld from this report as potentially sensitive -- plus adapter name, manufacturer, and type.</span>
 <span class="result-badge" style="color:#964219;background:#FBF1EA;border:1px solid #964219;">MANUAL</span>
 </div>
 <div class="item-field"><span class="item-field-label">Verification Method:</span> <span class="method-value">Native -- PowerShell CIM</span></div>
-<div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">Get-CimInstance -ClassName Win32_ComputerSystem | Select-Object Domain,PartOfDomain,Workgroup | Format-Table -AutoSize | Out-String -Width 200; Get-CimInstance -ClassName Win32_NetworkAdapter | Where-Object { $_.PhysicalAdapter } | Select-Object Name,Manufacturer,AdapterType | Format-Table -AutoSize | Out-String -Width 200</pre></div>
+<div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">$cs = Get-CimInstance -ClassName Win32_ComputerSystem; if ($cs.PartOfDomain) { &quot;Membership status: Domain (domain name withheld from this report)&quot; } else { &quot;Membership status: Workgroup (workgroup name withheld from this report)&quot; } | Out-String -Width 200; Get-CimInstance -ClassName Win32_NetworkAdapter | Where-Object { $_.PhysicalAdapter } | Select-Object Name,Manufacturer,AdapterType | Format-Table -AutoSize | Out-String -Width 200</pre></div>
 <div class="item-field"><span class="item-field-label">Captured Evidence</span><pre class="evd">SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence.</pre></div>
 <div class="item-ts"><strong>Timestamp (UTC):</strong> <span class="fill-in">(not applicable -- manual item)</span></div>
 <div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" aria-label="Examiner initials for 0.J"></div>
@@ -267,7 +264,7 @@ and confirm it matches this digest -- any post-generation edit to the raw eviden
 <span class="result-badge" style="color:#964219;background:#FBF1EA;border:1px solid #964219;">MANUAL</span>
 </div>
 <div class="item-field"><span class="item-field-label">Verification Method:</span> <span class="method-value">Vendor BIOS provider (Dell DCPP / HP CMSL, auto-detected)</span></div>
-<div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">if (Get-Module -ListAvailable -Name DellBIOSProvider) { Import-Module DellBIOSProvider; Get-ChildItem DellSmbios:\ -Recurse | Where-Object Name -match &quot;Date|Time|Zone&quot; | Out-String } elseif (Get-Module -ListAvailable -Name HP.ClientManagement) { Import-Module HP.ClientManagement; (Get-HPBIOSSettingsList).Name | Out-String } else { throw &quot;Neither DellBIOSProvider nor HP.ClientManagement module is installed on this system.&quot; }</pre></div>
+<div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">if (Get-Module -ListAvailable -Name DellBIOSProvider) { Import-Module DellBIOSProvider; Get-ChildItem DellSmbios:\ -Recurse | Where-Object Name -match &quot;Date|Time|Zone&quot; | Out-String } elseif (Get-Module -ListAvailable -Name HP.ClientManagement) { Import-Module HP.ClientManagement; (Get-HPBIOSSettingsList).Name | Out-String } else { throw &quot;No BIOS vendor module detected (DellBIOSProvider / HP.ClientManagement) -- use the manual fallback in the companion BIOS Reference Guide.&quot; }</pre></div>
 <div class="item-field"><span class="item-field-label">Captured Evidence</span><pre class="evd">SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence.</pre></div>
 <div class="item-ts"><strong>Timestamp (UTC):</strong> <span class="fill-in">(not applicable -- manual item)</span></div>
 <div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" aria-label="Examiner initials for 1.A"></div>
@@ -278,7 +275,7 @@ and confirm it matches this digest -- any post-generation edit to the raw eviden
 <span class="result-badge" style="color:#964219;background:#FBF1EA;border:1px solid #964219;">MANUAL</span>
 </div>
 <div class="item-field"><span class="item-field-label">Verification Method:</span> <span class="method-value">Vendor BIOS provider (Dell DCPP / HP CMSL, auto-detected)</span></div>
-<div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">if (Get-Module -ListAvailable -Name DellBIOSProvider) { Import-Module DellBIOSProvider; Get-Item DellSmbios:\BootSequence\BootList | Out-String; Get-Item DellSmbios:\BootSequence\BootSequence | Out-String } elseif (Get-Module -ListAvailable -Name HP.ClientManagement) { Import-Module HP.ClientManagement; (Get-HPBIOSSettingsList).Name | Out-String } else { throw &quot;Neither DellBIOSProvider nor HP.ClientManagement module is installed on this system.&quot; }</pre></div>
+<div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">if (Get-Module -ListAvailable -Name DellBIOSProvider) { Import-Module DellBIOSProvider; Get-Item DellSmbios:\BootSequence\BootList | Out-String; Get-Item DellSmbios:\BootSequence\BootSequence | Out-String } elseif (Get-Module -ListAvailable -Name HP.ClientManagement) { Import-Module HP.ClientManagement; (Get-HPBIOSSettingsList).Name | Out-String } else { throw &quot;No BIOS vendor module detected (DellBIOSProvider / HP.ClientManagement) -- use the manual fallback in the companion BIOS Reference Guide.&quot; }</pre></div>
 <div class="item-field"><span class="item-field-label">Captured Evidence</span><pre class="evd">SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence.</pre></div>
 <div class="item-ts"><strong>Timestamp (UTC):</strong> <span class="fill-in">(not applicable -- manual item)</span></div>
 <div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" aria-label="Examiner initials for 1.B"></div>
@@ -289,7 +286,7 @@ and confirm it matches this digest -- any post-generation edit to the raw eviden
 <span class="result-badge" style="color:#964219;background:#FBF1EA;border:1px solid #964219;">MANUAL</span>
 </div>
 <div class="item-field"><span class="item-field-label">Verification Method:</span> <span class="method-value">Vendor BIOS provider (Dell DCPP / HP CMSL, auto-detected)</span></div>
-<div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">if (Get-Module -ListAvailable -Name DellBIOSProvider) { Import-Module DellBIOSProvider; Get-ChildItem DellSmbios:\ -Recurse | Select-Object Name, CurrentValue | Format-Table -AutoSize | Out-String -Width 200 } elseif (Get-Module -ListAvailable -Name HP.ClientManagement) { Import-Module HP.ClientManagement; (Get-HPBIOSSettingsList).Name | Out-String } else { throw &quot;Neither DellBIOSProvider nor HP.ClientManagement module is installed on this system.&quot; }</pre></div>
+<div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">if (Get-Module -ListAvailable -Name DellBIOSProvider) { Import-Module DellBIOSProvider; Get-ChildItem DellSmbios:\ -Recurse | Select-Object Name, CurrentValue | Format-Table -AutoSize | Out-String -Width 200 } elseif (Get-Module -ListAvailable -Name HP.ClientManagement) { Import-Module HP.ClientManagement; (Get-HPBIOSSettingsList).Name | Out-String } else { throw &quot;No BIOS vendor module detected (DellBIOSProvider / HP.ClientManagement) -- use the manual fallback in the companion BIOS Reference Guide.&quot; }</pre></div>
 <div class="item-field"><span class="item-field-label">Captured Evidence</span><pre class="evd">SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence.</pre></div>
 <div class="item-ts"><strong>Timestamp (UTC):</strong> <span class="fill-in">(not applicable -- manual item)</span></div>
 <div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" aria-label="Examiner initials for 1.C"></div>
@@ -300,7 +297,7 @@ and confirm it matches this digest -- any post-generation edit to the raw eviden
 <span class="result-badge" style="color:#964219;background:#FBF1EA;border:1px solid #964219;">MANUAL</span>
 </div>
 <div class="item-field"><span class="item-field-label">Verification Method:</span> <span class="method-value">Vendor BIOS provider (Dell DCPP / HP CMSL, auto-detected)</span></div>
-<div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">if (Get-Module -ListAvailable -Name DellBIOSProvider) { Import-Module DellBIOSProvider; Get-Item DellSmbios:\Security\IsAdminPasswordSet | Out-String } elseif (Get-Module -ListAvailable -Name HP.ClientManagement) { Import-Module HP.ClientManagement; Get-HPBIOSSetupPasswordIsSet | Out-String } else { throw &quot;Neither DellBIOSProvider nor HP.ClientManagement module is installed on this system.&quot; }</pre></div>
+<div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">if (Get-Module -ListAvailable -Name DellBIOSProvider) { Import-Module DellBIOSProvider; Get-Item DellSmbios:\Security\IsAdminPasswordSet | Out-String } elseif (Get-Module -ListAvailable -Name HP.ClientManagement) { Import-Module HP.ClientManagement; Get-HPBIOSSetupPasswordIsSet | Out-String } else { throw &quot;No BIOS vendor module detected (DellBIOSProvider / HP.ClientManagement) -- use the manual fallback in the companion BIOS Reference Guide.&quot; }</pre></div>
 <div class="item-field"><span class="item-field-label">Captured Evidence</span><pre class="evd">SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence.</pre></div>
 <div class="item-ts"><strong>Timestamp (UTC):</strong> <span class="fill-in">(not applicable -- manual item)</span></div>
 <div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" aria-label="Examiner initials for 1.D"></div>
@@ -311,7 +308,7 @@ and confirm it matches this digest -- any post-generation edit to the raw eviden
 <span class="result-badge" style="color:#964219;background:#FBF1EA;border:1px solid #964219;">MANUAL</span>
 </div>
 <div class="item-field"><span class="item-field-label">Verification Method:</span> <span class="method-value">Vendor BIOS provider (Dell DCPP / HP CMSL, auto-detected)</span></div>
-<div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">if (Get-Module -ListAvailable -Name DellBIOSProvider) { Import-Module DellBIOSProvider; Get-Item DellSmbios:\Security\IsSystemPasswordSet | Out-String; Get-Item DellSmbios:\Security\AdminSetupLockout | Out-String } elseif (Get-Module -ListAvailable -Name HP.ClientManagement) { Import-Module HP.ClientManagement; Get-HPBIOSPowerOnPasswordIsSet | Out-String } else { throw &quot;Neither DellBIOSProvider nor HP.ClientManagement module is installed on this system.&quot; }</pre></div>
+<div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">if (Get-Module -ListAvailable -Name DellBIOSProvider) { Import-Module DellBIOSProvider; Get-Item DellSmbios:\Security\IsSystemPasswordSet | Out-String; Get-Item DellSmbios:\Security\AdminSetupLockout | Out-String } elseif (Get-Module -ListAvailable -Name HP.ClientManagement) { Import-Module HP.ClientManagement; Get-HPBIOSPowerOnPasswordIsSet | Out-String } else { throw &quot;No BIOS vendor module detected (DellBIOSProvider / HP.ClientManagement) -- use the manual fallback in the companion BIOS Reference Guide.&quot; }</pre></div>
 <div class="item-field"><span class="item-field-label">Captured Evidence</span><pre class="evd">SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence.</pre></div>
 <div class="item-ts"><strong>Timestamp (UTC):</strong> <span class="fill-in">(not applicable -- manual item)</span></div>
 <div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" aria-label="Examiner initials for 1.E"></div>
@@ -320,11 +317,11 @@ and confirm it matches this digest -- any post-generation edit to the raw eviden
 <div class="item-card">
 <div class="item-card-head">
 <span class="item-id">2.A</span>
-<span class="item-req">Un-needed services: verify each of the 45 listed services (AllJoyn Router Service, Auto Time Zone Updater, Bluetooth Handsfree Service, Bluetooth Support Service, dmwappushsvc, Downloaded Maps Manager, Fax, Geolocation Service, HomeGroup Listener, HomeGroup Provider, HV Host Service, Infrared Monitor Service, Internet Connection Sharing (ICS), Microsoft Software Shadow Copy Provider, Peer Name Resolution Protocol, Peer Networking Grouping, Peer Networking Identity Manager, Phone Service, PNRP Machine Name Publication Service, Radio Management Service, Remote Access Management Service, Remote Access Auto Connection Manager, Remote Access Connection Manager, Retail Demo Service, SNMP Trap, SSDP Discovery, Wallet Service, Wi-Fi Direct Services Connection Manager Service, Windows Backup, Windows Camera Frame Server, Windows Connect Now - Config Registrar, Windows Insider Service, Windows Media Player Network Sharing Service, Windows Mobile Hotspot Service, Windows Perception Service, Windows PushToInstall Service, Windows Store Install Service, WLAN AutoConfig, Work Folders, WWAN AutoConfig, Xbox Accessory Management Service, Xbox Game Monitoring, Xbox Live Auth Manager, Xbox Live Game Save, Xbox Live Networking Service) is set to Startup Type Disabled and Status Stopped; mark N/A for any service not present on this Windows edition. Xbox Game Monitoring may be set to Manual if it cannot be Disabled.</span>
+<span class="item-req">Un-needed services: verify each of the 45 listed services (AllJoyn Router Service, Auto Time Zone Updater, Bluetooth Handsfree Service, Bluetooth Support Service, dmwappushsvc, Downloaded Maps Manager, Fax, Geolocation Service, HomeGroup Listener, HomeGroup Provider, HV Host Service, Infrared Monitor Service, Internet Connection Sharing (ICS), Microsoft Software Shadow Copy Provider, Peer Name Resolution Protocol, Peer Networking Grouping, Peer Networking Identity Manager, Phone Service, PNRP Machine Name Publication Service, Radio Management Service, Remote Access Auto Connection Manager, Remote Access Connection Manager, Remote Access Management Service, Retail Demo Service, SNMP Trap, SSDP Discovery, Wallet Service, Wi-Fi Direct Services Connection Manager Service, Windows Backup, Windows Camera Frame Server, Windows Connect Now - Config Registrar, Windows Insider Service, Windows Media Player Network Sharing Service, Windows Mobile Hotspot Service, Windows Perception Service, Windows PushToInstall Service, Windows Store Install Service, WLAN AutoConfig, Work Folders, WWAN AutoConfig, Xbox Accessory Management Service, Xbox Game Monitoring, Xbox Live Auth Manager, Xbox Live Game Save, Xbox Live Networking Service) is set to Startup Type Disabled and Status Stopped; mark N/A for any service not present on this Windows edition. Xbox Game Monitoring may be set to Manual if it cannot be Disabled.</span>
 <span class="result-badge" style="color:#964219;background:#FBF1EA;border:1px solid #964219;">MANUAL</span>
 </div>
 <div class="item-field"><span class="item-field-label">Verification Method:</span> <span class="method-value">Native -- PowerShell Get-Service</span></div>
-<div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">$targets = @(&#39;AllJoyn Router Service&#39;,&#39;Auto Time Zone Updater&#39;,&#39;Bluetooth Handsfree Service&#39;,&#39;Bluetooth Support Service&#39;,&#39;dmwappushsvc&#39;,&#39;Downloaded Maps Manager&#39;,&#39;Fax&#39;,&#39;Geolocation Service&#39;,&#39;HomeGroup Listener&#39;,&#39;HomeGroup Provider&#39;,&#39;HV Host Service&#39;,&#39;Infrared Monitor Service&#39;,&#39;Internet Connection Sharing (ICS)&#39;,&#39;Microsoft Software Shadow Copy Provider&#39;,&#39;Peer Name Resolution Protocol&#39;,&#39;Peer Networking Grouping&#39;,&#39;Peer Networking Identity Manager&#39;,&#39;Phone Service&#39;,&#39;PNRP Machine Name Publication Service&#39;,&#39;Radio Management Service&#39;,&#39;Remote Access Management Service&#39;,&#39;Remote Access Auto Connection Manager&#39;,&#39;Remote Access Connection Manager&#39;,&#39;Retail Demo Service&#39;,&#39;SNMP Trap&#39;,&#39;SSDP Discovery&#39;,&#39;Wallet Service&#39;,&#39;Wi-Fi Direct Services Connection Manager Service&#39;,&#39;Windows Backup&#39;,&#39;Windows Camera Frame Server&#39;,&#39;Windows Connect Now - Config Registrar&#39;,&#39;Windows Insider Service&#39;,&#39;Windows Media Player Network Sharing Service&#39;,&#39;Windows Mobile Hotspot Service&#39;,&#39;Windows Perception Service&#39;,&#39;Windows PushToInstall Service&#39;,&#39;Windows Store Install Service&#39;,&#39;WLAN AutoConfig&#39;,&#39;Work Folders&#39;,&#39;WWAN AutoConfig&#39;,&#39;Xbox Accessory Management Service&#39;,&#39;Xbox Game Monitoring&#39;,&#39;Xbox Live Auth Manager&#39;,&#39;Xbox Live Game Save&#39;,&#39;Xbox Live Networking Service&#39;)
+<div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">$targets = @(&#39;AllJoyn Router Service&#39;,&#39;Auto Time Zone Updater&#39;,&#39;Bluetooth Handsfree Service&#39;,&#39;Bluetooth Support Service&#39;,&#39;dmwappushsvc&#39;,&#39;Downloaded Maps Manager&#39;,&#39;Fax&#39;,&#39;Geolocation Service&#39;,&#39;HomeGroup Listener&#39;,&#39;HomeGroup Provider&#39;,&#39;HV Host Service&#39;,&#39;Infrared Monitor Service&#39;,&#39;Internet Connection Sharing (ICS)&#39;,&#39;Microsoft Software Shadow Copy Provider&#39;,&#39;Peer Name Resolution Protocol&#39;,&#39;Peer Networking Grouping&#39;,&#39;Peer Networking Identity Manager&#39;,&#39;Phone Service&#39;,&#39;PNRP Machine Name Publication Service&#39;,&#39;Radio Management Service&#39;,&#39;Remote Access Auto Connection Manager&#39;,&#39;Remote Access Connection Manager&#39;,&#39;Remote Access Management Service&#39;,&#39;Retail Demo Service&#39;,&#39;SNMP Trap&#39;,&#39;SSDP Discovery&#39;,&#39;Wallet Service&#39;,&#39;Wi-Fi Direct Services Connection Manager Service&#39;,&#39;Windows Backup&#39;,&#39;Windows Camera Frame Server&#39;,&#39;Windows Connect Now - Config Registrar&#39;,&#39;Windows Insider Service&#39;,&#39;Windows Media Player Network Sharing Service&#39;,&#39;Windows Mobile Hotspot Service&#39;,&#39;Windows Perception Service&#39;,&#39;Windows PushToInstall Service&#39;,&#39;Windows Store Install Service&#39;,&#39;WLAN AutoConfig&#39;,&#39;Work Folders&#39;,&#39;WWAN AutoConfig&#39;,&#39;Xbox Accessory Management Service&#39;,&#39;Xbox Game Monitoring&#39;,&#39;Xbox Live Auth Manager&#39;,&#39;Xbox Live Game Save&#39;,&#39;Xbox Live Networking Service&#39;)
 Get-Service | Where-Object { $targets -contains $_.DisplayName } | Select-Object DisplayName,Name,Status,StartType</pre></div>
 <div class="item-field"><span class="item-field-label">Captured Evidence</span><pre class="evd">SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence.</pre></div>
 <div class="item-ts"><strong>Timestamp (UTC):</strong> <span class="fill-in">(not applicable -- manual item)</span></div>
@@ -424,11 +421,15 @@ Get-Service | Where-Object { $targets -contains $_.DisplayName } | Select-Object
 </div><div class="item-card">
 <div class="item-card-head">
 <span class="item-id">4.D</span>
-<span class="item-req">Audit retention setting matches SPLUNK-enabled / non-SPLUNK-enabled branch (both connected and disconnected forwarding paths apply per the air-gapped dual-path standard -- see MRC-006/011/014/017/022 for the Splunk forwarding connected/offline caveats already documented in the JSIG playbook).</span>
+<span class="item-req">Audit retention setting matches SPLUNK-enabled / non-SPLUNK-enabled branch (both connected and disconnected forwarding paths apply per the air-gapped dual-path standard -- see MRC-006/011/014/017/022 for the Splunk forwarding connected/offline caveats already documented in the JSIG playbook). Applicability is determined by checking whether a Splunk Universal Forwarder is installed AND actively reporting (established connection on the standard forwarder-to-indexer port), not by assumption.</span>
 <span class="result-badge" style="color:#964219;background:#FBF1EA;border:1px solid #964219;">MANUAL</span>
 </div>
-<div class="item-field"><span class="item-field-label">Verification Method:</span> <span class="method-value">Native -- PowerShell Get-WinEvent -ListLog (LogMode property)</span></div>
-<div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">(Get-WinEvent -ListLog Application,Security,System) | Select-Object LogName,LogMode | Format-Table -AutoSize | Out-String</pre></div>
+<div class="item-field"><span class="item-field-label">Verification Method:</span> <span class="method-value">Native -- PowerShell Get-WinEvent -ListLog (LogMode property), plus Get-Service/Get-NetTCPConnection to detect an installed and actively-reporting Splunk Universal Forwarder (TCP 9997 is the default Splunk-to-indexer data channel)</span></div>
+<div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">(Get-WinEvent -ListLog Application,Security,System) | Select-Object LogName,LogMode | Format-Table -AutoSize | Out-String
+$splunkSvc = Get-Service -Name &#39;SplunkForwarder&#39; -ErrorAction SilentlyContinue
+if ($splunkSvc) { &quot;Splunk Universal Forwarder service: $($splunkSvc.Status) (StartType: $($splunkSvc.StartType))&quot; } else { &quot;Splunk Universal Forwarder service: NOT INSTALLED&quot; }
+$splunkConns = @(Get-NetTCPConnection -State Established -ErrorAction SilentlyContinue | Where-Object { $_.RemotePort -eq 9997 -or $_.LocalPort -eq 9997 })
+if ($splunkConns.Count -gt 0) { $splunkConns | Select-Object LocalAddress,LocalPort,RemoteAddress,RemotePort,State | Format-Table -AutoSize | Out-String } else { &quot;No established TCP connection on the default Splunk forwarding port (9997) detected -- this host may not currently be reporting to a Splunk indexer, or uses a non-default port/receiver configuration.&quot; }</pre></div>
 <div class="item-field"><span class="item-field-label">Captured Evidence</span><pre class="evd">SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence.</pre></div>
 <div class="item-ts"><strong>Timestamp (UTC):</strong> <span class="fill-in">(not applicable -- manual item)</span></div>
 <div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" aria-label="Examiner initials for 4.D"></div>
@@ -534,16 +535,26 @@ Get-Service | Where-Object { $targets -contains $_.DisplayName } | Select-Object
 <div class="item-ts"><strong>Timestamp (UTC):</strong> <span class="fill-in">(not applicable -- manual item)</span></div>
 <div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" aria-label="Examiner initials for 5.Y_AB"></div>
 </div><h2>6. Anti-Virus Definitions</h2>
-<p class="section-note">For a Trellix/McAfee-managed endpoint (the vendor named on the source checklist), DAT currency is read from the local agent&#39;s registry state -- vendor-agnostic per this repo&#39;s existing backup/AV documentation standard, this same pattern applies to any managed endpoint agent. If the registry path is absent (e.g. a different AV vendor, or Defender-only), this resolves to N/A rather than a false PASS/FAIL -- adjust the registry path for your deployed agent.</p>
+<p class="section-note">Checks BOTH a Trellix/McAfee legacy registry path (VirusScan Enterprise / older-generation ENS) AND Windows Defender (Get-MpComputerStatus) -- whichever is present on this endpoint. KNOWN LIMITATION: modern ePO-managed McAfee/Trellix Endpoint Security (ENS) reportedly does not expose the DAT date locally at all in most configurations -- it lives only in the ePO database (EPOLeafNode/AM_CustomProps.AMCoreContentDate), which this script cannot reach (see https://www.reddit.com/r/sysadmin/comments/816c51/mcafee_endpoint_security_platform_dat_date/). If neither source yields a date, this resolves to N/A with that limitation noted rather than a false PASS/FAIL -- confirm ePO-managed DAT currency directly in the ePO console.</p>
 <div class="item-card">
 <div class="item-card-head">
 <span class="item-id">6</span>
-<span class="item-req">Anti-virus signature file current within 30 days</span>
+<span class="item-req">Anti-virus signature file current within 30 days (checks McAfee/Trellix legacy registry state, then falls back to Windows Defender)</span>
 <span class="result-badge" style="color:#964219;background:#FBF1EA;border:1px solid #964219;">MANUAL</span>
 </div>
-<div class="item-field"><span class="item-field-label">Verification Method:</span> <span class="method-value">Native -- PowerShell reg query against the local AV engine&#39;s registry state (Trellix/McAfee: HKLM\SOFTWARE\WOW6432Node\McAfee\AVEngine; Defender-coexistence check: Get-MpComputerStatus)</span></div>
-<div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">$dat = Get-ItemProperty -Path &#39;HKLM:\SOFTWARE\WOW6432Node\McAfee\AVEngine&#39; -Name AVDatDate -ErrorAction Stop
-$dat.AVDatDate</pre></div>
+<div class="item-field"><span class="item-field-label">Verification Method:</span> <span class="method-value">Native -- PowerShell reg query against the local AV engine&#39;s registry state (Trellix/McAfee legacy: HKLM\SOFTWARE\WOW6432Node\McAfee\AVEngine), falling back to Get-MpComputerStatus (Windows Defender, see https://learn.microsoft.com/en-us/powershell/module/defender/get-mpcomputerstatus) if the McAfee path is absent</span></div>
+<div class="item-field"><span class="item-field-label">Command Executed</span><pre class="cmd">$mcafeeKey = &#39;HKLM:\SOFTWARE\WOW6432Node\McAfee\AVEngine&#39;
+if (Test-Path $mcafeeKey) {
+    $dat = (Get-ItemProperty -Path $mcafeeKey -Name AVDatDate -ErrorAction Stop).AVDatDate
+    &quot;Source: McAfee/Trellix legacy AVEngine registry`nAVDatDate: $dat&quot;
+} else {
+    try {
+        $mp = Get-MpComputerStatus -ErrorAction Stop
+        &quot;Source: Windows Defender (Get-MpComputerStatus)`nAntivirusEnabled: $($mp.AntivirusEnabled)`nAntivirusSignatureLastUpdated: $($mp.AntivirusSignatureLastUpdated)&quot;
+    } catch {
+        &quot;N/A -- neither the McAfee/Trellix legacy registry key nor Get-MpComputerStatus (Windows Defender) is present/available on this host. If this endpoint runs modern ePO-managed McAfee/Trellix ENS, its DAT date is likely only queryable from the ePO console/database, not locally -- verify there instead.&quot;
+    }
+}</pre></div>
 <div class="item-field"><span class="item-field-label">Captured Evidence</span><pre class="evd">SAMPLE placeholder -- run without -SampleMode on the target Windows system to collect live evidence.</pre></div>
 <div class="item-ts"><strong>Timestamp (UTC):</strong> <span class="fill-in">(not applicable -- manual item)</span></div>
 <div class="item-initials"><span class="item-field-label">Examiner Initials</span><input type="text" class="initials-input" maxlength="6" aria-label="Examiner initials for 6"></div>
@@ -620,9 +631,9 @@ $dat.AVDatDate</pre></div>
 </div>
 
 <h2>Appendix A -- Active Directory Group Name Resolution (Interactive Query)</h2>
-<p style="font-size:13px;">Checklist items in Section 5 name groups generically (&quot;Domain Admins&quot;, &quot;Server Admins&quot;, &quot;Workstation Administration&quot;, &quot;Network Engineers&quot;). Real environments frequently use different actual group names for the same role. Rather than hardcode exact names, resolve each role through a small per-environment config file, with an Active Directory search fallback when a configured name isn&#39;t found:</p>
+<p style="font-size:13px;">Checklist items in Section 5 name groups generically (&quot;Domain Admins&quot;, &quot;Server Admins&quot;, &quot;Workstation Administration&quot;, &quot;Network Engineers&quot;). Real environments frequently use different actual group names for the same role. Rather than hardcode exact names, resolve each role through a small per-environment config file (a starter template is checked into this repo at execution-plan/initial-system-validation/ad-group-map.example.json -- copy it, edit the mappings for your domain, and rename it e.g. ad-group-map.json), with an Active Directory search fallback when a configured name isn&#39;t found:</p>
 <h3>Per-environment config file</h3>
-<pre class="cmd"># ad-group-map.json (per-environment, editable)
+<pre class="cmd"># ad-group-map.json (copy from the checked-in ad-group-map.example.json template in this folder, then edit per-environment)
 {
   &quot;Domain Admins&quot;: [&quot;Domain Admins&quot;],
   &quot;Server Admins&quot;: [&quot;Server Admins&quot;, &quot;Tier-1-Admins&quot;],

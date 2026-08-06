@@ -17,12 +17,13 @@ separate, human-approved step (see "Design constraints" below).
 | File | Purpose |
 |---|---|
 | `IsvDefinitions.ps1` | Shared data source of truth, dot-sourced by both scripts below — report title/tool metadata, the 15-field System Identification block, 9 sections / 41 checklist items (`Id`, `Req`, `Method`, `Command`, optional `Evaluate` scriptblock), the Active Directory group-resolution appendix content, and the Dell/HP BIOS reference tables (`$BiosDellReference` / `$BiosHpReference`, plus their background/context HTML). Edit this file to change what the report asks for or says. |
-| `Invoke-ISVCollection.ps1` | **The collector (and, by default, report trigger).** Detects the local physical drive inventory, executes each of the 41 checklist items' PowerShell command against the local system, captures the real output as evidence, applies each item's `Evaluate` logic (or defaults to `MANUAL` when a check requires human judgment), and writes a canonical, SHA-256-digested `evidence.json` — which records whether the run was `-SampleMode` or a real collection (`meta.is_sample_mode`) so the renderer can name the output file correctly. Never throws on a failed check — a failing command is caught and recorded as `N/A` with the error text as evidence, so one broken check can't crash the run. Only *after* drive detection and all 41 automated checks finish does it prompt for the 6 site-specific identification fields (Inspector, Area/Location, Program, Asset Tag, SCAP Score, Prior Win10 Upgrade) plus **one DCN prompt per detected physical drive** (DCN is a site-assigned control number tracked per drive, not a single system-wide field) — whenever a field isn't supplied as a parameter. No switches are required for a normal run. Once evidence is written, it automatically invokes `New-ISVReport.ps1` in the same run to produce the host-specific HTML report, unless `-SkipReport` is passed. Supports `-SampleMode` (no live checks, two canned placeholder drives, placeholder evidence only, no prompts) for demonstration/dry-run use. |
-| `New-ISVReport.ps1` | **The main report renderer.** Loads an `evidence.json` bundle, recomputes the SHA-256 digest over its items and compares it to the stored value (tamper detection — mismatches surface as a loud warning in both the console and the rendered report), then writes the audit report as HTML. **The output filename is derived from the evidence itself**, not hardcoded: a real/live bundle is named `Initial-System-Validation-Report-<hostname>.html`; a `-SampleMode` bundle keeps `Initial-System-Validation-Report-SAMPLE.html`. Pass `-ReportFileName` to override with an explicit name. Every checklist item also renders an **Examiner Initials** field so a human reviewer can sign off on that specific line item after reviewing the captured evidence. |
-| `New-BiosReferenceGuides.ps1` | **Standalone BIOS guide renderer**, independent of any host's evidence. Writes the two vendor reference guides below from the static content in `IsvDefinitions.ps1`. Not part of the collector's auto-chain — run it manually once, or whenever the BIOS reference content in `IsvDefinitions.ps1` changes. |
-| `Initial-System-Validation-Report-SAMPLE.html` | Generated deliverable — the main audit report, checked in under its `-SampleMode` name. A live run against a real host produces `Initial-System-Validation-Report-<hostname>.html` instead. Every item shows the command executed, captured evidence, result, timestamp, and a blank Examiner Initials field. |
-| `Dell-BIOS-Reference-Guide.html` / `HP-BIOS-Reference-Guide.html` | Generated deliverables (via `New-BiosReferenceGuides.ps1`, not the collector) — companion vendor guides holding the automated command variant, physical-console manual fallback, discovery caveats, and citations for BIOS Controls items 1.A-1.E, split by vendor. Generic vendor documentation, not tied to any specific audited host. |
-| `evidence.json` | Generated deliverable — the raw evidence export (meta + items + SHA-256 digest) an auditor can independently re-hash to confirm against the digest printed in the report header. |
+| `Invoke-ISVCollection.ps1` | **The collector (and, by default, report trigger).** Detects the local physical drive inventory, executes each of the 41 checklist items' PowerShell command against the local system, captures the real output as evidence, applies each item's `Evaluate` logic (or defaults to `MANUAL` when a check requires human judgment), and writes a canonical, SHA-256-digested `evidence-<hostname>.json` (or `evidence-SAMPLE.json`) — which records whether the run was `-SampleMode` or a real collection (`meta.is_sample_mode`) so the renderer can name the output file correctly. Never throws on a failed check — a failing command is caught and recorded as `N/A` with a descriptive `Automated check unavailable -- <reason>` message as evidence, so one broken/unsupported check can't crash the run and the console output stays legible. Only *after* drive detection and all 41 automated checks finish does it prompt for the 6 site-specific identification fields (Inspector, Area/Location, Program, Asset Tag, SCAP Score, Examiner Initials) plus **one DCN prompt per detected physical drive** (DCN is a site-assigned control number tracked per drive, not a single system-wide field, and each captured value is echoed back to the console immediately for confirmation) — whenever a field isn't supplied as a parameter. No switches are required for a normal run. **All output (the evidence bundle and, once rendered, the HTML report) is written into a per-host subfolder** named after the machine's hostname (or `SAMPLE` for a `-SampleMode` run) — e.g. `.\WIN-PROD-0451\evidence-WIN-PROD-0451.json` — created automatically if it doesn't exist, so output from multiple hosts never collides in one shared folder. Pass an explicit `-OutputPath` to bypass this and write exactly where told instead. Once evidence is written, it automatically invokes `New-ISVReport.ps1` in the same run to produce the host-specific HTML report in that same folder, unless `-SkipReport` is passed. Supports `-SampleMode` (no live checks, two canned placeholder drives, placeholder evidence only, no prompts) for demonstration/dry-run use. |
+| `New-ISVReport.ps1` | **The main report renderer.** Loads an evidence bundle, recomputes the SHA-256 digest over its items and compares it to the stored value (tamper detection — mismatches surface as a loud warning in both the console and the rendered report), then writes the audit report as HTML. **The output filename is derived from the evidence itself**, not hardcoded: a real/live bundle is named `Initial-System-Validation-Report-<hostname>.html`; a `-SampleMode` bundle keeps `Initial-System-Validation-Report-SAMPLE.html`. The evidence bundle's own filename is likewise shown in the report header exactly as passed via `-EvidencePath`, never a hardcoded literal. **The output folder defaults to wherever `-EvidencePath` lives** (so re-rendering `.\WIN-PROD-0451\evidence-WIN-PROD-0451.json` standalone writes the report back into `.\WIN-PROD-0451\` alongside it) — pass `-OutputDir` to override. Pass `-ReportFileName` to override the filename with an explicit name. Every checklist item also renders an **Examiner Initials** field, pre-filled from the single launch-time prompt when supplied (blank for wet signature otherwise), so a human reviewer can sign off on that specific line item after reviewing the captured evidence — each field remains individually editable regardless of the pre-fill. |
+| `New-BiosReferenceGuides.ps1` | **Standalone BIOS guide renderer**, independent of any host's evidence. Writes the two vendor reference guides below from the static content in `IsvDefinitions.ps1`, flat into this folder (not into a per-host subfolder — the guides are generic vendor documentation, not tied to any specific audited host). Not part of the collector's auto-chain — run it manually once, or whenever the BIOS reference content in `IsvDefinitions.ps1` changes. |
+| `SAMPLE/Initial-System-Validation-Report-SAMPLE.html` | Generated deliverable — the main audit report, checked in under the `SAMPLE/` folder produced by a `-SampleMode` run. A live run against a real host produces `<hostname>/Initial-System-Validation-Report-<hostname>.html` instead. Every item shows the command executed, captured evidence, result, timestamp, and a blank Examiner Initials field. |
+| `Dell-BIOS-Reference-Guide.html` / `HP-BIOS-Reference-Guide.html` | Generated deliverables (via `New-BiosReferenceGuides.ps1`, not the collector) — companion vendor guides holding the automated command variant, physical-console manual fallback, discovery caveats, and citations for BIOS Controls items 1.A-1.E, split by vendor. Generic vendor documentation, not tied to any specific audited host — written flat into this folder, never into a per-host subfolder. |
+| `SAMPLE/evidence-SAMPLE.json` | Generated deliverable — the raw evidence export (meta + items + SHA-256 digest) an auditor can independently re-hash to confirm against the digest printed in the report header. Checked in under `SAMPLE/`, matching where a real `-SampleMode` run would write it. |
+| `ad-group-map.example.json` | Starter template for the per-environment Active Directory group-name-resolution config file referenced from Appendix A of the report (Section 5, Accounts). Illustrative only — not read automatically by either script; copy and edit it for your domain. |
 | `research_dell_bios.md` / `research_hp_bios.md` | Cited vendor research backing the two BIOS reference guides (DCPP / HP CMSL install paths, BIOS UI generation differences, confidence-level notes on unconfirmed setting paths). |
 | `CHANGELOG-round2.md` / `ROUND2-SPEC.md` | Working notes from the report-simplification pass (10-page target, barebones/PowerShell-first pivot, 3-report split). Predate the Python-to-PowerShell rewrite; kept for history. |
 
@@ -43,7 +44,10 @@ order:
    (index, make, model, capacity, serial number) before anything else runs.
 2. **All 41 checklist items** — fully automated, zero prompts.
 3. **Site-specific identification prompts** — 6 fields that can't be read from the OS (Inspector,
-   Area/Location, Program, Asset Tag, SCAP score, prior-upgrade flag).
+   Area/Location, Program, Asset Tag, SCAP score, Examiner Initials -- the last one is optional and,
+   if supplied, pre-fills every item's per-line Examiner Initials field in the rendered report while
+   leaving each one individually editable; leave it blank to leave every field blank for a wet
+   signature instead).
 4. **Per-drive DCN prompts** — one prompt *per detected physical drive*, run last, because the drive
    count has to be known before the script can know how many DCNs to ask for. DCN (Drive Control
    Number) is a site-assigned control number tracked per physical drive, not a single system-wide
@@ -51,12 +55,18 @@ order:
    detected model/serial number so it's unambiguous which DCN belongs to which disk. If drive
    auto-detection fails or finds nothing (e.g. non-Windows host, CIM unavailable), the script falls
    back to a single generic "DCN (drive auto-detection unavailable on this host)" prompt.
-5. **`evidence.json` is written**, then `New-ISVReport.ps1` is automatically invoked against it in
-   the same run — no second command needed. The main report's filename is generated from that same
-   evidence: a live run names it after the machine's hostname
+5. **The evidence bundle is written into a per-host output folder**, named `evidence-<hostname>.json`
+   (or `evidence-SAMPLE.json`), then `New-ISVReport.ps1` is automatically invoked against it in the
+   same run — no second command needed. The folder is named after the machine's hostname (e.g.
+   `.\WIN11-DESKTOP-04\`) for a live run, or `.\SAMPLE\` for a `-SampleMode` run, created
+   automatically if it doesn't already exist — this keeps output from multiple hosts from overwriting
+   each other when this tool is run against many machines in turn. The main report's filename is
+   generated from that same evidence: a live run names it after the machine's hostname
    (`Initial-System-Validation-Report-<hostname>.html`); only a `-SampleMode` run keeps the
-   `-SAMPLE.html` name. (The Dell/HP BIOS reference guides are a separate, standalone deliverable —
-   see "Generating the BIOS reference guides" below — and are not written by this step.)
+   `-SAMPLE.html` name. It's written into that same per-host folder, alongside the evidence bundle.
+   (The Dell/HP BIOS reference guides are a separate, standalone deliverable — see
+   "Generating the BIOS reference guides" below — and are not written by this step, and are never
+   placed in a per-host folder.)
 
 ```
 Initial System Validation collection starting (...)...
@@ -72,21 +82,24 @@ Area / Location: Building 4, Room 210
 Program name: JSIG Maintenance Playbook
 Asset Tag Number (TAG#): TAG-0001
 SCAP score (from separate SCAP scan tool, or N/A): 98.2
-Prior Windows 10-to-11 upgrade? (Y/N): N
+Examiner Initials (optional -- pre-fills every item's initials field, still individually editable; press Enter to leave all blank for wet signature): JS
 DCN for Hard Drive #0 (Samsung SSD 980 PRO, SN S1): DCN-0001
+  -> Recorded DCN for drive 0: DCN-0001
 DCN for Hard Drive #1 (WD Blue HDD, SN S2): DCN-0002
+  -> Recorded DCN for drive 1: DCN-0002
 DCN for Hard Drive #2 (Crucial MX500, SN S3): DCN-0003
+  -> Recorded DCN for drive 2: DCN-0003
 
 Collection complete. 41 items recorded across 3 drive(s).
-Evidence bundle written to: .\evidence.json
+Evidence bundle written to: .\WIN11-DESKTOP-04\evidence-WIN11-DESKTOP-04.json
 SHA-256 digest: <hex>
 
 Rendering HTML report via .\New-ISVReport.ps1 ...
-Wrote .\Initial-System-Validation-Report-WIN11-DESKTOP-04.html
+Wrote .\WIN11-DESKTOP-04\Initial-System-Validation-Report-WIN11-DESKTOP-04.html
 ```
 
-(A `-SampleMode` run instead writes `Initial-System-Validation-Report-SAMPLE.html`, matching the
-file checked into this repo.)
+(A `-SampleMode` run instead writes into `.\SAMPLE\`, producing
+`SAMPLE\Initial-System-Validation-Report-SAMPLE.html`, matching the files checked into this repo.)
 
 For unattended/scripted runs, any field can still be supplied as a parameter, which skips the
 prompt for that field only (mix and match freely — e.g. pre-fill `-Inspector` and get prompted for
@@ -97,22 +110,29 @@ fewer values than there are drives and only the remaining drives prompt:
 ./Invoke-ISVCollection.ps1 `
   -Inspector "J. Smith" -AreaLocation "Building 4, Room 210" `
   -Program "JSIG Maintenance Playbook" -AssetTag "TAG-0001" `
-  -ScapScore "98.2" -PriorWin10Upgrade "N" `
-  -Dcn "DCN-0001","DCN-0002","DCN-0003" `
-  -OutputPath ./evidence.json
+  -ScapScore "98.2" -ExaminerInitials "JS" `
+  -Dcn "DCN-0001","DCN-0002","DCN-0003"
+# -> writes to .\WIN11-DESKTOP-04\evidence-WIN11-DESKTOP-04.json (folder auto-named/created from hostname)
 ```
 
 ```powershell
 # Sample/demo mode -- no prompts, no live checks executed; two canned sample
 # drives populate the Hard Drives table so the report's shape and formatting
-# can be reviewed offline.
-./Invoke-ISVCollection.ps1 -SampleMode -OutputPath ./evidence.json
+# can be reviewed offline. Writes to .\SAMPLE\evidence-SAMPLE.json.
+./Invoke-ISVCollection.ps1 -SampleMode
 ```
 
 ```powershell
-# Write evidence.json only, skip the auto-chained report render (e.g. if you
-# want to inspect/edit the evidence before rendering, or render elsewhere):
-./Invoke-ISVCollection.ps1 -SkipReport -OutputPath ./evidence.json
+# Write the evidence bundle only, skip the auto-chained report render (e.g.
+# if you want to inspect/edit the evidence before rendering, or render
+# elsewhere). Still lands in the per-host/SAMPLE folder unless -OutputPath is given.
+./Invoke-ISVCollection.ps1 -SkipReport
+```
+
+```powershell
+# An explicit -OutputPath always overrides the per-host folder and is used
+# exactly as given, with no folder auto-nesting applied:
+./Invoke-ISVCollection.ps1 -SampleMode -OutputPath ./evidence-SAMPLE.json
 ```
 
 Live mode executes each item's real command (`Get-CimInstance`, `icacls`, `reg query`, `auditpol`,
@@ -131,21 +151,28 @@ always confirms whether the run finished.
 ## Regenerating the report
 
 The collector auto-chains into the renderer by default, so this step is normally not needed. It's
-still available for re-rendering an existing `evidence.json` on its own (e.g. after using
+still available for re-rendering an existing evidence bundle on its own (e.g. after using
 `-SkipReport`, or to re-render on a different machine than the one that collected the evidence):
 
 ```powershell
 cd execution-plan/initial-system-validation
-./New-ISVReport.ps1 -EvidencePath ./evidence.json -OutputDir .
-# -> Initial-System-Validation-Report-<hostname>.html   (or ...-SAMPLE.html for a -SampleMode bundle)
+./New-ISVReport.ps1 -EvidencePath ./WIN11-DESKTOP-04/evidence-WIN11-DESKTOP-04.json
+# -> writes into .\WIN11-DESKTOP-04\Initial-System-Validation-Report-<hostname>.html
+#    (or ...-SAMPLE.html for a -SampleMode bundle) -- same folder the evidence came from
 ```
 
-The output filename is read from `evidence.json` itself (`meta.hostname` / `meta.is_sample_mode`),
-so it doesn't need to be told which machine the evidence came from. To force a specific filename
-regardless of what the evidence says, pass `-ReportFileName`:
+The output filename is read from the evidence bundle itself (`meta.hostname` / `meta.is_sample_mode`),
+so it doesn't need to be told which machine the evidence came from. **The output folder defaults to
+wherever `-EvidencePath` lives** — pass `-OutputDir` to write somewhere else instead:
 
 ```powershell
-./New-ISVReport.ps1 -EvidencePath ./evidence.json -OutputDir . -ReportFileName Custom-Report-Name.html
+./New-ISVReport.ps1 -EvidencePath ./WIN11-DESKTOP-04/evidence-WIN11-DESKTOP-04.json -OutputDir ./some-other-folder
+```
+
+To force a specific filename regardless of what the evidence says, pass `-ReportFileName`:
+
+```powershell
+./New-ISVReport.ps1 -EvidencePath ./WIN11-DESKTOP-04/evidence-WIN11-DESKTOP-04.json -ReportFileName Custom-Report-Name.html
 ```
 
 ## Generating the BIOS reference guides
@@ -170,13 +197,14 @@ Windows PowerShell / PowerShell 7) and write their output alongside themselves i
 
 ## Tamper-evidence digest
 
-`evidence.json` stores a SHA-256 digest computed over the **items array only** (never the `meta`
+The evidence bundle stores a SHA-256 digest computed over the **items array only** (never the `meta`
 block), serialized as canonical JSON: keys sorted ordinally, no extraneous whitespace, non-ASCII
 escaped. `Invoke-ISVCollection.ps1` computes this digest when writing the file; `New-ISVReport.ps1`
 independently recomputes it when loading the file and compares. Any edit to the evidence after
 collection — even a single character — changes the digest and triggers a visible warning banner in
 the rendered report (and a console warning) so a reviewer knows to investigate before trusting the
-report.
+report. An auditor can independently re-hash the accompanying evidence file (SHA-256, canonical/
+sorted-key JSON) and confirm it matches the digest printed in the report header.
 
 ## Design constraints (carried over from the source conversation)
 
@@ -190,9 +218,10 @@ report.
   data — the report captures configuration/compliance state only.
 - **No plaintext secrets.** Any BIOS/account item involving a password records only the
   password-set state or an access-test attestation, never the password itself.
-- **Planning-only until human approval.** The checked-in `evidence.json` and HTML reports are
-  `-SampleMode` output. Running `Invoke-ISVCollection.ps1` against a live system is a separate,
-  deliberate action outside this repo's automation.
+- **Planning-only until human approval.** The checked-in `SAMPLE/evidence-SAMPLE.json` and
+  `SAMPLE/Initial-System-Validation-Report-SAMPLE.html` are `-SampleMode` output, sitting exactly
+  where a real `-SampleMode` run would write them. Running `Invoke-ISVCollection.ps1` against a live
+  system is a separate, deliberate action outside this repo's automation.
 - Follows the same Nexus design-system styling as the rest of this repo's generated documents
   (see `execution-plan/tools/generate_variance.py` for the sibling implementation).
 

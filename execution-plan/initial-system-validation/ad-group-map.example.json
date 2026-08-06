@@ -1,0 +1,7 @@
+{
+  "_comment": "Per-environment Active Directory group-name-resolution template referenced from Section 5 (Accounts) of the Initial System Validation checklist. This file is illustrative starter content only -- it is NOT read by Invoke-ISVCollection.ps1 or New-ISVReport.ps1 automatically. Copy it to ad-group-map.json (or any name you prefer), edit the role-to-actual-group-name mappings for your domain, and use it as the config file described in the report's Appendix A when resolving generically-named roles (\"Domain Admins\", \"Server Admins\", etc.) to your environment's real AD group names.",
+  "Domain Admins": ["Domain Admins"],
+  "Server Admins": ["Server Admins", "Tier-1-Admins"],
+  "Workstation Administration": ["Workstation Administration", "WKSTN-Admins"],
+  "Network Engineers": ["Network Engineers", "NetEng"]
+}

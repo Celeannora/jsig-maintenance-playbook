@@ -13,14 +13,15 @@ execution-plan/STATUS-2026-07-17.md
 execution-plan/initial-system-validation/CHANGELOG-round2.md
 execution-plan/initial-system-validation/Dell-BIOS-Reference-Guide.html
 execution-plan/initial-system-validation/HP-BIOS-Reference-Guide.html
-execution-plan/initial-system-validation/Initial-System-Validation-Report-SAMPLE.html
 execution-plan/initial-system-validation/Invoke-ISVCollection.ps1
 execution-plan/initial-system-validation/IsvDefinitions.ps1
 execution-plan/initial-system-validation/New-BiosReferenceGuides.ps1
 execution-plan/initial-system-validation/New-ISVReport.ps1
 execution-plan/initial-system-validation/README.md
 execution-plan/initial-system-validation/ROUND2-SPEC.md
-execution-plan/initial-system-validation/evidence.json
+execution-plan/initial-system-validation/ad-group-map.example.json
+execution-plan/initial-system-validation/SAMPLE/Initial-System-Validation-Report-SAMPLE.html
+execution-plan/initial-system-validation/SAMPLE/evidence-SAMPLE.json
 execution-plan/initial-system-validation/research_dell_bios.md
 execution-plan/initial-system-validation/research_hp_bios.md
 execution-plan/runbooks/.gitkeep

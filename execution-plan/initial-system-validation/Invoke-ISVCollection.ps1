@@ -58,9 +58,13 @@
     values than detected drives to have this script prompt only for the
     remainder; omit entirely to be prompted for every drive.
 
-.PARAMETER PriorWin10Upgrade
-    Y/N -- whether this asset was a previously hardened Windows 10-to-11
-    upgrade. Site-specific history, not derivable from the OS alone.
+.PARAMETER ExaminerInitials
+    Overall examiner initials for this run. Prompted once at launch (like
+    Inspector, Area/Location, etc.) and used to pre-fill the per-item
+    "Examiner Initials" field on all 41 checklist items in the rendered
+    report -- each field remains individually editable/overwritable by hand.
+    Leave blank (press Enter at the prompt) to leave every per-item field
+    blank for wet-signature/initials instead.
 
 .PARAMETER SampleMode
     Skip live command execution and re-emit MANUAL/SAMPLE placeholder rows
@@ -69,8 +73,14 @@
     multi-drive Hard Drives table renders realistically in the demo output.
 
 .PARAMETER OutputPath
-    Where to write the evidence bundle. Defaults to evidence.json alongside
-    this script.
+    Where to write the evidence bundle. Defaults to evidence.json inside a
+    per-run output folder created alongside this script, named after the
+    machine's hostname for a live run, or "SAMPLE" for a -SampleMode run
+    (e.g. .\WIN-PROD-0451\evidence.json). Bundling each host's evidence and
+    HTML report together like this means re-running this script against a
+    different machine never overwrites a previous machine's output. Pass an
+    explicit path to opt out of the per-host folder and write exactly where
+    you specify instead.
 
 .PARAMETER SkipReport
     By default this script automatically renders the host-specific HTML
@@ -88,13 +98,16 @@
     drive) FIRST, then prompts for Inspector, Area/Location, Program, Asset
     Tag, SCAP Score, and Prior Win10 Upgrade, then prompts for one DCN PER
     detected drive (now that the drive count is known), then executes all
-    41 checks, writes evidence.json, and automatically renders the HTML
-    report and BIOS reference guides -- no second command required.
+    41 checks, writes evidence.json into a new folder named after this
+    machine's hostname, and automatically renders the HTML report into that
+    same folder -- no second command required. (The Dell/HP BIOS reference
+    guides are a separate standalone deliverable -- see
+    New-BiosReferenceGuides.ps1 -- and are not part of this auto-chain.)
 
 .EXAMPLE
     .\Invoke-ISVCollection.ps1 -Inspector "J. Smith" -AreaLocation "Bldg 4" `
         -Program "JSIG-DEMO" -AssetTag "TAG-00042" -Dcn "DCN-001","DCN-002" `
-        -PriorWin10Upgrade "N"
+        -ExaminerInitials "JS"
     Non-interactive live run on a 2-drive machine: any field supplied as a
     parameter is used as-is and skipped in the prompt sequence; the two -Dcn
     values are assigned to detected drives 0 and 1 in order. Any field NOT
@@ -102,9 +115,10 @@
     is still prompted for interactively (mix and match freely).
 
 .EXAMPLE
-    .\Invoke-ISVCollection.ps1 -SampleMode -OutputPath .\evidence.json
+    .\Invoke-ISVCollection.ps1 -SampleMode
     Demo/mockup run: no prompts, no live checks -- re-emits placeholder rows
-    (including 2 sample drives) and still auto-renders the HTML report.
+    (including 2 sample drives), writes evidence.json into a new .\SAMPLE\
+    folder, and still auto-renders the HTML report into that same folder.
 #>
 
 [CmdletBinding()]
@@ -115,9 +129,13 @@ param(
     [string]$AssetTag,
     [string]$ScapScore,
     [string[]]$Dcn,
-    [string]$PriorWin10Upgrade,
+    [string]$ExaminerInitials,
     [switch]$SampleMode,
-    [string]$OutputPath = (Join-Path $PSScriptRoot 'evidence.json'),
+    # No literal default here -- see the "Per-host output folder" block below,
+    # which resolves the real default (a hostname/SAMPLE subfolder) once the
+    # hostname and -SampleMode are known, but only if this wasn't explicitly
+    # supplied by the caller.
+    [string]$OutputPath,
     [switch]$SkipReport
 )
 
@@ -125,6 +143,40 @@ Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
 
 . (Join-Path $PSScriptRoot 'IsvDefinitions.ps1')
+
+# ---------------------------------------------------------------------------
+# Per-host output folder.
+#
+# Resolved as early as possible -- before any prompts run -- so both the
+# evidence bundle and its auto-rendered report always land together in one
+# place: a folder named after this machine's hostname for a live run, or
+# "SAMPLE" for a -SampleMode demo run (matching the existing -SAMPLE.html
+# naming convention), created alongside this script. This keeps output from
+# multiple machines from colliding / overwriting each other in one shared
+# folder when this tool is run against many hosts in turn. An explicit
+# -OutputPath always wins and is used exactly as given, with no folder
+# auto-nesting applied.
+# ---------------------------------------------------------------------------
+$hostname = try { $env:COMPUTERNAME } catch { 'UNKNOWN-HOST' }
+if ([string]::IsNullOrWhiteSpace($hostname)) { $hostname = 'UNKNOWN-HOST' }
+# Same sanitization New-ISVReport.ps1 applies when naming the report file,
+# kept in sync so the folder name and the report filename's host segment
+# always match, and so an unusual COMPUTERNAME never produces an invalid
+# Windows/NTFS folder name.
+$safeHostname = ($hostname -replace '[<>:"/\\|?*]', '_')
+$outputFolderName = if ($SampleMode) { 'SAMPLE' } else { $safeHostname }
+
+if (-not $PSBoundParameters.ContainsKey('OutputPath')) {
+    # Filename mirrors the report's own hostname/-SAMPLE naming convention
+    # (see New-ISVReport.ps1) instead of a fixed generic 'evidence.json', so
+    # a listing of a shared drop folder identifies each bundle by host at a
+    # glance without having to open it.
+    $OutputPath = Join-Path $PSScriptRoot (Join-Path $outputFolderName "evidence-$outputFolderName.json")
+}
+$outputFolder = Split-Path -Path $OutputPath -Parent
+if ($outputFolder -and -not (Test-Path $outputFolder)) {
+    New-Item -ItemType Directory -Path $outputFolder -Force | Out-Null
+}
 
 # ---------------------------------------------------------------------------
 # Interactive prompting helper for site-specific identification fields.
@@ -168,6 +220,28 @@ function Read-IsvField {
 }
 
 # ---------------------------------------------------------------------------
+# Examiner Initials -- deliberately separate from Read-IsvField above: an
+# unanswered prompt here must produce a truly EMPTY string (not the
+# 'N/A -- not provided by operator' placeholder text), because a blank
+# value is used to leave the per-item initials field blank for a wet
+# signature/initials, matching the existing per-item HTML input behavior.
+# -SampleMode never prompts and always returns empty, matching that this
+# field simply did not exist before this fix (SAMPLE output stays blank).
+# ---------------------------------------------------------------------------
+function Read-IsvExaminerInitials {
+    param([string]$CurrentValue)
+    if (-not [string]::IsNullOrWhiteSpace($CurrentValue)) { return $CurrentValue }
+    if ($SampleMode) { return '' }
+    try {
+        $entered = Read-Host 'Examiner Initials (optional -- pre-fills every item''s initials field, still individually editable; press Enter to leave all blank for wet signature)'
+    } catch {
+        Write-Warning "Could not prompt for Examiner Initials (no interactive console available); leaving blank."
+        $entered = ''
+    }
+    return $entered
+}
+
+# ---------------------------------------------------------------------------
 # Disk inventory -- runs BEFORE any DCN prompting so the drive count is known
 # up front. Returns an array of ordered hashtables (one per physical drive,
 # Index/Make/Model/CapacityGb/Serial populated, Dcn left $null for the Main
@@ -176,6 +250,39 @@ function Read-IsvField {
 # returns 2 canned sample drives instead of querying CIM, so the multi-drive
 # table renders realistically without needing a real multi-drive machine.
 # ---------------------------------------------------------------------------
+# ---------------------------------------------------------------------------
+# Win32_DiskDrive.Manufacturer is well-documented to return the useless
+# generic literal "(Standard disk drives)" for most drives (the property
+# reflects the PnP device CLASS description, not the actual vendor) --
+# see https://stackoverflow.com/questions/61290249/how-can-i-query-the-manufacturer-of-a-drive-in-the-windows-api,
+# https://learn.microsoft.com/en-us/answers/questions/4317219/why-manufacturer-return-standard-disk-driver-in-wm,
+# and https://forum.bigfix.com/t/hard-drive-information/33629. The vendor
+# name is far more reliably embedded as a prefix of the Model string
+# instead, so this helper best-effort-parses it from there. This is
+# INFERENCE, not an authoritative vendor field -- callers should present it
+# as such (the report explicitly labels this column as inferred from Model).
+# ---------------------------------------------------------------------------
+function Resolve-DiskMake {
+    param([string]$Manufacturer, [string]$Model)
+    $knownPrefixes = @(
+        'Samsung', 'WDC', 'Western Digital', 'Seagate', 'ST', 'Crucial', 'CT',
+        'SanDisk', 'Kingston', 'Toshiba', 'Hitachi', 'HGST', 'Intel',
+        'SK hynix', 'SKhynix', 'Micron', 'ADATA', 'Corsair', 'PNY',
+        'Transcend', 'Lexar', 'Fujitsu', 'LITEON', 'Liteon', 'KIOXIA'
+    )
+    if (-not [string]::IsNullOrWhiteSpace($Model)) {
+        foreach ($prefix in $knownPrefixes) {
+            if ($Model -match "^\s*$([regex]::Escape($prefix))") {
+                return "$prefix (inferred from Model)"
+            }
+        }
+    }
+    if (-not [string]::IsNullOrWhiteSpace($Manufacturer) -and $Manufacturer -ne '(Standard disk drives)') {
+        return $Manufacturer
+    }
+    return 'Unknown (see Model) -- Win32_DiskDrive.Manufacturer returned the generic "(Standard disk drives)" class description rather than a real vendor name, and no known vendor prefix was recognized in the Model string'
+}
+
 function Get-DiskInventory {
     if ($SampleMode) {
         return @(
@@ -193,7 +300,7 @@ function Get-DiskInventory {
     foreach ($d in $disks) {
         $result += [ordered]@{
             Index      = $d.Index
-            Make       = $d.Manufacturer
+            Make       = Resolve-DiskMake -Manufacturer $d.Manufacturer -Model $d.Model
             Model      = $d.Model
             CapacityGb = if ($d.Size) { [math]::Round($d.Size / 1GB, 0) } else { $null }
             Serial     = $d.SerialNumber
@@ -296,7 +403,6 @@ function Get-SystemIdentificationValues {
         Inspector          = $Inspector
         AssetTag           = $AssetTag
         ScapScore          = $ScapScore
-        PriorWin10Upgrade  = $PriorWin10Upgrade
     }
 
     $auto = [ordered]@{}
@@ -375,7 +481,7 @@ function Invoke-IsvItem {
         }
     } catch {
         $resultValue  = 'N/A'
-        $evidenceText = "ERROR executing check: $($_.Exception.Message)"
+        $evidenceText = "Automated check unavailable -- $($_.Exception.Message)"
     }
 
     [ordered]@{
@@ -437,7 +543,7 @@ $AreaLocation      = Read-IsvField -CurrentValue $AreaLocation      -PromptText 
 $Program           = Read-IsvField -CurrentValue $Program           -PromptText 'Program name'                                       -SampleDefault 'SAMPLE placeholder -- site-specific, not OS-derivable'
 $AssetTag          = Read-IsvField -CurrentValue $AssetTag          -PromptText 'Asset Tag Number (TAG#)'                           -SampleDefault 'SAMPLE placeholder -- site-specific, not OS-derivable'
 $ScapScore         = Read-IsvField -CurrentValue $ScapScore         -PromptText 'SCAP score (from separate SCAP scan tool, or N/A)' -SampleDefault 'SAMPLE placeholder -- populate from SCAP scan tool output'
-$PriorWin10Upgrade = Read-IsvField -CurrentValue $PriorWin10Upgrade -PromptText 'Prior Windows 10-to-11 upgrade? (Y/N)'             -SampleDefault 'SAMPLE placeholder -- site-specific history'
+$ExaminerInitials  = Read-IsvExaminerInitials -CurrentValue $ExaminerInitials
 
 # DCN is a per-drive control number (confirmed by the operator): prompt once
 # for EACH detected drive, pre-filled positionally from -Dcn if supplied.
@@ -449,18 +555,24 @@ if ($disks.Count -gt 0) {
         $preset = if ($Dcn -and $i -lt $Dcn.Count) { $Dcn[$i] } else { $null }
         $label  = "DCN for Hard Drive #$($disks[$i].Index) ($($disks[$i].Model), SN $($disks[$i].Serial))"
         $disks[$i].Dcn = Read-IsvField -CurrentValue $preset -PromptText $label -SampleDefault "SAMPLE placeholder -- DCN for drive $($disks[$i].Index)"
+        # Explicit confirmation echo -- makes it immediately obvious in the
+        # console transcript that the prompt above actually ran and what
+        # value was captured for this drive, instead of silently moving on
+        # (useful for diagnosing a prompt that appears not to have worked).
+        if (-not $SampleMode) { Write-Host "  -> Recorded DCN for drive $($disks[$i].Index): $($disks[$i].Dcn)" -ForegroundColor DarkGray }
     }
 } else {
     $preset = if ($Dcn -and $Dcn.Count -gt 0) { $Dcn[0] } else { $null }
     $genericDcn = Read-IsvField -CurrentValue $preset -PromptText 'DCN (drive auto-detection unavailable on this host)' -SampleDefault 'SAMPLE placeholder -- DCN, drive detection unavailable'
     $disks = @([ordered]@{ Index = 'N/A'; Make = 'N/A -- not collected on this host'; Model = 'N/A -- not collected on this host'; CapacityGb = $null; Serial = 'N/A -- not collected on this host'; Dcn = $genericDcn })
+    if (-not $SampleMode) { Write-Host "  -> Recorded DCN: $genericDcn" -ForegroundColor DarkGray }
 }
 if (-not $SampleMode) { Write-Host '' }
 
 $sysId = Get-SystemIdentificationValues -DriveCount $detectedDriveCount
 
-$hostname = try { $env:COMPUTERNAME } catch { 'UNKNOWN-HOST' }
-if ([string]::IsNullOrWhiteSpace($hostname)) { $hostname = 'UNKNOWN-HOST' }
+# $hostname was already resolved up front (see "Per-host output folder"
+# above) so the folder name and this recorded value are guaranteed identical.
 
 $meta = [ordered]@{
     report_title     = $ReportTitle
@@ -476,7 +588,7 @@ $meta = [ordered]@{
     # "...-SAMPLE.html", which previously happened unconditionally regardless
     # of the data's actual source and was mistaken for a tool malfunction).
     is_sample_mode   = [bool]$SampleMode
-    notes            = $ReportNotes
+    examiner_initials = $ExaminerInitials
     system_identification = $sysId
     drives           = $disks
 }
