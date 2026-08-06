@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Initial System Validation Report -- ISV-UNKNOWN-HOST-20260806153026</title>
+<title>Initial System Validation Report -- ISV-UNKNOWN-HOST-20260806155001</title>
 <style>    @page { size: Letter; margin: 9mm 8mm; }
     :root { color-scheme: light; }
     * { box-sizing: border-box; }
@@ -82,6 +82,7 @@
     th, td { text-align: left; padding: 3px 7px; border: 1px solid #D4D1CA; vertical-align: top; }
     th { background: #F2F1EC; font-weight: 600; }
     .id-table th { width: 34%; white-space: nowrap; }
+    .drives-table th { width: auto; white-space: normal; }
     .section-note { font-size: 11.5px; color: #7A7974; font-style: italic; margin: 3px 0 7px; }
     pre.cmd, pre.evd {
       background: #F2F1EC;
@@ -118,20 +119,24 @@
 <h1>Initial System Validation Report</h1>
 
 <div class="meta-note">
-<strong>Report ID:</strong> ISV-UNKNOWN-HOST-20260806153026<br>
-<strong>Generated:</strong> 2026-08-06 15:30 UTC<br>
+<strong>Report ID:</strong> ISV-UNKNOWN-HOST-20260806155001<br>
+<strong>Generated:</strong> 2026-08-06 15:50 UTC<br>
 <strong>Generating tool:</strong> initial-system-validation (PowerShell collector/renderer) (v1.0-powershell)<br>
-<strong>Examiner:</strong> J. Smith<br>
+<strong>Examiner:</strong> SAMPLE DATA -- not a real examiner<br>
 <strong>Hostname:</strong> UNKNOWN-HOST<br>
 <strong>Evidence bundle:</strong> <code>evidence.json</code> (41 items)<br>
 <strong>Evidence SHA-256 digest:</strong><br><span class="digest">c37efa0af75bde7330703b556febc6e0b472548c313cbf8e0df8faf72cd58237</span><br>
-<strong>Notes:</strong> DCN and CSU are undefined, site-specific abbreviations. They remain unexpanded because no source definition was found; the customer may supply the preferred expansion if desired.<br>
+<strong>Notes:</strong> CSU is an undefined, site-specific abbreviation -- it remains unexpanded because no source definition was found; the customer may supply the preferred expansion if desired. DCN is a site-assigned control number tracked per physical hard drive: systems with multiple drives have multiple DCNs, one per drive, recorded in the Hard Drives table below.<br>
 <em>An auditor can independently re-hash the accompanying evidence.json (SHA-256, canonical/sorted-key JSON)
 and confirm it matches this digest -- any post-generation edit to the raw evidence changes the hash.</em>
 </div>
 
 <h2>System Identification</h2>
-<table class="id-table"><tr><th>Area / Location</th><td>Building 4, Room 210</td></tr><tr><th>Program</th><td>JSIG Maintenance Playbook</td></tr><tr><th>CSU Inspector</th><td>J. Smith</td></tr><tr><th>Asset Tag Number (TAG#)</th><td>SAMPLE-0001</td></tr><tr><th>Make / Model</th><td>N/A -- not collected on this host</td></tr><tr><th>Security Content Automation Protocol (SCAP) Score</th><td>N/A (sample)</td></tr><tr><th>Processor (CPU) Serial Number (SN)</th><td>N/A -- not collected on this host</td></tr><tr><th>Gigabytes (GB) Memory (RAM)</th><td>N/A -- not collected on this host</td></tr><tr><th>Multiple Hard Drives (HD) (Y/N)</th><td>N/A -- not collected on this host</td></tr><tr><th>Hard Drive (HD) #0 Make</th><td>N/A -- not collected on this host</td></tr><tr><th>Hard Drive (HD) #0 Model</th><td>N/A -- not collected on this host</td></tr><tr><th>Hard Drive (HD) #0 Gigabytes (GB) Capacity</th><td>N/A -- not collected on this host</td></tr><tr><th>Hard Drive (HD) #0 Serial Number (SN)</th><td>N/A -- not collected on this host</td></tr><tr><th>DCN</th><td>SAMPLE-DCN-0001</td></tr><tr><th>Previously hardened Windows 10-to-Windows 11 upgrade (Y/N)</th><td>N/A (sample)</td></tr></table>
+<table class="id-table"><tr><th>Area / Location</th><td>SAMPLE placeholder -- site-specific, not OS-derivable</td></tr><tr><th>Program</th><td>SAMPLE placeholder -- site-specific, not OS-derivable</td></tr><tr><th>CSU Inspector</th><td>SAMPLE DATA -- not a real examiner</td></tr><tr><th>Asset Tag Number (TAG#)</th><td>SAMPLE placeholder -- site-specific, not OS-derivable</td></tr><tr><th>Make / Model</th><td>N/A -- not collected on this host</td></tr><tr><th>Security Content Automation Protocol (SCAP) Score</th><td>SAMPLE placeholder -- populate from SCAP scan tool output</td></tr><tr><th>Processor (CPU) Serial Number (SN)</th><td>N/A -- not collected on this host</td></tr><tr><th>Gigabytes (GB) Memory (RAM)</th><td>N/A -- not collected on this host</td></tr><tr><th>Multiple Hard Drives (HD) (Y/N)</th><td>Y</td></tr><tr><th>Previously hardened Windows 10-to-Windows 11 upgrade (Y/N)</th><td>SAMPLE placeholder -- site-specific history</td></tr></table>
+
+<h2>Hard Drives (Drive Control Numbers -- DCN)</h2>
+<p class="section-note">DCN is a site-assigned control number tracked per physical hard drive. Systems with more than one drive have more than one DCN, one per row below.</p>
+<table class="drives-table"><tr><th>Index</th><th>Make</th><th>Model</th><th>Capacity (GB)</th><th>Serial Number (SN)</th><th>DCN</th></tr><tr><td>0</td><td>SAMPLE placeholder -- not a real vendor</td><td>SAMPLE-MODEL-0</td><td>512</td><td>SAMPLE-SERIAL-0</td><td>SAMPLE placeholder -- DCN for drive 0</td></tr><tr><td>1</td><td>SAMPLE placeholder -- not a real vendor</td><td>SAMPLE-MODEL-1</td><td>1024</td><td>SAMPLE-SERIAL-1</td><td>SAMPLE placeholder -- DCN for drive 1</td></tr></table>
 
 <h2>Summary</h2>
 <div class="summary-grid"><div class="summary-card"><div class="n" style="color:#437A22;">0</div><div class="l">Pass</div></div><div class="summary-card"><div class="n" style="color:#A12C7B;">0</div><div class="l">Fail</div></div><div class="summary-card"><div class="n" style="color:#7A7974;">0</div><div class="l">N/A</div></div><div class="summary-card"><div class="n" style="color:#964219;">41</div><div class="l">Manual</div></div></div>

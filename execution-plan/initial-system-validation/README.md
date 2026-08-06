@@ -17,7 +17,7 @@ separate, human-approved step (see "Design constraints" below).
 | File | Purpose |
 |---|---|
 | `IsvDefinitions.ps1` | Shared data source of truth, dot-sourced by both scripts below — report title/tool metadata, the 15-field System Identification block, 9 sections / 41 checklist items (`Id`, `Req`, `Method`, `Command`, optional `Evaluate` scriptblock), the Active Directory group-resolution appendix content, and the Dell/HP BIOS reference tables (`$BiosDellReference` / `$BiosHpReference`, plus their background/context HTML). Edit this file to change what the report asks for or says. |
-| `Invoke-ISVCollection.ps1` | **The collector.** Executes each of the 41 checklist items' PowerShell command against the local system, captures the real output as evidence, applies each item's `Evaluate` logic (or defaults to `MANUAL` when a check requires human judgment), and writes a canonical, SHA-256-digested `evidence.json`. Never throws on a failed check — a failing command is caught and recorded as `N/A` with the error text as evidence, so one broken check can't crash the run. The 7 site-specific identification fields (Inspector, Area/Location, Program, Asset Tag, SCAP Score, DCN, Prior Win10 Upgrade) are prompted for interactively (`Read-Host`) whenever not supplied as a parameter — no switches are required for a normal run. Supports `-SampleMode` (no live checks, placeholder evidence only, no prompts) for demonstration/dry-run use. |
+| `Invoke-ISVCollection.ps1` | **The collector (and, by default, report trigger).** Detects the local physical drive inventory, executes each of the 41 checklist items' PowerShell command against the local system, captures the real output as evidence, applies each item's `Evaluate` logic (or defaults to `MANUAL` when a check requires human judgment), and writes a canonical, SHA-256-digested `evidence.json`. Never throws on a failed check — a failing command is caught and recorded as `N/A` with the error text as evidence, so one broken check can't crash the run. Only *after* drive detection and all 41 automated checks finish does it prompt for the 6 site-specific identification fields (Inspector, Area/Location, Program, Asset Tag, SCAP Score, Prior Win10 Upgrade) plus **one DCN prompt per detected physical drive** (DCN is a site-assigned control number tracked per drive, not a single system-wide field) — whenever a field isn't supplied as a parameter. No switches are required for a normal run. Once evidence is written, it automatically invokes `New-ISVReport.ps1` in the same run to produce the HTML deliverables, unless `-SkipReport` is passed. Supports `-SampleMode` (no live checks, two canned placeholder drives, placeholder evidence only, no prompts) for demonstration/dry-run use. |
 | `New-ISVReport.ps1` | **The renderer.** Loads an `evidence.json` bundle, recomputes the SHA-256 digest over its items and compares it to the stored value (tamper detection — mismatches surface as a loud warning in both the console and the rendered report), then writes the three HTML deliverables: the main report, and the two vendor BIOS reference guides. |
 | `Initial-System-Validation-Report-SAMPLE.html` | Generated deliverable — the main audit report. Every item shows the command executed, captured evidence, result, and timestamp. |
 | `Dell-BIOS-Reference-Guide.html` / `HP-BIOS-Reference-Guide.html` | Generated deliverables — companion vendor guides holding the automated command variant, physical-console manual fallback, discovery caveats, and citations for BIOS Controls items 1.A-1.E, split by vendor. |
@@ -35,11 +35,31 @@ cd execution-plan\initial-system-validation
 .\Invoke-ISVCollection.ps1
 ```
 
-That's the whole live-mode command. Since the 7 identification fields (Inspector, Area/Location,
-Program, Asset Tag, SCAP score, DCN, prior-upgrade flag) are site-specific and cannot be read from
-the OS, the script prompts for each one interactively:
+**That's the whole thing — one command produces the finished HTML report.** The run happens in this
+order:
+
+1. **Hardware/drive detection** — queries `Win32_DiskDrive` to enumerate every physical drive
+   (index, make, model, capacity, serial number) before anything else runs.
+2. **All 41 checklist items** — fully automated, zero prompts.
+3. **Site-specific identification prompts** — 6 fields that can't be read from the OS (Inspector,
+   Area/Location, Program, Asset Tag, SCAP score, prior-upgrade flag).
+4. **Per-drive DCN prompts** — one prompt *per detected physical drive*, run last, because the drive
+   count has to be known before the script can know how many DCNs to ask for. DCN (Drive Control
+   Number) is a site-assigned control number tracked per physical drive, not a single system-wide
+   field — a system with 3 drives gets 3 separate DCN prompts, each labeled with that drive's
+   detected model/serial number so it's unambiguous which DCN belongs to which disk. If drive
+   auto-detection fails or finds nothing (e.g. non-Windows host, CIM unavailable), the script falls
+   back to a single generic "DCN (drive auto-detection unavailable on this host)" prompt.
+5. **`evidence.json` is written**, then `New-ISVReport.ps1` is automatically invoked against it in
+   the same run — no second command needed.
 
 ```
+Initial System Validation collection starting (...)...
+Detecting hardware inventory (including all physical drives)...
+Detected 3 physical drive(s).
+Running all 41 checklist items...
+Automated collection complete.
+
 System Identification -- enter the following site-specific details.
 (Press Enter to leave a field as "N/A -- not provided by operator".)
 CSU Inspector name: J. Smith
@@ -47,38 +67,46 @@ Area / Location: Building 4, Room 210
 Program name: JSIG Maintenance Playbook
 Asset Tag Number (TAG#): TAG-0001
 SCAP score (from separate SCAP scan tool, or N/A): 98.2
-DCN: DCN-0001
 Prior Windows 10-to-11 upgrade? (Y/N): N
-```
+DCN for Hard Drive #0 (Samsung SSD 980 PRO, SN S1): DCN-0001
+DCN for Hard Drive #1 (WD Blue HDD, SN S2): DCN-0002
+DCN for Hard Drive #2 (Crucial MX500, SN S3): DCN-0003
 
-It then runs all 41 checks and writes `evidence.json` next to itself:
-
-```
-Initial System Validation collection starting (...)...
-Collection complete. 41 items recorded.
+Collection complete. 41 items recorded across 3 drive(s).
 Evidence bundle written to: .\evidence.json
 SHA-256 digest: <hex>
-```
 
-**This only writes the evidence file — it does not produce the HTML report.** Rendering the report
-is a separate, deliberate second step; see "Regenerating the report" below.
+Rendering HTML report via .\New-ISVReport.ps1 ...
+Wrote .\Initial-System-Validation-Report-SAMPLE.html
+Wrote .\Dell-BIOS-Reference-Guide.html
+Wrote .\HP-BIOS-Reference-Guide.html
+```
 
 For unattended/scripted runs, any field can still be supplied as a parameter, which skips the
 prompt for that field only (mix and match freely — e.g. pre-fill `-Inspector` and get prompted for
-the rest):
+the rest). `-Dcn` takes an **array**, mapped positionally to drives in detected index order — supply
+fewer values than there are drives and only the remaining drives prompt:
 
 ```powershell
 ./Invoke-ISVCollection.ps1 `
   -Inspector "J. Smith" -AreaLocation "Building 4, Room 210" `
   -Program "JSIG Maintenance Playbook" -AssetTag "TAG-0001" `
-  -ScapScore "98.2" -Dcn "DCN-0001" -PriorWin10Upgrade "N" `
+  -ScapScore "98.2" -PriorWin10Upgrade "N" `
+  -Dcn "DCN-0001","DCN-0002","DCN-0003" `
   -OutputPath ./evidence.json
 ```
 
 ```powershell
-# Sample/demo mode -- no prompts, no live checks executed; all items report a
-# placeholder result so the report's shape and formatting can be reviewed offline.
+# Sample/demo mode -- no prompts, no live checks executed; two canned sample
+# drives populate the Hard Drives table so the report's shape and formatting
+# can be reviewed offline.
 ./Invoke-ISVCollection.ps1 -SampleMode -OutputPath ./evidence.json
+```
+
+```powershell
+# Write evidence.json only, skip the auto-chained report render (e.g. if you
+# want to inspect/edit the evidence before rendering, or render elsewhere):
+./Invoke-ISVCollection.ps1 -SkipReport -OutputPath ./evidence.json
 ```
 
 Live mode executes each item's real command (`Get-CimInstance`, `icacls`, `reg query`, `auditpol`,
@@ -91,10 +119,14 @@ an earlier version of this script let lines like `ERROR: The system was unable t
 specified registry key or value.` print directly to the console while collection was still running,
 which looked alarming but was harmless (the item was already correctly recorded as `N/A`/`FAIL`
 with no evidence captured). That text now lands cleanly in the item's evidence field instead, and
-the console stays quiet. A summary line (`Collection complete. N items recorded.`) always confirms
-whether the run finished.
+the console stays quiet. A summary line (`Collection complete. N items recorded across N drive(s).`)
+always confirms whether the run finished.
 
 ## Regenerating the report
+
+The collector auto-chains into the renderer by default, so this step is normally not needed. It's
+still available for re-rendering an existing `evidence.json` on its own (e.g. after using
+`-SkipReport`, or to re-render on a different machine than the one that collected the evidence):
 
 ```powershell
 cd execution-plan/initial-system-validation

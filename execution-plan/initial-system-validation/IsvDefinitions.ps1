@@ -54,18 +54,33 @@ $Script:SystemIdentificationFields = [ordered]@{
     'Processor (CPU) Serial Number (SN)'                          = 'auto:CpuSerial'
     'Gigabytes (GB) Memory (RAM)'                                 = 'auto:RamGb'
     'Multiple Hard Drives (HD) (Y/N)'                             = 'auto:MultipleHd'
-    'Hard Drive (HD) #0 Make'                                     = 'auto:Hd0Make'
-    'Hard Drive (HD) #0 Model'                                    = 'auto:Hd0Model'
-    'Hard Drive (HD) #0 Gigabytes (GB) Capacity'                  = 'auto:Hd0CapacityGb'
-    'Hard Drive (HD) #0 Serial Number (SN)'                       = 'auto:Hd0Serial'
-    'DCN'                                                         = 'manual:Dcn'
     'Previously hardened Windows 10-to-Windows 11 upgrade (Y/N)'  = 'manual:PriorWin10Upgrade'
 }
 
-# DCN and CSU are undefined, site-specific abbreviations -- they remain
-# unexpanded because no source definition was found; supply the preferred
-# expansion via -Program/-Dcn if your environment defines them.
-$Script:ReportNotes = 'DCN and CSU are undefined, site-specific abbreviations. They remain unexpanded because no source definition was found; the customer may supply the preferred expansion if desired.'
+# Per-drive fields are NOT in the table above -- a system can have more than
+# one physical drive, and each drive gets its own row (with its own DCN) in
+# the dedicated Hard Drives table instead of a fixed Hd0/Hd1/... field list.
+# See $DriveFields below for that table's column definitions, and
+# Invoke-ISVCollection.ps1's disk-inventory step for how the `drives` array
+# in evidence.json is built (auto-detected Index/Make/Model/CapacityGb/Serial
+# via CIM, plus an operator-supplied Dcn captured per drive after detection).
+$Script:DriveFields = [ordered]@{
+    'Index'                    = 'Index'
+    'Make'                     = 'Make'
+    'Model'                    = 'Model'
+    'Capacity (GB)'            = 'CapacityGb'
+    'Serial Number (SN)'       = 'Serial'
+    'DCN'                      = 'Dcn'
+}
+
+# CSU is an undefined, site-specific abbreviation -- it remains unexpanded
+# because no source definition was found; supply the preferred expansion via
+# -Program if your environment defines it. DCN is a site-assigned control
+# number tracked per physical hard drive (confirmed by the operator) -- a
+# system with multiple drives is expected to have multiple DCNs, one per
+# drive, captured in the Hard Drives table below rather than a single
+# system-wide value.
+$Script:ReportNotes = 'CSU is an undefined, site-specific abbreviation -- it remains unexpanded because no source definition was found; the customer may supply the preferred expansion if desired. DCN is a site-assigned control number tracked per physical hard drive: systems with multiple drives have multiple DCNs, one per drive, recorded in the Hard Drives table below.'
 
 # ---------------------------------------------------------------------------
 # Section / item definitions

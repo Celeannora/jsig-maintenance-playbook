@@ -243,6 +243,7 @@ $ReportStyle = @"
     th, td { text-align: left; padding: 3px 7px; border: 1px solid $ColorBorder; vertical-align: top; }
     th { background: $ColorHeaderFill; font-weight: 600; }
     .id-table th { width: 34%; white-space: nowrap; }
+    .drives-table th { width: auto; white-space: normal; }
     .section-note { font-size: 11.5px; color: $ColorTextMuted; font-style: italic; margin: 3px 0 7px; }
     pre.cmd, pre.evd {
       background: $ColorHeaderFill;
@@ -327,6 +328,41 @@ function Format-IdentificationTable {
         [void]$rows.Append("<tr><th>$(Esc $label)</th><td>$(Esc $value)</td></tr>")
     }
     return "<table class=`"id-table`">$($rows.ToString())</table>"
+}
+
+function Format-DrivesTable {
+    param($Drives)
+    # `Drives` is an array of per-physical-drive records (see IsvDefinitions.ps1
+    # $DriveFields and Invoke-ISVCollection.ps1's Get-DiskInventory): a system
+    # with more than one drive gets more than one row here, each with its own
+    # DCN, instead of a single system-wide DCN field.
+    $driveList = @()
+    if ($Drives) { $driveList = @($Drives) }
+    if ($driveList.Count -eq 0) {
+        return '<p class="section-note">No drive inventory present in this evidence bundle.</p>'
+    }
+    $headerCells = ($DriveFields.Keys | ForEach-Object { "<th>$(Esc $_)</th>" }) -join ''
+    $bodySb = New-Object System.Text.StringBuilder
+    foreach ($drive in $driveList) {
+        $cellsSb = New-Object System.Text.StringBuilder
+        foreach ($label in $DriveFields.Keys) {
+            $key = $DriveFields[$label]
+            $value = $null
+            if ($drive -is [System.Collections.IDictionary]) {
+                if ($drive.Contains($key)) { $value = $drive[$key] }
+            } elseif ($drive.PSObject.Properties.Name -contains $key) {
+                $value = $drive.$key
+            }
+            # NOTE: deliberately do NOT write `$value -eq ''` here -- PowerShell
+            # coerces the empty-string operand to the left operand's type for
+            # `-eq`, so an integer 0 (a perfectly valid Index or CapacityGb)
+            # would compare equal to '' and get wrongly replaced below.
+            if ($null -eq $value -or ($value -is [string] -and $value -eq '')) { $value = 'N/A -- not present in this evidence bundle' }
+            [void]$cellsSb.Append("<td>$(Esc $value)</td>")
+        }
+        [void]$bodySb.Append("<tr>$($cellsSb.ToString())</tr>")
+    }
+    return "<table class=`"drives-table`"><tr>$headerCells</tr>$($bodySb.ToString())</table>"
 }
 
 function Format-ItemCard {
@@ -416,6 +452,9 @@ function New-MainReportHtml {
     $sysIdValue = if ($Meta.PSObject.Properties.Name -contains 'system_identification') { $Meta.system_identification } else { $null }
     $identificationHtml = Format-IdentificationTable -SystemIdentification $sysIdValue
 
+    $drivesValue = if ($Meta.PSObject.Properties.Name -contains 'drives') { $Meta.drives } else { $null }
+    $drivesHtml = Format-DrivesTable -Drives $drivesValue
+
     return @"
 <!DOCTYPE html>
 <html lang="en">
@@ -446,6 +485,10 @@ and confirm it matches this digest -- any post-generation edit to the raw eviden
 
 <h2>System Identification</h2>
 $identificationHtml
+
+<h2>Hard Drives (Drive Control Numbers -- DCN)</h2>
+<p class="section-note">DCN is a site-assigned control number tracked per physical hard drive. Systems with more than one drive have more than one DCN, one per row below.</p>
+$drivesHtml
 
 <h2>Summary</h2>
 $summaryHtml

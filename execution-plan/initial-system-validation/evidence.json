@@ -1,30 +1,43 @@
 {
   "meta": {
     "report_title": "Initial System Validation Report",
-    "report_id": "ISV-UNKNOWN-HOST-20260806153026",
-    "generated_at_utc": "2026-08-06 15:30 UTC",
+    "report_id": "ISV-UNKNOWN-HOST-20260806155001",
+    "generated_at_utc": "2026-08-06 15:50 UTC",
     "tool_name": "initial-system-validation (PowerShell collector/renderer)",
     "tool_version": "v1.0-powershell",
-    "examiner": "J. Smith",
+    "examiner": "SAMPLE DATA -- not a real examiner",
     "hostname": "UNKNOWN-HOST",
-    "notes": "DCN and CSU are undefined, site-specific abbreviations. They remain unexpanded because no source definition was found; the customer may supply the preferred expansion if desired.",
+    "notes": "CSU is an undefined, site-specific abbreviation -- it remains unexpanded because no source definition was found; the customer may supply the preferred expansion if desired. DCN is a site-assigned control number tracked per physical hard drive: systems with multiple drives have multiple DCNs, one per drive, recorded in the Hard Drives table below.",
     "system_identification": {
-      "Area / Location": "Building 4, Room 210",
-      "Program": "JSIG Maintenance Playbook",
-      "CSU Inspector": "J. Smith",
-      "Asset Tag Number (TAG#)": "SAMPLE-0001",
+      "Area / Location": "SAMPLE placeholder -- site-specific, not OS-derivable",
+      "Program": "SAMPLE placeholder -- site-specific, not OS-derivable",
+      "CSU Inspector": "SAMPLE DATA -- not a real examiner",
+      "Asset Tag Number (TAG#)": "SAMPLE placeholder -- site-specific, not OS-derivable",
       "Make / Model": "N/A -- not collected on this host",
-      "Security Content Automation Protocol (SCAP) Score": "N/A (sample)",
+      "Security Content Automation Protocol (SCAP) Score": "SAMPLE placeholder -- populate from SCAP scan tool output",
       "Processor (CPU) Serial Number (SN)": "N/A -- not collected on this host",
       "Gigabytes (GB) Memory (RAM)": "N/A -- not collected on this host",
-      "Multiple Hard Drives (HD) (Y/N)": "N/A -- not collected on this host",
-      "Hard Drive (HD) #0 Make": "N/A -- not collected on this host",
-      "Hard Drive (HD) #0 Model": "N/A -- not collected on this host",
-      "Hard Drive (HD) #0 Gigabytes (GB) Capacity": "N/A -- not collected on this host",
-      "Hard Drive (HD) #0 Serial Number (SN)": "N/A -- not collected on this host",
-      "DCN": "SAMPLE-DCN-0001",
-      "Previously hardened Windows 10-to-Windows 11 upgrade (Y/N)": "N/A (sample)"
-    }
+      "Multiple Hard Drives (HD) (Y/N)": "Y",
+      "Previously hardened Windows 10-to-Windows 11 upgrade (Y/N)": "SAMPLE placeholder -- site-specific history"
+    },
+    "drives": [
+      {
+        "Index": 0,
+        "Make": "SAMPLE placeholder -- not a real vendor",
+        "Model": "SAMPLE-MODEL-0",
+        "CapacityGb": 512,
+        "Serial": "SAMPLE-SERIAL-0",
+        "Dcn": "SAMPLE placeholder -- DCN for drive 0"
+      },
+      {
+        "Index": 1,
+        "Make": "SAMPLE placeholder -- not a real vendor",
+        "Model": "SAMPLE-MODEL-1",
+        "CapacityGb": 1024,
+        "Serial": "SAMPLE-SERIAL-1",
+        "Dcn": "SAMPLE placeholder -- DCN for drive 1"
+      }
+    ]
   },
   "sha256_digest": "c37efa0af75bde7330703b556febc6e0b472548c313cbf8e0df8faf72cd58237",
   "items": [
