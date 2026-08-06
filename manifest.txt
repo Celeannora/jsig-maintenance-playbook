@@ -160,6 +160,12 @@ reference/external-sources/gsa-fedramp-tailored-si-3-guidance.md
 reference/external-sources/hhs-cms-mac-ars.md
 reference/external-sources/irs-publication-1075.md
 reference/external-sources/irs-safeguards-audit-requirements.md
+reference/external-sources/microsoft-learn-ad-account-management-cmdlets.md
+reference/external-sources/microsoft-learn-applocker-policy.md
+reference/external-sources/microsoft-learn-nps-radius.md
+reference/external-sources/microsoft-learn-pki-certificate-management.md
+reference/external-sources/microsoft-learn-sysinternals-suite.md
+reference/external-sources/microsoft-learn-wsus-offline-sync.md
 reference/external-sources/nist-800-53-rev4-controls.xml
 reference/external-sources/nist-sp-800-137.md
 reference/external-sources/nist-sp-800-137a.md
@@ -167,6 +173,9 @@ reference/external-sources/nist-sp-800-34-rev1.md
 reference/external-sources/nist-sp-800-40-rev4.md
 reference/external-sources/nist-sp-800-53-rev4-controls.md
 reference/external-sources/nist-sp-800-61-rev2.md
+reference/external-sources/nist-sp-800-88-rev1-media-sanitization.md
+reference/external-sources/tenable-nessus-offline-updates.md
+reference/external-sources/trellix-epo-offline-dat-checkin.md
 reference/external-sources/usmc-iavm-program-bulletin.md
 reference/sources-ledger.json
 reference/research/_intermediate/01_web_search_errors.jsonl
